@@ -157,7 +157,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateListA(param0 : HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
-    ImmGetCandidateListA(param0.param().abi(), deindex, core::mem::transmute(lpcandlist.unwrap_or(std::ptr::null_mut())), dwbuflen)
+    ImmGetCandidateListA(param0.param().abi(), deindex, core::mem::transmute(lpcandlist.unwrap_or(core::ptr::null_mut())), dwbuflen)
 }
 #[inline]
 pub unsafe fn ImmGetCandidateListCountA<P0>(param0: P0, lpdwlistcount: *mut u32) -> u32
@@ -181,7 +181,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetCandidateListW(param0 : HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
-    ImmGetCandidateListW(param0.param().abi(), deindex, core::mem::transmute(lpcandlist.unwrap_or(std::ptr::null_mut())), dwbuflen)
+    ImmGetCandidateListW(param0.param().abi(), deindex, core::mem::transmute(lpcandlist.unwrap_or(core::ptr::null_mut())), dwbuflen)
 }
 #[inline]
 pub unsafe fn ImmGetCandidateWindow<P0>(param0: P0, param1: u32, lpcandidate: *mut CANDIDATEFORM) -> super::super::super::Foundation::BOOL
@@ -215,7 +215,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionStringA(param0 : HIMC, param1 : IME_COMPOSITION_STRING, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
-    ImmGetCompositionStringA(param0.param().abi(), param1, core::mem::transmute(lpbuf.unwrap_or(std::ptr::null_mut())), dwbuflen)
+    ImmGetCompositionStringA(param0.param().abi(), param1, core::mem::transmute(lpbuf.unwrap_or(core::ptr::null_mut())), dwbuflen)
 }
 #[inline]
 pub unsafe fn ImmGetCompositionStringW<P0>(param0: P0, param1: IME_COMPOSITION_STRING, lpbuf: Option<*mut core::ffi::c_void>, dwbuflen: u32) -> i32
@@ -223,7 +223,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetCompositionStringW(param0 : HIMC, param1 : IME_COMPOSITION_STRING, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
-    ImmGetCompositionStringW(param0.param().abi(), param1, core::mem::transmute(lpbuf.unwrap_or(std::ptr::null_mut())), dwbuflen)
+    ImmGetCompositionStringW(param0.param().abi(), param1, core::mem::transmute(lpbuf.unwrap_or(core::ptr::null_mut())), dwbuflen)
 }
 #[inline]
 pub unsafe fn ImmGetCompositionWindow<P0>(param0: P0, lpcompform: *mut COMPOSITIONFORM) -> super::super::super::Foundation::BOOL
@@ -269,7 +269,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetConversionStatus(param0 : HIMC, lpfdwconversion : *mut IME_CONVERSION_MODE, lpfdwsentence : *mut IME_SENTENCE_MODE) -> super::super::super::Foundation:: BOOL);
-    ImmGetConversionStatus(param0.param().abi(), core::mem::transmute(lpfdwconversion.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpfdwsentence.unwrap_or(std::ptr::null_mut())))
+    ImmGetConversionStatus(param0.param().abi(), core::mem::transmute(lpfdwconversion.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpfdwsentence.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn ImmGetDefaultIMEWnd<P0>(param0: P0) -> super::super::super::Foundation::HWND
@@ -368,7 +368,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetImeMenuItemsA(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOA, lpimemenu : *mut IMEMENUITEMINFOA, dwsize : u32) -> u32);
-    ImmGetImeMenuItemsA(param0.param().abi(), param1, param2, core::mem::transmute(lpimeparentmenu.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpimemenu.unwrap_or(std::ptr::null_mut())), dwsize)
+    ImmGetImeMenuItemsA(param0.param().abi(), param1, param2, core::mem::transmute(lpimeparentmenu.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpimemenu.unwrap_or(core::ptr::null_mut())), dwsize)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -377,7 +377,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmGetImeMenuItemsW(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOW, lpimemenu : *mut IMEMENUITEMINFOW, dwsize : u32) -> u32);
-    ImmGetImeMenuItemsW(param0.param().abi(), param1, param2, core::mem::transmute(lpimeparentmenu.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpimemenu.unwrap_or(std::ptr::null_mut())), dwsize)
+    ImmGetImeMenuItemsW(param0.param().abi(), param1, param2, core::mem::transmute(lpimeparentmenu.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpimemenu.unwrap_or(core::ptr::null_mut())), dwsize)
 }
 #[inline]
 pub unsafe fn ImmGetOpenStatus<P0>(param0: P0) -> super::super::super::Foundation::BOOL
@@ -595,7 +595,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionStringA(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> super::super::super::Foundation:: BOOL);
-    ImmSetCompositionStringA(param0.param().abi(), dwindex, core::mem::transmute(lpcomp.unwrap_or(std::ptr::null())), dwcomplen, core::mem::transmute(lpread.unwrap_or(std::ptr::null())), dwreadlen)
+    ImmSetCompositionStringA(param0.param().abi(), dwindex, core::mem::transmute(lpcomp.unwrap_or(core::ptr::null())), dwcomplen, core::mem::transmute(lpread.unwrap_or(core::ptr::null())), dwreadlen)
 }
 #[inline]
 pub unsafe fn ImmSetCompositionStringW<P0>(param0: P0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: Option<*const core::ffi::c_void>, dwcomplen: u32, lpread: Option<*const core::ffi::c_void>, dwreadlen: u32) -> super::super::super::Foundation::BOOL
@@ -603,7 +603,7 @@ where
     P0: windows_core::Param<HIMC>,
 {
     windows_targets::link!("imm32.dll" "system" fn ImmSetCompositionStringW(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> super::super::super::Foundation:: BOOL);
-    ImmSetCompositionStringW(param0.param().abi(), dwindex, core::mem::transmute(lpcomp.unwrap_or(std::ptr::null())), dwcomplen, core::mem::transmute(lpread.unwrap_or(std::ptr::null())), dwreadlen)
+    ImmSetCompositionStringW(param0.param().abi(), dwindex, core::mem::transmute(lpcomp.unwrap_or(core::ptr::null())), dwcomplen, core::mem::transmute(lpread.unwrap_or(core::ptr::null())), dwreadlen)
 }
 #[inline]
 pub unsafe fn ImmSetCompositionWindow<P0>(param0: P0, lpcompform: *const COMPOSITIONFORM) -> super::super::super::Foundation::BOOL

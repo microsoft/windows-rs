@@ -272,7 +272,7 @@ impl ISideShowNotification {
         (windows_core::Interface::vtable(self).ExpirationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn SetExpirationTime(&self, in_ptime: Option<*const super::super::Foundation::SYSTEMTIME>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), core::mem::transmute(in_ptime.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetExpirationTime)(windows_core::Interface::as_raw(self), core::mem::transmute(in_ptime.unwrap_or(core::ptr::null()))).ok()
     }
 }
 #[repr(C)]

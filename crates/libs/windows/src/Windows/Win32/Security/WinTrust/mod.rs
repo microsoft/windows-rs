@@ -12,7 +12,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("wintrust.dll" "system" fn OpenPersonalTrustDBDialogEx(hwndparent : super::super::Foundation:: HWND, dwflags : u32, pvreserved : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    OpenPersonalTrustDBDialogEx(hwndparent.param().abi(), dwflags, core::mem::transmute(pvreserved.unwrap_or(std::ptr::null_mut())))
+    OpenPersonalTrustDBDialogEx(hwndparent.param().abi(), dwflags, core::mem::transmute(pvreserved.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(all(feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 #[inline]

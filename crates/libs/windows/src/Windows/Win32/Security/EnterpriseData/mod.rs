@@ -47,7 +47,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("srpapi.dll" "system" fn SrpGetEnterpriseIds(tokenhandle : super::super::Foundation:: HANDLE, numberofbytes : *mut u32, enterpriseids : *mut windows_core::PCWSTR, enterpriseidcount : *mut u32) -> windows_core::HRESULT);
-    SrpGetEnterpriseIds(tokenhandle.param().abi(), core::mem::transmute(numberofbytes.unwrap_or(std::ptr::null_mut())), core::mem::transmute(enterpriseids.unwrap_or(std::ptr::null_mut())), enterpriseidcount).ok()
+    SrpGetEnterpriseIds(tokenhandle.param().abi(), core::mem::transmute(numberofbytes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(enterpriseids.unwrap_or(core::ptr::null_mut())), enterpriseidcount).ok()
 }
 #[inline]
 pub unsafe fn SrpGetEnterprisePolicy<P0>(tokenhandle: P0) -> windows_core::Result<ENTERPRISE_DATA_POLICIES>
@@ -91,7 +91,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("efswrt.dll" "system" fn UnprotectFile(fileorfolderpath : windows_core::PCWSTR, options : *const FILE_UNPROTECT_OPTIONS) -> windows_core::HRESULT);
-    UnprotectFile(fileorfolderpath.param().abi(), core::mem::transmute(options.unwrap_or(std::ptr::null()))).ok()
+    UnprotectFile(fileorfolderpath.param().abi(), core::mem::transmute(options.unwrap_or(core::ptr::null()))).ok()
 }
 windows_core::imp::define_interface!(IProtectionPolicyManagerInterop, IProtectionPolicyManagerInterop_Vtbl, 0x4652651d_c1fe_4ba1_9f0a_c0f56596f721);
 impl core::ops::Deref for IProtectionPolicyManagerInterop {

@@ -1,7 +1,7 @@
 #[inline]
 pub unsafe fn CryptCATAdminAcquireContext(phcatadmin: *mut isize, pgsubsystem: Option<*const windows_core::GUID>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("wintrust.dll" "system" fn CryptCATAdminAcquireContext(phcatadmin : *mut isize, pgsubsystem : *const windows_core::GUID, dwflags : u32) -> super::super::super::Foundation:: BOOL);
-    CryptCATAdminAcquireContext(phcatadmin, core::mem::transmute(pgsubsystem.unwrap_or(std::ptr::null())), dwflags).ok()
+    CryptCATAdminAcquireContext(phcatadmin, core::mem::transmute(pgsubsystem.unwrap_or(core::ptr::null())), dwflags).ok()
 }
 #[inline]
 pub unsafe fn CryptCATAdminAcquireContext2<P0>(phcatadmin: *mut isize, pgsubsystem: Option<*const windows_core::GUID>, pwszhashalgorithm: P0, pstronghashpolicy: Option<*const super::CERT_STRONG_SIGN_PARA>, dwflags: u32) -> windows_core::Result<()>
@@ -9,7 +9,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wintrust.dll" "system" fn CryptCATAdminAcquireContext2(phcatadmin : *mut isize, pgsubsystem : *const windows_core::GUID, pwszhashalgorithm : windows_core::PCWSTR, pstronghashpolicy : *const super:: CERT_STRONG_SIGN_PARA, dwflags : u32) -> super::super::super::Foundation:: BOOL);
-    CryptCATAdminAcquireContext2(phcatadmin, core::mem::transmute(pgsubsystem.unwrap_or(std::ptr::null())), pwszhashalgorithm.param().abi(), core::mem::transmute(pstronghashpolicy.unwrap_or(std::ptr::null())), dwflags).ok()
+    CryptCATAdminAcquireContext2(phcatadmin, core::mem::transmute(pgsubsystem.unwrap_or(core::ptr::null())), pwszhashalgorithm.param().abi(), core::mem::transmute(pstronghashpolicy.unwrap_or(core::ptr::null())), dwflags).ok()
 }
 #[inline]
 pub unsafe fn CryptCATAdminAddCatalog<P0, P1>(hcatadmin: isize, pwszcatalogfile: P0, pwszselectbasename: P1, dwflags: u32) -> isize
@@ -26,7 +26,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("wintrust.dll" "system" fn CryptCATAdminCalcHashFromFileHandle(hfile : super::super::super::Foundation:: HANDLE, pcbhash : *mut u32, pbhash : *mut u8, dwflags : u32) -> super::super::super::Foundation:: BOOL);
-    CryptCATAdminCalcHashFromFileHandle(hfile.param().abi(), pcbhash, core::mem::transmute(pbhash.unwrap_or(std::ptr::null_mut())), dwflags)
+    CryptCATAdminCalcHashFromFileHandle(hfile.param().abi(), pcbhash, core::mem::transmute(pbhash.unwrap_or(core::ptr::null_mut())), dwflags)
 }
 #[inline]
 pub unsafe fn CryptCATAdminCalcHashFromFileHandle2<P0>(hcatadmin: isize, hfile: P0, pcbhash: *mut u32, pbhash: Option<*mut u8>, dwflags: u32) -> windows_core::Result<()>
@@ -34,12 +34,12 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("wintrust.dll" "system" fn CryptCATAdminCalcHashFromFileHandle2(hcatadmin : isize, hfile : super::super::super::Foundation:: HANDLE, pcbhash : *mut u32, pbhash : *mut u8, dwflags : u32) -> super::super::super::Foundation:: BOOL);
-    CryptCATAdminCalcHashFromFileHandle2(hcatadmin, hfile.param().abi(), pcbhash, core::mem::transmute(pbhash.unwrap_or(std::ptr::null_mut())), dwflags).ok()
+    CryptCATAdminCalcHashFromFileHandle2(hcatadmin, hfile.param().abi(), pcbhash, core::mem::transmute(pbhash.unwrap_or(core::ptr::null_mut())), dwflags).ok()
 }
 #[inline]
 pub unsafe fn CryptCATAdminEnumCatalogFromHash(hcatadmin: isize, pbhash: &[u8], dwflags: u32, phprevcatinfo: Option<*mut isize>) -> isize {
     windows_targets::link!("wintrust.dll" "system" fn CryptCATAdminEnumCatalogFromHash(hcatadmin : isize, pbhash : *const u8, cbhash : u32, dwflags : u32, phprevcatinfo : *mut isize) -> isize);
-    CryptCATAdminEnumCatalogFromHash(hcatadmin, core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), dwflags, core::mem::transmute(phprevcatinfo.unwrap_or(std::ptr::null_mut())))
+    CryptCATAdminEnumCatalogFromHash(hcatadmin, core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), dwflags, core::mem::transmute(phprevcatinfo.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn CryptCATAdminPauseServiceForBackup<P0>(dwflags: u32, fresume: P0) -> super::super::super::Foundation::BOOL

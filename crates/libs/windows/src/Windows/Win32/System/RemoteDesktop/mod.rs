@@ -70,7 +70,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersA(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plisteners : *mut *mut i8, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSEnumerateListenersA(hserver.param().abi(), preserved, reserved, core::mem::transmute(plisteners.unwrap_or(std::ptr::null_mut())), pcount).ok()
+    WTSEnumerateListenersA(hserver.param().abi(), preserved, reserved, core::mem::transmute(plisteners.unwrap_or(core::ptr::null_mut())), pcount).ok()
 }
 #[inline]
 pub unsafe fn WTSEnumerateListenersW<P0>(hserver: P0, preserved: *const core::ffi::c_void, reserved: u32, plisteners: Option<*mut *mut u16>, pcount: *mut u32) -> windows_core::Result<()>
@@ -78,7 +78,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersW(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plisteners : *mut *mut u16, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSEnumerateListenersW(hserver.param().abi(), preserved, reserved, core::mem::transmute(plisteners.unwrap_or(std::ptr::null_mut())), pcount).ok()
+    WTSEnumerateListenersW(hserver.param().abi(), preserved, reserved, core::mem::transmute(plisteners.unwrap_or(core::ptr::null_mut())), pcount).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -1360,7 +1360,7 @@ impl ITsSbClientConnection {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<super::Variant::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).PutContext)(windows_core::Interface::as_raw(self), contextid.param().abi(), context.param().abi(), core::mem::transmute(existingcontext.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).PutContext)(windows_core::Interface::as_raw(self), contextid.param().abi(), context.param().abi(), core::mem::transmute(existingcontext.unwrap_or(core::ptr::null_mut()))).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetContext<P0>(&self, contextid: P0) -> windows_core::Result<super::Variant::VARIANT>

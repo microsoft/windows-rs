@@ -52,7 +52,7 @@ where
     P0: windows_core::Param<super::super::super::Foundation::HWND>,
 {
     windows_targets::link!("user32.dll" "system" fn IsTouchWindow(hwnd : super::super::super::Foundation:: HWND, pulflags : *mut u32) -> super::super::super::Foundation:: BOOL);
-    IsTouchWindow(hwnd.param().abi(), core::mem::transmute(pulflags.unwrap_or(std::ptr::null_mut())))
+    IsTouchWindow(hwnd.param().abi(), core::mem::transmute(pulflags.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn RegisterTouchWindow<P0>(hwnd: P0, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> windows_core::Result<()>

@@ -44,7 +44,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn ClearCommError(hfile : super::super::Foundation:: HANDLE, lperrors : *mut CLEAR_COMM_ERROR_FLAGS, lpstat : *mut COMSTAT) -> super::super::Foundation:: BOOL);
-    ClearCommError(hfile.param().abi(), core::mem::transmute(lperrors.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpstat.unwrap_or(std::ptr::null_mut()))).ok()
+    ClearCommError(hfile.param().abi(), core::mem::transmute(lperrors.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpstat.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn CommConfigDialogA<P0, P1>(lpszname: P0, hwnd: P1, lpcc: *mut COMMCONFIG) -> windows_core::Result<()>
@@ -78,7 +78,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetCommConfig(hcommdev : super::super::Foundation:: HANDLE, lpcc : *mut COMMCONFIG, lpdwsize : *mut u32) -> super::super::Foundation:: BOOL);
-    GetCommConfig(hcommdev.param().abi(), core::mem::transmute(lpcc.unwrap_or(std::ptr::null_mut())), lpdwsize).ok()
+    GetCommConfig(hcommdev.param().abi(), core::mem::transmute(lpcc.unwrap_or(core::ptr::null_mut())), lpdwsize).ok()
 }
 #[inline]
 pub unsafe fn GetCommMask<P0>(hfile: P0, lpevtmask: *mut COMM_EVENT_MASK) -> windows_core::Result<()>
@@ -233,7 +233,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn WaitCommEvent(hfile : super::super::Foundation:: HANDLE, lpevtmask : *mut COMM_EVENT_MASK, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WaitCommEvent(hfile.param().abi(), lpevtmask, core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null_mut()))).ok()
+    WaitCommEvent(hfile.param().abi(), lpevtmask, core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null_mut()))).ok()
 }
 pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(16u32);
 pub const CE_FRAME: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(8u32);

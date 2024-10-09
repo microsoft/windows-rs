@@ -6,7 +6,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetAddColumnA(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const i8, pcolumndef : *const JET_COLUMNDEF, pvdefault : *const core::ffi::c_void, cbdefault : u32, pcolumnid : *mut u32) -> i32);
-    JetAddColumnA(sesid.param().abi(), tableid.param().abi(), szcolumnname, pcolumndef, core::mem::transmute(pvdefault.unwrap_or(std::ptr::null())), cbdefault, core::mem::transmute(pcolumnid.unwrap_or(std::ptr::null_mut())))
+    JetAddColumnA(sesid.param().abi(), tableid.param().abi(), szcolumnname, pcolumndef, core::mem::transmute(pvdefault.unwrap_or(core::ptr::null())), cbdefault, core::mem::transmute(pcolumnid.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -16,7 +16,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetAddColumnW(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const u16, pcolumndef : *const JET_COLUMNDEF, pvdefault : *const core::ffi::c_void, cbdefault : u32, pcolumnid : *mut u32) -> i32);
-    JetAddColumnW(sesid.param().abi(), tableid.param().abi(), szcolumnname, pcolumndef, core::mem::transmute(pvdefault.unwrap_or(std::ptr::null())), cbdefault, core::mem::transmute(pcolumnid.unwrap_or(std::ptr::null_mut())))
+    JetAddColumnW(sesid.param().abi(), tableid.param().abi(), szcolumnname, pcolumndef, core::mem::transmute(pvdefault.unwrap_or(core::ptr::null())), cbdefault, core::mem::transmute(pcolumnid.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JetAttachDatabase2A<P0>(sesid: P0, szfilename: *const i8, cpgdatabasesizemax: u32, grbit: u32) -> i32
@@ -95,7 +95,7 @@ where
     P0: windows_core::Param<JET_INSTANCE>,
 {
     windows_targets::link!("esent.dll" "system" fn JetBeginSessionA(instance : JET_INSTANCE, psesid : *mut JET_SESID, szusername : *const i8, szpassword : *const i8) -> i32);
-    JetBeginSessionA(instance.param().abi(), psesid, core::mem::transmute(szusername.unwrap_or(std::ptr::null())), core::mem::transmute(szpassword.unwrap_or(std::ptr::null())))
+    JetBeginSessionA(instance.param().abi(), psesid, core::mem::transmute(szusername.unwrap_or(core::ptr::null())), core::mem::transmute(szpassword.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn JetBeginSessionW<P0>(instance: P0, psesid: *mut JET_SESID, szusername: Option<*const u16>, szpassword: Option<*const u16>) -> i32
@@ -103,7 +103,7 @@ where
     P0: windows_core::Param<JET_INSTANCE>,
 {
     windows_targets::link!("esent.dll" "system" fn JetBeginSessionW(instance : JET_INSTANCE, psesid : *mut JET_SESID, szusername : *const u16, szpassword : *const u16) -> i32);
-    JetBeginSessionW(instance.param().abi(), psesid, core::mem::transmute(szusername.unwrap_or(std::ptr::null())), core::mem::transmute(szpassword.unwrap_or(std::ptr::null())))
+    JetBeginSessionW(instance.param().abi(), psesid, core::mem::transmute(szusername.unwrap_or(core::ptr::null())), core::mem::transmute(szpassword.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn JetBeginTransaction<P0>(sesid: P0) -> i32
@@ -180,7 +180,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetCommitTransaction2(sesid : JET_SESID, grbit : u32, cmsecdurablecommit : u32, pcommitid : *mut JET_COMMIT_ID) -> i32);
-    JetCommitTransaction2(sesid.param().abi(), grbit, cmsecdurablecommit, core::mem::transmute(pcommitid.unwrap_or(std::ptr::null_mut())))
+    JetCommitTransaction2(sesid.param().abi(), grbit, cmsecdurablecommit, core::mem::transmute(pcommitid.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JetCompactA<P0>(sesid: P0, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: JET_PFNSTATUS, pconvert: Option<*const JET_CONVERT_A>, grbit: u32) -> i32
@@ -188,7 +188,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetCompactA(sesid : JET_SESID, szdatabasesrc : *const i8, szdatabasedest : *const i8, pfnstatus : JET_PFNSTATUS, pconvert : *const JET_CONVERT_A, grbit : u32) -> i32);
-    JetCompactA(sesid.param().abi(), szdatabasesrc, szdatabasedest, pfnstatus, core::mem::transmute(pconvert.unwrap_or(std::ptr::null())), grbit)
+    JetCompactA(sesid.param().abi(), szdatabasesrc, szdatabasedest, pfnstatus, core::mem::transmute(pconvert.unwrap_or(core::ptr::null())), grbit)
 }
 #[inline]
 pub unsafe fn JetCompactW<P0>(sesid: P0, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: JET_PFNSTATUS, pconvert: Option<*const JET_CONVERT_W>, grbit: u32) -> i32
@@ -196,7 +196,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetCompactW(sesid : JET_SESID, szdatabasesrc : *const u16, szdatabasedest : *const u16, pfnstatus : JET_PFNSTATUS, pconvert : *const JET_CONVERT_W, grbit : u32) -> i32);
-    JetCompactW(sesid.param().abi(), szdatabasesrc, szdatabasedest, pfnstatus, core::mem::transmute(pconvert.unwrap_or(std::ptr::null())), grbit)
+    JetCompactW(sesid.param().abi(), szdatabasesrc, szdatabasedest, pfnstatus, core::mem::transmute(pconvert.unwrap_or(core::ptr::null())), grbit)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -235,7 +235,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetCreateDatabaseA(sesid : JET_SESID, szfilename : *const i8, szconnect : *const i8, pdbid : *mut u32, grbit : u32) -> i32);
-    JetCreateDatabaseA(sesid.param().abi(), szfilename, core::mem::transmute(szconnect.unwrap_or(std::ptr::null())), pdbid, grbit)
+    JetCreateDatabaseA(sesid.param().abi(), szfilename, core::mem::transmute(szconnect.unwrap_or(core::ptr::null())), pdbid, grbit)
 }
 #[inline]
 pub unsafe fn JetCreateDatabaseW<P0>(sesid: P0, szfilename: *const u16, szconnect: Option<*const u16>, pdbid: *mut u32, grbit: u32) -> i32
@@ -243,7 +243,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetCreateDatabaseW(sesid : JET_SESID, szfilename : *const u16, szconnect : *const u16, pdbid : *mut u32, grbit : u32) -> i32);
-    JetCreateDatabaseW(sesid.param().abi(), szfilename, core::mem::transmute(szconnect.unwrap_or(std::ptr::null())), pdbid, grbit)
+    JetCreateDatabaseW(sesid.param().abi(), szfilename, core::mem::transmute(szconnect.unwrap_or(core::ptr::null())), pdbid, grbit)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -329,22 +329,22 @@ where
 #[inline]
 pub unsafe fn JetCreateInstance2A(pinstance: *mut JET_INSTANCE, szinstancename: Option<*const i8>, szdisplayname: Option<*const i8>, grbit: u32) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetCreateInstance2A(pinstance : *mut JET_INSTANCE, szinstancename : *const i8, szdisplayname : *const i8, grbit : u32) -> i32);
-    JetCreateInstance2A(pinstance, core::mem::transmute(szinstancename.unwrap_or(std::ptr::null())), core::mem::transmute(szdisplayname.unwrap_or(std::ptr::null())), grbit)
+    JetCreateInstance2A(pinstance, core::mem::transmute(szinstancename.unwrap_or(core::ptr::null())), core::mem::transmute(szdisplayname.unwrap_or(core::ptr::null())), grbit)
 }
 #[inline]
 pub unsafe fn JetCreateInstance2W(pinstance: *mut JET_INSTANCE, szinstancename: Option<*const u16>, szdisplayname: Option<*const u16>, grbit: u32) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetCreateInstance2W(pinstance : *mut JET_INSTANCE, szinstancename : *const u16, szdisplayname : *const u16, grbit : u32) -> i32);
-    JetCreateInstance2W(pinstance, core::mem::transmute(szinstancename.unwrap_or(std::ptr::null())), core::mem::transmute(szdisplayname.unwrap_or(std::ptr::null())), grbit)
+    JetCreateInstance2W(pinstance, core::mem::transmute(szinstancename.unwrap_or(core::ptr::null())), core::mem::transmute(szdisplayname.unwrap_or(core::ptr::null())), grbit)
 }
 #[inline]
 pub unsafe fn JetCreateInstanceA(pinstance: *mut JET_INSTANCE, szinstancename: Option<*const i8>) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetCreateInstanceA(pinstance : *mut JET_INSTANCE, szinstancename : *const i8) -> i32);
-    JetCreateInstanceA(pinstance, core::mem::transmute(szinstancename.unwrap_or(std::ptr::null())))
+    JetCreateInstanceA(pinstance, core::mem::transmute(szinstancename.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn JetCreateInstanceW(pinstance: *mut JET_INSTANCE, szinstancename: Option<*const u16>) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetCreateInstanceW(pinstance : *mut JET_INSTANCE, szinstancename : *const u16) -> i32);
-    JetCreateInstanceW(pinstance, core::mem::transmute(szinstancename.unwrap_or(std::ptr::null())))
+    JetCreateInstanceW(pinstance, core::mem::transmute(szinstancename.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -443,7 +443,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetDefragment2A(sesid : JET_SESID, dbid : u32, sztablename : *const i8, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, grbit : u32) -> i32);
-    JetDefragment2A(sesid.param().abi(), dbid, core::mem::transmute(sztablename.unwrap_or(std::ptr::null())), core::mem::transmute(pcpasses.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcseconds.unwrap_or(std::ptr::null_mut())), callback, grbit)
+    JetDefragment2A(sesid.param().abi(), dbid, core::mem::transmute(sztablename.unwrap_or(core::ptr::null())), core::mem::transmute(pcpasses.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcseconds.unwrap_or(core::ptr::null_mut())), callback, grbit)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -452,7 +452,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetDefragment2W(sesid : JET_SESID, dbid : u32, sztablename : *const u16, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, grbit : u32) -> i32);
-    JetDefragment2W(sesid.param().abi(), dbid, core::mem::transmute(sztablename.unwrap_or(std::ptr::null())), core::mem::transmute(pcpasses.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcseconds.unwrap_or(std::ptr::null_mut())), callback, grbit)
+    JetDefragment2W(sesid.param().abi(), dbid, core::mem::transmute(sztablename.unwrap_or(core::ptr::null())), core::mem::transmute(pcpasses.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcseconds.unwrap_or(core::ptr::null_mut())), callback, grbit)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -461,7 +461,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetDefragment3A(sesid : JET_SESID, szdatabasename : *const i8, sztablename : *const i8, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, pvcontext : *const core::ffi::c_void, grbit : u32) -> i32);
-    JetDefragment3A(sesid.param().abi(), szdatabasename, core::mem::transmute(sztablename.unwrap_or(std::ptr::null())), core::mem::transmute(pcpasses.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcseconds.unwrap_or(std::ptr::null_mut())), callback, pvcontext, grbit)
+    JetDefragment3A(sesid.param().abi(), szdatabasename, core::mem::transmute(sztablename.unwrap_or(core::ptr::null())), core::mem::transmute(pcpasses.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcseconds.unwrap_or(core::ptr::null_mut())), callback, pvcontext, grbit)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -470,7 +470,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetDefragment3W(sesid : JET_SESID, szdatabasename : *const u16, sztablename : *const u16, pcpasses : *mut u32, pcseconds : *mut u32, callback : JET_CALLBACK, pvcontext : *const core::ffi::c_void, grbit : u32) -> i32);
-    JetDefragment3W(sesid.param().abi(), szdatabasename, core::mem::transmute(sztablename.unwrap_or(std::ptr::null())), core::mem::transmute(pcpasses.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcseconds.unwrap_or(std::ptr::null_mut())), callback, pvcontext, grbit)
+    JetDefragment3W(sesid.param().abi(), szdatabasename, core::mem::transmute(sztablename.unwrap_or(core::ptr::null())), core::mem::transmute(pcpasses.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcseconds.unwrap_or(core::ptr::null_mut())), callback, pvcontext, grbit)
 }
 #[inline]
 pub unsafe fn JetDefragmentA<P0>(sesid: P0, dbid: u32, sztablename: Option<*const i8>, pcpasses: Option<*mut u32>, pcseconds: Option<*mut u32>, grbit: u32) -> i32
@@ -478,7 +478,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetDefragmentA(sesid : JET_SESID, dbid : u32, sztablename : *const i8, pcpasses : *mut u32, pcseconds : *mut u32, grbit : u32) -> i32);
-    JetDefragmentA(sesid.param().abi(), dbid, core::mem::transmute(sztablename.unwrap_or(std::ptr::null())), core::mem::transmute(pcpasses.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcseconds.unwrap_or(std::ptr::null_mut())), grbit)
+    JetDefragmentA(sesid.param().abi(), dbid, core::mem::transmute(sztablename.unwrap_or(core::ptr::null())), core::mem::transmute(pcpasses.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcseconds.unwrap_or(core::ptr::null_mut())), grbit)
 }
 #[inline]
 pub unsafe fn JetDefragmentW<P0>(sesid: P0, dbid: u32, sztablename: Option<*const u16>, pcpasses: Option<*mut u32>, pcseconds: Option<*mut u32>, grbit: u32) -> i32
@@ -486,7 +486,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetDefragmentW(sesid : JET_SESID, dbid : u32, sztablename : *const u16, pcpasses : *mut u32, pcseconds : *mut u32, grbit : u32) -> i32);
-    JetDefragmentW(sesid.param().abi(), dbid, core::mem::transmute(sztablename.unwrap_or(std::ptr::null())), core::mem::transmute(pcpasses.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcseconds.unwrap_or(std::ptr::null_mut())), grbit)
+    JetDefragmentW(sesid.param().abi(), dbid, core::mem::transmute(sztablename.unwrap_or(core::ptr::null())), core::mem::transmute(pcpasses.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcseconds.unwrap_or(core::ptr::null_mut())), grbit)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -580,7 +580,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetDetachDatabase2A(sesid : JET_SESID, szfilename : *const i8, grbit : u32) -> i32);
-    JetDetachDatabase2A(sesid.param().abi(), core::mem::transmute(szfilename.unwrap_or(std::ptr::null())), grbit)
+    JetDetachDatabase2A(sesid.param().abi(), core::mem::transmute(szfilename.unwrap_or(core::ptr::null())), grbit)
 }
 #[inline]
 pub unsafe fn JetDetachDatabase2W<P0>(sesid: P0, szfilename: Option<*const u16>, grbit: u32) -> i32
@@ -588,7 +588,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetDetachDatabase2W(sesid : JET_SESID, szfilename : *const u16, grbit : u32) -> i32);
-    JetDetachDatabase2W(sesid.param().abi(), core::mem::transmute(szfilename.unwrap_or(std::ptr::null())), grbit)
+    JetDetachDatabase2W(sesid.param().abi(), core::mem::transmute(szfilename.unwrap_or(core::ptr::null())), grbit)
 }
 #[inline]
 pub unsafe fn JetDetachDatabaseA<P0>(sesid: P0, szfilename: Option<*const i8>) -> i32
@@ -596,7 +596,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetDetachDatabaseA(sesid : JET_SESID, szfilename : *const i8) -> i32);
-    JetDetachDatabaseA(sesid.param().abi(), core::mem::transmute(szfilename.unwrap_or(std::ptr::null())))
+    JetDetachDatabaseA(sesid.param().abi(), core::mem::transmute(szfilename.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn JetDetachDatabaseW<P0>(sesid: P0, szfilename: Option<*const u16>) -> i32
@@ -604,7 +604,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetDetachDatabaseW(sesid : JET_SESID, szfilename : *const u16) -> i32);
-    JetDetachDatabaseW(sesid.param().abi(), core::mem::transmute(szfilename.unwrap_or(std::ptr::null())))
+    JetDetachDatabaseW(sesid.param().abi(), core::mem::transmute(szfilename.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -628,13 +628,13 @@ where
 #[inline]
 pub unsafe fn JetEnableMultiInstanceA(psetsysparam: Option<&[JET_SETSYSPARAM_A]>, pcsetsucceed: Option<*mut u32>) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetEnableMultiInstanceA(psetsysparam : *const JET_SETSYSPARAM_A, csetsysparam : u32, pcsetsucceed : *mut u32) -> i32);
-    JetEnableMultiInstanceA(core::mem::transmute(psetsysparam.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psetsysparam.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcsetsucceed.unwrap_or(std::ptr::null_mut())))
+    JetEnableMultiInstanceA(core::mem::transmute(psetsysparam.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psetsysparam.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcsetsucceed.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetEnableMultiInstanceW(psetsysparam: Option<&[JET_SETSYSPARAM_W]>, pcsetsucceed: Option<*mut u32>) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetEnableMultiInstanceW(psetsysparam : *const JET_SETSYSPARAM_W, csetsysparam : u32, pcsetsucceed : *mut u32) -> i32);
-    JetEnableMultiInstanceW(core::mem::transmute(psetsysparam.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psetsysparam.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcsetsucceed.unwrap_or(std::ptr::null_mut())))
+    JetEnableMultiInstanceW(core::mem::transmute(psetsysparam.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psetsysparam.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcsetsucceed.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JetEndExternalBackup() -> i32 {
@@ -673,7 +673,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetEnumerateColumns(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, cenumcolumnid : u32, rgenumcolumnid : *const JET_ENUMCOLUMNID, pcenumcolumn : *mut u32, prgenumcolumn : *mut *mut JET_ENUMCOLUMN, pfnrealloc : JET_PFNREALLOC, pvrealloccontext : *const core::ffi::c_void, cbdatamost : u32, grbit : u32) -> i32);
-    JetEnumerateColumns(sesid.param().abi(), tableid.param().abi(), rgenumcolumnid.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgenumcolumnid.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcenumcolumn, prgenumcolumn, pfnrealloc, core::mem::transmute(pvrealloccontext.unwrap_or(std::ptr::null())), cbdatamost, grbit)
+    JetEnumerateColumns(sesid.param().abi(), tableid.param().abi(), rgenumcolumnid.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgenumcolumnid.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcenumcolumn, prgenumcolumn, pfnrealloc, core::mem::transmute(pvrealloccontext.unwrap_or(core::ptr::null())), cbdatamost, grbit)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -683,17 +683,17 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetEscrowUpdate(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, columnid : u32, pv : *const core::ffi::c_void, cbmax : u32, pvold : *mut core::ffi::c_void, cboldmax : u32, pcboldactual : *mut u32, grbit : u32) -> i32);
-    JetEscrowUpdate(sesid.param().abi(), tableid.param().abi(), columnid, pv, cbmax, core::mem::transmute(pvold.unwrap_or(std::ptr::null_mut())), cboldmax, core::mem::transmute(pcboldactual.unwrap_or(std::ptr::null_mut())), grbit)
+    JetEscrowUpdate(sesid.param().abi(), tableid.param().abi(), columnid, pv, cbmax, core::mem::transmute(pvold.unwrap_or(core::ptr::null_mut())), cboldmax, core::mem::transmute(pcboldactual.unwrap_or(core::ptr::null_mut())), grbit)
 }
 #[inline]
 pub unsafe fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: Option<&[JET_RSTMAP_A]>, szbackuplogpath: *const i8, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: Option<*const i8>, sztargetinstancelogpath: Option<*const i8>, sztargetinstancecheckpointpath: Option<*const i8>, pfn: JET_PFNSTATUS) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetExternalRestore2A(szcheckpointfilepath : *const i8, szlogpath : *const i8, rgrstmap : *const JET_RSTMAP_A, crstfilemap : i32, szbackuplogpath : *const i8, ploginfo : *mut JET_LOGINFO_A, sztargetinstancename : *const i8, sztargetinstancelogpath : *const i8, sztargetinstancecheckpointpath : *const i8, pfn : JET_PFNSTATUS) -> i32);
-    JetExternalRestore2A(szcheckpointfilepath, szlogpath, core::mem::transmute(rgrstmap.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgrstmap.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), szbackuplogpath, ploginfo, core::mem::transmute(sztargetinstancename.unwrap_or(std::ptr::null())), core::mem::transmute(sztargetinstancelogpath.unwrap_or(std::ptr::null())), core::mem::transmute(sztargetinstancecheckpointpath.unwrap_or(std::ptr::null())), pfn)
+    JetExternalRestore2A(szcheckpointfilepath, szlogpath, core::mem::transmute(rgrstmap.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgrstmap.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), szbackuplogpath, ploginfo, core::mem::transmute(sztargetinstancename.unwrap_or(core::ptr::null())), core::mem::transmute(sztargetinstancelogpath.unwrap_or(core::ptr::null())), core::mem::transmute(sztargetinstancecheckpointpath.unwrap_or(core::ptr::null())), pfn)
 }
 #[inline]
 pub unsafe fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: Option<&[JET_RSTMAP_W]>, szbackuplogpath: *const u16, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: Option<*const u16>, sztargetinstancelogpath: Option<*const u16>, sztargetinstancecheckpointpath: Option<*const u16>, pfn: JET_PFNSTATUS) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetExternalRestore2W(szcheckpointfilepath : *const u16, szlogpath : *const u16, rgrstmap : *const JET_RSTMAP_W, crstfilemap : i32, szbackuplogpath : *const u16, ploginfo : *mut JET_LOGINFO_W, sztargetinstancename : *const u16, sztargetinstancelogpath : *const u16, sztargetinstancecheckpointpath : *const u16, pfn : JET_PFNSTATUS) -> i32);
-    JetExternalRestore2W(szcheckpointfilepath, szlogpath, core::mem::transmute(rgrstmap.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgrstmap.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), szbackuplogpath, ploginfo, core::mem::transmute(sztargetinstancename.unwrap_or(std::ptr::null())), core::mem::transmute(sztargetinstancelogpath.unwrap_or(std::ptr::null())), core::mem::transmute(sztargetinstancecheckpointpath.unwrap_or(std::ptr::null())), pfn)
+    JetExternalRestore2W(szcheckpointfilepath, szlogpath, core::mem::transmute(rgrstmap.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgrstmap.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), szbackuplogpath, ploginfo, core::mem::transmute(sztargetinstancename.unwrap_or(core::ptr::null())), core::mem::transmute(sztargetinstancelogpath.unwrap_or(core::ptr::null())), core::mem::transmute(sztargetinstancecheckpointpath.unwrap_or(core::ptr::null())), pfn)
 }
 #[inline]
 pub unsafe fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: Option<&[JET_RSTMAP_A]>, szbackuplogpath: *const i8, genlow: i32, genhigh: i32, pfn: JET_PFNSTATUS) -> i32 {
@@ -716,7 +716,7 @@ where
 #[inline]
 pub unsafe fn JetGetAttachInfoA(szzdatabases: Option<&mut [u8]>, pcbactual: Option<*mut u32>) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetGetAttachInfoA(szzdatabases : *mut i8, cbmax : u32, pcbactual : *mut u32) -> i32);
-    JetGetAttachInfoA(core::mem::transmute(szzdatabases.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szzdatabases.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())))
+    JetGetAttachInfoA(core::mem::transmute(szzdatabases.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szzdatabases.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JetGetAttachInfoInstanceA<P0>(instance: P0, szzdatabases: Option<&mut [u8]>, pcbactual: Option<*mut u32>) -> i32
@@ -724,7 +724,7 @@ where
     P0: windows_core::Param<JET_INSTANCE>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetAttachInfoInstanceA(instance : JET_INSTANCE, szzdatabases : *mut i8, cbmax : u32, pcbactual : *mut u32) -> i32);
-    JetGetAttachInfoInstanceA(instance.param().abi(), core::mem::transmute(szzdatabases.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szzdatabases.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())))
+    JetGetAttachInfoInstanceA(instance.param().abi(), core::mem::transmute(szzdatabases.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szzdatabases.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JetGetAttachInfoInstanceW<P0>(instance: P0, szzdatabases: Option<*mut u16>, cbmax: u32, pcbactual: Option<*mut u32>) -> i32
@@ -732,12 +732,12 @@ where
     P0: windows_core::Param<JET_INSTANCE>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetAttachInfoInstanceW(instance : JET_INSTANCE, szzdatabases : *mut u16, cbmax : u32, pcbactual : *mut u32) -> i32);
-    JetGetAttachInfoInstanceW(instance.param().abi(), core::mem::transmute(szzdatabases.unwrap_or(std::ptr::null_mut())), cbmax, core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())))
+    JetGetAttachInfoInstanceW(instance.param().abi(), core::mem::transmute(szzdatabases.unwrap_or(core::ptr::null_mut())), cbmax, core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JetGetAttachInfoW(wszzdatabases: Option<*mut u16>, cbmax: u32, pcbactual: Option<*mut u32>) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetGetAttachInfoW(wszzdatabases : *mut u16, cbmax : u32, pcbactual : *mut u32) -> i32);
-    JetGetAttachInfoW(core::mem::transmute(wszzdatabases.unwrap_or(std::ptr::null_mut())), cbmax, core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())))
+    JetGetAttachInfoW(core::mem::transmute(wszzdatabases.unwrap_or(core::ptr::null_mut())), cbmax, core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -747,7 +747,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetBookmark(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvbookmark : *mut core::ffi::c_void, cbmax : u32, pcbactual : *mut u32) -> i32);
-    JetGetBookmark(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(pvbookmark.unwrap_or(std::ptr::null_mut())), cbmax, core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())))
+    JetGetBookmark(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(pvbookmark.unwrap_or(core::ptr::null_mut())), cbmax, core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JetGetColumnInfoA<P0>(sesid: P0, dbid: u32, sztablename: *const i8, pcolumnnameorid: Option<*const i8>, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32
@@ -755,7 +755,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetColumnInfoA(sesid : JET_SESID, dbid : u32, sztablename : *const i8, pcolumnnameorid : *const i8, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
-    JetGetColumnInfoA(sesid.param().abi(), dbid, sztablename, core::mem::transmute(pcolumnnameorid.unwrap_or(std::ptr::null())), pvresult, cbmax, infolevel)
+    JetGetColumnInfoA(sesid.param().abi(), dbid, sztablename, core::mem::transmute(pcolumnnameorid.unwrap_or(core::ptr::null())), pvresult, cbmax, infolevel)
 }
 #[inline]
 pub unsafe fn JetGetColumnInfoW<P0>(sesid: P0, dbid: u32, sztablename: *const u16, pwcolumnnameorid: Option<*const u16>, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32
@@ -763,7 +763,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetColumnInfoW(sesid : JET_SESID, dbid : u32, sztablename : *const u16, pwcolumnnameorid : *const u16, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
-    JetGetColumnInfoW(sesid.param().abi(), dbid, sztablename, core::mem::transmute(pwcolumnnameorid.unwrap_or(std::ptr::null())), pvresult, cbmax, infolevel)
+    JetGetColumnInfoW(sesid.param().abi(), dbid, sztablename, core::mem::transmute(pwcolumnnameorid.unwrap_or(core::ptr::null())), pvresult, cbmax, infolevel)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -824,7 +824,7 @@ where
 #[inline]
 pub unsafe fn JetGetErrorInfoW(pvcontext: Option<*const core::ffi::c_void>, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32, grbit: u32) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetGetErrorInfoW(pvcontext : *const core::ffi::c_void, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32, grbit : u32) -> i32);
-    JetGetErrorInfoW(core::mem::transmute(pvcontext.unwrap_or(std::ptr::null())), pvresult, cbmax, infolevel, grbit)
+    JetGetErrorInfoW(core::mem::transmute(pvcontext.unwrap_or(core::ptr::null())), pvresult, cbmax, infolevel, grbit)
 }
 #[inline]
 pub unsafe fn JetGetIndexInfoA<P0>(sesid: P0, dbid: u32, sztablename: *const i8, szindexname: Option<*const i8>, pvresult: *mut core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32
@@ -832,7 +832,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetIndexInfoA(sesid : JET_SESID, dbid : u32, sztablename : *const i8, szindexname : *const i8, pvresult : *mut core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
-    JetGetIndexInfoA(sesid.param().abi(), dbid, sztablename, core::mem::transmute(szindexname.unwrap_or(std::ptr::null())), pvresult, cbresult, infolevel)
+    JetGetIndexInfoA(sesid.param().abi(), dbid, sztablename, core::mem::transmute(szindexname.unwrap_or(core::ptr::null())), pvresult, cbresult, infolevel)
 }
 #[inline]
 pub unsafe fn JetGetIndexInfoW<P0>(sesid: P0, dbid: u32, sztablename: *const u16, szindexname: Option<*const u16>, pvresult: *mut core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32
@@ -840,7 +840,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetIndexInfoW(sesid : JET_SESID, dbid : u32, sztablename : *const u16, szindexname : *const u16, pvresult : *mut core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
-    JetGetIndexInfoW(sesid.param().abi(), dbid, sztablename, core::mem::transmute(szindexname.unwrap_or(std::ptr::null())), pvresult, cbresult, infolevel)
+    JetGetIndexInfoW(sesid.param().abi(), dbid, sztablename, core::mem::transmute(szindexname.unwrap_or(core::ptr::null())), pvresult, cbresult, infolevel)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -885,7 +885,7 @@ where
 #[inline]
 pub unsafe fn JetGetLogInfoA(szzlogs: Option<&mut [u8]>, pcbactual: Option<*mut u32>) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetGetLogInfoA(szzlogs : *mut i8, cbmax : u32, pcbactual : *mut u32) -> i32);
-    JetGetLogInfoA(core::mem::transmute(szzlogs.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szzlogs.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())))
+    JetGetLogInfoA(core::mem::transmute(szzlogs.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szzlogs.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JetGetLogInfoInstance2A<P0>(instance: P0, szzlogs: Option<&mut [u8]>, pcbactual: Option<*mut u32>, ploginfo: Option<*mut JET_LOGINFO_A>) -> i32
@@ -893,7 +893,7 @@ where
     P0: windows_core::Param<JET_INSTANCE>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetLogInfoInstance2A(instance : JET_INSTANCE, szzlogs : *mut i8, cbmax : u32, pcbactual : *mut u32, ploginfo : *mut JET_LOGINFO_A) -> i32);
-    JetGetLogInfoInstance2A(instance.param().abi(), core::mem::transmute(szzlogs.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szzlogs.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ploginfo.unwrap_or(std::ptr::null_mut())))
+    JetGetLogInfoInstance2A(instance.param().abi(), core::mem::transmute(szzlogs.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szzlogs.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ploginfo.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JetGetLogInfoInstance2W<P0>(instance: P0, wszzlogs: Option<*mut u16>, cbmax: u32, pcbactual: Option<*mut u32>, ploginfo: Option<*mut JET_LOGINFO_W>) -> i32
@@ -901,7 +901,7 @@ where
     P0: windows_core::Param<JET_INSTANCE>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetLogInfoInstance2W(instance : JET_INSTANCE, wszzlogs : *mut u16, cbmax : u32, pcbactual : *mut u32, ploginfo : *mut JET_LOGINFO_W) -> i32);
-    JetGetLogInfoInstance2W(instance.param().abi(), core::mem::transmute(wszzlogs.unwrap_or(std::ptr::null_mut())), cbmax, core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ploginfo.unwrap_or(std::ptr::null_mut())))
+    JetGetLogInfoInstance2W(instance.param().abi(), core::mem::transmute(wszzlogs.unwrap_or(core::ptr::null_mut())), cbmax, core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ploginfo.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JetGetLogInfoInstanceA<P0>(instance: P0, szzlogs: Option<&mut [u8]>, pcbactual: Option<*mut u32>) -> i32
@@ -909,7 +909,7 @@ where
     P0: windows_core::Param<JET_INSTANCE>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetLogInfoInstanceA(instance : JET_INSTANCE, szzlogs : *mut i8, cbmax : u32, pcbactual : *mut u32) -> i32);
-    JetGetLogInfoInstanceA(instance.param().abi(), core::mem::transmute(szzlogs.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szzlogs.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())))
+    JetGetLogInfoInstanceA(instance.param().abi(), core::mem::transmute(szzlogs.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szzlogs.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JetGetLogInfoInstanceW<P0>(instance: P0, wszzlogs: Option<*mut u16>, cbmax: u32, pcbactual: Option<*mut u32>) -> i32
@@ -917,12 +917,12 @@ where
     P0: windows_core::Param<JET_INSTANCE>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetLogInfoInstanceW(instance : JET_INSTANCE, wszzlogs : *mut u16, cbmax : u32, pcbactual : *mut u32) -> i32);
-    JetGetLogInfoInstanceW(instance.param().abi(), core::mem::transmute(wszzlogs.unwrap_or(std::ptr::null_mut())), cbmax, core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())))
+    JetGetLogInfoInstanceW(instance.param().abi(), core::mem::transmute(wszzlogs.unwrap_or(core::ptr::null_mut())), cbmax, core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JetGetLogInfoW(szzlogs: Option<*mut u16>, cbmax: u32, pcbactual: Option<*mut u32>) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetGetLogInfoW(szzlogs : *mut u16, cbmax : u32, pcbactual : *mut u32) -> i32);
-    JetGetLogInfoW(core::mem::transmute(szzlogs.unwrap_or(std::ptr::null_mut())), cbmax, core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())))
+    JetGetLogInfoW(core::mem::transmute(szzlogs.unwrap_or(core::ptr::null_mut())), cbmax, core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JetGetObjectInfoA<P0>(sesid: P0, dbid: u32, objtyp: u32, szcontainername: Option<*const i8>, szobjectname: Option<*const i8>, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32
@@ -930,7 +930,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetObjectInfoA(sesid : JET_SESID, dbid : u32, objtyp : u32, szcontainername : *const i8, szobjectname : *const i8, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
-    JetGetObjectInfoA(sesid.param().abi(), dbid, objtyp, core::mem::transmute(szcontainername.unwrap_or(std::ptr::null())), core::mem::transmute(szobjectname.unwrap_or(std::ptr::null())), pvresult, cbmax, infolevel)
+    JetGetObjectInfoA(sesid.param().abi(), dbid, objtyp, core::mem::transmute(szcontainername.unwrap_or(core::ptr::null())), core::mem::transmute(szobjectname.unwrap_or(core::ptr::null())), pvresult, cbmax, infolevel)
 }
 #[inline]
 pub unsafe fn JetGetObjectInfoW<P0>(sesid: P0, dbid: u32, objtyp: u32, szcontainername: Option<*const u16>, szobjectname: Option<*const u16>, pvresult: *mut core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32
@@ -938,7 +938,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetObjectInfoW(sesid : JET_SESID, dbid : u32, objtyp : u32, szcontainername : *const u16, szobjectname : *const u16, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
-    JetGetObjectInfoW(sesid.param().abi(), dbid, objtyp, core::mem::transmute(szcontainername.unwrap_or(std::ptr::null())), core::mem::transmute(szobjectname.unwrap_or(std::ptr::null())), pvresult, cbmax, infolevel)
+    JetGetObjectInfoW(sesid.param().abi(), dbid, objtyp, core::mem::transmute(szcontainername.unwrap_or(core::ptr::null())), core::mem::transmute(szobjectname.unwrap_or(core::ptr::null())), pvresult, cbmax, infolevel)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -978,7 +978,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetSecondaryIndexBookmark(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvsecondarykey : *mut core::ffi::c_void, cbsecondarykeymax : u32, pcbsecondarykeyactual : *mut u32, pvprimarybookmark : *mut core::ffi::c_void, cbprimarybookmarkmax : u32, pcbprimarybookmarkactual : *mut u32, grbit : u32) -> i32);
-    JetGetSecondaryIndexBookmark(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(pvsecondarykey.unwrap_or(std::ptr::null_mut())), cbsecondarykeymax, core::mem::transmute(pcbsecondarykeyactual.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvprimarybookmark.unwrap_or(std::ptr::null_mut())), cbprimarybookmarkmax, core::mem::transmute(pcbprimarybookmarkactual.unwrap_or(std::ptr::null_mut())), grbit)
+    JetGetSecondaryIndexBookmark(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(pvsecondarykey.unwrap_or(core::ptr::null_mut())), cbsecondarykeymax, core::mem::transmute(pcbsecondarykeyactual.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvprimarybookmark.unwrap_or(core::ptr::null_mut())), cbprimarybookmarkmax, core::mem::transmute(pcbprimarybookmarkactual.unwrap_or(core::ptr::null_mut())), grbit)
 }
 #[inline]
 pub unsafe fn JetGetSessionParameter<P0>(sesid: P0, sesparamid: u32, pvparam: &mut [u8], pcbparamactual: Option<*mut u32>) -> i32
@@ -986,7 +986,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetSessionParameter(sesid : JET_SESID, sesparamid : u32, pvparam : *mut core::ffi::c_void, cbparammax : u32, pcbparamactual : *mut u32) -> i32);
-    JetGetSessionParameter(sesid.param().abi(), sesparamid, core::mem::transmute(pvparam.as_ptr()), pvparam.len().try_into().unwrap(), core::mem::transmute(pcbparamactual.unwrap_or(std::ptr::null_mut())))
+    JetGetSessionParameter(sesid.param().abi(), sesparamid, core::mem::transmute(pvparam.as_ptr()), pvparam.len().try_into().unwrap(), core::mem::transmute(pcbparamactual.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -996,7 +996,7 @@ where
     P1: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetSystemParameterA(instance : JET_INSTANCE, sesid : JET_SESID, paramid : u32, plparam : *mut super::StructuredStorage:: JET_API_PTR, szparam : *mut i8, cbmax : u32) -> i32);
-    JetGetSystemParameterA(instance.param().abi(), sesid.param().abi(), paramid, core::mem::transmute(plparam.unwrap_or(std::ptr::null_mut())), core::mem::transmute(szparam.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szparam.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    JetGetSystemParameterA(instance.param().abi(), sesid.param().abi(), paramid, core::mem::transmute(plparam.unwrap_or(core::ptr::null_mut())), core::mem::transmute(szparam.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szparam.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1006,7 +1006,7 @@ where
     P1: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetSystemParameterW(instance : JET_INSTANCE, sesid : JET_SESID, paramid : u32, plparam : *mut super::StructuredStorage:: JET_API_PTR, szparam : *mut u16, cbmax : u32) -> i32);
-    JetGetSystemParameterW(instance.param().abi(), sesid.param().abi(), paramid, core::mem::transmute(plparam.unwrap_or(std::ptr::null_mut())), core::mem::transmute(szparam.unwrap_or(std::ptr::null_mut())), cbmax)
+    JetGetSystemParameterW(instance.param().abi(), sesid.param().abi(), paramid, core::mem::transmute(plparam.unwrap_or(core::ptr::null_mut())), core::mem::transmute(szparam.unwrap_or(core::ptr::null_mut())), cbmax)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1016,7 +1016,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetTableColumnInfoA(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const i8, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
-    JetGetTableColumnInfoA(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szcolumnname.unwrap_or(std::ptr::null())), pvresult, cbmax, infolevel)
+    JetGetTableColumnInfoA(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szcolumnname.unwrap_or(core::ptr::null())), pvresult, cbmax, infolevel)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1026,7 +1026,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetTableColumnInfoW(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szcolumnname : *const u16, pvresult : *mut core::ffi::c_void, cbmax : u32, infolevel : u32) -> i32);
-    JetGetTableColumnInfoW(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szcolumnname.unwrap_or(std::ptr::null())), pvresult, cbmax, infolevel)
+    JetGetTableColumnInfoW(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szcolumnname.unwrap_or(core::ptr::null())), pvresult, cbmax, infolevel)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1036,7 +1036,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetTableIndexInfoA(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8, pvresult : *mut core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
-    JetGetTableIndexInfoA(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(std::ptr::null())), pvresult, cbresult, infolevel)
+    JetGetTableIndexInfoA(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(core::ptr::null())), pvresult, cbresult, infolevel)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1046,7 +1046,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetTableIndexInfoW(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, pvresult : *mut core::ffi::c_void, cbresult : u32, infolevel : u32) -> i32);
-    JetGetTableIndexInfoW(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(std::ptr::null())), pvresult, cbresult, infolevel)
+    JetGetTableIndexInfoW(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(core::ptr::null())), pvresult, cbresult, infolevel)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1079,7 +1079,7 @@ where
     P0: windows_core::Param<JET_INSTANCE>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetTruncateLogInfoInstanceA(instance : JET_INSTANCE, szzlogs : *mut i8, cbmax : u32, pcbactual : *mut u32) -> i32);
-    JetGetTruncateLogInfoInstanceA(instance.param().abi(), core::mem::transmute(szzlogs.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szzlogs.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())))
+    JetGetTruncateLogInfoInstanceA(instance.param().abi(), core::mem::transmute(szzlogs.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), szzlogs.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JetGetTruncateLogInfoInstanceW<P0>(instance: P0, wszzlogs: Option<*mut u16>, cbmax: u32, pcbactual: Option<*mut u32>) -> i32
@@ -1087,7 +1087,7 @@ where
     P0: windows_core::Param<JET_INSTANCE>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGetTruncateLogInfoInstanceW(instance : JET_INSTANCE, wszzlogs : *mut u16, cbmax : u32, pcbactual : *mut u32) -> i32);
-    JetGetTruncateLogInfoInstanceW(instance.param().abi(), core::mem::transmute(wszzlogs.unwrap_or(std::ptr::null_mut())), cbmax, core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())))
+    JetGetTruncateLogInfoInstanceW(instance.param().abi(), core::mem::transmute(wszzlogs.unwrap_or(core::ptr::null_mut())), cbmax, core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JetGetVersion<P0>(sesid: P0, pwversion: *mut u32) -> i32
@@ -1125,7 +1125,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetGotoSecondaryIndexBookmark(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvsecondarykey : *const core::ffi::c_void, cbsecondarykey : u32, pvprimarybookmark : *const core::ffi::c_void, cbprimarybookmark : u32, grbit : u32) -> i32);
-    JetGotoSecondaryIndexBookmark(sesid.param().abi(), tableid.param().abi(), pvsecondarykey, cbsecondarykey, core::mem::transmute(pvprimarybookmark.unwrap_or(std::ptr::null())), cbprimarybookmark, grbit)
+    JetGotoSecondaryIndexBookmark(sesid.param().abi(), tableid.param().abi(), pvsecondarykey, cbsecondarykey, core::mem::transmute(pvprimarybookmark.unwrap_or(core::ptr::null())), cbprimarybookmark, grbit)
 }
 #[inline]
 pub unsafe fn JetGrowDatabase<P0>(sesid: P0, dbid: u32, cpg: u32, pcpgreal: *const u32) -> i32
@@ -1156,22 +1156,22 @@ where
 #[inline]
 pub unsafe fn JetInit(pinstance: Option<*mut JET_INSTANCE>) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetInit(pinstance : *mut JET_INSTANCE) -> i32);
-    JetInit(core::mem::transmute(pinstance.unwrap_or(std::ptr::null_mut())))
+    JetInit(core::mem::transmute(pinstance.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn JetInit2(pinstance: Option<*mut JET_INSTANCE>, grbit: u32) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetInit2(pinstance : *mut JET_INSTANCE, grbit : u32) -> i32);
-    JetInit2(core::mem::transmute(pinstance.unwrap_or(std::ptr::null_mut())), grbit)
+    JetInit2(core::mem::transmute(pinstance.unwrap_or(core::ptr::null_mut())), grbit)
 }
 #[inline]
 pub unsafe fn JetInit3A(pinstance: Option<*mut JET_INSTANCE>, prstinfo: Option<*const JET_RSTINFO_A>, grbit: u32) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetInit3A(pinstance : *mut JET_INSTANCE, prstinfo : *const JET_RSTINFO_A, grbit : u32) -> i32);
-    JetInit3A(core::mem::transmute(pinstance.unwrap_or(std::ptr::null_mut())), core::mem::transmute(prstinfo.unwrap_or(std::ptr::null())), grbit)
+    JetInit3A(core::mem::transmute(pinstance.unwrap_or(core::ptr::null_mut())), core::mem::transmute(prstinfo.unwrap_or(core::ptr::null())), grbit)
 }
 #[inline]
 pub unsafe fn JetInit3W(pinstance: Option<*mut JET_INSTANCE>, prstinfo: Option<*const JET_RSTINFO_W>, grbit: u32) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetInit3W(pinstance : *mut JET_INSTANCE, prstinfo : *const JET_RSTINFO_W, grbit : u32) -> i32);
-    JetInit3W(core::mem::transmute(pinstance.unwrap_or(std::ptr::null_mut())), core::mem::transmute(prstinfo.unwrap_or(std::ptr::null())), grbit)
+    JetInit3W(core::mem::transmute(pinstance.unwrap_or(core::ptr::null_mut())), core::mem::transmute(prstinfo.unwrap_or(core::ptr::null())), grbit)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1190,7 +1190,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetMakeKey(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvdata : *const core::ffi::c_void, cbdata : u32, grbit : u32) -> i32);
-    JetMakeKey(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(pvdata.unwrap_or(std::ptr::null())), cbdata, grbit)
+    JetMakeKey(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(pvdata.unwrap_or(core::ptr::null())), cbdata, grbit)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1299,7 +1299,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetOpenDatabaseA(sesid : JET_SESID, szfilename : *const i8, szconnect : *const i8, pdbid : *mut u32, grbit : u32) -> i32);
-    JetOpenDatabaseA(sesid.param().abi(), szfilename, core::mem::transmute(szconnect.unwrap_or(std::ptr::null())), pdbid, grbit)
+    JetOpenDatabaseA(sesid.param().abi(), szfilename, core::mem::transmute(szconnect.unwrap_or(core::ptr::null())), pdbid, grbit)
 }
 #[inline]
 pub unsafe fn JetOpenDatabaseW<P0>(sesid: P0, szfilename: *const u16, szconnect: Option<*const u16>, pdbid: *mut u32, grbit: u32) -> i32
@@ -1307,7 +1307,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetOpenDatabaseW(sesid : JET_SESID, szfilename : *const u16, szconnect : *const u16, pdbid : *mut u32, grbit : u32) -> i32);
-    JetOpenDatabaseW(sesid.param().abi(), szfilename, core::mem::transmute(szconnect.unwrap_or(std::ptr::null())), pdbid, grbit)
+    JetOpenDatabaseW(sesid.param().abi(), szfilename, core::mem::transmute(szconnect.unwrap_or(core::ptr::null())), pdbid, grbit)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1346,7 +1346,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetOpenTableA(sesid : JET_SESID, dbid : u32, sztablename : *const i8, pvparameters : *const core::ffi::c_void, cbparameters : u32, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID) -> i32);
-    JetOpenTableA(sesid.param().abi(), dbid, sztablename, core::mem::transmute(pvparameters.unwrap_or(std::ptr::null())), cbparameters, grbit, ptableid)
+    JetOpenTableA(sesid.param().abi(), dbid, sztablename, core::mem::transmute(pvparameters.unwrap_or(core::ptr::null())), cbparameters, grbit, ptableid)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1355,7 +1355,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetOpenTableW(sesid : JET_SESID, dbid : u32, sztablename : *const u16, pvparameters : *const core::ffi::c_void, cbparameters : u32, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID) -> i32);
-    JetOpenTableW(sesid.param().abi(), dbid, sztablename, core::mem::transmute(pvparameters.unwrap_or(std::ptr::null())), cbparameters, grbit, ptableid)
+    JetOpenTableW(sesid.param().abi(), dbid, sztablename, core::mem::transmute(pvparameters.unwrap_or(core::ptr::null())), cbparameters, grbit, ptableid)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1382,7 +1382,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetOpenTempTable3(sesid : JET_SESID, prgcolumndef : *const JET_COLUMNDEF, ccolumn : u32, pidxunicode : *const JET_UNICODEINDEX, grbit : u32, ptableid : *mut super::StructuredStorage:: JET_TABLEID, prgcolumnid : *mut u32) -> i32);
-    JetOpenTempTable3(sesid.param().abi(), prgcolumndef, ccolumn, core::mem::transmute(pidxunicode.unwrap_or(std::ptr::null())), grbit, ptableid, prgcolumnid)
+    JetOpenTempTable3(sesid.param().abi(), prgcolumndef, ccolumn, core::mem::transmute(pidxunicode.unwrap_or(core::ptr::null())), grbit, ptableid, prgcolumnid)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1420,7 +1420,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetPrereadIndexRanges(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, rgindexranges : *const JET_INDEX_RANGE, cindexranges : u32, pcrangespreread : *mut u32, rgcolumnidpreread : *const u32, ccolumnidpreread : u32, grbit : u32) -> i32);
-    JetPrereadIndexRanges(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(rgindexranges.as_ptr()), rgindexranges.len().try_into().unwrap(), core::mem::transmute(pcrangespreread.unwrap_or(std::ptr::null_mut())), core::mem::transmute(rgcolumnidpreread.as_ptr()), rgcolumnidpreread.len().try_into().unwrap(), grbit)
+    JetPrereadIndexRanges(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(rgindexranges.as_ptr()), rgindexranges.len().try_into().unwrap(), core::mem::transmute(pcrangespreread.unwrap_or(core::ptr::null_mut())), core::mem::transmute(rgcolumnidpreread.as_ptr()), rgcolumnidpreread.len().try_into().unwrap(), grbit)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1430,7 +1430,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetPrereadKeys(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, rgpvkeys : *const *const core::ffi::c_void, rgcbkeys : *const u32, ckeys : i32, pckeyspreread : *mut i32, grbit : u32) -> i32);
-    JetPrereadKeys(sesid.param().abi(), tableid.param().abi(), rgpvkeys, rgcbkeys, ckeys, core::mem::transmute(pckeyspreread.unwrap_or(std::ptr::null_mut())), grbit)
+    JetPrereadKeys(sesid.param().abi(), tableid.param().abi(), rgpvkeys, rgcbkeys, ckeys, core::mem::transmute(pckeyspreread.unwrap_or(core::ptr::null_mut())), grbit)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1439,7 +1439,7 @@ where
     P0: windows_core::Param<super::StructuredStorage::JET_HANDLE>,
 {
     windows_targets::link!("esent.dll" "system" fn JetReadFile(hffile : super::StructuredStorage:: JET_HANDLE, pv : *mut core::ffi::c_void, cb : u32, pcbactual : *mut u32) -> i32);
-    JetReadFile(hffile.param().abi(), pv, cb, core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())))
+    JetReadFile(hffile.param().abi(), pv, cb, core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1449,7 +1449,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_HANDLE>,
 {
     windows_targets::link!("esent.dll" "system" fn JetReadFileInstance(instance : JET_INSTANCE, hffile : super::StructuredStorage:: JET_HANDLE, pv : *mut core::ffi::c_void, cb : u32, pcbactual : *mut u32) -> i32);
-    JetReadFileInstance(instance.param().abi(), hffile.param().abi(), pv, cb, core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())))
+    JetReadFileInstance(instance.param().abi(), hffile.param().abi(), pv, cb, core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1459,7 +1459,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetRegisterCallback(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, cbtyp : u32, pcallback : JET_CALLBACK, pvcontext : *const core::ffi::c_void, phcallbackid : *const super::StructuredStorage:: JET_HANDLE) -> i32);
-    JetRegisterCallback(sesid.param().abi(), tableid.param().abi(), cbtyp, pcallback, core::mem::transmute(pvcontext.unwrap_or(std::ptr::null())), phcallbackid)
+    JetRegisterCallback(sesid.param().abi(), tableid.param().abi(), cbtyp, pcallback, core::mem::transmute(pvcontext.unwrap_or(core::ptr::null())), phcallbackid)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1526,12 +1526,12 @@ where
 #[inline]
 pub unsafe fn JetRestore2A(sz: *const i8, szdest: Option<*const i8>, pfn: JET_PFNSTATUS) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetRestore2A(sz : *const i8, szdest : *const i8, pfn : JET_PFNSTATUS) -> i32);
-    JetRestore2A(sz, core::mem::transmute(szdest.unwrap_or(std::ptr::null())), pfn)
+    JetRestore2A(sz, core::mem::transmute(szdest.unwrap_or(core::ptr::null())), pfn)
 }
 #[inline]
 pub unsafe fn JetRestore2W(sz: *const u16, szdest: Option<*const u16>, pfn: JET_PFNSTATUS) -> i32 {
     windows_targets::link!("esent.dll" "system" fn JetRestore2W(sz : *const u16, szdest : *const u16, pfn : JET_PFNSTATUS) -> i32);
-    JetRestore2W(sz, core::mem::transmute(szdest.unwrap_or(std::ptr::null())), pfn)
+    JetRestore2W(sz, core::mem::transmute(szdest.unwrap_or(core::ptr::null())), pfn)
 }
 #[inline]
 pub unsafe fn JetRestoreA(szsource: *const i8, pfn: JET_PFNSTATUS) -> i32 {
@@ -1544,7 +1544,7 @@ where
     P0: windows_core::Param<JET_INSTANCE>,
 {
     windows_targets::link!("esent.dll" "system" fn JetRestoreInstanceA(instance : JET_INSTANCE, sz : *const i8, szdest : *const i8, pfn : JET_PFNSTATUS) -> i32);
-    JetRestoreInstanceA(instance.param().abi(), sz, core::mem::transmute(szdest.unwrap_or(std::ptr::null())), pfn)
+    JetRestoreInstanceA(instance.param().abi(), sz, core::mem::transmute(szdest.unwrap_or(core::ptr::null())), pfn)
 }
 #[inline]
 pub unsafe fn JetRestoreInstanceW<P0>(instance: P0, sz: *const u16, szdest: Option<*const u16>, pfn: JET_PFNSTATUS) -> i32
@@ -1552,7 +1552,7 @@ where
     P0: windows_core::Param<JET_INSTANCE>,
 {
     windows_targets::link!("esent.dll" "system" fn JetRestoreInstanceW(instance : JET_INSTANCE, sz : *const u16, szdest : *const u16, pfn : JET_PFNSTATUS) -> i32);
-    JetRestoreInstanceW(instance.param().abi(), sz, core::mem::transmute(szdest.unwrap_or(std::ptr::null())), pfn)
+    JetRestoreInstanceW(instance.param().abi(), sz, core::mem::transmute(szdest.unwrap_or(core::ptr::null())), pfn)
 }
 #[inline]
 pub unsafe fn JetRestoreW(szsource: *const u16, pfn: JET_PFNSTATUS) -> i32 {
@@ -1567,7 +1567,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetRetrieveColumn(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, columnid : u32, pvdata : *mut core::ffi::c_void, cbdata : u32, pcbactual : *mut u32, grbit : u32, pretinfo : *mut JET_RETINFO) -> i32);
-    JetRetrieveColumn(sesid.param().abi(), tableid.param().abi(), columnid, core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), cbdata, core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())), grbit, core::mem::transmute(pretinfo.unwrap_or(std::ptr::null_mut())))
+    JetRetrieveColumn(sesid.param().abi(), tableid.param().abi(), columnid, core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), cbdata, core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())), grbit, core::mem::transmute(pretinfo.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1587,7 +1587,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetRetrieveKey(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvkey : *mut core::ffi::c_void, cbmax : u32, pcbactual : *mut u32, grbit : u32) -> i32);
-    JetRetrieveKey(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(pvkey.unwrap_or(std::ptr::null_mut())), cbmax, core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())), grbit)
+    JetRetrieveKey(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(pvkey.unwrap_or(core::ptr::null_mut())), cbmax, core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())), grbit)
 }
 #[inline]
 pub unsafe fn JetRollback<P0>(sesid: P0, grbit: u32) -> i32
@@ -1615,7 +1615,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetSetColumn(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, columnid : u32, pvdata : *const core::ffi::c_void, cbdata : u32, grbit : u32, psetinfo : *const JET_SETINFO) -> i32);
-    JetSetColumn(sesid.param().abi(), tableid.param().abi(), columnid, core::mem::transmute(pvdata.unwrap_or(std::ptr::null())), cbdata, grbit, core::mem::transmute(psetinfo.unwrap_or(std::ptr::null())))
+    JetSetColumn(sesid.param().abi(), tableid.param().abi(), columnid, core::mem::transmute(pvdata.unwrap_or(core::ptr::null())), cbdata, grbit, core::mem::transmute(psetinfo.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn JetSetColumnDefaultValueA<P0>(sesid: P0, dbid: u32, sztablename: *const i8, szcolumnname: *const i8, pvdata: *const core::ffi::c_void, cbdata: u32, grbit: u32) -> i32
@@ -1651,7 +1651,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetSetCurrentIndex2A(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8, grbit : u32) -> i32);
-    JetSetCurrentIndex2A(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(std::ptr::null())), grbit)
+    JetSetCurrentIndex2A(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(core::ptr::null())), grbit)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1661,7 +1661,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetSetCurrentIndex2W(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, grbit : u32) -> i32);
-    JetSetCurrentIndex2W(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(std::ptr::null())), grbit)
+    JetSetCurrentIndex2W(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(core::ptr::null())), grbit)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1671,7 +1671,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetSetCurrentIndex3A(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8, grbit : u32, itagsequence : u32) -> i32);
-    JetSetCurrentIndex3A(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(std::ptr::null())), grbit, itagsequence)
+    JetSetCurrentIndex3A(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(core::ptr::null())), grbit, itagsequence)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1681,7 +1681,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetSetCurrentIndex3W(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, grbit : u32, itagsequence : u32) -> i32);
-    JetSetCurrentIndex3W(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(std::ptr::null())), grbit, itagsequence)
+    JetSetCurrentIndex3W(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(core::ptr::null())), grbit, itagsequence)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1691,7 +1691,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetSetCurrentIndex4A(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8, pindexid : *const JET_INDEXID, grbit : u32, itagsequence : u32) -> i32);
-    JetSetCurrentIndex4A(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(std::ptr::null())), core::mem::transmute(pindexid.unwrap_or(std::ptr::null())), grbit, itagsequence)
+    JetSetCurrentIndex4A(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(core::ptr::null())), core::mem::transmute(pindexid.unwrap_or(core::ptr::null())), grbit, itagsequence)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1701,7 +1701,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetSetCurrentIndex4W(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16, pindexid : *const JET_INDEXID, grbit : u32, itagsequence : u32) -> i32);
-    JetSetCurrentIndex4W(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(std::ptr::null())), core::mem::transmute(pindexid.unwrap_or(std::ptr::null())), grbit, itagsequence)
+    JetSetCurrentIndex4W(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(core::ptr::null())), core::mem::transmute(pindexid.unwrap_or(core::ptr::null())), grbit, itagsequence)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1711,7 +1711,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetSetCurrentIndexA(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const i8) -> i32);
-    JetSetCurrentIndexA(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(std::ptr::null())))
+    JetSetCurrentIndexA(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1721,7 +1721,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetSetCurrentIndexW(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, szindexname : *const u16) -> i32);
-    JetSetCurrentIndexW(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(std::ptr::null())))
+    JetSetCurrentIndexW(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(szindexname.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1786,7 +1786,7 @@ where
     P0: windows_core::Param<JET_SESID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetSetSessionParameter(sesid : JET_SESID, sesparamid : u32, pvparam : *const core::ffi::c_void, cbparam : u32) -> i32);
-    JetSetSessionParameter(sesid.param().abi(), sesparamid, core::mem::transmute(pvparam.unwrap_or(std::ptr::null())), cbparam)
+    JetSetSessionParameter(sesid.param().abi(), sesparamid, core::mem::transmute(pvparam.unwrap_or(core::ptr::null())), cbparam)
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1796,7 +1796,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_API_PTR>,
 {
     windows_targets::link!("esent.dll" "system" fn JetSetSystemParameterA(pinstance : *mut JET_INSTANCE, sesid : JET_SESID, paramid : u32, lparam : super::StructuredStorage:: JET_API_PTR, szparam : *const i8) -> i32);
-    JetSetSystemParameterA(core::mem::transmute(pinstance.unwrap_or(std::ptr::null_mut())), sesid.param().abi(), paramid, lparam.param().abi(), core::mem::transmute(szparam.unwrap_or(std::ptr::null())))
+    JetSetSystemParameterA(core::mem::transmute(pinstance.unwrap_or(core::ptr::null_mut())), sesid.param().abi(), paramid, lparam.param().abi(), core::mem::transmute(szparam.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1806,7 +1806,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_API_PTR>,
 {
     windows_targets::link!("esent.dll" "system" fn JetSetSystemParameterW(pinstance : *mut JET_INSTANCE, sesid : JET_SESID, paramid : u32, lparam : super::StructuredStorage:: JET_API_PTR, szparam : *const u16) -> i32);
-    JetSetSystemParameterW(core::mem::transmute(pinstance.unwrap_or(std::ptr::null_mut())), sesid.param().abi(), paramid, lparam.param().abi(), core::mem::transmute(szparam.unwrap_or(std::ptr::null())))
+    JetSetSystemParameterW(core::mem::transmute(pinstance.unwrap_or(core::ptr::null_mut())), sesid.param().abi(), paramid, lparam.param().abi(), core::mem::transmute(szparam.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1900,7 +1900,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetUpdate(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvbookmark : *mut core::ffi::c_void, cbbookmark : u32, pcbactual : *mut u32) -> i32);
-    JetUpdate(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(pvbookmark.unwrap_or(std::ptr::null_mut())), cbbookmark, core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())))
+    JetUpdate(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(pvbookmark.unwrap_or(core::ptr::null_mut())), cbbookmark, core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
@@ -1910,7 +1910,7 @@ where
     P1: windows_core::Param<super::StructuredStorage::JET_TABLEID>,
 {
     windows_targets::link!("esent.dll" "system" fn JetUpdate2(sesid : JET_SESID, tableid : super::StructuredStorage:: JET_TABLEID, pvbookmark : *mut core::ffi::c_void, cbbookmark : u32, pcbactual : *mut u32, grbit : u32) -> i32);
-    JetUpdate2(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(pvbookmark.unwrap_or(std::ptr::null_mut())), cbbookmark, core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut())), grbit)
+    JetUpdate2(sesid.param().abi(), tableid.param().abi(), core::mem::transmute(pvbookmark.unwrap_or(core::ptr::null_mut())), cbbookmark, core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut())), grbit)
 }
 pub const JET_BASE_NAME_LENGTH: u32 = 3u32;
 pub const JET_ColInfoGrbitMinimalInfo: u32 = 1073741824u32;

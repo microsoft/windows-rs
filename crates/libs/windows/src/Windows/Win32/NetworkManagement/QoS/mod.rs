@@ -6,7 +6,7 @@ where
     P1: windows_core::Param<super::super::Networking::WinSock::SOCKET>,
 {
     windows_targets::link!("qwave.dll" "system" fn QOSAddSocketToFlow(qoshandle : super::super::Foundation:: HANDLE, socket : super::super::Networking::WinSock:: SOCKET, destaddr : *const super::super::Networking::WinSock:: SOCKADDR, traffictype : QOS_TRAFFIC_TYPE, flags : u32, flowid : *mut u32) -> super::super::Foundation:: BOOL);
-    QOSAddSocketToFlow(qoshandle.param().abi(), socket.param().abi(), core::mem::transmute(destaddr.unwrap_or(std::ptr::null())), traffictype, flags, flowid)
+    QOSAddSocketToFlow(qoshandle.param().abi(), socket.param().abi(), core::mem::transmute(destaddr.unwrap_or(core::ptr::null())), traffictype, flags, flowid)
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -45,7 +45,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("qwave.dll" "system" fn QOSNotifyFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_NOTIFY_FLOW, size : *mut u32, buffer : *mut core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    QOSNotifyFlow(qoshandle.param().abi(), flowid, operation, core::mem::transmute(size.unwrap_or(std::ptr::null_mut())), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), flags, core::mem::transmute(overlapped.unwrap_or(std::ptr::null_mut())))
+    QOSNotifyFlow(qoshandle.param().abi(), flowid, operation, core::mem::transmute(size.unwrap_or(core::ptr::null_mut())), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), flags, core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -54,7 +54,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("qwave.dll" "system" fn QOSQueryFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_QUERY_FLOW, size : *mut u32, buffer : *mut core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    QOSQueryFlow(qoshandle.param().abi(), flowid, operation, size, buffer, flags, core::mem::transmute(overlapped.unwrap_or(std::ptr::null_mut())))
+    QOSQueryFlow(qoshandle.param().abi(), flowid, operation, size, buffer, flags, core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
@@ -73,7 +73,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("qwave.dll" "system" fn QOSSetFlow(qoshandle : super::super::Foundation:: HANDLE, flowid : u32, operation : QOS_SET_FLOW, size : u32, buffer : *const core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    QOSSetFlow(qoshandle.param().abi(), flowid, operation, size, buffer, flags, core::mem::transmute(overlapped.unwrap_or(std::ptr::null_mut())))
+    QOSSetFlow(qoshandle.param().abi(), flowid, operation, size, buffer, flags, core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]

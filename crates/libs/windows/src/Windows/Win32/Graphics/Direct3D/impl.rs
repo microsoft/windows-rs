@@ -74,7 +74,7 @@ impl ID3DInclude_Vtbl {
     }
 }
 #[doc(hidden)]
-struct ID3DInclude_ImplVtbl<T: ID3DInclude_Impl>(std::marker::PhantomData<T>);
+struct ID3DInclude_ImplVtbl<T: ID3DInclude_Impl>(core::marker::PhantomData<T>);
 impl<T: ID3DInclude_Impl> ID3DInclude_ImplVtbl<T> {
     const VTABLE: ID3DInclude_Vtbl = ID3DInclude_Vtbl::new::<T>();
 }

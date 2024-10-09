@@ -9,7 +9,7 @@ where
 #[inline]
 pub unsafe fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: windows_core::PWSTR, prendercount: Option<*mut u32>, pcapturedeviceid: windows_core::PWSTR, pcapturecount: Option<*mut u32>) -> u32 {
     windows_targets::link!("xinput1_4.dll" "system" fn XInputGetAudioDeviceIds(dwuserindex : u32, prenderdeviceid : windows_core::PWSTR, prendercount : *mut u32, pcapturedeviceid : windows_core::PWSTR, pcapturecount : *mut u32) -> u32);
-    XInputGetAudioDeviceIds(dwuserindex, core::mem::transmute(prenderdeviceid), core::mem::transmute(prendercount.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcapturedeviceid), core::mem::transmute(pcapturecount.unwrap_or(std::ptr::null_mut())))
+    XInputGetAudioDeviceIds(dwuserindex, core::mem::transmute(prenderdeviceid), core::mem::transmute(prendercount.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcapturedeviceid), core::mem::transmute(pcapturecount.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn XInputGetBatteryInformation(dwuserindex: u32, devtype: BATTERY_DEVTYPE, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32 {

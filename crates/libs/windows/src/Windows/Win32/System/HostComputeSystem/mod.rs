@@ -69,7 +69,7 @@ where
 {
     windows_targets::link!("computecore.dll" "system" fn HcsCreateComputeSystem(id : windows_core::PCWSTR, configuration : windows_core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, computesystem : *mut HCS_SYSTEM) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    HcsCreateComputeSystem(id.param().abi(), configuration.param().abi(), operation.param().abi(), core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
+    HcsCreateComputeSystem(id.param().abi(), configuration.param().abi(), operation.param().abi(), core::mem::transmute(securitydescriptor.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn HcsCreateComputeSystemInNamespace<P0, P1, P2, P3>(idnamespace: P0, id: P1, configuration: P2, operation: P3, options: Option<*const HCS_CREATE_OPTIONS>) -> windows_core::Result<HCS_SYSTEM>
@@ -81,7 +81,7 @@ where
 {
     windows_targets::link!("computecore.dll" "system" fn HcsCreateComputeSystemInNamespace(idnamespace : windows_core::PCWSTR, id : windows_core::PCWSTR, configuration : windows_core::PCWSTR, operation : HCS_OPERATION, options : *const HCS_CREATE_OPTIONS, computesystem : *mut HCS_SYSTEM) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    HcsCreateComputeSystemInNamespace(idnamespace.param().abi(), id.param().abi(), configuration.param().abi(), operation.param().abi(), core::mem::transmute(options.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
+    HcsCreateComputeSystemInNamespace(idnamespace.param().abi(), id.param().abi(), configuration.param().abi(), operation.param().abi(), core::mem::transmute(options.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn HcsCreateEmptyGuestStateFile<P0>(gueststatefilepath: P0) -> windows_core::Result<()>
@@ -102,12 +102,12 @@ where
 #[inline]
 pub unsafe fn HcsCreateOperation(context: Option<*const core::ffi::c_void>, callback: HCS_OPERATION_COMPLETION) -> HCS_OPERATION {
     windows_targets::link!("computecore.dll" "system" fn HcsCreateOperation(context : *const core::ffi::c_void, callback : HCS_OPERATION_COMPLETION) -> HCS_OPERATION);
-    HcsCreateOperation(core::mem::transmute(context.unwrap_or(std::ptr::null())), callback)
+    HcsCreateOperation(core::mem::transmute(context.unwrap_or(core::ptr::null())), callback)
 }
 #[inline]
 pub unsafe fn HcsCreateOperationWithNotifications(eventtypes: HCS_OPERATION_OPTIONS, context: Option<*const core::ffi::c_void>, callback: HCS_EVENT_CALLBACK) -> HCS_OPERATION {
     windows_targets::link!("computecore.dll" "system" fn HcsCreateOperationWithNotifications(eventtypes : HCS_OPERATION_OPTIONS, context : *const core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> HCS_OPERATION);
-    HcsCreateOperationWithNotifications(eventtypes, core::mem::transmute(context.unwrap_or(std::ptr::null())), callback)
+    HcsCreateOperationWithNotifications(eventtypes, core::mem::transmute(context.unwrap_or(core::ptr::null())), callback)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -119,7 +119,7 @@ where
 {
     windows_targets::link!("computecore.dll" "system" fn HcsCreateProcess(computesystem : HCS_SYSTEM, processparameters : windows_core::PCWSTR, operation : HCS_OPERATION, securitydescriptor : *const super::super::Security:: SECURITY_DESCRIPTOR, process : *mut HCS_PROCESS) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    HcsCreateProcess(computesystem.param().abi(), processparameters.param().abi(), operation.param().abi(), core::mem::transmute(securitydescriptor.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
+    HcsCreateProcess(computesystem.param().abi(), processparameters.param().abi(), operation.param().abi(), core::mem::transmute(securitydescriptor.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn HcsDestroyLayer<P0>(layerpath: P0) -> windows_core::Result<()>
@@ -235,7 +235,7 @@ where
     P0: windows_core::Param<HCS_OPERATION>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsGetOperationResult(operation : HCS_OPERATION, resultdocument : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    HcsGetOperationResult(operation.param().abi(), core::mem::transmute(resultdocument.unwrap_or(std::ptr::null_mut()))).ok()
+    HcsGetOperationResult(operation.param().abi(), core::mem::transmute(resultdocument.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn HcsGetOperationResultAndProcessInfo<P0>(operation: P0, processinformation: Option<*mut HCS_PROCESS_INFORMATION>, resultdocument: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
@@ -243,7 +243,7 @@ where
     P0: windows_core::Param<HCS_OPERATION>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsGetOperationResultAndProcessInfo(operation : HCS_OPERATION, processinformation : *mut HCS_PROCESS_INFORMATION, resultdocument : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    HcsGetOperationResultAndProcessInfo(operation.param().abi(), core::mem::transmute(processinformation.unwrap_or(std::ptr::null_mut())), core::mem::transmute(resultdocument.unwrap_or(std::ptr::null_mut()))).ok()
+    HcsGetOperationResultAndProcessInfo(operation.param().abi(), core::mem::transmute(processinformation.unwrap_or(core::ptr::null_mut())), core::mem::transmute(resultdocument.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn HcsGetOperationType<P0>(operation: P0) -> HCS_OPERATION_TYPE
@@ -286,7 +286,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsGetProcessorCompatibilityFromSavedState(runtimefilename : windows_core::PCWSTR, processorfeaturesstring : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
-    HcsGetProcessorCompatibilityFromSavedState(runtimefilename.param().abi(), core::mem::transmute(processorfeaturesstring.unwrap_or(std::ptr::null_mut()))).ok()
+    HcsGetProcessorCompatibilityFromSavedState(runtimefilename.param().abi(), core::mem::transmute(processorfeaturesstring.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn HcsGetServiceProperties<P0>(propertyquery: P0) -> windows_core::Result<windows_core::PWSTR>
@@ -372,7 +372,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsModifyServiceSettings(settings : windows_core::PCWSTR, result : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    HcsModifyServiceSettings(settings.param().abi(), core::mem::transmute(result.unwrap_or(std::ptr::null_mut()))).ok()
+    HcsModifyServiceSettings(settings.param().abi(), core::mem::transmute(result.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn HcsOpenComputeSystem<P0>(id: P0, requestedaccess: u32) -> windows_core::Result<HCS_SYSTEM>
@@ -455,7 +455,7 @@ where
     P0: windows_core::Param<HCS_SYSTEM>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsSetComputeSystemCallback(computesystem : HCS_SYSTEM, callbackoptions : HCS_EVENT_OPTIONS, context : *const core::ffi::c_void, callback : HCS_EVENT_CALLBACK) -> windows_core::HRESULT);
-    HcsSetComputeSystemCallback(computesystem.param().abi(), callbackoptions, core::mem::transmute(context.unwrap_or(std::ptr::null())), callback).ok()
+    HcsSetComputeSystemCallback(computesystem.param().abi(), callbackoptions, core::mem::transmute(context.unwrap_or(core::ptr::null())), callback).ok()
 }
 #[inline]
 pub unsafe fn HcsSetOperationCallback<P0>(operation: P0, context: Option<*const core::ffi::c_void>, callback: HCS_OPERATION_COMPLETION) -> windows_core::Result<()>
@@ -463,7 +463,7 @@ where
     P0: windows_core::Param<HCS_OPERATION>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsSetOperationCallback(operation : HCS_OPERATION, context : *const core::ffi::c_void, callback : HCS_OPERATION_COMPLETION) -> windows_core::HRESULT);
-    HcsSetOperationCallback(operation.param().abi(), core::mem::transmute(context.unwrap_or(std::ptr::null())), callback).ok()
+    HcsSetOperationCallback(operation.param().abi(), core::mem::transmute(context.unwrap_or(core::ptr::null())), callback).ok()
 }
 #[inline]
 pub unsafe fn HcsSetOperationContext<P0>(operation: P0, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -471,7 +471,7 @@ where
     P0: windows_core::Param<HCS_OPERATION>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsSetOperationContext(operation : HCS_OPERATION, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    HcsSetOperationContext(operation.param().abi(), core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    HcsSetOperationContext(operation.param().abi(), core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn HcsSetProcessCallback<P0>(process: P0, callbackoptions: HCS_EVENT_OPTIONS, context: *const core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> windows_core::Result<()>
@@ -565,7 +565,7 @@ where
     P0: windows_core::Param<HCS_SYSTEM>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsWaitForComputeSystemExit(computesystem : HCS_SYSTEM, timeoutms : u32, result : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    HcsWaitForComputeSystemExit(computesystem.param().abi(), timeoutms, core::mem::transmute(result.unwrap_or(std::ptr::null_mut()))).ok()
+    HcsWaitForComputeSystemExit(computesystem.param().abi(), timeoutms, core::mem::transmute(result.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn HcsWaitForOperationResult<P0>(operation: P0, timeoutms: u32, resultdocument: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
@@ -573,7 +573,7 @@ where
     P0: windows_core::Param<HCS_OPERATION>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsWaitForOperationResult(operation : HCS_OPERATION, timeoutms : u32, resultdocument : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    HcsWaitForOperationResult(operation.param().abi(), timeoutms, core::mem::transmute(resultdocument.unwrap_or(std::ptr::null_mut()))).ok()
+    HcsWaitForOperationResult(operation.param().abi(), timeoutms, core::mem::transmute(resultdocument.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn HcsWaitForOperationResultAndProcessInfo<P0>(operation: P0, timeoutms: u32, processinformation: Option<*mut HCS_PROCESS_INFORMATION>, resultdocument: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
@@ -581,7 +581,7 @@ where
     P0: windows_core::Param<HCS_OPERATION>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsWaitForOperationResultAndProcessInfo(operation : HCS_OPERATION, timeoutms : u32, processinformation : *mut HCS_PROCESS_INFORMATION, resultdocument : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    HcsWaitForOperationResultAndProcessInfo(operation.param().abi(), timeoutms, core::mem::transmute(processinformation.unwrap_or(std::ptr::null_mut())), core::mem::transmute(resultdocument.unwrap_or(std::ptr::null_mut()))).ok()
+    HcsWaitForOperationResultAndProcessInfo(operation.param().abi(), timeoutms, core::mem::transmute(processinformation.unwrap_or(core::ptr::null_mut())), core::mem::transmute(resultdocument.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn HcsWaitForProcessExit<P0>(computesystem: P0, timeoutms: u32, result: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
@@ -589,7 +589,7 @@ where
     P0: windows_core::Param<HCS_PROCESS>,
 {
     windows_targets::link!("computecore.dll" "system" fn HcsWaitForProcessExit(computesystem : HCS_PROCESS, timeoutms : u32, result : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    HcsWaitForProcessExit(computesystem.param().abi(), timeoutms, core::mem::transmute(result.unwrap_or(std::ptr::null_mut()))).ok()
+    HcsWaitForProcessExit(computesystem.param().abi(), timeoutms, core::mem::transmute(result.unwrap_or(core::ptr::null_mut()))).ok()
 }
 pub const HcsCreateOptions_1: HCS_CREATE_OPTIONS = HCS_CREATE_OPTIONS(65536i32);
 pub const HcsEventGroupOperationInfo: HCS_EVENT_TYPE = HCS_EVENT_TYPE(-1073741823i32);

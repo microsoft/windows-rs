@@ -35,7 +35,7 @@ where
 {
     windows_targets::link!("fltlib.dll" "system" fn FilterConnectCommunicationPort(lpportname : windows_core::PCWSTR, dwoptions : u32, lpcontext : *const core::ffi::c_void, wsizeofcontext : u16, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, hport : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    FilterConnectCommunicationPort(lpportname.param().abi(), dwoptions, core::mem::transmute(lpcontext.unwrap_or(std::ptr::null())), wsizeofcontext, core::mem::transmute(lpsecurityattributes.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
+    FilterConnectCommunicationPort(lpportname.param().abi(), dwoptions, core::mem::transmute(lpcontext.unwrap_or(core::ptr::null())), wsizeofcontext, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn FilterCreate<P0>(lpfiltername: P0) -> windows_core::Result<HFILTER>
@@ -100,7 +100,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("fltlib.dll" "system" fn FilterGetMessage(hport : super::super::Foundation:: HANDLE, lpmessagebuffer : *mut FILTER_MESSAGE_HEADER, dwmessagebuffersize : u32, lpoverlapped : *mut super::super::System::IO:: OVERLAPPED) -> windows_core::HRESULT);
-    FilterGetMessage(hport.param().abi(), lpmessagebuffer, dwmessagebuffersize, core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null_mut()))).ok()
+    FilterGetMessage(hport.param().abi(), lpmessagebuffer, dwmessagebuffersize, core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn FilterInstanceClose<P0>(hinstance: P0) -> windows_core::Result<()>
@@ -175,7 +175,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("fltlib.dll" "system" fn FilterSendMessage(hport : super::super::Foundation:: HANDLE, lpinbuffer : *const core::ffi::c_void, dwinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, dwoutbuffersize : u32, lpbytesreturned : *mut u32) -> windows_core::HRESULT);
-    FilterSendMessage(hport.param().abi(), lpinbuffer, dwinbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(std::ptr::null_mut())), dwoutbuffersize, lpbytesreturned).ok()
+    FilterSendMessage(hport.param().abi(), lpinbuffer, dwinbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), dwoutbuffersize, lpbytesreturned).ok()
 }
 #[inline]
 pub unsafe fn FilterUnload<P0>(lpfiltername: P0) -> windows_core::Result<()>

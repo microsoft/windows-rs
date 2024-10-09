@@ -288,7 +288,7 @@ where
 {
     windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqIsDiagnosticRecordSampledIn(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup : *const windows_core::GUID, providerid : *const windows_core::GUID, providername : windows_core::PCWSTR, eventid : *const u32, eventname : windows_core::PCWSTR, eventversion : *const u32, eventkeywords : *const u64, issampledin : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    DdqIsDiagnosticRecordSampledIn(hsession.param().abi(), providergroup, core::mem::transmute(providerid.unwrap_or(std::ptr::null())), providername.param().abi(), core::mem::transmute(eventid.unwrap_or(std::ptr::null())), eventname.param().abi(), core::mem::transmute(eventversion.unwrap_or(std::ptr::null())), core::mem::transmute(eventkeywords.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
+    DdqIsDiagnosticRecordSampledIn(hsession.param().abi(), providergroup, core::mem::transmute(providerid.unwrap_or(core::ptr::null())), providername.param().abi(), core::mem::transmute(eventid.unwrap_or(core::ptr::null())), eventname.param().abi(), core::mem::transmute(eventversion.unwrap_or(core::ptr::null())), core::mem::transmute(eventkeywords.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn DdqSetTranscriptConfiguration<P0>(hsession: P0, desiredconfig: *const DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> windows_core::Result<()>

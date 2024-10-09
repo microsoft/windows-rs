@@ -45,7 +45,7 @@ pub unsafe fn ConsoleControl(command: CONSOLECONTROL, consoleinformation: *const
 #[inline]
 pub unsafe fn CreateConsoleScreenBuffer(dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, dwflags: u32, lpscreenbufferdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_targets::link!("kernel32.dll" "system" fn CreateConsoleScreenBuffer(dwdesiredaccess : u32, dwsharemode : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, dwflags : u32, lpscreenbufferdata : *const core::ffi::c_void) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateConsoleScreenBuffer(dwdesiredaccess, dwsharemode, core::mem::transmute(lpsecurityattributes.unwrap_or(std::ptr::null())), dwflags, core::mem::transmute(lpscreenbufferdata.unwrap_or(std::ptr::null())));
+    let result__ = CreateConsoleScreenBuffer(dwdesiredaccess, dwsharemode, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), dwflags, core::mem::transmute(lpscreenbufferdata.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -380,7 +380,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn ReadConsoleA(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut core::ffi::c_void, nnumberofcharstoread : u32, lpnumberofcharsread : *mut u32, pinputcontrol : *const CONSOLE_READCONSOLE_CONTROL) -> super::super::Foundation:: BOOL);
-    ReadConsoleA(hconsoleinput.param().abi(), lpbuffer, nnumberofcharstoread, lpnumberofcharsread, core::mem::transmute(pinputcontrol.unwrap_or(std::ptr::null()))).ok()
+    ReadConsoleA(hconsoleinput.param().abi(), lpbuffer, nnumberofcharstoread, lpnumberofcharsread, core::mem::transmute(pinputcontrol.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ReadConsoleInputA<P0>(hconsoleinput: P0, lpbuffer: &mut [INPUT_RECORD], lpnumberofeventsread: *mut u32) -> windows_core::Result<()>
@@ -444,7 +444,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn ReadConsoleW(hconsoleinput : super::super::Foundation:: HANDLE, lpbuffer : *mut core::ffi::c_void, nnumberofcharstoread : u32, lpnumberofcharsread : *mut u32, pinputcontrol : *const CONSOLE_READCONSOLE_CONTROL) -> super::super::Foundation:: BOOL);
-    ReadConsoleW(hconsoleinput.param().abi(), lpbuffer, nnumberofcharstoread, lpnumberofcharsread, core::mem::transmute(pinputcontrol.unwrap_or(std::ptr::null()))).ok()
+    ReadConsoleW(hconsoleinput.param().abi(), lpbuffer, nnumberofcharstoread, lpnumberofcharsread, core::mem::transmute(pinputcontrol.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ResizePseudoConsole<P0>(hpc: P0, size: COORD) -> windows_core::Result<()>
@@ -460,7 +460,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn ScrollConsoleScreenBufferA(hconsoleoutput : super::super::Foundation:: HANDLE, lpscrollrectangle : *const SMALL_RECT, lpcliprectangle : *const SMALL_RECT, dwdestinationorigin : COORD, lpfill : *const CHAR_INFO) -> super::super::Foundation:: BOOL);
-    ScrollConsoleScreenBufferA(hconsoleoutput.param().abi(), lpscrollrectangle, core::mem::transmute(lpcliprectangle.unwrap_or(std::ptr::null())), core::mem::transmute(dwdestinationorigin), lpfill).ok()
+    ScrollConsoleScreenBufferA(hconsoleoutput.param().abi(), lpscrollrectangle, core::mem::transmute(lpcliprectangle.unwrap_or(core::ptr::null())), core::mem::transmute(dwdestinationorigin), lpfill).ok()
 }
 #[inline]
 pub unsafe fn ScrollConsoleScreenBufferW<P0>(hconsoleoutput: P0, lpscrollrectangle: *const SMALL_RECT, lpcliprectangle: Option<*const SMALL_RECT>, dwdestinationorigin: COORD, lpfill: *const CHAR_INFO) -> windows_core::Result<()>
@@ -468,7 +468,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn ScrollConsoleScreenBufferW(hconsoleoutput : super::super::Foundation:: HANDLE, lpscrollrectangle : *const SMALL_RECT, lpcliprectangle : *const SMALL_RECT, dwdestinationorigin : COORD, lpfill : *const CHAR_INFO) -> super::super::Foundation:: BOOL);
-    ScrollConsoleScreenBufferW(hconsoleoutput.param().abi(), lpscrollrectangle, core::mem::transmute(lpcliprectangle.unwrap_or(std::ptr::null())), core::mem::transmute(dwdestinationorigin), lpfill).ok()
+    ScrollConsoleScreenBufferW(hconsoleoutput.param().abi(), lpscrollrectangle, core::mem::transmute(lpcliprectangle.unwrap_or(core::ptr::null())), core::mem::transmute(dwdestinationorigin), lpfill).ok()
 }
 #[inline]
 pub unsafe fn SetConsoleActiveScreenBuffer<P0>(hconsoleoutput: P0) -> windows_core::Result<()>
@@ -513,7 +513,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetConsoleDisplayMode(hconsoleoutput : super::super::Foundation:: HANDLE, dwflags : u32, lpnewscreenbufferdimensions : *mut COORD) -> super::super::Foundation:: BOOL);
-    SetConsoleDisplayMode(hconsoleoutput.param().abi(), dwflags, core::mem::transmute(lpnewscreenbufferdimensions.unwrap_or(std::ptr::null_mut()))).ok()
+    SetConsoleDisplayMode(hconsoleoutput.param().abi(), dwflags, core::mem::transmute(lpnewscreenbufferdimensions.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn SetConsoleHistoryInfo(lpconsolehistoryinfo: *const CONSOLE_HISTORY_INFO) -> windows_core::Result<()> {
@@ -621,7 +621,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetStdHandleEx(nstdhandle : STD_HANDLE, hhandle : super::super::Foundation:: HANDLE, phprevvalue : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    SetStdHandleEx(nstdhandle, hhandle.param().abi(), core::mem::transmute(phprevvalue.unwrap_or(std::ptr::null_mut())))
+    SetStdHandleEx(nstdhandle, hhandle.param().abi(), core::mem::transmute(phprevvalue.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn WriteConsoleA<P0>(hconsoleoutput: P0, lpbuffer: &[u8], lpnumberofcharswritten: Option<*mut u32>, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -629,7 +629,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn WriteConsoleA(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : windows_core::PCSTR, nnumberofcharstowrite : u32, lpnumberofcharswritten : *mut u32, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    WriteConsoleA(hconsoleoutput.param().abi(), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), core::mem::transmute(lpnumberofcharswritten.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpreserved.unwrap_or(std::ptr::null()))).ok()
+    WriteConsoleA(hconsoleoutput.param().abi(), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), core::mem::transmute(lpnumberofcharswritten.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpreserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WriteConsoleInputA<P0>(hconsoleinput: P0, lpbuffer: &[INPUT_RECORD], lpnumberofeventswritten: *mut u32) -> windows_core::Result<()>
@@ -693,7 +693,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn WriteConsoleW(hconsoleoutput : super::super::Foundation:: HANDLE, lpbuffer : windows_core::PCWSTR, nnumberofcharstowrite : u32, lpnumberofcharswritten : *mut u32, lpreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    WriteConsoleW(hconsoleoutput.param().abi(), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), core::mem::transmute(lpnumberofcharswritten.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpreserved.unwrap_or(std::ptr::null()))).ok()
+    WriteConsoleW(hconsoleoutput.param().abi(), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), core::mem::transmute(lpnumberofcharswritten.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpreserved.unwrap_or(core::ptr::null()))).ok()
 }
 pub const ALTNUMPAD_BIT: u32 = 67108864u32;
 pub const ATTACH_PARENT_PROCESS: u32 = 4294967295u32;

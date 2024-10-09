@@ -4,7 +4,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mdmlocalmanagement.dll" "system" fn ApplyLocalManagementSyncML(syncmlrequest : windows_core::PCWSTR, syncmlresult : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    ApplyLocalManagementSyncML(syncmlrequest.param().abi(), core::mem::transmute(syncmlresult.unwrap_or(std::ptr::null_mut()))).ok()
+    ApplyLocalManagementSyncML(syncmlrequest.param().abi(), core::mem::transmute(syncmlresult.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn DiscoverManagementService<P0>(pszupn: P0) -> windows_core::Result<*mut MANAGEMENT_SERVICE_INFO>
@@ -63,7 +63,7 @@ pub unsafe fn IsMdmUxWithoutAadAllowed() -> windows_core::Result<super::super::F
 #[inline]
 pub unsafe fn RegisterDeviceWithLocalManagement(alreadyregistered: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
     windows_targets::link!("mdmlocalmanagement.dll" "system" fn RegisterDeviceWithLocalManagement(alreadyregistered : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    RegisterDeviceWithLocalManagement(core::mem::transmute(alreadyregistered.unwrap_or(std::ptr::null_mut()))).ok()
+    RegisterDeviceWithLocalManagement(core::mem::transmute(alreadyregistered.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn RegisterDeviceWithManagement<P0, P1, P2>(pszupn: P0, ppszmdmserviceuri: P1, ppzsaccesstoken: P2) -> windows_core::Result<()>

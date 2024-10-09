@@ -12,7 +12,7 @@ where
     P0: windows_core::Param<super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtQueryObject(handle : super::super::Win32::Foundation:: HANDLE, objectinformationclass : OBJECT_INFORMATION_CLASS, objectinformation : *mut core::ffi::c_void, objectinformationlength : u32, returnlength : *mut u32) -> super::super::Win32::Foundation:: NTSTATUS);
-    NtQueryObject(handle.param().abi(), objectinformationclass, core::mem::transmute(objectinformation.unwrap_or(std::ptr::null_mut())), objectinformationlength, core::mem::transmute(returnlength.unwrap_or(std::ptr::null_mut())))
+    NtQueryObject(handle.param().abi(), objectinformationclass, core::mem::transmute(objectinformation.unwrap_or(core::ptr::null_mut())), objectinformationlength, core::mem::transmute(returnlength.unwrap_or(core::ptr::null_mut())))
 }
 pub const DontUseThisType: POOL_TYPE = POOL_TYPE(3i32);
 pub const DontUseThisTypeSession: POOL_TYPE = POOL_TYPE(35i32);

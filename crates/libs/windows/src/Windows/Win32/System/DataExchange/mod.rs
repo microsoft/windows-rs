@@ -55,7 +55,7 @@ where
     P0: windows_core::Param<HDDEDATA>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeAccessData(hdata : HDDEDATA, pcbdatasize : *mut u32) -> *mut u8);
-    DdeAccessData(hdata.param().abi(), core::mem::transmute(pcbdatasize.unwrap_or(std::ptr::null_mut())))
+    DdeAccessData(hdata.param().abi(), core::mem::transmute(pcbdatasize.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn DdeAddData<P0>(hdata: P0, psrc: &[u8], cboff: u32) -> HDDEDATA
@@ -72,7 +72,7 @@ where
     P1: windows_core::Param<HSZ>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeClientTransaction(pdata : *const u8, cbdata : u32, hconv : HCONV, hszitem : HSZ, wfmt : u32, wtype : DDE_CLIENT_TRANSACTION_TYPE, dwtimeout : u32, pdwresult : *mut u32) -> HDDEDATA);
-    DdeClientTransaction(core::mem::transmute(pdata.unwrap_or(std::ptr::null())), cbdata, hconv.param().abi(), hszitem.param().abi(), wfmt, wtype, dwtimeout, core::mem::transmute(pdwresult.unwrap_or(std::ptr::null_mut())))
+    DdeClientTransaction(core::mem::transmute(pdata.unwrap_or(core::ptr::null())), cbdata, hconv.param().abi(), hszitem.param().abi(), wfmt, wtype, dwtimeout, core::mem::transmute(pdwresult.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn DdeCmpStringHandles<P0, P1>(hsz1: P0, hsz2: P1) -> i32
@@ -91,7 +91,7 @@ where
     P1: windows_core::Param<HSZ>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeConnect(idinst : u32, hszservice : HSZ, hsztopic : HSZ, pcc : *const CONVCONTEXT) -> HCONV);
-    DdeConnect(idinst, hszservice.param().abi(), hsztopic.param().abi(), core::mem::transmute(pcc.unwrap_or(std::ptr::null())))
+    DdeConnect(idinst, hszservice.param().abi(), hsztopic.param().abi(), core::mem::transmute(pcc.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -102,7 +102,7 @@ where
     P2: windows_core::Param<HCONVLIST>,
 {
     windows_targets::link!("user32.dll" "system" fn DdeConnectList(idinst : u32, hszservice : HSZ, hsztopic : HSZ, hconvlist : HCONVLIST, pcc : *const CONVCONTEXT) -> HCONVLIST);
-    DdeConnectList(idinst, hszservice.param().abi(), hsztopic.param().abi(), hconvlist.param().abi(), core::mem::transmute(pcc.unwrap_or(std::ptr::null())))
+    DdeConnectList(idinst, hszservice.param().abi(), hsztopic.param().abi(), hconvlist.param().abi(), core::mem::transmute(pcc.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn DdeCreateDataHandle<P0>(idinst: u32, psrc: Option<&[u8]>, cboff: u32, hszitem: P0, wfmt: u32, afcmd: u32) -> HDDEDATA
@@ -547,7 +547,7 @@ where
     P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("gdi32.dll" "system" fn SetWinMetaFileBits(nsize : u32, lpmeta16data : *const u8, hdcref : super::super::Graphics::Gdi:: HDC, lpmfp : *const METAFILEPICT) -> super::super::Graphics::Gdi:: HENHMETAFILE);
-    SetWinMetaFileBits(lpmeta16data.len().try_into().unwrap(), core::mem::transmute(lpmeta16data.as_ptr()), hdcref.param().abi(), core::mem::transmute(lpmfp.unwrap_or(std::ptr::null())))
+    SetWinMetaFileBits(lpmeta16data.len().try_into().unwrap(), core::mem::transmute(lpmeta16data.as_ptr()), hdcref.param().abi(), core::mem::transmute(lpmfp.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn UnpackDDElParam<P0>(msg: u32, lparam: P0, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL

@@ -1079,7 +1079,7 @@ impl IInkDisp {
     where
         P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).HitTestWithLasso)(windows_core::Interface::as_raw(self), points.param().abi(), intersectpercent, core::mem::transmute(lassopoints.unwrap_or(std::ptr::null_mut())), core::mem::transmute(strokes)).ok()
+        (windows_core::Interface::vtable(self).HitTestWithLasso)(windows_core::Interface::as_raw(self), points.param().abi(), intersectpercent, core::mem::transmute(lassopoints.unwrap_or(core::ptr::null_mut())), core::mem::transmute(strokes)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NearestPoint(&self, x: i32, y: i32, pointonstroke: *mut f32, distancefrompacket: *mut f32, stroke: *mut Option<IInkStrokeDisp>) -> windows_core::Result<()> {
@@ -5393,7 +5393,7 @@ impl IRealTimeStylus {
         (windows_core::Interface::vtable(self).GetDesiredPacketDescription)(windows_core::Interface::as_raw(self), pcproperties, pppropertyguids).ok()
     }
     pub unsafe fn GetPacketDescriptionData(&self, tcid: u32, pfinktodevicescalex: Option<*mut f32>, pfinktodevicescaley: Option<*mut f32>, pcpacketproperties: *mut u32, pppacketproperties: *mut *mut PACKET_PROPERTY) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPacketDescriptionData)(windows_core::Interface::as_raw(self), tcid, core::mem::transmute(pfinktodevicescalex.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pfinktodevicescaley.unwrap_or(std::ptr::null_mut())), pcpacketproperties, pppacketproperties).ok()
+        (windows_core::Interface::vtable(self).GetPacketDescriptionData)(windows_core::Interface::as_raw(self), tcid, core::mem::transmute(pfinktodevicescalex.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfinktodevicescaley.unwrap_or(core::ptr::null_mut())), pcpacketproperties, pppacketproperties).ok()
     }
 }
 #[repr(C)]
@@ -5556,7 +5556,7 @@ impl IStrokeBuilder {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BeginStroke(&self, tcid: u32, sid: u32, ppacket: *const i32, ppacketproperties: &[PACKET_PROPERTY], finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: Option<*mut Option<IInkStrokeDisp>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).BeginStroke)(windows_core::Interface::as_raw(self), tcid, sid, ppacket, ppacketproperties.len().try_into().unwrap(), core::mem::transmute(ppacketproperties.as_ptr()), finktodevicescalex, finktodevicescaley, core::mem::transmute(ppiinkstroke.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).BeginStroke)(windows_core::Interface::as_raw(self), tcid, sid, ppacket, ppacketproperties.len().try_into().unwrap(), core::mem::transmute(ppacketproperties.as_ptr()), finktodevicescalex, finktodevicescaley, core::mem::transmute(ppiinkstroke.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn AppendPackets(&self, tcid: u32, sid: u32, ppackets: &[i32]) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AppendPackets)(windows_core::Interface::as_raw(self), tcid, sid, ppackets.len().try_into().unwrap(), core::mem::transmute(ppackets.as_ptr())).ok()

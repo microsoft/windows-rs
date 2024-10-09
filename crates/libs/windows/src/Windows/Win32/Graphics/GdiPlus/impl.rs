@@ -12,7 +12,7 @@ impl GdiplusAbort_Vtbl {
     }
 }
 #[doc(hidden)]
-struct GdiplusAbort_ImplVtbl<T: GdiplusAbort_Impl>(std::marker::PhantomData<T>);
+struct GdiplusAbort_ImplVtbl<T: GdiplusAbort_Impl>(core::marker::PhantomData<T>);
 impl<T: GdiplusAbort_Impl> GdiplusAbort_ImplVtbl<T> {
     const VTABLE: GdiplusAbort_Vtbl = GdiplusAbort_Vtbl::new::<T>();
 }

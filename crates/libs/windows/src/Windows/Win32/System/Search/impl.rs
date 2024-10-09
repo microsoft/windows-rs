@@ -6188,7 +6188,7 @@ impl IUMS_Vtbl {
     }
 }
 #[doc(hidden)]
-struct IUMS_ImplVtbl<T: IUMS_Impl>(std::marker::PhantomData<T>);
+struct IUMS_ImplVtbl<T: IUMS_Impl>(core::marker::PhantomData<T>);
 impl<T: IUMS_Impl> IUMS_ImplVtbl<T> {
     const VTABLE: IUMS_Vtbl = IUMS_Vtbl::new::<T>();
 }

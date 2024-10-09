@@ -101,7 +101,7 @@ pub unsafe fn KsOpenDefaultDevice(category: *const windows_core::GUID, access: u
 #[inline]
 pub unsafe fn KsResolveRequiredAttributes(datarange: *const KSDATAFORMAT, attributes: Option<*const KSMULTIPLE_ITEM>) -> windows_core::Result<()> {
     windows_targets::link!("ksproxy.ax" "system" fn KsResolveRequiredAttributes(datarange : *const KSDATAFORMAT, attributes : *const KSMULTIPLE_ITEM) -> windows_core::HRESULT);
-    KsResolveRequiredAttributes(datarange, core::mem::transmute(attributes.unwrap_or(std::ptr::null()))).ok()
+    KsResolveRequiredAttributes(datarange, core::mem::transmute(attributes.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn KsSynchronousDeviceControl<P0>(handle: P0, iocontrol: u32, inbuffer: Option<*const core::ffi::c_void>, inlength: u32, outbuffer: Option<*mut core::ffi::c_void>, outlength: u32, bytesreturned: Option<*mut u32>) -> windows_core::Result<()>
@@ -109,7 +109,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("ksproxy.ax" "system" fn KsSynchronousDeviceControl(handle : super::super::Foundation:: HANDLE, iocontrol : u32, inbuffer : *const core::ffi::c_void, inlength : u32, outbuffer : *mut core::ffi::c_void, outlength : u32, bytesreturned : *mut u32) -> windows_core::HRESULT);
-    KsSynchronousDeviceControl(handle.param().abi(), iocontrol, core::mem::transmute(inbuffer.unwrap_or(std::ptr::null())), inlength, core::mem::transmute(outbuffer.unwrap_or(std::ptr::null_mut())), outlength, core::mem::transmute(bytesreturned.unwrap_or(std::ptr::null_mut()))).ok()
+    KsSynchronousDeviceControl(handle.param().abi(), iocontrol, core::mem::transmute(inbuffer.unwrap_or(core::ptr::null())), inlength, core::mem::transmute(outbuffer.unwrap_or(core::ptr::null_mut())), outlength, core::mem::transmute(bytesreturned.unwrap_or(core::ptr::null_mut()))).ok()
 }
 windows_core::imp::define_interface!(IKsAggregateControl, IKsAggregateControl_Vtbl, 0x7f40eac0_3947_11d2_874e_00a0c9223196);
 impl core::ops::Deref for IKsAggregateControl {
@@ -610,7 +610,7 @@ impl IKsPin {
         (windows_core::Interface::vtable(self).KsCreateSinkPinHandle)(windows_core::Interface::as_raw(self), interface, medium).ok()
     }
     pub unsafe fn KsGetCurrentCommunication(&self, communication: Option<*mut KSPIN_COMMUNICATION>, interface: Option<*mut KSIDENTIFIER>, medium: Option<*mut KSIDENTIFIER>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).KsGetCurrentCommunication)(windows_core::Interface::as_raw(self), core::mem::transmute(communication.unwrap_or(std::ptr::null_mut())), core::mem::transmute(interface.unwrap_or(std::ptr::null_mut())), core::mem::transmute(medium.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).KsGetCurrentCommunication)(windows_core::Interface::as_raw(self), core::mem::transmute(communication.unwrap_or(core::ptr::null_mut())), core::mem::transmute(interface.unwrap_or(core::ptr::null_mut())), core::mem::transmute(medium.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn KsPropagateAcquire(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).KsPropagateAcquire)(windows_core::Interface::as_raw(self)).ok()

@@ -128,7 +128,7 @@ where
     P0: windows_core::Param<EVT_HANDLE>,
 {
     windows_targets::link!("wevtapi.dll" "system" fn EvtGetChannelConfigProperty(channelconfig : EVT_HANDLE, propertyid : EVT_CHANNEL_CONFIG_PROPERTY_ID, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
-    EvtGetChannelConfigProperty(channelconfig.param().abi(), propertyid, flags, propertyvaluebuffersize, core::mem::transmute(propertyvaluebuffer.unwrap_or(std::ptr::null_mut())), propertyvaluebufferused).ok()
+    EvtGetChannelConfigProperty(channelconfig.param().abi(), propertyid, flags, propertyvaluebuffersize, core::mem::transmute(propertyvaluebuffer.unwrap_or(core::ptr::null_mut())), propertyvaluebufferused).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -137,7 +137,7 @@ where
     P0: windows_core::Param<EVT_HANDLE>,
 {
     windows_targets::link!("wevtapi.dll" "system" fn EvtGetEventInfo(event : EVT_HANDLE, propertyid : EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
-    EvtGetEventInfo(event.param().abi(), propertyid, propertyvaluebuffersize, core::mem::transmute(propertyvaluebuffer.unwrap_or(std::ptr::null_mut())), propertyvaluebufferused).ok()
+    EvtGetEventInfo(event.param().abi(), propertyid, propertyvaluebuffersize, core::mem::transmute(propertyvaluebuffer.unwrap_or(core::ptr::null_mut())), propertyvaluebufferused).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -146,7 +146,7 @@ where
     P0: windows_core::Param<EVT_HANDLE>,
 {
     windows_targets::link!("wevtapi.dll" "system" fn EvtGetEventMetadataProperty(eventmetadata : EVT_HANDLE, propertyid : EVT_EVENT_METADATA_PROPERTY_ID, flags : u32, eventmetadatapropertybuffersize : u32, eventmetadatapropertybuffer : *mut EVT_VARIANT, eventmetadatapropertybufferused : *mut u32) -> super::super::Foundation:: BOOL);
-    EvtGetEventMetadataProperty(eventmetadata.param().abi(), propertyid, flags, eventmetadatapropertybuffersize, core::mem::transmute(eventmetadatapropertybuffer.unwrap_or(std::ptr::null_mut())), eventmetadatapropertybufferused).ok()
+    EvtGetEventMetadataProperty(eventmetadata.param().abi(), propertyid, flags, eventmetadatapropertybuffersize, core::mem::transmute(eventmetadatapropertybuffer.unwrap_or(core::ptr::null_mut())), eventmetadatapropertybufferused).ok()
 }
 #[inline]
 pub unsafe fn EvtGetExtendedStatus(buffer: Option<&mut [u16]>, bufferused: *mut u32) -> u32 {
@@ -160,13 +160,13 @@ where
     P0: windows_core::Param<EVT_HANDLE>,
 {
     windows_targets::link!("wevtapi.dll" "system" fn EvtGetLogInfo(log : EVT_HANDLE, propertyid : EVT_LOG_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
-    EvtGetLogInfo(log.param().abi(), propertyid, propertyvaluebuffersize, core::mem::transmute(propertyvaluebuffer.unwrap_or(std::ptr::null_mut())), propertyvaluebufferused).ok()
+    EvtGetLogInfo(log.param().abi(), propertyid, propertyvaluebuffersize, core::mem::transmute(propertyvaluebuffer.unwrap_or(core::ptr::null_mut())), propertyvaluebufferused).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn EvtGetObjectArrayProperty(objectarray: isize, propertyid: u32, arrayindex: u32, flags: u32, propertyvaluebuffersize: u32, propertyvaluebuffer: Option<*mut EVT_VARIANT>, propertyvaluebufferused: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("wevtapi.dll" "system" fn EvtGetObjectArrayProperty(objectarray : isize, propertyid : u32, arrayindex : u32, flags : u32, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
-    EvtGetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, core::mem::transmute(propertyvaluebuffer.unwrap_or(std::ptr::null_mut())), propertyvaluebufferused).ok()
+    EvtGetObjectArrayProperty(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, core::mem::transmute(propertyvaluebuffer.unwrap_or(core::ptr::null_mut())), propertyvaluebufferused).ok()
 }
 #[inline]
 pub unsafe fn EvtGetObjectArraySize(objectarray: isize, objectarraysize: *mut u32) -> windows_core::Result<()> {
@@ -180,7 +180,7 @@ where
     P0: windows_core::Param<EVT_HANDLE>,
 {
     windows_targets::link!("wevtapi.dll" "system" fn EvtGetPublisherMetadataProperty(publishermetadata : EVT_HANDLE, propertyid : EVT_PUBLISHER_METADATA_PROPERTY_ID, flags : u32, publishermetadatapropertybuffersize : u32, publishermetadatapropertybuffer : *mut EVT_VARIANT, publishermetadatapropertybufferused : *mut u32) -> super::super::Foundation:: BOOL);
-    EvtGetPublisherMetadataProperty(publishermetadata.param().abi(), propertyid, flags, publishermetadatapropertybuffersize, core::mem::transmute(publishermetadatapropertybuffer.unwrap_or(std::ptr::null_mut())), publishermetadatapropertybufferused).ok()
+    EvtGetPublisherMetadataProperty(publishermetadata.param().abi(), propertyid, flags, publishermetadatapropertybuffersize, core::mem::transmute(publishermetadatapropertybuffer.unwrap_or(core::ptr::null_mut())), publishermetadatapropertybufferused).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -189,7 +189,7 @@ where
     P0: windows_core::Param<EVT_HANDLE>,
 {
     windows_targets::link!("wevtapi.dll" "system" fn EvtGetQueryInfo(queryorsubscription : EVT_HANDLE, propertyid : EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize : u32, propertyvaluebuffer : *mut EVT_VARIANT, propertyvaluebufferused : *mut u32) -> super::super::Foundation:: BOOL);
-    EvtGetQueryInfo(queryorsubscription.param().abi(), propertyid, propertyvaluebuffersize, core::mem::transmute(propertyvaluebuffer.unwrap_or(std::ptr::null_mut())), propertyvaluebufferused).ok()
+    EvtGetQueryInfo(queryorsubscription.param().abi(), propertyid, propertyvaluebuffersize, core::mem::transmute(propertyvaluebuffer.unwrap_or(core::ptr::null_mut())), propertyvaluebufferused).ok()
 }
 #[inline]
 pub unsafe fn EvtNext<P0>(resultset: P0, events: &mut [isize], timeout: u32, flags: u32, returned: *mut u32) -> windows_core::Result<()>
@@ -306,7 +306,7 @@ where
     P1: windows_core::Param<EVT_HANDLE>,
 {
     windows_targets::link!("wevtapi.dll" "system" fn EvtRender(context : EVT_HANDLE, fragment : EVT_HANDLE, flags : u32, buffersize : u32, buffer : *mut core::ffi::c_void, bufferused : *mut u32, propertycount : *mut u32) -> super::super::Foundation:: BOOL);
-    EvtRender(context.param().abi(), fragment.param().abi(), flags, buffersize, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), bufferused, propertycount).ok()
+    EvtRender(context.param().abi(), fragment.param().abi(), flags, buffersize, core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), bufferused, propertycount).ok()
 }
 #[inline]
 pub unsafe fn EvtSaveChannelConfig<P0>(channelconfig: P0, flags: u32) -> windows_core::Result<()>
@@ -344,7 +344,7 @@ where
     P4: windows_core::Param<EVT_HANDLE>,
 {
     windows_targets::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::super::Foundation:: HANDLE, channelpath : windows_core::PCWSTR, query : windows_core::PCWSTR, bookmark : EVT_HANDLE, context : *const core::ffi::c_void, callback : EVT_SUBSCRIBE_CALLBACK, flags : u32) -> EVT_HANDLE);
-    let result__ = EvtSubscribe(session.param().abi(), signalevent.param().abi(), channelpath.param().abi(), query.param().abi(), bookmark.param().abi(), core::mem::transmute(context.unwrap_or(std::ptr::null())), callback, flags);
+    let result__ = EvtSubscribe(session.param().abi(), signalevent.param().abi(), channelpath.param().abi(), query.param().abi(), bookmark.param().abi(), core::mem::transmute(context.unwrap_or(core::ptr::null())), callback, flags);
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -473,7 +473,7 @@ where
     P1: windows_core::Param<super::super::Security::PSID>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ReportEventA(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_core::PCSTR, lprawdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    ReportEventA(heventlog.param().abi(), wtype, wcategory, dweventid, lpusersid.param().abi(), lpstrings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwdatasize, core::mem::transmute(lpstrings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(lprawdata.unwrap_or(std::ptr::null()))).ok()
+    ReportEventA(heventlog.param().abi(), wtype, wcategory, dweventid, lpusersid.param().abi(), lpstrings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwdatasize, core::mem::transmute(lpstrings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(lprawdata.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -483,7 +483,7 @@ where
     P1: windows_core::Param<super::super::Security::PSID>,
 {
     windows_targets::link!("advapi32.dll" "system" fn ReportEventW(heventlog : super::super::Foundation:: HANDLE, wtype : REPORT_EVENT_TYPE, wcategory : u16, dweventid : u32, lpusersid : super::super::Security:: PSID, wnumstrings : u16, dwdatasize : u32, lpstrings : *const windows_core::PCWSTR, lprawdata : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    ReportEventW(heventlog.param().abi(), wtype, wcategory, dweventid, lpusersid.param().abi(), lpstrings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwdatasize, core::mem::transmute(lpstrings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(lprawdata.unwrap_or(std::ptr::null()))).ok()
+    ReportEventW(heventlog.param().abi(), wtype, wcategory, dweventid, lpusersid.param().abi(), lpstrings.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwdatasize, core::mem::transmute(lpstrings.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(lprawdata.unwrap_or(core::ptr::null()))).ok()
 }
 pub const EVENTLOG_AUDIT_FAILURE: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(16u16);
 pub const EVENTLOG_AUDIT_SUCCESS: REPORT_EVENT_TYPE = REPORT_EVENT_TYPE(8u16);

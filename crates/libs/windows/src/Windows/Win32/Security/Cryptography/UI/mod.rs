@@ -47,7 +47,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cryptui.dll" "system" fn CryptUIWizDigitalSign(dwflags : u32, hwndparent : super::super::super::Foundation:: HWND, pwszwizardtitle : windows_core::PCWSTR, pdigitalsigninfo : *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext : *mut *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::super::Foundation:: BOOL);
-    CryptUIWizDigitalSign(dwflags, hwndparent.param().abi(), pwszwizardtitle.param().abi(), pdigitalsigninfo, core::mem::transmute(ppsigncontext.unwrap_or(std::ptr::null_mut())))
+    CryptUIWizDigitalSign(dwflags, hwndparent.param().abi(), pwszwizardtitle.param().abi(), pdigitalsigninfo, core::mem::transmute(ppsigncontext.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn CryptUIWizExport<P0, P1>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: P0, pwszwizardtitle: P1, pexportinfo: *const CRYPTUI_WIZ_EXPORT_INFO, pvoid: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -56,7 +56,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("cryptui.dll" "system" fn CryptUIWizExport(dwflags : CRYPTUI_WIZ_FLAGS, hwndparent : super::super::super::Foundation:: HWND, pwszwizardtitle : windows_core::PCWSTR, pexportinfo : *const CRYPTUI_WIZ_EXPORT_INFO, pvoid : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
-    CryptUIWizExport(dwflags, hwndparent.param().abi(), pwszwizardtitle.param().abi(), pexportinfo, core::mem::transmute(pvoid.unwrap_or(std::ptr::null()))).ok()
+    CryptUIWizExport(dwflags, hwndparent.param().abi(), pwszwizardtitle.param().abi(), pexportinfo, core::mem::transmute(pvoid.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn CryptUIWizFreeDigitalSignContext(psigncontext: *const CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::super::Foundation::BOOL {
@@ -71,7 +71,7 @@ where
     P2: windows_core::Param<super::HCERTSTORE>,
 {
     windows_targets::link!("cryptui.dll" "system" fn CryptUIWizImport(dwflags : CRYPTUI_WIZ_FLAGS, hwndparent : super::super::super::Foundation:: HWND, pwszwizardtitle : windows_core::PCWSTR, pimportsrc : *const CRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore : super:: HCERTSTORE) -> super::super::super::Foundation:: BOOL);
-    CryptUIWizImport(dwflags, hwndparent.param().abi(), pwszwizardtitle.param().abi(), core::mem::transmute(pimportsrc.unwrap_or(std::ptr::null())), hdestcertstore.param().abi()).ok()
+    CryptUIWizImport(dwflags, hwndparent.param().abi(), pwszwizardtitle.param().abi(), core::mem::transmute(pimportsrc.unwrap_or(core::ptr::null())), hdestcertstore.param().abi()).ok()
 }
 pub const ACTION_REVOCATION_DEFAULT_CACHE: u32 = 131072u32;
 pub const ACTION_REVOCATION_DEFAULT_ONLINE: u32 = 65536u32;

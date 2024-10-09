@@ -325,7 +325,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("mscms.dll" "system" fn EnumColorProfilesA(pmachinename : windows_core::PCSTR, penumrecord : *const ENUMTYPEA, penumerationbuffer : *mut u8, pdwsizeofenumerationbuffer : *mut u32, pnprofiles : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumColorProfilesA(pmachinename.param().abi(), penumrecord, core::mem::transmute(penumerationbuffer.unwrap_or(std::ptr::null_mut())), pdwsizeofenumerationbuffer, core::mem::transmute(pnprofiles.unwrap_or(std::ptr::null_mut())))
+    EnumColorProfilesA(pmachinename.param().abi(), penumrecord, core::mem::transmute(penumerationbuffer.unwrap_or(core::ptr::null_mut())), pdwsizeofenumerationbuffer, core::mem::transmute(pnprofiles.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn EnumColorProfilesW<P0>(pmachinename: P0, penumrecord: *const ENUMTYPEW, penumerationbuffer: Option<*mut u8>, pdwsizeofenumerationbuffer: *mut u32, pnprofiles: Option<*mut u32>) -> super::super::Foundation::BOOL
@@ -333,7 +333,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("mscms.dll" "system" fn EnumColorProfilesW(pmachinename : windows_core::PCWSTR, penumrecord : *const ENUMTYPEW, penumerationbuffer : *mut u8, pdwsizeofenumerationbuffer : *mut u32, pnprofiles : *mut u32) -> super::super::Foundation:: BOOL);
-    EnumColorProfilesW(pmachinename.param().abi(), penumrecord, core::mem::transmute(penumerationbuffer.unwrap_or(std::ptr::null_mut())), pdwsizeofenumerationbuffer, core::mem::transmute(pnprofiles.unwrap_or(std::ptr::null_mut())))
+    EnumColorProfilesW(pmachinename.param().abi(), penumrecord, core::mem::transmute(penumerationbuffer.unwrap_or(core::ptr::null_mut())), pdwsizeofenumerationbuffer, core::mem::transmute(pnprofiles.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -379,7 +379,7 @@ where
 #[inline]
 pub unsafe fn GetColorProfileElement(hprofile: isize, tag: u32, dwoffset: u32, pcbelement: *mut u32, pelement: Option<*mut core::ffi::c_void>, pbreference: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     windows_targets::link!("mscms.dll" "system" fn GetColorProfileElement(hprofile : isize, tag : u32, dwoffset : u32, pcbelement : *mut u32, pelement : *mut core::ffi::c_void, pbreference : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    GetColorProfileElement(hprofile, tag, dwoffset, pcbelement, core::mem::transmute(pelement.unwrap_or(std::ptr::null_mut())), pbreference)
+    GetColorProfileElement(hprofile, tag, dwoffset, pcbelement, core::mem::transmute(pelement.unwrap_or(core::ptr::null_mut())), pbreference)
 }
 #[inline]
 pub unsafe fn GetColorProfileElementTag(hprofile: isize, dwindex: u32, ptag: *mut u32) -> super::super::Foundation::BOOL {
@@ -389,7 +389,7 @@ pub unsafe fn GetColorProfileElementTag(hprofile: isize, dwindex: u32, ptag: *mu
 #[inline]
 pub unsafe fn GetColorProfileFromHandle(hprofile: isize, pprofile: Option<*mut u8>, pcbprofile: *mut u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("mscms.dll" "system" fn GetColorProfileFromHandle(hprofile : isize, pprofile : *mut u8, pcbprofile : *mut u32) -> super::super::Foundation:: BOOL);
-    GetColorProfileFromHandle(hprofile, core::mem::transmute(pprofile.unwrap_or(std::ptr::null_mut())), pcbprofile)
+    GetColorProfileFromHandle(hprofile, core::mem::transmute(pprofile.unwrap_or(core::ptr::null_mut())), pcbprofile)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -464,17 +464,17 @@ pub unsafe fn GetNamedProfileInfo(hprofile: isize, pnamedprofileinfo: *mut NAMED
 #[inline]
 pub unsafe fn GetPS2ColorRenderingDictionary(hprofile: isize, dwintent: u32, pps2colorrenderingdictionary: Option<*mut u8>, pcbps2colorrenderingdictionary: *mut u32, pbbinary: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     windows_targets::link!("mscms.dll" "system" fn GetPS2ColorRenderingDictionary(hprofile : isize, dwintent : u32, pps2colorrenderingdictionary : *mut u8, pcbps2colorrenderingdictionary : *mut u32, pbbinary : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    GetPS2ColorRenderingDictionary(hprofile, dwintent, core::mem::transmute(pps2colorrenderingdictionary.unwrap_or(std::ptr::null_mut())), pcbps2colorrenderingdictionary, pbbinary)
+    GetPS2ColorRenderingDictionary(hprofile, dwintent, core::mem::transmute(pps2colorrenderingdictionary.unwrap_or(core::ptr::null_mut())), pcbps2colorrenderingdictionary, pbbinary)
 }
 #[inline]
 pub unsafe fn GetPS2ColorRenderingIntent(hprofile: isize, dwintent: u32, pbuffer: Option<*mut u8>, pcbps2colorrenderingintent: *mut u32) -> super::super::Foundation::BOOL {
     windows_targets::link!("mscms.dll" "system" fn GetPS2ColorRenderingIntent(hprofile : isize, dwintent : u32, pbuffer : *mut u8, pcbps2colorrenderingintent : *mut u32) -> super::super::Foundation:: BOOL);
-    GetPS2ColorRenderingIntent(hprofile, dwintent, core::mem::transmute(pbuffer.unwrap_or(std::ptr::null_mut())), pcbps2colorrenderingintent)
+    GetPS2ColorRenderingIntent(hprofile, dwintent, core::mem::transmute(pbuffer.unwrap_or(core::ptr::null_mut())), pcbps2colorrenderingintent)
 }
 #[inline]
 pub unsafe fn GetPS2ColorSpaceArray(hprofile: isize, dwintent: u32, dwcsatype: u32, pps2colorspacearray: Option<*mut u8>, pcbps2colorspacearray: *mut u32, pbbinary: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     windows_targets::link!("mscms.dll" "system" fn GetPS2ColorSpaceArray(hprofile : isize, dwintent : u32, dwcsatype : u32, pps2colorspacearray : *mut u8, pcbps2colorspacearray : *mut u32, pbbinary : *mut super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
-    GetPS2ColorSpaceArray(hprofile, dwintent, dwcsatype, core::mem::transmute(pps2colorspacearray.unwrap_or(std::ptr::null_mut())), pcbps2colorspacearray, pbbinary)
+    GetPS2ColorSpaceArray(hprofile, dwintent, dwcsatype, core::mem::transmute(pps2colorspacearray.unwrap_or(core::ptr::null_mut())), pcbps2colorspacearray, pbbinary)
 }
 #[inline]
 pub unsafe fn GetStandardColorSpaceProfileA<P0>(pmachinename: P0, dwscs: u32, pbuffer: windows_core::PSTR, pcbsize: *mut u32) -> super::super::Foundation::BOOL
@@ -750,7 +750,7 @@ where
 #[inline]
 pub unsafe fn WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pbuffer: &mut [u8], pnprofiles: Option<*mut u32>) -> super::super::Foundation::BOOL {
     windows_targets::link!("mscms.dll" "system" fn WcsEnumColorProfiles(scope : WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord : *const ENUMTYPEW, pbuffer : *mut u8, dwsize : u32, pnprofiles : *mut u32) -> super::super::Foundation:: BOOL);
-    WcsEnumColorProfiles(scope, penumrecord, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), core::mem::transmute(pnprofiles.unwrap_or(std::ptr::null_mut())))
+    WcsEnumColorProfiles(scope, penumrecord, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), core::mem::transmute(pnprofiles.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn WcsEnumColorProfilesSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pdwsize: *mut u32) -> super::super::Foundation::BOOL {
@@ -794,12 +794,12 @@ where
 #[inline]
 pub unsafe fn WcsOpenColorProfileA(pcdmpprofile: *const PROFILE, pcampprofile: Option<*const PROFILE>, pgmmpprofile: Option<*const PROFILE>, dwdesireaccess: u32, dwsharemode: u32, dwcreationmode: u32, dwflags: u32) -> isize {
     windows_targets::link!("mscms.dll" "system" fn WcsOpenColorProfileA(pcdmpprofile : *const PROFILE, pcampprofile : *const PROFILE, pgmmpprofile : *const PROFILE, dwdesireaccess : u32, dwsharemode : u32, dwcreationmode : u32, dwflags : u32) -> isize);
-    WcsOpenColorProfileA(pcdmpprofile, core::mem::transmute(pcampprofile.unwrap_or(std::ptr::null())), core::mem::transmute(pgmmpprofile.unwrap_or(std::ptr::null())), dwdesireaccess, dwsharemode, dwcreationmode, dwflags)
+    WcsOpenColorProfileA(pcdmpprofile, core::mem::transmute(pcampprofile.unwrap_or(core::ptr::null())), core::mem::transmute(pgmmpprofile.unwrap_or(core::ptr::null())), dwdesireaccess, dwsharemode, dwcreationmode, dwflags)
 }
 #[inline]
 pub unsafe fn WcsOpenColorProfileW(pcdmpprofile: *const PROFILE, pcampprofile: Option<*const PROFILE>, pgmmpprofile: Option<*const PROFILE>, dwdesireaccess: u32, dwsharemode: u32, dwcreationmode: u32, dwflags: u32) -> isize {
     windows_targets::link!("mscms.dll" "system" fn WcsOpenColorProfileW(pcdmpprofile : *const PROFILE, pcampprofile : *const PROFILE, pgmmpprofile : *const PROFILE, dwdesireaccess : u32, dwsharemode : u32, dwcreationmode : u32, dwflags : u32) -> isize);
-    WcsOpenColorProfileW(pcdmpprofile, core::mem::transmute(pcampprofile.unwrap_or(std::ptr::null())), core::mem::transmute(pgmmpprofile.unwrap_or(std::ptr::null())), dwdesireaccess, dwsharemode, dwcreationmode, dwflags)
+    WcsOpenColorProfileW(pcdmpprofile, core::mem::transmute(pcampprofile.unwrap_or(core::ptr::null())), core::mem::transmute(pgmmpprofile.unwrap_or(core::ptr::null())), dwdesireaccess, dwsharemode, dwcreationmode, dwflags)
 }
 #[inline]
 pub unsafe fn WcsSetCalibrationManagementState<P0>(bisenabled: P0) -> super::super::Foundation::BOOL

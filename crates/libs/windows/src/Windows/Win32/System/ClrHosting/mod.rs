@@ -151,10 +151,10 @@ where
         runtimeinfoflags,
         core::mem::transmute(pdirectory.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         pdirectory.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        core::mem::transmute(dwdirectorylength.unwrap_or(std::ptr::null_mut())),
+        core::mem::transmute(dwdirectorylength.unwrap_or(core::ptr::null_mut())),
         core::mem::transmute(pversion.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         pversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-        core::mem::transmute(dwlength.unwrap_or(std::ptr::null_mut())),
+        core::mem::transmute(dwlength.unwrap_or(core::ptr::null_mut())),
     )
     .ok()
 }
@@ -169,7 +169,7 @@ where
 #[inline]
 pub unsafe fn GetRequestedRuntimeVersionForCLSID(rclsid: *const windows_core::GUID, pversion: Option<&mut [u16]>, dwlength: Option<*mut u32>, dwresolutionflags: CLSID_RESOLUTION_FLAGS) -> windows_core::Result<()> {
     windows_targets::link!("mscoree.dll" "system" fn GetRequestedRuntimeVersionForCLSID(rclsid : *const windows_core::GUID, pversion : windows_core::PWSTR, cchbuffer : u32, dwlength : *mut u32, dwresolutionflags : CLSID_RESOLUTION_FLAGS) -> windows_core::HRESULT);
-    GetRequestedRuntimeVersionForCLSID(rclsid, core::mem::transmute(pversion.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(dwlength.unwrap_or(std::ptr::null_mut())), dwresolutionflags).ok()
+    GetRequestedRuntimeVersionForCLSID(rclsid, core::mem::transmute(pversion.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pversion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(dwlength.unwrap_or(core::ptr::null_mut())), dwresolutionflags).ok()
 }
 #[inline]
 pub unsafe fn GetVersionFromProcess<P0>(hprocess: P0, pversion: &mut [u16], dwlength: *mut u32) -> windows_core::Result<()>

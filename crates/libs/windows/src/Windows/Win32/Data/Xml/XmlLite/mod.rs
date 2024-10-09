@@ -89,7 +89,7 @@ impl IXmlReader {
         (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), nproperty, pvalue).ok()
     }
     pub unsafe fn Read(&self, pnodetype: Option<*mut XmlNodeType>) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), core::mem::transmute(pnodetype.unwrap_or(std::ptr::null_mut())))
+        (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), core::mem::transmute(pnodetype.unwrap_or(core::ptr::null_mut())))
     }
     pub unsafe fn GetNodeType(&self) -> windows_core::Result<XmlNodeType> {
         let mut result__ = core::mem::zeroed();
@@ -112,25 +112,25 @@ impl IXmlReader {
         (windows_core::Interface::vtable(self).MoveToElement)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetQualifiedName(&self, ppwszqualifiedname: *mut windows_core::PCWSTR, pcwchqualifiedname: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetQualifiedName)(windows_core::Interface::as_raw(self), ppwszqualifiedname, core::mem::transmute(pcwchqualifiedname.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetQualifiedName)(windows_core::Interface::as_raw(self), ppwszqualifiedname, core::mem::transmute(pcwchqualifiedname.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetNamespaceUri(&self, ppwsznamespaceuri: *mut windows_core::PCWSTR, pcwchnamespaceuri: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetNamespaceUri)(windows_core::Interface::as_raw(self), ppwsznamespaceuri, core::mem::transmute(pcwchnamespaceuri.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetNamespaceUri)(windows_core::Interface::as_raw(self), ppwsznamespaceuri, core::mem::transmute(pcwchnamespaceuri.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetLocalName(&self, ppwszlocalname: *mut windows_core::PCWSTR, pcwchlocalname: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetLocalName)(windows_core::Interface::as_raw(self), ppwszlocalname, core::mem::transmute(pcwchlocalname.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetLocalName)(windows_core::Interface::as_raw(self), ppwszlocalname, core::mem::transmute(pcwchlocalname.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetPrefix(&self, ppwszprefix: *mut windows_core::PCWSTR, pcwchprefix: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPrefix)(windows_core::Interface::as_raw(self), ppwszprefix, core::mem::transmute(pcwchprefix.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetPrefix)(windows_core::Interface::as_raw(self), ppwszprefix, core::mem::transmute(pcwchprefix.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetValue(&self, ppwszvalue: *mut windows_core::PCWSTR, pcwchvalue: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), ppwszvalue, core::mem::transmute(pcwchvalue.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), ppwszvalue, core::mem::transmute(pcwchvalue.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadValueChunk(&self, pwchbuffer: &mut [u16], pcwchread: *mut u32) -> windows_core::HRESULT {
         (windows_core::Interface::vtable(self).ReadValueChunk)(windows_core::Interface::as_raw(self), core::mem::transmute(pwchbuffer.as_ptr()), pwchbuffer.len().try_into().unwrap(), pcwchread)
     }
     pub unsafe fn GetBaseUri(&self, ppwszbaseuri: *mut windows_core::PCWSTR, pcwchbaseuri: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetBaseUri)(windows_core::Interface::as_raw(self), ppwszbaseuri, core::mem::transmute(pcwchbaseuri.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetBaseUri)(windows_core::Interface::as_raw(self), ppwszbaseuri, core::mem::transmute(pcwchbaseuri.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn IsDefault(&self) -> super::super::super::Foundation::BOOL {
         (windows_core::Interface::vtable(self).IsDefault)(windows_core::Interface::as_raw(self))
