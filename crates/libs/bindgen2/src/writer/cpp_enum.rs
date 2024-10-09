@@ -5,9 +5,10 @@ impl Writer {
         let name = to_ident(item.def.name());
         let underlying_type = self.write_name(&item.def.underlying_type());
 
-        // TODO: avoid unscoped enums?
+        let is_scoped = item.def.has_attribute("ScopedEnumAttribute");
 
-        let fields = item
+        let fields = if is_scoped {
+            let fields = item
             .def
             .fields()
             .filter(|field| field.flags().contains(FieldAttributes::Literal))
@@ -20,13 +21,20 @@ impl Writer {
                 }
             });
 
+            quote! {
+                impl #name {
+                    #(#fields)*
+                }
+            }
+        } else {
+            quote !{}
+        };
+
         quote! {
             #[repr(transparent)]
             #[derive(Clone, Debug, Default, PartialEq)]
             pub struct #name(pub #underlying_type);
-            impl #name {
-                #(#fields)*
-            }
+            #fields
             // TODO: is TypeKind really needed on all these types?
             impl windows_core::TypeKind for #name {
                 type TypeKind = windows_core::CopyType;

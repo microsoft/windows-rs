@@ -54,7 +54,7 @@ pub struct Delegate {
 pub struct CppInterface {
     pub def: TypeDef,
 }
-#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct CppEnum {
     pub def: TypeDef,
 }
@@ -68,7 +68,7 @@ pub struct CppStruct {
 pub struct CppDelegate {
     pub def: TypeDef,
 }
-#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct CppConst {
     pub def: TypeDef,
     pub field: Field,
@@ -100,6 +100,31 @@ impl Ord for CppFn {
 }
 
 impl PartialOrd for CppFn {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for CppEnum {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.def.name().cmp(other.def.name())
+    }
+}
+
+impl PartialOrd for CppEnum {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+
+impl Ord for CppConst {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.field.name().cmp(other.field.name())
+    }
+}
+
+impl PartialOrd for CppConst {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
@@ -142,6 +167,7 @@ impl Item {
         match self {
             Self::Struct(item) => item.def.underlying_type(),
             Self::CppEnum(item) => item.def.underlying_type(),
+            Self::CppStruct(item) => item.def.underlying_type(),
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
