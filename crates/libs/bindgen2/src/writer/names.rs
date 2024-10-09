@@ -4,7 +4,7 @@ impl Writer {
     pub fn write_crate(&self) -> TokenStream {
         if self.sys {
             if self.package {
-                quote! { windows_sys:: }
+                quote! { windows_sys::core:: }
             } else {
                 quote! {}
             }

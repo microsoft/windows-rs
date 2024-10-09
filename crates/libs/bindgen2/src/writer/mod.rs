@@ -1,4 +1,6 @@
 mod cfg;
+mod cpp_const;
+mod cpp_delegate;
 mod cpp_enum;
 mod cpp_fn;
 mod cpp_struct;
@@ -160,6 +162,8 @@ impl Writer {
             Item::CppStruct(def) => self.write_cpp_struct(def),
             Item::CppEnum(def) => self.write_cpp_enum(def),
             Item::CppFn(def) => self.write_cpp_fn(def),
+            Item::CppConst(def) => self.write_cpp_const(def),
+            Item::CppDelegate(def) => self.write_cpp_delegate(def),
             _ => quote! {},
         }
     }

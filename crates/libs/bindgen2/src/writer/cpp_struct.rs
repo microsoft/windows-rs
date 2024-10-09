@@ -23,7 +23,7 @@ impl Writer {
 
         let is_copyable = fields.iter().all(|(_, ty)| ty.is_copyable());
 
-        let mut derive = quote! { Clone, };
+        let mut derive = quote! { Clone, Copy, };
 
         if !self.sys {
             derive.combine(quote! { Debug, PartialEq, });
@@ -39,20 +39,31 @@ impl Writer {
 
         let type_kind = if self.sys {
             quote! {}
+        } else if is_copyable {
+            quote! {
+               #cfg
+               impl windows_core::TypeKind for #name {
+                   type TypeKind = windows_core::CopyType;
+               }
+            }
         } else {
-            if is_copyable {
-                quote! {
-                   #cfg
-                   impl windows_core::TypeKind for #name {
-                       type TypeKind = windows_core::CopyType;
-                   }
-                }
-            } else {
-                quote! {
-                   #cfg
-                   impl windows_core::TypeKind for #name {
-                       type TypeKind = windows_core::CloneType;
-                   }
+            quote! {
+               #cfg
+               impl windows_core::TypeKind for #name {
+                   type TypeKind = windows_core::CloneType;
+               }
+            }
+        };
+
+        let default = if self.sys {
+            quote! {}
+        } else {
+            quote! {
+                #cfg
+                impl Default for #name {
+                    fn default() -> Self {
+                        unsafe { core::mem::zeroed() }
+                    }
                 }
             }
         };
@@ -64,12 +75,7 @@ impl Writer {
             pub struct #name {
                 #(#fields)*
             }
-            #cfg
-            impl Default for #name {
-                fn default() -> Self {
-                    unsafe { core::mem::zeroed() }
-                }
-            }
+            #default
             #type_kind
         };
 

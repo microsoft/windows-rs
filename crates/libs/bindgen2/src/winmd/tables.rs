@@ -368,17 +368,32 @@ impl MethodDef {
         let mut blob = self.blob(4);
         let call_flags = MethodCallAttributes(blob.read_usize() as u8);
         let _param_count = blob.read_usize();
-        let return_type = Type::from_blob(&mut blob, None, generics);
+        let mut return_type = Type::from_blob(&mut blob, None, generics);
         let mut return_param = None;
 
         let params = self
             .params()
             .filter_map(|param| {
                 if param.sequence() == 0 {
+                    if param.has_attribute("ConstAttribute") {
+                        return_type = return_type.to_const_type();
+                    }
+
                     return_param = Some(param);
                     None
                 } else {
-                    Some((Type::from_blob(&mut blob, None, generics), param))
+                    let param_is_const = param.has_attribute("ConstAttribute");
+                    let param_is_output = param.flags().contains(ParamAttributes::Out);
+                    let mut ty = Type::from_blob(&mut blob, None, generics);
+
+                    if param_is_const || !param_is_output {
+                        ty = ty.to_const_type();
+                    }
+                    if !param_is_output {
+                        ty = ty.to_const_ptr();
+                    }
+
+                    Some((ty, param))
                 }
             })
             .collect();

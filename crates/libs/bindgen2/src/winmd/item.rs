@@ -12,10 +12,10 @@ pub enum Item {
     Struct(Struct),
 
     CppConst(CppConst),
-    CppDelegate(CppDelegate),
     CppEnum(CppEnum),
     CppInterface(CppInterface),
     CppStruct(CppStruct),
+    CppDelegate(CppDelegate),
     // TODO: have psuedo items for the core types like PWSTR so that those can be written out for standalone code gen?
 }
 
@@ -64,7 +64,7 @@ pub struct CppStruct {
     pub name: String,
     pub nested: BTreeMap<&'static str, Item>,
 }
-#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct CppDelegate {
     pub def: TypeDef,
 }
@@ -73,15 +73,35 @@ pub struct CppConst {
     pub def: TypeDef,
     pub field: Field,
 }
-#[derive(Debug, PartialEq, Eq, PartialOrd)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct CppFn {
     pub def: TypeDef,
     pub method: MethodDef,
 }
 
+// TODO: do we need this for other types?
+
+impl Ord for CppDelegate {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.def.name().cmp(other.def.name())
+    }
+}
+
+impl PartialOrd for CppDelegate {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
 impl Ord for CppFn {
     fn cmp(&self, other: &Self) -> Ordering {
         self.method.name().cmp(other.method.name())
+    }
+}
+
+impl PartialOrd for CppFn {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
     }
 }
 
