@@ -14,7 +14,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateJobObjectA(lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateJobObjectA(core::mem::transmute(lpjobattributes.unwrap_or(std::ptr::null())), lpname.param().abi());
+    let result__ = CreateJobObjectA(core::mem::transmute(lpjobattributes.unwrap_or(core::ptr::null())), lpname.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Security")]
@@ -24,7 +24,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CreateJobObjectW(lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
-    let result__ = CreateJobObjectW(core::mem::transmute(lpjobattributes.unwrap_or(std::ptr::null())), lpname.param().abi());
+    let result__ = CreateJobObjectW(core::mem::transmute(lpjobattributes.unwrap_or(core::ptr::null())), lpname.param().abi());
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
@@ -72,7 +72,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn QueryInformationJobObject(hjob : super::super::Foundation:: HANDLE, jobobjectinformationclass : JOBOBJECTINFOCLASS, lpjobobjectinformation : *mut core::ffi::c_void, cbjobobjectinformationlength : u32, lpreturnlength : *mut u32) -> super::super::Foundation:: BOOL);
-    QueryInformationJobObject(hjob.param().abi(), jobobjectinformationclass, lpjobobjectinformation, cbjobobjectinformationlength, core::mem::transmute(lpreturnlength.unwrap_or(std::ptr::null_mut()))).ok()
+    QueryInformationJobObject(hjob.param().abi(), jobobjectinformationclass, lpjobobjectinformation, cbjobobjectinformationlength, core::mem::transmute(lpreturnlength.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn QueryIoRateControlInformationJobObject<P0, P1>(hjob: P0, volumename: P1, infoblocks: *mut *mut JOBOBJECT_IO_RATE_CONTROL_INFORMATION, infoblockcount: *mut u32) -> u32

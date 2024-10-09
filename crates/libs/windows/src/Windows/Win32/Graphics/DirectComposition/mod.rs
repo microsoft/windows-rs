@@ -62,7 +62,7 @@ where
 pub unsafe fn DCompositionCreateSurfaceHandle(desiredaccess: u32, securityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_targets::link!("dcomp.dll" "system" fn DCompositionCreateSurfaceHandle(desiredaccess : u32, securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, surfacehandle : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    DCompositionCreateSurfaceHandle(desiredaccess, core::mem::transmute(securityattributes.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
+    DCompositionCreateSurfaceHandle(desiredaccess, core::mem::transmute(securityattributes.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> windows_core::Result<u64> {
@@ -73,7 +73,7 @@ pub unsafe fn DCompositionGetFrameId(frameidtype: COMPOSITION_FRAME_ID_TYPE) -> 
 #[inline]
 pub unsafe fn DCompositionGetStatistics(frameid: u64, framestats: *mut COMPOSITION_FRAME_STATS, targetidcount: u32, targetids: Option<*mut COMPOSITION_TARGET_ID>, actualtargetidcount: Option<*mut u32>) -> windows_core::Result<()> {
     windows_targets::link!("dcomp.dll" "system" fn DCompositionGetStatistics(frameid : u64, framestats : *mut COMPOSITION_FRAME_STATS, targetidcount : u32, targetids : *mut COMPOSITION_TARGET_ID, actualtargetidcount : *mut u32) -> windows_core::HRESULT);
-    DCompositionGetStatistics(frameid, framestats, targetidcount, core::mem::transmute(targetids.unwrap_or(std::ptr::null_mut())), core::mem::transmute(actualtargetidcount.unwrap_or(std::ptr::null_mut()))).ok()
+    DCompositionGetStatistics(frameid, framestats, targetidcount, core::mem::transmute(targetids.unwrap_or(core::ptr::null_mut())), core::mem::transmute(actualtargetidcount.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn DCompositionGetTargetStatistics(frameid: u64, targetid: *const COMPOSITION_TARGET_ID, targetstats: *mut COMPOSITION_TARGET_STATS) -> windows_core::Result<()> {
@@ -1875,7 +1875,7 @@ impl IDCompositionSurface {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), core::mem::transmute(updaterect.unwrap_or(std::ptr::null())), &T::IID, &mut result__, updateoffset).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), core::mem::transmute(updaterect.unwrap_or(core::ptr::null())), &T::IID, &mut result__, updateoffset).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn EndDraw(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self)).ok()
@@ -1887,7 +1887,7 @@ impl IDCompositionSurface {
         (windows_core::Interface::vtable(self).ResumeDraw)(windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Scroll(&self, scrollrect: Option<*const super::super::Foundation::RECT>, cliprect: Option<*const super::super::Foundation::RECT>, offsetx: i32, offsety: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), core::mem::transmute(scrollrect.unwrap_or(std::ptr::null())), core::mem::transmute(cliprect.unwrap_or(std::ptr::null())), offsetx, offsety).ok()
+        (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), core::mem::transmute(scrollrect.unwrap_or(core::ptr::null())), core::mem::transmute(cliprect.unwrap_or(core::ptr::null())), offsetx, offsety).ok()
     }
 }
 #[repr(C)]

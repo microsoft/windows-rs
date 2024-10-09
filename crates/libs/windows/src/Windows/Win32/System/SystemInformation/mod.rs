@@ -47,12 +47,12 @@ pub unsafe fn GetLocalTime() -> super::super::Foundation::SYSTEMTIME {
 #[inline]
 pub unsafe fn GetLogicalProcessorInformation(buffer: Option<*mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION>, returnedlength: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetLogicalProcessorInformation(buffer : *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION, returnedlength : *mut u32) -> super::super::Foundation:: BOOL);
-    GetLogicalProcessorInformation(core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), returnedlength).ok()
+    GetLogicalProcessorInformation(core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), returnedlength).ok()
 }
 #[inline]
 pub unsafe fn GetLogicalProcessorInformationEx(relationshiptype: LOGICAL_PROCESSOR_RELATIONSHIP, buffer: Option<*mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX>, returnedlength: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetLogicalProcessorInformationEx(relationshiptype : LOGICAL_PROCESSOR_RELATIONSHIP, buffer : *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, returnedlength : *mut u32) -> super::super::Foundation:: BOOL);
-    GetLogicalProcessorInformationEx(relationshiptype, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), returnedlength).ok()
+    GetLogicalProcessorInformationEx(relationshiptype, core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), returnedlength).ok()
 }
 #[inline]
 pub unsafe fn GetNativeSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
@@ -77,7 +77,7 @@ pub unsafe fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: *mut u6
 #[inline]
 pub unsafe fn GetProcessorSystemCycleTime(group: u16, buffer: Option<*mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION>, returnedlength: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn GetProcessorSystemCycleTime(group : u16, buffer : *mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, returnedlength : *mut u32) -> super::super::Foundation:: BOOL);
-    GetProcessorSystemCycleTime(group, core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), returnedlength).ok()
+    GetProcessorSystemCycleTime(group, core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), returnedlength).ok()
 }
 #[inline]
 pub unsafe fn GetProductInfo(dwosmajorversion: u32, dwosminorversion: u32, dwspmajorversion: u32, dwspminorversion: u32, pdwreturnedproducttype: *mut OS_PRODUCT_TYPE) -> super::super::Foundation::BOOL {
@@ -90,7 +90,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetSystemCpuSetInformation(information : *mut SYSTEM_CPU_SET_INFORMATION, bufferlength : u32, returnedlength : *mut u32, process : super::super::Foundation:: HANDLE, flags : u32) -> super::super::Foundation:: BOOL);
-    GetSystemCpuSetInformation(core::mem::transmute(information.unwrap_or(std::ptr::null_mut())), bufferlength, returnedlength, process.param().abi(), flags)
+    GetSystemCpuSetInformation(core::mem::transmute(information.unwrap_or(core::ptr::null_mut())), bufferlength, returnedlength, process.param().abi(), flags)
 }
 #[inline]
 pub unsafe fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE {
@@ -247,7 +247,7 @@ pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut
 #[inline]
 pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: Option<*mut u64>, puldevicefamily: Option<*mut DEVICEFAMILYINFOENUM>, puldeviceform: Option<*mut DEVICEFAMILYDEVICEFORM>) {
     windows_targets::link!("ntdll.dll" "system" fn RtlGetDeviceFamilyInfoEnum(pulluapinfo : *mut u64, puldevicefamily : *mut DEVICEFAMILYINFOENUM, puldeviceform : *mut DEVICEFAMILYDEVICEFORM));
-    RtlGetDeviceFamilyInfoEnum(core::mem::transmute(pulluapinfo.unwrap_or(std::ptr::null_mut())), core::mem::transmute(puldevicefamily.unwrap_or(std::ptr::null_mut())), core::mem::transmute(puldeviceform.unwrap_or(std::ptr::null_mut())))
+    RtlGetDeviceFamilyInfoEnum(core::mem::transmute(pulluapinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(puldevicefamily.unwrap_or(core::ptr::null_mut())), core::mem::transmute(puldeviceform.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajorversion: u32, spminorversion: u32, returnedproducttype: *mut u32) -> super::super::Foundation::BOOLEAN {

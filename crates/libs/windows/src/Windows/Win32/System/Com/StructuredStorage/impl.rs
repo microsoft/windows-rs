@@ -328,7 +328,7 @@ impl IMemoryAllocator_Vtbl {
     }
 }
 #[doc(hidden)]
-struct IMemoryAllocator_ImplVtbl<T: IMemoryAllocator_Impl>(std::marker::PhantomData<T>);
+struct IMemoryAllocator_ImplVtbl<T: IMemoryAllocator_Impl>(core::marker::PhantomData<T>);
 impl<T: IMemoryAllocator_Impl> IMemoryAllocator_ImplVtbl<T> {
     const VTABLE: IMemoryAllocator_Vtbl = IMemoryAllocator_Vtbl::new::<T>();
 }

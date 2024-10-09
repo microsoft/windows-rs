@@ -2831,7 +2831,7 @@ impl IGetAppTrackerData {
         (windows_core::Interface::vtable(self).GetApplicationProcesses)(windows_core::Interface::as_raw(self), partitionid, applicationid, flags, numapplicationprocesses, applicationprocesses).ok()
     }
     pub unsafe fn GetApplicationProcessDetails(&self, applicationinstanceid: *const windows_core::GUID, processid: u32, flags: u32, summary: Option<*mut ApplicationProcessSummary>, statistics: Option<*mut ApplicationProcessStatistics>, recycleinfo: Option<*mut ApplicationProcessRecycleInfo>, anycomponentshangmonitored: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetApplicationProcessDetails)(windows_core::Interface::as_raw(self), applicationinstanceid, processid, flags, core::mem::transmute(summary.unwrap_or(std::ptr::null_mut())), core::mem::transmute(statistics.unwrap_or(std::ptr::null_mut())), core::mem::transmute(recycleinfo.unwrap_or(std::ptr::null_mut())), core::mem::transmute(anycomponentshangmonitored.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetApplicationProcessDetails)(windows_core::Interface::as_raw(self), applicationinstanceid, processid, flags, core::mem::transmute(summary.unwrap_or(core::ptr::null_mut())), core::mem::transmute(statistics.unwrap_or(core::ptr::null_mut())), core::mem::transmute(recycleinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(anycomponentshangmonitored.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetApplicationsInProcess(&self, applicationinstanceid: *const windows_core::GUID, processid: u32, partitionid: *const windows_core::GUID, flags: u32, numapplicationsinprocess: *mut u32, applications: *mut *mut ApplicationSummary) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetApplicationsInProcess)(windows_core::Interface::as_raw(self), applicationinstanceid, processid, partitionid, flags, numapplicationsinprocess, applications).ok()
@@ -2840,7 +2840,7 @@ impl IGetAppTrackerData {
         (windows_core::Interface::vtable(self).GetComponentsInProcess)(windows_core::Interface::as_raw(self), applicationinstanceid, processid, partitionid, applicationid, flags, numcomponentsinprocess, components).ok()
     }
     pub unsafe fn GetComponentDetails(&self, applicationinstanceid: *const windows_core::GUID, processid: u32, clsid: *const windows_core::GUID, flags: u32, summary: Option<*mut ComponentSummary>, statistics: Option<*mut ComponentStatistics>, hangmonitorinfo: Option<*mut ComponentHangMonitorInfo>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetComponentDetails)(windows_core::Interface::as_raw(self), applicationinstanceid, processid, clsid, flags, core::mem::transmute(summary.unwrap_or(std::ptr::null_mut())), core::mem::transmute(statistics.unwrap_or(std::ptr::null_mut())), core::mem::transmute(hangmonitorinfo.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetComponentDetails)(windows_core::Interface::as_raw(self), applicationinstanceid, processid, clsid, flags, core::mem::transmute(summary.unwrap_or(core::ptr::null_mut())), core::mem::transmute(statistics.unwrap_or(core::ptr::null_mut())), core::mem::transmute(hangmonitorinfo.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTrackerDataAsCollectionObject(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();

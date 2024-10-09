@@ -5,7 +5,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtMapViewOfSection(sectionhandle : super::super::super::Win32::Foundation:: HANDLE, processhandle : super::super::super::Win32::Foundation:: HANDLE, baseaddress : *mut *mut core::ffi::c_void, zerobits : usize, commitsize : usize, sectionoffset : *mut i64, viewsize : *mut usize, inheritdisposition : SECTION_INHERIT, allocationtype : u32, win32protect : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtMapViewOfSection(sectionhandle.param().abi(), processhandle.param().abi(), baseaddress, zerobits, commitsize, core::mem::transmute(sectionoffset.unwrap_or(std::ptr::null_mut())), viewsize, inheritdisposition, allocationtype, win32protect)
+    NtMapViewOfSection(sectionhandle.param().abi(), processhandle.param().abi(), baseaddress, zerobits, commitsize, core::mem::transmute(sectionoffset.unwrap_or(core::ptr::null_mut())), viewsize, inheritdisposition, allocationtype, win32protect)
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
@@ -19,7 +19,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn NtUnmapViewOfSection(processhandle : super::super::super::Win32::Foundation:: HANDLE, baseaddress : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    NtUnmapViewOfSection(processhandle.param().abi(), core::mem::transmute(baseaddress.unwrap_or(std::ptr::null())))
+    NtUnmapViewOfSection(processhandle.param().abi(), core::mem::transmute(baseaddress.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn ZwMapViewOfSection<P0, P1>(sectionhandle: P0, processhandle: P1, baseaddress: *mut *mut core::ffi::c_void, zerobits: usize, commitsize: usize, sectionoffset: Option<*mut i64>, viewsize: *mut usize, inheritdisposition: SECTION_INHERIT, allocationtype: u32, win32protect: u32) -> super::super::super::Win32::Foundation::NTSTATUS
@@ -28,7 +28,7 @@ where
     P1: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwMapViewOfSection(sectionhandle : super::super::super::Win32::Foundation:: HANDLE, processhandle : super::super::super::Win32::Foundation:: HANDLE, baseaddress : *mut *mut core::ffi::c_void, zerobits : usize, commitsize : usize, sectionoffset : *mut i64, viewsize : *mut usize, inheritdisposition : SECTION_INHERIT, allocationtype : u32, win32protect : u32) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwMapViewOfSection(sectionhandle.param().abi(), processhandle.param().abi(), baseaddress, zerobits, commitsize, core::mem::transmute(sectionoffset.unwrap_or(std::ptr::null_mut())), viewsize, inheritdisposition, allocationtype, win32protect)
+    ZwMapViewOfSection(sectionhandle.param().abi(), processhandle.param().abi(), baseaddress, zerobits, commitsize, core::mem::transmute(sectionoffset.unwrap_or(core::ptr::null_mut())), viewsize, inheritdisposition, allocationtype, win32protect)
 }
 #[cfg(feature = "Wdk_Foundation")]
 #[inline]
@@ -42,7 +42,7 @@ where
     P0: windows_core::Param<super::super::super::Win32::Foundation::HANDLE>,
 {
     windows_targets::link!("ntdll.dll" "system" fn ZwUnmapViewOfSection(processhandle : super::super::super::Win32::Foundation:: HANDLE, baseaddress : *const core::ffi::c_void) -> super::super::super::Win32::Foundation:: NTSTATUS);
-    ZwUnmapViewOfSection(processhandle.param().abi(), core::mem::transmute(baseaddress.unwrap_or(std::ptr::null())))
+    ZwUnmapViewOfSection(processhandle.param().abi(), core::mem::transmute(baseaddress.unwrap_or(core::ptr::null())))
 }
 pub const ViewShare: SECTION_INHERIT = SECTION_INHERIT(1i32);
 pub const ViewUnmap: SECTION_INHERIT = SECTION_INHERIT(2i32);

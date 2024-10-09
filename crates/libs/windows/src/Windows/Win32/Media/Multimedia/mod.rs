@@ -91,7 +91,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIFileOpenA(ppfile : *mut * mut core::ffi::c_void, szfile : windows_core::PCSTR, umode : u32, lphandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIFileOpenA(core::mem::transmute(ppfile), szfile.param().abi(), umode, core::mem::transmute(lphandler.unwrap_or(std::ptr::null()))).ok()
+    AVIFileOpenA(core::mem::transmute(ppfile), szfile.param().abi(), umode, core::mem::transmute(lphandler.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn AVIFileOpenW<P0>(ppfile: *mut Option<IAVIFile>, szfile: P0, umode: u32, lphandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
@@ -99,7 +99,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIFileOpenW(ppfile : *mut * mut core::ffi::c_void, szfile : windows_core::PCWSTR, umode : u32, lphandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIFileOpenW(core::mem::transmute(ppfile), szfile.param().abi(), umode, core::mem::transmute(lphandler.unwrap_or(std::ptr::null()))).ok()
+    AVIFileOpenW(core::mem::transmute(ppfile), szfile.param().abi(), umode, core::mem::transmute(lphandler.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn AVIFileReadData<P0>(pfile: P0, ckid: u32, lpdata: *mut core::ffi::c_void, lpcbdata: *mut i32) -> windows_core::Result<()>
@@ -137,7 +137,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIMakeCompressedStream(ppscompressed : *mut * mut core::ffi::c_void, ppssource : * mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIMakeCompressedStream(core::mem::transmute(ppscompressed), ppssource.param().abi(), lpoptions, core::mem::transmute(pclsidhandler.unwrap_or(std::ptr::null()))).ok()
+    AVIMakeCompressedStream(core::mem::transmute(ppscompressed), ppssource.param().abi(), lpoptions, core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut Option<IAVIFile>, papstreams: &[Option<IAVIStream>]) -> windows_core::Result<()> {
@@ -168,7 +168,7 @@ where
     P1: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "cdecl" fn AVISaveA(szfile : windows_core::PCSTR, pclsidhandler : *const windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : * mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    AVISaveA(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(std::ptr::null())), lpfncallback, nstreams, pfile.param().abi(), lpoptions).ok()
+    AVISaveA(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), lpfncallback, nstreams, pfile.param().abi(), lpoptions).ok()
 }
 #[inline]
 pub unsafe fn AVISaveOptions<P0>(hwnd: P0, uiflags: u32, nstreams: i32, ppavi: *const Option<IAVIStream>, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize
@@ -189,7 +189,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVISaveVA(szfile : windows_core::PCSTR, pclsidhandler : *const windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const * mut core::ffi::c_void, plpoptions : *const *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    AVISaveVA(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(std::ptr::null())), lpfncallback, nstreams, core::mem::transmute(ppavi), plpoptions).ok()
+    AVISaveVA(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), lpfncallback, nstreams, core::mem::transmute(ppavi), plpoptions).ok()
 }
 #[inline]
 pub unsafe fn AVISaveVW<P0>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
@@ -197,7 +197,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVISaveVW(szfile : windows_core::PCWSTR, pclsidhandler : *const windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const * mut core::ffi::c_void, plpoptions : *const *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    AVISaveVW(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(std::ptr::null())), lpfncallback, nstreams, core::mem::transmute(ppavi), plpoptions).ok()
+    AVISaveVW(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), lpfncallback, nstreams, core::mem::transmute(ppavi), plpoptions).ok()
 }
 #[inline]
 pub unsafe fn AVISaveW<P0, P1>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P1, lpoptions: *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
@@ -206,7 +206,7 @@ where
     P1: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "cdecl" fn AVISaveW(szfile : windows_core::PCWSTR, pclsidhandler : *const windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : * mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    AVISaveW(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(std::ptr::null())), lpfncallback, nstreams, pfile.param().abi(), lpoptions).ok()
+    AVISaveW(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), lpfncallback, nstreams, pfile.param().abi(), lpoptions).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamAddRef<P0>(pavi: P0) -> u32
@@ -227,7 +227,7 @@ where
 #[inline]
 pub unsafe fn AVIStreamCreate(ppavi: *mut Option<IAVIStream>, lparam1: i32, lparam2: i32, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamCreate(ppavi : *mut * mut core::ffi::c_void, lparam1 : i32, lparam2 : i32, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIStreamCreate(core::mem::transmute(ppavi), lparam1, lparam2, core::mem::transmute(pclsidhandler.unwrap_or(std::ptr::null()))).ok()
+    AVIStreamCreate(core::mem::transmute(ppavi), lparam1, lparam2, core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamEndStreaming<P0>(pavi: P0) -> windows_core::Result<()>
@@ -268,7 +268,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamGetFrameOpen(pavi : * mut core::ffi::c_void, lpbiwanted : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER) -> Option < IGetFrame >);
-    AVIStreamGetFrameOpen(pavi.param().abi(), core::mem::transmute(lpbiwanted.unwrap_or(std::ptr::null())))
+    AVIStreamGetFrameOpen(pavi.param().abi(), core::mem::transmute(lpbiwanted.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn AVIStreamInfoA<P0>(pavi: P0, psi: *mut AVISTREAMINFOA, lsize: i32) -> windows_core::Result<()>
@@ -300,7 +300,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamOpenFromFileA(ppavi : *mut * mut core::ffi::c_void, szfile : windows_core::PCSTR, fcctype : u32, lparam : i32, mode : u32, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIStreamOpenFromFileA(core::mem::transmute(ppavi), szfile.param().abi(), fcctype, lparam, mode, core::mem::transmute(pclsidhandler.unwrap_or(std::ptr::null()))).ok()
+    AVIStreamOpenFromFileA(core::mem::transmute(ppavi), szfile.param().abi(), fcctype, lparam, mode, core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamOpenFromFileW<P0>(ppavi: *mut Option<IAVIStream>, szfile: P0, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
@@ -308,7 +308,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamOpenFromFileW(ppavi : *mut * mut core::ffi::c_void, szfile : windows_core::PCWSTR, fcctype : u32, lparam : i32, mode : u32, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
-    AVIStreamOpenFromFileW(core::mem::transmute(ppavi), szfile.param().abi(), fcctype, lparam, mode, core::mem::transmute(pclsidhandler.unwrap_or(std::ptr::null()))).ok()
+    AVIStreamOpenFromFileW(core::mem::transmute(ppavi), szfile.param().abi(), fcctype, lparam, mode, core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamRead<P0>(pavi: P0, lstart: i32, lsamples: i32, lpbuffer: Option<*mut core::ffi::c_void>, cbbuffer: i32, plbytes: Option<*mut i32>, plsamples: Option<*mut i32>) -> windows_core::Result<()>
@@ -316,7 +316,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamRead(pavi : * mut core::ffi::c_void, lstart : i32, lsamples : i32, lpbuffer : *mut core::ffi::c_void, cbbuffer : i32, plbytes : *mut i32, plsamples : *mut i32) -> windows_core::HRESULT);
-    AVIStreamRead(pavi.param().abi(), lstart, lsamples, core::mem::transmute(lpbuffer.unwrap_or(std::ptr::null_mut())), cbbuffer, core::mem::transmute(plbytes.unwrap_or(std::ptr::null_mut())), core::mem::transmute(plsamples.unwrap_or(std::ptr::null_mut()))).ok()
+    AVIStreamRead(pavi.param().abi(), lstart, lsamples, core::mem::transmute(lpbuffer.unwrap_or(core::ptr::null_mut())), cbbuffer, core::mem::transmute(plbytes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plsamples.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamReadData<P0>(pavi: P0, fcc: u32, lp: Option<*mut core::ffi::c_void>, lpcb: *mut i32) -> windows_core::Result<()>
@@ -324,7 +324,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamReadData(pavi : * mut core::ffi::c_void, fcc : u32, lp : *mut core::ffi::c_void, lpcb : *mut i32) -> windows_core::HRESULT);
-    AVIStreamReadData(pavi.param().abi(), fcc, core::mem::transmute(lp.unwrap_or(std::ptr::null_mut())), lpcb).ok()
+    AVIStreamReadData(pavi.param().abi(), fcc, core::mem::transmute(lp.unwrap_or(core::ptr::null_mut())), lpcb).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamReadFormat<P0>(pavi: P0, lpos: i32, lpformat: Option<*mut core::ffi::c_void>, lpcbformat: *mut i32) -> windows_core::Result<()>
@@ -332,7 +332,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamReadFormat(pavi : * mut core::ffi::c_void, lpos : i32, lpformat : *mut core::ffi::c_void, lpcbformat : *mut i32) -> windows_core::HRESULT);
-    AVIStreamReadFormat(pavi.param().abi(), lpos, core::mem::transmute(lpformat.unwrap_or(std::ptr::null_mut())), lpcbformat).ok()
+    AVIStreamReadFormat(pavi.param().abi(), lpos, core::mem::transmute(lpformat.unwrap_or(core::ptr::null_mut())), lpcbformat).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamRelease<P0>(pavi: P0) -> u32
@@ -380,7 +380,7 @@ where
     P0: windows_core::Param<IAVIStream>,
 {
     windows_targets::link!("avifil32.dll" "system" fn AVIStreamWrite(pavi : * mut core::ffi::c_void, lstart : i32, lsamples : i32, lpbuffer : *const core::ffi::c_void, cbbuffer : i32, dwflags : u32, plsampwritten : *mut i32, plbyteswritten : *mut i32) -> windows_core::HRESULT);
-    AVIStreamWrite(pavi.param().abi(), lstart, lsamples, lpbuffer, cbbuffer, dwflags, core::mem::transmute(plsampwritten.unwrap_or(std::ptr::null_mut())), core::mem::transmute(plbyteswritten.unwrap_or(std::ptr::null_mut()))).ok()
+    AVIStreamWrite(pavi.param().abi(), lstart, lsamples, lpbuffer, cbbuffer, dwflags, core::mem::transmute(plsampwritten.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plbyteswritten.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn AVIStreamWriteData<P0>(pavi: P0, fcc: u32, lp: *const core::ffi::c_void, cb: i32) -> windows_core::Result<()>
@@ -445,7 +445,7 @@ where
     P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn DrawDibDraw(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
-    DrawDibDraw(hdd, hdc.param().abi(), xdst, ydst, dxdst, dydst, core::mem::transmute(lpbi.unwrap_or(std::ptr::null())), core::mem::transmute(lpbits.unwrap_or(std::ptr::null())), xsrc, ysrc, dxsrc, dysrc, wflags)
+    DrawDibDraw(hdd, hdc.param().abi(), xdst, ydst, dxdst, dydst, core::mem::transmute(lpbi.unwrap_or(core::ptr::null())), core::mem::transmute(lpbits.unwrap_or(core::ptr::null())), xsrc, ysrc, dxsrc, dysrc, wflags)
 }
 #[inline]
 pub unsafe fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL {
@@ -640,7 +640,7 @@ where
     P0: windows_core::Param<HIC>,
 {
     windows_targets::link!("msvfw32.dll" "cdecl" fn ICCompress(hic : HIC, dwflags : u32, lpbioutput : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpdata : *mut core::ffi::c_void, lpbiinput : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, lpckid : *mut u32, lpdwflags : *mut u32, lframenum : i32, dwframesize : u32, dwquality : u32, lpbiprev : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpprev : *const core::ffi::c_void) -> u32);
-    ICCompress(hic.param().abi(), dwflags, lpbioutput, lpdata, lpbiinput, lpbits, core::mem::transmute(lpckid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpdwflags.unwrap_or(std::ptr::null_mut())), lframenum, dwframesize, dwquality, core::mem::transmute(lpbiprev.unwrap_or(std::ptr::null())), core::mem::transmute(lpprev.unwrap_or(std::ptr::null())))
+    ICCompress(hic.param().abi(), dwflags, lpbioutput, lpdata, lpbiinput, lpbits, core::mem::transmute(lpckid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpdwflags.unwrap_or(core::ptr::null_mut())), lframenum, dwframesize, dwquality, core::mem::transmute(lpbiprev.unwrap_or(core::ptr::null())), core::mem::transmute(lpprev.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -650,7 +650,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn ICCompressorChoose(hwnd : super::super::Foundation:: HWND, uiflags : u32, pvin : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, pc : *mut COMPVARS, lpsztitle : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
-    ICCompressorChoose(hwnd.param().abi(), uiflags, core::mem::transmute(pvin.unwrap_or(std::ptr::null())), core::mem::transmute(lpdata.unwrap_or(std::ptr::null())), pc, lpsztitle.param().abi())
+    ICCompressorChoose(hwnd.param().abi(), uiflags, core::mem::transmute(pvin.unwrap_or(core::ptr::null())), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), pc, lpsztitle.param().abi())
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -673,7 +673,7 @@ where
     P0: windows_core::Param<HIC>,
 {
     windows_targets::link!("msvfw32.dll" "cdecl" fn ICDraw(hic : HIC, dwflags : u32, lpformat : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, cbdata : u32, ltime : i32) -> u32);
-    ICDraw(hic.param().abi(), dwflags, lpformat, core::mem::transmute(lpdata.unwrap_or(std::ptr::null())), cbdata, ltime)
+    ICDraw(hic.param().abi(), dwflags, lpformat, core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), cbdata, ltime)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -711,7 +711,7 @@ where
     P0: windows_core::Param<HIC>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn ICImageCompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO, lpbits : *const core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFO, lquality : i32, plsize : *mut i32) -> super::super::Foundation:: HANDLE);
-    ICImageCompress(hic.param().abi(), uiflags, lpbiin, lpbits, core::mem::transmute(lpbiout.unwrap_or(std::ptr::null())), lquality, core::mem::transmute(plsize.unwrap_or(std::ptr::null_mut())))
+    ICImageCompress(hic.param().abi(), uiflags, lpbiin, lpbits, core::mem::transmute(lpbiout.unwrap_or(core::ptr::null())), lquality, core::mem::transmute(plsize.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -720,7 +720,7 @@ where
     P0: windows_core::Param<HIC>,
 {
     windows_targets::link!("msvfw32.dll" "system" fn ICImageDecompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO, lpbits : *const core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: HANDLE);
-    ICImageDecompress(hic.param().abi(), uiflags, lpbiin, lpbits, core::mem::transmute(lpbiout.unwrap_or(std::ptr::null())))
+    ICImageDecompress(hic.param().abi(), uiflags, lpbiin, lpbits, core::mem::transmute(lpbiout.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> super::super::Foundation::BOOL {
@@ -740,7 +740,7 @@ where
 #[inline]
 pub unsafe fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, wflags: u16) -> HIC {
     windows_targets::link!("msvfw32.dll" "system" fn ICLocate(fcctype : u32, fcchandler : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, wflags : u16) -> HIC);
-    ICLocate(fcctype, fcchandler, lpbiin, core::mem::transmute(lpbiout.unwrap_or(std::ptr::null())), wflags)
+    ICLocate(fcctype, fcchandler, lpbiin, core::mem::transmute(lpbiout.unwrap_or(core::ptr::null())), wflags)
 }
 #[inline]
 pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
@@ -769,7 +769,7 @@ where
 #[inline]
 pub unsafe fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const core::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: Option<*mut i32>) -> *mut core::ffi::c_void {
     windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrame(pc : *const COMPVARS, uiflags : u32, lpbits : *const core::ffi::c_void, pfkey : *mut super::super::Foundation:: BOOL, plsize : *mut i32) -> *mut core::ffi::c_void);
-    ICSeqCompressFrame(pc, uiflags, lpbits, pfkey, core::mem::transmute(plsize.unwrap_or(std::ptr::null_mut())))
+    ICSeqCompressFrame(pc, uiflags, lpbits, pfkey, core::mem::transmute(plsize.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -1072,7 +1072,7 @@ where
     P0: windows_core::Param<HMMIO>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioAdvance(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuadvance : u32) -> u32);
-    mmioAdvance(hmmio.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(std::ptr::null())), fuadvance)
+    mmioAdvance(hmmio.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null())), fuadvance)
 }
 #[inline]
 pub unsafe fn mmioAscend<P0>(hmmio: P0, pmmcki: *const MMCKINFO, fuascend: u32) -> u32
@@ -1104,7 +1104,7 @@ where
     P0: windows_core::Param<HMMIO>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioDescend(hmmio : HMMIO, pmmcki : *mut MMCKINFO, pmmckiparent : *const MMCKINFO, fudescend : u32) -> u32);
-    mmioDescend(hmmio.param().abi(), pmmcki, core::mem::transmute(pmmckiparent.unwrap_or(std::ptr::null())), fudescend)
+    mmioDescend(hmmio.param().abi(), pmmcki, core::mem::transmute(pmmckiparent.unwrap_or(core::ptr::null())), fudescend)
 }
 #[inline]
 pub unsafe fn mmioFlush<P0>(hmmio: P0, fuflush: u32) -> u32
@@ -1135,12 +1135,12 @@ pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u
 #[inline]
 pub unsafe fn mmioOpenA(pszfilename: Option<&mut [u8; 128]>, pmmioinfo: Option<*mut MMIOINFO>, fdwopen: u32) -> HMMIO {
     windows_targets::link!("winmm.dll" "system" fn mmioOpenA(pszfilename : windows_core::PSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
-    mmioOpenA(core::mem::transmute(pszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pmmioinfo.unwrap_or(std::ptr::null_mut())), fdwopen)
+    mmioOpenA(core::mem::transmute(pszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null_mut())), fdwopen)
 }
 #[inline]
 pub unsafe fn mmioOpenW(pszfilename: Option<&mut [u16; 128]>, pmmioinfo: Option<*mut MMIOINFO>, fdwopen: u32) -> HMMIO {
     windows_targets::link!("winmm.dll" "system" fn mmioOpenW(pszfilename : windows_core::PWSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
-    mmioOpenW(core::mem::transmute(pszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pmmioinfo.unwrap_or(std::ptr::null_mut())), fdwopen)
+    mmioOpenW(core::mem::transmute(pszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null_mut())), fdwopen)
 }
 #[inline]
 pub unsafe fn mmioRead<P0>(hmmio: P0, pch: &mut [u8]) -> i32
@@ -1157,7 +1157,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioRenameA(pszfilename : windows_core::PCSTR, psznewfilename : windows_core::PCSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> u32);
-    mmioRenameA(pszfilename.param().abi(), psznewfilename.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(std::ptr::null())), fdwrename)
+    mmioRenameA(pszfilename.param().abi(), psznewfilename.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null())), fdwrename)
 }
 #[inline]
 pub unsafe fn mmioRenameW<P0, P1>(pszfilename: P0, psznewfilename: P1, pmmioinfo: Option<*const MMIOINFO>, fdwrename: u32) -> u32
@@ -1166,7 +1166,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winmm.dll" "system" fn mmioRenameW(pszfilename : windows_core::PCWSTR, psznewfilename : windows_core::PCWSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> u32);
-    mmioRenameW(pszfilename.param().abi(), psznewfilename.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(std::ptr::null())), fdwrename)
+    mmioRenameW(pszfilename.param().abi(), psznewfilename.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null())), fdwrename)
 }
 #[inline]
 pub unsafe fn mmioSeek<P0>(hmmio: P0, loffset: i32, iorigin: i32) -> i32
@@ -1361,22 +1361,22 @@ impl IAVIStream {
         (windows_core::Interface::vtable(self).FindSample)(windows_core::Interface::as_raw(self), lpos, lflags)
     }
     pub unsafe fn ReadFormat(&self, lpos: i32, lpformat: Option<*mut core::ffi::c_void>, lpcbformat: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReadFormat)(windows_core::Interface::as_raw(self), lpos, core::mem::transmute(lpformat.unwrap_or(std::ptr::null_mut())), lpcbformat).ok()
+        (windows_core::Interface::vtable(self).ReadFormat)(windows_core::Interface::as_raw(self), lpos, core::mem::transmute(lpformat.unwrap_or(core::ptr::null_mut())), lpcbformat).ok()
     }
     pub unsafe fn SetFormat(&self, lpos: i32, lpformat: *const core::ffi::c_void, cbformat: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), lpos, lpformat, cbformat).ok()
     }
     pub unsafe fn Read(&self, lstart: i32, lsamples: i32, lpbuffer: Option<*mut core::ffi::c_void>, cbbuffer: i32, plbytes: Option<*mut i32>, plsamples: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), lstart, lsamples, core::mem::transmute(lpbuffer.unwrap_or(std::ptr::null_mut())), cbbuffer, core::mem::transmute(plbytes.unwrap_or(std::ptr::null_mut())), core::mem::transmute(plsamples.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), lstart, lsamples, core::mem::transmute(lpbuffer.unwrap_or(core::ptr::null_mut())), cbbuffer, core::mem::transmute(plbytes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plsamples.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Write(&self, lstart: i32, lsamples: i32, lpbuffer: *const core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: Option<*mut i32>, plbyteswritten: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), lstart, lsamples, lpbuffer, cbbuffer, dwflags, core::mem::transmute(plsampwritten.unwrap_or(std::ptr::null_mut())), core::mem::transmute(plbyteswritten.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), lstart, lsamples, lpbuffer, cbbuffer, dwflags, core::mem::transmute(plsampwritten.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plbyteswritten.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Delete(&self, lstart: i32, lsamples: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), lstart, lsamples).ok()
     }
     pub unsafe fn ReadData(&self, fcc: u32, lp: Option<*mut core::ffi::c_void>, lpcb: *mut i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReadData)(windows_core::Interface::as_raw(self), fcc, core::mem::transmute(lp.unwrap_or(std::ptr::null_mut())), lpcb).ok()
+        (windows_core::Interface::vtable(self).ReadData)(windows_core::Interface::as_raw(self), fcc, core::mem::transmute(lp.unwrap_or(core::ptr::null_mut())), lpcb).ok()
     }
     pub unsafe fn WriteData(&self, fcc: u32, lp: *const core::ffi::c_void, cb: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).WriteData)(windows_core::Interface::as_raw(self), fcc, lp, cb).ok()
@@ -1442,7 +1442,7 @@ impl IGetFrame {
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetFormat(&self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: Option<*const core::ffi::c_void>, x: i32, y: i32, dx: i32, dy: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), lpbi, core::mem::transmute(lpbits.unwrap_or(std::ptr::null())), x, y, dx, dy).ok()
+        (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), lpbi, core::mem::transmute(lpbits.unwrap_or(core::ptr::null())), x, y, dx, dy).ok()
     }
 }
 #[repr(C)]

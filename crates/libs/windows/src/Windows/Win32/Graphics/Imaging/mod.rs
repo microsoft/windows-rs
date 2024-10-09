@@ -66,7 +66,7 @@ where
 {
     windows_targets::link!("windowscodecs.dll" "system" fn WICMatchMetadataContent(guidcontainerformat : *const windows_core::GUID, pguidvendor : *const windows_core::GUID, pistream : * mut core::ffi::c_void, pguidmetadataformat : *mut windows_core::GUID) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WICMatchMetadataContent(guidcontainerformat, core::mem::transmute(pguidvendor.unwrap_or(std::ptr::null())), pistream.param().abi(), &mut result__).map(|| result__)
+    WICMatchMetadataContent(guidcontainerformat, core::mem::transmute(pguidvendor.unwrap_or(core::ptr::null())), pistream.param().abi(), &mut result__).map(|| result__)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -210,7 +210,7 @@ impl core::ops::Deref for IWICBitmapCodecProgressNotification {
 windows_core::imp::interface_hierarchy!(IWICBitmapCodecProgressNotification, windows_core::IUnknown);
 impl IWICBitmapCodecProgressNotification {
     pub unsafe fn RegisterProgressNotification(&self, pfnprogressnotification: PFNProgressNotification, pvdata: Option<*const core::ffi::c_void>, dwprogressflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RegisterProgressNotification)(windows_core::Interface::as_raw(self), pfnprogressnotification, core::mem::transmute(pvdata.unwrap_or(std::ptr::null())), dwprogressflags).ok()
+        (windows_core::Interface::vtable(self).RegisterProgressNotification)(windows_core::Interface::as_raw(self), pfnprogressnotification, core::mem::transmute(pvdata.unwrap_or(core::ptr::null())), dwprogressflags).ok()
     }
 }
 #[repr(C)]
@@ -311,7 +311,7 @@ impl core::ops::Deref for IWICBitmapDecoderInfo {
 windows_core::imp::interface_hierarchy!(IWICBitmapDecoderInfo, windows_core::IUnknown, IWICComponentInfo, IWICBitmapCodecInfo);
 impl IWICBitmapDecoderInfo {
     pub unsafe fn GetPatterns(&self, cbsizepatterns: u32, ppatterns: Option<*mut WICBitmapPattern>, pcpatterns: Option<*mut u32>, pcbpatternsactual: *mut u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPatterns)(windows_core::Interface::as_raw(self), cbsizepatterns, core::mem::transmute(ppatterns.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcpatterns.unwrap_or(std::ptr::null_mut())), pcbpatternsactual).ok()
+        (windows_core::Interface::vtable(self).GetPatterns)(windows_core::Interface::as_raw(self), cbsizepatterns, core::mem::transmute(ppatterns.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcpatterns.unwrap_or(core::ptr::null_mut())), pcbpatternsactual).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MatchesPattern<P0>(&self, pistream: P0) -> windows_core::Result<super::super::Foundation::BOOL>
@@ -1064,7 +1064,7 @@ impl IWICDevelopRaw {
         (windows_core::Interface::vtable(self).SetToneCurve)(windows_core::Interface::as_raw(self), cbtonecurvesize, ptonecurve).ok()
     }
     pub unsafe fn GetToneCurve(&self, cbtonecurvebuffersize: u32, ptonecurve: Option<*mut WICRawToneCurve>, pcbactualtonecurvebuffersize: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetToneCurve)(windows_core::Interface::as_raw(self), cbtonecurvebuffersize, core::mem::transmute(ptonecurve.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbactualtonecurvebuffersize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetToneCurve)(windows_core::Interface::as_raw(self), cbtonecurvebuffersize, core::mem::transmute(ptonecurve.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbactualtonecurvebuffersize.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetRotation(&self, rotation: f64) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetRotation)(windows_core::Interface::as_raw(self), rotation).ok()
@@ -1266,7 +1266,7 @@ impl IWICImagingFactory {
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateDecoderFromFilename)(windows_core::Interface::as_raw(self), wzfilename.param().abi(), core::mem::transmute(pguidvendor.unwrap_or(std::ptr::null())), dwdesiredaccess, metadataoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateDecoderFromFilename)(windows_core::Interface::as_raw(self), wzfilename.param().abi(), core::mem::transmute(pguidvendor.unwrap_or(core::ptr::null())), dwdesiredaccess, metadataoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDecoderFromStream<P0>(&self, pistream: P0, pguidvendor: *const windows_core::GUID, metadataoptions: WICDecodeOptions) -> windows_core::Result<IWICBitmapDecoder>
@@ -1811,7 +1811,7 @@ impl core::ops::Deref for IWICMetadataReaderInfo {
 windows_core::imp::interface_hierarchy!(IWICMetadataReaderInfo, windows_core::IUnknown, IWICComponentInfo, IWICMetadataHandlerInfo);
 impl IWICMetadataReaderInfo {
     pub unsafe fn GetPatterns(&self, guidcontainerformat: *const windows_core::GUID, cbsize: u32, ppattern: Option<*mut WICMetadataPattern>, pccount: Option<*mut u32>, pcbactual: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetPatterns)(windows_core::Interface::as_raw(self), guidcontainerformat, cbsize, core::mem::transmute(ppattern.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pccount.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetPatterns)(windows_core::Interface::as_raw(self), guidcontainerformat, cbsize, core::mem::transmute(ppattern.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pccount.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut()))).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MatchesPattern<P0>(&self, guidcontainerformat: *const windows_core::GUID, pistream: P0) -> windows_core::Result<super::super::Foundation::BOOL>
@@ -1888,7 +1888,7 @@ impl core::ops::Deref for IWICMetadataWriterInfo {
 windows_core::imp::interface_hierarchy!(IWICMetadataWriterInfo, windows_core::IUnknown, IWICComponentInfo, IWICMetadataHandlerInfo);
 impl IWICMetadataWriterInfo {
     pub unsafe fn GetHeader(&self, guidcontainerformat: *const windows_core::GUID, cbsize: u32, pheader: Option<*mut WICMetadataHeader>, pcbactual: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetHeader)(windows_core::Interface::as_raw(self), guidcontainerformat, cbsize, core::mem::transmute(pheader.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbactual.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetHeader)(windows_core::Interface::as_raw(self), guidcontainerformat, cbsize, core::mem::transmute(pheader.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbactual.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn CreateInstance(&self) -> windows_core::Result<IWICMetadataWriter> {
         let mut result__ = core::mem::zeroed();

@@ -5397,19 +5397,19 @@ impl IStiDevice {
     }
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawReadData(&self, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RawReadData)(windows_core::Interface::as_raw(self), lpbuffer, lpdwnumberofbytes, core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).RawReadData)(windows_core::Interface::as_raw(self), lpbuffer, lpdwnumberofbytes, core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null()))).ok()
     }
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawWriteData(&self, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RawWriteData)(windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).RawWriteData)(windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null()))).ok()
     }
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawReadCommand(&self, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RawReadCommand)(windows_core::Interface::as_raw(self), lpbuffer, lpdwnumberofbytes, core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).RawReadCommand)(windows_core::Interface::as_raw(self), lpbuffer, lpdwnumberofbytes, core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null()))).ok()
     }
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawWriteCommand(&self, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RawWriteCommand)(windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).RawWriteCommand)(windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null()))).ok()
     }
     pub unsafe fn Subscribe(&self, lpsubsribe: *mut STISUBSCRIBE) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Subscribe)(windows_core::Interface::as_raw(self), lpsubsribe).ok()
@@ -5582,19 +5582,19 @@ impl IStiUSD {
     }
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawReadData(&self, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RawReadData)(windows_core::Interface::as_raw(self), lpbuffer, lpdwnumberofbytes, core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).RawReadData)(windows_core::Interface::as_raw(self), lpbuffer, lpdwnumberofbytes, core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null()))).ok()
     }
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawWriteData(&self, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RawWriteData)(windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).RawWriteData)(windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null()))).ok()
     }
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawReadCommand(&self, lpbuffer: *mut core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RawReadCommand)(windows_core::Interface::as_raw(self), lpbuffer, lpdwnumberofbytes, core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).RawReadCommand)(windows_core::Interface::as_raw(self), lpbuffer, lpdwnumberofbytes, core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null()))).ok()
     }
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn RawWriteCommand(&self, lpbuffer: *const core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).RawWriteCommand)(windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).RawWriteCommand)(windows_core::Interface::as_raw(self), lpbuffer, nnumberofbytes, core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null()))).ok()
     }
     pub unsafe fn SetNotificationHandle<P0>(&self, hevent: P0) -> windows_core::Result<()>
     where
@@ -5690,7 +5690,7 @@ impl IStillImageW {
         (windows_core::Interface::vtable(self).SetDeviceValue)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), pvaluename.param().abi(), r#type, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap()).ok()
     }
     pub unsafe fn GetSTILaunchInformation(&self, pwszdevicename: &mut [u16; 128], pdweventcode: Option<*mut u32>, pwszeventname: &mut [u16; 128]) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetSTILaunchInformation)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszdevicename.as_ptr()), core::mem::transmute(pdweventcode.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pwszeventname.as_ptr())).ok()
+        (windows_core::Interface::vtable(self).GetSTILaunchInformation)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszdevicename.as_ptr()), core::mem::transmute(pdweventcode.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pwszeventname.as_ptr())).ok()
     }
     pub unsafe fn RegisterLaunchApplication<P0, P1>(&self, pwszappname: P0, pwszcommandline: P1) -> windows_core::Result<()>
     where

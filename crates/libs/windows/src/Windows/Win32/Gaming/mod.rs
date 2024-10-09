@@ -16,7 +16,7 @@ where
 #[inline]
 pub unsafe fn CheckGamingPrivilegeWithUI(privilegeid: u32, scope: &windows_core::HSTRING, policy: &windows_core::HSTRING, friendlymessage: &windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-1.dll" "system" fn CheckGamingPrivilegeWithUI(privilegeid : u32, scope : core::mem::MaybeUninit < windows_core::HSTRING >, policy : core::mem::MaybeUninit < windows_core::HSTRING >, friendlymessage : core::mem::MaybeUninit < windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    CheckGamingPrivilegeWithUI(privilegeid, core::mem::transmute_copy(scope), core::mem::transmute_copy(policy), core::mem::transmute_copy(friendlymessage), completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    CheckGamingPrivilegeWithUI(privilegeid, core::mem::transmute_copy(scope), core::mem::transmute_copy(policy), core::mem::transmute_copy(friendlymessage), completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn CheckGamingPrivilegeWithUIForUser<P0>(user: P0, privilegeid: u32, scope: &windows_core::HSTRING, policy: &windows_core::HSTRING, friendlymessage: &windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -24,7 +24,7 @@ where
     P0: windows_core::Param<windows_core::IInspectable>,
 {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn CheckGamingPrivilegeWithUIForUser(user : * mut core::ffi::c_void, privilegeid : u32, scope : core::mem::MaybeUninit < windows_core::HSTRING >, policy : core::mem::MaybeUninit < windows_core::HSTRING >, friendlymessage : core::mem::MaybeUninit < windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    CheckGamingPrivilegeWithUIForUser(user.param().abi(), privilegeid, core::mem::transmute_copy(scope), core::mem::transmute_copy(policy), core::mem::transmute_copy(friendlymessage), completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    CheckGamingPrivilegeWithUIForUser(user.param().abi(), privilegeid, core::mem::transmute_copy(scope), core::mem::transmute_copy(policy), core::mem::transmute_copy(friendlymessage), completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn GetExpandedResourceExclusiveCpuCount() -> windows_core::Result<u32> {
@@ -60,7 +60,7 @@ pub unsafe fn ReleaseExclusiveCpuSets() -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn ShowChangeFriendRelationshipUI(targetuserxuid: &windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ShowChangeFriendRelationshipUI(targetuserxuid : core::mem::MaybeUninit < windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowChangeFriendRelationshipUI(core::mem::transmute_copy(targetuserxuid), completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowChangeFriendRelationshipUI(core::mem::transmute_copy(targetuserxuid), completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowChangeFriendRelationshipUIForUser<P0>(user: P0, targetuserxuid: &windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -68,12 +68,12 @@ where
     P0: windows_core::Param<windows_core::IInspectable>,
 {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn ShowChangeFriendRelationshipUIForUser(user : * mut core::ffi::c_void, targetuserxuid : core::mem::MaybeUninit < windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowChangeFriendRelationshipUIForUser(user.param().abi(), core::mem::transmute_copy(targetuserxuid), completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowChangeFriendRelationshipUIForUser(user.param().abi(), core::mem::transmute_copy(targetuserxuid), completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowCustomizeUserProfileUI(completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowCustomizeUserProfileUI(completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowCustomizeUserProfileUI(completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowCustomizeUserProfileUI(completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowCustomizeUserProfileUIForUser<P0>(user: P0, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -81,12 +81,12 @@ where
     P0: windows_core::Param<windows_core::IInspectable>,
 {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowCustomizeUserProfileUIForUser(user : * mut core::ffi::c_void, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowCustomizeUserProfileUIForUser(user.param().abi(), completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowCustomizeUserProfileUIForUser(user.param().abi(), completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowFindFriendsUI(completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowFindFriendsUI(completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowFindFriendsUI(completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowFindFriendsUI(completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowFindFriendsUIForUser<P0>(user: P0, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -94,12 +94,12 @@ where
     P0: windows_core::Param<windows_core::IInspectable>,
 {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowFindFriendsUIForUser(user : * mut core::ffi::c_void, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowFindFriendsUIForUser(user.param().abi(), completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowFindFriendsUIForUser(user.param().abi(), completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowGameInfoUI(titleid: u32, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowGameInfoUI(titleid : u32, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowGameInfoUI(titleid, completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowGameInfoUI(titleid, completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowGameInfoUIForUser<P0>(user: P0, titleid: u32, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -107,12 +107,12 @@ where
     P0: windows_core::Param<windows_core::IInspectable>,
 {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowGameInfoUIForUser(user : * mut core::ffi::c_void, titleid : u32, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowGameInfoUIForUser(user.param().abi(), titleid, completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowGameInfoUIForUser(user.param().abi(), titleid, completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowGameInviteUI(serviceconfigurationid: &windows_core::HSTRING, sessiontemplatename: &windows_core::HSTRING, sessionid: &windows_core::HSTRING, invitationdisplaytext: &windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ShowGameInviteUI(serviceconfigurationid : core::mem::MaybeUninit < windows_core::HSTRING >, sessiontemplatename : core::mem::MaybeUninit < windows_core::HSTRING >, sessionid : core::mem::MaybeUninit < windows_core::HSTRING >, invitationdisplaytext : core::mem::MaybeUninit < windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowGameInviteUI(core::mem::transmute_copy(serviceconfigurationid), core::mem::transmute_copy(sessiontemplatename), core::mem::transmute_copy(sessionid), core::mem::transmute_copy(invitationdisplaytext), completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowGameInviteUI(core::mem::transmute_copy(serviceconfigurationid), core::mem::transmute_copy(sessiontemplatename), core::mem::transmute_copy(sessionid), core::mem::transmute_copy(invitationdisplaytext), completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowGameInviteUIForUser<P0>(user: P0, serviceconfigurationid: &windows_core::HSTRING, sessiontemplatename: &windows_core::HSTRING, sessionid: &windows_core::HSTRING, invitationdisplaytext: &windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -120,12 +120,12 @@ where
     P0: windows_core::Param<windows_core::IInspectable>,
 {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn ShowGameInviteUIForUser(user : * mut core::ffi::c_void, serviceconfigurationid : core::mem::MaybeUninit < windows_core::HSTRING >, sessiontemplatename : core::mem::MaybeUninit < windows_core::HSTRING >, sessionid : core::mem::MaybeUninit < windows_core::HSTRING >, invitationdisplaytext : core::mem::MaybeUninit < windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowGameInviteUIForUser(user.param().abi(), core::mem::transmute_copy(serviceconfigurationid), core::mem::transmute_copy(sessiontemplatename), core::mem::transmute_copy(sessionid), core::mem::transmute_copy(invitationdisplaytext), completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowGameInviteUIForUser(user.param().abi(), core::mem::transmute_copy(serviceconfigurationid), core::mem::transmute_copy(sessiontemplatename), core::mem::transmute_copy(sessionid), core::mem::transmute_copy(invitationdisplaytext), completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowGameInviteUIWithContext(serviceconfigurationid: &windows_core::HSTRING, sessiontemplatename: &windows_core::HSTRING, sessionid: &windows_core::HSTRING, invitationdisplaytext: &windows_core::HSTRING, customactivationcontext: &windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-3.dll" "system" fn ShowGameInviteUIWithContext(serviceconfigurationid : core::mem::MaybeUninit < windows_core::HSTRING >, sessiontemplatename : core::mem::MaybeUninit < windows_core::HSTRING >, sessionid : core::mem::MaybeUninit < windows_core::HSTRING >, invitationdisplaytext : core::mem::MaybeUninit < windows_core::HSTRING >, customactivationcontext : core::mem::MaybeUninit < windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowGameInviteUIWithContext(core::mem::transmute_copy(serviceconfigurationid), core::mem::transmute_copy(sessiontemplatename), core::mem::transmute_copy(sessionid), core::mem::transmute_copy(invitationdisplaytext), core::mem::transmute_copy(customactivationcontext), completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowGameInviteUIWithContext(core::mem::transmute_copy(serviceconfigurationid), core::mem::transmute_copy(sessiontemplatename), core::mem::transmute_copy(sessionid), core::mem::transmute_copy(invitationdisplaytext), core::mem::transmute_copy(customactivationcontext), completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowGameInviteUIWithContextForUser<P0>(user: P0, serviceconfigurationid: &windows_core::HSTRING, sessiontemplatename: &windows_core::HSTRING, sessionid: &windows_core::HSTRING, invitationdisplaytext: &windows_core::HSTRING, customactivationcontext: &windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -133,12 +133,12 @@ where
     P0: windows_core::Param<windows_core::IInspectable>,
 {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-3.dll" "system" fn ShowGameInviteUIWithContextForUser(user : * mut core::ffi::c_void, serviceconfigurationid : core::mem::MaybeUninit < windows_core::HSTRING >, sessiontemplatename : core::mem::MaybeUninit < windows_core::HSTRING >, sessionid : core::mem::MaybeUninit < windows_core::HSTRING >, invitationdisplaytext : core::mem::MaybeUninit < windows_core::HSTRING >, customactivationcontext : core::mem::MaybeUninit < windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowGameInviteUIWithContextForUser(user.param().abi(), core::mem::transmute_copy(serviceconfigurationid), core::mem::transmute_copy(sessiontemplatename), core::mem::transmute_copy(sessionid), core::mem::transmute_copy(invitationdisplaytext), core::mem::transmute_copy(customactivationcontext), completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowGameInviteUIWithContextForUser(user.param().abi(), core::mem::transmute_copy(serviceconfigurationid), core::mem::transmute_copy(sessiontemplatename), core::mem::transmute_copy(sessionid), core::mem::transmute_copy(invitationdisplaytext), core::mem::transmute_copy(customactivationcontext), completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowPlayerPickerUI(promptdisplaytext: &windows_core::HSTRING, xuids: &[windows_core::HSTRING], preselectedxuids: Option<&[windows_core::HSTRING]>, minselectioncount: usize, maxselectioncount: usize, completionroutine: PlayerPickerUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ShowPlayerPickerUI(promptdisplaytext : core::mem::MaybeUninit < windows_core::HSTRING >, xuids : *const core::mem::MaybeUninit < windows_core::HSTRING >, xuidscount : usize, preselectedxuids : *const core::mem::MaybeUninit < windows_core::HSTRING >, preselectedxuidscount : usize, minselectioncount : usize, maxselectioncount : usize, completionroutine : PlayerPickerUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowPlayerPickerUI(core::mem::transmute_copy(promptdisplaytext), core::mem::transmute(xuids.as_ptr()), xuids.len().try_into().unwrap(), core::mem::transmute(preselectedxuids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), preselectedxuids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), minselectioncount, maxselectioncount, completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowPlayerPickerUI(core::mem::transmute_copy(promptdisplaytext), core::mem::transmute(xuids.as_ptr()), xuids.len().try_into().unwrap(), core::mem::transmute(preselectedxuids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), preselectedxuids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), minselectioncount, maxselectioncount, completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowPlayerPickerUIForUser<P0>(user: P0, promptdisplaytext: &windows_core::HSTRING, xuids: &[windows_core::HSTRING], preselectedxuids: Option<&[windows_core::HSTRING]>, minselectioncount: usize, maxselectioncount: usize, completionroutine: PlayerPickerUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -146,12 +146,12 @@ where
     P0: windows_core::Param<windows_core::IInspectable>,
 {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn ShowPlayerPickerUIForUser(user : * mut core::ffi::c_void, promptdisplaytext : core::mem::MaybeUninit < windows_core::HSTRING >, xuids : *const core::mem::MaybeUninit < windows_core::HSTRING >, xuidscount : usize, preselectedxuids : *const core::mem::MaybeUninit < windows_core::HSTRING >, preselectedxuidscount : usize, minselectioncount : usize, maxselectioncount : usize, completionroutine : PlayerPickerUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowPlayerPickerUIForUser(user.param().abi(), core::mem::transmute_copy(promptdisplaytext), core::mem::transmute(xuids.as_ptr()), xuids.len().try_into().unwrap(), core::mem::transmute(preselectedxuids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), preselectedxuids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), minselectioncount, maxselectioncount, completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowPlayerPickerUIForUser(user.param().abi(), core::mem::transmute_copy(promptdisplaytext), core::mem::transmute(xuids.as_ptr()), xuids.len().try_into().unwrap(), core::mem::transmute(preselectedxuids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), preselectedxuids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), minselectioncount, maxselectioncount, completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowProfileCardUI(targetuserxuid: &windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ShowProfileCardUI(targetuserxuid : core::mem::MaybeUninit < windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowProfileCardUI(core::mem::transmute_copy(targetuserxuid), completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowProfileCardUI(core::mem::transmute_copy(targetuserxuid), completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowProfileCardUIForUser<P0>(user: P0, targetuserxuid: &windows_core::HSTRING, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -159,12 +159,12 @@ where
     P0: windows_core::Param<windows_core::IInspectable>,
 {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn ShowProfileCardUIForUser(user : * mut core::ffi::c_void, targetuserxuid : core::mem::MaybeUninit < windows_core::HSTRING >, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowProfileCardUIForUser(user.param().abi(), core::mem::transmute_copy(targetuserxuid), completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowProfileCardUIForUser(user.param().abi(), core::mem::transmute_copy(targetuserxuid), completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowTitleAchievementsUI(titleid: u32, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-0.dll" "system" fn ShowTitleAchievementsUI(titleid : u32, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowTitleAchievementsUI(titleid, completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowTitleAchievementsUI(titleid, completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowTitleAchievementsUIForUser<P0>(user: P0, titleid: u32, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -172,12 +172,12 @@ where
     P0: windows_core::Param<windows_core::IInspectable>,
 {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-2.dll" "system" fn ShowTitleAchievementsUIForUser(user : * mut core::ffi::c_void, titleid : u32, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowTitleAchievementsUIForUser(user.param().abi(), titleid, completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowTitleAchievementsUIForUser(user.param().abi(), titleid, completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowUserSettingsUI(completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowUserSettingsUI(completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowUserSettingsUI(completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowUserSettingsUI(completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn ShowUserSettingsUIForUser<P0>(user: P0, completionroutine: GameUICompletionRoutine, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
@@ -185,7 +185,7 @@ where
     P0: windows_core::Param<windows_core::IInspectable>,
 {
     windows_targets::link!("api-ms-win-gaming-tcui-l1-1-4.dll" "system" fn ShowUserSettingsUIForUser(user : * mut core::ffi::c_void, completionroutine : GameUICompletionRoutine, context : *const core::ffi::c_void) -> windows_core::HRESULT);
-    ShowUserSettingsUIForUser(user.param().abi(), completionroutine, core::mem::transmute(context.unwrap_or(std::ptr::null()))).ok()
+    ShowUserSettingsUIForUser(user.param().abi(), completionroutine, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
@@ -307,7 +307,7 @@ impl IGameStatistics {
         (windows_core::Interface::vtable(self).GetCategoryTitle)(windows_core::Interface::as_raw(self), categoryindex, &mut result__).map(|| result__)
     }
     pub unsafe fn GetStatistic(&self, categoryindex: u16, statindex: u16, pname: Option<*mut windows_core::PWSTR>, pvalue: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStatistic)(windows_core::Interface::as_raw(self), categoryindex, statindex, core::mem::transmute(pname.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvalue.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetStatistic)(windows_core::Interface::as_raw(self), categoryindex, statindex, core::mem::transmute(pname.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvalue.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetStatistic<P0, P1>(&self, categoryindex: u16, statindex: u16, name: P0, value: P1) -> windows_core::Result<()>
     where

@@ -170,7 +170,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IELaunchURL(lpwstrurl : windows_core::PCWSTR, lpprocinfo : *mut super::super::System::Threading:: PROCESS_INFORMATION, lpinfo : *const core::ffi::c_void) -> windows_core::HRESULT);
-    IELaunchURL(lpwstrurl.param().abi(), lpprocinfo, core::mem::transmute(lpinfo.unwrap_or(std::ptr::null()))).ok()
+    IELaunchURL(lpwstrurl.param().abi(), lpprocinfo, core::mem::transmute(lpinfo.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn IEMoveFileEx<P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, dwflags: u32) -> super::super::Foundation::BOOL
@@ -194,7 +194,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("ieframe.dll" "system" fn IERegCreateKeyEx(lpsubkey : windows_core::PCWSTR, reserved : u32, lpclass : windows_core::PCWSTR, dwoptions : u32, samdesired : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut super::super::System::Registry:: HKEY, lpdwdisposition : *mut u32) -> windows_core::HRESULT);
-    IERegCreateKeyEx(lpsubkey.param().abi(), reserved, lpclass.param().abi(), dwoptions, samdesired, core::mem::transmute(lpsecurityattributes.unwrap_or(std::ptr::null())), phkresult, lpdwdisposition).ok()
+    IERegCreateKeyEx(lpsubkey.param().abi(), reserved, lpclass.param().abi(), dwoptions, samdesired, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), phkresult, lpdwdisposition).ok()
 }
 #[inline]
 pub unsafe fn IERegSetValueEx<P0, P1>(lpsubkey: P0, lpvaluename: P1, reserved: u32, dwtype: u32, lpdata: &[u8]) -> windows_core::Result<()>
@@ -346,7 +346,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccess(pszusername : windows_core::PCSTR, pszurl : windows_core::PCSTR, pszratinginfo : windows_core::PCSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    RatingCheckUserAccess(pszusername.param().abi(), pszurl.param().abi(), pszratinginfo.param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppratingdetails.unwrap_or(std::ptr::null_mut()))).ok()
+    RatingCheckUserAccess(pszusername.param().abi(), pszurl.param().abi(), pszratinginfo.param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppratingdetails.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn RatingCheckUserAccessW<P0, P1, P2>(pszusername: P0, pszurl: P1, pszratinginfo: P2, pdata: Option<&[u8]>, ppratingdetails: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()>
@@ -356,7 +356,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingCheckUserAccessW(pszusername : windows_core::PCWSTR, pszurl : windows_core::PCWSTR, pszratinginfo : windows_core::PCWSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    RatingCheckUserAccessW(pszusername.param().abi(), pszurl.param().abi(), pszratinginfo.param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppratingdetails.unwrap_or(std::ptr::null_mut()))).ok()
+    RatingCheckUserAccessW(pszusername.param().abi(), pszurl.param().abi(), pszratinginfo.param().abi(), core::mem::transmute(pdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppratingdetails.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn RatingClickedOnPRFInternal<P0, P1, P2>(hwndowner: P0, param1: P1, lpszfilename: P2, nshow: i32) -> windows_core::Result<()>
@@ -406,7 +406,7 @@ pub unsafe fn RatingEnabledQuery() -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn RatingFreeDetails(pratingdetails: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
     windows_targets::link!("msrating.dll" "system" fn RatingFreeDetails(pratingdetails : *const core::ffi::c_void) -> windows_core::HRESULT);
-    RatingFreeDetails(core::mem::transmute(pratingdetails.unwrap_or(std::ptr::null()))).ok()
+    RatingFreeDetails(core::mem::transmute(pratingdetails.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn RatingInit() -> windows_core::Result<()> {
@@ -427,7 +427,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingObtainQuery(psztargeturl : windows_core::PCSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    RatingObtainQuery(psztargeturl.param().abi(), dwuserdata, fcallback, core::mem::transmute(phratingobtainquery.unwrap_or(std::ptr::null_mut()))).ok()
+    RatingObtainQuery(psztargeturl.param().abi(), dwuserdata, fcallback, core::mem::transmute(phratingobtainquery.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn RatingObtainQueryW<P0>(psztargeturl: P0, dwuserdata: u32, fcallback: isize, phratingobtainquery: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()>
@@ -435,7 +435,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("msrating.dll" "system" fn RatingObtainQueryW(psztargeturl : windows_core::PCWSTR, dwuserdata : u32, fcallback : isize, phratingobtainquery : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
-    RatingObtainQueryW(psztargeturl.param().abi(), dwuserdata, fcallback, core::mem::transmute(phratingobtainquery.unwrap_or(std::ptr::null_mut()))).ok()
+    RatingObtainQueryW(psztargeturl.param().abi(), dwuserdata, fcallback, core::mem::transmute(phratingobtainquery.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn RatingSetupUI<P0, P1>(hdlg: P0, pszusername: P1) -> windows_core::Result<()>

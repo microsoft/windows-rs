@@ -15,7 +15,7 @@ where
     P1: windows_core::Param<super::Foundation::LPARAM>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CompareStringEx(lplocalename : windows_core::PCWSTR, dwcmpflags : COMPARE_STRING_FLAGS, lpstring1 : windows_core::PCWSTR, cchcount1 : i32, lpstring2 : windows_core::PCWSTR, cchcount2 : i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const core::ffi::c_void, lparam : super::Foundation:: LPARAM) -> COMPARESTRING_RESULT);
-    CompareStringEx(lplocalename.param().abi(), dwcmpflags, core::mem::transmute(lpstring1.as_ptr()), lpstring1.len().try_into().unwrap(), core::mem::transmute(lpstring2.as_ptr()), lpstring2.len().try_into().unwrap(), core::mem::transmute(lpversioninformation.unwrap_or(std::ptr::null())), core::mem::transmute(lpreserved.unwrap_or(std::ptr::null())), lparam.param().abi())
+    CompareStringEx(lplocalename.param().abi(), dwcmpflags, core::mem::transmute(lpstring1.as_ptr()), lpstring1.len().try_into().unwrap(), core::mem::transmute(lpstring2.as_ptr()), lpstring2.len().try_into().unwrap(), core::mem::transmute(lpversioninformation.unwrap_or(core::ptr::null())), core::mem::transmute(lpreserved.unwrap_or(core::ptr::null())), lparam.param().abi())
 }
 #[inline]
 pub unsafe fn CompareStringOrdinal<P0>(lpstring1: &[u16], lpstring2: &[u16], bignorecase: P0) -> COMPARESTRING_RESULT
@@ -158,7 +158,7 @@ where
     P0: windows_core::Param<super::Foundation::LPARAM>,
 {
     windows_targets::link!("kernel32.dll" "system" fn EnumSystemLocalesEx(lplocaleenumprocex : LOCALE_ENUMPROCEX, dwflags : u32, lparam : super::Foundation:: LPARAM, lpreserved : *const core::ffi::c_void) -> super::Foundation:: BOOL);
-    EnumSystemLocalesEx(lplocaleenumprocex, dwflags, lparam.param().abi(), core::mem::transmute(lpreserved.unwrap_or(std::ptr::null()))).ok()
+    EnumSystemLocalesEx(lplocaleenumprocex, dwflags, lparam.param().abi(), core::mem::transmute(lpreserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: u32) -> windows_core::Result<()> {
@@ -197,7 +197,7 @@ pub unsafe fn EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwfla
 #[inline]
 pub unsafe fn FindNLSString(locale: u32, dwfindnlsstringflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], pcchfound: Option<*mut i32>) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn FindNLSString(locale : u32, dwfindnlsstringflags : u32, lpstringsource : windows_core::PCWSTR, cchsource : i32, lpstringvalue : windows_core::PCWSTR, cchvalue : i32, pcchfound : *mut i32) -> i32);
-    FindNLSString(locale, dwfindnlsstringflags, core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), core::mem::transmute(pcchfound.unwrap_or(std::ptr::null_mut())))
+    FindNLSString(locale, dwfindnlsstringflags, core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), core::mem::transmute(pcchfound.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn FindNLSStringEx<P0, P1>(lplocalename: P0, dwfindnlsstringflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], pcchfound: Option<*mut i32>, lpversioninformation: Option<*const NLSVERSIONINFO>, lpreserved: Option<*const core::ffi::c_void>, sorthandle: P1) -> i32
@@ -206,7 +206,7 @@ where
     P1: windows_core::Param<super::Foundation::LPARAM>,
 {
     windows_targets::link!("kernel32.dll" "system" fn FindNLSStringEx(lplocalename : windows_core::PCWSTR, dwfindnlsstringflags : u32, lpstringsource : windows_core::PCWSTR, cchsource : i32, lpstringvalue : windows_core::PCWSTR, cchvalue : i32, pcchfound : *mut i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const core::ffi::c_void, sorthandle : super::Foundation:: LPARAM) -> i32);
-    FindNLSStringEx(lplocalename.param().abi(), dwfindnlsstringflags, core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), core::mem::transmute(pcchfound.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpversioninformation.unwrap_or(std::ptr::null())), core::mem::transmute(lpreserved.unwrap_or(std::ptr::null())), sorthandle.param().abi())
+    FindNLSStringEx(lplocalename.param().abi(), dwfindnlsstringflags, core::mem::transmute(lpstringsource.as_ptr()), lpstringsource.len().try_into().unwrap(), core::mem::transmute(lpstringvalue.as_ptr()), lpstringvalue.len().try_into().unwrap(), core::mem::transmute(pcchfound.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpversioninformation.unwrap_or(core::ptr::null())), core::mem::transmute(lpreserved.unwrap_or(core::ptr::null())), sorthandle.param().abi())
 }
 #[inline]
 pub unsafe fn FindStringOrdinal<P0>(dwfindstringordinalflags: u32, lpstringsource: &[u16], lpstringvalue: &[u16], bignorecase: P0) -> i32
@@ -258,7 +258,7 @@ where
 #[inline]
 pub unsafe fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: Option<&mut [u8]>, lpvalue: Option<*mut u32>) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn GetCalendarInfoA(locale : u32, calendar : u32, caltype : u32, lpcaldata : windows_core::PSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
-    GetCalendarInfoA(locale, calendar, caltype, core::mem::transmute(lpcaldata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpvalue.unwrap_or(std::ptr::null_mut())))
+    GetCalendarInfoA(locale, calendar, caltype, core::mem::transmute(lpcaldata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpvalue.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn GetCalendarInfoEx<P0, P1>(lplocalename: P0, calendar: u32, lpreserved: P1, caltype: u32, lpcaldata: Option<&mut [u16]>, lpvalue: Option<*mut u32>) -> i32
@@ -267,12 +267,12 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetCalendarInfoEx(lplocalename : windows_core::PCWSTR, calendar : u32, lpreserved : windows_core::PCWSTR, caltype : u32, lpcaldata : windows_core::PWSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
-    GetCalendarInfoEx(lplocalename.param().abi(), calendar, lpreserved.param().abi(), caltype, core::mem::transmute(lpcaldata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpvalue.unwrap_or(std::ptr::null_mut())))
+    GetCalendarInfoEx(lplocalename.param().abi(), calendar, lpreserved.param().abi(), caltype, core::mem::transmute(lpcaldata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpvalue.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: Option<&mut [u16]>, lpvalue: Option<*mut u32>) -> i32 {
     windows_targets::link!("kernel32.dll" "system" fn GetCalendarInfoW(locale : u32, calendar : u32, caltype : u32, lpcaldata : windows_core::PWSTR, cchdata : i32, lpvalue : *mut u32) -> i32);
-    GetCalendarInfoW(locale, calendar, caltype, core::mem::transmute(lpcaldata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpvalue.unwrap_or(std::ptr::null_mut())))
+    GetCalendarInfoW(locale, calendar, caltype, core::mem::transmute(lpcaldata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcaldata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpvalue.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn GetCalendarSupportedDateRange(calendar: u32, lpcalmindatetime: *mut CALDATETIME, lpcalmaxdatetime: *mut CALDATETIME) -> super::Foundation::BOOL {
@@ -285,7 +285,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetCurrencyFormatA(locale : u32, dwflags : u32, lpvalue : windows_core::PCSTR, lpformat : *const CURRENCYFMTA, lpcurrencystr : windows_core::PSTR, cchcurrency : i32) -> i32);
-    GetCurrencyFormatA(locale, dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(std::ptr::null())), core::mem::transmute(lpcurrencystr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetCurrencyFormatA(locale, dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::ptr::null())), core::mem::transmute(lpcurrencystr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetCurrencyFormatEx<P0, P1>(lplocalename: P0, dwflags: u32, lpvalue: P1, lpformat: Option<*const CURRENCYFMTW>, lpcurrencystr: Option<&mut [u16]>) -> i32
@@ -294,7 +294,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetCurrencyFormatEx(lplocalename : windows_core::PCWSTR, dwflags : u32, lpvalue : windows_core::PCWSTR, lpformat : *const CURRENCYFMTW, lpcurrencystr : windows_core::PWSTR, cchcurrency : i32) -> i32);
-    GetCurrencyFormatEx(lplocalename.param().abi(), dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(std::ptr::null())), core::mem::transmute(lpcurrencystr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetCurrencyFormatEx(lplocalename.param().abi(), dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::ptr::null())), core::mem::transmute(lpcurrencystr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetCurrencyFormatW<P0>(locale: u32, dwflags: u32, lpvalue: P0, lpformat: Option<*const CURRENCYFMTW>, lpcurrencystr: Option<&mut [u16]>) -> i32
@@ -302,7 +302,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetCurrencyFormatW(locale : u32, dwflags : u32, lpvalue : windows_core::PCWSTR, lpformat : *const CURRENCYFMTW, lpcurrencystr : windows_core::PWSTR, cchcurrency : i32) -> i32);
-    GetCurrencyFormatW(locale, dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(std::ptr::null())), core::mem::transmute(lpcurrencystr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetCurrencyFormatW(locale, dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::ptr::null())), core::mem::transmute(lpcurrencystr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpcurrencystr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetDateFormatA<P0>(locale: u32, dwflags: u32, lpdate: Option<*const super::Foundation::SYSTEMTIME>, lpformat: P0, lpdatestr: Option<&mut [u8]>) -> i32
@@ -310,7 +310,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetDateFormatA(locale : u32, dwflags : u32, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCSTR, lpdatestr : windows_core::PSTR, cchdate : i32) -> i32);
-    GetDateFormatA(locale, dwflags, core::mem::transmute(lpdate.unwrap_or(std::ptr::null())), lpformat.param().abi(), core::mem::transmute(lpdatestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetDateFormatA(locale, dwflags, core::mem::transmute(lpdate.unwrap_or(core::ptr::null())), lpformat.param().abi(), core::mem::transmute(lpdatestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetDateFormatEx<P0, P1, P2>(lplocalename: P0, dwflags: ENUM_DATE_FORMATS_FLAGS, lpdate: Option<*const super::Foundation::SYSTEMTIME>, lpformat: P1, lpdatestr: Option<&mut [u16]>, lpcalendar: P2) -> i32
@@ -320,7 +320,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetDateFormatEx(lplocalename : windows_core::PCWSTR, dwflags : ENUM_DATE_FORMATS_FLAGS, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCWSTR, lpdatestr : windows_core::PWSTR, cchdate : i32, lpcalendar : windows_core::PCWSTR) -> i32);
-    GetDateFormatEx(lplocalename.param().abi(), dwflags, core::mem::transmute(lpdate.unwrap_or(std::ptr::null())), lpformat.param().abi(), core::mem::transmute(lpdatestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpcalendar.param().abi())
+    GetDateFormatEx(lplocalename.param().abi(), dwflags, core::mem::transmute(lpdate.unwrap_or(core::ptr::null())), lpformat.param().abi(), core::mem::transmute(lpdatestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpcalendar.param().abi())
 }
 #[inline]
 pub unsafe fn GetDateFormatW<P0>(locale: u32, dwflags: u32, lpdate: Option<*const super::Foundation::SYSTEMTIME>, lpformat: P0, lpdatestr: Option<&mut [u16]>) -> i32
@@ -328,7 +328,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetDateFormatW(locale : u32, dwflags : u32, lpdate : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCWSTR, lpdatestr : windows_core::PWSTR, cchdate : i32) -> i32);
-    GetDateFormatW(locale, dwflags, core::mem::transmute(lpdate.unwrap_or(std::ptr::null())), lpformat.param().abi(), core::mem::transmute(lpdatestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetDateFormatW(locale, dwflags, core::mem::transmute(lpdate.unwrap_or(core::ptr::null())), lpformat.param().abi(), core::mem::transmute(lpdatestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdatestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetDistanceOfClosestLanguageInList<P0, P1>(pszlanguage: P0, pszlanguageslist: P1, wchlistdelimiter: u16) -> windows_core::Result<f64>
@@ -346,7 +346,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetDurationFormat(locale : u32, dwflags : u32, lpduration : *const super::Foundation:: SYSTEMTIME, ullduration : u64, lpformat : windows_core::PCWSTR, lpdurationstr : windows_core::PWSTR, cchduration : i32) -> i32);
-    GetDurationFormat(locale, dwflags, core::mem::transmute(lpduration.unwrap_or(std::ptr::null())), ullduration, lpformat.param().abi(), core::mem::transmute(lpdurationstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdurationstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetDurationFormat(locale, dwflags, core::mem::transmute(lpduration.unwrap_or(core::ptr::null())), ullduration, lpformat.param().abi(), core::mem::transmute(lpdurationstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdurationstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetDurationFormatEx<P0, P1>(lplocalename: P0, dwflags: u32, lpduration: Option<*const super::Foundation::SYSTEMTIME>, ullduration: u64, lpformat: P1, lpdurationstr: Option<&mut [u16]>) -> i32
@@ -355,7 +355,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetDurationFormatEx(lplocalename : windows_core::PCWSTR, dwflags : u32, lpduration : *const super::Foundation:: SYSTEMTIME, ullduration : u64, lpformat : windows_core::PCWSTR, lpdurationstr : windows_core::PWSTR, cchduration : i32) -> i32);
-    GetDurationFormatEx(lplocalename.param().abi(), dwflags, core::mem::transmute(lpduration.unwrap_or(std::ptr::null())), ullduration, lpformat.param().abi(), core::mem::transmute(lpdurationstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdurationstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetDurationFormatEx(lplocalename.param().abi(), dwflags, core::mem::transmute(lpduration.unwrap_or(core::ptr::null())), ullduration, lpformat.param().abi(), core::mem::transmute(lpdurationstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdurationstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetFileMUIInfo<P0>(dwflags: u32, pcwszfilepath: P0, pfilemuiinfo: Option<*mut FILEMUIINFO>, pcbfilemuiinfo: *mut u32) -> windows_core::Result<()>
@@ -363,7 +363,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetFileMUIInfo(dwflags : u32, pcwszfilepath : windows_core::PCWSTR, pfilemuiinfo : *mut FILEMUIINFO, pcbfilemuiinfo : *mut u32) -> super::Foundation:: BOOL);
-    GetFileMUIInfo(dwflags, pcwszfilepath.param().abi(), core::mem::transmute(pfilemuiinfo.unwrap_or(std::ptr::null_mut())), pcbfilemuiinfo).ok()
+    GetFileMUIInfo(dwflags, pcwszfilepath.param().abi(), core::mem::transmute(pfilemuiinfo.unwrap_or(core::ptr::null_mut())), pcbfilemuiinfo).ok()
 }
 #[inline]
 pub unsafe fn GetFileMUIPath<P0>(dwflags: u32, pcwszfilepath: P0, pwszlanguage: windows_core::PWSTR, pcchlanguage: *mut u32, pwszfilemuipath: windows_core::PWSTR, pcchfilemuipath: *mut u32, pululenumerator: *mut u64) -> windows_core::Result<()>
@@ -428,7 +428,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetNumberFormatA(locale : u32, dwflags : u32, lpvalue : windows_core::PCSTR, lpformat : *const NUMBERFMTA, lpnumberstr : windows_core::PSTR, cchnumber : i32) -> i32);
-    GetNumberFormatA(locale, dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(std::ptr::null())), core::mem::transmute(lpnumberstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpnumberstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetNumberFormatA(locale, dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::ptr::null())), core::mem::transmute(lpnumberstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpnumberstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetNumberFormatEx<P0, P1>(lplocalename: P0, dwflags: u32, lpvalue: P1, lpformat: Option<*const NUMBERFMTW>, lpnumberstr: Option<&mut [u16]>) -> i32
@@ -437,7 +437,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetNumberFormatEx(lplocalename : windows_core::PCWSTR, dwflags : u32, lpvalue : windows_core::PCWSTR, lpformat : *const NUMBERFMTW, lpnumberstr : windows_core::PWSTR, cchnumber : i32) -> i32);
-    GetNumberFormatEx(lplocalename.param().abi(), dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(std::ptr::null())), core::mem::transmute(lpnumberstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpnumberstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetNumberFormatEx(lplocalename.param().abi(), dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::ptr::null())), core::mem::transmute(lpnumberstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpnumberstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetNumberFormatW<P0>(locale: u32, dwflags: u32, lpvalue: P0, lpformat: Option<*const NUMBERFMTW>, lpnumberstr: Option<&mut [u16]>) -> i32
@@ -445,7 +445,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetNumberFormatW(locale : u32, dwflags : u32, lpvalue : windows_core::PCWSTR, lpformat : *const NUMBERFMTW, lpnumberstr : windows_core::PWSTR, cchnumber : i32) -> i32);
-    GetNumberFormatW(locale, dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(std::ptr::null())), core::mem::transmute(lpnumberstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpnumberstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetNumberFormatW(locale, dwflags, lpvalue.param().abi(), core::mem::transmute(lpformat.unwrap_or(core::ptr::null())), core::mem::transmute(lpnumberstr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpnumberstr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetOEMCP() -> u32 {
@@ -532,7 +532,7 @@ where
     P0: windows_core::Param<super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("gdi32.dll" "system" fn GetTextCharsetInfo(hdc : super::Graphics::Gdi:: HDC, lpsig : *mut FONTSIGNATURE, dwflags : u32) -> i32);
-    GetTextCharsetInfo(hdc.param().abi(), core::mem::transmute(lpsig.unwrap_or(std::ptr::null_mut())), dwflags)
+    GetTextCharsetInfo(hdc.param().abi(), core::mem::transmute(lpsig.unwrap_or(core::ptr::null_mut())), dwflags)
 }
 #[inline]
 pub unsafe fn GetThreadLocale() -> u32 {
@@ -555,7 +555,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetTimeFormatA(locale : u32, dwflags : u32, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCSTR, lptimestr : windows_core::PSTR, cchtime : i32) -> i32);
-    GetTimeFormatA(locale, dwflags, core::mem::transmute(lptime.unwrap_or(std::ptr::null())), lpformat.param().abi(), core::mem::transmute(lptimestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetTimeFormatA(locale, dwflags, core::mem::transmute(lptime.unwrap_or(core::ptr::null())), lpformat.param().abi(), core::mem::transmute(lptimestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetTimeFormatEx<P0, P1>(lplocalename: P0, dwflags: TIME_FORMAT_FLAGS, lptime: Option<*const super::Foundation::SYSTEMTIME>, lpformat: P1, lptimestr: Option<&mut [u16]>) -> i32
@@ -564,7 +564,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetTimeFormatEx(lplocalename : windows_core::PCWSTR, dwflags : TIME_FORMAT_FLAGS, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCWSTR, lptimestr : windows_core::PWSTR, cchtime : i32) -> i32);
-    GetTimeFormatEx(lplocalename.param().abi(), dwflags, core::mem::transmute(lptime.unwrap_or(std::ptr::null())), lpformat.param().abi(), core::mem::transmute(lptimestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetTimeFormatEx(lplocalename.param().abi(), dwflags, core::mem::transmute(lptime.unwrap_or(core::ptr::null())), lpformat.param().abi(), core::mem::transmute(lptimestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetTimeFormatW<P0>(locale: u32, dwflags: u32, lptime: Option<*const super::Foundation::SYSTEMTIME>, lpformat: P0, lptimestr: Option<&mut [u16]>) -> i32
@@ -572,7 +572,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetTimeFormatW(locale : u32, dwflags : u32, lptime : *const super::Foundation:: SYSTEMTIME, lpformat : windows_core::PCWSTR, lptimestr : windows_core::PWSTR, cchtime : i32) -> i32);
-    GetTimeFormatW(locale, dwflags, core::mem::transmute(lptime.unwrap_or(std::ptr::null())), lpformat.param().abi(), core::mem::transmute(lptimestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+    GetTimeFormatW(locale, dwflags, core::mem::transmute(lptime.unwrap_or(core::ptr::null())), lpformat.param().abi(), core::mem::transmute(lptimestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lptimestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
 pub unsafe fn GetUILanguageInfo<P0>(dwflags: u32, pwmszlanguage: P0, pwszfallbacklanguages: windows_core::PWSTR, pcchfallbacklanguages: Option<*mut u32>, pattributes: *mut u32) -> windows_core::Result<()>
@@ -580,7 +580,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetUILanguageInfo(dwflags : u32, pwmszlanguage : windows_core::PCWSTR, pwszfallbacklanguages : windows_core::PWSTR, pcchfallbacklanguages : *mut u32, pattributes : *mut u32) -> super::Foundation:: BOOL);
-    GetUILanguageInfo(dwflags, pwmszlanguage.param().abi(), core::mem::transmute(pwszfallbacklanguages), core::mem::transmute(pcchfallbacklanguages.unwrap_or(std::ptr::null_mut())), pattributes).ok()
+    GetUILanguageInfo(dwflags, pwmszlanguage.param().abi(), core::mem::transmute(pwszfallbacklanguages), core::mem::transmute(pcchfallbacklanguages.unwrap_or(core::ptr::null_mut())), pattributes).ok()
 }
 #[inline]
 pub unsafe fn GetUserDefaultGeoName(geoname: &mut [u16]) -> i32 {
@@ -660,7 +660,7 @@ pub unsafe fn IsNormalizedString(normform: NORM_FORM, lpstring: &[u16]) -> windo
 #[inline]
 pub unsafe fn IsTextUnicode(lpv: *const core::ffi::c_void, isize: i32, lpiresult: Option<*mut IS_TEXT_UNICODE_RESULT>) -> super::Foundation::BOOL {
     windows_targets::link!("advapi32.dll" "system" fn IsTextUnicode(lpv : *const core::ffi::c_void, isize : i32, lpiresult : *mut IS_TEXT_UNICODE_RESULT) -> super::Foundation:: BOOL);
-    IsTextUnicode(lpv, isize, core::mem::transmute(lpiresult.unwrap_or(std::ptr::null_mut())))
+    IsTextUnicode(lpv, isize, core::mem::transmute(lpiresult.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn IsValidCodePage(codepage: u32) -> super::Foundation::BOOL {
@@ -718,7 +718,7 @@ where
     P1: windows_core::Param<super::Foundation::LPARAM>,
 {
     windows_targets::link!("kernel32.dll" "system" fn LCMapStringEx(lplocalename : windows_core::PCWSTR, dwmapflags : u32, lpsrcstr : windows_core::PCWSTR, cchsrc : i32, lpdeststr : windows_core::PWSTR, cchdest : i32, lpversioninformation : *const NLSVERSIONINFO, lpreserved : *const core::ffi::c_void, sorthandle : super::Foundation:: LPARAM) -> i32);
-    LCMapStringEx(lplocalename.param().abi(), dwmapflags, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdeststr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpversioninformation.unwrap_or(std::ptr::null())), core::mem::transmute(lpreserved.unwrap_or(std::ptr::null())), sorthandle.param().abi())
+    LCMapStringEx(lplocalename.param().abi(), dwmapflags, core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdeststr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpversioninformation.unwrap_or(core::ptr::null())), core::mem::transmute(lpreserved.unwrap_or(core::ptr::null())), sorthandle.param().abi())
 }
 #[inline]
 pub unsafe fn LCMapStringW(locale: u32, dwmapflags: u32, lpsrcstr: &[u16], lpdeststr: windows_core::PWSTR, cchdest: i32) -> i32 {
@@ -754,12 +754,12 @@ pub unsafe fn MappingFreeServices(pserviceinfo: *const MAPPING_SERVICE_INFO) -> 
 #[inline]
 pub unsafe fn MappingGetServices(poptions: Option<*const MAPPING_ENUM_OPTIONS>, prgservices: *mut *mut MAPPING_SERVICE_INFO, pdwservicescount: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("elscore.dll" "system" fn MappingGetServices(poptions : *const MAPPING_ENUM_OPTIONS, prgservices : *mut *mut MAPPING_SERVICE_INFO, pdwservicescount : *mut u32) -> windows_core::HRESULT);
-    MappingGetServices(core::mem::transmute(poptions.unwrap_or(std::ptr::null())), prgservices, pdwservicescount).ok()
+    MappingGetServices(core::mem::transmute(poptions.unwrap_or(core::ptr::null())), prgservices, pdwservicescount).ok()
 }
 #[inline]
 pub unsafe fn MappingRecognizeText(pserviceinfo: *const MAPPING_SERVICE_INFO, psztext: &[u16], dwindex: u32, poptions: Option<*const MAPPING_OPTIONS>, pbag: *mut MAPPING_PROPERTY_BAG) -> windows_core::Result<()> {
     windows_targets::link!("elscore.dll" "system" fn MappingRecognizeText(pserviceinfo : *const MAPPING_SERVICE_INFO, psztext : windows_core::PCWSTR, dwlength : u32, dwindex : u32, poptions : *const MAPPING_OPTIONS, pbag : *mut MAPPING_PROPERTY_BAG) -> windows_core::HRESULT);
-    MappingRecognizeText(pserviceinfo, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwindex, core::mem::transmute(poptions.unwrap_or(std::ptr::null())), pbag).ok()
+    MappingRecognizeText(pserviceinfo, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap(), dwindex, core::mem::transmute(poptions.unwrap_or(core::ptr::null())), pbag).ok()
 }
 #[inline]
 pub unsafe fn MultiByteToWideChar(codepage: u32, dwflags: MULTI_BYTE_TO_WIDE_CHAR_FLAGS, lpmultibytestr: &[u8], lpwidecharstr: Option<&mut [u16]>) -> i32 {
@@ -778,7 +778,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn NotifyUILanguageChange(dwflags : u32, pcwstrnewlanguage : windows_core::PCWSTR, pcwstrpreviouslanguage : windows_core::PCWSTR, dwreserved : u32, pdwstatusrtrn : *mut u32) -> super::Foundation:: BOOL);
-    NotifyUILanguageChange(dwflags, pcwstrnewlanguage.param().abi(), pcwstrpreviouslanguage.param().abi(), dwreserved, core::mem::transmute(pdwstatusrtrn.unwrap_or(std::ptr::null_mut())))
+    NotifyUILanguageChange(dwflags, pcwstrnewlanguage.param().abi(), pcwstrpreviouslanguage.param().abi(), dwreserved, core::mem::transmute(pdwstatusrtrn.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn ResolveLocaleName<P0>(lpnametoresolve: P0, lplocalename: Option<&mut [u16]>) -> i32
@@ -805,7 +805,7 @@ pub unsafe fn ScriptApplyDigitSubstitution(psds: *const SCRIPT_DIGITSUBSTITUTE, 
 #[inline]
 pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pabc: Option<*mut super::Graphics::Gdi::ABC>, pijustify: *mut i32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptApplyLogicalWidth(pidx : *const i32, cchars : i32, cglyphs : i32, pwlogclust : *const u16, psva : *const SCRIPT_VISATTR, piadvance : *const i32, psa : *const SCRIPT_ANALYSIS, pabc : *mut super::Graphics::Gdi:: ABC, pijustify : *mut i32) -> windows_core::HRESULT);
-    ScriptApplyLogicalWidth(pidx, cchars, cglyphs, pwlogclust, psva, piadvance, psa, core::mem::transmute(pabc.unwrap_or(std::ptr::null_mut())), pijustify).ok()
+    ScriptApplyLogicalWidth(pidx, cchars, cglyphs, pwlogclust, psva, piadvance, psa, core::mem::transmute(pabc.unwrap_or(core::ptr::null_mut())), pijustify).ok()
 }
 #[inline]
 pub unsafe fn ScriptBreak<P0>(pwcchars: P0, cchars: i32, psa: *const SCRIPT_ANALYSIS, psla: *mut SCRIPT_LOGATTR) -> windows_core::Result<()>
@@ -854,7 +854,7 @@ where
     P0: windows_core::Param<super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptGetFontAlternateGlyphs(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, wglyphid : u16, cmaxalternates : i32, palternateglyphs : *mut u16, pcalternates : *mut i32) -> windows_core::HRESULT);
-    ScriptGetFontAlternateGlyphs(hdc.param().abi(), psc, core::mem::transmute(psa.unwrap_or(std::ptr::null())), tagscript, taglangsys, tagfeature, wglyphid, palternateglyphs.len().try_into().unwrap(), core::mem::transmute(palternateglyphs.as_ptr()), pcalternates).ok()
+    ScriptGetFontAlternateGlyphs(hdc.param().abi(), psc, core::mem::transmute(psa.unwrap_or(core::ptr::null())), tagscript, taglangsys, tagfeature, wglyphid, palternateglyphs.len().try_into().unwrap(), core::mem::transmute(palternateglyphs.as_ptr()), pcalternates).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -863,7 +863,7 @@ where
     P0: windows_core::Param<super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptGetFontFeatureTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, cmaxtags : i32, pfeaturetags : *mut u32, pctags : *mut i32) -> windows_core::HRESULT);
-    ScriptGetFontFeatureTags(hdc.param().abi(), psc, core::mem::transmute(psa.unwrap_or(std::ptr::null())), tagscript, taglangsys, pfeaturetags.len().try_into().unwrap(), core::mem::transmute(pfeaturetags.as_ptr()), pctags).ok()
+    ScriptGetFontFeatureTags(hdc.param().abi(), psc, core::mem::transmute(psa.unwrap_or(core::ptr::null())), tagscript, taglangsys, pfeaturetags.len().try_into().unwrap(), core::mem::transmute(pfeaturetags.as_ptr()), pctags).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -872,7 +872,7 @@ where
     P0: windows_core::Param<super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptGetFontLanguageTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, cmaxtags : i32, plangsystags : *mut u32, pctags : *mut i32) -> windows_core::HRESULT);
-    ScriptGetFontLanguageTags(hdc.param().abi(), psc, core::mem::transmute(psa.unwrap_or(std::ptr::null())), tagscript, plangsystags.len().try_into().unwrap(), core::mem::transmute(plangsystags.as_ptr()), pctags).ok()
+    ScriptGetFontLanguageTags(hdc.param().abi(), psc, core::mem::transmute(psa.unwrap_or(core::ptr::null())), tagscript, plangsystags.len().try_into().unwrap(), core::mem::transmute(plangsystags.as_ptr()), pctags).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -890,7 +890,7 @@ where
     P0: windows_core::Param<super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptGetFontScriptTags(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, cmaxtags : i32, pscripttags : *mut u32, pctags : *mut i32) -> windows_core::HRESULT);
-    ScriptGetFontScriptTags(hdc.param().abi(), psc, core::mem::transmute(psa.unwrap_or(std::ptr::null())), pscripttags.len().try_into().unwrap(), core::mem::transmute(pscripttags.as_ptr()), pctags).ok()
+    ScriptGetFontScriptTags(hdc.param().abi(), psc, core::mem::transmute(psa.unwrap_or(core::ptr::null())), pscripttags.len().try_into().unwrap(), core::mem::transmute(pscripttags.as_ptr()), pctags).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -919,12 +919,12 @@ pub unsafe fn ScriptIsComplex(pwcinchars: &[u16], dwflags: SCRIPT_IS_COMPLEX_FLA
 #[inline]
 pub unsafe fn ScriptItemize(pwcinchars: &[u16], pscontrol: Option<*const SCRIPT_CONTROL>, psstate: Option<*const SCRIPT_STATE>, pitems: &mut [SCRIPT_ITEM], pcitems: *mut i32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptItemize(pwcinchars : windows_core::PCWSTR, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pcitems : *mut i32) -> windows_core::HRESULT);
-    ScriptItemize(core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len().try_into().unwrap(), pitems.len().try_into().unwrap(), core::mem::transmute(pscontrol.unwrap_or(std::ptr::null())), core::mem::transmute(psstate.unwrap_or(std::ptr::null())), core::mem::transmute(pitems.as_ptr()), pcitems).ok()
+    ScriptItemize(core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len().try_into().unwrap(), pitems.len().try_into().unwrap(), core::mem::transmute(pscontrol.unwrap_or(core::ptr::null())), core::mem::transmute(psstate.unwrap_or(core::ptr::null())), core::mem::transmute(pitems.as_ptr()), pcitems).ok()
 }
 #[inline]
 pub unsafe fn ScriptItemizeOpenType(pwcinchars: &[u16], cmaxitems: i32, pscontrol: Option<*const SCRIPT_CONTROL>, psstate: Option<*const SCRIPT_STATE>, pitems: *mut SCRIPT_ITEM, pscripttags: *mut u32, pcitems: *mut i32) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptItemizeOpenType(pwcinchars : windows_core::PCWSTR, cinchars : i32, cmaxitems : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pitems : *mut SCRIPT_ITEM, pscripttags : *mut u32, pcitems : *mut i32) -> windows_core::HRESULT);
-    ScriptItemizeOpenType(core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len().try_into().unwrap(), cmaxitems, core::mem::transmute(pscontrol.unwrap_or(std::ptr::null())), core::mem::transmute(psstate.unwrap_or(std::ptr::null())), pitems, pscripttags, pcitems).ok()
+    ScriptItemizeOpenType(core::mem::transmute(pwcinchars.as_ptr()), pwcinchars.len().try_into().unwrap(), cmaxitems, core::mem::transmute(pscontrol.unwrap_or(core::ptr::null())), core::mem::transmute(psstate.unwrap_or(core::ptr::null())), pitems, pscripttags, pcitems).ok()
 }
 #[inline]
 pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32, pijustify: *mut i32) -> windows_core::Result<()> {
@@ -934,7 +934,7 @@ pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, 
 #[inline]
 pub unsafe fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: Option<*mut i32>, pilogicaltovisual: Option<*mut i32>) -> windows_core::Result<()> {
     windows_targets::link!("usp10.dll" "system" fn ScriptLayout(cruns : i32, pblevel : *const u8, pivisualtological : *mut i32, pilogicaltovisual : *mut i32) -> windows_core::HRESULT);
-    ScriptLayout(cruns, pblevel, core::mem::transmute(pivisualtological.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pilogicaltovisual.unwrap_or(std::ptr::null_mut()))).ok()
+    ScriptLayout(cruns, pblevel, core::mem::transmute(pivisualtological.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pilogicaltovisual.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -943,7 +943,7 @@ where
     P0: windows_core::Param<super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptPlace(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, pwglyphs : *const u16, cglyphs : i32, psva : *const SCRIPT_VISATTR, psa : *mut SCRIPT_ANALYSIS, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::Graphics::Gdi:: ABC) -> windows_core::HRESULT);
-    ScriptPlace(hdc.param().abi(), psc, pwglyphs, cglyphs, psva, psa, piadvance, core::mem::transmute(pgoffset.unwrap_or(std::ptr::null_mut())), pabc).ok()
+    ScriptPlace(hdc.param().abi(), psc, pwglyphs, cglyphs, psva, psa, piadvance, core::mem::transmute(pgoffset.unwrap_or(core::ptr::null_mut())), pabc).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -953,7 +953,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptPlaceOpenType(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *mut SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, rcrangechars : *const i32, rprangeproperties : *const *const TEXTRANGE_PROPERTIES, cranges : i32, pwcchars : windows_core::PCWSTR, pwlogclust : *const u16, pcharprops : *const SCRIPT_CHARPROP, cchars : i32, pwglyphs : *const u16, pglyphprops : *const SCRIPT_GLYPHPROP, cglyphs : i32, piadvance : *mut i32, pgoffset : *mut GOFFSET, pabc : *mut super::Graphics::Gdi:: ABC) -> windows_core::HRESULT);
-    ScriptPlaceOpenType(hdc.param().abi(), psc, psa, tagscript, taglangsys, core::mem::transmute(rcrangechars.unwrap_or(std::ptr::null())), core::mem::transmute(rprangeproperties.unwrap_or(std::ptr::null())), cranges, pwcchars.param().abi(), pwlogclust, pcharprops, cchars, pwglyphs, pglyphprops, cglyphs, piadvance, pgoffset, core::mem::transmute(pabc.unwrap_or(std::ptr::null_mut()))).ok()
+    ScriptPlaceOpenType(hdc.param().abi(), psc, psa, tagscript, taglangsys, core::mem::transmute(rcrangechars.unwrap_or(core::ptr::null())), core::mem::transmute(rprangeproperties.unwrap_or(core::ptr::null())), cranges, pwcchars.param().abi(), pwlogclust, pcharprops, cchars, pwglyphs, pglyphprops, cglyphs, piadvance, pgoffset, core::mem::transmute(pabc.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -962,7 +962,7 @@ where
     P0: windows_core::Param<super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptPositionSingleGlyph(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, lparameter : i32, wglyphid : u16, iadvance : i32, goffset : GOFFSET, pioutadvance : *mut i32, poutgoffset : *mut GOFFSET) -> windows_core::HRESULT);
-    ScriptPositionSingleGlyph(hdc.param().abi(), psc, core::mem::transmute(psa.unwrap_or(std::ptr::null())), tagscript, taglangsys, tagfeature, lparameter, wglyphid, iadvance, core::mem::transmute(goffset), pioutadvance, poutgoffset).ok()
+    ScriptPositionSingleGlyph(hdc.param().abi(), psc, core::mem::transmute(psa.unwrap_or(core::ptr::null())), tagscript, taglangsys, tagfeature, lparameter, wglyphid, iadvance, core::mem::transmute(goffset), pioutadvance, poutgoffset).ok()
 }
 #[inline]
 pub unsafe fn ScriptRecordDigitSubstitution(locale: u32) -> windows_core::Result<SCRIPT_DIGITSUBSTITUTE> {
@@ -988,7 +988,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptShapeOpenType(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *mut SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, rcrangechars : *const i32, rprangeproperties : *const *const TEXTRANGE_PROPERTIES, cranges : i32, pwcchars : windows_core::PCWSTR, cchars : i32, cmaxglyphs : i32, pwlogclust : *mut u16, pcharprops : *mut SCRIPT_CHARPROP, pwoutglyphs : *mut u16, poutglyphprops : *mut SCRIPT_GLYPHPROP, pcglyphs : *mut i32) -> windows_core::HRESULT);
-    ScriptShapeOpenType(hdc.param().abi(), psc, psa, tagscript, taglangsys, core::mem::transmute(rcrangechars.unwrap_or(std::ptr::null())), core::mem::transmute(rprangeproperties.unwrap_or(std::ptr::null())), cranges, pwcchars.param().abi(), cchars, cmaxglyphs, pwlogclust, pcharprops, pwoutglyphs, poutglyphprops, pcglyphs).ok()
+    ScriptShapeOpenType(hdc.param().abi(), psc, psa, tagscript, taglangsys, core::mem::transmute(rcrangechars.unwrap_or(core::ptr::null())), core::mem::transmute(rprangeproperties.unwrap_or(core::ptr::null())), cranges, pwcchars.param().abi(), cchars, cmaxglyphs, pwlogclust, pcharprops, pwoutglyphs, poutglyphprops, pcglyphs).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -997,7 +997,7 @@ where
     P0: windows_core::Param<super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptStringAnalyse(hdc : super::Graphics::Gdi:: HDC, pstring : *const core::ffi::c_void, cstring : i32, cglyphs : i32, icharset : i32, dwflags : u32, ireqwidth : i32, pscontrol : *const SCRIPT_CONTROL, psstate : *const SCRIPT_STATE, pidx : *const i32, ptabdef : *const SCRIPT_TABDEF, pbinclass : *const u8, pssa : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    ScriptStringAnalyse(hdc.param().abi(), pstring, cstring, cglyphs, icharset, dwflags, ireqwidth, core::mem::transmute(pscontrol.unwrap_or(std::ptr::null())), core::mem::transmute(psstate.unwrap_or(std::ptr::null())), core::mem::transmute(pidx.unwrap_or(std::ptr::null())), core::mem::transmute(ptabdef.unwrap_or(std::ptr::null())), pbinclass, pssa).ok()
+    ScriptStringAnalyse(hdc.param().abi(), pstring, cstring, cglyphs, icharset, dwflags, ireqwidth, core::mem::transmute(pscontrol.unwrap_or(core::ptr::null())), core::mem::transmute(psstate.unwrap_or(core::ptr::null())), core::mem::transmute(pidx.unwrap_or(core::ptr::null())), core::mem::transmute(ptabdef.unwrap_or(core::ptr::null())), pbinclass, pssa).ok()
 }
 #[inline]
 pub unsafe fn ScriptStringCPtoX<P0>(ssa: *const core::ffi::c_void, icp: i32, ftrailing: P0) -> windows_core::Result<i32>
@@ -1030,7 +1030,7 @@ where
     P0: windows_core::Param<super::Foundation::BOOL>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptStringOut(ssa : *const core::ffi::c_void, ix : i32, iy : i32, uoptions : super::Graphics::Gdi:: ETO_OPTIONS, prc : *const super::Foundation:: RECT, iminsel : i32, imaxsel : i32, fdisabled : super::Foundation:: BOOL) -> windows_core::HRESULT);
-    ScriptStringOut(ssa, ix, iy, uoptions, core::mem::transmute(prc.unwrap_or(std::ptr::null())), iminsel, imaxsel, fdisabled.param().abi()).ok()
+    ScriptStringOut(ssa, ix, iy, uoptions, core::mem::transmute(prc.unwrap_or(core::ptr::null())), iminsel, imaxsel, fdisabled.param().abi()).ok()
 }
 #[inline]
 pub unsafe fn ScriptStringValidate(ssa: *const core::ffi::c_void) -> windows_core::Result<()> {
@@ -1064,7 +1064,7 @@ where
     P0: windows_core::Param<super::Graphics::Gdi::HDC>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptSubstituteSingleGlyph(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, psa : *const SCRIPT_ANALYSIS, tagscript : u32, taglangsys : u32, tagfeature : u32, lparameter : i32, wglyphid : u16, pwoutglyphid : *mut u16) -> windows_core::HRESULT);
-    ScriptSubstituteSingleGlyph(hdc.param().abi(), psc, core::mem::transmute(psa.unwrap_or(std::ptr::null())), tagscript, taglangsys, tagfeature, lparameter, wglyphid, pwoutglyphid).ok()
+    ScriptSubstituteSingleGlyph(hdc.param().abi(), psc, core::mem::transmute(psa.unwrap_or(core::ptr::null())), tagscript, taglangsys, tagfeature, lparameter, wglyphid, pwoutglyphid).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -1074,7 +1074,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("usp10.dll" "system" fn ScriptTextOut(hdc : super::Graphics::Gdi:: HDC, psc : *mut *mut core::ffi::c_void, x : i32, y : i32, fuoptions : u32, lprc : *const super::Foundation:: RECT, psa : *const SCRIPT_ANALYSIS, pwcreserved : windows_core::PCWSTR, ireserved : i32, pwglyphs : *const u16, cglyphs : i32, piadvance : *const i32, pijustify : *const i32, pgoffset : *const GOFFSET) -> windows_core::HRESULT);
-    ScriptTextOut(hdc.param().abi(), psc, x, y, fuoptions, core::mem::transmute(lprc.unwrap_or(std::ptr::null())), psa, pwcreserved.param().abi(), ireserved, pwglyphs, cglyphs, piadvance, core::mem::transmute(pijustify.unwrap_or(std::ptr::null())), pgoffset).ok()
+    ScriptTextOut(hdc.param().abi(), psc, x, y, fuoptions, core::mem::transmute(lprc.unwrap_or(core::ptr::null())), psa, pwcreserved.param().abi(), ireserved, pwglyphs, cglyphs, piadvance, core::mem::transmute(pijustify.unwrap_or(core::ptr::null())), pgoffset).ok()
 }
 #[inline]
 pub unsafe fn ScriptXtoCP(ix: i32, cglyphs: i32, pwlogclust: &[u16], psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, picp: *mut i32, pitrailing: *mut i32) -> windows_core::Result<()> {
@@ -1119,7 +1119,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetProcessPreferredUILanguages(dwflags : u32, pwszlanguagesbuffer : windows_core::PCWSTR, pulnumlanguages : *mut u32) -> super::Foundation:: BOOL);
-    SetProcessPreferredUILanguages(dwflags, pwszlanguagesbuffer.param().abi(), core::mem::transmute(pulnumlanguages.unwrap_or(std::ptr::null_mut()))).ok()
+    SetProcessPreferredUILanguages(dwflags, pwszlanguagesbuffer.param().abi(), core::mem::transmute(pulnumlanguages.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn SetThreadLocale(locale: u32) -> super::Foundation::BOOL {
@@ -1132,7 +1132,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages(dwflags : u32, pwszlanguagesbuffer : windows_core::PCWSTR, pulnumlanguages : *mut u32) -> super::Foundation:: BOOL);
-    SetThreadPreferredUILanguages(dwflags, pwszlanguagesbuffer.param().abi(), core::mem::transmute(pulnumlanguages.unwrap_or(std::ptr::null_mut())))
+    SetThreadPreferredUILanguages(dwflags, pwszlanguagesbuffer.param().abi(), core::mem::transmute(pulnumlanguages.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SetThreadPreferredUILanguages2<P0>(flags: u32, languages: P0, numlanguagesset: Option<*mut u32>, snapshot: Option<*mut HSAVEDUILANGUAGES>) -> super::Foundation::BOOL
@@ -1140,7 +1140,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages2(flags : u32, languages : windows_core::PCWSTR, numlanguagesset : *mut u32, snapshot : *mut HSAVEDUILANGUAGES) -> super::Foundation:: BOOL);
-    SetThreadPreferredUILanguages2(flags, languages.param().abi(), core::mem::transmute(numlanguagesset.unwrap_or(std::ptr::null_mut())), core::mem::transmute(snapshot.unwrap_or(std::ptr::null_mut())))
+    SetThreadPreferredUILanguages2(flags, languages.param().abi(), core::mem::transmute(numlanguagesset.unwrap_or(core::ptr::null_mut())), core::mem::transmute(snapshot.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SetThreadUILanguage(langid: u16) -> u16 {
@@ -1237,7 +1237,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn WideCharToMultiByte(codepage : u32, dwflags : u32, lpwidecharstr : windows_core::PCWSTR, cchwidechar : i32, lpmultibytestr : windows_core::PSTR, cbmultibyte : i32, lpdefaultchar : windows_core::PCSTR, lpuseddefaultchar : *mut super::Foundation:: BOOL) -> i32);
-    WideCharToMultiByte(codepage, dwflags, core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len().try_into().unwrap(), core::mem::transmute(lpmultibytestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpmultibytestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpdefaultchar.param().abi(), core::mem::transmute(lpuseddefaultchar.unwrap_or(std::ptr::null_mut())))
+    WideCharToMultiByte(codepage, dwflags, core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len().try_into().unwrap(), core::mem::transmute(lpmultibytestr.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpmultibytestr.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpdefaultchar.param().abi(), core::mem::transmute(lpuseddefaultchar.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn lstrcatA<P0>(lpstring1: windows_core::PSTR, lpstring2: P0) -> windows_core::PSTR
@@ -7086,10 +7086,10 @@ impl core::ops::Deref for IEnumCodePage {
 windows_core::imp::interface_hierarchy!(IEnumCodePage, windows_core::IUnknown);
 impl IEnumCodePage {
     pub unsafe fn Clone(&self, ppenum: Option<*const Option<IEnumCodePage>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum.unwrap_or(core::ptr::null()))).ok()
     }
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut MIMECPINFO, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt, core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt, core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -7116,10 +7116,10 @@ impl core::ops::Deref for IEnumRfc1766 {
 windows_core::imp::interface_hierarchy!(IEnumRfc1766, windows_core::IUnknown);
 impl IEnumRfc1766 {
     pub unsafe fn Clone(&self, ppenum: Option<*const Option<IEnumRfc1766>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum.unwrap_or(core::ptr::null()))).ok()
     }
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut RFC1766INFO, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt, core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt, core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -7146,10 +7146,10 @@ impl core::ops::Deref for IEnumScript {
 windows_core::imp::interface_hierarchy!(IEnumScript, windows_core::IUnknown);
 impl IEnumScript {
     pub unsafe fn Clone(&self, ppenum: Option<*const Option<IEnumScript>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), core::mem::transmute(ppenum.unwrap_or(core::ptr::null()))).ok()
     }
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut SCRIPTINFO, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt, core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt, core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -7198,7 +7198,7 @@ impl IMLangCodePages {
         (windows_core::Interface::vtable(self).GetCharCodePages)(windows_core::Interface::as_raw(self), chsrc, &mut result__).map(|| result__)
     }
     pub unsafe fn GetStrCodePages(&self, pszsrc: &[u16], dwprioritycodepages: u32, pdwcodepages: Option<*mut u32>, pcchcodepages: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStrCodePages)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), dwprioritycodepages, core::mem::transmute(pdwcodepages.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchcodepages.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetStrCodePages)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), dwprioritycodepages, core::mem::transmute(pdwcodepages.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchcodepages.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn CodePageToCodePages(&self, ucodepage: u32) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -7242,19 +7242,19 @@ impl IMLangConvertCharset {
         (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn DoConversion(&self, psrcstr: *const u8, pcsrcsize: Option<*mut u32>, pdststr: *mut u8, pcdstsize: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).DoConversion)(windows_core::Interface::as_raw(self), psrcstr, core::mem::transmute(pcsrcsize.unwrap_or(std::ptr::null_mut())), pdststr, core::mem::transmute(pcdstsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).DoConversion)(windows_core::Interface::as_raw(self), psrcstr, core::mem::transmute(pcsrcsize.unwrap_or(core::ptr::null_mut())), pdststr, core::mem::transmute(pcdstsize.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn DoConversionToUnicode<P0>(&self, psrcstr: P0, pcsrcsize: Option<*mut u32>, pdststr: windows_core::PWSTR, pcdstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).DoConversionToUnicode)(windows_core::Interface::as_raw(self), psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).DoConversionToUnicode)(windows_core::Interface::as_raw(self), psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn DoConversionFromUnicode<P0>(&self, psrcstr: P0, pcsrcsize: Option<*mut u32>, pdststr: windows_core::PSTR, pcdstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).DoConversionFromUnicode)(windows_core::Interface::as_raw(self), psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).DoConversionFromUnicode)(windows_core::Interface::as_raw(self), psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(core::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -7283,7 +7283,7 @@ impl IMLangFontLink {
         P0: windows_core::Param<super::Graphics::Gdi::HDC>,
         P1: windows_core::Param<super::Graphics::Gdi::HFONT>,
     {
-        (windows_core::Interface::vtable(self).GetFontCodePages)(windows_core::Interface::as_raw(self), hdc.param().abi(), hfont.param().abi(), core::mem::transmute(pdwcodepages.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetFontCodePages)(windows_core::Interface::as_raw(self), hdc.param().abi(), hfont.param().abi(), core::mem::transmute(pdwcodepages.unwrap_or(core::ptr::null_mut()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn MapFont<P0, P1>(&self, hdc: P0, dwcodepages: u32, hsrcfont: P1, phdestfont: Option<*mut super::Graphics::Gdi::HFONT>) -> windows_core::Result<()>
@@ -7291,7 +7291,7 @@ impl IMLangFontLink {
         P0: windows_core::Param<super::Graphics::Gdi::HDC>,
         P1: windows_core::Param<super::Graphics::Gdi::HFONT>,
     {
-        (windows_core::Interface::vtable(self).MapFont)(windows_core::Interface::as_raw(self), hdc.param().abi(), dwcodepages, hsrcfont.param().abi(), core::mem::transmute(phdestfont.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).MapFont)(windows_core::Interface::as_raw(self), hdc.param().abi(), dwcodepages, hsrcfont.param().abi(), core::mem::transmute(phdestfont.unwrap_or(core::ptr::null_mut()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseFont<P0>(&self, hfont: P0) -> windows_core::Result<()>
@@ -7336,7 +7336,7 @@ impl IMLangFontLink2 {
         P0: windows_core::Param<super::Graphics::Gdi::HDC>,
         P1: windows_core::Param<super::Graphics::Gdi::HFONT>,
     {
-        (windows_core::Interface::vtable(self).GetFontCodePages)(windows_core::Interface::as_raw(self), hdc.param().abi(), hfont.param().abi(), core::mem::transmute(pdwcodepages.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetFontCodePages)(windows_core::Interface::as_raw(self), hdc.param().abi(), hfont.param().abi(), core::mem::transmute(pdwcodepages.unwrap_or(core::ptr::null_mut()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseFont<P0>(&self, hfont: P0) -> windows_core::Result<()>
@@ -7353,17 +7353,17 @@ impl IMLangFontLink2 {
     where
         P0: windows_core::Param<super::Graphics::Gdi::HDC>,
     {
-        (windows_core::Interface::vtable(self).MapFont)(windows_core::Interface::as_raw(self), hdc.param().abi(), dwcodepages, chsrc, core::mem::transmute(pfont.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).MapFont)(windows_core::Interface::as_raw(self), hdc.param().abi(), dwcodepages, chsrc, core::mem::transmute(pfont.unwrap_or(core::ptr::null_mut()))).ok()
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetFontUnicodeRanges<P0>(&self, hdc: P0, puiranges: *const u32, puranges: Option<*mut UNICODERANGE>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Graphics::Gdi::HDC>,
     {
-        (windows_core::Interface::vtable(self).GetFontUnicodeRanges)(windows_core::Interface::as_raw(self), hdc.param().abi(), puiranges, core::mem::transmute(puranges.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetFontUnicodeRanges)(windows_core::Interface::as_raw(self), hdc.param().abi(), puiranges, core::mem::transmute(puranges.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetScriptFontInfo(&self, sid: u8, dwflags: u32, puifonts: *mut u32, pscriptfont: Option<*mut SCRIPTFONTINFO>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetScriptFontInfo)(windows_core::Interface::as_raw(self), sid, dwflags, puifonts, core::mem::transmute(pscriptfont.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetScriptFontInfo)(windows_core::Interface::as_raw(self), sid, dwflags, puifonts, core::mem::transmute(pscriptfont.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn CodePageToScriptID(&self, uicodepage: u32) -> windows_core::Result<u8> {
         let mut result__ = core::mem::zeroed();
@@ -7406,13 +7406,13 @@ impl IMLangLineBreakConsole {
     where
         P0: windows_core::Param<IMLangString>,
     {
-        (windows_core::Interface::vtable(self).BreakLineML)(windows_core::Interface::as_raw(self), psrcmlstr.param().abi(), lsrcpos, lsrclen, cmincolumns, cmaxcolumns, core::mem::transmute(pllinelen.unwrap_or(std::ptr::null_mut())), core::mem::transmute(plskiplen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).BreakLineML)(windows_core::Interface::as_raw(self), psrcmlstr.param().abi(), lsrcpos, lsrclen, cmincolumns, cmaxcolumns, core::mem::transmute(pllinelen.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plskiplen.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn BreakLineW(&self, locale: u32, pszsrc: &[u16], cmaxcolumns: i32, pcchline: Option<*mut i32>, pcchskip: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).BreakLineW)(windows_core::Interface::as_raw(self), locale, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), cmaxcolumns, core::mem::transmute(pcchline.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchskip.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).BreakLineW)(windows_core::Interface::as_raw(self), locale, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), cmaxcolumns, core::mem::transmute(pcchline.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchskip.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn BreakLineA(&self, locale: u32, ucodepage: u32, pszsrc: &[u8], cmaxcolumns: i32, pcchline: Option<*mut i32>, pcchskip: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).BreakLineA)(windows_core::Interface::as_raw(self), locale, ucodepage, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), cmaxcolumns, core::mem::transmute(pcchline.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchskip.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).BreakLineA)(windows_core::Interface::as_raw(self), locale, ucodepage, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), cmaxcolumns, core::mem::transmute(pcchline.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchskip.unwrap_or(core::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -7438,7 +7438,7 @@ impl IMLangString {
         (windows_core::Interface::vtable(self).Sync)(windows_core::Interface::as_raw(self), fnoaccess.param().abi()).ok()
     }
     pub unsafe fn GetLength(&self, pllen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), core::mem::transmute(pllen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetLength)(windows_core::Interface::as_raw(self), core::mem::transmute(pllen.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetMLStr<P0>(&self, ldestpos: i32, ldestlen: i32, psrcmlstr: P0, lsrcpos: i32, lsrclen: i32) -> windows_core::Result<()>
     where
@@ -7450,7 +7450,7 @@ impl IMLangString {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).GetMLStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, punkouter.param().abi(), dwclscontext, piid, core::mem::transmute(ppdestmlstr), core::mem::transmute(pldestpos.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pldestlen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetMLStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, punkouter.param().abi(), dwclscontext, piid, core::mem::transmute(ppdestmlstr), core::mem::transmute(pldestpos.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pldestlen.unwrap_or(core::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -7471,31 +7471,31 @@ impl core::ops::Deref for IMLangStringAStr {
 windows_core::imp::interface_hierarchy!(IMLangStringAStr, windows_core::IUnknown, IMLangString);
 impl IMLangStringAStr {
     pub unsafe fn SetAStr(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, pszsrc: &[u8], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetAStr)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, ucodepage, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(pcchactual.unwrap_or(std::ptr::null_mut())), core::mem::transmute(plactuallen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).SetAStr)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, ucodepage, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(pcchactual.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plactuallen.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetStrBufA<P0>(&self, ldestpos: i32, ldestlen: i32, ucodepage: u32, psrcbuf: P0, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMLangStringBufA>,
     {
-        (windows_core::Interface::vtable(self).SetStrBufA)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, ucodepage, psrcbuf.param().abi(), core::mem::transmute(pcchactual.unwrap_or(std::ptr::null_mut())), core::mem::transmute(plactuallen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).SetStrBufA)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, ucodepage, psrcbuf.param().abi(), core::mem::transmute(pcchactual.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plactuallen.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: Option<*const u32>, pszdest: Option<&mut [u8]>, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetAStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, ucodepagein, core::mem::transmute(pucodepageout.unwrap_or(std::ptr::null())), core::mem::transmute(pszdest.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszdest.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcchactual.unwrap_or(std::ptr::null_mut())), core::mem::transmute(plactuallen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetAStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, ucodepagein, core::mem::transmute(pucodepageout.unwrap_or(core::ptr::null())), core::mem::transmute(pszdest.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszdest.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcchactual.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plactuallen.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetStrBufA(&self, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: Option<*mut u32>, ppdestbuf: *mut Option<IMLangStringBufA>, pldestlen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStrBufA)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, core::mem::transmute(pudestcodepage.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppdestbuf), core::mem::transmute(pldestlen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetStrBufA)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, core::mem::transmute(pudestcodepage.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppdestbuf), core::mem::transmute(pldestlen.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn LockAStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, ucodepagein: u32, cchrequest: i32, pucodepageout: Option<*mut u32>, ppszdest: Option<*mut windows_core::PSTR>, pcchdest: Option<*mut i32>, pldestlen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LockAStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, lflags, ucodepagein, cchrequest, core::mem::transmute(pucodepageout.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppszdest.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchdest.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pldestlen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).LockAStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, lflags, ucodepagein, cchrequest, core::mem::transmute(pucodepageout.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppszdest.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchdest.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pldestlen.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn UnlockAStr(&self, pszsrc: &[u8], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UnlockAStr)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(pcchactual.unwrap_or(std::ptr::null_mut())), core::mem::transmute(plactuallen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).UnlockAStr)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(pcchactual.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plactuallen.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLocale)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, locale).ok()
     }
     pub unsafe fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: Option<*mut u32>, pllocalepos: Option<*mut i32>, pllocalelen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetLocale)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, core::mem::transmute(plocale.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pllocalepos.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pllocalelen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetLocale)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, core::mem::transmute(plocale.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pllocalepos.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pllocalelen.unwrap_or(core::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -7520,10 +7520,10 @@ impl core::ops::Deref for IMLangStringBufA {
 windows_core::imp::interface_hierarchy!(IMLangStringBufA, windows_core::IUnknown);
 impl IMLangStringBufA {
     pub unsafe fn GetStatus(&self, plflags: Option<*mut i32>, pcchbuf: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(plflags.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchbuf.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(plflags.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchbuf.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut i8, pcchbuf: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LockBuf)(windows_core::Interface::as_raw(self), cchoffset, cchmaxlock, ppszbuf, core::mem::transmute(pcchbuf.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).LockBuf)(windows_core::Interface::as_raw(self), cchoffset, cchmaxlock, ppszbuf, core::mem::transmute(pcchbuf.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn UnlockBuf<P0>(&self, pszbuf: P0, cchoffset: i32, cchwrite: i32) -> windows_core::Result<()>
     where
@@ -7532,7 +7532,7 @@ impl IMLangStringBufA {
         (windows_core::Interface::vtable(self).UnlockBuf)(windows_core::Interface::as_raw(self), pszbuf.param().abi(), cchoffset, cchwrite).ok()
     }
     pub unsafe fn Insert(&self, cchoffset: i32, cchmaxinsert: i32, pcchactual: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), cchoffset, cchmaxinsert, core::mem::transmute(pcchactual.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), cchoffset, cchmaxinsert, core::mem::transmute(pcchactual.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Delete(&self, cchoffset: i32, cchdelete: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), cchoffset, cchdelete).ok()
@@ -7557,10 +7557,10 @@ impl core::ops::Deref for IMLangStringBufW {
 windows_core::imp::interface_hierarchy!(IMLangStringBufW, windows_core::IUnknown);
 impl IMLangStringBufW {
     pub unsafe fn GetStatus(&self, plflags: Option<*mut i32>, pcchbuf: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(plflags.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchbuf.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(plflags.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchbuf.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn LockBuf(&self, cchoffset: i32, cchmaxlock: i32, ppszbuf: *mut *mut u16, pcchbuf: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LockBuf)(windows_core::Interface::as_raw(self), cchoffset, cchmaxlock, ppszbuf, core::mem::transmute(pcchbuf.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).LockBuf)(windows_core::Interface::as_raw(self), cchoffset, cchmaxlock, ppszbuf, core::mem::transmute(pcchbuf.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn UnlockBuf<P0>(&self, pszbuf: P0, cchoffset: i32, cchwrite: i32) -> windows_core::Result<()>
     where
@@ -7569,7 +7569,7 @@ impl IMLangStringBufW {
         (windows_core::Interface::vtable(self).UnlockBuf)(windows_core::Interface::as_raw(self), pszbuf.param().abi(), cchoffset, cchwrite).ok()
     }
     pub unsafe fn Insert(&self, cchoffset: i32, cchmaxinsert: i32, pcchactual: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), cchoffset, cchmaxinsert, core::mem::transmute(pcchactual.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), cchoffset, cchmaxinsert, core::mem::transmute(pcchactual.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Delete(&self, cchoffset: i32, cchdelete: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), cchoffset, cchdelete).ok()
@@ -7594,31 +7594,31 @@ impl core::ops::Deref for IMLangStringWStr {
 windows_core::imp::interface_hierarchy!(IMLangStringWStr, windows_core::IUnknown, IMLangString);
 impl IMLangStringWStr {
     pub unsafe fn SetWStr(&self, ldestpos: i32, ldestlen: i32, pszsrc: &[u16], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetWStr)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(pcchactual.unwrap_or(std::ptr::null_mut())), core::mem::transmute(plactuallen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).SetWStr)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(pcchactual.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plactuallen.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetStrBufW<P0>(&self, ldestpos: i32, ldestlen: i32, psrcbuf: P0, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMLangStringBufW>,
     {
-        (windows_core::Interface::vtable(self).SetStrBufW)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, psrcbuf.param().abi(), core::mem::transmute(pcchactual.unwrap_or(std::ptr::null_mut())), core::mem::transmute(plactuallen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).SetStrBufW)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, psrcbuf.param().abi(), core::mem::transmute(pcchactual.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plactuallen.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetWStr(&self, lsrcpos: i32, lsrclen: i32, pszdest: Option<&mut [u16]>, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetWStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, core::mem::transmute(pszdest.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszdest.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcchactual.unwrap_or(std::ptr::null_mut())), core::mem::transmute(plactuallen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetWStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, core::mem::transmute(pszdest.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszdest.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcchactual.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plactuallen.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetStrBufW(&self, lsrcpos: i32, lsrcmaxlen: i32, ppdestbuf: *mut Option<IMLangStringBufW>, pldestlen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStrBufW)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, core::mem::transmute(ppdestbuf), core::mem::transmute(pldestlen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetStrBufW)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, core::mem::transmute(ppdestbuf), core::mem::transmute(pldestlen.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn LockWStr(&self, lsrcpos: i32, lsrclen: i32, lflags: i32, cchrequest: i32, ppszdest: Option<*mut windows_core::PWSTR>, pcchdest: Option<*mut i32>, pldestlen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).LockWStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, lflags, cchrequest, core::mem::transmute(ppszdest.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchdest.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pldestlen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).LockWStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, lflags, cchrequest, core::mem::transmute(ppszdest.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchdest.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pldestlen.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn UnlockWStr(&self, pszsrc: &[u16], pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).UnlockWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(pcchactual.unwrap_or(std::ptr::null_mut())), core::mem::transmute(plactuallen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).UnlockWStr)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), core::mem::transmute(pcchactual.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plactuallen.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetLocale(&self, ldestpos: i32, ldestlen: i32, locale: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetLocale)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, locale).ok()
     }
     pub unsafe fn GetLocale(&self, lsrcpos: i32, lsrcmaxlen: i32, plocale: Option<*mut u32>, pllocalepos: Option<*mut i32>, pllocalelen: Option<*mut i32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetLocale)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, core::mem::transmute(plocale.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pllocalepos.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pllocalelen.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetLocale)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, core::mem::transmute(plocale.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pllocalepos.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pllocalelen.unwrap_or(core::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -7667,19 +7667,19 @@ impl IMultiLanguage {
         (windows_core::Interface::vtable(self).IsConvertible)(windows_core::Interface::as_raw(self), dwsrcencoding, dwdstencoding).ok()
     }
     pub unsafe fn ConvertString(&self, pdwmode: Option<*mut u32>, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: Option<*const u8>, pcsrcsize: Option<*mut u32>, pdststr: Option<*mut u8>, pcdstsize: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ConvertString)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(std::ptr::null_mut())), dwsrcencoding, dwdstencoding, core::mem::transmute(psrcstr.unwrap_or(std::ptr::null())), core::mem::transmute(pcsrcsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdststr.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcdstsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).ConvertString)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::ptr::null_mut())), dwsrcencoding, dwdstencoding, core::mem::transmute(psrcstr.unwrap_or(core::ptr::null())), core::mem::transmute(pcsrcsize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdststr.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcdstsize.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn ConvertStringToUnicode<P0>(&self, pdwmode: Option<*mut u32>, dwencoding: u32, psrcstr: P0, pcsrcsize: Option<*mut u32>, pdststr: windows_core::PWSTR, pcdstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ConvertStringToUnicode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(std::ptr::null_mut())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).ConvertStringToUnicode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::ptr::null_mut())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn ConvertStringFromUnicode<P0>(&self, pdwmode: Option<*mut u32>, dwencoding: u32, psrcstr: P0, pcsrcsize: Option<*mut u32>, pdststr: windows_core::PSTR, pcdstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ConvertStringFromUnicode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(std::ptr::null_mut())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).ConvertStringFromUnicode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::ptr::null_mut())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn ConvertStringReset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ConvertStringReset)(windows_core::Interface::as_raw(self)).ok()
@@ -7759,19 +7759,19 @@ impl IMultiLanguage2 {
         (windows_core::Interface::vtable(self).IsConvertible)(windows_core::Interface::as_raw(self), dwsrcencoding, dwdstencoding).ok()
     }
     pub unsafe fn ConvertString(&self, pdwmode: Option<*mut u32>, dwsrcencoding: u32, dwdstencoding: u32, psrcstr: Option<*const u8>, pcsrcsize: Option<*mut u32>, pdststr: Option<*mut u8>, pcdstsize: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ConvertString)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(std::ptr::null_mut())), dwsrcencoding, dwdstencoding, core::mem::transmute(psrcstr.unwrap_or(std::ptr::null())), core::mem::transmute(pcsrcsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdststr.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcdstsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).ConvertString)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::ptr::null_mut())), dwsrcencoding, dwdstencoding, core::mem::transmute(psrcstr.unwrap_or(core::ptr::null())), core::mem::transmute(pcsrcsize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdststr.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcdstsize.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn ConvertStringToUnicode<P0>(&self, pdwmode: Option<*mut u32>, dwencoding: u32, psrcstr: P0, pcsrcsize: Option<*mut u32>, pdststr: windows_core::PWSTR, pcdstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).ConvertStringToUnicode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(std::ptr::null_mut())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).ConvertStringToUnicode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::ptr::null_mut())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn ConvertStringFromUnicode<P0>(&self, pdwmode: Option<*mut u32>, dwencoding: u32, psrcstr: P0, pcsrcsize: Option<*mut u32>, pdststr: windows_core::PSTR, pcdstsize: Option<*mut u32>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ConvertStringFromUnicode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(std::ptr::null_mut())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).ConvertStringFromUnicode)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::ptr::null_mut())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn ConvertStringReset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ConvertStringReset)(windows_core::Interface::as_raw(self)).ok()
@@ -7804,21 +7804,21 @@ impl IMultiLanguage2 {
         P1: windows_core::Param<super::System::Com::IStream>,
         P2: windows_core::Param<super::System::Com::IStream>,
     {
-        (windows_core::Interface::vtable(self).ConvertStringInIStream)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(std::ptr::null_mut())), dwflag, lpfallback.param().abi(), dwsrcencoding, dwdstencoding, pstmin.param().abi(), pstmout.param().abi()).ok()
+        (windows_core::Interface::vtable(self).ConvertStringInIStream)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::ptr::null_mut())), dwflag, lpfallback.param().abi(), dwsrcencoding, dwdstencoding, pstmin.param().abi(), pstmout.param().abi()).ok()
     }
     pub unsafe fn ConvertStringToUnicodeEx<P0, P1>(&self, pdwmode: Option<*mut u32>, dwencoding: u32, psrcstr: P0, pcsrcsize: Option<*mut u32>, pdststr: windows_core::PWSTR, pcdstsize: Option<*mut u32>, dwflag: u32, lpfallback: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ConvertStringToUnicodeEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(std::ptr::null_mut())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(std::ptr::null_mut())), dwflag, lpfallback.param().abi()).ok()
+        (windows_core::Interface::vtable(self).ConvertStringToUnicodeEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::ptr::null_mut())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(core::ptr::null_mut())), dwflag, lpfallback.param().abi()).ok()
     }
     pub unsafe fn ConvertStringFromUnicodeEx<P0, P1>(&self, pdwmode: Option<*mut u32>, dwencoding: u32, psrcstr: P0, pcsrcsize: Option<*mut u32>, pdststr: windows_core::PSTR, pcdstsize: Option<*mut u32>, dwflag: u32, lpfallback: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ConvertStringFromUnicodeEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(std::ptr::null_mut())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(std::ptr::null_mut())), dwflag, lpfallback.param().abi()).ok()
+        (windows_core::Interface::vtable(self).ConvertStringFromUnicodeEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwmode.unwrap_or(core::ptr::null_mut())), dwencoding, psrcstr.param().abi(), core::mem::transmute(pcsrcsize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdststr), core::mem::transmute(pcdstsize.unwrap_or(core::ptr::null_mut())), dwflag, lpfallback.param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DetectCodepageInIStream<P0>(&self, dwflag: u32, dwprefwincodepage: u32, pstmin: P0, lpencoding: *mut DetectEncodingInfo, pnscores: *mut i32) -> windows_core::Result<()>

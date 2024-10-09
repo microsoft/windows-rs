@@ -214,7 +214,7 @@ pub unsafe fn SetThreadDpiHostingBehavior(value: DPI_HOSTING_BEHAVIOR) -> DPI_HO
 #[inline]
 pub unsafe fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: Option<*mut core::ffi::c_void>, fwinini: u32, dpi: u32) -> windows_core::Result<()> {
     windows_targets::link!("user32.dll" "system" fn SystemParametersInfoForDpi(uiaction : u32, uiparam : u32, pvparam : *mut core::ffi::c_void, fwinini : u32, dpi : u32) -> super::super::Foundation:: BOOL);
-    SystemParametersInfoForDpi(uiaction, uiparam, core::mem::transmute(pvparam.unwrap_or(std::ptr::null_mut())), fwinini, dpi).ok()
+    SystemParametersInfoForDpi(uiaction, uiparam, core::mem::transmute(pvparam.unwrap_or(core::ptr::null_mut())), fwinini, dpi).ok()
 }
 pub const DCDC_DEFAULT: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(0i32);
 pub const DCDC_DISABLE_FONT_UPDATE: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(1i32);

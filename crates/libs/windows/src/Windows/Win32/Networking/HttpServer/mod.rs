@@ -6,7 +6,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpAddFragmentToCache(requestqueuehandle : super::super::Foundation:: HANDLE, urlprefix : windows_core::PCWSTR, datachunk : *const HTTP_DATA_CHUNK, cachepolicy : *const HTTP_CACHE_POLICY, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-    HttpAddFragmentToCache(requestqueuehandle.param().abi(), urlprefix.param().abi(), datachunk, cachepolicy, core::mem::transmute(overlapped.unwrap_or(std::ptr::null_mut())))
+    HttpAddFragmentToCache(requestqueuehandle.param().abi(), urlprefix.param().abi(), datachunk, cachepolicy, core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn HttpAddUrl<P0, P1>(requestqueuehandle: P0, fullyqualifiedurl: P1, reserved: Option<*const core::ffi::c_void>) -> u32
@@ -15,7 +15,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpAddUrl(requestqueuehandle : super::super::Foundation:: HANDLE, fullyqualifiedurl : windows_core::PCWSTR, reserved : *const core::ffi::c_void) -> u32);
-    HttpAddUrl(requestqueuehandle.param().abi(), fullyqualifiedurl.param().abi(), core::mem::transmute(reserved.unwrap_or(std::ptr::null())))
+    HttpAddUrl(requestqueuehandle.param().abi(), fullyqualifiedurl.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn HttpAddUrlToUrlGroup<P0>(urlgroupid: u64, pfullyqualifiedurl: P0, urlcontext: u64, reserved: u32) -> u32
@@ -32,7 +32,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpCancelHttpRequest(requestqueuehandle : super::super::Foundation:: HANDLE, requestid : u64, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-    HttpCancelHttpRequest(requestqueuehandle.param().abi(), requestid, core::mem::transmute(overlapped.unwrap_or(std::ptr::null_mut())))
+    HttpCancelHttpRequest(requestqueuehandle.param().abi(), requestid, core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn HttpCloseRequestQueue<P0>(requestqueuehandle: P0) -> u32
@@ -64,7 +64,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpCreateRequestQueue(version : HTTPAPI_VERSION, name : windows_core::PCWSTR, securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, flags : u32, requestqueuehandle : *mut super::super::Foundation:: HANDLE) -> u32);
-    HttpCreateRequestQueue(core::mem::transmute(version), name.param().abi(), core::mem::transmute(securityattributes.unwrap_or(std::ptr::null())), flags, requestqueuehandle)
+    HttpCreateRequestQueue(core::mem::transmute(version), name.param().abi(), core::mem::transmute(securityattributes.unwrap_or(core::ptr::null())), flags, requestqueuehandle)
 }
 #[inline]
 pub unsafe fn HttpCreateServerSession(version: HTTPAPI_VERSION, serversessionid: *mut u64, reserved: u32) -> u32 {
@@ -84,7 +84,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpDeclarePush(requestqueuehandle : super::super::Foundation:: HANDLE, requestid : u64, verb : HTTP_VERB, path : windows_core::PCWSTR, query : windows_core::PCSTR, headers : *const HTTP_REQUEST_HEADERS) -> u32);
-    HttpDeclarePush(requestqueuehandle.param().abi(), requestid, verb, path.param().abi(), query.param().abi(), core::mem::transmute(headers.unwrap_or(std::ptr::null())))
+    HttpDeclarePush(requestqueuehandle.param().abi(), requestid, verb, path.param().abi(), query.param().abi(), core::mem::transmute(headers.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn HttpDelegateRequestEx<P0, P1>(requestqueuehandle: P0, delegatequeuehandle: P1, requestid: u64, delegateurlgroupid: u64, propertyinfosetsize: u32, propertyinfoset: *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32
@@ -102,7 +102,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpDeleteServiceConfiguration(servicehandle : super::super::Foundation:: HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pconfiginformation : *const core::ffi::c_void, configinformationlength : u32, poverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
-    HttpDeleteServiceConfiguration(servicehandle.param().abi(), configid, pconfiginformation, configinformationlength, core::mem::transmute(poverlapped.unwrap_or(std::ptr::null())))
+    HttpDeleteServiceConfiguration(servicehandle.param().abi(), configid, pconfiginformation, configinformationlength, core::mem::transmute(poverlapped.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn HttpFindUrlGroupId<P0, P1>(fullyqualifiedurl: P0, requestqueuehandle: P1, urlgroupid: *mut u64) -> u32
@@ -121,7 +121,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpFlushResponseCache(requestqueuehandle : super::super::Foundation:: HANDLE, urlprefix : windows_core::PCWSTR, flags : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-    HttpFlushResponseCache(requestqueuehandle.param().abi(), urlprefix.param().abi(), flags, core::mem::transmute(overlapped.unwrap_or(std::ptr::null_mut())))
+    HttpFlushResponseCache(requestqueuehandle.param().abi(), urlprefix.param().abi(), flags, core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn HttpGetExtension(version: HTTPAPI_VERSION, extension: u32, buffer: *mut core::ffi::c_void, buffersize: u32) -> u32 {
@@ -131,7 +131,7 @@ pub unsafe fn HttpGetExtension(version: HTTPAPI_VERSION, extension: u32, buffer:
 #[inline]
 pub unsafe fn HttpInitialize(version: HTTPAPI_VERSION, flags: HTTP_INITIALIZE, preserved: Option<*mut core::ffi::c_void>) -> u32 {
     windows_targets::link!("httpapi.dll" "system" fn HttpInitialize(version : HTTPAPI_VERSION, flags : HTTP_INITIALIZE, preserved : *mut core::ffi::c_void) -> u32);
-    HttpInitialize(core::mem::transmute(version), flags, core::mem::transmute(preserved.unwrap_or(std::ptr::null_mut())))
+    HttpInitialize(core::mem::transmute(version), flags, core::mem::transmute(preserved.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super::Foundation::BOOL {
@@ -144,7 +144,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpPrepareUrl(reserved : *const core::ffi::c_void, flags : u32, url : windows_core::PCWSTR, preparedurl : *mut windows_core::PWSTR) -> u32);
-    HttpPrepareUrl(core::mem::transmute(reserved.unwrap_or(std::ptr::null())), flags, url.param().abi(), preparedurl)
+    HttpPrepareUrl(core::mem::transmute(reserved.unwrap_or(core::ptr::null())), flags, url.param().abi(), preparedurl)
 }
 #[inline]
 pub unsafe fn HttpQueryRequestQueueProperty<P0>(requestqueuehandle: P0, property: HTTP_SERVER_PROPERTY, propertyinformation: Option<*mut core::ffi::c_void>, propertyinformationlength: u32, reserved1: u32, returnlength: Option<*mut u32>, reserved2: Option<*const core::ffi::c_void>) -> u32
@@ -152,12 +152,12 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpQueryRequestQueueProperty(requestqueuehandle : super::super::Foundation:: HANDLE, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, reserved1 : u32, returnlength : *mut u32, reserved2 : *const core::ffi::c_void) -> u32);
-    HttpQueryRequestQueueProperty(requestqueuehandle.param().abi(), property, core::mem::transmute(propertyinformation.unwrap_or(std::ptr::null_mut())), propertyinformationlength, reserved1, core::mem::transmute(returnlength.unwrap_or(std::ptr::null_mut())), core::mem::transmute(reserved2.unwrap_or(std::ptr::null())))
+    HttpQueryRequestQueueProperty(requestqueuehandle.param().abi(), property, core::mem::transmute(propertyinformation.unwrap_or(core::ptr::null_mut())), propertyinformationlength, reserved1, core::mem::transmute(returnlength.unwrap_or(core::ptr::null_mut())), core::mem::transmute(reserved2.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn HttpQueryServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: Option<*mut core::ffi::c_void>, propertyinformationlength: u32, returnlength: Option<*mut u32>) -> u32 {
     windows_targets::link!("httpapi.dll" "system" fn HttpQueryServerSessionProperty(serversessionid : u64, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, returnlength : *mut u32) -> u32);
-    HttpQueryServerSessionProperty(serversessionid, property, core::mem::transmute(propertyinformation.unwrap_or(std::ptr::null_mut())), propertyinformationlength, core::mem::transmute(returnlength.unwrap_or(std::ptr::null_mut())))
+    HttpQueryServerSessionProperty(serversessionid, property, core::mem::transmute(propertyinformation.unwrap_or(core::ptr::null_mut())), propertyinformationlength, core::mem::transmute(returnlength.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -166,12 +166,12 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpQueryServiceConfiguration(servicehandle : super::super::Foundation:: HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pinput : *const core::ffi::c_void, inputlength : u32, poutput : *mut core::ffi::c_void, outputlength : u32, preturnlength : *mut u32, poverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
-    HttpQueryServiceConfiguration(servicehandle.param().abi(), configid, core::mem::transmute(pinput.unwrap_or(std::ptr::null())), inputlength, core::mem::transmute(poutput.unwrap_or(std::ptr::null_mut())), outputlength, core::mem::transmute(preturnlength.unwrap_or(std::ptr::null_mut())), core::mem::transmute(poverlapped.unwrap_or(std::ptr::null())))
+    HttpQueryServiceConfiguration(servicehandle.param().abi(), configid, core::mem::transmute(pinput.unwrap_or(core::ptr::null())), inputlength, core::mem::transmute(poutput.unwrap_or(core::ptr::null_mut())), outputlength, core::mem::transmute(preturnlength.unwrap_or(core::ptr::null_mut())), core::mem::transmute(poverlapped.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: Option<*mut core::ffi::c_void>, propertyinformationlength: u32, returnlength: Option<*mut u32>) -> u32 {
     windows_targets::link!("httpapi.dll" "system" fn HttpQueryUrlGroupProperty(urlgroupid : u64, property : HTTP_SERVER_PROPERTY, propertyinformation : *mut core::ffi::c_void, propertyinformationlength : u32, returnlength : *mut u32) -> u32);
-    HttpQueryUrlGroupProperty(urlgroupid, property, core::mem::transmute(propertyinformation.unwrap_or(std::ptr::null_mut())), propertyinformationlength, core::mem::transmute(returnlength.unwrap_or(std::ptr::null_mut())))
+    HttpQueryUrlGroupProperty(urlgroupid, property, core::mem::transmute(propertyinformation.unwrap_or(core::ptr::null_mut())), propertyinformationlength, core::mem::transmute(returnlength.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -181,7 +181,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpReadFragmentFromCache(requestqueuehandle : super::super::Foundation:: HANDLE, urlprefix : windows_core::PCWSTR, byterange : *const HTTP_BYTE_RANGE, buffer : *mut core::ffi::c_void, bufferlength : u32, bytesread : *mut u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-    HttpReadFragmentFromCache(requestqueuehandle.param().abi(), urlprefix.param().abi(), core::mem::transmute(byterange.unwrap_or(std::ptr::null())), buffer, bufferlength, core::mem::transmute(bytesread.unwrap_or(std::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(std::ptr::null_mut())))
+    HttpReadFragmentFromCache(requestqueuehandle.param().abi(), urlprefix.param().abi(), core::mem::transmute(byterange.unwrap_or(core::ptr::null())), buffer, bufferlength, core::mem::transmute(bytesread.unwrap_or(core::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -190,7 +190,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpReceiveClientCertificate(requestqueuehandle : super::super::Foundation:: HANDLE, connectionid : u64, flags : u32, sslclientcertinfo : *mut HTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize : u32, bytesreceived : *mut u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-    HttpReceiveClientCertificate(requestqueuehandle.param().abi(), connectionid, flags, sslclientcertinfo, sslclientcertinfosize, core::mem::transmute(bytesreceived.unwrap_or(std::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(std::ptr::null_mut())))
+    HttpReceiveClientCertificate(requestqueuehandle.param().abi(), connectionid, flags, sslclientcertinfo, sslclientcertinfosize, core::mem::transmute(bytesreceived.unwrap_or(core::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_System_IO"))]
 #[inline]
@@ -199,7 +199,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpReceiveHttpRequest(requestqueuehandle : super::super::Foundation:: HANDLE, requestid : u64, flags : HTTP_RECEIVE_HTTP_REQUEST_FLAGS, requestbuffer : *mut HTTP_REQUEST_V2, requestbufferlength : u32, bytesreturned : *mut u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-    HttpReceiveHttpRequest(requestqueuehandle.param().abi(), requestid, flags, requestbuffer, requestbufferlength, core::mem::transmute(bytesreturned.unwrap_or(std::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(std::ptr::null_mut())))
+    HttpReceiveHttpRequest(requestqueuehandle.param().abi(), requestid, flags, requestbuffer, requestbufferlength, core::mem::transmute(bytesreturned.unwrap_or(core::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -208,7 +208,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpReceiveRequestEntityBody(requestqueuehandle : super::super::Foundation:: HANDLE, requestid : u64, flags : u32, entitybuffer : *mut core::ffi::c_void, entitybufferlength : u32, bytesreturned : *mut u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-    HttpReceiveRequestEntityBody(requestqueuehandle.param().abi(), requestid, flags, entitybuffer, entitybufferlength, core::mem::transmute(bytesreturned.unwrap_or(std::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(std::ptr::null_mut())))
+    HttpReceiveRequestEntityBody(requestqueuehandle.param().abi(), requestid, flags, entitybuffer, entitybufferlength, core::mem::transmute(bytesreturned.unwrap_or(core::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn HttpRemoveUrl<P0, P1>(requestqueuehandle: P0, fullyqualifiedurl: P1) -> u32
@@ -234,7 +234,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpSendHttpResponse(requestqueuehandle : super::super::Foundation:: HANDLE, requestid : u64, flags : u32, httpresponse : *const HTTP_RESPONSE_V2, cachepolicy : *const HTTP_CACHE_POLICY, bytessent : *mut u32, reserved1 : *const core::ffi::c_void, reserved2 : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED, logdata : *const HTTP_LOG_DATA) -> u32);
-    HttpSendHttpResponse(requestqueuehandle.param().abi(), requestid, flags, httpresponse, core::mem::transmute(cachepolicy.unwrap_or(std::ptr::null())), core::mem::transmute(bytessent.unwrap_or(std::ptr::null_mut())), core::mem::transmute(reserved1.unwrap_or(std::ptr::null())), reserved2, core::mem::transmute(overlapped.unwrap_or(std::ptr::null_mut())), core::mem::transmute(logdata.unwrap_or(std::ptr::null())))
+    HttpSendHttpResponse(requestqueuehandle.param().abi(), requestid, flags, httpresponse, core::mem::transmute(cachepolicy.unwrap_or(core::ptr::null())), core::mem::transmute(bytessent.unwrap_or(core::ptr::null_mut())), core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2, core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())), core::mem::transmute(logdata.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -249,11 +249,11 @@ where
         flags,
         entitychunks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(entitychunks.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-        core::mem::transmute(bytessent.unwrap_or(std::ptr::null_mut())),
-        core::mem::transmute(reserved1.unwrap_or(std::ptr::null())),
+        core::mem::transmute(bytessent.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(reserved1.unwrap_or(core::ptr::null())),
         reserved2,
-        core::mem::transmute(overlapped.unwrap_or(std::ptr::null_mut())),
-        core::mem::transmute(logdata.unwrap_or(std::ptr::null())),
+        core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(logdata.unwrap_or(core::ptr::null())),
     )
 }
 #[cfg(feature = "Win32_System_IO")]
@@ -263,7 +263,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpSetRequestProperty(requestqueuehandle : super::super::Foundation:: HANDLE, id : u64, propertyid : HTTP_REQUEST_PROPERTY, input : *const core::ffi::c_void, inputpropertysize : u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
-    HttpSetRequestProperty(requestqueuehandle.param().abi(), id, propertyid, core::mem::transmute(input.unwrap_or(std::ptr::null())), inputpropertysize, overlapped)
+    HttpSetRequestProperty(requestqueuehandle.param().abi(), id, propertyid, core::mem::transmute(input.unwrap_or(core::ptr::null())), inputpropertysize, overlapped)
 }
 #[inline]
 pub unsafe fn HttpSetRequestQueueProperty<P0>(requestqueuehandle: P0, property: HTTP_SERVER_PROPERTY, propertyinformation: *const core::ffi::c_void, propertyinformationlength: u32, reserved1: u32, reserved2: Option<*const core::ffi::c_void>) -> u32
@@ -271,7 +271,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpSetRequestQueueProperty(requestqueuehandle : super::super::Foundation:: HANDLE, property : HTTP_SERVER_PROPERTY, propertyinformation : *const core::ffi::c_void, propertyinformationlength : u32, reserved1 : u32, reserved2 : *const core::ffi::c_void) -> u32);
-    HttpSetRequestQueueProperty(requestqueuehandle.param().abi(), property, propertyinformation, propertyinformationlength, reserved1, core::mem::transmute(reserved2.unwrap_or(std::ptr::null())))
+    HttpSetRequestQueueProperty(requestqueuehandle.param().abi(), property, propertyinformation, propertyinformationlength, reserved1, core::mem::transmute(reserved2.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn HttpSetServerSessionProperty(serversessionid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *const core::ffi::c_void, propertyinformationlength: u32) -> u32 {
@@ -285,7 +285,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpSetServiceConfiguration(servicehandle : super::super::Foundation:: HANDLE, configid : HTTP_SERVICE_CONFIG_ID, pconfiginformation : *const core::ffi::c_void, configinformationlength : u32, poverlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
-    HttpSetServiceConfiguration(servicehandle.param().abi(), configid, pconfiginformation, configinformationlength, core::mem::transmute(poverlapped.unwrap_or(std::ptr::null())))
+    HttpSetServiceConfiguration(servicehandle.param().abi(), configid, pconfiginformation, configinformationlength, core::mem::transmute(poverlapped.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn HttpSetUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PROPERTY, propertyinformation: *const core::ffi::c_void, propertyinformationlength: u32) -> u32 {
@@ -303,7 +303,7 @@ where
 #[inline]
 pub unsafe fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: Option<*mut core::ffi::c_void>) -> u32 {
     windows_targets::link!("httpapi.dll" "system" fn HttpTerminate(flags : HTTP_INITIALIZE, preserved : *mut core::ffi::c_void) -> u32);
-    HttpTerminate(flags, core::mem::transmute(preserved.unwrap_or(std::ptr::null_mut())))
+    HttpTerminate(flags, core::mem::transmute(preserved.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -312,7 +312,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpUpdateServiceConfiguration(handle : super::super::Foundation:: HANDLE, configid : HTTP_SERVICE_CONFIG_ID, configinfo : *const core::ffi::c_void, configinfolength : u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
-    HttpUpdateServiceConfiguration(handle.param().abi(), configid, configinfo, configinfolength, core::mem::transmute(overlapped.unwrap_or(std::ptr::null())))
+    HttpUpdateServiceConfiguration(handle.param().abi(), configid, configinfo, configinfolength, core::mem::transmute(overlapped.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -321,7 +321,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpWaitForDemandStart(requestqueuehandle : super::super::Foundation:: HANDLE, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-    HttpWaitForDemandStart(requestqueuehandle.param().abi(), core::mem::transmute(overlapped.unwrap_or(std::ptr::null_mut())))
+    HttpWaitForDemandStart(requestqueuehandle.param().abi(), core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -330,7 +330,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpWaitForDisconnect(requestqueuehandle : super::super::Foundation:: HANDLE, connectionid : u64, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-    HttpWaitForDisconnect(requestqueuehandle.param().abi(), connectionid, core::mem::transmute(overlapped.unwrap_or(std::ptr::null_mut())))
+    HttpWaitForDisconnect(requestqueuehandle.param().abi(), connectionid, core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -339,7 +339,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpWaitForDisconnectEx(requestqueuehandle : super::super::Foundation:: HANDLE, connectionid : u64, reserved : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-    HttpWaitForDisconnectEx(requestqueuehandle.param().abi(), connectionid, reserved, core::mem::transmute(overlapped.unwrap_or(std::ptr::null_mut())))
+    HttpWaitForDisconnectEx(requestqueuehandle.param().abi(), connectionid, reserved, core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 pub const CacheRangeChunkSize: HTTP_SERVICE_CONFIG_CACHE_KEY = HTTP_SERVICE_CONFIG_CACHE_KEY(1i32);
 pub const CreateRequestQueueExternalIdProperty: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(1i32);

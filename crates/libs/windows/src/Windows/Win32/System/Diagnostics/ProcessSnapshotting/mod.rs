@@ -36,7 +36,7 @@ where
 #[inline]
 pub unsafe fn PssWalkMarkerCreate(allocator: Option<*const PSS_ALLOCATOR>, walkmarkerhandle: *mut HPSSWALK) -> u32 {
     windows_targets::link!("kernel32.dll" "system" fn PssWalkMarkerCreate(allocator : *const PSS_ALLOCATOR, walkmarkerhandle : *mut HPSSWALK) -> u32);
-    PssWalkMarkerCreate(core::mem::transmute(allocator.unwrap_or(std::ptr::null())), walkmarkerhandle)
+    PssWalkMarkerCreate(core::mem::transmute(allocator.unwrap_or(core::ptr::null())), walkmarkerhandle)
 }
 #[inline]
 pub unsafe fn PssWalkMarkerFree<P0>(walkmarkerhandle: P0) -> u32

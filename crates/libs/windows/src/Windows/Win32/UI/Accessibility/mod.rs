@@ -965,7 +965,7 @@ where
     P0: windows_core::Param<IAccessible>,
 {
     windows_targets::link!("oleacc.dll" "system" fn WindowFromAccessibleObject(param0 : * mut core::ffi::c_void, phwnd : *mut super::super::Foundation:: HWND) -> windows_core::HRESULT);
-    WindowFromAccessibleObject(param0.param().abi(), core::mem::transmute(phwnd.unwrap_or(std::ptr::null_mut()))).ok()
+    WindowFromAccessibleObject(param0.param().abi(), core::mem::transmute(phwnd.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WindowPattern_Close<P0>(hobj: P0) -> windows_core::Result<()>

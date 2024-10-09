@@ -36,13 +36,13 @@ impl IDXCoreAdapter {
         (windows_core::Interface::vtable(self).IsQueryStateSupported)(windows_core::Interface::as_raw(self), property)
     }
     pub unsafe fn QueryState(&self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: Option<*const core::ffi::c_void>, outputbuffersize: usize, outputbuffer: *mut core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).QueryState)(windows_core::Interface::as_raw(self), state, inputstatedetailssize, core::mem::transmute(inputstatedetails.unwrap_or(std::ptr::null())), outputbuffersize, outputbuffer).ok()
+        (windows_core::Interface::vtable(self).QueryState)(windows_core::Interface::as_raw(self), state, inputstatedetailssize, core::mem::transmute(inputstatedetails.unwrap_or(core::ptr::null())), outputbuffersize, outputbuffer).ok()
     }
     pub unsafe fn IsSetStateSupported(&self, property: DXCoreAdapterState) -> bool {
         (windows_core::Interface::vtable(self).IsSetStateSupported)(windows_core::Interface::as_raw(self), property)
     }
     pub unsafe fn SetState(&self, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: Option<*const core::ffi::c_void>, inputdatasize: usize, inputdata: *const core::ffi::c_void) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetState)(windows_core::Interface::as_raw(self), state, inputstatedetailssize, core::mem::transmute(inputstatedetails.unwrap_or(std::ptr::null())), inputdatasize, inputdata).ok()
+        (windows_core::Interface::vtable(self).SetState)(windows_core::Interface::as_raw(self), state, inputstatedetailssize, core::mem::transmute(inputstatedetails.unwrap_or(core::ptr::null())), inputdatasize, inputdata).ok()
     }
     pub unsafe fn GetFactory<T>(&self) -> windows_core::Result<T>
     where
@@ -97,7 +97,7 @@ impl IDXCoreAdapterFactory {
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RegisterEventNotification)(windows_core::Interface::as_raw(self), dxcoreobject.param().abi(), notificationtype, callbackfunction, core::mem::transmute(callbackcontext.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).RegisterEventNotification)(windows_core::Interface::as_raw(self), dxcoreobject.param().abi(), notificationtype, callbackfunction, core::mem::transmute(callbackcontext.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
     }
     pub unsafe fn UnregisterEventNotification(&self, eventcookie: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UnregisterEventNotification)(windows_core::Interface::as_raw(self), eventcookie).ok()

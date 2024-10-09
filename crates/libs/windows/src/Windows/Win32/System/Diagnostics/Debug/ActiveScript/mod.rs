@@ -2576,7 +2576,7 @@ impl IDebugDocumentText {
         (windows_core::Interface::vtable(self).GetLineOfPosition)(windows_core::Interface::as_raw(self), ccharacterposition, pclinenumber, pccharacteroffsetinline).ok()
     }
     pub unsafe fn GetText(&self, ccharacterposition: u32, pchartext: windows_core::PWSTR, pstatextattr: Option<*mut u16>, pcnumchars: *mut u32, cmaxchars: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), ccharacterposition, core::mem::transmute(pchartext), core::mem::transmute(pstatextattr.unwrap_or(std::ptr::null_mut())), pcnumchars, cmaxchars).ok()
+        (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), ccharacterposition, core::mem::transmute(pchartext), core::mem::transmute(pstatextattr.unwrap_or(core::ptr::null_mut())), pcnumchars, cmaxchars).ok()
     }
     pub unsafe fn GetPositionOfContext<P0>(&self, psc: P0, pccharacterposition: *mut u32, cnumchars: *mut u32) -> windows_core::Result<()>
     where

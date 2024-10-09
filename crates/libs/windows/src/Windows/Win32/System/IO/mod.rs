@@ -20,7 +20,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn CancelIoEx(hfile : super::super::Foundation:: HANDLE, lpoverlapped : *const OVERLAPPED) -> super::super::Foundation:: BOOL);
-    CancelIoEx(hfile.param().abi(), core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null()))).ok()
+    CancelIoEx(hfile.param().abi(), core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn CancelSynchronousIo<P0>(hthread: P0) -> windows_core::Result<()>
@@ -46,7 +46,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn DeviceIoControl(hdevice : super::super::Foundation:: HANDLE, dwiocontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32, lpoverlapped : *mut OVERLAPPED) -> super::super::Foundation:: BOOL);
-    DeviceIoControl(hdevice.param().abi(), dwiocontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(std::ptr::null())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(std::ptr::null_mut())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null_mut()))).ok()
+    DeviceIoControl(hdevice.param().abi(), dwiocontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn GetOverlappedResult<P0, P1>(hfile: P0, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: P1) -> windows_core::Result<()>
@@ -89,7 +89,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn PostQueuedCompletionStatus(completionport : super::super::Foundation:: HANDLE, dwnumberofbytestransferred : u32, dwcompletionkey : usize, lpoverlapped : *const OVERLAPPED) -> super::super::Foundation:: BOOL);
-    PostQueuedCompletionStatus(completionport.param().abi(), dwnumberofbytestransferred, dwcompletionkey, core::mem::transmute(lpoverlapped.unwrap_or(std::ptr::null()))).ok()
+    PostQueuedCompletionStatus(completionport.param().abi(), dwnumberofbytestransferred, dwcompletionkey, core::mem::transmute(lpoverlapped.unwrap_or(core::ptr::null()))).ok()
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
