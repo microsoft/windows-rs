@@ -75,7 +75,7 @@ macro_rules! define_interface {
     ($name:ident, $vtbl:ident) => {
         #[repr(transparent)]
         #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::clone::Clone)]
-        pub struct $name(::std::ptr::NonNull<::std::ffi::c_void>);
+        pub struct $name(::core::ptr::NonNull<::core::ffi::c_void>);
         unsafe impl ::windows_core::Interface for $name {
             type Vtable = $vtbl;
             const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
