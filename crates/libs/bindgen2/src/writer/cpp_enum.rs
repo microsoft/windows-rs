@@ -2,10 +2,14 @@ use super::*;
 
 impl Writer {
     pub fn write_cpp_enum(&self, item: &CppEnum) -> TokenStream {
+        let is_scoped = item.def.has_attribute("ScopedEnumAttribute");
+
+        if !is_scoped && self.sys {
+            return self.write_cpp_handle(item.def);
+        }
+
         let name = to_ident(item.def.name());
         let underlying_type = self.write_name(&item.def.underlying_type());
-
-        let is_scoped = item.def.has_attribute("ScopedEnumAttribute");
 
         let fields = if is_scoped {
             let fields = item

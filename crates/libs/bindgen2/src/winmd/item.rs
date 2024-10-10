@@ -58,7 +58,7 @@ pub struct CppInterface {
 pub struct CppEnum {
     pub def: TypeDef,
 }
-#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct CppStruct {
     pub def: TypeDef,
     pub name: String,
@@ -80,6 +80,18 @@ pub struct CppFn {
 }
 
 // TODO: do we need this for other types?
+
+impl Ord for CppStruct {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.def.name().cmp(other.def.name())
+    }
+}
+
+impl PartialOrd for CppStruct {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
 
 impl Ord for CppDelegate {
     fn cmp(&self, other: &Self) -> Ordering {

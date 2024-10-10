@@ -8,6 +8,7 @@ mod r#enum;
 mod format;
 mod literals;
 mod names;
+mod cpp_handle;
 mod r#struct;
 
 use super::*;
