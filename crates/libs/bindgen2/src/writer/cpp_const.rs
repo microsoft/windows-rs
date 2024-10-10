@@ -27,6 +27,7 @@ impl Writer {
                     let crate_name = self.write_crate();
                     let value = self.write_value(&constant.value());
 
+                    // TODO: if self.no_deps then write these literals out as byte strings?
                     if is_ansi_encoding(item.field) {
                         quote! {
                             #cfg

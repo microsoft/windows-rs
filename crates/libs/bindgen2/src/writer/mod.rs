@@ -27,6 +27,7 @@ pub struct Writer {
     pub package: bool,
     pub rustfmt: String,
     pub sys: bool, // TODO: if sys and not package then include minimal "vtbl" definitions
+    // TODO: still need a "--no-deps" option to avoid refering to windows/windows-sys/windows-core/windows-targets crates - the default is to refer to types in windows and windows-sys etc.
 }
 
 impl Writer {
@@ -51,12 +52,34 @@ impl Writer {
             self.write_modules(tree)
         };
 
+        // TODO: should be self.no_deps?
+        // TODO: this is why it would be handy to have pseudo types for these in Item so we can write them more generically
         if self.sys {
             for dependency in &self.tree.items {
-                match *dependency {
-                    "HRESULT" => tokens.combine(quote! { pub type HRESULT = i32; }),
+                tokens.combine(match *dependency {
+                    "HRESULT" => quote! { pub type HRESULT = i32; },
+                    "PWSTR" => quote! { pub type PWSTR = *mut u16; },
+                    "PCSTR" => quote! { pub type PCSTR = *const u8; },
+                    "PSTR" => quote! { pub type PSTR = *mut u8; },
+                    "PCWSTR" => quote! { pub type PCWSTR = *const u16; },
+                    "String" => quote! { pub type String = WAT; },
+                    "GUID" => quote! { 
+                        #[repr(C)]
+                        #[derive(Clone, Copy)]
+                        pub struct GUID {
+                            pub data1: u32,
+                            pub data2: u16,
+                            pub data3: u16,
+                            pub data4: [u8; 8],
+                        }
+                        impl GUID {
+                            pub const fn from_u128(uuid: u128) -> Self {
+                                Self { data1: (uuid >> 96) as u32, data2: (uuid >> 80 & 0xffff) as u16, data3: (uuid >> 64 & 0xffff) as u16, data4: (uuid as u64).to_be_bytes() }
+                            }
+                        }
+                    },
                     rest => panic!("windows-bindgen: {rest:?}"),
-                }
+                });
             }
         }
 
