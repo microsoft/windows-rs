@@ -13,6 +13,26 @@ impl Dependencies {
     fn insert(&mut self, namespace: &'static str, name: &'static str) -> bool {
         self.entry(namespace).or_default().insert(name)
     }
+
+    pub fn extend(&mut self, other: Self) {
+        self.0.extend(other.0)
+    }
+
+    pub fn included(&self, filter: &Filter) -> bool {
+        for (namespace, names) in self.iter() {
+            if namespace.is_empty() {
+                continue;
+            }
+
+            for name in names {
+                if !filter.includes_type_name(namespace, name) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
 }
 
 impl std::ops::Deref for Dependencies {

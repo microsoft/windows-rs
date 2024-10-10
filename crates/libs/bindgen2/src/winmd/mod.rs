@@ -13,6 +13,7 @@ mod signature;
 mod tables;
 mod r#type;
 mod type_name;
+mod ord;
 
 pub use attributes::*;
 use bindings::*;

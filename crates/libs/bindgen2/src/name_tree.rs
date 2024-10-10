@@ -21,10 +21,7 @@ impl NameTree {
                 for name in reader[namespace].keys() {
                     if filter.includes_type_name(namespace, name) {
                         tree.items.insert(name);
-
-                        for item in &reader[namespace][name] {
-                            item.dependencies(&mut dependencies, minimal);
-                        }
+                        reader.dependencies(namespace, name, &mut dependencies, minimal);
                     }
                 }
             }

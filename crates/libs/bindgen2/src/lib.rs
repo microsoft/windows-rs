@@ -111,6 +111,8 @@ where
 
     let items = ItemTree::new(reader, tree);
 
+    // panic!("{:#?}", items);
+
     let writer = Writer {
         reader,
         tree,

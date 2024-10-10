@@ -44,11 +44,27 @@ impl Writer {
             _ => tokens.combine(quote! { #[cfg(any(#(target_arch = #arches),*))] }),
         }
 
+        // TODO: simpler with BSTreeSet? Below may still need to be sorted
+        let mut compact = Vec::<&'static str>::new();
+
         for dependency in dependencies.keys() {
+            if !dependency.is_empty() { // TODO: needed?
+                for pos in 0..compact.len() {
+                    if namespace_starts_with(unsafe { compact.get_unchecked(pos) }, dependency) {
+                        compact.remove(pos);
+                        break;
+                    }
+                }
+                compact.push(dependency);
+            }
+    
+        }
+
+        for dependency in compact {
             if dependency.is_empty()
                 || namespace_starts_with(namespace, dependency)
-                || *dependency == "Windows.Foundation"
-                || *dependency == "Windows.Win32.Foundation"
+                || dependency == "Windows.Foundation"
+                || dependency == "Windows.Win32.Foundation"
             {
                 continue;
             }

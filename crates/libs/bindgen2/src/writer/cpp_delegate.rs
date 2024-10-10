@@ -20,7 +20,7 @@ impl Writer {
             item.dependencies(&mut dependencies, self.minimal);
         }
 
-        let cfg = self.write_cfg(method, item.def.namespace(), dependencies, false);
+        let cfg = self.write_cfg(item.def, item.def.namespace(), dependencies, false);
 
         // TODO: are all callback "system" ABI?
 
