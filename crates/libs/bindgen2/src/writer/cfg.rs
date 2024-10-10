@@ -44,20 +44,16 @@ impl Writer {
             _ => tokens.combine(quote! { #[cfg(any(#(target_arch = #arches),*))] }),
         }
 
-        // TODO: simpler with BSTreeSet? Below may still need to be sorted
-        let mut compact = Vec::<&'static str>::new();
+        // TODO: simpler way to do this? needs a tesd too...
+        let mut compact : Vec::<&'static str> = dependencies.keys().map(|d|*d).collect();
+        compact.sort();
 
-        for dependency in dependencies.keys() {
-            if !dependency.is_empty() { // TODO: needed?
-                for pos in 0..compact.len() {
-                    if namespace_starts_with(unsafe { compact.get_unchecked(pos) }, dependency) {
-                        compact.remove(pos);
-                        break;
-                    }
-                }
-                compact.push(dependency);
+        for pos in 0..compact.len() {
+            match (compact.get(pos), compact.get(pos + 1)) {
+                (Some(first), Some(second)) if namespace_starts_with(second, first) => {compact.remove(pos); }
+                (_, None) => break,
+                _ => continue,
             }
-    
         }
 
         for dependency in compact {
