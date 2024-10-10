@@ -119,9 +119,16 @@ impl Writer {
     }
 
     fn write_item_name(&self, item: &Item) -> TokenStream {
-        let name = to_ident(item.name());
-        let namespace = self.write_namespace(item.namespace());
-        quote! { #namespace #name }
+        match item {
+            Item::CppInterface(_) if self.sys => quote! { *mut core::ffi::c_void },
+            _ => {
+                let name = to_ident(item.name());
+                let namespace = self.write_namespace(item.namespace());
+                quote! { #namespace #name }
+            }
+        }
+
+
 
         // match item {
         //     Item::Struct(item) => {

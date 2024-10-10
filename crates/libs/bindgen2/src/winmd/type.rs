@@ -42,23 +42,23 @@ pub enum Type {
     PrimitiveOrEnum(Box<Self>, Box<Self>),
 }
 
-fn remap(namespace: &'static str, name: &'static str) -> Option<Type> {
-    match TypeName(namespace, name) {
-        TypeName::GUID => Some(Type::GUID),
-        TypeName::HResult => Some(Type::HRESULT),
-        TypeName::HRESULT => Some(Type::HRESULT),
-        TypeName::PSTR => Some(Type::PSTR),
-        TypeName::PWSTR => Some(Type::PWSTR),
-        TypeName::HSTRING => Some(Type::String),
-        TypeName::BSTR => Some(Type::BSTR),
-        TypeName::IInspectable => Some(Type::Object),
-        TypeName::CHAR => Some(Type::I8),
-        TypeName::IUnknown => Some(Type::IUnknown),
-        _ => None,
-    }
-}
-
 impl Type {
+    pub fn remap(namespace: &'static str, name: &'static str) -> Option<Type> {
+        match TypeName(namespace, name) {
+            TypeName::GUID => Some(Type::GUID),
+            TypeName::HResult => Some(Type::HRESULT),
+            TypeName::HRESULT => Some(Type::HRESULT),
+            TypeName::PSTR => Some(Type::PSTR),
+            TypeName::PWSTR => Some(Type::PWSTR),
+            TypeName::HSTRING => Some(Type::String),
+            TypeName::BSTR => Some(Type::BSTR),
+            TypeName::IInspectable => Some(Type::Object),
+            TypeName::CHAR => Some(Type::I8),
+            TypeName::IUnknown => Some(Type::IUnknown),
+            _ => None,
+        }
+    }
+
     pub fn from_element_type(code: usize) -> Option<Self> {
         match code as u8 {
             ELEMENT_TYPE_VOID => Some(Self::Void),
@@ -95,7 +95,7 @@ impl Type {
         let namespace = code.namespace();
         let name = code.name();
 
-        if let Some(ty) = remap(namespace, name) {
+        if let Some(ty) = Self::remap(namespace, name) {
             return ty;
         }
 

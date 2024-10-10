@@ -39,7 +39,7 @@ impl Writer {
             #[derive(Clone, Debug, Default, PartialEq)]
             pub struct #name(pub #underlying_type);
             #fields
-            // TODO: is TypeKind really needed on all these types?
+            // TODO: is TypeKind really needed on all these Win32 types?
             impl windows_core::TypeKind for #name {
                 type TypeKind = windows_core::CopyType;
             }

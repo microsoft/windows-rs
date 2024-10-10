@@ -2,8 +2,13 @@ use super::*;
 
 impl Writer {
     pub fn write_cpp_struct(&self, item: &'static CppStruct) -> TokenStream {
+        // TODO: do we need to ass cfg into this?
         if item.def.has_attribute("NativeTypedefAttribute") {
             return self.write_cpp_handle(item.def);
+        }
+
+        if let Some(guid) = item.def.guid_attribute() {
+            return self.write_cpp_const_guid(to_ident(item.name()), &guid);
         }
 
         let mut dependencies = Dependencies::new();
@@ -79,8 +84,15 @@ impl Writer {
             quote! { struct }
         };
 
+        let repr = if let Some(layout) = item.def.class_layout() {
+            let packing = Literal::usize_unsuffixed(layout.packing_size());
+            quote! { #[repr(C, packed(#packing))] }
+        } else {
+            quote! { #[repr(C)] }
+        };
+
         let mut tokens = quote! {
-            #[repr(C)]
+            #repr
             #cfg
             #[derive(#derive)]
             pub #struct_or_union #name {

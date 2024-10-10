@@ -3,6 +3,12 @@ use super::*;
 impl Writer {
     pub fn write_cpp_const(&self, item: &CppConst) -> TokenStream {
         let name = to_ident(item.field.name());
+
+        // TODO: is this even needed?
+        if let Some(guid) = item.field.guid_attribute() {
+            return self.write_cpp_const_guid(name, &guid);
+        }
+
         let field_ty = item.field.ty(None).to_const_type();
 
         let mut dependencies = Dependencies::new();
@@ -67,6 +73,15 @@ impl Writer {
                 #cfg
                 pub const #name: i32 = 0;
             }
+        }
+    }
+
+    pub fn write_cpp_const_guid(&self, name: TokenStream, value: &GUID) -> TokenStream {
+        let crate_name = self.write_crate();
+        let value: TokenStream = format!("0x{:08x?}_{:04x?}_{:04x?}_{:02x?}{:02x?}_{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}", value.0, value.1, value.2, value.3, value.4, value.5, value.6, value.7, value.8, value.9, value.10).into();
+
+        quote! {
+            pub const #name: #crate_name GUID = #crate_name GUID::from_u128(#value);
         }
     }
 }

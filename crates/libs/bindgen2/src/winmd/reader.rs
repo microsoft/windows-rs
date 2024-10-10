@@ -42,8 +42,13 @@ impl Reader {
                     continue;
                 }
 
-                let items = reader.0.entry(namespace).or_default();
                 let name = def.name();
+
+                if Type::remap(namespace, name).is_some() {
+                    continue;
+                }
+
+                let items = reader.0.entry(namespace).or_default();
                 let category = Category::new(def);
 
                 if def.flags().contains(TypeAttributes::WindowsRuntime) {

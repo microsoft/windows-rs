@@ -45,3 +45,18 @@ pub enum Value {
     TypeName(TypeName),
     EnumDef(&'static Item, Box<Self>),
 }
+
+pub struct GUID(
+    pub u32,
+    pub u16,
+    pub u16,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+    pub u8,
+);
+
