@@ -68,6 +68,27 @@ pub struct CppStruct {
 pub struct CppDelegate {
     pub def: TypeDef,
 }
+
+impl Delegate {
+    pub fn method(&self) -> MethodDef {
+        self
+        .def
+        .methods()
+        .find(|method| method.name() == "Invoke")
+        .unwrap()
+    }
+}
+
+impl CppDelegate {
+    pub fn method(&self) -> MethodDef {
+        self
+        .def
+        .methods()
+        .find(|method| method.name() == "Invoke")
+        .unwrap()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq)]
 pub struct CppConst {
     pub def: TypeDef,

@@ -145,7 +145,11 @@ impl CppConst {
 }
 
 impl CppDelegate {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies, _minimal: bool) {}
+    pub fn dependencies(&self, dependencies: &mut Dependencies, minimal: bool) {
+        self.method()
+        .signature(&[])
+        .dependencies(dependencies, minimal);
+    }
 }
 
 impl CppFn {

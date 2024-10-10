@@ -3,11 +3,7 @@ use super::*;
 impl Writer {
     pub fn write_cpp_delegate(&self, item: &CppDelegate) -> TokenStream {
         let name = to_ident(item.def.name());
-        let method = item
-            .def
-            .methods()
-            .find(|method| method.name() == "Invoke")
-            .unwrap();
+        let method = item.method();
         let signature = method.signature(&[]);
 
         let params = signature.params.iter().map(|(ty, param)| {
