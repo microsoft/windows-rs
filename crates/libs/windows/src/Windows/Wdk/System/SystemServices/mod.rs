@@ -12643,20 +12643,20 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
-    pub Generic: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6,
-    pub Port: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13,
-    pub Interrupt: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7,
-    pub MessageInterrupt: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12,
-    pub Memory: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11,
+    pub Generic: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0,
+    pub Port: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1,
+    pub Interrupt: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2,
+    pub MessageInterrupt: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3,
+    pub Memory: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4,
     pub Dma: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5,
-    pub DmaV3: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4,
-    pub DevicePrivate: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2,
-    pub BusNumber: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0,
-    pub DeviceSpecificData: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3,
-    pub Memory40: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8,
-    pub Memory48: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9,
-    pub Memory64: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10,
-    pub Connection: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1,
+    pub DmaV3: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6,
+    pub DevicePrivate: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7,
+    pub BusNumber: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8,
+    pub DeviceSpecificData: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9,
+    pub Memory40: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10,
+    pub Memory48: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11,
+    pub Memory64: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12,
+    pub Connection: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13,
 }
 impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
     type TypeKind = windows_core::CopyType;
@@ -12668,22 +12668,22 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
     pub Start: u32,
     pub Length: u32,
     pub Reserved: u32,
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
     pub Class: u8,
     pub Type: u8,
     pub Reserved1: u8,
@@ -12691,45 +12691,45 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
     pub IdLowPart: u32,
     pub IdHighPart: u32,
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     pub Data: [u32; 3],
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
     pub DataSize: u32,
     pub Reserved1: u32,
     pub Reserved2: u32,
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
     pub Channel: u32,
     pub RequestLine: u32,
     pub TransferWidth: u8,
@@ -12737,10 +12737,10 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
     pub Reserved2: u8,
     pub Reserved3: u8,
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -12762,57 +12762,29 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
     pub Start: i64,
     pub Length: u32,
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
     pub Level: u32,
     pub Vector: u32,
     pub Affinity: usize,
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
-    pub Start: i64,
-    pub Length40: u32,
-}
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(4))]
-#[derive(Clone, Copy)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
-    pub Start: i64,
-    pub Length48: u32,
-}
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -12821,7 +12793,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
 #[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
     pub Start: i64,
-    pub Length64: u32,
+    pub Length40: u32,
 }
 impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
     type TypeKind = windows_core::CopyType;
@@ -12835,7 +12807,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
 #[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
     pub Start: i64,
-    pub Length: u32,
+    pub Length48: u32,
 }
 impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
     type TypeKind = windows_core::CopyType;
@@ -12845,10 +12817,11 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
-    pub Anonymous: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0,
+    pub Start: i64,
+    pub Length64: u32,
 }
 impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
     type TypeKind = windows_core::CopyType;
@@ -12858,61 +12831,88 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
 #[derive(Clone, Copy)]
-pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0 {
-    pub Raw: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0_0,
-    pub Translated: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0_1,
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
+    pub Start: i64,
+    pub Length: u32,
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0 {
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0 {
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
+    pub Anonymous: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0,
+}
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
+    pub Raw: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0,
+    pub Translated: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1,
+}
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0_0 {
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
     pub Reserved: u16,
     pub MessageCount: u16,
     pub Vector: u32,
     pub Affinity: usize,
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0_0 {
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0_0 {
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0_1 {
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
     pub Level: u32,
     pub Vector: u32,
     pub Affinity: usize,
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0_1 {
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12_0_1 {
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
-pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
     pub Start: i64,
     pub Length: u32,
 }
-impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
+impl windows_core::TypeKind for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -13505,27 +13505,14 @@ impl Default for DEVICE_BUS_SPECIFIC_RESET_INFO {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DEVICE_BUS_SPECIFIC_RESET_TYPE {
-    pub Pci: DEVICE_BUS_SPECIFIC_RESET_TYPE_1,
-    pub Acpi: DEVICE_BUS_SPECIFIC_RESET_TYPE_0,
+    pub Pci: DEVICE_BUS_SPECIFIC_RESET_TYPE_0,
+    pub Acpi: DEVICE_BUS_SPECIFIC_RESET_TYPE_1,
     pub AsULONGLONG: u64,
 }
 impl windows_core::TypeKind for DEVICE_BUS_SPECIFIC_RESET_TYPE {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for DEVICE_BUS_SPECIFIC_RESET_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
-    pub _bitfield: u64,
-}
-impl windows_core::TypeKind for DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -13539,6 +13526,19 @@ impl windows_core::TypeKind for DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
+    pub _bitfield: u64,
+}
+impl windows_core::TypeKind for DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -13729,8 +13729,8 @@ impl Default for DISK_SIGNATURE {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DISK_SIGNATURE_0 {
-    pub Mbr: DISK_SIGNATURE_0_1,
-    pub Gpt: DISK_SIGNATURE_0_0,
+    pub Mbr: DISK_SIGNATURE_0_0,
+    pub Gpt: DISK_SIGNATURE_0_1,
 }
 impl windows_core::TypeKind for DISK_SIGNATURE_0 {
     type TypeKind = windows_core::CopyType;
@@ -13742,27 +13742,27 @@ impl Default for DISK_SIGNATURE_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DISK_SIGNATURE_0_0 {
+pub struct DISK_SIGNATURE_0_1 {
     pub DiskId: windows_core::GUID,
 }
-impl windows_core::TypeKind for DISK_SIGNATURE_0_0 {
+impl windows_core::TypeKind for DISK_SIGNATURE_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for DISK_SIGNATURE_0_0 {
+impl Default for DISK_SIGNATURE_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DISK_SIGNATURE_0_1 {
+pub struct DISK_SIGNATURE_0_0 {
     pub Signature: u32,
     pub CheckSum: u32,
 }
-impl windows_core::TypeKind for DISK_SIGNATURE_0_1 {
+impl windows_core::TypeKind for DISK_SIGNATURE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for DISK_SIGNATURE_0_1 {
+impl Default for DISK_SIGNATURE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -15591,8 +15591,8 @@ impl Default for IOMMU_MAP_PHYSICAL_ADDRESS {
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy)]
 pub union IOMMU_MAP_PHYSICAL_ADDRESS_0 {
-    pub Mdl: IOMMU_MAP_PHYSICAL_ADDRESS_0_1,
-    pub ContiguousRange: IOMMU_MAP_PHYSICAL_ADDRESS_0_0,
+    pub Mdl: IOMMU_MAP_PHYSICAL_ADDRESS_0_0,
+    pub ContiguousRange: IOMMU_MAP_PHYSICAL_ADDRESS_0_1,
     pub PfnArray: IOMMU_MAP_PHYSICAL_ADDRESS_0_2,
 }
 #[cfg(feature = "Wdk_Foundation")]
@@ -15608,25 +15608,9 @@ impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0 {
 #[repr(C)]
 #[cfg(feature = "Wdk_Foundation")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
+pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
     pub Base: i64,
     pub Size: usize,
-}
-#[cfg(feature = "Wdk_Foundation")]
-impl windows_core::TypeKind for IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Wdk_Foundation")]
-impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Wdk_Foundation")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
-    pub Mdl: *mut super::super::Foundation::MDL,
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl windows_core::TypeKind for IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
@@ -15634,6 +15618,22 @@ impl windows_core::TypeKind for IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
 }
 #[cfg(feature = "Wdk_Foundation")]
 impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Wdk_Foundation")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
+    pub Mdl: *mut super::super::Foundation::MDL,
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl windows_core::TypeKind for IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Wdk_Foundation")]
+impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -16190,19 +16190,19 @@ impl Default for IO_RESOURCE_DESCRIPTOR {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IO_RESOURCE_DESCRIPTOR_0 {
-    pub Port: IO_RESOURCE_DESCRIPTOR_0_12,
-    pub Memory: IO_RESOURCE_DESCRIPTOR_0_11,
-    pub Interrupt: IO_RESOURCE_DESCRIPTOR_0_7,
-    pub Dma: IO_RESOURCE_DESCRIPTOR_0_5,
+    pub Port: IO_RESOURCE_DESCRIPTOR_0_0,
+    pub Memory: IO_RESOURCE_DESCRIPTOR_0_1,
+    pub Interrupt: IO_RESOURCE_DESCRIPTOR_0_2,
+    pub Dma: IO_RESOURCE_DESCRIPTOR_0_3,
     pub DmaV3: IO_RESOURCE_DESCRIPTOR_0_4,
-    pub Generic: IO_RESOURCE_DESCRIPTOR_0_6,
-    pub DevicePrivate: IO_RESOURCE_DESCRIPTOR_0_3,
-    pub BusNumber: IO_RESOURCE_DESCRIPTOR_0_0,
-    pub ConfigData: IO_RESOURCE_DESCRIPTOR_0_1,
-    pub Memory40: IO_RESOURCE_DESCRIPTOR_0_8,
-    pub Memory48: IO_RESOURCE_DESCRIPTOR_0_9,
-    pub Memory64: IO_RESOURCE_DESCRIPTOR_0_10,
-    pub Connection: IO_RESOURCE_DESCRIPTOR_0_2,
+    pub Generic: IO_RESOURCE_DESCRIPTOR_0_5,
+    pub DevicePrivate: IO_RESOURCE_DESCRIPTOR_0_6,
+    pub BusNumber: IO_RESOURCE_DESCRIPTOR_0_7,
+    pub ConfigData: IO_RESOURCE_DESCRIPTOR_0_8,
+    pub Memory40: IO_RESOURCE_DESCRIPTOR_0_9,
+    pub Memory48: IO_RESOURCE_DESCRIPTOR_0_10,
+    pub Memory64: IO_RESOURCE_DESCRIPTOR_0_11,
+    pub Connection: IO_RESOURCE_DESCRIPTOR_0_12,
 }
 impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0 {
     type TypeKind = windows_core::CopyType;
@@ -16214,38 +16214,38 @@ impl Default for IO_RESOURCE_DESCRIPTOR_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_0 {
+pub struct IO_RESOURCE_DESCRIPTOR_0_7 {
     pub Length: u32,
     pub MinBusNumber: u32,
     pub MaxBusNumber: u32,
     pub Reserved: u32,
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_0 {
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_7 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for IO_RESOURCE_DESCRIPTOR_0_0 {
+impl Default for IO_RESOURCE_DESCRIPTOR_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_1 {
+pub struct IO_RESOURCE_DESCRIPTOR_0_8 {
     pub Priority: u32,
     pub Reserved1: u32,
     pub Reserved2: u32,
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_1 {
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_8 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for IO_RESOURCE_DESCRIPTOR_0_1 {
+impl Default for IO_RESOURCE_DESCRIPTOR_0_8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
+pub struct IO_RESOURCE_DESCRIPTOR_0_12 {
     pub Class: u8,
     pub Type: u8,
     pub Reserved1: u8,
@@ -16253,23 +16253,23 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
     pub IdLowPart: u32,
     pub IdHighPart: u32,
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_2 {
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_12 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for IO_RESOURCE_DESCRIPTOR_0_2 {
+impl Default for IO_RESOURCE_DESCRIPTOR_0_12 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_3 {
+pub struct IO_RESOURCE_DESCRIPTOR_0_6 {
     pub Data: [u32; 3],
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_3 {
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_6 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for IO_RESOURCE_DESCRIPTOR_0_3 {
+impl Default for IO_RESOURCE_DESCRIPTOR_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -16292,9 +16292,25 @@ impl Default for IO_RESOURCE_DESCRIPTOR_0_4 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_5 {
+pub struct IO_RESOURCE_DESCRIPTOR_0_3 {
     pub MinimumChannel: u32,
     pub MaximumChannel: u32,
+}
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for IO_RESOURCE_DESCRIPTOR_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct IO_RESOURCE_DESCRIPTOR_0_5 {
+    pub Length: u32,
+    pub Alignment: u32,
+    pub MinimumAddress: i64,
+    pub MaximumAddress: i64,
 }
 impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_5 {
     type TypeKind = windows_core::CopyType;
@@ -16306,49 +16322,17 @@ impl Default for IO_RESOURCE_DESCRIPTOR_0_5 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_6 {
-    pub Length: u32,
-    pub Alignment: u32,
-    pub MinimumAddress: i64,
-    pub MaximumAddress: i64,
-}
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IO_RESOURCE_DESCRIPTOR_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_7 {
+pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
     pub MinimumVector: u32,
     pub MaximumVector: u32,
     pub AffinityPolicy: IRQ_DEVICE_POLICY,
     pub PriorityPolicy: IRQ_PRIORITY,
     pub TargetedProcessors: usize,
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_7 {
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for IO_RESOURCE_DESCRIPTOR_0_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_8 {
-    pub Length40: u32,
-    pub Alignment40: u32,
-    pub MinimumAddress: i64,
-    pub MaximumAddress: i64,
-}
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_8 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IO_RESOURCE_DESCRIPTOR_0_8 {
+impl Default for IO_RESOURCE_DESCRIPTOR_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -16356,8 +16340,8 @@ impl Default for IO_RESOURCE_DESCRIPTOR_0_8 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_9 {
-    pub Length48: u32,
-    pub Alignment48: u32,
+    pub Length40: u32,
+    pub Alignment40: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
@@ -16372,8 +16356,8 @@ impl Default for IO_RESOURCE_DESCRIPTOR_0_9 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_10 {
-    pub Length64: u32,
-    pub Alignment64: u32,
+    pub Length48: u32,
+    pub Alignment48: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
@@ -16388,8 +16372,8 @@ impl Default for IO_RESOURCE_DESCRIPTOR_0_10 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_11 {
-    pub Length: u32,
-    pub Alignment: u32,
+    pub Length64: u32,
+    pub Alignment64: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
@@ -16403,16 +16387,32 @@ impl Default for IO_RESOURCE_DESCRIPTOR_0_11 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IO_RESOURCE_DESCRIPTOR_0_12 {
+pub struct IO_RESOURCE_DESCRIPTOR_0_1 {
     pub Length: u32,
     pub Alignment: u32,
     pub MinimumAddress: i64,
     pub MaximumAddress: i64,
 }
-impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_12 {
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for IO_RESOURCE_DESCRIPTOR_0_12 {
+impl Default for IO_RESOURCE_DESCRIPTOR_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct IO_RESOURCE_DESCRIPTOR_0_0 {
+    pub Length: u32,
+    pub Alignment: u32,
+    pub MinimumAddress: i64,
+    pub MaximumAddress: i64,
+}
+impl windows_core::TypeKind for IO_RESOURCE_DESCRIPTOR_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for IO_RESOURCE_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -18300,13 +18300,13 @@ impl Default for PCIBUSDATA {
 #[derive(Clone, Copy)]
 pub struct PCIX_BRIDGE_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
-    pub SecondaryStatus: PCIX_BRIDGE_CAPABILITY_2,
-    pub BridgeStatus: PCIX_BRIDGE_CAPABILITY_0,
+    pub SecondaryStatus: PCIX_BRIDGE_CAPABILITY_0,
+    pub BridgeStatus: PCIX_BRIDGE_CAPABILITY_1,
     pub UpstreamSplitTransactionCapacity: u16,
     pub UpstreamSplitTransactionLimit: u16,
     pub DownstreamSplitTransactionCapacity: u16,
     pub DownstreamSplitTransactionLimit: u16,
-    pub EccControlStatus: PCIX_BRIDGE_CAPABILITY_1,
+    pub EccControlStatus: PCIX_BRIDGE_CAPABILITY_2,
     pub EccFirstAddress: u32,
     pub EccSecondAddress: u32,
     pub EccAttribute: u32,
@@ -18315,33 +18315,6 @@ impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for PCIX_BRIDGE_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union PCIX_BRIDGE_CAPABILITY_0 {
-    pub Anonymous: PCIX_BRIDGE_CAPABILITY_0_0,
-    pub AsULONG: u32,
-}
-impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PCIX_BRIDGE_CAPABILITY_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PCIX_BRIDGE_CAPABILITY_0_0 {
-    pub _bitfield: u32,
-}
-impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PCIX_BRIDGE_CAPABILITY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -18377,7 +18350,7 @@ impl Default for PCIX_BRIDGE_CAPABILITY_1_0 {
 #[derive(Clone, Copy)]
 pub union PCIX_BRIDGE_CAPABILITY_2 {
     pub Anonymous: PCIX_BRIDGE_CAPABILITY_2_0,
-    pub AsUSHORT: u16,
+    pub AsULONG: u32,
 }
 impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_2 {
     type TypeKind = windows_core::CopyType;
@@ -18390,12 +18363,39 @@ impl Default for PCIX_BRIDGE_CAPABILITY_2 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCIX_BRIDGE_CAPABILITY_2_0 {
-    pub _bitfield: u16,
+    pub _bitfield: u32,
 }
 impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_2_0 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for PCIX_BRIDGE_CAPABILITY_2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union PCIX_BRIDGE_CAPABILITY_0 {
+    pub Anonymous: PCIX_BRIDGE_CAPABILITY_0_0,
+    pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for PCIX_BRIDGE_CAPABILITY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct PCIX_BRIDGE_CAPABILITY_0_0 {
+    pub _bitfield: u16,
+}
+impl windows_core::TypeKind for PCIX_BRIDGE_CAPABILITY_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for PCIX_BRIDGE_CAPABILITY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -18516,26 +18516,13 @@ impl Default for PCI_AGP_APERTURE_PAGE_SIZE {
 pub struct PCI_AGP_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
     pub _bitfield: u16,
-    pub AGPStatus: PCI_AGP_CAPABILITY_1,
-    pub AGPCommand: PCI_AGP_CAPABILITY_0,
+    pub AGPStatus: PCI_AGP_CAPABILITY_0,
+    pub AGPCommand: PCI_AGP_CAPABILITY_1,
 }
 impl windows_core::TypeKind for PCI_AGP_CAPABILITY {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_AGP_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PCI_AGP_CAPABILITY_0 {
-    pub _bitfield: u32,
-}
-impl windows_core::TypeKind for PCI_AGP_CAPABILITY_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PCI_AGP_CAPABILITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -18549,6 +18536,19 @@ impl windows_core::TypeKind for PCI_AGP_CAPABILITY_1 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for PCI_AGP_CAPABILITY_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct PCI_AGP_CAPABILITY_0 {
+    pub _bitfield: u32,
+}
+impl windows_core::TypeKind for PCI_AGP_CAPABILITY_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for PCI_AGP_CAPABILITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -21954,9 +21954,9 @@ impl Default for PCI_PMCSR_BSE {
 #[derive(Clone, Copy)]
 pub struct PCI_PM_CAPABILITY {
     pub Header: PCI_CAPABILITIES_HEADER,
-    pub PMC: PCI_PM_CAPABILITY_2,
+    pub PMC: PCI_PM_CAPABILITY_0,
     pub PMCSR: PCI_PM_CAPABILITY_1,
-    pub PMCSR_BSE: PCI_PM_CAPABILITY_0,
+    pub PMCSR_BSE: PCI_PM_CAPABILITY_2,
     pub Data: u8,
 }
 impl windows_core::TypeKind for PCI_PM_CAPABILITY {
@@ -21969,14 +21969,14 @@ impl Default for PCI_PM_CAPABILITY {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union PCI_PM_CAPABILITY_0 {
+pub union PCI_PM_CAPABILITY_2 {
     pub BridgeSupport: PCI_PMCSR_BSE,
     pub AsUCHAR: u8,
 }
-impl windows_core::TypeKind for PCI_PM_CAPABILITY_0 {
+impl windows_core::TypeKind for PCI_PM_CAPABILITY_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for PCI_PM_CAPABILITY_0 {
+impl Default for PCI_PM_CAPABILITY_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -21997,14 +21997,14 @@ impl Default for PCI_PM_CAPABILITY_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union PCI_PM_CAPABILITY_2 {
+pub union PCI_PM_CAPABILITY_0 {
     pub Capabilities: PCI_PMC,
     pub AsUSHORT: u16,
 }
-impl windows_core::TypeKind for PCI_PM_CAPABILITY_2 {
+impl windows_core::TypeKind for PCI_PM_CAPABILITY_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for PCI_PM_CAPABILITY_2 {
+impl Default for PCI_PM_CAPABILITY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -23252,8 +23252,8 @@ impl Default for PROCESS_DEVICEMAP_INFORMATION {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_DEVICEMAP_INFORMATION_0 {
-    pub Set: PROCESS_DEVICEMAP_INFORMATION_0_1,
-    pub Query: PROCESS_DEVICEMAP_INFORMATION_0_0,
+    pub Set: PROCESS_DEVICEMAP_INFORMATION_0_0,
+    pub Query: PROCESS_DEVICEMAP_INFORMATION_0_1,
 }
 impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_0 {
     type TypeKind = windows_core::CopyType;
@@ -23265,27 +23265,27 @@ impl Default for PROCESS_DEVICEMAP_INFORMATION_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PROCESS_DEVICEMAP_INFORMATION_0_0 {
+pub struct PROCESS_DEVICEMAP_INFORMATION_0_1 {
     pub DriveMap: u32,
     pub DriveType: [u8; 32],
 }
-impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_0_0 {
+impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for PROCESS_DEVICEMAP_INFORMATION_0_0 {
+impl Default for PROCESS_DEVICEMAP_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PROCESS_DEVICEMAP_INFORMATION_0_1 {
+pub struct PROCESS_DEVICEMAP_INFORMATION_0_0 {
     pub DirectoryHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_0_1 {
+impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for PROCESS_DEVICEMAP_INFORMATION_0_1 {
+impl Default for PROCESS_DEVICEMAP_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -23307,8 +23307,8 @@ impl Default for PROCESS_DEVICEMAP_INFORMATION_EX {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PROCESS_DEVICEMAP_INFORMATION_EX_0 {
-    pub Set: PROCESS_DEVICEMAP_INFORMATION_EX_0_1,
-    pub Query: PROCESS_DEVICEMAP_INFORMATION_EX_0_0,
+    pub Set: PROCESS_DEVICEMAP_INFORMATION_EX_0_0,
+    pub Query: PROCESS_DEVICEMAP_INFORMATION_EX_0_1,
 }
 impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_EX_0 {
     type TypeKind = windows_core::CopyType;
@@ -23320,27 +23320,27 @@ impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
+pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
     pub DriveMap: u32,
     pub DriveType: [u8; 32],
 }
-impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
+impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
+impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
+pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
     pub DirectoryHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
+impl windows_core::TypeKind for PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
+impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -28759,8 +28759,8 @@ impl Default for WHEA_XPF_TLB_CHECK_0 {
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct XPF_RECOVERY_INFO {
-    pub FailureReason: XPF_RECOVERY_INFO_1,
-    pub Action: XPF_RECOVERY_INFO_0,
+    pub FailureReason: XPF_RECOVERY_INFO_0,
+    pub Action: XPF_RECOVERY_INFO_1,
     pub ActionRequired: super::super::super::Win32::Foundation::BOOLEAN,
     pub RecoverySucceeded: super::super::super::Win32::Foundation::BOOLEAN,
     pub RecoveryKernel: super::super::super::Win32::Foundation::BOOLEAN,
@@ -28779,19 +28779,6 @@ impl Default for XPF_RECOVERY_INFO {
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
-pub struct XPF_RECOVERY_INFO_0 {
-    pub _bitfield: u32,
-}
-impl windows_core::TypeKind for XPF_RECOVERY_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for XPF_RECOVERY_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
 pub struct XPF_RECOVERY_INFO_1 {
     pub _bitfield: u32,
 }
@@ -28799,6 +28786,19 @@ impl windows_core::TypeKind for XPF_RECOVERY_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for XPF_RECOVERY_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct XPF_RECOVERY_INFO_0 {
+    pub _bitfield: u32,
+}
+impl windows_core::TypeKind for XPF_RECOVERY_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for XPF_RECOVERY_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

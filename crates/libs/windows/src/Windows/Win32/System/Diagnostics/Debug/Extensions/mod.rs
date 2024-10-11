@@ -21433,8 +21433,8 @@ pub union DEBUG_VALUE_0 {
     pub VI64: [u64; 2],
     pub VF32: [f32; 4],
     pub VF64: [f64; 2],
-    pub I64Parts32: DEBUG_VALUE_0_2,
-    pub F128Parts64: DEBUG_VALUE_0_1,
+    pub I64Parts32: DEBUG_VALUE_0_1,
+    pub F128Parts64: DEBUG_VALUE_0_2,
     pub RawBytes: [u8; 24],
 }
 impl windows_core::TypeKind for DEBUG_VALUE_0 {
@@ -21461,28 +21461,28 @@ impl Default for DEBUG_VALUE_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DEBUG_VALUE_0_1 {
+pub struct DEBUG_VALUE_0_2 {
     pub LowPart: u64,
     pub HighPart: i64,
 }
-impl windows_core::TypeKind for DEBUG_VALUE_0_1 {
+impl windows_core::TypeKind for DEBUG_VALUE_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for DEBUG_VALUE_0_1 {
+impl Default for DEBUG_VALUE_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DEBUG_VALUE_0_2 {
+pub struct DEBUG_VALUE_0_1 {
     pub LowPart: u32,
     pub HighPart: u32,
 }
-impl windows_core::TypeKind for DEBUG_VALUE_0_2 {
+impl windows_core::TypeKind for DEBUG_VALUE_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for DEBUG_VALUE_0_2 {
+impl Default for DEBUG_VALUE_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -22756,8 +22756,8 @@ impl Default for ScriptDebugEventInformation {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ScriptDebugEventInformation_0 {
-    pub ExceptionInformation: ScriptDebugEventInformation_0_1,
-    pub BreakpointInformation: ScriptDebugEventInformation_0_0,
+    pub ExceptionInformation: ScriptDebugEventInformation_0_0,
+    pub BreakpointInformation: ScriptDebugEventInformation_0_1,
 }
 impl windows_core::TypeKind for ScriptDebugEventInformation_0 {
     type TypeKind = windows_core::CopyType;
@@ -22769,26 +22769,26 @@ impl Default for ScriptDebugEventInformation_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ScriptDebugEventInformation_0_0 {
+pub struct ScriptDebugEventInformation_0_1 {
     pub BreakpointId: u64,
 }
-impl windows_core::TypeKind for ScriptDebugEventInformation_0_0 {
+impl windows_core::TypeKind for ScriptDebugEventInformation_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for ScriptDebugEventInformation_0_0 {
+impl Default for ScriptDebugEventInformation_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ScriptDebugEventInformation_0_1 {
+pub struct ScriptDebugEventInformation_0_0 {
     pub IsUncaught: u8,
 }
-impl windows_core::TypeKind for ScriptDebugEventInformation_0_1 {
+impl windows_core::TypeKind for ScriptDebugEventInformation_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for ScriptDebugEventInformation_0_1 {
+impl Default for ScriptDebugEventInformation_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

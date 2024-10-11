@@ -1394,8 +1394,8 @@ impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
-    pub ProcessorCore: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1,
-    pub NumaNode: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0,
+    pub ProcessorCore: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0,
+    pub NumaNode: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1,
     pub Cache: CACHE_DESCRIPTOR,
     pub Reserved: [u64; 2],
 }
@@ -1409,26 +1409,26 @@ impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
     pub NodeNumber: u32,
 }
-impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
+impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
+impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
     pub Flags: u8,
 }
-impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
+impl windows_core::TypeKind for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
+impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

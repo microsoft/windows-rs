@@ -6111,8 +6111,8 @@ impl Default for CONTEXT {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CPU_INFORMATION {
-    pub X86CpuInfo: CPU_INFORMATION_1,
-    pub OtherCpuInfo: CPU_INFORMATION_0,
+    pub X86CpuInfo: CPU_INFORMATION_0,
+    pub OtherCpuInfo: CPU_INFORMATION_1,
 }
 impl windows_core::TypeKind for CPU_INFORMATION {
     type TypeKind = windows_core::CopyType;
@@ -6124,29 +6124,29 @@ impl Default for CPU_INFORMATION {
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
-pub struct CPU_INFORMATION_0 {
+pub struct CPU_INFORMATION_1 {
     pub ProcessorFeatures: [u64; 2],
 }
-impl windows_core::TypeKind for CPU_INFORMATION_0 {
+impl windows_core::TypeKind for CPU_INFORMATION_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CPU_INFORMATION_0 {
+impl Default for CPU_INFORMATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CPU_INFORMATION_1 {
+pub struct CPU_INFORMATION_0 {
     pub VendorId: [u32; 3],
     pub VersionInformation: u32,
     pub FeatureInformation: u32,
     pub AMDExtendedCpuFeatures: u32,
 }
-impl windows_core::TypeKind for CPU_INFORMATION_1 {
+impl windows_core::TypeKind for CPU_INFORMATION_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CPU_INFORMATION_1 {
+impl Default for CPU_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -8111,8 +8111,8 @@ impl Default for LDT_ENTRY {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union LDT_ENTRY_0 {
-    pub Bytes: LDT_ENTRY_0_1,
-    pub Bits: LDT_ENTRY_0_0,
+    pub Bytes: LDT_ENTRY_0_0,
+    pub Bits: LDT_ENTRY_0_1,
 }
 impl windows_core::TypeKind for LDT_ENTRY_0 {
     type TypeKind = windows_core::CopyType;
@@ -8124,29 +8124,29 @@ impl Default for LDT_ENTRY_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct LDT_ENTRY_0_0 {
+pub struct LDT_ENTRY_0_1 {
     pub _bitfield: u32,
 }
-impl windows_core::TypeKind for LDT_ENTRY_0_0 {
+impl windows_core::TypeKind for LDT_ENTRY_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for LDT_ENTRY_0_0 {
+impl Default for LDT_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct LDT_ENTRY_0_1 {
+pub struct LDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
     pub Flags2: u8,
     pub BaseHi: u8,
 }
-impl windows_core::TypeKind for LDT_ENTRY_0_1 {
+impl windows_core::TypeKind for LDT_ENTRY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for LDT_ENTRY_0_1 {
+impl Default for LDT_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -10795,14 +10795,14 @@ impl Default for WHEA_NOTIFICATION_DESCRIPTOR {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHEA_NOTIFICATION_DESCRIPTOR_0 {
-    pub Polled: WHEA_NOTIFICATION_DESCRIPTOR_0_4,
+    pub Polled: WHEA_NOTIFICATION_DESCRIPTOR_0_0,
     pub Interrupt: WHEA_NOTIFICATION_DESCRIPTOR_0_1,
     pub LocalInterrupt: WHEA_NOTIFICATION_DESCRIPTOR_0_2,
-    pub Sci: WHEA_NOTIFICATION_DESCRIPTOR_0_5,
-    pub Nmi: WHEA_NOTIFICATION_DESCRIPTOR_0_3,
-    pub Sea: WHEA_NOTIFICATION_DESCRIPTOR_0_6,
-    pub Sei: WHEA_NOTIFICATION_DESCRIPTOR_0_7,
-    pub Gsiv: WHEA_NOTIFICATION_DESCRIPTOR_0_0,
+    pub Sci: WHEA_NOTIFICATION_DESCRIPTOR_0_3,
+    pub Nmi: WHEA_NOTIFICATION_DESCRIPTOR_0_4,
+    pub Sea: WHEA_NOTIFICATION_DESCRIPTOR_0_5,
+    pub Sei: WHEA_NOTIFICATION_DESCRIPTOR_0_6,
+    pub Gsiv: WHEA_NOTIFICATION_DESCRIPTOR_0_7,
 }
 impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0 {
     type TypeKind = windows_core::CopyType;
@@ -10814,7 +10814,7 @@ impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0 {
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
-pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
+pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     pub PollInterval: u32,
     pub Vector: u32,
     pub SwitchToPollingThreshold: u32,
@@ -10822,10 +10822,10 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
     pub ErrorThreshold: u32,
     pub ErrorThresholdWindow: u32,
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
+impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -10868,6 +10868,37 @@ impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
+pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
+    pub PollInterval: u32,
+    pub Vector: u32,
+    pub SwitchToPollingThreshold: u32,
+    pub SwitchToPollingWindow: u32,
+    pub ErrorThreshold: u32,
+    pub ErrorThresholdWindow: u32,
+}
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
+    pub PollInterval: u32,
+}
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -10880,19 +10911,6 @@ impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
-    pub PollInterval: u32,
-}
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -10929,24 +10947,6 @@ impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
-    pub PollInterval: u32,
-    pub Vector: u32,
-    pub SwitchToPollingThreshold: u32,
-    pub SwitchToPollingWindow: u32,
-    pub ErrorThreshold: u32,
-    pub ErrorThresholdWindow: u32,
-}
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -11180,8 +11180,8 @@ impl Default for WOW64_LDT_ENTRY {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WOW64_LDT_ENTRY_0 {
-    pub Bytes: WOW64_LDT_ENTRY_0_1,
-    pub Bits: WOW64_LDT_ENTRY_0_0,
+    pub Bytes: WOW64_LDT_ENTRY_0_0,
+    pub Bits: WOW64_LDT_ENTRY_0_1,
 }
 impl windows_core::TypeKind for WOW64_LDT_ENTRY_0 {
     type TypeKind = windows_core::CopyType;
@@ -11193,29 +11193,29 @@ impl Default for WOW64_LDT_ENTRY_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WOW64_LDT_ENTRY_0_0 {
+pub struct WOW64_LDT_ENTRY_0_1 {
     pub _bitfield: u32,
 }
-impl windows_core::TypeKind for WOW64_LDT_ENTRY_0_0 {
+impl windows_core::TypeKind for WOW64_LDT_ENTRY_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WOW64_LDT_ENTRY_0_0 {
+impl Default for WOW64_LDT_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WOW64_LDT_ENTRY_0_1 {
+pub struct WOW64_LDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
     pub Flags2: u8,
     pub BaseHi: u8,
 }
-impl windows_core::TypeKind for WOW64_LDT_ENTRY_0_1 {
+impl windows_core::TypeKind for WOW64_LDT_ENTRY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WOW64_LDT_ENTRY_0_1 {
+impl Default for WOW64_LDT_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

@@ -2588,9 +2588,9 @@ impl Default for VIRTUAL_PROCESSOR_REGISTER_0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VIRTUAL_PROCESSOR_REGISTER_1 {
-    pub Segment: VIRTUAL_PROCESSOR_REGISTER_1_1,
-    pub Table: VIRTUAL_PROCESSOR_REGISTER_1_2,
-    pub FpControlStatus: VIRTUAL_PROCESSOR_REGISTER_1_0,
+    pub Segment: VIRTUAL_PROCESSOR_REGISTER_1_0,
+    pub Table: VIRTUAL_PROCESSOR_REGISTER_1_1,
+    pub FpControlStatus: VIRTUAL_PROCESSOR_REGISTER_1_2,
     pub XmmControlStatus: VIRTUAL_PROCESSOR_REGISTER_1_3,
 }
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1 {
@@ -2603,12 +2603,56 @@ impl Default for VIRTUAL_PROCESSOR_REGISTER_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct VIRTUAL_PROCESSOR_REGISTER_1_0 {
+pub struct VIRTUAL_PROCESSOR_REGISTER_1_2 {
     pub FpControl: u16,
     pub FpStatus: u16,
     pub FpTag: u8,
     pub Reserved: u8,
     pub LastFpOp: u16,
+    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_2_0,
+}
+impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for VIRTUAL_PROCESSOR_REGISTER_1_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union VIRTUAL_PROCESSOR_REGISTER_1_2_0 {
+    pub LastFpRip: u64,
+    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_2_0_0,
+}
+impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_2_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for VIRTUAL_PROCESSOR_REGISTER_1_2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct VIRTUAL_PROCESSOR_REGISTER_1_2_0_0 {
+    pub LastFpEip: u32,
+    pub LastFpCs: u16,
+}
+impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_2_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for VIRTUAL_PROCESSOR_REGISTER_1_2_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct VIRTUAL_PROCESSOR_REGISTER_1_0 {
+    pub Base: u64,
+    pub Limit: u32,
+    pub Selector: u16,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_0_0,
 }
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_0 {
@@ -2622,7 +2666,7 @@ impl Default for VIRTUAL_PROCESSOR_REGISTER_1_0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
-    pub LastFpRip: u64,
+    pub Attributes: u16,
     pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_0_0_0,
 }
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
@@ -2636,8 +2680,7 @@ impl Default for VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
-    pub LastFpEip: u32,
-    pub LastFpCs: u16,
+    pub _bitfield: u16,
 }
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -2648,58 +2691,15 @@ impl Default for VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIRTUAL_PROCESSOR_REGISTER_1_1 {
+    pub Limit: u16,
     pub Base: u64,
-    pub Limit: u32,
-    pub Selector: u16,
-    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_1_0,
 }
 impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_1 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for VIRTUAL_PROCESSOR_REGISTER_1_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
-    pub Attributes: u16,
-    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_1_0_0,
-}
-impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
-    pub _bitfield: u16,
-}
-impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VIRTUAL_PROCESSOR_REGISTER_1_2 {
-    pub Limit: u16,
-    pub Base: u64,
-}
-impl windows_core::TypeKind for VIRTUAL_PROCESSOR_REGISTER_1_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VIRTUAL_PROCESSOR_REGISTER_1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

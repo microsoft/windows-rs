@@ -611,27 +611,27 @@ impl Default for WINBIO_ASYNC_RESULT {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WINBIO_ASYNC_RESULT_0 {
-    pub Verify: WINBIO_ASYNC_RESULT_0_20,
-    pub Identify: WINBIO_ASYNC_RESULT_0_15,
-    pub EnrollBegin: WINBIO_ASYNC_RESULT_0_3,
-    pub EnrollCapture: WINBIO_ASYNC_RESULT_0_4,
-    pub EnrollCommit: WINBIO_ASYNC_RESULT_0_5,
-    pub EnumEnrollments: WINBIO_ASYNC_RESULT_0_9,
-    pub CaptureSample: WINBIO_ASYNC_RESULT_0_0,
-    pub DeleteTemplate: WINBIO_ASYNC_RESULT_0_2,
-    pub GetProperty: WINBIO_ASYNC_RESULT_0_12,
-    pub SetProperty: WINBIO_ASYNC_RESULT_0_18,
-    pub GetEvent: WINBIO_ASYNC_RESULT_0_11,
-    pub ControlUnit: WINBIO_ASYNC_RESULT_0_1,
-    pub EnumServiceProviders: WINBIO_ASYNC_RESULT_0_10,
-    pub EnumBiometricUnits: WINBIO_ASYNC_RESULT_0_7,
-    pub EnumDatabases: WINBIO_ASYNC_RESULT_0_8,
-    pub VerifyAndReleaseTicket: WINBIO_ASYNC_RESULT_0_19,
-    pub IdentifyAndReleaseTicket: WINBIO_ASYNC_RESULT_0_14,
-    pub EnrollSelect: WINBIO_ASYNC_RESULT_0_6,
-    pub MonitorPresence: WINBIO_ASYNC_RESULT_0_16,
-    pub GetProtectionPolicy: WINBIO_ASYNC_RESULT_0_13,
-    pub NotifyUnitStatusChange: WINBIO_ASYNC_RESULT_0_17,
+    pub Verify: WINBIO_ASYNC_RESULT_0_0,
+    pub Identify: WINBIO_ASYNC_RESULT_0_1,
+    pub EnrollBegin: WINBIO_ASYNC_RESULT_0_2,
+    pub EnrollCapture: WINBIO_ASYNC_RESULT_0_3,
+    pub EnrollCommit: WINBIO_ASYNC_RESULT_0_4,
+    pub EnumEnrollments: WINBIO_ASYNC_RESULT_0_5,
+    pub CaptureSample: WINBIO_ASYNC_RESULT_0_6,
+    pub DeleteTemplate: WINBIO_ASYNC_RESULT_0_7,
+    pub GetProperty: WINBIO_ASYNC_RESULT_0_8,
+    pub SetProperty: WINBIO_ASYNC_RESULT_0_9,
+    pub GetEvent: WINBIO_ASYNC_RESULT_0_10,
+    pub ControlUnit: WINBIO_ASYNC_RESULT_0_11,
+    pub EnumServiceProviders: WINBIO_ASYNC_RESULT_0_12,
+    pub EnumBiometricUnits: WINBIO_ASYNC_RESULT_0_13,
+    pub EnumDatabases: WINBIO_ASYNC_RESULT_0_14,
+    pub VerifyAndReleaseTicket: WINBIO_ASYNC_RESULT_0_15,
+    pub IdentifyAndReleaseTicket: WINBIO_ASYNC_RESULT_0_16,
+    pub EnrollSelect: WINBIO_ASYNC_RESULT_0_17,
+    pub MonitorPresence: WINBIO_ASYNC_RESULT_0_18,
+    pub GetProtectionPolicy: WINBIO_ASYNC_RESULT_0_19,
+    pub NotifyUnitStatusChange: WINBIO_ASYNC_RESULT_0_20,
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0 {
     type TypeKind = windows_core::CopyType;
@@ -643,22 +643,22 @@ impl Default for WINBIO_ASYNC_RESULT_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_0 {
+pub struct WINBIO_ASYNC_RESULT_0_6 {
     pub Sample: *mut WINBIO_BIR,
     pub SampleSize: usize,
     pub RejectDetail: u32,
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_0 {
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_6 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WINBIO_ASYNC_RESULT_0_0 {
+impl Default for WINBIO_ASYNC_RESULT_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_1 {
+pub struct WINBIO_ASYNC_RESULT_0_11 {
     pub Component: WINBIO_COMPONENT,
     pub ControlCode: u32,
     pub OperationStatus: u32,
@@ -668,18 +668,31 @@ pub struct WINBIO_ASYNC_RESULT_0_1 {
     pub ReceiveBufferSize: usize,
     pub ReceiveDataSize: usize,
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_1 {
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_11 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WINBIO_ASYNC_RESULT_0_1 {
+impl Default for WINBIO_ASYNC_RESULT_0_11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct WINBIO_ASYNC_RESULT_0_2 {
+pub struct WINBIO_ASYNC_RESULT_0_7 {
     pub Identity: WINBIO_IDENTITY,
+    pub SubFactor: u8,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_7 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for WINBIO_ASYNC_RESULT_0_7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct WINBIO_ASYNC_RESULT_0_2 {
     pub SubFactor: u8,
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_2 {
@@ -693,7 +706,7 @@ impl Default for WINBIO_ASYNC_RESULT_0_2 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_3 {
-    pub SubFactor: u8,
+    pub RejectDetail: u32,
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_3 {
     type TypeKind = windows_core::CopyType;
@@ -704,9 +717,10 @@ impl Default for WINBIO_ASYNC_RESULT_0_3 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_4 {
-    pub RejectDetail: u32,
+    pub Identity: WINBIO_IDENTITY,
+    pub IsNewTemplate: super::super::Foundation::BOOLEAN,
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_4 {
     type TypeKind = windows_core::CopyType;
@@ -717,125 +731,23 @@ impl Default for WINBIO_ASYNC_RESULT_0_4 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINBIO_ASYNC_RESULT_0_5 {
-    pub Identity: WINBIO_IDENTITY,
-    pub IsNewTemplate: super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WINBIO_ASYNC_RESULT_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_6 {
+pub struct WINBIO_ASYNC_RESULT_0_17 {
     pub SelectorValue: u64,
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_6 {
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_17 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WINBIO_ASYNC_RESULT_0_6 {
+impl Default for WINBIO_ASYNC_RESULT_0_17 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_7 {
+pub struct WINBIO_ASYNC_RESULT_0_13 {
     pub UnitCount: usize,
     pub UnitSchemaArray: *mut WINBIO_UNIT_SCHEMA,
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_7 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WINBIO_ASYNC_RESULT_0_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_8 {
-    pub StorageCount: usize,
-    pub StorageSchemaArray: *mut WINBIO_STORAGE_SCHEMA,
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_8 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WINBIO_ASYNC_RESULT_0_8 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINBIO_ASYNC_RESULT_0_9 {
-    pub Identity: WINBIO_IDENTITY,
-    pub SubFactorCount: usize,
-    pub SubFactorArray: *mut u8,
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_9 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WINBIO_ASYNC_RESULT_0_9 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_10 {
-    pub BspCount: usize,
-    pub BspSchemaArray: *mut WINBIO_BSP_SCHEMA,
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_10 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WINBIO_ASYNC_RESULT_0_10 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINBIO_ASYNC_RESULT_0_11 {
-    pub Event: WINBIO_EVENT,
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_11 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WINBIO_ASYNC_RESULT_0_11 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINBIO_ASYNC_RESULT_0_12 {
-    pub PropertyType: u32,
-    pub PropertyId: u32,
-    pub Identity: WINBIO_IDENTITY,
-    pub SubFactor: u8,
-    pub PropertyBufferSize: usize,
-    pub PropertyBuffer: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_12 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WINBIO_ASYNC_RESULT_0_12 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WINBIO_ASYNC_RESULT_0_13 {
-    pub Identity: WINBIO_IDENTITY,
-    pub Policy: WINBIO_PROTECTION_POLICY,
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_13 {
     type TypeKind = windows_core::CopyType;
@@ -846,12 +758,10 @@ impl Default for WINBIO_ASYNC_RESULT_0_13 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_14 {
-    pub Identity: WINBIO_IDENTITY,
-    pub SubFactor: u8,
-    pub RejectDetail: u32,
-    pub Ticket: u64,
+    pub StorageCount: usize,
+    pub StorageSchemaArray: *mut WINBIO_STORAGE_SCHEMA,
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_14 {
     type TypeKind = windows_core::CopyType;
@@ -863,25 +773,85 @@ impl Default for WINBIO_ASYNC_RESULT_0_14 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct WINBIO_ASYNC_RESULT_0_15 {
+pub struct WINBIO_ASYNC_RESULT_0_5 {
     pub Identity: WINBIO_IDENTITY,
-    pub SubFactor: u8,
-    pub RejectDetail: u32,
+    pub SubFactorCount: usize,
+    pub SubFactorArray: *mut u8,
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_15 {
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_5 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WINBIO_ASYNC_RESULT_0_15 {
+impl Default for WINBIO_ASYNC_RESULT_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct WINBIO_ASYNC_RESULT_0_12 {
+    pub BspCount: usize,
+    pub BspSchemaArray: *mut WINBIO_BSP_SCHEMA,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_12 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for WINBIO_ASYNC_RESULT_0_12 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINBIO_ASYNC_RESULT_0_10 {
+    pub Event: WINBIO_EVENT,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_10 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for WINBIO_ASYNC_RESULT_0_10 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINBIO_ASYNC_RESULT_0_8 {
+    pub PropertyType: u32,
+    pub PropertyId: u32,
+    pub Identity: WINBIO_IDENTITY,
+    pub SubFactor: u8,
+    pub PropertyBufferSize: usize,
+    pub PropertyBuffer: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_8 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for WINBIO_ASYNC_RESULT_0_8 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINBIO_ASYNC_RESULT_0_19 {
+    pub Identity: WINBIO_IDENTITY,
+    pub Policy: WINBIO_PROTECTION_POLICY,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_19 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for WINBIO_ASYNC_RESULT_0_19 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct WINBIO_ASYNC_RESULT_0_16 {
-    pub ChangeType: u32,
-    pub PresenceCount: usize,
-    pub PresenceArray: *mut WINBIO_PRESENCE,
+    pub Identity: WINBIO_IDENTITY,
+    pub SubFactor: u8,
+    pub RejectDetail: u32,
+    pub Ticket: u64,
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_16 {
     type TypeKind = windows_core::CopyType;
@@ -892,27 +862,26 @@ impl Default for WINBIO_ASYNC_RESULT_0_16 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_17 {
-    pub ExtendedStatus: WINBIO_EXTENDED_UNIT_STATUS,
+#[derive(Clone, Copy)]
+pub struct WINBIO_ASYNC_RESULT_0_1 {
+    pub Identity: WINBIO_IDENTITY,
+    pub SubFactor: u8,
+    pub RejectDetail: u32,
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_17 {
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WINBIO_ASYNC_RESULT_0_17 {
+impl Default for WINBIO_ASYNC_RESULT_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_18 {
-    pub PropertyType: u32,
-    pub PropertyId: u32,
-    pub Identity: WINBIO_IDENTITY,
-    pub SubFactor: u8,
-    pub PropertyBufferSize: usize,
-    pub PropertyBuffer: *mut core::ffi::c_void,
+    pub ChangeType: u32,
+    pub PresenceCount: usize,
+    pub PresenceArray: *mut WINBIO_PRESENCE,
 }
 impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_18 {
     type TypeKind = windows_core::CopyType;
@@ -924,29 +893,60 @@ impl Default for WINBIO_ASYNC_RESULT_0_18 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_19 {
-    pub Match: super::super::Foundation::BOOLEAN,
-    pub RejectDetail: u32,
-    pub Ticket: u64,
+pub struct WINBIO_ASYNC_RESULT_0_20 {
+    pub ExtendedStatus: WINBIO_EXTENDED_UNIT_STATUS,
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_19 {
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_20 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WINBIO_ASYNC_RESULT_0_19 {
+impl Default for WINBIO_ASYNC_RESULT_0_20 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WINBIO_ASYNC_RESULT_0_9 {
+    pub PropertyType: u32,
+    pub PropertyId: u32,
+    pub Identity: WINBIO_IDENTITY,
+    pub SubFactor: u8,
+    pub PropertyBufferSize: usize,
+    pub PropertyBuffer: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_9 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for WINBIO_ASYNC_RESULT_0_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WINBIO_ASYNC_RESULT_0_20 {
+pub struct WINBIO_ASYNC_RESULT_0_15 {
+    pub Match: super::super::Foundation::BOOLEAN,
+    pub RejectDetail: u32,
+    pub Ticket: u64,
+}
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_15 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for WINBIO_ASYNC_RESULT_0_15 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct WINBIO_ASYNC_RESULT_0_0 {
     pub Match: super::super::Foundation::BOOLEAN,
     pub RejectDetail: u32,
 }
-impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_20 {
+impl windows_core::TypeKind for WINBIO_ASYNC_RESULT_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WINBIO_ASYNC_RESULT_0_20 {
+impl Default for WINBIO_ASYNC_RESULT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1272,9 +1272,9 @@ impl Default for WINBIO_EVENT {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WINBIO_EVENT_0 {
-    pub Unclaimed: WINBIO_EVENT_0_2,
+    pub Unclaimed: WINBIO_EVENT_0_0,
     pub UnclaimedIdentify: WINBIO_EVENT_0_1,
-    pub Error: WINBIO_EVENT_0_0,
+    pub Error: WINBIO_EVENT_0_2,
 }
 impl windows_core::TypeKind for WINBIO_EVENT_0 {
     type TypeKind = windows_core::CopyType;
@@ -1286,13 +1286,13 @@ impl Default for WINBIO_EVENT_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WINBIO_EVENT_0_0 {
+pub struct WINBIO_EVENT_0_2 {
     pub ErrorCode: windows_core::HRESULT,
 }
-impl windows_core::TypeKind for WINBIO_EVENT_0_0 {
+impl windows_core::TypeKind for WINBIO_EVENT_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WINBIO_EVENT_0_0 {
+impl Default for WINBIO_EVENT_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1315,14 +1315,14 @@ impl Default for WINBIO_EVENT_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WINBIO_EVENT_0_2 {
+pub struct WINBIO_EVENT_0_0 {
     pub UnitId: u32,
     pub RejectDetail: u32,
 }
-impl windows_core::TypeKind for WINBIO_EVENT_0_2 {
+impl windows_core::TypeKind for WINBIO_EVENT_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WINBIO_EVENT_0_2 {
+impl Default for WINBIO_EVENT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

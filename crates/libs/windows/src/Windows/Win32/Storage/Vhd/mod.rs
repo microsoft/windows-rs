@@ -1827,7 +1827,7 @@ impl Default for GET_VIRTUAL_DISK_INFO {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union GET_VIRTUAL_DISK_INFO_0 {
-    pub Size: GET_VIRTUAL_DISK_INFO_0_3,
+    pub Size: GET_VIRTUAL_DISK_INFO_0_0,
     pub Identifier: windows_core::GUID,
     pub ParentLocation: GET_VIRTUAL_DISK_INFO_0_1,
     pub ParentIdentifier: windows_core::GUID,
@@ -1841,7 +1841,7 @@ pub union GET_VIRTUAL_DISK_INFO_0 {
     pub SmallestSafeVirtualSize: u64,
     pub FragmentationPercentage: u32,
     pub VirtualDiskId: windows_core::GUID,
-    pub ChangeTrackingState: GET_VIRTUAL_DISK_INFO_0_0,
+    pub ChangeTrackingState: GET_VIRTUAL_DISK_INFO_0_3,
 }
 impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -1853,15 +1853,15 @@ impl Default for GET_VIRTUAL_DISK_INFO_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct GET_VIRTUAL_DISK_INFO_0_0 {
+pub struct GET_VIRTUAL_DISK_INFO_0_3 {
     pub Enabled: super::super::Foundation::BOOL,
     pub NewerChanges: super::super::Foundation::BOOL,
     pub MostRecentId: [u16; 1],
 }
-impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0_0 {
+impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for GET_VIRTUAL_DISK_INFO_0_0 {
+impl Default for GET_VIRTUAL_DISK_INFO_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1897,16 +1897,16 @@ impl Default for GET_VIRTUAL_DISK_INFO_0_2 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct GET_VIRTUAL_DISK_INFO_0_3 {
+pub struct GET_VIRTUAL_DISK_INFO_0_0 {
     pub VirtualSize: u64,
     pub PhysicalSize: u64,
     pub BlockSize: u32,
     pub SectorSize: u32,
 }
-impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0_3 {
+impl windows_core::TypeKind for GET_VIRTUAL_DISK_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for GET_VIRTUAL_DISK_INFO_0_3 {
+impl Default for GET_VIRTUAL_DISK_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2286,11 +2286,11 @@ impl Default for SET_VIRTUAL_DISK_INFO {
 pub union SET_VIRTUAL_DISK_INFO_0 {
     pub ParentFilePath: windows_core::PCWSTR,
     pub UniqueIdentifier: windows_core::GUID,
-    pub ParentPathWithDepthInfo: SET_VIRTUAL_DISK_INFO_0_1,
+    pub ParentPathWithDepthInfo: SET_VIRTUAL_DISK_INFO_0_0,
     pub VhdPhysicalSectorSize: u32,
     pub VirtualDiskId: windows_core::GUID,
     pub ChangeTrackingEnabled: super::super::Foundation::BOOL,
-    pub ParentLocator: SET_VIRTUAL_DISK_INFO_0_0,
+    pub ParentLocator: SET_VIRTUAL_DISK_INFO_0_1,
 }
 impl windows_core::TypeKind for SET_VIRTUAL_DISK_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -2302,28 +2302,28 @@ impl Default for SET_VIRTUAL_DISK_INFO_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SET_VIRTUAL_DISK_INFO_0_0 {
-    pub LinkageId: windows_core::GUID,
-    pub ParentFilePath: windows_core::PCWSTR,
-}
-impl windows_core::TypeKind for SET_VIRTUAL_DISK_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SET_VIRTUAL_DISK_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SET_VIRTUAL_DISK_INFO_0_1 {
-    pub ChildDepth: u32,
+    pub LinkageId: windows_core::GUID,
     pub ParentFilePath: windows_core::PCWSTR,
 }
 impl windows_core::TypeKind for SET_VIRTUAL_DISK_INFO_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for SET_VIRTUAL_DISK_INFO_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct SET_VIRTUAL_DISK_INFO_0_0 {
+    pub ChildDepth: u32,
+    pub ParentFilePath: windows_core::PCWSTR,
+}
+impl windows_core::TypeKind for SET_VIRTUAL_DISK_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for SET_VIRTUAL_DISK_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

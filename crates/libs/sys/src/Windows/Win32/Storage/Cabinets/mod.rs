@@ -126,8 +126,8 @@ pub struct FDIDECRYPT {
 #[derive(Clone, Copy)]
 pub union FDIDECRYPT_0 {
     pub cabinet: FDIDECRYPT_0_0,
-    pub folder: FDIDECRYPT_0_2,
-    pub decrypt: FDIDECRYPT_0_1,
+    pub folder: FDIDECRYPT_0_1,
+    pub decrypt: FDIDECRYPT_0_2,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -139,7 +139,7 @@ pub struct FDIDECRYPT_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct FDIDECRYPT_0_1 {
+pub struct FDIDECRYPT_0_2 {
     pub pDataReserve: *mut core::ffi::c_void,
     pub cbDataReserve: u16,
     pub pbData: *mut core::ffi::c_void,
@@ -149,7 +149,7 @@ pub struct FDIDECRYPT_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct FDIDECRYPT_0_2 {
+pub struct FDIDECRYPT_0_1 {
     pub pFolderReserve: *mut core::ffi::c_void,
     pub cbFolderReserve: u16,
     pub iFolder: u16,

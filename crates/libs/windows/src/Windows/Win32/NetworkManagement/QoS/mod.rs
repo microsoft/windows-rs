@@ -1468,8 +1468,8 @@ impl Default for IP_PATTERN {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IP_PATTERN_0 {
-    pub S_un_ports: IP_PATTERN_0_1,
-    pub S_un_icmp: IP_PATTERN_0_0,
+    pub S_un_ports: IP_PATTERN_0_0,
+    pub S_un_icmp: IP_PATTERN_0_1,
     pub S_Spi: u32,
 }
 impl windows_core::TypeKind for IP_PATTERN_0 {
@@ -1482,29 +1482,29 @@ impl Default for IP_PATTERN_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IP_PATTERN_0_0 {
+pub struct IP_PATTERN_0_1 {
     pub s_type: u8,
     pub s_code: u8,
     pub filler: u16,
 }
-impl windows_core::TypeKind for IP_PATTERN_0_0 {
+impl windows_core::TypeKind for IP_PATTERN_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for IP_PATTERN_0_0 {
+impl Default for IP_PATTERN_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IP_PATTERN_0_1 {
+pub struct IP_PATTERN_0_0 {
     pub s_srcport: u16,
     pub s_dstport: u16,
 }
-impl windows_core::TypeKind for IP_PATTERN_0_1 {
+impl windows_core::TypeKind for IP_PATTERN_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for IP_PATTERN_0_1 {
+impl Default for IP_PATTERN_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

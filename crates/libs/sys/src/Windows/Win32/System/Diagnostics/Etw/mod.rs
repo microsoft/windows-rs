@@ -1234,27 +1234,27 @@ pub struct EVENT_PROPERTY_INFO {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union EVENT_PROPERTY_INFO_0 {
-    pub nonStructType: EVENT_PROPERTY_INFO_0_1,
-    pub structType: EVENT_PROPERTY_INFO_0_2,
-    pub customSchemaType: EVENT_PROPERTY_INFO_0_0,
+    pub nonStructType: EVENT_PROPERTY_INFO_0_0,
+    pub structType: EVENT_PROPERTY_INFO_0_1,
+    pub customSchemaType: EVENT_PROPERTY_INFO_0_2,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct EVENT_PROPERTY_INFO_0_0 {
+pub struct EVENT_PROPERTY_INFO_0_2 {
     pub InType: u16,
     pub OutType: u16,
     pub CustomSchemaOffset: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct EVENT_PROPERTY_INFO_0_1 {
+pub struct EVENT_PROPERTY_INFO_0_0 {
     pub InType: u16,
     pub OutType: u16,
     pub MapNameOffset: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct EVENT_PROPERTY_INFO_0_2 {
+pub struct EVENT_PROPERTY_INFO_0_1 {
     pub StructStartIndex: u16,
     pub NumOfStructMembers: u16,
     pub padding: u32,

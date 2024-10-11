@@ -2439,17 +2439,17 @@ pub struct CONTEXT {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CPU_INFORMATION {
-    pub X86CpuInfo: CPU_INFORMATION_1,
-    pub OtherCpuInfo: CPU_INFORMATION_0,
+    pub X86CpuInfo: CPU_INFORMATION_0,
+    pub OtherCpuInfo: CPU_INFORMATION_1,
 }
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
-pub struct CPU_INFORMATION_0 {
+pub struct CPU_INFORMATION_1 {
     pub ProcessorFeatures: [u64; 2],
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CPU_INFORMATION_1 {
+pub struct CPU_INFORMATION_0 {
     pub VendorId: [u32; 3],
     pub VersionInformation: u32,
     pub FeatureInformation: u32,
@@ -3617,17 +3617,17 @@ pub struct LDT_ENTRY {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union LDT_ENTRY_0 {
-    pub Bytes: LDT_ENTRY_0_1,
-    pub Bits: LDT_ENTRY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct LDT_ENTRY_0_0 {
-    pub _bitfield: u32,
+    pub Bytes: LDT_ENTRY_0_0,
+    pub Bits: LDT_ENTRY_0_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct LDT_ENTRY_0_1 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct LDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
     pub Flags2: u8,
@@ -5083,18 +5083,18 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WHEA_NOTIFICATION_DESCRIPTOR_0 {
-    pub Polled: WHEA_NOTIFICATION_DESCRIPTOR_0_4,
+    pub Polled: WHEA_NOTIFICATION_DESCRIPTOR_0_0,
     pub Interrupt: WHEA_NOTIFICATION_DESCRIPTOR_0_1,
     pub LocalInterrupt: WHEA_NOTIFICATION_DESCRIPTOR_0_2,
-    pub Sci: WHEA_NOTIFICATION_DESCRIPTOR_0_5,
-    pub Nmi: WHEA_NOTIFICATION_DESCRIPTOR_0_3,
-    pub Sea: WHEA_NOTIFICATION_DESCRIPTOR_0_6,
-    pub Sei: WHEA_NOTIFICATION_DESCRIPTOR_0_7,
-    pub Gsiv: WHEA_NOTIFICATION_DESCRIPTOR_0_0,
+    pub Sci: WHEA_NOTIFICATION_DESCRIPTOR_0_3,
+    pub Nmi: WHEA_NOTIFICATION_DESCRIPTOR_0_4,
+    pub Sea: WHEA_NOTIFICATION_DESCRIPTOR_0_5,
+    pub Sei: WHEA_NOTIFICATION_DESCRIPTOR_0_6,
+    pub Gsiv: WHEA_NOTIFICATION_DESCRIPTOR_0_7,
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
-pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
+pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     pub PollInterval: u32,
     pub Vector: u32,
     pub SwitchToPollingThreshold: u32,
@@ -5124,7 +5124,7 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
-pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
+pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
     pub PollInterval: u32,
     pub Vector: u32,
     pub SwitchToPollingThreshold: u32,
@@ -5134,8 +5134,18 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
-pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
+pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
     pub PollInterval: u32,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
+    pub PollInterval: u32,
+    pub Vector: u32,
+    pub SwitchToPollingThreshold: u32,
+    pub SwitchToPollingWindow: u32,
+    pub ErrorThreshold: u32,
+    pub ErrorThresholdWindow: u32,
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -5150,16 +5160,6 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
-    pub PollInterval: u32,
-    pub Vector: u32,
-    pub SwitchToPollingThreshold: u32,
-    pub SwitchToPollingWindow: u32,
-    pub ErrorThreshold: u32,
-    pub ErrorThresholdWindow: u32,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     pub PollInterval: u32,
     pub Vector: u32,
     pub SwitchToPollingThreshold: u32,
@@ -5292,17 +5292,17 @@ pub struct WOW64_LDT_ENTRY {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WOW64_LDT_ENTRY_0 {
-    pub Bytes: WOW64_LDT_ENTRY_0_1,
-    pub Bits: WOW64_LDT_ENTRY_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct WOW64_LDT_ENTRY_0_0 {
-    pub _bitfield: u32,
+    pub Bytes: WOW64_LDT_ENTRY_0_0,
+    pub Bits: WOW64_LDT_ENTRY_0_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct WOW64_LDT_ENTRY_0_1 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct WOW64_LDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
     pub Flags2: u8,

@@ -5322,9 +5322,9 @@ impl Default for XPS_COLOR {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union XPS_COLOR_0 {
-    pub sRGB: XPS_COLOR_0_1,
-    pub scRGB: XPS_COLOR_0_2,
-    pub context: XPS_COLOR_0_0,
+    pub sRGB: XPS_COLOR_0_0,
+    pub scRGB: XPS_COLOR_0_1,
+    pub context: XPS_COLOR_0_2,
 }
 impl windows_core::TypeKind for XPS_COLOR_0 {
     type TypeKind = windows_core::CopyType;
@@ -5336,9 +5336,25 @@ impl Default for XPS_COLOR_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct XPS_COLOR_0_0 {
+pub struct XPS_COLOR_0_2 {
     pub channelCount: u8,
     pub channels: [f32; 9],
+}
+impl windows_core::TypeKind for XPS_COLOR_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for XPS_COLOR_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct XPS_COLOR_0_0 {
+    pub alpha: u8,
+    pub red: u8,
+    pub green: u8,
+    pub blue: u8,
 }
 impl windows_core::TypeKind for XPS_COLOR_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -5349,33 +5365,17 @@ impl Default for XPS_COLOR_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct XPS_COLOR_0_1 {
-    pub alpha: u8,
-    pub red: u8,
-    pub green: u8,
-    pub blue: u8,
-}
-impl windows_core::TypeKind for XPS_COLOR_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for XPS_COLOR_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct XPS_COLOR_0_2 {
+pub struct XPS_COLOR_0_1 {
     pub alpha: f32,
     pub red: f32,
     pub green: f32,
     pub blue: f32,
 }
-impl windows_core::TypeKind for XPS_COLOR_0_2 {
+impl windows_core::TypeKind for XPS_COLOR_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for XPS_COLOR_0_2 {
+impl Default for XPS_COLOR_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

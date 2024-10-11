@@ -1183,9 +1183,9 @@ pub struct BTH_LE_GATT_DESCRIPTOR_VALUE {
 #[derive(Clone, Copy)]
 pub union BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     pub CharacteristicExtendedProperties: BTH_LE_GATT_DESCRIPTOR_VALUE_0_0,
-    pub ClientCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_2,
-    pub ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_3,
-    pub CharacteristicFormat: BTH_LE_GATT_DESCRIPTOR_VALUE_0_1,
+    pub ClientCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_1,
+    pub ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_2,
+    pub CharacteristicFormat: BTH_LE_GATT_DESCRIPTOR_VALUE_0_3,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1195,7 +1195,7 @@ pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     pub Format: u8,
     pub Exponent: u8,
     pub Unit: BTH_LE_UUID,
@@ -1204,13 +1204,13 @@ pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
     pub IsSubscribeToNotification: super::super::Foundation::BOOLEAN,
     pub IsSubscribeToIndication: super::super::Foundation::BOOLEAN,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
     pub IsBroadcast: super::super::Foundation::BOOLEAN,
 }
 #[repr(C)]
@@ -1337,20 +1337,14 @@ pub union SDP_ELEMENT_DATA_0 {
     pub uuid128: windows_sys::core::GUID,
     pub uuid32: u32,
     pub uuid16: u16,
-    pub string: SDP_ELEMENT_DATA_0_2,
-    pub url: SDP_ELEMENT_DATA_0_3,
-    pub sequence: SDP_ELEMENT_DATA_0_1,
-    pub alternative: SDP_ELEMENT_DATA_0_0,
+    pub string: SDP_ELEMENT_DATA_0_0,
+    pub url: SDP_ELEMENT_DATA_0_1,
+    pub sequence: SDP_ELEMENT_DATA_0_2,
+    pub alternative: SDP_ELEMENT_DATA_0_3,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct SDP_ELEMENT_DATA_0_0 {
-    pub value: *mut u8,
-    pub length: u32,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct SDP_ELEMENT_DATA_0_1 {
+pub struct SDP_ELEMENT_DATA_0_3 {
     pub value: *mut u8,
     pub length: u32,
 }
@@ -1362,7 +1356,13 @@ pub struct SDP_ELEMENT_DATA_0_2 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct SDP_ELEMENT_DATA_0_3 {
+pub struct SDP_ELEMENT_DATA_0_0 {
+    pub value: *mut u8,
+    pub length: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SDP_ELEMENT_DATA_0_1 {
     pub value: *mut u8,
     pub length: u32,
 }

@@ -136,17 +136,17 @@ pub union MMTIME_0 {
     pub sample: u32,
     pub cb: u32,
     pub ticks: u32,
-    pub smpte: MMTIME_0_1,
-    pub midi: MMTIME_0_0,
+    pub smpte: MMTIME_0_0,
+    pub midi: MMTIME_0_1,
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
-pub struct MMTIME_0_0 {
+pub struct MMTIME_0_1 {
     pub songptrpos: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct MMTIME_0_1 {
+pub struct MMTIME_0_0 {
     pub hour: u8,
     pub min: u8,
     pub sec: u8,

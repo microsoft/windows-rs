@@ -1456,21 +1456,9 @@ pub struct USB_CYCLE_PORT_PARAMS {
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET {
     pub bmRequestType: BM_REQUEST_TYPE,
     pub bRequest: u8,
-    pub wValue: USB_DEFAULT_PIPE_SETUP_PACKET_1,
-    pub wIndex: USB_DEFAULT_PIPE_SETUP_PACKET_0,
+    pub wValue: USB_DEFAULT_PIPE_SETUP_PACKET_0,
+    pub wIndex: USB_DEFAULT_PIPE_SETUP_PACKET_1,
     pub wLength: u16,
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union USB_DEFAULT_PIPE_SETUP_PACKET_0 {
-    pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_0_0,
-    pub W: u16,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
-    pub LowByte: u8,
-    pub HiByte: u8,
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -1481,6 +1469,18 @@ pub union USB_DEFAULT_PIPE_SETUP_PACKET_1 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
+    pub LowByte: u8,
+    pub HiByte: u8,
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union USB_DEFAULT_PIPE_SETUP_PACKET_0 {
+    pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_0_0,
+    pub W: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
     pub LowByte: u8,
     pub HiByte: u8,
 }
@@ -1509,27 +1509,27 @@ pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     pub iAddtionalInfoURL: u8,
     pub bNumberOfAlternateModes: u8,
     pub bPreferredAlternateMode: u8,
-    pub VconnPower: USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1,
+    pub VconnPower: USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0,
     pub bmConfigured: [u8; 32],
     pub bReserved: u32,
-    pub AlternateMode: [USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0; 1],
+    pub AlternateMode: [USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1; 1],
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
-pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
+pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
     pub wSVID: u16,
     pub bAlternateMode: u8,
     pub iAlternateModeSetting: u8,
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
-pub union USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
+pub union USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
     pub AsUshort: u16,
-    pub Anonymous: USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0,
+    pub Anonymous: USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0_0,
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
-pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
+pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0_0 {
     pub _bitfield: u16,
 }
 #[repr(C)]

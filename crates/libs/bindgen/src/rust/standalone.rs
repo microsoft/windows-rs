@@ -241,7 +241,7 @@ fn type_collect_standalone_nested(
     td: metadata::TypeDef,
     set: &mut std::collections::BTreeSet<metadata::Type>,
 ) {
-    for nested in td.reader().nested_types(td) {
+    for (_, nested) in td.reader().nested_types(td) {
         type_collect_standalone_nested(writer, nested, set);
 
         for field in nested.fields() {

@@ -1860,10 +1860,10 @@ pub struct DNS_RECORDA {
     pub pName: windows_core::PSTR,
     pub wType: u16,
     pub wDataLength: u16,
-    pub Flags: DNS_RECORDA_1,
+    pub Flags: DNS_RECORDA_0,
     pub dwTtl: u32,
     pub dwReserved: u32,
-    pub Data: DNS_RECORDA_0,
+    pub Data: DNS_RECORDA_1,
 }
 impl windows_core::TypeKind for DNS_RECORDA {
     type TypeKind = windows_core::CopyType;
@@ -1875,7 +1875,7 @@ impl Default for DNS_RECORDA {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union DNS_RECORDA_0 {
+pub union DNS_RECORDA_1 {
     pub A: DNS_A_DATA,
     pub SOA: DNS_SOA_DATAA,
     pub Soa: DNS_SOA_DATAA,
@@ -1963,24 +1963,24 @@ pub union DNS_RECORDA_0 {
     pub Unknown: DNS_UNKNOWN_DATA,
     pub pDataPtr: *mut u8,
 }
-impl windows_core::TypeKind for DNS_RECORDA_0 {
+impl windows_core::TypeKind for DNS_RECORDA_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for DNS_RECORDA_0 {
+impl Default for DNS_RECORDA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union DNS_RECORDA_1 {
+pub union DNS_RECORDA_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
-impl windows_core::TypeKind for DNS_RECORDA_1 {
+impl windows_core::TypeKind for DNS_RECORDA_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for DNS_RECORDA_1 {
+impl Default for DNS_RECORDA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -1992,10 +1992,10 @@ pub struct DNS_RECORDW {
     pub pName: windows_core::PWSTR,
     pub wType: u16,
     pub wDataLength: u16,
-    pub Flags: DNS_RECORDW_1,
+    pub Flags: DNS_RECORDW_0,
     pub dwTtl: u32,
     pub dwReserved: u32,
-    pub Data: DNS_RECORDW_0,
+    pub Data: DNS_RECORDW_1,
 }
 impl windows_core::TypeKind for DNS_RECORDW {
     type TypeKind = windows_core::CopyType;
@@ -2007,7 +2007,7 @@ impl Default for DNS_RECORDW {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union DNS_RECORDW_0 {
+pub union DNS_RECORDW_1 {
     pub A: DNS_A_DATA,
     pub SOA: DNS_SOA_DATAW,
     pub Soa: DNS_SOA_DATAW,
@@ -2095,24 +2095,24 @@ pub union DNS_RECORDW_0 {
     pub Unknown: DNS_UNKNOWN_DATA,
     pub pDataPtr: *mut u8,
 }
-impl windows_core::TypeKind for DNS_RECORDW_0 {
+impl windows_core::TypeKind for DNS_RECORDW_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for DNS_RECORDW_0 {
+impl Default for DNS_RECORDW_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union DNS_RECORDW_1 {
+pub union DNS_RECORDW_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
-impl windows_core::TypeKind for DNS_RECORDW_1 {
+impl windows_core::TypeKind for DNS_RECORDW_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for DNS_RECORDW_1 {
+impl Default for DNS_RECORDW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2137,11 +2137,11 @@ pub struct DNS_RECORD_OPTW {
     pub pName: windows_core::PWSTR,
     pub wType: u16,
     pub wDataLength: u16,
-    pub Flags: DNS_RECORD_OPTW_1,
+    pub Flags: DNS_RECORD_OPTW_0,
     pub ExtHeader: DNS_HEADER_EXT,
     pub wPayloadSize: u16,
     pub wReserved: u16,
-    pub Data: DNS_RECORD_OPTW_0,
+    pub Data: DNS_RECORD_OPTW_1,
 }
 impl windows_core::TypeKind for DNS_RECORD_OPTW {
     type TypeKind = windows_core::CopyType;
@@ -2153,28 +2153,28 @@ impl Default for DNS_RECORD_OPTW {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union DNS_RECORD_OPTW_0 {
+pub union DNS_RECORD_OPTW_1 {
     pub OPT: DNS_OPT_DATA,
     pub Opt: DNS_OPT_DATA,
 }
-impl windows_core::TypeKind for DNS_RECORD_OPTW_0 {
+impl windows_core::TypeKind for DNS_RECORD_OPTW_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for DNS_RECORD_OPTW_0 {
+impl Default for DNS_RECORD_OPTW_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union DNS_RECORD_OPTW_1 {
+pub union DNS_RECORD_OPTW_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
-impl windows_core::TypeKind for DNS_RECORD_OPTW_1 {
+impl windows_core::TypeKind for DNS_RECORD_OPTW_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for DNS_RECORD_OPTW_1 {
+impl Default for DNS_RECORD_OPTW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2893,11 +2893,11 @@ pub struct _DnsRecordOptA {
     pub pName: windows_core::PSTR,
     pub wType: u16,
     pub wDataLength: u16,
-    pub Flags: _DnsRecordOptA_1,
+    pub Flags: _DnsRecordOptA_0,
     pub ExtHeader: DNS_HEADER_EXT,
     pub wPayloadSize: u16,
     pub wReserved: u16,
-    pub Data: _DnsRecordOptA_0,
+    pub Data: _DnsRecordOptA_1,
 }
 impl windows_core::TypeKind for _DnsRecordOptA {
     type TypeKind = windows_core::CopyType;
@@ -2909,28 +2909,28 @@ impl Default for _DnsRecordOptA {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union _DnsRecordOptA_0 {
+pub union _DnsRecordOptA_1 {
     pub OPT: DNS_OPT_DATA,
     pub Opt: DNS_OPT_DATA,
 }
-impl windows_core::TypeKind for _DnsRecordOptA_0 {
+impl windows_core::TypeKind for _DnsRecordOptA_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for _DnsRecordOptA_0 {
+impl Default for _DnsRecordOptA_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union _DnsRecordOptA_1 {
+pub union _DnsRecordOptA_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
-impl windows_core::TypeKind for _DnsRecordOptA_1 {
+impl windows_core::TypeKind for _DnsRecordOptA_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for _DnsRecordOptA_1 {
+impl Default for _DnsRecordOptA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

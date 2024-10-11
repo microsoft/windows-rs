@@ -8743,8 +8743,8 @@ impl Default for MENUTEMPLATEEX {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MENUTEMPLATEEX_0 {
-    pub Menu: MENUTEMPLATEEX_0_1,
-    pub MenuEx: MENUTEMPLATEEX_0_0,
+    pub Menu: MENUTEMPLATEEX_0_0,
+    pub MenuEx: MENUTEMPLATEEX_0_1,
 }
 impl windows_core::TypeKind for MENUTEMPLATEEX_0 {
     type TypeKind = windows_core::CopyType;
@@ -8756,28 +8756,28 @@ impl Default for MENUTEMPLATEEX_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct MENUTEMPLATEEX_0_0 {
+pub struct MENUTEMPLATEEX_0_1 {
     pub mexHeader: MENUEX_TEMPLATE_HEADER,
     pub mexItem: [MENUEX_TEMPLATE_ITEM; 1],
 }
-impl windows_core::TypeKind for MENUTEMPLATEEX_0_0 {
+impl windows_core::TypeKind for MENUTEMPLATEEX_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for MENUTEMPLATEEX_0_0 {
+impl Default for MENUTEMPLATEEX_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct MENUTEMPLATEEX_0_1 {
+pub struct MENUTEMPLATEEX_0_0 {
     pub mitHeader: MENUITEMTEMPLATEHEADER,
     pub miTemplate: [MENUITEMTEMPLATE; 1],
 }
-impl windows_core::TypeKind for MENUTEMPLATEEX_0_1 {
+impl windows_core::TypeKind for MENUTEMPLATEEX_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for MENUTEMPLATEEX_0_1 {
+impl Default for MENUTEMPLATEEX_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

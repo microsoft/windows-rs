@@ -218,19 +218,19 @@ pub struct VDMLDT_ENTRY {
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub union VDMLDT_ENTRY_0 {
-    pub Bytes: VDMLDT_ENTRY_0_1,
-    pub Bits: VDMLDT_ENTRY_0_0,
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy)]
-pub struct VDMLDT_ENTRY_0_0 {
-    pub _bitfield: u32,
+    pub Bytes: VDMLDT_ENTRY_0_0,
+    pub Bits: VDMLDT_ENTRY_0_1,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub struct VDMLDT_ENTRY_0_1 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy)]
+pub struct VDMLDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
     pub Flags2: u8,

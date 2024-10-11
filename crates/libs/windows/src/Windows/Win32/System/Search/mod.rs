@@ -16116,15 +16116,15 @@ pub union SSVARIANT_0 {
     pub fltRealVal: f32,
     pub dblFloatVal: f64,
     pub cyMoneyVal: super::Com::CY,
-    pub NCharVal: SSVARIANT_0_3,
-    pub CharVal: SSVARIANT_0_2,
+    pub NCharVal: SSVARIANT_0_0,
+    pub CharVal: SSVARIANT_0_1,
     pub fBitVal: super::super::Foundation::VARIANT_BOOL,
     pub rgbGuidVal: [u8; 16],
     pub numNumericVal: DB_NUMERIC,
-    pub BinaryVal: SSVARIANT_0_1,
+    pub BinaryVal: SSVARIANT_0_2,
     pub tsDateTimeVal: DBTIMESTAMP,
-    pub UnknownType: SSVARIANT_0_4,
-    pub BLOBType: core::mem::ManuallyDrop<SSVARIANT_0_0>,
+    pub UnknownType: SSVARIANT_0_3,
+    pub BLOBType: core::mem::ManuallyDrop<SSVARIANT_0_4>,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Clone for SSVARIANT_0 {
@@ -16144,41 +16144,22 @@ impl Default for SSVARIANT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-pub struct SSVARIANT_0_0 {
+pub struct SSVARIANT_0_4 {
     pub dbobj: DBOBJECT,
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Clone for SSVARIANT_0_0 {
+impl Clone for SSVARIANT_0_4 {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT_0_0 {
+impl windows_core::TypeKind for SSVARIANT_0_4 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SSVARIANT_0_1 {
-    pub sActualLength: i16,
-    pub sMaxLength: i16,
-    pub prgbBinaryVal: *mut u8,
-    pub dwReserved: u32,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT_0_1 {
+impl Default for SSVARIANT_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -16189,10 +16170,8 @@ impl Default for SSVARIANT_0_1 {
 pub struct SSVARIANT_0_2 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
-    pub pchCharVal: windows_core::PSTR,
-    pub rgbReserved: [u8; 5],
+    pub prgbBinaryVal: *mut u8,
     pub dwReserved: u32,
-    pub pwchReserved: windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for SSVARIANT_0_2 {
@@ -16207,7 +16186,28 @@ impl Default for SSVARIANT_0_2 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SSVARIANT_0_3 {
+pub struct SSVARIANT_0_1 {
+    pub sActualLength: i16,
+    pub sMaxLength: i16,
+    pub pchCharVal: windows_core::PSTR,
+    pub rgbReserved: [u8; 5],
+    pub dwReserved: u32,
+    pub pwchReserved: windows_core::PWSTR,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for SSVARIANT_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for SSVARIANT_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct SSVARIANT_0_0 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
     pub pwchNCharVal: windows_core::PWSTR,
@@ -16216,11 +16216,11 @@ pub struct SSVARIANT_0_3 {
     pub pwchReserved: windows_core::PWSTR,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT_0_3 {
+impl windows_core::TypeKind for SSVARIANT_0_0 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT_0_3 {
+impl Default for SSVARIANT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -16228,17 +16228,17 @@ impl Default for SSVARIANT_0_3 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SSVARIANT_0_4 {
+pub struct SSVARIANT_0_3 {
     pub dwActualLength: u32,
     pub rgMetadata: [u8; 16],
     pub pUnknownData: *mut u8,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for SSVARIANT_0_4 {
+impl windows_core::TypeKind for SSVARIANT_0_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Default for SSVARIANT_0_4 {
+impl Default for SSVARIANT_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

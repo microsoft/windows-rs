@@ -1591,52 +1591,52 @@ pub struct CLFS_MGMT_POLICY {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CLFS_MGMT_POLICY_0 {
-    pub MaximumSize: CLFS_MGMT_POLICY_0_4,
-    pub MinimumSize: CLFS_MGMT_POLICY_0_5,
-    pub NewContainerSize: CLFS_MGMT_POLICY_0_8,
-    pub GrowthRate: CLFS_MGMT_POLICY_0_2,
-    pub LogTail: CLFS_MGMT_POLICY_0_3,
-    pub AutoShrink: CLFS_MGMT_POLICY_0_1,
-    pub AutoGrow: CLFS_MGMT_POLICY_0_0,
+    pub MaximumSize: CLFS_MGMT_POLICY_0_0,
+    pub MinimumSize: CLFS_MGMT_POLICY_0_1,
+    pub NewContainerSize: CLFS_MGMT_POLICY_0_2,
+    pub GrowthRate: CLFS_MGMT_POLICY_0_3,
+    pub LogTail: CLFS_MGMT_POLICY_0_4,
+    pub AutoShrink: CLFS_MGMT_POLICY_0_5,
+    pub AutoGrow: CLFS_MGMT_POLICY_0_6,
     pub NewContainerPrefix: CLFS_MGMT_POLICY_0_7,
-    pub NewContainerSuffix: CLFS_MGMT_POLICY_0_9,
-    pub NewContainerExtension: CLFS_MGMT_POLICY_0_6,
+    pub NewContainerSuffix: CLFS_MGMT_POLICY_0_8,
+    pub NewContainerExtension: CLFS_MGMT_POLICY_0_9,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CLFS_MGMT_POLICY_0_0 {
+pub struct CLFS_MGMT_POLICY_0_6 {
     pub Enabled: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CLFS_MGMT_POLICY_0_1 {
+pub struct CLFS_MGMT_POLICY_0_5 {
     pub Percentage: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CLFS_MGMT_POLICY_0_2 {
+pub struct CLFS_MGMT_POLICY_0_3 {
     pub AbsoluteGrowthInContainers: u32,
     pub RelativeGrowthPercentage: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CLFS_MGMT_POLICY_0_3 {
+pub struct CLFS_MGMT_POLICY_0_4 {
     pub MinimumAvailablePercentage: u32,
     pub MinimumAvailableContainers: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CLFS_MGMT_POLICY_0_4 {
+pub struct CLFS_MGMT_POLICY_0_0 {
     pub Containers: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CLFS_MGMT_POLICY_0_5 {
+pub struct CLFS_MGMT_POLICY_0_1 {
     pub Containers: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CLFS_MGMT_POLICY_0_6 {
+pub struct CLFS_MGMT_POLICY_0_9 {
     pub ExtensionLengthInBytes: u16,
     pub ExtensionString: [u16; 1],
 }
@@ -1648,12 +1648,12 @@ pub struct CLFS_MGMT_POLICY_0_7 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CLFS_MGMT_POLICY_0_8 {
+pub struct CLFS_MGMT_POLICY_0_2 {
     pub SizeInBytes: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CLFS_MGMT_POLICY_0_9 {
+pub struct CLFS_MGMT_POLICY_0_8 {
     pub NextContainerSuffix: u64,
 }
 #[repr(C)]
@@ -1805,16 +1805,16 @@ pub struct COPYFILE2_MESSAGE {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union COPYFILE2_MESSAGE_0 {
-    pub ChunkStarted: COPYFILE2_MESSAGE_0_1,
-    pub ChunkFinished: COPYFILE2_MESSAGE_0_0,
-    pub StreamStarted: COPYFILE2_MESSAGE_0_5,
-    pub StreamFinished: COPYFILE2_MESSAGE_0_4,
-    pub PollContinue: COPYFILE2_MESSAGE_0_3,
-    pub Error: COPYFILE2_MESSAGE_0_2,
+    pub ChunkStarted: COPYFILE2_MESSAGE_0_0,
+    pub ChunkFinished: COPYFILE2_MESSAGE_0_1,
+    pub StreamStarted: COPYFILE2_MESSAGE_0_2,
+    pub StreamFinished: COPYFILE2_MESSAGE_0_3,
+    pub PollContinue: COPYFILE2_MESSAGE_0_4,
+    pub Error: COPYFILE2_MESSAGE_0_5,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct COPYFILE2_MESSAGE_0_0 {
+pub struct COPYFILE2_MESSAGE_0_1 {
     pub dwStreamNumber: u32,
     pub dwFlags: u32,
     pub hSourceFile: super::super::Foundation::HANDLE,
@@ -1828,7 +1828,7 @@ pub struct COPYFILE2_MESSAGE_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct COPYFILE2_MESSAGE_0_1 {
+pub struct COPYFILE2_MESSAGE_0_0 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
     pub hSourceFile: super::super::Foundation::HANDLE,
@@ -1840,7 +1840,7 @@ pub struct COPYFILE2_MESSAGE_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct COPYFILE2_MESSAGE_0_2 {
+pub struct COPYFILE2_MESSAGE_0_5 {
     pub CopyPhase: COPYFILE2_COPY_PHASE,
     pub dwStreamNumber: u32,
     pub hrFailure: windows_sys::core::HRESULT,
@@ -1853,12 +1853,12 @@ pub struct COPYFILE2_MESSAGE_0_2 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct COPYFILE2_MESSAGE_0_3 {
+pub struct COPYFILE2_MESSAGE_0_4 {
     pub dwReserved: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct COPYFILE2_MESSAGE_0_4 {
+pub struct COPYFILE2_MESSAGE_0_3 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
     pub hSourceFile: super::super::Foundation::HANDLE,
@@ -1870,7 +1870,7 @@ pub struct COPYFILE2_MESSAGE_0_4 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct COPYFILE2_MESSAGE_0_5 {
+pub struct COPYFILE2_MESSAGE_0_2 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
     pub hSourceFile: super::super::Foundation::HANDLE,

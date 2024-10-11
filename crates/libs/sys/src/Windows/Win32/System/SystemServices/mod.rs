@@ -2850,15 +2850,15 @@ pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_AUX_SYMBOL {
-    pub Sym: IMAGE_AUX_SYMBOL_3,
+    pub Sym: IMAGE_AUX_SYMBOL_0,
     pub File: IMAGE_AUX_SYMBOL_1,
     pub Section: IMAGE_AUX_SYMBOL_2,
     pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
-    pub CRC: IMAGE_AUX_SYMBOL_0,
+    pub CRC: IMAGE_AUX_SYMBOL_3,
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_0 {
+pub struct IMAGE_AUX_SYMBOL_3 {
     pub crc: u32,
     pub rgbReserved: [u8; 14],
 }
@@ -2881,70 +2881,70 @@ pub struct IMAGE_AUX_SYMBOL_2 {
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_3 {
+pub struct IMAGE_AUX_SYMBOL_0 {
     pub TagIndex: u32,
-    pub Misc: IMAGE_AUX_SYMBOL_3_1,
-    pub FcnAry: IMAGE_AUX_SYMBOL_3_0,
+    pub Misc: IMAGE_AUX_SYMBOL_0_0,
+    pub FcnAry: IMAGE_AUX_SYMBOL_0_1,
     pub TvIndex: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union IMAGE_AUX_SYMBOL_3_0 {
-    pub Function: IMAGE_AUX_SYMBOL_3_0_1,
-    pub Array: IMAGE_AUX_SYMBOL_3_0_0,
+pub union IMAGE_AUX_SYMBOL_0_1 {
+    pub Function: IMAGE_AUX_SYMBOL_0_1_0,
+    pub Array: IMAGE_AUX_SYMBOL_0_1_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_3_0_0 {
+pub struct IMAGE_AUX_SYMBOL_0_1_1 {
     pub Dimension: [u16; 4],
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_3_0_1 {
+pub struct IMAGE_AUX_SYMBOL_0_1_0 {
     pub PointerToLinenumber: u32,
     pub PointerToNextFunction: u32,
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
-pub union IMAGE_AUX_SYMBOL_3_1 {
-    pub LnSz: IMAGE_AUX_SYMBOL_3_1_0,
+pub union IMAGE_AUX_SYMBOL_0_0 {
+    pub LnSz: IMAGE_AUX_SYMBOL_0_0_0,
     pub TotalSize: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_3_1_0 {
+pub struct IMAGE_AUX_SYMBOL_0_0_0 {
     pub Linenumber: u16,
     pub Size: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_AUX_SYMBOL_EX {
-    pub Sym: IMAGE_AUX_SYMBOL_EX_4,
-    pub File: IMAGE_AUX_SYMBOL_EX_2,
-    pub Section: IMAGE_AUX_SYMBOL_EX_3,
-    pub Anonymous: IMAGE_AUX_SYMBOL_EX_0,
-    pub CRC: IMAGE_AUX_SYMBOL_EX_1,
+    pub Sym: IMAGE_AUX_SYMBOL_EX_0,
+    pub File: IMAGE_AUX_SYMBOL_EX_1,
+    pub Section: IMAGE_AUX_SYMBOL_EX_2,
+    pub Anonymous: IMAGE_AUX_SYMBOL_EX_3,
+    pub CRC: IMAGE_AUX_SYMBOL_EX_4,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_EX_0 {
+pub struct IMAGE_AUX_SYMBOL_EX_3 {
     pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
     pub rgbReserved: [u8; 2],
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_EX_1 {
+pub struct IMAGE_AUX_SYMBOL_EX_4 {
     pub crc: u32,
     pub rgbReserved: [u8; 16],
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_EX_2 {
+pub struct IMAGE_AUX_SYMBOL_EX_1 {
     pub Name: [u8; 20],
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_EX_3 {
+pub struct IMAGE_AUX_SYMBOL_EX_2 {
     pub Length: u32,
     pub NumberOfRelocations: u16,
     pub NumberOfLinenumbers: u16,
@@ -2957,7 +2957,7 @@ pub struct IMAGE_AUX_SYMBOL_EX_3 {
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_EX_4 {
+pub struct IMAGE_AUX_SYMBOL_EX_0 {
     pub WeakDefaultSymIndex: u32,
     pub WeakSearchType: u32,
     pub rgbReserved: [u8; 12],

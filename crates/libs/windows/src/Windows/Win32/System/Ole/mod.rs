@@ -11075,9 +11075,9 @@ impl Default for PICTDESC {
 #[derive(Clone, Copy)]
 pub union PICTDESC_0 {
     pub bmp: PICTDESC_0_0,
-    pub wmf: PICTDESC_0_3,
+    pub wmf: PICTDESC_0_1,
     pub icon: PICTDESC_0_2,
-    pub emf: PICTDESC_0_1,
+    pub emf: PICTDESC_0_3,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl windows_core::TypeKind for PICTDESC_0 {
@@ -11109,15 +11109,15 @@ impl Default for PICTDESC_0_0 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PICTDESC_0_1 {
+pub struct PICTDESC_0_3 {
     pub hemf: super::super::Graphics::Gdi::HENHMETAFILE,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PICTDESC_0_1 {
+impl windows_core::TypeKind for PICTDESC_0_3 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Default for PICTDESC_0_1 {
+impl Default for PICTDESC_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -11141,17 +11141,17 @@ impl Default for PICTDESC_0_2 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PICTDESC_0_3 {
+pub struct PICTDESC_0_1 {
     pub hmeta: super::super::Graphics::Gdi::HMETAFILE,
     pub xExt: i32,
     pub yExt: i32,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::TypeKind for PICTDESC_0_3 {
+impl windows_core::TypeKind for PICTDESC_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl Default for PICTDESC_0_3 {
+impl Default for PICTDESC_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

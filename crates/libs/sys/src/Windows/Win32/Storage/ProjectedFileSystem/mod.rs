@@ -116,17 +116,17 @@ pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
-    pub Notification: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1,
-    pub Enumeration: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
-    pub DirEntryBufferHandle: PRJ_DIR_ENTRY_BUFFER_HANDLE,
+    pub Notification: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0,
+    pub Enumeration: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
+    pub DirEntryBufferHandle: PRJ_DIR_ENTRY_BUFFER_HANDLE,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
 pub type PRJ_DIR_ENTRY_BUFFER_HANDLE = *mut core::ffi::c_void;
@@ -168,13 +168,13 @@ pub struct PRJ_NOTIFICATION_MAPPING {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PRJ_NOTIFICATION_PARAMETERS {
-    pub PostCreate: PRJ_NOTIFICATION_PARAMETERS_2,
+    pub PostCreate: PRJ_NOTIFICATION_PARAMETERS_0,
     pub FileRenamed: PRJ_NOTIFICATION_PARAMETERS_1,
-    pub FileDeletedOnHandleClose: PRJ_NOTIFICATION_PARAMETERS_0,
+    pub FileDeletedOnHandleClose: PRJ_NOTIFICATION_PARAMETERS_2,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct PRJ_NOTIFICATION_PARAMETERS_0 {
+pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
     pub IsFileModified: super::super::Foundation::BOOLEAN,
 }
 #[repr(C)]
@@ -184,7 +184,7 @@ pub struct PRJ_NOTIFICATION_PARAMETERS_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
+pub struct PRJ_NOTIFICATION_PARAMETERS_0 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
 #[repr(C)]

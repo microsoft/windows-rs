@@ -6227,16 +6227,16 @@ impl Default for DWRITE_PAINT_ELEMENT {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy)]
 pub union DWRITE_PAINT_ELEMENT_0 {
-    pub layers: DWRITE_PAINT_ELEMENT_0_3,
-    pub solidGlyph: DWRITE_PAINT_ELEMENT_0_6,
+    pub layers: DWRITE_PAINT_ELEMENT_0_0,
+    pub solidGlyph: DWRITE_PAINT_ELEMENT_0_1,
     pub solid: DWRITE_PAINT_COLOR,
-    pub linearGradient: DWRITE_PAINT_ELEMENT_0_4,
-    pub radialGradient: DWRITE_PAINT_ELEMENT_0_5,
-    pub sweepGradient: DWRITE_PAINT_ELEMENT_0_7,
-    pub glyph: DWRITE_PAINT_ELEMENT_0_2,
-    pub colorGlyph: DWRITE_PAINT_ELEMENT_0_0,
+    pub linearGradient: DWRITE_PAINT_ELEMENT_0_2,
+    pub radialGradient: DWRITE_PAINT_ELEMENT_0_3,
+    pub sweepGradient: DWRITE_PAINT_ELEMENT_0_4,
+    pub glyph: DWRITE_PAINT_ELEMENT_0_5,
+    pub colorGlyph: DWRITE_PAINT_ELEMENT_0_6,
     pub transform: DWRITE_MATRIX,
-    pub composite: DWRITE_PAINT_ELEMENT_0_1,
+    pub composite: DWRITE_PAINT_ELEMENT_0_7,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0 {
@@ -6251,9 +6251,57 @@ impl Default for DWRITE_PAINT_ELEMENT_0 {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DWRITE_PAINT_ELEMENT_0_0 {
+pub struct DWRITE_PAINT_ELEMENT_0_6 {
     pub glyphIndex: u32,
     pub clipBox: super::Direct2D::Common::D2D_RECT_F,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_6 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for DWRITE_PAINT_ELEMENT_0_6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct DWRITE_PAINT_ELEMENT_0_7 {
+    pub mode: DWRITE_COLOR_COMPOSITE_MODE,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_7 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for DWRITE_PAINT_ELEMENT_0_7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct DWRITE_PAINT_ELEMENT_0_5 {
+    pub glyphIndex: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_5 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for DWRITE_PAINT_ELEMENT_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct DWRITE_PAINT_ELEMENT_0_0 {
+    pub childCount: u32,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_0 {
@@ -6267,25 +6315,16 @@ impl Default for DWRITE_PAINT_ELEMENT_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DWRITE_PAINT_ELEMENT_0_1 {
-    pub mode: DWRITE_COLOR_COMPOSITE_MODE,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for DWRITE_PAINT_ELEMENT_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_2 {
-    pub glyphIndex: u32,
+    pub extendMode: u32,
+    pub gradientStopCount: u32,
+    pub x0: f32,
+    pub y0: f32,
+    pub x1: f32,
+    pub y1: f32,
+    pub x2: f32,
+    pub y2: f32,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_2 {
@@ -6299,9 +6338,16 @@ impl Default for DWRITE_PAINT_ELEMENT_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_3 {
-    pub childCount: u32,
+    pub extendMode: u32,
+    pub gradientStopCount: u32,
+    pub x0: f32,
+    pub y0: f32,
+    pub radius0: f32,
+    pub x1: f32,
+    pub y1: f32,
+    pub radius1: f32,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_3 {
@@ -6316,15 +6362,30 @@ impl Default for DWRITE_PAINT_ELEMENT_0_3 {
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DWRITE_PAINT_ELEMENT_0_1 {
+    pub glyphIndex: u32,
+    pub color: DWRITE_PAINT_COLOR,
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+impl Default for DWRITE_PAINT_ELEMENT_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_4 {
     pub extendMode: u32,
     pub gradientStopCount: u32,
-    pub x0: f32,
-    pub y0: f32,
-    pub x1: f32,
-    pub y1: f32,
-    pub x2: f32,
-    pub y2: f32,
+    pub centerX: f32,
+    pub centerY: f32,
+    pub startAngle: f32,
+    pub endAngle: f32,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_4 {
@@ -6337,75 +6398,14 @@ impl Default for DWRITE_PAINT_ELEMENT_0_4 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DWRITE_PAINT_ELEMENT_0_5 {
-    pub extendMode: u32,
-    pub gradientStopCount: u32,
-    pub x0: f32,
-    pub y0: f32,
-    pub radius0: f32,
-    pub x1: f32,
-    pub y1: f32,
-    pub radius1: f32,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for DWRITE_PAINT_ELEMENT_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DWRITE_PAINT_ELEMENT_0_6 {
-    pub glyphIndex: u32,
-    pub color: DWRITE_PAINT_COLOR,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for DWRITE_PAINT_ELEMENT_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct DWRITE_PAINT_ELEMENT_0_7 {
-    pub extendMode: u32,
-    pub gradientStopCount: u32,
-    pub centerX: f32,
-    pub centerY: f32,
-    pub startAngle: f32,
-    pub endAngle: f32,
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl windows_core::TypeKind for DWRITE_PAINT_ELEMENT_0_7 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl Default for DWRITE_PAINT_ELEMENT_0_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[derive(Clone, Copy)]
 pub union DWRITE_PANOSE {
     pub values: [u8; 10],
     pub familyKind: u8,
-    pub text: DWRITE_PANOSE_3,
+    pub text: DWRITE_PANOSE_0,
     pub script: DWRITE_PANOSE_1,
-    pub decorative: DWRITE_PANOSE_0,
-    pub symbol: DWRITE_PANOSE_2,
+    pub decorative: DWRITE_PANOSE_2,
+    pub symbol: DWRITE_PANOSE_3,
 }
 impl windows_core::TypeKind for DWRITE_PANOSE {
     type TypeKind = windows_core::CopyType;
@@ -6417,7 +6417,7 @@ impl Default for DWRITE_PANOSE {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DWRITE_PANOSE_0 {
+pub struct DWRITE_PANOSE_2 {
     pub familyKind: u8,
     pub decorativeClass: u8,
     pub weight: u8,
@@ -6429,10 +6429,10 @@ pub struct DWRITE_PANOSE_0 {
     pub decorativeTopology: u8,
     pub characterRange: u8,
 }
-impl windows_core::TypeKind for DWRITE_PANOSE_0 {
+impl windows_core::TypeKind for DWRITE_PANOSE_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for DWRITE_PANOSE_0 {
+impl Default for DWRITE_PANOSE_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -6461,7 +6461,7 @@ impl Default for DWRITE_PANOSE_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DWRITE_PANOSE_2 {
+pub struct DWRITE_PANOSE_3 {
     pub familyKind: u8,
     pub symbolKind: u8,
     pub weight: u8,
@@ -6473,17 +6473,17 @@ pub struct DWRITE_PANOSE_2 {
     pub aspectRatio163: u8,
     pub aspectRatio211: u8,
 }
-impl windows_core::TypeKind for DWRITE_PANOSE_2 {
+impl windows_core::TypeKind for DWRITE_PANOSE_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for DWRITE_PANOSE_2 {
+impl Default for DWRITE_PANOSE_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct DWRITE_PANOSE_3 {
+pub struct DWRITE_PANOSE_0 {
     pub familyKind: u8,
     pub serifStyle: u8,
     pub weight: u8,
@@ -6495,10 +6495,10 @@ pub struct DWRITE_PANOSE_3 {
     pub midline: u8,
     pub xHeight: u8,
 }
-impl windows_core::TypeKind for DWRITE_PANOSE_3 {
+impl windows_core::TypeKind for DWRITE_PANOSE_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for DWRITE_PANOSE_3 {
+impl Default for DWRITE_PANOSE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

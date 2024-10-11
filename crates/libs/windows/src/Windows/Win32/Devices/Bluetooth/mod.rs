@@ -1804,9 +1804,9 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE {
 #[derive(Clone, Copy)]
 pub union BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     pub CharacteristicExtendedProperties: BTH_LE_GATT_DESCRIPTOR_VALUE_0_0,
-    pub ClientCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_2,
-    pub ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_3,
-    pub CharacteristicFormat: BTH_LE_GATT_DESCRIPTOR_VALUE_0_1,
+    pub ClientCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_1,
+    pub ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_VALUE_0_2,
+    pub CharacteristicFormat: BTH_LE_GATT_DESCRIPTOR_VALUE_0_3,
 }
 impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     type TypeKind = windows_core::CopyType;
@@ -1832,12 +1832,26 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     pub Format: u8,
     pub Exponent: u8,
     pub Unit: BTH_LE_UUID,
     pub NameSpace: u8,
     pub Description: BTH_LE_UUID,
+}
+impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
+    pub IsSubscribeToNotification: super::super::Foundation::BOOLEAN,
+    pub IsSubscribeToIndication: super::super::Foundation::BOOLEAN,
 }
 impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
     type TypeKind = windows_core::CopyType;
@@ -1850,26 +1864,12 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
-    pub IsSubscribeToNotification: super::super::Foundation::BOOLEAN,
-    pub IsSubscribeToIndication: super::super::Foundation::BOOLEAN,
+    pub IsBroadcast: super::super::Foundation::BOOLEAN,
 }
 impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
-    pub IsBroadcast: super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2179,15 +2179,43 @@ pub union SDP_ELEMENT_DATA_0 {
     pub uuid128: windows_core::GUID,
     pub uuid32: u32,
     pub uuid16: u16,
-    pub string: SDP_ELEMENT_DATA_0_2,
-    pub url: SDP_ELEMENT_DATA_0_3,
-    pub sequence: SDP_ELEMENT_DATA_0_1,
-    pub alternative: SDP_ELEMENT_DATA_0_0,
+    pub string: SDP_ELEMENT_DATA_0_0,
+    pub url: SDP_ELEMENT_DATA_0_1,
+    pub sequence: SDP_ELEMENT_DATA_0_2,
+    pub alternative: SDP_ELEMENT_DATA_0_3,
 }
 impl windows_core::TypeKind for SDP_ELEMENT_DATA_0 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for SDP_ELEMENT_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct SDP_ELEMENT_DATA_0_3 {
+    pub value: *mut u8,
+    pub length: u32,
+}
+impl windows_core::TypeKind for SDP_ELEMENT_DATA_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for SDP_ELEMENT_DATA_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct SDP_ELEMENT_DATA_0_2 {
+    pub value: *mut u8,
+    pub length: u32,
+}
+impl windows_core::TypeKind for SDP_ELEMENT_DATA_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for SDP_ELEMENT_DATA_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2216,34 +2244,6 @@ impl windows_core::TypeKind for SDP_ELEMENT_DATA_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for SDP_ELEMENT_DATA_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SDP_ELEMENT_DATA_0_2 {
-    pub value: *mut u8,
-    pub length: u32,
-}
-impl windows_core::TypeKind for SDP_ELEMENT_DATA_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SDP_ELEMENT_DATA_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct SDP_ELEMENT_DATA_0_3 {
-    pub value: *mut u8,
-    pub length: u32,
-}
-impl windows_core::TypeKind for SDP_ELEMENT_DATA_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for SDP_ELEMENT_DATA_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
