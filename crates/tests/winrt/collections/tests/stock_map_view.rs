@@ -8,7 +8,7 @@ fn primitive() -> Result<()> {
     let m = IMapView::<i32, u64>::from(BTreeMap::from([]));
     assert_eq!(m.Lookup(0).unwrap_err().code(), E_BOUNDS);
     assert_eq!(m.Size()?, 0);
-    assert_eq!(m.HasKey(0)?, false);
+    assert!(!(m.HasKey(0)?));
     let mut left = None;
     let mut right = None;
     m.Split(&mut left, &mut right)?;
@@ -18,7 +18,7 @@ fn primitive() -> Result<()> {
     assert_eq!(m.Lookup(1i32)?, 10u64);
     assert_eq!(m.Lookup(2)?, 20);
     assert_eq!(m.Size()?, 2);
-    assert_eq!(m.HasKey(2)?, true);
+    assert!(m.HasKey(2)?);
 
     let able: IIterable<IKeyValuePair<i32, u64>> = m.cast()?;
     let m2: IMapView<i32, u64> = able.cast()?;
@@ -115,7 +115,7 @@ fn hstring() -> Result<()> {
     let m = IMapView::<HSTRING, i32>::from(BTreeMap::new());
     assert_eq!(m.Lookup(h!("missing")).unwrap_err().code(), E_BOUNDS);
     assert_eq!(m.Size()?, 0);
-    assert_eq!(m.HasKey(h!("missing"))?, false);
+    assert!(!(m.HasKey(h!("missing"))?));
 
     let m = BTreeMap::from([("one".into(), 1), ("two".into(), 2)]);
     assert!(m.contains_key(h!("one")));
@@ -124,8 +124,8 @@ fn hstring() -> Result<()> {
     assert_eq!(m.Lookup(h!("one"))?, 1);
     assert_eq!(m.Lookup(h!("two"))?, 2);
     assert_eq!(m.Size()?, 2);
-    assert_eq!(m.HasKey(h!("one"))?, true);
-    assert_eq!(m.HasKey(h!("three"))?, false);
+    assert!(m.HasKey(h!("one"))?);
+    assert!(!(m.HasKey(h!("three"))?));
 
     let able: IIterable<IKeyValuePair<HSTRING, i32>> = m.cast()?;
     let m2: IMapView<HSTRING, i32> = able.cast()?;

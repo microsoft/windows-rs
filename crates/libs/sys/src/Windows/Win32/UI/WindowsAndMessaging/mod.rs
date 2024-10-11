@@ -3366,18 +3366,18 @@ pub struct MENUTEMPLATEEX {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union MENUTEMPLATEEX_0 {
-    pub Menu: MENUTEMPLATEEX_0_1,
-    pub MenuEx: MENUTEMPLATEEX_0_0,
+    pub Menu: MENUTEMPLATEEX_0_0,
+    pub MenuEx: MENUTEMPLATEEX_0_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct MENUTEMPLATEEX_0_0 {
+pub struct MENUTEMPLATEEX_0_1 {
     pub mexHeader: MENUEX_TEMPLATE_HEADER,
     pub mexItem: [MENUEX_TEMPLATE_ITEM; 1],
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct MENUTEMPLATEEX_0_1 {
+pub struct MENUTEMPLATEEX_0_0 {
     pub mitHeader: MENUITEMTEMPLATEHEADER,
     pub miTemplate: [MENUITEMTEMPLATE; 1],
 }

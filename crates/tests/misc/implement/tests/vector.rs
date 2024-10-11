@@ -94,7 +94,7 @@ where
         } else {
             let len = writer.len();
             writer.try_reserve(len + 1).map_err(|_| err_memory())?;
-            writer.insert(index as usize, value.clone());
+            writer.insert(index, value.clone());
             Ok(())
         }
     }
@@ -202,24 +202,23 @@ fn Size() -> Result<()> {
 fn IndexOf() -> Result<()> {
     let v: IVector<i32> = Vector::new(vec![123, 456]).into();
     let mut index = 0;
-    assert_eq!(v.IndexOf(123, &mut index)?, true);
+    assert!(v.IndexOf(123, &mut index)?);
     assert_eq!(index, 0);
-    assert_eq!(v.IndexOf(456, &mut index)?, true);
+    assert!(v.IndexOf(456, &mut index)?);
     assert_eq!(index, 1);
-    assert_eq!(v.IndexOf(789, &mut index)?, false);
+    assert!(!(v.IndexOf(789, &mut index)?));
 
     let uri = Uri::CreateUri(&HSTRING::from("http://test/"))?;
     let v: IVector<IStringable> = Vector::new(vec![Some(uri.cast()?), None]).into();
-    assert_eq!(v.IndexOf(&uri.cast::<IStringable>()?, &mut index)?, true);
+    assert!(v.IndexOf(&uri.cast::<IStringable>()?, &mut index)?);
     assert_eq!(index, 0);
-    assert_eq!(v.IndexOf(None, &mut index)?, true);
+    assert!(v.IndexOf(None, &mut index)?);
     assert_eq!(index, 1);
-    assert_eq!(
-        v.IndexOf(
+    assert!(
+        !(v.IndexOf(
             &Uri::CreateUri(&HSTRING::from("http://test/"))?.cast::<IStringable>()?,
             &mut index
-        )?,
-        false
+        )?)
     );
 
     Ok(())
@@ -248,11 +247,11 @@ fn test() -> Result<()> {
     ); // TODO: needs to have `1<Int32>
 
     let mut index = 0;
-    assert_eq!(true, v.IndexOf(20, &mut index)?);
+    assert!(v.IndexOf(20, &mut index)?);
     assert_eq!(1, index);
-    assert_eq!(true, v.IndexOf(30, &mut index)?);
+    assert!(v.IndexOf(30, &mut index)?);
     assert_eq!(2, index);
-    assert_eq!(false, v.IndexOf(123, &mut index)?);
+    assert!(!(v.IndexOf(123, &mut index)?));
 
     let v: IVectorView<HSTRING> = Vector::new(vec!["10".into(), "20".into(), "30".into()]).into();
     assert_eq!("10", v.GetAt(0)?);
@@ -261,11 +260,11 @@ fn test() -> Result<()> {
     assert_eq!(3, v.Size()?);
 
     let mut index = 0;
-    assert_eq!(true, v.IndexOf(&HSTRING::from("20"), &mut index)?);
+    assert!(v.IndexOf(&HSTRING::from("20"), &mut index)?);
     assert_eq!(1, index);
-    assert_eq!(true, v.IndexOf(&HSTRING::from("30"), &mut index)?);
+    assert!(v.IndexOf(&HSTRING::from("30"), &mut index)?);
     assert_eq!(2, index);
-    assert_eq!(false, v.IndexOf(&HSTRING::from("123"), &mut index)?);
+    assert!(!(v.IndexOf(&HSTRING::from("123"), &mut index)?));
 
     let v: IVectorView<IStringable> = Vector::new(vec![
         Some(Uri::CreateUri(&HSTRING::from("http://one/"))?.cast()?),

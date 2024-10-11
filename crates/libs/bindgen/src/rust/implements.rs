@@ -191,7 +191,7 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
             }
             #[doc(hidden)]
             #features
-            struct #implvtbl_ident<T: #impl_ident> (std::marker::PhantomData<T>);
+            struct #implvtbl_ident<T: #impl_ident> (core::marker::PhantomData<T>);
             #features
             impl<T: #impl_ident> #implvtbl_ident<T> {
                 const VTABLE: #vtbl_ident = #vtbl_ident::new::<T>();

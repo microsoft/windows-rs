@@ -1518,19 +1518,19 @@ pub struct WTS_PROPERTY_VALUE {
 #[derive(Clone, Copy)]
 pub union WTS_PROPERTY_VALUE_0 {
     pub ulVal: u32,
-    pub strVal: WTS_PROPERTY_VALUE_0_1,
-    pub bVal: WTS_PROPERTY_VALUE_0_0,
+    pub strVal: WTS_PROPERTY_VALUE_0_0,
+    pub bVal: WTS_PROPERTY_VALUE_0_1,
     pub guidVal: windows_sys::core::GUID,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct WTS_PROPERTY_VALUE_0_0 {
+pub struct WTS_PROPERTY_VALUE_0_1 {
     pub size: u32,
     pub pbVal: windows_sys::core::PSTR,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct WTS_PROPERTY_VALUE_0_1 {
+pub struct WTS_PROPERTY_VALUE_0_0 {
     pub size: u32,
     pub pstrVal: windows_sys::core::PWSTR,
 }

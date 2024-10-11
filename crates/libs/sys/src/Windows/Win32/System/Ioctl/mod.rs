@@ -2154,18 +2154,18 @@ pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0 {
-    pub ExternalStack: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1,
-    pub AtaPort: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0,
+    pub ExternalStack: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0,
+    pub AtaPort: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1,
     pub StorPort: DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_2,
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
-pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
+pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
     pub dwAtaPortSpecific: u32,
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
-pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_1 {
+pub struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD_0_0 {
     pub dwReserved: u32,
 }
 #[repr(C, packed(1))]
@@ -2610,18 +2610,18 @@ pub struct DISK_CACHE_INFORMATION {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DISK_CACHE_INFORMATION_0 {
-    pub ScalarPrefetch: DISK_CACHE_INFORMATION_0_1,
-    pub BlockPrefetch: DISK_CACHE_INFORMATION_0_0,
+    pub ScalarPrefetch: DISK_CACHE_INFORMATION_0_0,
+    pub BlockPrefetch: DISK_CACHE_INFORMATION_0_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct DISK_CACHE_INFORMATION_0_0 {
+pub struct DISK_CACHE_INFORMATION_0_1 {
     pub Minimum: u16,
     pub Maximum: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct DISK_CACHE_INFORMATION_0_1 {
+pub struct DISK_CACHE_INFORMATION_0_0 {
     pub Minimum: u16,
     pub Maximum: u16,
     pub MaximumBlocks: u16,
@@ -2732,17 +2732,17 @@ pub struct DISK_PARTITION_INFO {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DISK_PARTITION_INFO_0 {
-    pub Mbr: DISK_PARTITION_INFO_0_1,
-    pub Gpt: DISK_PARTITION_INFO_0_0,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct DISK_PARTITION_INFO_0_0 {
-    pub DiskId: windows_sys::core::GUID,
+    pub Mbr: DISK_PARTITION_INFO_0_0,
+    pub Gpt: DISK_PARTITION_INFO_0_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISK_PARTITION_INFO_0_1 {
+    pub DiskId: windows_sys::core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DISK_PARTITION_INFO_0_0 {
     pub Signature: u32,
     pub CheckSum: u32,
 }
@@ -3627,13 +3627,13 @@ pub struct NTFS_STATISTICS {
     pub MftReadBytes: u32,
     pub MftWrites: u32,
     pub MftWriteBytes: u32,
-    pub MftWritesUserLevel: NTFS_STATISTICS_4,
+    pub MftWritesUserLevel: NTFS_STATISTICS_0,
     pub MftWritesFlushForLogFileFull: u16,
     pub MftWritesLazyWriter: u16,
     pub MftWritesUserRequest: u16,
     pub Mft2Writes: u32,
     pub Mft2WriteBytes: u32,
-    pub Mft2WritesUserLevel: NTFS_STATISTICS_2,
+    pub Mft2WritesUserLevel: NTFS_STATISTICS_1,
     pub Mft2WritesFlushForLogFileFull: u16,
     pub Mft2WritesLazyWriter: u16,
     pub Mft2WritesUserRequest: u16,
@@ -3648,7 +3648,7 @@ pub struct NTFS_STATISTICS {
     pub BitmapWritesFlushForLogFileFull: u16,
     pub BitmapWritesLazyWriter: u16,
     pub BitmapWritesUserRequest: u16,
-    pub BitmapWritesUserLevel: NTFS_STATISTICS_1,
+    pub BitmapWritesUserLevel: NTFS_STATISTICS_2,
     pub MftBitmapReads: u32,
     pub MftBitmapReadBytes: u32,
     pub MftBitmapWrites: u32,
@@ -3665,12 +3665,12 @@ pub struct NTFS_STATISTICS {
     pub LogFileReadBytes: u32,
     pub LogFileWrites: u32,
     pub LogFileWriteBytes: u32,
-    pub Allocate: NTFS_STATISTICS_0,
+    pub Allocate: NTFS_STATISTICS_4,
     pub DiskResourcesExhausted: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NTFS_STATISTICS_0 {
+pub struct NTFS_STATISTICS_4 {
     pub Calls: u32,
     pub Clusters: u32,
     pub Hints: u32,
@@ -3684,14 +3684,14 @@ pub struct NTFS_STATISTICS_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NTFS_STATISTICS_1 {
+pub struct NTFS_STATISTICS_2 {
     pub Write: u16,
     pub Create: u16,
     pub SetInfo: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NTFS_STATISTICS_2 {
+pub struct NTFS_STATISTICS_1 {
     pub Write: u16,
     pub Create: u16,
     pub SetInfo: u16,
@@ -3707,7 +3707,7 @@ pub struct NTFS_STATISTICS_3 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NTFS_STATISTICS_4 {
+pub struct NTFS_STATISTICS_0 {
     pub Write: u16,
     pub Create: u16,
     pub SetInfo: u16,
@@ -3722,13 +3722,13 @@ pub struct NTFS_STATISTICS_EX {
     pub MftReadBytes: u64,
     pub MftWrites: u64,
     pub MftWriteBytes: u64,
-    pub MftWritesUserLevel: NTFS_STATISTICS_EX_4,
+    pub MftWritesUserLevel: NTFS_STATISTICS_EX_0,
     pub MftWritesFlushForLogFileFull: u32,
     pub MftWritesLazyWriter: u32,
     pub MftWritesUserRequest: u32,
     pub Mft2Writes: u64,
     pub Mft2WriteBytes: u64,
-    pub Mft2WritesUserLevel: NTFS_STATISTICS_EX_2,
+    pub Mft2WritesUserLevel: NTFS_STATISTICS_EX_1,
     pub Mft2WritesFlushForLogFileFull: u32,
     pub Mft2WritesLazyWriter: u32,
     pub Mft2WritesUserRequest: u32,
@@ -3743,7 +3743,7 @@ pub struct NTFS_STATISTICS_EX {
     pub BitmapWritesFlushForLogFileFull: u32,
     pub BitmapWritesLazyWriter: u32,
     pub BitmapWritesUserRequest: u32,
-    pub BitmapWritesUserLevel: NTFS_STATISTICS_EX_1,
+    pub BitmapWritesUserLevel: NTFS_STATISTICS_EX_2,
     pub MftBitmapReads: u64,
     pub MftBitmapReadBytes: u64,
     pub MftBitmapWrites: u64,
@@ -3760,7 +3760,7 @@ pub struct NTFS_STATISTICS_EX {
     pub LogFileReadBytes: u64,
     pub LogFileWrites: u64,
     pub LogFileWriteBytes: u64,
-    pub Allocate: NTFS_STATISTICS_EX_0,
+    pub Allocate: NTFS_STATISTICS_EX_4,
     pub DiskResourcesExhausted: u32,
     pub VolumeTrimCount: u64,
     pub VolumeTrimTime: u64,
@@ -3776,7 +3776,7 @@ pub struct NTFS_STATISTICS_EX {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NTFS_STATISTICS_EX_0 {
+pub struct NTFS_STATISTICS_EX_4 {
     pub Calls: u32,
     pub RunsReturned: u32,
     pub Hints: u32,
@@ -3790,7 +3790,7 @@ pub struct NTFS_STATISTICS_EX_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NTFS_STATISTICS_EX_1 {
+pub struct NTFS_STATISTICS_EX_2 {
     pub Write: u32,
     pub Create: u32,
     pub SetInfo: u32,
@@ -3798,7 +3798,7 @@ pub struct NTFS_STATISTICS_EX_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NTFS_STATISTICS_EX_2 {
+pub struct NTFS_STATISTICS_EX_1 {
     pub Write: u32,
     pub Create: u32,
     pub SetInfo: u32,
@@ -3814,7 +3814,7 @@ pub struct NTFS_STATISTICS_EX_3 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NTFS_STATISTICS_EX_4 {
+pub struct NTFS_STATISTICS_EX_0 {
     pub Write: u32,
     pub Create: u32,
     pub SetInfo: u32,
@@ -5298,20 +5298,20 @@ pub struct STORAGE_OPERATIONAL_REASON {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STORAGE_OPERATIONAL_REASON_0 {
-    pub ScsiSenseKey: STORAGE_OPERATIONAL_REASON_0_1,
-    pub NVDIMM_N: STORAGE_OPERATIONAL_REASON_0_0,
+    pub ScsiSenseKey: STORAGE_OPERATIONAL_REASON_0_0,
+    pub NVDIMM_N: STORAGE_OPERATIONAL_REASON_0_1,
     pub AsUlong: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct STORAGE_OPERATIONAL_REASON_0_0 {
+pub struct STORAGE_OPERATIONAL_REASON_0_1 {
     pub CriticalHealth: u8,
     pub ModuleHealth: [u8; 2],
     pub ErrorThresholdStatus: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct STORAGE_OPERATIONAL_REASON_0_1 {
+pub struct STORAGE_OPERATIONAL_REASON_0_0 {
     pub SenseKey: u8,
     pub ASC: u8,
     pub ASCQ: u8,
@@ -5669,18 +5669,18 @@ pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
-    pub SequentialRequiredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1,
-    pub SequentialPreferredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0,
+    pub SequentialRequiredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0,
+    pub SequentialPreferredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
+pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     pub OptimalOpenZoneCount: u32,
     pub Reserved: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
+pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     pub MaxOpenZoneCount: u32,
     pub UnrestrictedRead: super::super::Foundation::BOOLEAN,
     pub Reserved: [u8; 3],
@@ -5743,14 +5743,14 @@ pub struct STREAM_INFORMATION_ENTRY {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union STREAM_INFORMATION_ENTRY_0 {
-    pub DesiredStorageClass: STREAM_INFORMATION_ENTRY_0_1,
-    pub DataStream: STREAM_INFORMATION_ENTRY_0_0,
-    pub Reparse: STREAM_INFORMATION_ENTRY_0_3,
-    pub Ea: STREAM_INFORMATION_ENTRY_0_2,
+    pub DesiredStorageClass: STREAM_INFORMATION_ENTRY_0_0,
+    pub DataStream: STREAM_INFORMATION_ENTRY_0_1,
+    pub Reparse: STREAM_INFORMATION_ENTRY_0_2,
+    pub Ea: STREAM_INFORMATION_ENTRY_0_3,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct STREAM_INFORMATION_ENTRY_0_0 {
+pub struct STREAM_INFORMATION_ENTRY_0_1 {
     pub Length: u16,
     pub Flags: u16,
     pub Reserved: u32,
@@ -5758,13 +5758,13 @@ pub struct STREAM_INFORMATION_ENTRY_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct STREAM_INFORMATION_ENTRY_0_1 {
+pub struct STREAM_INFORMATION_ENTRY_0_0 {
     pub Class: FILE_STORAGE_TIER_CLASS,
     pub Flags: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct STREAM_INFORMATION_ENTRY_0_2 {
+pub struct STREAM_INFORMATION_ENTRY_0_3 {
     pub Length: u16,
     pub Flags: u16,
     pub EaSize: u32,
@@ -5772,7 +5772,7 @@ pub struct STREAM_INFORMATION_ENTRY_0_2 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct STREAM_INFORMATION_ENTRY_0_3 {
+pub struct STREAM_INFORMATION_ENTRY_0_2 {
     pub Length: u16,
     pub Flags: u16,
     pub ReparseDataSize: u32,

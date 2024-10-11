@@ -814,7 +814,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpRegisterParamChange(flags : u32, reserved : *const core::ffi::c_void, adaptername : windows_core::PCWSTR, classid : *mut DHCPCAPI_CLASSID, params : DHCPCAPI_PARAMS_ARRAY, handle : *mut core::ffi::c_void) -> u32);
-    DhcpRegisterParamChange(flags, core::mem::transmute(reserved.unwrap_or(std::ptr::null())), adaptername.param().abi(), classid, core::mem::transmute(params), handle)
+    DhcpRegisterParamChange(flags, core::mem::transmute(reserved.unwrap_or(core::ptr::null())), adaptername.param().abi(), classid, core::mem::transmute(params), handle)
 }
 #[inline]
 pub unsafe fn DhcpRemoveDNSRegistrations() -> u32 {
@@ -1256,7 +1256,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("dhcpcsvc.dll" "system" fn DhcpUndoRequestParams(flags : u32, reserved : *const core::ffi::c_void, adaptername : windows_core::PCWSTR, requestidstr : windows_core::PCWSTR) -> u32);
-    DhcpUndoRequestParams(flags, core::mem::transmute(reserved.unwrap_or(std::ptr::null())), adaptername.param().abi(), requestidstr.param().abi())
+    DhcpUndoRequestParams(flags, core::mem::transmute(reserved.unwrap_or(core::ptr::null())), adaptername.param().abi(), requestidstr.param().abi())
 }
 #[inline]
 pub unsafe fn DhcpV4AddPolicyRange<P0, P1>(serveripaddress: P0, subnetaddress: u32, policyname: P1, range: *const DHCP_IP_RANGE) -> u32

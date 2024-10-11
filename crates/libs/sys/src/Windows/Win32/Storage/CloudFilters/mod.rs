@@ -316,17 +316,17 @@ pub struct CF_CALLBACK_PARAMETERS {
 #[derive(Clone, Copy)]
 pub union CF_CALLBACK_PARAMETERS_0 {
     pub Cancel: CF_CALLBACK_PARAMETERS_0_0,
-    pub FetchData: CF_CALLBACK_PARAMETERS_0_6,
-    pub ValidateData: CF_CALLBACK_PARAMETERS_0_11,
-    pub FetchPlaceholders: CF_CALLBACK_PARAMETERS_0_7,
-    pub OpenCompletion: CF_CALLBACK_PARAMETERS_0_8,
-    pub CloseCompletion: CF_CALLBACK_PARAMETERS_0_1,
-    pub Dehydrate: CF_CALLBACK_PARAMETERS_0_3,
-    pub DehydrateCompletion: CF_CALLBACK_PARAMETERS_0_2,
-    pub Delete: CF_CALLBACK_PARAMETERS_0_5,
-    pub DeleteCompletion: CF_CALLBACK_PARAMETERS_0_4,
+    pub FetchData: CF_CALLBACK_PARAMETERS_0_1,
+    pub ValidateData: CF_CALLBACK_PARAMETERS_0_2,
+    pub FetchPlaceholders: CF_CALLBACK_PARAMETERS_0_3,
+    pub OpenCompletion: CF_CALLBACK_PARAMETERS_0_4,
+    pub CloseCompletion: CF_CALLBACK_PARAMETERS_0_5,
+    pub Dehydrate: CF_CALLBACK_PARAMETERS_0_6,
+    pub DehydrateCompletion: CF_CALLBACK_PARAMETERS_0_7,
+    pub Delete: CF_CALLBACK_PARAMETERS_0_8,
+    pub DeleteCompletion: CF_CALLBACK_PARAMETERS_0_9,
     pub Rename: CF_CALLBACK_PARAMETERS_0_10,
-    pub RenameCompletion: CF_CALLBACK_PARAMETERS_0_9,
+    pub RenameCompletion: CF_CALLBACK_PARAMETERS_0_11,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -347,34 +347,34 @@ pub struct CF_CALLBACK_PARAMETERS_0_0_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CF_CALLBACK_PARAMETERS_0_1 {
+pub struct CF_CALLBACK_PARAMETERS_0_5 {
     pub Flags: CF_CALLBACK_CLOSE_COMPLETION_FLAGS,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CF_CALLBACK_PARAMETERS_0_2 {
+pub struct CF_CALLBACK_PARAMETERS_0_7 {
     pub Flags: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS,
     pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CF_CALLBACK_PARAMETERS_0_3 {
+pub struct CF_CALLBACK_PARAMETERS_0_6 {
     pub Flags: CF_CALLBACK_DEHYDRATE_FLAGS,
     pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CF_CALLBACK_PARAMETERS_0_4 {
+pub struct CF_CALLBACK_PARAMETERS_0_9 {
     pub Flags: CF_CALLBACK_DELETE_COMPLETION_FLAGS,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CF_CALLBACK_PARAMETERS_0_5 {
+pub struct CF_CALLBACK_PARAMETERS_0_8 {
     pub Flags: CF_CALLBACK_DELETE_FLAGS,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CF_CALLBACK_PARAMETERS_0_6 {
+pub struct CF_CALLBACK_PARAMETERS_0_1 {
     pub Flags: CF_CALLBACK_FETCH_DATA_FLAGS,
     pub RequiredFileOffset: i64,
     pub RequiredLength: i64,
@@ -385,18 +385,18 @@ pub struct CF_CALLBACK_PARAMETERS_0_6 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CF_CALLBACK_PARAMETERS_0_7 {
+pub struct CF_CALLBACK_PARAMETERS_0_3 {
     pub Flags: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS,
     pub Pattern: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CF_CALLBACK_PARAMETERS_0_8 {
+pub struct CF_CALLBACK_PARAMETERS_0_4 {
     pub Flags: CF_CALLBACK_OPEN_COMPLETION_FLAGS,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CF_CALLBACK_PARAMETERS_0_9 {
+pub struct CF_CALLBACK_PARAMETERS_0_11 {
     pub Flags: CF_CALLBACK_RENAME_COMPLETION_FLAGS,
     pub SourcePath: windows_sys::core::PCWSTR,
 }
@@ -408,7 +408,7 @@ pub struct CF_CALLBACK_PARAMETERS_0_10 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CF_CALLBACK_PARAMETERS_0_11 {
+pub struct CF_CALLBACK_PARAMETERS_0_2 {
     pub Flags: CF_CALLBACK_VALIDATE_DATA_FLAGS,
     pub RequiredFileOffset: i64,
     pub RequiredLength: i64,
@@ -463,19 +463,19 @@ pub struct CF_OPERATION_PARAMETERS {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
 pub union CF_OPERATION_PARAMETERS_0 {
-    pub TransferData: CF_OPERATION_PARAMETERS_0_6,
-    pub RetrieveData: CF_OPERATION_PARAMETERS_0_5,
-    pub AckData: CF_OPERATION_PARAMETERS_0_0,
-    pub RestartHydration: CF_OPERATION_PARAMETERS_0_4,
-    pub TransferPlaceholders: CF_OPERATION_PARAMETERS_0_7,
-    pub AckDehydrate: CF_OPERATION_PARAMETERS_0_1,
-    pub AckRename: CF_OPERATION_PARAMETERS_0_3,
-    pub AckDelete: CF_OPERATION_PARAMETERS_0_2,
+    pub TransferData: CF_OPERATION_PARAMETERS_0_0,
+    pub RetrieveData: CF_OPERATION_PARAMETERS_0_1,
+    pub AckData: CF_OPERATION_PARAMETERS_0_2,
+    pub RestartHydration: CF_OPERATION_PARAMETERS_0_3,
+    pub TransferPlaceholders: CF_OPERATION_PARAMETERS_0_4,
+    pub AckDehydrate: CF_OPERATION_PARAMETERS_0_5,
+    pub AckRename: CF_OPERATION_PARAMETERS_0_6,
+    pub AckDelete: CF_OPERATION_PARAMETERS_0_7,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
-pub struct CF_OPERATION_PARAMETERS_0_0 {
+pub struct CF_OPERATION_PARAMETERS_0_2 {
     pub Flags: CF_OPERATION_ACK_DATA_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
     pub Offset: i64,
@@ -484,7 +484,7 @@ pub struct CF_OPERATION_PARAMETERS_0_0 {
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
-pub struct CF_OPERATION_PARAMETERS_0_1 {
+pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
     pub FileIdentity: *const core::ffi::c_void,
@@ -493,21 +493,21 @@ pub struct CF_OPERATION_PARAMETERS_0_1 {
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
-pub struct CF_OPERATION_PARAMETERS_0_2 {
+pub struct CF_OPERATION_PARAMETERS_0_7 {
     pub Flags: CF_OPERATION_ACK_DELETE_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
-pub struct CF_OPERATION_PARAMETERS_0_3 {
+pub struct CF_OPERATION_PARAMETERS_0_6 {
     pub Flags: CF_OPERATION_ACK_RENAME_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
-pub struct CF_OPERATION_PARAMETERS_0_4 {
+pub struct CF_OPERATION_PARAMETERS_0_3 {
     pub Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS,
     pub FsMetadata: *const CF_FS_METADATA,
     pub FileIdentity: *const core::ffi::c_void,
@@ -516,7 +516,7 @@ pub struct CF_OPERATION_PARAMETERS_0_4 {
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
-pub struct CF_OPERATION_PARAMETERS_0_5 {
+pub struct CF_OPERATION_PARAMETERS_0_1 {
     pub Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS,
     pub Buffer: *mut core::ffi::c_void,
     pub Offset: i64,
@@ -526,7 +526,7 @@ pub struct CF_OPERATION_PARAMETERS_0_5 {
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
-pub struct CF_OPERATION_PARAMETERS_0_6 {
+pub struct CF_OPERATION_PARAMETERS_0_0 {
     pub Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
     pub Buffer: *const core::ffi::c_void,
@@ -536,7 +536,7 @@ pub struct CF_OPERATION_PARAMETERS_0_6 {
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
-pub struct CF_OPERATION_PARAMETERS_0_7 {
+pub struct CF_OPERATION_PARAMETERS_0_4 {
     pub Flags: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
     pub PlaceholderTotalCount: i64,

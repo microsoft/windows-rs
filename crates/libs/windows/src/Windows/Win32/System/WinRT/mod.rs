@@ -219,13 +219,13 @@ pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> windows_core::Result<()> {
 #[inline]
 pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: Option<*const core::ffi::c_void>, framecount: *mut u32, targetbacktraceaddress: *mut usize) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress : usize, machine : u16, readmemorycallback : PINSPECT_MEMORY_CALLBACK, context : *const core::ffi::c_void, framecount : *mut u32, targetbacktraceaddress : *mut usize) -> windows_core::HRESULT);
-    RoInspectCapturedStackBackTrace(targeterrorinfoaddress, machine, readmemorycallback, core::mem::transmute(context.unwrap_or(std::ptr::null())), framecount, targetbacktraceaddress).ok()
+    RoInspectCapturedStackBackTrace(targeterrorinfoaddress, machine, readmemorycallback, core::mem::transmute(context.unwrap_or(core::ptr::null())), framecount, targetbacktraceaddress).ok()
 }
 #[inline]
 pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: Option<*const core::ffi::c_void>) -> windows_core::Result<usize> {
     windows_targets::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoInspectThreadErrorInfo(targettebaddress : usize, machine : u16, readmemorycallback : PINSPECT_MEMORY_CALLBACK, context : *const core::ffi::c_void, targeterrorinfoaddress : *mut usize) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    RoInspectThreadErrorInfo(targettebaddress, machine, readmemorycallback, core::mem::transmute(context.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
+    RoInspectThreadErrorInfo(targettebaddress, machine, readmemorycallback, core::mem::transmute(context.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn RoOriginateError(error: windows_core::HRESULT, message: &windows_core::HSTRING) -> super::super::Foundation::BOOL {
@@ -382,17 +382,17 @@ pub unsafe fn WindowsGetStringLen(string: &windows_core::HSTRING) -> u32 {
 #[inline]
 pub unsafe fn WindowsGetStringRawBuffer(string: &windows_core::HSTRING, length: Option<*mut u32>) -> windows_core::PCWSTR {
     windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsGetStringRawBuffer(string : core::mem::MaybeUninit < windows_core::HSTRING >, length : *mut u32) -> windows_core::PCWSTR);
-    WindowsGetStringRawBuffer(core::mem::transmute_copy(string), core::mem::transmute(length.unwrap_or(std::ptr::null_mut())))
+    WindowsGetStringRawBuffer(core::mem::transmute_copy(string), core::mem::transmute(length.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback: PINSPECT_HSTRING_CALLBACK, context: Option<*const core::ffi::c_void>, length: *mut u32, targetstringaddress: *mut usize) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsInspectString(targethstring : usize, machine : u16, callback : PINSPECT_HSTRING_CALLBACK, context : *const core::ffi::c_void, length : *mut u32, targetstringaddress : *mut usize) -> windows_core::HRESULT);
-    WindowsInspectString(targethstring, machine, callback, core::mem::transmute(context.unwrap_or(std::ptr::null())), length, targetstringaddress).ok()
+    WindowsInspectString(targethstring, machine, callback, core::mem::transmute(context.unwrap_or(core::ptr::null())), length, targetstringaddress).ok()
 }
 #[inline]
 pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: PINSPECT_HSTRING_CALLBACK2, context: Option<*const core::ffi::c_void>, length: *mut u32, targetstringaddress: *mut u64) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-core-winrt-string-l1-1-1.dll" "system" fn WindowsInspectString2(targethstring : u64, machine : u16, callback : PINSPECT_HSTRING_CALLBACK2, context : *const core::ffi::c_void, length : *mut u32, targetstringaddress : *mut u64) -> windows_core::HRESULT);
-    WindowsInspectString2(targethstring, machine, callback, core::mem::transmute(context.unwrap_or(std::ptr::null())), length, targetstringaddress).ok()
+    WindowsInspectString2(targethstring, machine, callback, core::mem::transmute(context.unwrap_or(core::ptr::null())), length, targetstringaddress).ok()
 }
 #[inline]
 pub unsafe fn WindowsIsStringEmpty(string: &windows_core::HSTRING) -> super::super::Foundation::BOOL {

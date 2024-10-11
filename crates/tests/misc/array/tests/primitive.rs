@@ -18,7 +18,7 @@ fn array() {
     assert_eq!(a[1], 2);
     assert_eq!(a[2], 3);
 
-    let result = a.as_slice().iter().fold(0, |acc, x| acc + x);
+    let result = a.as_slice().iter().sum::<i32>();
     assert_eq!(result, 6);
 
     let a = Array::<i32>::from_slice(&[4, 5, 6]);

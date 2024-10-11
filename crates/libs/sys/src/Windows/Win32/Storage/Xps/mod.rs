@@ -330,19 +330,19 @@ pub struct XPS_COLOR {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union XPS_COLOR_0 {
-    pub sRGB: XPS_COLOR_0_1,
-    pub scRGB: XPS_COLOR_0_2,
-    pub context: XPS_COLOR_0_0,
+    pub sRGB: XPS_COLOR_0_0,
+    pub scRGB: XPS_COLOR_0_1,
+    pub context: XPS_COLOR_0_2,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct XPS_COLOR_0_0 {
+pub struct XPS_COLOR_0_2 {
     pub channelCount: u8,
     pub channels: [f32; 9],
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct XPS_COLOR_0_1 {
+pub struct XPS_COLOR_0_0 {
     pub alpha: u8,
     pub red: u8,
     pub green: u8,
@@ -350,7 +350,7 @@ pub struct XPS_COLOR_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct XPS_COLOR_0_2 {
+pub struct XPS_COLOR_0_1 {
     pub alpha: f32,
     pub red: f32,
     pub green: f32,

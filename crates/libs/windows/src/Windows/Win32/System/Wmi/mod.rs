@@ -1,7 +1,7 @@
 #[inline]
 pub unsafe fn MI_Application_InitializeV1(flags: u32, applicationid: Option<*const u16>, extendederror: Option<*mut *mut MI_Instance>, application: *mut MI_Application) -> MI_Result {
     windows_targets::link!("mi.dll" "cdecl" fn MI_Application_InitializeV1(flags : u32, applicationid : *const u16, extendederror : *mut *mut MI_Instance, application : *mut MI_Application) -> MI_Result);
-    MI_Application_InitializeV1(flags, core::mem::transmute(applicationid.unwrap_or(std::ptr::null())), core::mem::transmute(extendederror.unwrap_or(std::ptr::null_mut())), application)
+    MI_Application_InitializeV1(flags, core::mem::transmute(applicationid.unwrap_or(core::ptr::null())), core::mem::transmute(extendederror.unwrap_or(core::ptr::null_mut())), application)
 }
 windows_core::imp::define_interface!(IEnumWbemClassObject, IEnumWbemClassObject_Vtbl, 0x027947e1_d731_11ce_a357_000000000001);
 impl core::ops::Deref for IEnumWbemClassObject {
@@ -2410,7 +2410,7 @@ impl IWbemClassObject {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), wszname.param().abi(), lflags, core::mem::transmute(pval), core::mem::transmute(ptype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(plflavor.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), wszname.param().abi(), lflags, core::mem::transmute(pval), core::mem::transmute(ptype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plflavor.unwrap_or(core::ptr::null_mut()))).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Put<P0>(&self, wszname: P0, lflags: i32, pval: *const super::Variant::VARIANT, r#type: i32) -> windows_core::Result<()>
@@ -3851,7 +3851,7 @@ impl IWbemServices {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<IWbemContext>,
     {
-        (windows_core::Interface::vtable(self).OpenNamespace)(windows_core::Interface::as_raw(self), strnamespace.param().abi(), lflags, pctx.param().abi(), core::mem::transmute(ppworkingnamespace.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppresult.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).OpenNamespace)(windows_core::Interface::as_raw(self), strnamespace.param().abi(), lflags, pctx.param().abi(), core::mem::transmute(ppworkingnamespace.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppresult.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn CancelAsyncCall<P0>(&self, psink: P0) -> windows_core::Result<()>
     where
@@ -3868,7 +3868,7 @@ impl IWbemServices {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<IWbemContext>,
     {
-        (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), strobjectpath.param().abi(), lflags, pctx.param().abi(), core::mem::transmute(ppobject.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppcallresult.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), strobjectpath.param().abi(), lflags, pctx.param().abi(), core::mem::transmute(ppobject.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppcallresult.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetObjectAsync<P0, P1, P2>(&self, strobjectpath: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, presponsehandler: P2) -> windows_core::Result<()>
     where
@@ -3883,7 +3883,7 @@ impl IWbemServices {
         P0: windows_core::Param<IWbemClassObject>,
         P1: windows_core::Param<IWbemContext>,
     {
-        (windows_core::Interface::vtable(self).PutClass)(windows_core::Interface::as_raw(self), pobject.param().abi(), lflags, pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).PutClass)(windows_core::Interface::as_raw(self), pobject.param().abi(), lflags, pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn PutClassAsync<P0, P1, P2>(&self, pobject: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, presponsehandler: P2) -> windows_core::Result<()>
     where
@@ -3898,7 +3898,7 @@ impl IWbemServices {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<IWbemContext>,
     {
-        (windows_core::Interface::vtable(self).DeleteClass)(windows_core::Interface::as_raw(self), strclass.param().abi(), lflags, pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).DeleteClass)(windows_core::Interface::as_raw(self), strclass.param().abi(), lflags, pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn DeleteClassAsync<P0, P1, P2>(&self, strclass: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, presponsehandler: P2) -> windows_core::Result<()>
     where
@@ -3929,7 +3929,7 @@ impl IWbemServices {
         P0: windows_core::Param<IWbemClassObject>,
         P1: windows_core::Param<IWbemContext>,
     {
-        (windows_core::Interface::vtable(self).PutInstance)(windows_core::Interface::as_raw(self), pinst.param().abi(), lflags, pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).PutInstance)(windows_core::Interface::as_raw(self), pinst.param().abi(), lflags, pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn PutInstanceAsync<P0, P1, P2>(&self, pinst: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, presponsehandler: P2) -> windows_core::Result<()>
     where
@@ -3944,7 +3944,7 @@ impl IWbemServices {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<IWbemContext>,
     {
-        (windows_core::Interface::vtable(self).DeleteInstance)(windows_core::Interface::as_raw(self), strobjectpath.param().abi(), lflags, pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).DeleteInstance)(windows_core::Interface::as_raw(self), strobjectpath.param().abi(), lflags, pctx.param().abi(), core::mem::transmute(ppcallresult.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn DeleteInstanceAsync<P0, P1, P2>(&self, strobjectpath: P0, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P1, presponsehandler: P2) -> windows_core::Result<()>
     where
@@ -4013,7 +4013,7 @@ impl IWbemServices {
         P2: windows_core::Param<IWbemContext>,
         P3: windows_core::Param<IWbemClassObject>,
     {
-        (windows_core::Interface::vtable(self).ExecMethod)(windows_core::Interface::as_raw(self), strobjectpath.param().abi(), strmethodname.param().abi(), lflags, pctx.param().abi(), pinparams.param().abi(), core::mem::transmute(ppoutparams.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppcallresult.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).ExecMethod)(windows_core::Interface::as_raw(self), strobjectpath.param().abi(), strmethodname.param().abi(), lflags, pctx.param().abi(), pinparams.param().abi(), core::mem::transmute(ppoutparams.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppcallresult.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn ExecMethodAsync<P0, P1, P2, P3, P4>(&self, strobjectpath: P0, strmethodname: P1, lflags: WBEM_GENERIC_FLAG_TYPE, pctx: P2, pinparams: P3, presponsehandler: P4) -> windows_core::Result<()>
     where

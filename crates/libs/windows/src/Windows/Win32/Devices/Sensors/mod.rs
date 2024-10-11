@@ -211,7 +211,7 @@ where
 #[inline]
 pub unsafe fn PropVariantGetInformation(propvariantvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propvariantoffset: Option<*mut u32>, propvariantsize: Option<*mut u32>, propvariantpointer: Option<*mut *mut core::ffi::c_void>, remappedtype: Option<*mut super::Properties::DEVPROPTYPE>) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("sensorsutilsv2.dll" "system" fn PropVariantGetInformation(propvariantvalue : *const core::mem::MaybeUninit < super::super::System::Com::StructuredStorage:: PROPVARIANT >, propvariantoffset : *mut u32, propvariantsize : *mut u32, propvariantpointer : *mut *mut core::ffi::c_void, remappedtype : *mut super::Properties:: DEVPROPTYPE) -> super::super::Foundation:: NTSTATUS);
-    PropVariantGetInformation(core::mem::transmute(propvariantvalue), core::mem::transmute(propvariantoffset.unwrap_or(std::ptr::null_mut())), core::mem::transmute(propvariantsize.unwrap_or(std::ptr::null_mut())), core::mem::transmute(propvariantpointer.unwrap_or(std::ptr::null_mut())), core::mem::transmute(remappedtype.unwrap_or(std::ptr::null_mut())))
+    PropVariantGetInformation(core::mem::transmute(propvariantvalue), core::mem::transmute(propvariantoffset.unwrap_or(core::ptr::null_mut())), core::mem::transmute(propvariantsize.unwrap_or(core::ptr::null_mut())), core::mem::transmute(propvariantpointer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(remappedtype.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
@@ -228,7 +228,7 @@ pub unsafe fn PropertiesListGetFillableCount(buffersizebytes: u32) -> u32 {
 #[inline]
 pub unsafe fn SensorCollectionGetAt(index: u32, psensorslist: *const SENSOR_COLLECTION_LIST, pkey: Option<*mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>, pvalue: Option<*mut super::super::System::Com::StructuredStorage::PROPVARIANT>) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("sensorsutilsv2.dll" "system" fn SensorCollectionGetAt(index : u32, psensorslist : *const SENSOR_COLLECTION_LIST, pkey : *mut super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY, pvalue : *mut core::mem::MaybeUninit < super::super::System::Com::StructuredStorage:: PROPVARIANT >) -> super::super::Foundation:: NTSTATUS);
-    SensorCollectionGetAt(index, psensorslist, core::mem::transmute(pkey.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvalue.unwrap_or(std::ptr::null_mut())))
+    SensorCollectionGetAt(index, psensorslist, core::mem::transmute(pkey.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvalue.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS {
@@ -238,7 +238,7 @@ pub unsafe fn SerializationBufferAllocate(sizeinbytes: u32, pbuffer: *mut *mut u
 #[inline]
 pub unsafe fn SerializationBufferFree(buffer: Option<*const u8>) {
     windows_targets::link!("sensorsutilsv2.dll" "system" fn SerializationBufferFree(buffer : *const u8));
-    SerializationBufferFree(core::mem::transmute(buffer.unwrap_or(std::ptr::null())))
+    SerializationBufferFree(core::mem::transmute(buffer.unwrap_or(core::ptr::null())))
 }
 windows_core::imp::define_interface!(ILocationPermissions, ILocationPermissions_Vtbl, 0xd5fb0a7f_e74e_44f5_8e02_4806863a274f);
 impl core::ops::Deref for ILocationPermissions {

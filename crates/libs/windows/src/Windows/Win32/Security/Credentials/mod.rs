@@ -121,7 +121,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("credui.dll" "system" fn CredPackAuthenticationBufferA(dwflags : CRED_PACK_FLAGS, pszusername : windows_core::PCSTR, pszpassword : windows_core::PCSTR, ppackedcredentials : *mut u8, pcbpackedcredentials : *mut u32) -> super::super::Foundation:: BOOL);
-    CredPackAuthenticationBufferA(dwflags, pszusername.param().abi(), pszpassword.param().abi(), core::mem::transmute(ppackedcredentials.unwrap_or(std::ptr::null_mut())), pcbpackedcredentials).ok()
+    CredPackAuthenticationBufferA(dwflags, pszusername.param().abi(), pszpassword.param().abi(), core::mem::transmute(ppackedcredentials.unwrap_or(core::ptr::null_mut())), pcbpackedcredentials).ok()
 }
 #[inline]
 pub unsafe fn CredPackAuthenticationBufferW<P0, P1>(dwflags: CRED_PACK_FLAGS, pszusername: P0, pszpassword: P1, ppackedcredentials: Option<*mut u8>, pcbpackedcredentials: *mut u32) -> windows_core::Result<()>
@@ -130,7 +130,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("credui.dll" "system" fn CredPackAuthenticationBufferW(dwflags : CRED_PACK_FLAGS, pszusername : windows_core::PCWSTR, pszpassword : windows_core::PCWSTR, ppackedcredentials : *mut u8, pcbpackedcredentials : *mut u32) -> super::super::Foundation:: BOOL);
-    CredPackAuthenticationBufferW(dwflags, pszusername.param().abi(), pszpassword.param().abi(), core::mem::transmute(ppackedcredentials.unwrap_or(std::ptr::null_mut())), pcbpackedcredentials).ok()
+    CredPackAuthenticationBufferW(dwflags, pszusername.param().abi(), pszpassword.param().abi(), core::mem::transmute(ppackedcredentials.unwrap_or(core::ptr::null_mut())), pcbpackedcredentials).ok()
 }
 #[inline]
 pub unsafe fn CredProtectA<P0>(fasself: P0, pszcredentials: &[u8], pszprotectedcredentials: windows_core::PSTR, pcchmaxchars: *mut u32, protectiontype: Option<*mut CRED_PROTECTION_TYPE>) -> windows_core::Result<()>
@@ -138,7 +138,7 @@ where
     P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CredProtectA(fasself : super::super::Foundation:: BOOL, pszcredentials : windows_core::PCSTR, cchcredentials : u32, pszprotectedcredentials : windows_core::PSTR, pcchmaxchars : *mut u32, protectiontype : *mut CRED_PROTECTION_TYPE) -> super::super::Foundation:: BOOL);
-    CredProtectA(fasself.param().abi(), core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len().try_into().unwrap(), core::mem::transmute(pszprotectedcredentials), pcchmaxchars, core::mem::transmute(protectiontype.unwrap_or(std::ptr::null_mut()))).ok()
+    CredProtectA(fasself.param().abi(), core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len().try_into().unwrap(), core::mem::transmute(pszprotectedcredentials), pcchmaxchars, core::mem::transmute(protectiontype.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn CredProtectW<P0>(fasself: P0, pszcredentials: &[u16], pszprotectedcredentials: windows_core::PWSTR, pcchmaxchars: *mut u32, protectiontype: Option<*mut CRED_PROTECTION_TYPE>) -> windows_core::Result<()>
@@ -146,7 +146,7 @@ where
     P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("advapi32.dll" "system" fn CredProtectW(fasself : super::super::Foundation:: BOOL, pszcredentials : windows_core::PCWSTR, cchcredentials : u32, pszprotectedcredentials : windows_core::PWSTR, pcchmaxchars : *mut u32, protectiontype : *mut CRED_PROTECTION_TYPE) -> super::super::Foundation:: BOOL);
-    CredProtectW(fasself.param().abi(), core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len().try_into().unwrap(), core::mem::transmute(pszprotectedcredentials), pcchmaxchars, core::mem::transmute(protectiontype.unwrap_or(std::ptr::null_mut()))).ok()
+    CredProtectW(fasself.param().abi(), core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len().try_into().unwrap(), core::mem::transmute(pszprotectedcredentials), pcchmaxchars, core::mem::transmute(protectiontype.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn CredReadA<P0>(targetname: P0, r#type: CRED_TYPE, flags: u32, credential: *mut *mut CREDENTIALA) -> windows_core::Result<()>
@@ -198,7 +198,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsA(psztargetname : windows_core::PCSTR, pcontext : *const SecHandle, dwautherror : u32, username : windows_core::PSTR, uluserbuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, pfsave : *mut super::super::Foundation:: BOOL, dwflags : CREDUI_FLAGS) -> u32);
-    CredUICmdLinePromptForCredentialsA(psztargetname.param().abi(), core::mem::transmute(pcontext.unwrap_or(std::ptr::null())), dwautherror, core::mem::transmute(username.as_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), core::mem::transmute(pfsave.unwrap_or(std::ptr::null_mut())), dwflags)
+    CredUICmdLinePromptForCredentialsA(psztargetname.param().abi(), core::mem::transmute(pcontext.unwrap_or(core::ptr::null())), dwautherror, core::mem::transmute(username.as_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), core::mem::transmute(pfsave.unwrap_or(core::ptr::null_mut())), dwflags)
 }
 #[inline]
 pub unsafe fn CredUICmdLinePromptForCredentialsW<P0>(psztargetname: P0, pcontext: Option<*const SecHandle>, dwautherror: u32, username: &mut [u16], pszpassword: &mut [u16], pfsave: Option<*mut super::super::Foundation::BOOL>, dwflags: CREDUI_FLAGS) -> u32
@@ -206,7 +206,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsW(psztargetname : windows_core::PCWSTR, pcontext : *const SecHandle, dwautherror : u32, username : windows_core::PWSTR, uluserbuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, pfsave : *mut super::super::Foundation:: BOOL, dwflags : CREDUI_FLAGS) -> u32);
-    CredUICmdLinePromptForCredentialsW(psztargetname.param().abi(), core::mem::transmute(pcontext.unwrap_or(std::ptr::null())), dwautherror, core::mem::transmute(username.as_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), core::mem::transmute(pfsave.unwrap_or(std::ptr::null_mut())), dwflags)
+    CredUICmdLinePromptForCredentialsW(psztargetname.param().abi(), core::mem::transmute(pcontext.unwrap_or(core::ptr::null())), dwautherror, core::mem::transmute(username.as_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), core::mem::transmute(pfsave.unwrap_or(core::ptr::null_mut())), dwflags)
 }
 #[inline]
 pub unsafe fn CredUIConfirmCredentialsA<P0, P1>(psztargetname: P0, bconfirm: P1) -> u32
@@ -249,7 +249,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("credui.dll" "system" fn CredUIPromptForCredentialsA(puiinfo : *const CREDUI_INFOA, psztargetname : windows_core::PCSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : windows_core::PSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, save : *mut super::super::Foundation:: BOOL, dwflags : CREDUI_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-    CredUIPromptForCredentialsA(core::mem::transmute(puiinfo.unwrap_or(std::ptr::null())), psztargetname.param().abi(), core::mem::transmute(pcontext.unwrap_or(std::ptr::null())), dwautherror, core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), core::mem::transmute(save.unwrap_or(std::ptr::null_mut())), dwflags)
+    CredUIPromptForCredentialsA(core::mem::transmute(puiinfo.unwrap_or(core::ptr::null())), psztargetname.param().abi(), core::mem::transmute(pcontext.unwrap_or(core::ptr::null())), dwautherror, core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), core::mem::transmute(save.unwrap_or(core::ptr::null_mut())), dwflags)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -258,19 +258,19 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("credui.dll" "system" fn CredUIPromptForCredentialsW(puiinfo : *const CREDUI_INFOW, psztargetname : windows_core::PCWSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : windows_core::PWSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, save : *mut super::super::Foundation:: BOOL, dwflags : CREDUI_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-    CredUIPromptForCredentialsW(core::mem::transmute(puiinfo.unwrap_or(std::ptr::null())), psztargetname.param().abi(), core::mem::transmute(pcontext.unwrap_or(std::ptr::null())), dwautherror, core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), core::mem::transmute(save.unwrap_or(std::ptr::null_mut())), dwflags)
+    CredUIPromptForCredentialsW(core::mem::transmute(puiinfo.unwrap_or(core::ptr::null())), psztargetname.param().abi(), core::mem::transmute(pcontext.unwrap_or(core::ptr::null())), dwautherror, core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), core::mem::transmute(save.unwrap_or(core::ptr::null_mut())), dwflags)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CredUIPromptForWindowsCredentialsA(puiinfo: Option<*const CREDUI_INFOA>, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: Option<*const core::ffi::c_void>, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: Option<*mut super::super::Foundation::BOOL>, dwflags: CREDUIWIN_FLAGS) -> u32 {
     windows_targets::link!("credui.dll" "system" fn CredUIPromptForWindowsCredentialsA(puiinfo : *const CREDUI_INFOA, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : *const core::ffi::c_void, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut super::super::Foundation:: BOOL, dwflags : CREDUIWIN_FLAGS) -> u32);
-    CredUIPromptForWindowsCredentialsA(core::mem::transmute(puiinfo.unwrap_or(std::ptr::null())), dwautherror, pulauthpackage, core::mem::transmute(pvinauthbuffer.unwrap_or(std::ptr::null())), ulinauthbuffersize, ppvoutauthbuffer, puloutauthbuffersize, core::mem::transmute(pfsave.unwrap_or(std::ptr::null_mut())), dwflags)
+    CredUIPromptForWindowsCredentialsA(core::mem::transmute(puiinfo.unwrap_or(core::ptr::null())), dwautherror, pulauthpackage, core::mem::transmute(pvinauthbuffer.unwrap_or(core::ptr::null())), ulinauthbuffersize, ppvoutauthbuffer, puloutauthbuffersize, core::mem::transmute(pfsave.unwrap_or(core::ptr::null_mut())), dwflags)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CredUIPromptForWindowsCredentialsW(puiinfo: Option<*const CREDUI_INFOW>, dwautherror: u32, pulauthpackage: *mut u32, pvinauthbuffer: Option<*const core::ffi::c_void>, ulinauthbuffersize: u32, ppvoutauthbuffer: *mut *mut core::ffi::c_void, puloutauthbuffersize: *mut u32, pfsave: Option<*mut super::super::Foundation::BOOL>, dwflags: CREDUIWIN_FLAGS) -> u32 {
     windows_targets::link!("credui.dll" "system" fn CredUIPromptForWindowsCredentialsW(puiinfo : *const CREDUI_INFOW, dwautherror : u32, pulauthpackage : *mut u32, pvinauthbuffer : *const core::ffi::c_void, ulinauthbuffersize : u32, ppvoutauthbuffer : *mut *mut core::ffi::c_void, puloutauthbuffersize : *mut u32, pfsave : *mut super::super::Foundation:: BOOL, dwflags : CREDUIWIN_FLAGS) -> u32);
-    CredUIPromptForWindowsCredentialsW(core::mem::transmute(puiinfo.unwrap_or(std::ptr::null())), dwautherror, pulauthpackage, core::mem::transmute(pvinauthbuffer.unwrap_or(std::ptr::null())), ulinauthbuffersize, ppvoutauthbuffer, puloutauthbuffersize, core::mem::transmute(pfsave.unwrap_or(std::ptr::null_mut())), dwflags)
+    CredUIPromptForWindowsCredentialsW(core::mem::transmute(puiinfo.unwrap_or(core::ptr::null())), dwautherror, pulauthpackage, core::mem::transmute(pvinauthbuffer.unwrap_or(core::ptr::null())), ulinauthbuffersize, ppvoutauthbuffer, puloutauthbuffersize, core::mem::transmute(pfsave.unwrap_or(core::ptr::null_mut())), dwflags)
 }
 #[inline]
 pub unsafe fn CredUIReadSSOCredW<P0>(pszrealm: P0, ppszusername: *mut windows_core::PWSTR) -> u32
@@ -294,12 +294,12 @@ where
 #[inline]
 pub unsafe fn CredUnPackAuthenticationBufferA(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const core::ffi::c_void, cbauthbuffer: u32, pszusername: windows_core::PSTR, pcchlmaxusername: *mut u32, pszdomainname: windows_core::PSTR, pcchmaxdomainname: Option<*mut u32>, pszpassword: windows_core::PSTR, pcchmaxpassword: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("credui.dll" "system" fn CredUnPackAuthenticationBufferA(dwflags : CRED_PACK_FLAGS, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, pszusername : windows_core::PSTR, pcchlmaxusername : *mut u32, pszdomainname : windows_core::PSTR, pcchmaxdomainname : *mut u32, pszpassword : windows_core::PSTR, pcchmaxpassword : *mut u32) -> super::super::Foundation:: BOOL);
-    CredUnPackAuthenticationBufferA(dwflags, pauthbuffer, cbauthbuffer, core::mem::transmute(pszusername), pcchlmaxusername, core::mem::transmute(pszdomainname), core::mem::transmute(pcchmaxdomainname.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pszpassword), pcchmaxpassword).ok()
+    CredUnPackAuthenticationBufferA(dwflags, pauthbuffer, cbauthbuffer, core::mem::transmute(pszusername), pcchlmaxusername, core::mem::transmute(pszdomainname), core::mem::transmute(pcchmaxdomainname.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pszpassword), pcchmaxpassword).ok()
 }
 #[inline]
 pub unsafe fn CredUnPackAuthenticationBufferW(dwflags: CRED_PACK_FLAGS, pauthbuffer: *const core::ffi::c_void, cbauthbuffer: u32, pszusername: windows_core::PWSTR, pcchmaxusername: *mut u32, pszdomainname: windows_core::PWSTR, pcchmaxdomainname: Option<*mut u32>, pszpassword: windows_core::PWSTR, pcchmaxpassword: *mut u32) -> windows_core::Result<()> {
     windows_targets::link!("credui.dll" "system" fn CredUnPackAuthenticationBufferW(dwflags : CRED_PACK_FLAGS, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, pszusername : windows_core::PWSTR, pcchmaxusername : *mut u32, pszdomainname : windows_core::PWSTR, pcchmaxdomainname : *mut u32, pszpassword : windows_core::PWSTR, pcchmaxpassword : *mut u32) -> super::super::Foundation:: BOOL);
-    CredUnPackAuthenticationBufferW(dwflags, pauthbuffer, cbauthbuffer, core::mem::transmute(pszusername), pcchmaxusername, core::mem::transmute(pszdomainname), core::mem::transmute(pcchmaxdomainname.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pszpassword), pcchmaxpassword).ok()
+    CredUnPackAuthenticationBufferW(dwflags, pauthbuffer, cbauthbuffer, core::mem::transmute(pszusername), pcchmaxusername, core::mem::transmute(pszdomainname), core::mem::transmute(pcchmaxdomainname.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pszpassword), pcchmaxpassword).ok()
 }
 #[inline]
 pub unsafe fn CredUnmarshalCredentialA<P0>(marshaledcredential: P0, credtype: *mut CRED_MARSHAL_TYPE, credential: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -465,7 +465,7 @@ pub unsafe fn SCardEndTransaction(hcard: usize, dwdisposition: u32) -> i32 {
 #[inline]
 pub unsafe fn SCardEstablishContext(dwscope: SCARD_SCOPE, pvreserved1: Option<*const core::ffi::c_void>, pvreserved2: Option<*const core::ffi::c_void>, phcontext: *mut usize) -> i32 {
     windows_targets::link!("winscard.dll" "system" fn SCardEstablishContext(dwscope : SCARD_SCOPE, pvreserved1 : *const core::ffi::c_void, pvreserved2 : *const core::ffi::c_void, phcontext : *mut usize) -> i32);
-    SCardEstablishContext(dwscope, core::mem::transmute(pvreserved1.unwrap_or(std::ptr::null())), core::mem::transmute(pvreserved2.unwrap_or(std::ptr::null())), phcontext)
+    SCardEstablishContext(dwscope, core::mem::transmute(pvreserved1.unwrap_or(core::ptr::null())), core::mem::transmute(pvreserved2.unwrap_or(core::ptr::null())), phcontext)
 }
 #[inline]
 pub unsafe fn SCardForgetCardTypeA<P0>(hcontext: usize, szcardname: P0) -> i32
@@ -523,7 +523,7 @@ pub unsafe fn SCardFreeMemory(hcontext: usize, pvmem: *const core::ffi::c_void) 
 #[inline]
 pub unsafe fn SCardGetAttrib(hcard: usize, dwattrid: u32, pbattr: Option<*mut u8>, pcbattrlen: *mut u32) -> i32 {
     windows_targets::link!("winscard.dll" "system" fn SCardGetAttrib(hcard : usize, dwattrid : u32, pbattr : *mut u8, pcbattrlen : *mut u32) -> i32);
-    SCardGetAttrib(hcard, dwattrid, core::mem::transmute(pbattr.unwrap_or(std::ptr::null_mut())), pcbattrlen)
+    SCardGetAttrib(hcard, dwattrid, core::mem::transmute(pbattr.unwrap_or(core::ptr::null_mut())), pcbattrlen)
 }
 #[inline]
 pub unsafe fn SCardGetCardTypeProviderNameA<P0>(hcontext: usize, szcardname: P0, dwproviderid: u32, szprovider: windows_core::PSTR, pcchprovider: *mut u32) -> i32
@@ -626,7 +626,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardIntroduceCardTypeA(hcontext : usize, szcardname : windows_core::PCSTR, pguidprimaryprovider : *const windows_core::GUID, rgguidinterfaces : *const windows_core::GUID, dwinterfacecount : u32, pbatr : *const u8, pbatrmask : *const u8, cbatrlen : u32) -> i32);
-    SCardIntroduceCardTypeA(hcontext, szcardname.param().abi(), core::mem::transmute(pguidprimaryprovider.unwrap_or(std::ptr::null())), core::mem::transmute(rgguidinterfaces.unwrap_or(std::ptr::null())), dwinterfacecount, pbatr, pbatrmask, cbatrlen)
+    SCardIntroduceCardTypeA(hcontext, szcardname.param().abi(), core::mem::transmute(pguidprimaryprovider.unwrap_or(core::ptr::null())), core::mem::transmute(rgguidinterfaces.unwrap_or(core::ptr::null())), dwinterfacecount, pbatr, pbatrmask, cbatrlen)
 }
 #[inline]
 pub unsafe fn SCardIntroduceCardTypeW<P0>(hcontext: usize, szcardname: P0, pguidprimaryprovider: Option<*const windows_core::GUID>, rgguidinterfaces: Option<*const windows_core::GUID>, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32
@@ -634,7 +634,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardIntroduceCardTypeW(hcontext : usize, szcardname : windows_core::PCWSTR, pguidprimaryprovider : *const windows_core::GUID, rgguidinterfaces : *const windows_core::GUID, dwinterfacecount : u32, pbatr : *const u8, pbatrmask : *const u8, cbatrlen : u32) -> i32);
-    SCardIntroduceCardTypeW(hcontext, szcardname.param().abi(), core::mem::transmute(pguidprimaryprovider.unwrap_or(std::ptr::null())), core::mem::transmute(rgguidinterfaces.unwrap_or(std::ptr::null())), dwinterfacecount, pbatr, pbatrmask, cbatrlen)
+    SCardIntroduceCardTypeW(hcontext, szcardname.param().abi(), core::mem::transmute(pguidprimaryprovider.unwrap_or(core::ptr::null())), core::mem::transmute(rgguidinterfaces.unwrap_or(core::ptr::null())), dwinterfacecount, pbatr, pbatrmask, cbatrlen)
 }
 #[inline]
 pub unsafe fn SCardIntroduceReaderA<P0, P1>(hcontext: usize, szreadername: P0, szdevicename: P1) -> i32
@@ -678,12 +678,12 @@ pub unsafe fn SCardIsValidContext(hcontext: usize) -> i32 {
 #[inline]
 pub unsafe fn SCardListCardsA(hcontext: usize, pbatr: Option<*const u8>, rgquidinterfaces: Option<&[windows_core::GUID]>, mszcards: windows_core::PSTR, pcchcards: *mut u32) -> i32 {
     windows_targets::link!("winscard.dll" "system" fn SCardListCardsA(hcontext : usize, pbatr : *const u8, rgquidinterfaces : *const windows_core::GUID, cguidinterfacecount : u32, mszcards : windows_core::PSTR, pcchcards : *mut u32) -> i32);
-    SCardListCardsA(hcontext, core::mem::transmute(pbatr.unwrap_or(std::ptr::null())), core::mem::transmute(rgquidinterfaces.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgquidinterfaces.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(mszcards), pcchcards)
+    SCardListCardsA(hcontext, core::mem::transmute(pbatr.unwrap_or(core::ptr::null())), core::mem::transmute(rgquidinterfaces.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgquidinterfaces.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(mszcards), pcchcards)
 }
 #[inline]
 pub unsafe fn SCardListCardsW(hcontext: usize, pbatr: Option<*const u8>, rgquidinterfaces: Option<&[windows_core::GUID]>, mszcards: windows_core::PWSTR, pcchcards: *mut u32) -> i32 {
     windows_targets::link!("winscard.dll" "system" fn SCardListCardsW(hcontext : usize, pbatr : *const u8, rgquidinterfaces : *const windows_core::GUID, cguidinterfacecount : u32, mszcards : windows_core::PWSTR, pcchcards : *mut u32) -> i32);
-    SCardListCardsW(hcontext, core::mem::transmute(pbatr.unwrap_or(std::ptr::null())), core::mem::transmute(rgquidinterfaces.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgquidinterfaces.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(mszcards), pcchcards)
+    SCardListCardsW(hcontext, core::mem::transmute(pbatr.unwrap_or(core::ptr::null())), core::mem::transmute(rgquidinterfaces.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgquidinterfaces.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(mszcards), pcchcards)
 }
 #[inline]
 pub unsafe fn SCardListInterfacesA<P0>(hcontext: usize, szcard: P0, pguidinterfaces: *mut windows_core::GUID, pcguidinterfaces: *mut u32) -> i32
@@ -788,7 +788,7 @@ where
 #[inline]
 pub unsafe fn SCardReconnect(hcard: usize, dwsharemode: u32, dwpreferredprotocols: u32, dwinitialization: u32, pdwactiveprotocol: Option<*mut u32>) -> i32 {
     windows_targets::link!("winscard.dll" "system" fn SCardReconnect(hcard : usize, dwsharemode : u32, dwpreferredprotocols : u32, dwinitialization : u32, pdwactiveprotocol : *mut u32) -> i32);
-    SCardReconnect(hcard, dwsharemode, dwpreferredprotocols, dwinitialization, core::mem::transmute(pdwactiveprotocol.unwrap_or(std::ptr::null_mut())))
+    SCardReconnect(hcard, dwsharemode, dwpreferredprotocols, dwinitialization, core::mem::transmute(pdwactiveprotocol.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SCardReleaseContext(hcontext: usize) -> i32 {
@@ -849,17 +849,17 @@ pub unsafe fn SCardState(hcard: usize, pdwstate: *mut u32, pdwprotocol: *mut u32
 #[inline]
 pub unsafe fn SCardStatusA(hcard: usize, mszreadernames: windows_core::PSTR, pcchreaderlen: Option<*mut u32>, pdwstate: Option<*mut u32>, pdwprotocol: Option<*mut u32>, pbatr: Option<*mut u8>, pcbatrlen: Option<*mut u32>) -> i32 {
     windows_targets::link!("winscard.dll" "system" fn SCardStatusA(hcard : usize, mszreadernames : windows_core::PSTR, pcchreaderlen : *mut u32, pdwstate : *mut u32, pdwprotocol : *mut u32, pbatr : *mut u8, pcbatrlen : *mut u32) -> i32);
-    SCardStatusA(hcard, core::mem::transmute(mszreadernames), core::mem::transmute(pcchreaderlen.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwstate.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwprotocol.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pbatr.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbatrlen.unwrap_or(std::ptr::null_mut())))
+    SCardStatusA(hcard, core::mem::transmute(mszreadernames), core::mem::transmute(pcchreaderlen.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwstate.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwprotocol.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pbatr.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbatrlen.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SCardStatusW(hcard: usize, mszreadernames: windows_core::PWSTR, pcchreaderlen: Option<*mut u32>, pdwstate: Option<*mut u32>, pdwprotocol: Option<*mut u32>, pbatr: Option<*mut u8>, pcbatrlen: Option<*mut u32>) -> i32 {
     windows_targets::link!("winscard.dll" "system" fn SCardStatusW(hcard : usize, mszreadernames : windows_core::PWSTR, pcchreaderlen : *mut u32, pdwstate : *mut u32, pdwprotocol : *mut u32, pbatr : *mut u8, pcbatrlen : *mut u32) -> i32);
-    SCardStatusW(hcard, core::mem::transmute(mszreadernames), core::mem::transmute(pcchreaderlen.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwstate.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwprotocol.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pbatr.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbatrlen.unwrap_or(std::ptr::null_mut())))
+    SCardStatusW(hcard, core::mem::transmute(mszreadernames), core::mem::transmute(pcchreaderlen.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwstate.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwprotocol.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pbatr.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbatrlen.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SCardTransmit(hcard: usize, piosendpci: *const SCARD_IO_REQUEST, pbsendbuffer: &[u8], piorecvpci: Option<*mut SCARD_IO_REQUEST>, pbrecvbuffer: *mut u8, pcbrecvlength: *mut u32) -> i32 {
     windows_targets::link!("winscard.dll" "system" fn SCardTransmit(hcard : usize, piosendpci : *const SCARD_IO_REQUEST, pbsendbuffer : *const u8, cbsendlength : u32, piorecvpci : *mut SCARD_IO_REQUEST, pbrecvbuffer : *mut u8, pcbrecvlength : *mut u32) -> i32);
-    SCardTransmit(hcard, piosendpci, core::mem::transmute(pbsendbuffer.as_ptr()), pbsendbuffer.len().try_into().unwrap(), core::mem::transmute(piorecvpci.unwrap_or(std::ptr::null_mut())), pbrecvbuffer, pcbrecvlength)
+    SCardTransmit(hcard, piosendpci, core::mem::transmute(pbsendbuffer.as_ptr()), pbsendbuffer.len().try_into().unwrap(), core::mem::transmute(piorecvpci.unwrap_or(core::ptr::null_mut())), pbrecvbuffer, pcbrecvlength)
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]

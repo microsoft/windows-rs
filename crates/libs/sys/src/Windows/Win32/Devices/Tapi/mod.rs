@@ -2621,31 +2621,31 @@ pub struct LINEPROXYREQUEST {
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub union LINEPROXYREQUEST_0 {
-    pub SetAgentGroup: LINEPROXYREQUEST_0_14,
-    pub SetAgentState: LINEPROXYREQUEST_0_18,
-    pub SetAgentActivity: LINEPROXYREQUEST_0_13,
-    pub GetAgentCaps: LINEPROXYREQUEST_0_4,
-    pub GetAgentStatus: LINEPROXYREQUEST_0_9,
-    pub AgentSpecific: LINEPROXYREQUEST_0_0,
-    pub GetAgentActivityList: LINEPROXYREQUEST_0_3,
-    pub GetAgentGroupList: LINEPROXYREQUEST_0_5,
-    pub CreateAgent: LINEPROXYREQUEST_0_2,
-    pub SetAgentStateEx: LINEPROXYREQUEST_0_17,
-    pub SetAgentMeasurementPeriod: LINEPROXYREQUEST_0_15,
-    pub GetAgentInfo: LINEPROXYREQUEST_0_6,
-    pub CreateAgentSession: LINEPROXYREQUEST_0_1,
-    pub GetAgentSessionList: LINEPROXYREQUEST_0_8,
-    pub GetAgentSessionInfo: LINEPROXYREQUEST_0_7,
-    pub SetAgentSessionState: LINEPROXYREQUEST_0_16,
-    pub GetQueueList: LINEPROXYREQUEST_0_12,
-    pub SetQueueMeasurementPeriod: LINEPROXYREQUEST_0_19,
-    pub GetQueueInfo: LINEPROXYREQUEST_0_11,
-    pub GetGroupList: LINEPROXYREQUEST_0_10,
+    pub SetAgentGroup: LINEPROXYREQUEST_0_0,
+    pub SetAgentState: LINEPROXYREQUEST_0_1,
+    pub SetAgentActivity: LINEPROXYREQUEST_0_2,
+    pub GetAgentCaps: LINEPROXYREQUEST_0_3,
+    pub GetAgentStatus: LINEPROXYREQUEST_0_4,
+    pub AgentSpecific: LINEPROXYREQUEST_0_5,
+    pub GetAgentActivityList: LINEPROXYREQUEST_0_6,
+    pub GetAgentGroupList: LINEPROXYREQUEST_0_7,
+    pub CreateAgent: LINEPROXYREQUEST_0_8,
+    pub SetAgentStateEx: LINEPROXYREQUEST_0_9,
+    pub SetAgentMeasurementPeriod: LINEPROXYREQUEST_0_10,
+    pub GetAgentInfo: LINEPROXYREQUEST_0_11,
+    pub CreateAgentSession: LINEPROXYREQUEST_0_12,
+    pub GetAgentSessionList: LINEPROXYREQUEST_0_13,
+    pub GetAgentSessionInfo: LINEPROXYREQUEST_0_14,
+    pub SetAgentSessionState: LINEPROXYREQUEST_0_15,
+    pub GetQueueList: LINEPROXYREQUEST_0_16,
+    pub SetQueueMeasurementPeriod: LINEPROXYREQUEST_0_17,
+    pub GetQueueInfo: LINEPROXYREQUEST_0_18,
+    pub GetGroupList: LINEPROXYREQUEST_0_19,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_0 {
+pub struct LINEPROXYREQUEST_0_5 {
     pub dwAddressID: u32,
     pub dwAgentExtensionIDIndex: u32,
     pub dwSize: u32,
@@ -2654,7 +2654,7 @@ pub struct LINEPROXYREQUEST_0_0 {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_1 {
+pub struct LINEPROXYREQUEST_0_12 {
     pub hAgentSession: u32,
     pub dwAgentPINSize: u32,
     pub dwAgentPINOffset: u32,
@@ -2665,7 +2665,7 @@ pub struct LINEPROXYREQUEST_0_1 {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_2 {
+pub struct LINEPROXYREQUEST_0_8 {
     pub hAgent: u32,
     pub dwAgentIDSize: u32,
     pub dwAgentIDOffset: u32,
@@ -2675,97 +2675,97 @@ pub struct LINEPROXYREQUEST_0_2 {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_3 {
+pub struct LINEPROXYREQUEST_0_6 {
     pub dwAddressID: u32,
     pub ActivityList: LINEAGENTACTIVITYLIST,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_4 {
+pub struct LINEPROXYREQUEST_0_3 {
     pub dwAddressID: u32,
     pub AgentCaps: LINEAGENTCAPS,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_5 {
-    pub dwAddressID: u32,
-    pub GroupList: LINEAGENTGROUPLIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_6 {
-    pub hAgent: u32,
-    pub AgentInfo: LINEAGENTINFO,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_7 {
-    pub hAgentSession: u32,
-    pub SessionInfo: LINEAGENTSESSIONINFO,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_8 {
-    pub hAgent: u32,
-    pub SessionList: LINEAGENTSESSIONLIST,
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_9 {
     pub dwAddressID: u32,
-    pub AgentStatus: LINEAGENTSTATUS,
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_10 {
     pub GroupList: LINEAGENTGROUPLIST,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_11 {
+    pub hAgent: u32,
+    pub AgentInfo: LINEAGENTINFO,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_14 {
+    pub hAgentSession: u32,
+    pub SessionInfo: LINEAGENTSESSIONINFO,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_13 {
+    pub hAgent: u32,
+    pub SessionList: LINEAGENTSESSIONLIST,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_4 {
+    pub dwAddressID: u32,
+    pub AgentStatus: LINEAGENTSTATUS,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_19 {
+    pub GroupList: LINEAGENTGROUPLIST,
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_18 {
     pub dwQueueID: u32,
     pub QueueInfo: LINEQUEUEINFO,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_12 {
+pub struct LINEPROXYREQUEST_0_16 {
     pub GroupID: windows_sys::core::GUID,
     pub QueueList: LINEQUEUELIST,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_13 {
+pub struct LINEPROXYREQUEST_0_2 {
     pub dwAddressID: u32,
     pub dwActivityID: u32,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_14 {
+pub struct LINEPROXYREQUEST_0_0 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_15 {
+pub struct LINEPROXYREQUEST_0_10 {
     pub hAgent: u32,
     pub dwMeasurementPeriod: u32,
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_16 {
+pub struct LINEPROXYREQUEST_0_15 {
     pub hAgentSession: u32,
     pub dwAgentSessionState: u32,
     pub dwNextAgentSessionState: u32,
@@ -2773,7 +2773,7 @@ pub struct LINEPROXYREQUEST_0_16 {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_17 {
+pub struct LINEPROXYREQUEST_0_9 {
     pub hAgent: u32,
     pub dwAgentState: u32,
     pub dwNextAgentState: u32,
@@ -2781,7 +2781,7 @@ pub struct LINEPROXYREQUEST_0_17 {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_18 {
+pub struct LINEPROXYREQUEST_0_1 {
     pub dwAddressID: u32,
     pub dwAgentState: u32,
     pub dwNextAgentState: u32,
@@ -2789,7 +2789,7 @@ pub struct LINEPROXYREQUEST_0_18 {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_19 {
+pub struct LINEPROXYREQUEST_0_17 {
     pub dwQueueID: u32,
     pub dwMeasurementPeriod: u32,
 }
@@ -2929,13 +2929,13 @@ pub struct MSP_EVENT_INFO {
 #[derive(Clone, Copy)]
 pub union MSP_EVENT_INFO_0 {
     pub MSP_ADDRESS_EVENT_INFO: MSP_EVENT_INFO_0_0,
-    pub MSP_CALL_EVENT_INFO: MSP_EVENT_INFO_0_2,
-    pub MSP_TSP_DATA: MSP_EVENT_INFO_0_6,
-    pub MSP_PRIVATE_EVENT_INFO: MSP_EVENT_INFO_0_4,
-    pub MSP_FILE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_3,
-    pub MSP_ASR_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_1,
-    pub MSP_TTS_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_7,
-    pub MSP_TONE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_5,
+    pub MSP_CALL_EVENT_INFO: MSP_EVENT_INFO_0_1,
+    pub MSP_TSP_DATA: MSP_EVENT_INFO_0_2,
+    pub MSP_PRIVATE_EVENT_INFO: MSP_EVENT_INFO_0_3,
+    pub MSP_FILE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_4,
+    pub MSP_ASR_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_5,
+    pub MSP_TTS_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_6,
+    pub MSP_TONE_TERMINAL_EVENT_INFO: MSP_EVENT_INFO_0_7,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2945,13 +2945,13 @@ pub struct MSP_EVENT_INFO_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_1 {
+pub struct MSP_EVENT_INFO_0_5 {
     pub pASRTerminal: *mut core::ffi::c_void,
     pub hrErrorCode: windows_sys::core::HRESULT,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_2 {
+pub struct MSP_EVENT_INFO_0_1 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
     pub pStream: *mut core::ffi::c_void,
@@ -2960,7 +2960,7 @@ pub struct MSP_EVENT_INFO_0_2 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_3 {
+pub struct MSP_EVENT_INFO_0_4 {
     pub pParentFileTerminal: *mut core::ffi::c_void,
     pub pFileTrack: *mut core::ffi::c_void,
     pub TerminalMediaState: TERMINAL_MEDIA_STATE,
@@ -2969,25 +2969,25 @@ pub struct MSP_EVENT_INFO_0_3 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_4 {
+pub struct MSP_EVENT_INFO_0_3 {
     pub pEvent: *mut core::ffi::c_void,
     pub lEventCode: i32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_5 {
+pub struct MSP_EVENT_INFO_0_7 {
     pub pToneTerminal: *mut core::ffi::c_void,
     pub hrErrorCode: windows_sys::core::HRESULT,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_6 {
+pub struct MSP_EVENT_INFO_0_2 {
     pub dwBufferSize: u32,
     pub pBuffer: [u8; 1],
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct MSP_EVENT_INFO_0_7 {
+pub struct MSP_EVENT_INFO_0_6 {
     pub pTTSTerminal: *mut core::ffi::c_void,
     pub hrErrorCode: windows_sys::core::HRESULT,
 }

@@ -11,7 +11,7 @@ where
 pub unsafe fn DevCreateObjectQuery(objecttype: DEV_OBJECT_TYPE, queryflags: u32, prequestedproperties: Option<&[super::Properties::DEVPROPCOMPKEY]>, pfilter: Option<&[DEVPROP_FILTER_EXPRESSION]>, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: Option<*const core::ffi::c_void>) -> windows_core::Result<HDEVQUERY> {
     windows_targets::link!("api-ms-win-devices-query-l1-1-0.dll" "system" fn DevCreateObjectQuery(objecttype : DEV_OBJECT_TYPE, queryflags : u32, crequestedproperties : u32, prequestedproperties : *const super::Properties:: DEVPROPCOMPKEY, cfilterexpressioncount : u32, pfilter : *const DEVPROP_FILTER_EXPRESSION, pcallback : PDEV_QUERY_RESULT_CALLBACK, pcontext : *const core::ffi::c_void, phdevquery : *mut HDEVQUERY) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    DevCreateObjectQuery(objecttype, queryflags, prequestedproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prequestedproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pfilter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pfilter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcallback, core::mem::transmute(pcontext.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
+    DevCreateObjectQuery(objecttype, queryflags, prequestedproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prequestedproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pfilter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pfilter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcallback, core::mem::transmute(pcontext.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
 }
 #[cfg(feature = "Win32_Devices_Properties")]
 #[inline]
@@ -28,7 +28,7 @@ pub unsafe fn DevCreateObjectQueryEx(objecttype: DEV_OBJECT_TYPE, queryflags: u3
         pextendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(pextendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         pcallback,
-        core::mem::transmute(pcontext.unwrap_or(std::ptr::null())),
+        core::mem::transmute(pcontext.unwrap_or(core::ptr::null())),
         &mut result__,
     )
     .map(|| result__)
@@ -50,7 +50,7 @@ where
         pfilter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(pfilter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         pcallback,
-        core::mem::transmute(pcontext.unwrap_or(std::ptr::null())),
+        core::mem::transmute(pcontext.unwrap_or(core::ptr::null())),
         &mut result__,
     )
     .map(|| result__)
@@ -74,7 +74,7 @@ where
         pextendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(pextendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         pcallback,
-        core::mem::transmute(pcontext.unwrap_or(std::ptr::null())),
+        core::mem::transmute(pcontext.unwrap_or(core::ptr::null())),
         &mut result__,
     )
     .map(|| result__)
@@ -96,7 +96,7 @@ where
         pfilter.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(pfilter.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         pcallback,
-        core::mem::transmute(pcontext.unwrap_or(std::ptr::null())),
+        core::mem::transmute(pcontext.unwrap_or(core::ptr::null())),
         &mut result__,
     )
     .map(|| result__)
@@ -120,7 +120,7 @@ where
         pextendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         core::mem::transmute(pextendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
         pcallback,
-        core::mem::transmute(pcontext.unwrap_or(std::ptr::null())),
+        core::mem::transmute(pcontext.unwrap_or(core::ptr::null())),
         &mut result__,
     )
     .map(|| result__)

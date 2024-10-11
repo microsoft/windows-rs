@@ -50,7 +50,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("firewallapi.dll" "system" fn NetworkIsolationGetEnterpriseIdAsync(wszservername : windows_core::PCWSTR, dwflags : u32, context : *const core::ffi::c_void, callback : PNETISO_EDP_ID_CALLBACK_FN, hoperation : *mut super::super::Foundation:: HANDLE) -> u32);
-    NetworkIsolationGetEnterpriseIdAsync(wszservername.param().abi(), dwflags, core::mem::transmute(context.unwrap_or(std::ptr::null())), callback, hoperation)
+    NetworkIsolationGetEnterpriseIdAsync(wszservername.param().abi(), dwflags, core::mem::transmute(context.unwrap_or(core::ptr::null())), callback, hoperation)
 }
 #[inline]
 pub unsafe fn NetworkIsolationGetEnterpriseIdClose<P0, P1>(hoperation: P0, bwaitforoperation: P1) -> u32
@@ -65,7 +65,7 @@ where
 #[inline]
 pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, context: Option<*const core::ffi::c_void>, registrationobject: *mut super::super::Foundation::HANDLE) -> u32 {
     windows_targets::link!("api-ms-win-net-isolation-l1-1-0.dll" "system" fn NetworkIsolationRegisterForAppContainerChanges(flags : u32, callback : PAC_CHANGES_CALLBACK_FN, context : *const core::ffi::c_void, registrationobject : *mut super::super::Foundation:: HANDLE) -> u32);
-    NetworkIsolationRegisterForAppContainerChanges(flags, callback, core::mem::transmute(context.unwrap_or(std::ptr::null())), registrationobject)
+    NetworkIsolationRegisterForAppContainerChanges(flags, callback, core::mem::transmute(context.unwrap_or(core::ptr::null())), registrationobject)
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]

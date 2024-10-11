@@ -19,7 +19,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetApplicationRecoveryCallback(hprocess : super::super::Foundation:: HANDLE, precoverycallback : *mut super::WindowsProgramming:: APPLICATION_RECOVERY_CALLBACK, ppvparameter : *mut *mut core::ffi::c_void, pdwpinginterval : *mut u32, pdwflags : *mut u32) -> windows_core::HRESULT);
-    GetApplicationRecoveryCallback(hprocess.param().abi(), precoverycallback, core::mem::transmute(ppvparameter.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwpinginterval.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwflags.unwrap_or(std::ptr::null_mut())))
+    GetApplicationRecoveryCallback(hprocess.param().abi(), precoverycallback, core::mem::transmute(ppvparameter.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwpinginterval.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwflags.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn GetApplicationRestartSettings<P0>(hprocess: P0, pwzcommandline: windows_core::PWSTR, pcchsize: *mut u32, pdwflags: Option<*mut u32>) -> windows_core::Result<()>
@@ -27,13 +27,13 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetApplicationRestartSettings(hprocess : super::super::Foundation:: HANDLE, pwzcommandline : windows_core::PWSTR, pcchsize : *mut u32, pdwflags : *mut u32) -> windows_core::HRESULT);
-    GetApplicationRestartSettings(hprocess.param().abi(), core::mem::transmute(pwzcommandline), pcchsize, core::mem::transmute(pdwflags.unwrap_or(std::ptr::null_mut()))).ok()
+    GetApplicationRestartSettings(hprocess.param().abi(), core::mem::transmute(pwzcommandline), pcchsize, core::mem::transmute(pdwflags.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn RegisterApplicationRecoveryCallback(precoveycallback: super::WindowsProgramming::APPLICATION_RECOVERY_CALLBACK, pvparameter: Option<*const core::ffi::c_void>, dwpinginterval: u32, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("kernel32.dll" "system" fn RegisterApplicationRecoveryCallback(precoveycallback : super::WindowsProgramming:: APPLICATION_RECOVERY_CALLBACK, pvparameter : *const core::ffi::c_void, dwpinginterval : u32, dwflags : u32) -> windows_core::HRESULT);
-    RegisterApplicationRecoveryCallback(precoveycallback, core::mem::transmute(pvparameter.unwrap_or(std::ptr::null())), dwpinginterval, dwflags).ok()
+    RegisterApplicationRecoveryCallback(precoveycallback, core::mem::transmute(pvparameter.unwrap_or(core::ptr::null())), dwpinginterval, dwflags).ok()
 }
 #[inline]
 pub unsafe fn RegisterApplicationRestart<P0>(pwzcommandline: P0, dwflags: REGISTER_APPLICATION_RESTART_FLAGS) -> windows_core::Result<()>

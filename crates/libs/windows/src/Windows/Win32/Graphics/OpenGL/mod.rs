@@ -14,7 +14,7 @@ where
     P0: windows_core::Param<super::Gdi::HDC>,
 {
     windows_targets::link!("gdi32.dll" "system" fn DescribePixelFormat(hdc : super::Gdi:: HDC, ipixelformat : i32, nbytes : u32, ppfd : *mut PIXELFORMATDESCRIPTOR) -> i32);
-    DescribePixelFormat(hdc.param().abi(), ipixelformat, nbytes, core::mem::transmute(ppfd.unwrap_or(std::ptr::null_mut())))
+    DescribePixelFormat(hdc.param().abi(), ipixelformat, nbytes, core::mem::transmute(ppfd.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -23,7 +23,7 @@ where
     P0: windows_core::Param<super::Gdi::HENHMETAFILE>,
 {
     windows_targets::link!("gdi32.dll" "system" fn GetEnhMetaFilePixelFormat(hemf : super::Gdi:: HENHMETAFILE, cbbuffer : u32, ppfd : *mut PIXELFORMATDESCRIPTOR) -> u32);
-    GetEnhMetaFilePixelFormat(hemf.param().abi(), cbbuffer, core::mem::transmute(ppfd.unwrap_or(std::ptr::null_mut())))
+    GetEnhMetaFilePixelFormat(hemf.param().abi(), cbbuffer, core::mem::transmute(ppfd.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]

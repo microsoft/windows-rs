@@ -1694,7 +1694,7 @@ windows_core::imp::interface_hierarchy!(IEnumAddress, windows_core::IUnknown);
 impl IEnumAddress {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, ppelements: &mut [Option<ITAddress>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -1833,7 +1833,7 @@ impl core::ops::Deref for IEnumBstr {
 windows_core::imp::interface_hierarchy!(IEnumBstr, windows_core::IUnknown);
 impl IEnumBstr {
     pub unsafe fn Next(&self, ppstrings: &mut [windows_core::BSTR], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppstrings.len().try_into().unwrap(), core::mem::transmute(ppstrings.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppstrings.len().try_into().unwrap(), core::mem::transmute(ppstrings.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -1865,7 +1865,7 @@ windows_core::imp::interface_hierarchy!(IEnumCall, windows_core::IUnknown);
 impl IEnumCall {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITCallInfo>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -1900,7 +1900,7 @@ windows_core::imp::interface_hierarchy!(IEnumCallHub, windows_core::IUnknown);
 impl IEnumCallHub {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, ppelements: &mut [Option<ITCallHub>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -1935,7 +1935,7 @@ windows_core::imp::interface_hierarchy!(IEnumCallingCard, windows_core::IUnknown
 impl IEnumCallingCard {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITCallingCard>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -1969,7 +1969,7 @@ impl core::ops::Deref for IEnumDialableAddrs {
 windows_core::imp::interface_hierarchy!(IEnumDialableAddrs, windows_core::IUnknown);
 impl IEnumDialableAddrs {
     pub unsafe fn Next(&self, ppelements: &mut [windows_core::BSTR], pcfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2001,7 +2001,7 @@ windows_core::imp::interface_hierarchy!(IEnumDirectory, windows_core::IUnknown);
 impl IEnumDirectory {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, ppelements: &mut [Option<ITDirectory>], pcfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2036,7 +2036,7 @@ windows_core::imp::interface_hierarchy!(IEnumDirectoryObject, windows_core::IUnk
 impl IEnumDirectoryObject {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, pval: &mut [Option<ITDirectoryObject>], pcfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pval.len().try_into().unwrap(), core::mem::transmute(pval.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pval.len().try_into().unwrap(), core::mem::transmute(pval.as_ptr()), core::mem::transmute(pcfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2071,7 +2071,7 @@ windows_core::imp::interface_hierarchy!(IEnumLocation, windows_core::IUnknown);
 impl IEnumLocation {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITLocationInfo>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2106,7 +2106,7 @@ windows_core::imp::interface_hierarchy!(IEnumMcastScope, windows_core::IUnknown)
 impl IEnumMcastScope {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, ppscopes: *mut Option<IMcastScope>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppscopes), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppscopes), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2141,7 +2141,7 @@ windows_core::imp::interface_hierarchy!(IEnumPhone, windows_core::IUnknown);
 impl IEnumPhone {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, ppelements: &mut [Option<ITPhone>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2176,7 +2176,7 @@ windows_core::imp::interface_hierarchy!(IEnumPluggableSuperclassInfo, windows_co
 impl IEnumPluggableSuperclassInfo {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, ppelements: &mut [Option<ITPluggableTerminalSuperclassInfo>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2211,7 +2211,7 @@ windows_core::imp::interface_hierarchy!(IEnumPluggableTerminalClassInfo, windows
 impl IEnumPluggableTerminalClassInfo {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, ppelements: &mut [Option<ITPluggableTerminalClassInfo>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2281,7 +2281,7 @@ windows_core::imp::interface_hierarchy!(IEnumStream, windows_core::IUnknown);
 impl IEnumStream {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITStream>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2316,7 +2316,7 @@ windows_core::imp::interface_hierarchy!(IEnumSubStream, windows_core::IUnknown);
 impl IEnumSubStream {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITSubStream>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2351,7 +2351,7 @@ windows_core::imp::interface_hierarchy!(IEnumTerminal, windows_core::IUnknown);
 impl IEnumTerminal {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Next(&self, celt: u32, ppelements: *mut Option<ITTerminal>, pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(ppelements), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -2385,7 +2385,7 @@ impl core::ops::Deref for IEnumTerminalClass {
 windows_core::imp::interface_hierarchy!(IEnumTerminalClass, windows_core::IUnknown);
 impl IEnumTerminalClass {
     pub unsafe fn Next(&self, pelements: &mut [windows_core::GUID], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pelements.len().try_into().unwrap(), core::mem::transmute(pelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pelements.len().try_into().unwrap(), core::mem::transmute(pelements.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Reset(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
@@ -11380,26 +11380,26 @@ impl Default for LINEPROXYREQUEST {
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub union LINEPROXYREQUEST_0 {
-    pub SetAgentGroup: LINEPROXYREQUEST_0_14,
-    pub SetAgentState: LINEPROXYREQUEST_0_18,
-    pub SetAgentActivity: LINEPROXYREQUEST_0_13,
-    pub GetAgentCaps: LINEPROXYREQUEST_0_4,
-    pub GetAgentStatus: LINEPROXYREQUEST_0_9,
-    pub AgentSpecific: LINEPROXYREQUEST_0_0,
-    pub GetAgentActivityList: LINEPROXYREQUEST_0_3,
-    pub GetAgentGroupList: LINEPROXYREQUEST_0_5,
-    pub CreateAgent: LINEPROXYREQUEST_0_2,
-    pub SetAgentStateEx: LINEPROXYREQUEST_0_17,
-    pub SetAgentMeasurementPeriod: LINEPROXYREQUEST_0_15,
-    pub GetAgentInfo: LINEPROXYREQUEST_0_6,
-    pub CreateAgentSession: LINEPROXYREQUEST_0_1,
-    pub GetAgentSessionList: LINEPROXYREQUEST_0_8,
-    pub GetAgentSessionInfo: LINEPROXYREQUEST_0_7,
-    pub SetAgentSessionState: LINEPROXYREQUEST_0_16,
-    pub GetQueueList: LINEPROXYREQUEST_0_12,
-    pub SetQueueMeasurementPeriod: LINEPROXYREQUEST_0_19,
-    pub GetQueueInfo: LINEPROXYREQUEST_0_11,
-    pub GetGroupList: LINEPROXYREQUEST_0_10,
+    pub SetAgentGroup: LINEPROXYREQUEST_0_0,
+    pub SetAgentState: LINEPROXYREQUEST_0_1,
+    pub SetAgentActivity: LINEPROXYREQUEST_0_2,
+    pub GetAgentCaps: LINEPROXYREQUEST_0_3,
+    pub GetAgentStatus: LINEPROXYREQUEST_0_4,
+    pub AgentSpecific: LINEPROXYREQUEST_0_5,
+    pub GetAgentActivityList: LINEPROXYREQUEST_0_6,
+    pub GetAgentGroupList: LINEPROXYREQUEST_0_7,
+    pub CreateAgent: LINEPROXYREQUEST_0_8,
+    pub SetAgentStateEx: LINEPROXYREQUEST_0_9,
+    pub SetAgentMeasurementPeriod: LINEPROXYREQUEST_0_10,
+    pub GetAgentInfo: LINEPROXYREQUEST_0_11,
+    pub CreateAgentSession: LINEPROXYREQUEST_0_12,
+    pub GetAgentSessionList: LINEPROXYREQUEST_0_13,
+    pub GetAgentSessionInfo: LINEPROXYREQUEST_0_14,
+    pub SetAgentSessionState: LINEPROXYREQUEST_0_15,
+    pub GetQueueList: LINEPROXYREQUEST_0_16,
+    pub SetQueueMeasurementPeriod: LINEPROXYREQUEST_0_17,
+    pub GetQueueInfo: LINEPROXYREQUEST_0_18,
+    pub GetGroupList: LINEPROXYREQUEST_0_19,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0 {
@@ -11414,103 +11414,11 @@ impl Default for LINEPROXYREQUEST_0 {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_0 {
+pub struct LINEPROXYREQUEST_0_5 {
     pub dwAddressID: u32,
     pub dwAgentExtensionIDIndex: u32,
     pub dwSize: u32,
     pub Params: [u8; 1],
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_1 {
-    pub hAgentSession: u32,
-    pub dwAgentPINSize: u32,
-    pub dwAgentPINOffset: u32,
-    pub hAgent: u32,
-    pub GroupID: windows_core::GUID,
-    pub dwWorkingAddressID: u32,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_2 {
-    pub hAgent: u32,
-    pub dwAgentIDSize: u32,
-    pub dwAgentIDOffset: u32,
-    pub dwAgentPINSize: u32,
-    pub dwAgentPINOffset: u32,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_3 {
-    pub dwAddressID: u32,
-    pub ActivityList: LINEAGENTACTIVITYLIST,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_4 {
-    pub dwAddressID: u32,
-    pub AgentCaps: LINEAGENTCAPS,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_5 {
-    pub dwAddressID: u32,
-    pub GroupList: LINEAGENTGROUPLIST,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_5 {
@@ -11525,110 +11433,13 @@ impl Default for LINEPROXYREQUEST_0_5 {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_6 {
-    pub hAgent: u32,
-    pub AgentInfo: LINEAGENTINFO,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_7 {
-    pub hAgentSession: u32,
-    pub SessionInfo: LINEAGENTSESSIONINFO,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_7 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_8 {
-    pub hAgent: u32,
-    pub SessionList: LINEAGENTSESSIONLIST,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_8 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_8 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_9 {
-    pub dwAddressID: u32,
-    pub AgentStatus: LINEAGENTSTATUS,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_9 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_9 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_10 {
-    pub GroupList: LINEAGENTGROUPLIST,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_10 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_10 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_11 {
-    pub dwQueueID: u32,
-    pub QueueInfo: LINEQUEUEINFO,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_11 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_11 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_12 {
+    pub hAgentSession: u32,
+    pub dwAgentPINSize: u32,
+    pub dwAgentPINOffset: u32,
+    pub hAgent: u32,
     pub GroupID: windows_core::GUID,
-    pub QueueList: LINEQUEUELIST,
+    pub dwWorkingAddressID: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_12 {
@@ -11643,16 +11454,87 @@ impl Default for LINEPROXYREQUEST_0_12 {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_13 {
-    pub dwAddressID: u32,
-    pub dwActivityID: u32,
+pub struct LINEPROXYREQUEST_0_8 {
+    pub hAgent: u32,
+    pub dwAgentIDSize: u32,
+    pub dwAgentIDOffset: u32,
+    pub dwAgentPINSize: u32,
+    pub dwAgentPINOffset: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_13 {
+impl windows_core::TypeKind for LINEPROXYREQUEST_0_8 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_13 {
+impl Default for LINEPROXYREQUEST_0_8 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_6 {
+    pub dwAddressID: u32,
+    pub ActivityList: LINEAGENTACTIVITYLIST,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for LINEPROXYREQUEST_0_6 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for LINEPROXYREQUEST_0_6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_3 {
+    pub dwAddressID: u32,
+    pub AgentCaps: LINEAGENTCAPS,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for LINEPROXYREQUEST_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for LINEPROXYREQUEST_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_7 {
+    pub dwAddressID: u32,
+    pub GroupList: LINEAGENTGROUPLIST,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for LINEPROXYREQUEST_0_7 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for LINEPROXYREQUEST_0_7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_11 {
+    pub hAgent: u32,
+    pub AgentInfo: LINEAGENTINFO,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for LINEPROXYREQUEST_0_11 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for LINEPROXYREQUEST_0_11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -11661,8 +11543,8 @@ impl Default for LINEPROXYREQUEST_0_13 {
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_14 {
-    pub dwAddressID: u32,
-    pub GroupList: LINEAGENTGROUPLIST,
+    pub hAgentSession: u32,
+    pub SessionInfo: LINEAGENTSESSIONINFO,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_14 {
@@ -11677,16 +11559,16 @@ impl Default for LINEPROXYREQUEST_0_14 {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_15 {
+pub struct LINEPROXYREQUEST_0_13 {
     pub hAgent: u32,
-    pub dwMeasurementPeriod: u32,
+    pub SessionList: LINEAGENTSESSIONLIST,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_15 {
+impl windows_core::TypeKind for LINEPROXYREQUEST_0_13 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_15 {
+impl Default for LINEPROXYREQUEST_0_13 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -11694,35 +11576,32 @@ impl Default for LINEPROXYREQUEST_0_15 {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_16 {
-    pub hAgentSession: u32,
-    pub dwAgentSessionState: u32,
-    pub dwNextAgentSessionState: u32,
+pub struct LINEPROXYREQUEST_0_4 {
+    pub dwAddressID: u32,
+    pub AgentStatus: LINEAGENTSTATUS,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_16 {
+impl windows_core::TypeKind for LINEPROXYREQUEST_0_4 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_16 {
+impl Default for LINEPROXYREQUEST_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
+#[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_17 {
-    pub hAgent: u32,
-    pub dwAgentState: u32,
-    pub dwNextAgentState: u32,
+pub struct LINEPROXYREQUEST_0_19 {
+    pub GroupList: LINEAGENTGROUPLIST,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_17 {
+impl windows_core::TypeKind for LINEPROXYREQUEST_0_19 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_17 {
+impl Default for LINEPROXYREQUEST_0_19 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -11731,9 +11610,8 @@ impl Default for LINEPROXYREQUEST_0_17 {
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
 pub struct LINEPROXYREQUEST_0_18 {
-    pub dwAddressID: u32,
-    pub dwAgentState: u32,
-    pub dwNextAgentState: u32,
+    pub dwQueueID: u32,
+    pub QueueInfo: LINEQUEUEINFO,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl windows_core::TypeKind for LINEPROXYREQUEST_0_18 {
@@ -11748,16 +11626,138 @@ impl Default for LINEPROXYREQUEST_0_18 {
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct LINEPROXYREQUEST_0_19 {
+pub struct LINEPROXYREQUEST_0_16 {
+    pub GroupID: windows_core::GUID,
+    pub QueueList: LINEQUEUELIST,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for LINEPROXYREQUEST_0_16 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for LINEPROXYREQUEST_0_16 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_2 {
+    pub dwAddressID: u32,
+    pub dwActivityID: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for LINEPROXYREQUEST_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for LINEPROXYREQUEST_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_0 {
+    pub dwAddressID: u32,
+    pub GroupList: LINEAGENTGROUPLIST,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for LINEPROXYREQUEST_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for LINEPROXYREQUEST_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_10 {
+    pub hAgent: u32,
+    pub dwMeasurementPeriod: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for LINEPROXYREQUEST_0_10 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for LINEPROXYREQUEST_0_10 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_15 {
+    pub hAgentSession: u32,
+    pub dwAgentSessionState: u32,
+    pub dwNextAgentSessionState: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for LINEPROXYREQUEST_0_15 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for LINEPROXYREQUEST_0_15 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_9 {
+    pub hAgent: u32,
+    pub dwAgentState: u32,
+    pub dwNextAgentState: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for LINEPROXYREQUEST_0_9 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for LINEPROXYREQUEST_0_9 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_1 {
+    pub dwAddressID: u32,
+    pub dwAgentState: u32,
+    pub dwNextAgentState: u32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for LINEPROXYREQUEST_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for LINEPROXYREQUEST_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy)]
+pub struct LINEPROXYREQUEST_0_17 {
     pub dwQueueID: u32,
     pub dwMeasurementPeriod: u32,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for LINEPROXYREQUEST_0_19 {
+impl windows_core::TypeKind for LINEPROXYREQUEST_0_17 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Default for LINEPROXYREQUEST_0_19 {
+impl Default for LINEPROXYREQUEST_0_17 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -12002,13 +12002,13 @@ impl Default for MSP_EVENT_INFO {
 #[cfg(feature = "Win32_System_Com")]
 pub union MSP_EVENT_INFO_0 {
     pub MSP_ADDRESS_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_0>,
-    pub MSP_CALL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_2>,
-    pub MSP_TSP_DATA: MSP_EVENT_INFO_0_6,
-    pub MSP_PRIVATE_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_4>,
-    pub MSP_FILE_TERMINAL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_3>,
-    pub MSP_ASR_TERMINAL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_1>,
-    pub MSP_TTS_TERMINAL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_7>,
-    pub MSP_TONE_TERMINAL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_5>,
+    pub MSP_CALL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_1>,
+    pub MSP_TSP_DATA: MSP_EVENT_INFO_0_2,
+    pub MSP_PRIVATE_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_3>,
+    pub MSP_FILE_TERMINAL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_4>,
+    pub MSP_ASR_TERMINAL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_5>,
+    pub MSP_TTS_TERMINAL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_6>,
+    pub MSP_TONE_TERMINAL_EVENT_INFO: core::mem::ManuallyDrop<MSP_EVENT_INFO_0_7>,
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Clone for MSP_EVENT_INFO_0 {
@@ -12052,106 +12052,8 @@ impl Default for MSP_EVENT_INFO_0_0 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Debug, Eq, PartialEq)]
-pub struct MSP_EVENT_INFO_0_1 {
-    pub pASRTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
-    pub hrErrorCode: windows_core::HRESULT,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for MSP_EVENT_INFO_0_1 {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for MSP_EVENT_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for MSP_EVENT_INFO_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, Eq, PartialEq)]
-pub struct MSP_EVENT_INFO_0_2 {
-    pub Type: MSP_CALL_EVENT,
-    pub Cause: MSP_CALL_EVENT_CAUSE,
-    pub pStream: core::mem::ManuallyDrop<Option<ITStream>>,
-    pub pTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
-    pub hrError: windows_core::HRESULT,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for MSP_EVENT_INFO_0_2 {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for MSP_EVENT_INFO_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for MSP_EVENT_INFO_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, Eq, PartialEq)]
-pub struct MSP_EVENT_INFO_0_3 {
-    pub pParentFileTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
-    pub pFileTrack: core::mem::ManuallyDrop<Option<ITFileTrack>>,
-    pub TerminalMediaState: TERMINAL_MEDIA_STATE,
-    pub ftecEventCause: FT_STATE_EVENT_CAUSE,
-    pub hrErrorCode: windows_core::HRESULT,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for MSP_EVENT_INFO_0_3 {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for MSP_EVENT_INFO_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for MSP_EVENT_INFO_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, Eq, PartialEq)]
-pub struct MSP_EVENT_INFO_0_4 {
-    pub pEvent: core::mem::ManuallyDrop<Option<super::super::System::Com::IDispatch>>,
-    pub lEventCode: i32,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Clone for MSP_EVENT_INFO_0_4 {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for MSP_EVENT_INFO_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl Default for MSP_EVENT_INFO_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Com")]
-#[derive(Debug, Eq, PartialEq)]
 pub struct MSP_EVENT_INFO_0_5 {
-    pub pToneTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
+    pub pASRTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
     pub hrErrorCode: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12172,17 +12074,75 @@ impl Default for MSP_EVENT_INFO_0_5 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct MSP_EVENT_INFO_0_6 {
-    pub dwBufferSize: u32,
-    pub pBuffer: [u8; 1],
+#[derive(Debug, Eq, PartialEq)]
+pub struct MSP_EVENT_INFO_0_1 {
+    pub Type: MSP_CALL_EVENT,
+    pub Cause: MSP_CALL_EVENT_CAUSE,
+    pub pStream: core::mem::ManuallyDrop<Option<ITStream>>,
+    pub pTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
+    pub hrError: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::TypeKind for MSP_EVENT_INFO_0_6 {
+impl Clone for MSP_EVENT_INFO_0_1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for MSP_EVENT_INFO_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl Default for MSP_EVENT_INFO_0_6 {
+impl Default for MSP_EVENT_INFO_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Debug, Eq, PartialEq)]
+pub struct MSP_EVENT_INFO_0_4 {
+    pub pParentFileTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
+    pub pFileTrack: core::mem::ManuallyDrop<Option<ITFileTrack>>,
+    pub TerminalMediaState: TERMINAL_MEDIA_STATE,
+    pub ftecEventCause: FT_STATE_EVENT_CAUSE,
+    pub hrErrorCode: windows_core::HRESULT,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Clone for MSP_EVENT_INFO_0_4 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for MSP_EVENT_INFO_0_4 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for MSP_EVENT_INFO_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Debug, Eq, PartialEq)]
+pub struct MSP_EVENT_INFO_0_3 {
+    pub pEvent: core::mem::ManuallyDrop<Option<super::super::System::Com::IDispatch>>,
+    pub lEventCode: i32,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Clone for MSP_EVENT_INFO_0_3 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for MSP_EVENT_INFO_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for MSP_EVENT_INFO_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -12191,7 +12151,7 @@ impl Default for MSP_EVENT_INFO_0_6 {
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Debug, Eq, PartialEq)]
 pub struct MSP_EVENT_INFO_0_7 {
-    pub pTTSTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
+    pub pToneTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
     pub hrErrorCode: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12206,6 +12166,46 @@ impl windows_core::TypeKind for MSP_EVENT_INFO_0_7 {
 }
 #[cfg(feature = "Win32_System_Com")]
 impl Default for MSP_EVENT_INFO_0_7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct MSP_EVENT_INFO_0_2 {
+    pub dwBufferSize: u32,
+    pub pBuffer: [u8; 1],
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for MSP_EVENT_INFO_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for MSP_EVENT_INFO_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Com")]
+#[derive(Debug, Eq, PartialEq)]
+pub struct MSP_EVENT_INFO_0_6 {
+    pub pTTSTerminal: core::mem::ManuallyDrop<Option<ITTerminal>>,
+    pub hrErrorCode: windows_core::HRESULT,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Clone for MSP_EVENT_INFO_0_6 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::TypeKind for MSP_EVENT_INFO_0_6 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl Default for MSP_EVENT_INFO_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

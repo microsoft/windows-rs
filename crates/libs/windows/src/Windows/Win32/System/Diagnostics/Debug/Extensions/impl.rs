@@ -15291,7 +15291,7 @@ impl IDebugFAEntryTags_Vtbl {
     }
 }
 #[doc(hidden)]
-struct IDebugFAEntryTags_ImplVtbl<T: IDebugFAEntryTags_Impl>(std::marker::PhantomData<T>);
+struct IDebugFAEntryTags_ImplVtbl<T: IDebugFAEntryTags_Impl>(core::marker::PhantomData<T>);
 impl<T: IDebugFAEntryTags_Impl> IDebugFAEntryTags_ImplVtbl<T> {
     const VTABLE: IDebugFAEntryTags_Vtbl = IDebugFAEntryTags_Vtbl::new::<T>();
 }

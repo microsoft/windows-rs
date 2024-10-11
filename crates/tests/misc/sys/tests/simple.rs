@@ -27,7 +27,7 @@ fn types() {
 
     // Handles
     let _: HANDLE = core::ptr::null_mut();
-    let _: PSTR = b"hello\0".as_ptr() as _;
+    let _: PSTR = c"hello".as_ptr() as _;
 }
 
 #[test]

@@ -93,7 +93,7 @@ impl From<&String> for BSTR {
     }
 }
 
-impl<'a> TryFrom<&'a BSTR> for String {
+impl TryFrom<&BSTR> for String {
     type Error = alloc::string::FromUtf16Error;
 
     fn try_from(value: &BSTR) -> core::result::Result<Self, Self::Error> {

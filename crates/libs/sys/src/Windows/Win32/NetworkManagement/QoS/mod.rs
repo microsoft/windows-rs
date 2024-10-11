@@ -876,20 +876,20 @@ pub struct IP_PATTERN {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IP_PATTERN_0 {
-    pub S_un_ports: IP_PATTERN_0_1,
-    pub S_un_icmp: IP_PATTERN_0_0,
+    pub S_un_ports: IP_PATTERN_0_0,
+    pub S_un_icmp: IP_PATTERN_0_1,
     pub S_Spi: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct IP_PATTERN_0_0 {
+pub struct IP_PATTERN_0_1 {
     pub s_type: u8,
     pub s_code: u8,
     pub filler: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct IP_PATTERN_0_1 {
+pub struct IP_PATTERN_0_0 {
     pub s_srcport: u16,
     pub s_dstport: u16,
 }

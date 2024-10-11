@@ -217,7 +217,7 @@ impl IReconcilableObject {
         P2: windows_core::Param<super::super::Foundation::HWND>,
         P3: windows_core::Param<super::super::System::Com::StructuredStorage::IStorage>,
     {
-        (windows_core::Interface::vtable(self).Reconcile)(windows_core::Interface::as_raw(self), pinitiator.param().abi(), dwflags, hwndowner.param().abi(), hwndprogressfeedback.param().abi(), rgpmkotherinput.len().try_into().unwrap(), core::mem::transmute(rgpmkotherinput.as_ptr()), ploutindex, pstgnewresidues.param().abi(), core::mem::transmute(pvreserved.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Reconcile)(windows_core::Interface::as_raw(self), pinitiator.param().abi(), dwflags, hwndowner.param().abi(), hwndprogressfeedback.param().abi(), rgpmkotherinput.len().try_into().unwrap(), core::mem::transmute(rgpmkotherinput.as_ptr()), ploutindex, pstgnewresidues.param().abi(), core::mem::transmute(pvreserved.unwrap_or(core::ptr::null()))).ok()
     }
     pub unsafe fn GetProgressFeedbackMaxEstimate(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();

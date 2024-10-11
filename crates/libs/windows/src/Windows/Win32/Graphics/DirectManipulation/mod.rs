@@ -109,7 +109,7 @@ impl IDirectManipulationContent {
     where
         T: windows_core::Interface,
     {
-        (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _, core::mem::transmute(id.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _, core::mem::transmute(id.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetTag<P0>(&self, object: P0, id: u32) -> windows_core::Result<()>
     where
@@ -498,7 +498,7 @@ impl IDirectManipulationViewport {
     where
         T: windows_core::Interface,
     {
-        (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _, core::mem::transmute(id.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetTag)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _, core::mem::transmute(id.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetTag<P0>(&self, object: P0, id: u32) -> windows_core::Result<()>
     where

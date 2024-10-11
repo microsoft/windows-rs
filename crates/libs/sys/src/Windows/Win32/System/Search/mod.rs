@@ -5860,27 +5860,27 @@ pub union SSVARIANT_0 {
     pub fltRealVal: f32,
     pub dblFloatVal: f64,
     pub cyMoneyVal: super::Com::CY,
-    pub NCharVal: SSVARIANT_0_3,
-    pub CharVal: SSVARIANT_0_2,
+    pub NCharVal: SSVARIANT_0_0,
+    pub CharVal: SSVARIANT_0_1,
     pub fBitVal: super::super::Foundation::VARIANT_BOOL,
     pub rgbGuidVal: [u8; 16],
     pub numNumericVal: DB_NUMERIC,
-    pub BinaryVal: SSVARIANT_0_1,
+    pub BinaryVal: SSVARIANT_0_2,
     pub tsDateTimeVal: DBTIMESTAMP,
-    pub UnknownType: SSVARIANT_0_4,
-    pub BLOBType: SSVARIANT_0_0,
+    pub UnknownType: SSVARIANT_0_3,
+    pub BLOBType: SSVARIANT_0_4,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct SSVARIANT_0_0 {
+pub struct SSVARIANT_0_4 {
     pub dbobj: DBOBJECT,
     pub pUnk: *mut core::ffi::c_void,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct SSVARIANT_0_1 {
+pub struct SSVARIANT_0_2 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
     pub prgbBinaryVal: *mut u8,
@@ -5889,7 +5889,7 @@ pub struct SSVARIANT_0_1 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct SSVARIANT_0_2 {
+pub struct SSVARIANT_0_1 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
     pub pchCharVal: windows_sys::core::PSTR,
@@ -5900,7 +5900,7 @@ pub struct SSVARIANT_0_2 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct SSVARIANT_0_3 {
+pub struct SSVARIANT_0_0 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
     pub pwchNCharVal: windows_sys::core::PWSTR,
@@ -5911,7 +5911,7 @@ pub struct SSVARIANT_0_3 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
 #[derive(Clone, Copy)]
-pub struct SSVARIANT_0_4 {
+pub struct SSVARIANT_0_3 {
     pub dwActualLength: u32,
     pub rgMetadata: [u8; 16],
     pub pUnknownData: *mut u8,

@@ -166,7 +166,7 @@ where
     P1: windows_core::Param<super::Gdi::HBITMAP>,
 {
     windows_targets::link!("dwmapi.dll" "system" fn DwmSetIconicLivePreviewBitmap(hwnd : super::super::Foundation:: HWND, hbmp : super::Gdi:: HBITMAP, pptclient : *const super::super::Foundation:: POINT, dwsitflags : u32) -> windows_core::HRESULT);
-    DwmSetIconicLivePreviewBitmap(hwnd.param().abi(), hbmp.param().abi(), core::mem::transmute(pptclient.unwrap_or(std::ptr::null())), dwsitflags).ok()
+    DwmSetIconicLivePreviewBitmap(hwnd.param().abi(), hbmp.param().abi(), core::mem::transmute(pptclient.unwrap_or(core::ptr::null())), dwsitflags).ok()
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]

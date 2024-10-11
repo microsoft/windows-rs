@@ -6,7 +6,7 @@ use super::*;
 #[repr(transparent)]
 pub struct OutRef<'a, T: Type<T>>(*mut T::Abi, core::marker::PhantomData<&'a T>);
 
-impl<'a, T: Type<T>> OutRef<'a, T> {
+impl<T: Type<T>> OutRef<'_, T> {
     /// Returns `true` if the argument is null.
     pub fn is_null(&self) -> bool {
         self.0.is_null()

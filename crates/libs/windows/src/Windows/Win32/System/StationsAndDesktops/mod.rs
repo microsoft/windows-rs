@@ -5,7 +5,7 @@ where
     P1: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn BroadcastSystemMessageA(flags : u32, lpinfo : *mut u32, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> i32);
-    BroadcastSystemMessageA(flags, core::mem::transmute(lpinfo.unwrap_or(std::ptr::null_mut())), msg, wparam.param().abi(), lparam.param().abi())
+    BroadcastSystemMessageA(flags, core::mem::transmute(lpinfo.unwrap_or(core::ptr::null_mut())), msg, wparam.param().abi(), lparam.param().abi())
 }
 #[inline]
 pub unsafe fn BroadcastSystemMessageExA<P0, P1>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Option<*mut BROADCAST_SYSTEM_MESSAGE_INFO>, msg: u32, wparam: P0, lparam: P1, pbsminfo: Option<*mut BSMINFO>) -> i32
@@ -14,7 +14,7 @@ where
     P1: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn BroadcastSystemMessageExA(flags : BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo : *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, pbsminfo : *mut BSMINFO) -> i32);
-    BroadcastSystemMessageExA(flags, core::mem::transmute(lpinfo.unwrap_or(std::ptr::null_mut())), msg, wparam.param().abi(), lparam.param().abi(), core::mem::transmute(pbsminfo.unwrap_or(std::ptr::null_mut())))
+    BroadcastSystemMessageExA(flags, core::mem::transmute(lpinfo.unwrap_or(core::ptr::null_mut())), msg, wparam.param().abi(), lparam.param().abi(), core::mem::transmute(pbsminfo.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn BroadcastSystemMessageExW<P0, P1>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Option<*mut BROADCAST_SYSTEM_MESSAGE_INFO>, msg: u32, wparam: P0, lparam: P1, pbsminfo: Option<*mut BSMINFO>) -> i32
@@ -23,7 +23,7 @@ where
     P1: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn BroadcastSystemMessageExW(flags : BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo : *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, pbsminfo : *mut BSMINFO) -> i32);
-    BroadcastSystemMessageExW(flags, core::mem::transmute(lpinfo.unwrap_or(std::ptr::null_mut())), msg, wparam.param().abi(), lparam.param().abi(), core::mem::transmute(pbsminfo.unwrap_or(std::ptr::null_mut())))
+    BroadcastSystemMessageExW(flags, core::mem::transmute(lpinfo.unwrap_or(core::ptr::null_mut())), msg, wparam.param().abi(), lparam.param().abi(), core::mem::transmute(pbsminfo.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn BroadcastSystemMessageW<P0, P1>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Option<*mut BROADCAST_SYSTEM_MESSAGE_INFO>, msg: u32, wparam: P0, lparam: P1) -> i32
@@ -32,7 +32,7 @@ where
     P1: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("user32.dll" "system" fn BroadcastSystemMessageW(flags : BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo : *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM) -> i32);
-    BroadcastSystemMessageW(flags, core::mem::transmute(lpinfo.unwrap_or(std::ptr::null_mut())), msg, wparam.param().abi(), lparam.param().abi())
+    BroadcastSystemMessageW(flags, core::mem::transmute(lpinfo.unwrap_or(core::ptr::null_mut())), msg, wparam.param().abi(), lparam.param().abi())
 }
 #[inline]
 pub unsafe fn CloseDesktop<P0>(hdesktop: P0) -> windows_core::Result<()>
@@ -58,7 +58,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn CreateDesktopA(lpszdesktop : windows_core::PCSTR, lpszdevice : windows_core::PCSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA, dwflags : DESKTOP_CONTROL_FLAGS, dwdesiredaccess : u32, lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> HDESK);
-    let result__ = CreateDesktopA(lpszdesktop.param().abi(), lpszdevice.param().abi(), core::mem::transmute(pdevmode.unwrap_or(std::ptr::null())), dwflags, dwdesiredaccess, core::mem::transmute(lpsa.unwrap_or(std::ptr::null())));
+    let result__ = CreateDesktopA(lpszdesktop.param().abi(), lpszdevice.param().abi(), core::mem::transmute(pdevmode.unwrap_or(core::ptr::null())), dwflags, dwdesiredaccess, core::mem::transmute(lpsa.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
@@ -69,7 +69,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn CreateDesktopExA(lpszdesktop : windows_core::PCSTR, lpszdevice : windows_core::PCSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEA, dwflags : DESKTOP_CONTROL_FLAGS, dwdesiredaccess : u32, lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES, ulheapsize : u32, pvoid : *const core::ffi::c_void) -> HDESK);
-    let result__ = CreateDesktopExA(lpszdesktop.param().abi(), lpszdevice.param().abi(), core::mem::transmute(pdevmode.unwrap_or(std::ptr::null())), dwflags, dwdesiredaccess, core::mem::transmute(lpsa.unwrap_or(std::ptr::null())), ulheapsize, core::mem::transmute(pvoid.unwrap_or(std::ptr::null())));
+    let result__ = CreateDesktopExA(lpszdesktop.param().abi(), lpszdevice.param().abi(), core::mem::transmute(pdevmode.unwrap_or(core::ptr::null())), dwflags, dwdesiredaccess, core::mem::transmute(lpsa.unwrap_or(core::ptr::null())), ulheapsize, core::mem::transmute(pvoid.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
@@ -80,7 +80,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn CreateDesktopExW(lpszdesktop : windows_core::PCWSTR, lpszdevice : windows_core::PCWSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW, dwflags : DESKTOP_CONTROL_FLAGS, dwdesiredaccess : u32, lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES, ulheapsize : u32, pvoid : *const core::ffi::c_void) -> HDESK);
-    let result__ = CreateDesktopExW(lpszdesktop.param().abi(), lpszdevice.param().abi(), core::mem::transmute(pdevmode.unwrap_or(std::ptr::null())), dwflags, dwdesiredaccess, core::mem::transmute(lpsa.unwrap_or(std::ptr::null())), ulheapsize, core::mem::transmute(pvoid.unwrap_or(std::ptr::null())));
+    let result__ = CreateDesktopExW(lpszdesktop.param().abi(), lpszdevice.param().abi(), core::mem::transmute(pdevmode.unwrap_or(core::ptr::null())), dwflags, dwdesiredaccess, core::mem::transmute(lpsa.unwrap_or(core::ptr::null())), ulheapsize, core::mem::transmute(pvoid.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
@@ -91,7 +91,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn CreateDesktopW(lpszdesktop : windows_core::PCWSTR, lpszdevice : windows_core::PCWSTR, pdevmode : *const super::super::Graphics::Gdi:: DEVMODEW, dwflags : DESKTOP_CONTROL_FLAGS, dwdesiredaccess : u32, lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> HDESK);
-    let result__ = CreateDesktopW(lpszdesktop.param().abi(), lpszdevice.param().abi(), core::mem::transmute(pdevmode.unwrap_or(std::ptr::null())), dwflags, dwdesiredaccess, core::mem::transmute(lpsa.unwrap_or(std::ptr::null())));
+    let result__ = CreateDesktopW(lpszdesktop.param().abi(), lpszdevice.param().abi(), core::mem::transmute(pdevmode.unwrap_or(core::ptr::null())), dwflags, dwdesiredaccess, core::mem::transmute(lpsa.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Security")]
@@ -101,7 +101,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn CreateWindowStationA(lpwinsta : windows_core::PCSTR, dwflags : u32, dwdesiredaccess : u32, lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> HWINSTA);
-    let result__ = CreateWindowStationA(lpwinsta.param().abi(), dwflags, dwdesiredaccess, core::mem::transmute(lpsa.unwrap_or(std::ptr::null())));
+    let result__ = CreateWindowStationA(lpwinsta.param().abi(), dwflags, dwdesiredaccess, core::mem::transmute(lpsa.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_Security")]
@@ -111,7 +111,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("user32.dll" "system" fn CreateWindowStationW(lpwinsta : windows_core::PCWSTR, dwflags : u32, dwdesiredaccess : u32, lpsa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> HWINSTA);
-    let result__ = CreateWindowStationW(lpwinsta.param().abi(), dwflags, dwdesiredaccess, core::mem::transmute(lpsa.unwrap_or(std::ptr::null())));
+    let result__ = CreateWindowStationW(lpwinsta.param().abi(), dwflags, dwdesiredaccess, core::mem::transmute(lpsa.unwrap_or(core::ptr::null())));
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -176,7 +176,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("user32.dll" "system" fn GetUserObjectInformationA(hobj : super::super::Foundation:: HANDLE, nindex : USER_OBJECT_INFORMATION_INDEX, pvinfo : *mut core::ffi::c_void, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetUserObjectInformationA(hobj.param().abi(), nindex, core::mem::transmute(pvinfo.unwrap_or(std::ptr::null_mut())), nlength, core::mem::transmute(lpnlengthneeded.unwrap_or(std::ptr::null_mut()))).ok()
+    GetUserObjectInformationA(hobj.param().abi(), nindex, core::mem::transmute(pvinfo.unwrap_or(core::ptr::null_mut())), nlength, core::mem::transmute(lpnlengthneeded.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn GetUserObjectInformationW<P0>(hobj: P0, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: Option<*mut core::ffi::c_void>, nlength: u32, lpnlengthneeded: Option<*mut u32>) -> windows_core::Result<()>
@@ -184,7 +184,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("user32.dll" "system" fn GetUserObjectInformationW(hobj : super::super::Foundation:: HANDLE, nindex : USER_OBJECT_INFORMATION_INDEX, pvinfo : *mut core::ffi::c_void, nlength : u32, lpnlengthneeded : *mut u32) -> super::super::Foundation:: BOOL);
-    GetUserObjectInformationW(hobj.param().abi(), nindex, core::mem::transmute(pvinfo.unwrap_or(std::ptr::null_mut())), nlength, core::mem::transmute(lpnlengthneeded.unwrap_or(std::ptr::null_mut()))).ok()
+    GetUserObjectInformationW(hobj.param().abi(), nindex, core::mem::transmute(pvinfo.unwrap_or(core::ptr::null_mut())), nlength, core::mem::transmute(lpnlengthneeded.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn OpenDesktopA<P0, P1>(lpszdesktop: P0, dwflags: DESKTOP_CONTROL_FLAGS, finherit: P1, dwdesiredaccess: u32) -> windows_core::Result<HDESK>

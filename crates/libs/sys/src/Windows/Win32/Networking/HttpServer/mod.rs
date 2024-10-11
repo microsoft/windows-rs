@@ -522,21 +522,21 @@ pub struct HTTP_DATA_CHUNK {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union HTTP_DATA_CHUNK_0 {
-    pub FromMemory: HTTP_DATA_CHUNK_0_3,
-    pub FromFileHandle: HTTP_DATA_CHUNK_0_0,
+    pub FromMemory: HTTP_DATA_CHUNK_0_0,
+    pub FromFileHandle: HTTP_DATA_CHUNK_0_1,
     pub FromFragmentCache: HTTP_DATA_CHUNK_0_2,
-    pub FromFragmentCacheEx: HTTP_DATA_CHUNK_0_1,
+    pub FromFragmentCacheEx: HTTP_DATA_CHUNK_0_3,
     pub Trailers: HTTP_DATA_CHUNK_0_4,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct HTTP_DATA_CHUNK_0_0 {
+pub struct HTTP_DATA_CHUNK_0_1 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub FileHandle: super::super::Foundation::HANDLE,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct HTTP_DATA_CHUNK_0_1 {
+pub struct HTTP_DATA_CHUNK_0_3 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub pFragmentName: windows_sys::core::PCWSTR,
 }
@@ -548,7 +548,7 @@ pub struct HTTP_DATA_CHUNK_0_2 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct HTTP_DATA_CHUNK_0_3 {
+pub struct HTTP_DATA_CHUNK_0_0 {
     pub pBuffer: *mut core::ffi::c_void,
     pub BufferLength: u32,
 }

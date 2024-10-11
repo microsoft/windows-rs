@@ -13,7 +13,7 @@ where
     P0: windows_core::Param<WINUSB_INTERFACE_HANDLE>,
 {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_ControlTransfer(interfacehandle : WINUSB_INTERFACE_HANDLE, setuppacket : WINUSB_SETUP_PACKET, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_ControlTransfer(interfacehandle.param().abi(), core::mem::transmute(setuppacket), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lengthtransferred.unwrap_or(std::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(std::ptr::null()))).ok()
+    WinUsb_ControlTransfer(interfacehandle.param().abi(), core::mem::transmute(setuppacket), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lengthtransferred.unwrap_or(core::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_FlushPipe<P0>(interfacehandle: P0, pipeid: u8) -> windows_core::Result<()>
@@ -156,7 +156,7 @@ where
 #[inline]
 pub unsafe fn WinUsb_ReadIsochPipe(bufferhandle: *const core::ffi::c_void, offset: u32, length: u32, framenumber: *mut u32, isopacketdescriptors: &mut [USBD_ISO_PACKET_DESCRIPTOR], overlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_ReadIsochPipe(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, framenumber : *mut u32, numberofpackets : u32, isopacketdescriptors : *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_ReadIsochPipe(bufferhandle, offset, length, framenumber, isopacketdescriptors.len().try_into().unwrap(), core::mem::transmute(isopacketdescriptors.as_ptr()), core::mem::transmute(overlapped.unwrap_or(std::ptr::null()))).ok()
+    WinUsb_ReadIsochPipe(bufferhandle, offset, length, framenumber, isopacketdescriptors.len().try_into().unwrap(), core::mem::transmute(isopacketdescriptors.as_ptr()), core::mem::transmute(overlapped.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -165,7 +165,7 @@ where
     P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_ReadIsochPipeAsap(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, continuestream : super::super::Foundation:: BOOL, numberofpackets : u32, isopacketdescriptors : *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_ReadIsochPipeAsap(bufferhandle, offset, length, continuestream.param().abi(), isopacketdescriptors.len().try_into().unwrap(), core::mem::transmute(isopacketdescriptors.as_ptr()), core::mem::transmute(overlapped.unwrap_or(std::ptr::null()))).ok()
+    WinUsb_ReadIsochPipeAsap(bufferhandle, offset, length, continuestream.param().abi(), isopacketdescriptors.len().try_into().unwrap(), core::mem::transmute(isopacketdescriptors.as_ptr()), core::mem::transmute(overlapped.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -174,7 +174,7 @@ where
     P0: windows_core::Param<WINUSB_INTERFACE_HANDLE>,
 {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_ReadPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_ReadPipe(interfacehandle.param().abi(), pipeid, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lengthtransferred.unwrap_or(std::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(std::ptr::null()))).ok()
+    WinUsb_ReadPipe(interfacehandle.param().abi(), pipeid, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lengthtransferred.unwrap_or(core::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn WinUsb_RegisterIsochBuffer<P0>(interfacehandle: P0, pipeid: u8, buffer: &mut [u8], isochbufferhandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -241,7 +241,7 @@ pub unsafe fn WinUsb_UnregisterIsochBuffer(isochbufferhandle: *const core::ffi::
 #[inline]
 pub unsafe fn WinUsb_WriteIsochPipe(bufferhandle: *const core::ffi::c_void, offset: u32, length: u32, framenumber: *mut u32, overlapped: Option<*const super::super::System::IO::OVERLAPPED>) -> windows_core::Result<()> {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_WriteIsochPipe(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, framenumber : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_WriteIsochPipe(bufferhandle, offset, length, framenumber, core::mem::transmute(overlapped.unwrap_or(std::ptr::null()))).ok()
+    WinUsb_WriteIsochPipe(bufferhandle, offset, length, framenumber, core::mem::transmute(overlapped.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -250,7 +250,7 @@ where
     P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_WriteIsochPipeAsap(bufferhandle : *const core::ffi::c_void, offset : u32, length : u32, continuestream : super::super::Foundation:: BOOL, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_WriteIsochPipeAsap(bufferhandle, offset, length, continuestream.param().abi(), core::mem::transmute(overlapped.unwrap_or(std::ptr::null()))).ok()
+    WinUsb_WriteIsochPipeAsap(bufferhandle, offset, length, continuestream.param().abi(), core::mem::transmute(overlapped.unwrap_or(core::ptr::null()))).ok()
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -259,7 +259,7 @@ where
     P0: windows_core::Param<WINUSB_INTERFACE_HANDLE>,
 {
     windows_targets::link!("winusb.dll" "system" fn WinUsb_WritePipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *const u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
-    WinUsb_WritePipe(interfacehandle.param().abi(), pipeid, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(lengthtransferred.unwrap_or(std::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(std::ptr::null()))).ok()
+    WinUsb_WritePipe(interfacehandle.param().abi(), pipeid, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(lengthtransferred.unwrap_or(core::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(core::ptr::null()))).ok()
 }
 pub const ALLOW_PARTIAL_READS: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(5u32);
 pub const ALL_PIPE: PIPE_TYPE = PIPE_TYPE(3i32);
@@ -2566,42 +2566,14 @@ impl Default for USB_CYCLE_PORT_PARAMS {
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET {
     pub bmRequestType: BM_REQUEST_TYPE,
     pub bRequest: u8,
-    pub wValue: USB_DEFAULT_PIPE_SETUP_PACKET_1,
-    pub wIndex: USB_DEFAULT_PIPE_SETUP_PACKET_0,
+    pub wValue: USB_DEFAULT_PIPE_SETUP_PACKET_0,
+    pub wIndex: USB_DEFAULT_PIPE_SETUP_PACKET_1,
     pub wLength: u16,
 }
 impl windows_core::TypeKind for USB_DEFAULT_PIPE_SETUP_PACKET {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for USB_DEFAULT_PIPE_SETUP_PACKET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union USB_DEFAULT_PIPE_SETUP_PACKET_0 {
-    pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_0_0,
-    pub W: u16,
-}
-impl windows_core::TypeKind for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
-    pub LowByte: u8,
-    pub HiByte: u8,
-}
-impl windows_core::TypeKind for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2630,6 +2602,34 @@ impl windows_core::TypeKind for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub union USB_DEFAULT_PIPE_SETUP_PACKET_0 {
+    pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_0_0,
+    pub W: u16,
+}
+impl windows_core::TypeKind for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
+    pub LowByte: u8,
+    pub HiByte: u8,
+}
+impl windows_core::TypeKind for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2675,10 +2675,10 @@ pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     pub iAddtionalInfoURL: u8,
     pub bNumberOfAlternateModes: u8,
     pub bPreferredAlternateMode: u8,
-    pub VconnPower: USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1,
+    pub VconnPower: USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0,
     pub bmConfigured: [u8; 32],
     pub bReserved: u32,
-    pub AlternateMode: [USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0; 1],
+    pub AlternateMode: [USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1; 1],
 }
 impl windows_core::TypeKind for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     type TypeKind = windows_core::CopyType;
@@ -2690,24 +2690,10 @@ impl Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
-pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
+pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
     pub wSVID: u16,
     pub bAlternateMode: u8,
     pub iAlternateModeSetting: u8,
-}
-impl windows_core::TypeKind for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[derive(Clone, Copy)]
-pub union USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
-    pub AsUshort: u16,
-    pub Anonymous: USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0,
 }
 impl windows_core::TypeKind for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
     type TypeKind = windows_core::CopyType;
@@ -2719,13 +2705,27 @@ impl Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
-pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
-    pub _bitfield: u16,
+pub union USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
+    pub AsUshort: u16,
+    pub Anonymous: USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0_0,
 }
-impl windows_core::TypeKind for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
+impl windows_core::TypeKind for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
+impl Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0_0 {
+    pub _bitfield: u16,
+}
+impl windows_core::TypeKind for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

@@ -28,7 +28,7 @@ where
 #[inline]
 pub unsafe fn AllJoynCreateBus(outbuffersize: u32, inbuffersize: u32, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>) -> super::super::Foundation::HANDLE {
     windows_targets::link!("msajapi.dll" "system" fn AllJoynCreateBus(outbuffersize : u32, inbuffersize : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES) -> super::super::Foundation:: HANDLE);
-    AllJoynCreateBus(outbuffersize, inbuffersize, core::mem::transmute(lpsecurityattributes.unwrap_or(std::ptr::null())))
+    AllJoynCreateBus(outbuffersize, inbuffersize, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn AllJoynEnumEvents<P0, P1>(connectedbushandle: P0, eventtoreset: P1, eventtypes: *mut u32) -> windows_core::Result<()>
@@ -54,7 +54,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("msajapi.dll" "system" fn AllJoynReceiveFromBus(connectedbushandle : super::super::Foundation:: HANDLE, buffer : *mut core::ffi::c_void, bytestoread : u32, bytestransferred : *mut u32, reserved : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    AllJoynReceiveFromBus(connectedbushandle.param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null_mut())), bytestoread, core::mem::transmute(bytestransferred.unwrap_or(std::ptr::null_mut())), reserved).ok()
+    AllJoynReceiveFromBus(connectedbushandle.param().abi(), core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), bytestoread, core::mem::transmute(bytestransferred.unwrap_or(core::ptr::null_mut())), reserved).ok()
 }
 #[inline]
 pub unsafe fn AllJoynSendToBus<P0>(connectedbushandle: P0, buffer: Option<*const core::ffi::c_void>, bytestowrite: u32, bytestransferred: Option<*mut u32>, reserved: *mut core::ffi::c_void) -> windows_core::Result<()>
@@ -62,7 +62,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("msajapi.dll" "system" fn AllJoynSendToBus(connectedbushandle : super::super::Foundation:: HANDLE, buffer : *const core::ffi::c_void, bytestowrite : u32, bytestransferred : *mut u32, reserved : *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
-    AllJoynSendToBus(connectedbushandle.param().abi(), core::mem::transmute(buffer.unwrap_or(std::ptr::null())), bytestowrite, core::mem::transmute(bytestransferred.unwrap_or(std::ptr::null_mut())), reserved).ok()
+    AllJoynSendToBus(connectedbushandle.param().abi(), core::mem::transmute(buffer.unwrap_or(core::ptr::null())), bytestowrite, core::mem::transmute(bytestransferred.unwrap_or(core::ptr::null_mut())), reserved).ok()
 }
 #[inline]
 pub unsafe fn QCC_StatusText(status: QStatus) -> windows_core::PCSTR {

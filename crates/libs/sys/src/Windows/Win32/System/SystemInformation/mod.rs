@@ -702,19 +702,19 @@ pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
-    pub ProcessorCore: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1,
-    pub NumaNode: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0,
+    pub ProcessorCore: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0,
+    pub NumaNode: SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1,
     pub Cache: CACHE_DESCRIPTOR,
     pub Reserved: [u64; 2],
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
     pub NodeNumber: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
+pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
     pub Flags: u8,
 }
 #[repr(C)]

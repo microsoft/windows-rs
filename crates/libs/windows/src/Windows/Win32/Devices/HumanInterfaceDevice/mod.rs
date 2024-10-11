@@ -345,7 +345,7 @@ where
 #[inline]
 pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: &[u16], keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: PHIDP_INSERT_SCANCODES, insertcodescontext: Option<*const core::ffi::c_void>) -> super::super::Foundation::NTSTATUS {
     windows_targets::link!("hid.dll" "system" fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist : *const u16, usagelistlength : u32, keyaction : HIDP_KEYBOARD_DIRECTION, modifierstate : *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure : PHIDP_INSERT_SCANCODES, insertcodescontext : *const core::ffi::c_void) -> super::super::Foundation:: NTSTATUS);
-    HidP_TranslateUsagesToI8042ScanCodes(core::mem::transmute(changedusagelist.as_ptr()), changedusagelist.len().try_into().unwrap(), keyaction, modifierstate, insertcodesprocedure, core::mem::transmute(insertcodescontext.unwrap_or(std::ptr::null())))
+    HidP_TranslateUsagesToI8042ScanCodes(core::mem::transmute(changedusagelist.as_ptr()), changedusagelist.len().try_into().unwrap(), keyaction, modifierstate, insertcodesprocedure, core::mem::transmute(insertcodescontext.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn HidP_UnsetUsages<P0>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: P0, report: &[u8]) -> super::super::Foundation::NTSTATUS
@@ -5504,8 +5504,8 @@ impl Default for HIDP_BUTTON_CAPS {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union HIDP_BUTTON_CAPS_0 {
-    pub Range: HIDP_BUTTON_CAPS_0_1,
-    pub NotRange: HIDP_BUTTON_CAPS_0_0,
+    pub Range: HIDP_BUTTON_CAPS_0_0,
+    pub NotRange: HIDP_BUTTON_CAPS_0_1,
 }
 impl windows_core::TypeKind for HIDP_BUTTON_CAPS_0 {
     type TypeKind = windows_core::CopyType;
@@ -5517,7 +5517,7 @@ impl Default for HIDP_BUTTON_CAPS_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct HIDP_BUTTON_CAPS_0_0 {
+pub struct HIDP_BUTTON_CAPS_0_1 {
     pub Usage: u16,
     pub Reserved1: u16,
     pub StringIndex: u16,
@@ -5527,17 +5527,17 @@ pub struct HIDP_BUTTON_CAPS_0_0 {
     pub DataIndex: u16,
     pub Reserved4: u16,
 }
-impl windows_core::TypeKind for HIDP_BUTTON_CAPS_0_0 {
+impl windows_core::TypeKind for HIDP_BUTTON_CAPS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for HIDP_BUTTON_CAPS_0_0 {
+impl Default for HIDP_BUTTON_CAPS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct HIDP_BUTTON_CAPS_0_1 {
+pub struct HIDP_BUTTON_CAPS_0_0 {
     pub UsageMin: u16,
     pub UsageMax: u16,
     pub StringMin: u16,
@@ -5547,10 +5547,10 @@ pub struct HIDP_BUTTON_CAPS_0_1 {
     pub DataIndexMin: u16,
     pub DataIndexMax: u16,
 }
-impl windows_core::TypeKind for HIDP_BUTTON_CAPS_0_1 {
+impl windows_core::TypeKind for HIDP_BUTTON_CAPS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for HIDP_BUTTON_CAPS_0_1 {
+impl Default for HIDP_BUTTON_CAPS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5741,8 +5741,8 @@ impl Default for HIDP_VALUE_CAPS {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union HIDP_VALUE_CAPS_0 {
-    pub Range: HIDP_VALUE_CAPS_0_1,
-    pub NotRange: HIDP_VALUE_CAPS_0_0,
+    pub Range: HIDP_VALUE_CAPS_0_0,
+    pub NotRange: HIDP_VALUE_CAPS_0_1,
 }
 impl windows_core::TypeKind for HIDP_VALUE_CAPS_0 {
     type TypeKind = windows_core::CopyType;
@@ -5754,7 +5754,7 @@ impl Default for HIDP_VALUE_CAPS_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct HIDP_VALUE_CAPS_0_0 {
+pub struct HIDP_VALUE_CAPS_0_1 {
     pub Usage: u16,
     pub Reserved1: u16,
     pub StringIndex: u16,
@@ -5764,17 +5764,17 @@ pub struct HIDP_VALUE_CAPS_0_0 {
     pub DataIndex: u16,
     pub Reserved4: u16,
 }
-impl windows_core::TypeKind for HIDP_VALUE_CAPS_0_0 {
+impl windows_core::TypeKind for HIDP_VALUE_CAPS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for HIDP_VALUE_CAPS_0_0 {
+impl Default for HIDP_VALUE_CAPS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct HIDP_VALUE_CAPS_0_1 {
+pub struct HIDP_VALUE_CAPS_0_0 {
     pub UsageMin: u16,
     pub UsageMax: u16,
     pub StringMin: u16,
@@ -5784,10 +5784,10 @@ pub struct HIDP_VALUE_CAPS_0_1 {
     pub DataIndexMin: u16,
     pub DataIndexMax: u16,
 }
-impl windows_core::TypeKind for HIDP_VALUE_CAPS_0_1 {
+impl windows_core::TypeKind for HIDP_VALUE_CAPS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for HIDP_VALUE_CAPS_0_1 {
+impl Default for HIDP_VALUE_CAPS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

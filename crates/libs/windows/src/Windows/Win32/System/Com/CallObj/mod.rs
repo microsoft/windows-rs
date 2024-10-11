@@ -196,7 +196,7 @@ impl ICallIndirect {
         (windows_core::Interface::vtable(self).GetStackSize)(windows_core::Interface::as_raw(self), imethod, &mut result__).map(|| result__)
     }
     pub unsafe fn GetIID(&self, piid: Option<*mut windows_core::GUID>, pfderivesfromidispatch: Option<*mut super::super::super::Foundation::BOOL>, pcmethod: Option<*mut u32>, pwszinterface: *mut windows_core::PWSTR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetIID)(windows_core::Interface::as_raw(self), core::mem::transmute(piid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pfderivesfromidispatch.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcmethod.unwrap_or(std::ptr::null_mut())), pwszinterface).ok()
+        (windows_core::Interface::vtable(self).GetIID)(windows_core::Interface::as_raw(self), core::mem::transmute(piid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfderivesfromidispatch.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcmethod.unwrap_or(core::ptr::null_mut())), pwszinterface).ok()
     }
 }
 #[repr(C)]

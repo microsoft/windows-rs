@@ -94,34 +94,34 @@ fn test_explicit() -> Result<()> {
     let it1 = iterable.First()?;
 
     assert_eq!(it1.Current()?, 10);
-    assert_eq!(it1.HasCurrent()?, true);
-    assert_eq!(it1.MoveNext()?, true);
+    assert!(it1.HasCurrent()?);
+    assert!(it1.MoveNext()?);
 
     assert_eq!(it1.Current()?, 20);
-    assert_eq!(it1.HasCurrent()?, true);
-    assert_eq!(it1.MoveNext()?, true);
+    assert!(it1.HasCurrent()?);
+    assert!(it1.MoveNext()?);
 
     assert_eq!(it1.Current()?, 30);
-    assert_eq!(it1.HasCurrent()?, true);
-    assert_eq!(it1.MoveNext()?, false);
+    assert!(it1.HasCurrent()?);
+    assert!(!(it1.MoveNext()?));
 
-    assert_eq!(it1.Current().is_err(), true);
-    assert_eq!(it1.HasCurrent()?, false);
-    assert_eq!(it1.MoveNext()?, false);
+    assert!(it1.Current().is_err());
+    assert!(!(it1.HasCurrent()?));
+    assert!(!(it1.MoveNext()?));
 
     // The following just validates that iterators are independent and stable.
 
     let it2 = iterable.First()?;
 
     assert_eq!(it2.Current()?, 10);
-    assert_eq!(it2.HasCurrent()?, true);
-    assert_eq!(it1.Current().is_err(), true);
-    assert_eq!(it1.HasCurrent()?, false);
+    assert!(it2.HasCurrent()?);
+    assert!(it1.Current().is_err());
+    assert!(!(it1.HasCurrent()?));
 
     assert_eq!(it2.Current()?, 10);
-    assert_eq!(it2.HasCurrent()?, true);
-    assert_eq!(it1.Current().is_err(), true);
-    assert_eq!(it1.HasCurrent()?, false);
+    assert!(it2.HasCurrent()?);
+    assert!(it1.Current().is_err());
+    assert!(!(it1.HasCurrent()?));
 
     Ok(())
 }

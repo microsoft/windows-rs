@@ -80,7 +80,7 @@ fn d3d() {
     let mut desc = D3D12_INDIRECT_ARGUMENT_DESC {
         Type: D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW,
         Anonymous: D3D12_INDIRECT_ARGUMENT_DESC_0 {
-            VertexBuffer: D3D12_INDIRECT_ARGUMENT_DESC_0_5 { Slot: 123 },
+            VertexBuffer: D3D12_INDIRECT_ARGUMENT_DESC_0_0 { Slot: 123 },
         },
     };
 

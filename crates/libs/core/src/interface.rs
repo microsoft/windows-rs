@@ -272,21 +272,21 @@ pub unsafe fn from_raw_borrowed<T: Interface>(raw: &*mut c_void) -> Option<&T> {
 #[repr(transparent)]
 pub struct InterfaceRef<'a, I>(NonNull<c_void>, PhantomData<&'a I>);
 
-impl<'a, I> Copy for InterfaceRef<'a, I> {}
+impl<I> Copy for InterfaceRef<'_, I> {}
 
-impl<'a, I> Clone for InterfaceRef<'a, I> {
+impl<I> Clone for InterfaceRef<'_, I> {
     fn clone(&self) -> Self {
         *self
     }
 }
 
-impl<'a, I: core::fmt::Debug + Interface> core::fmt::Debug for InterfaceRef<'a, I> {
+impl<I: core::fmt::Debug + Interface> core::fmt::Debug for InterfaceRef<'_, I> {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         <I as core::fmt::Debug>::fmt(&**self, f)
     }
 }
 
-impl<'a, I: Interface> InterfaceRef<'a, I> {
+impl<I: Interface> InterfaceRef<'_, I> {
     /// Creates an `InterfaceRef` from a raw pointer. _This is extremely dangerous, since there
     /// is no lifetime tracking at all!_
     ///
@@ -325,7 +325,7 @@ impl<'a, 'i: 'a, I: Interface> From<&'i I> for InterfaceRef<'a, I> {
     }
 }
 
-impl<'a, I: Interface> core::ops::Deref for InterfaceRef<'a, I> {
+impl<I: Interface> core::ops::Deref for InterfaceRef<'_, I> {
     type Target = I;
 
     #[inline(always)]

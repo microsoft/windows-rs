@@ -70,7 +70,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersA(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plisteners : *mut *mut i8, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSEnumerateListenersA(hserver.param().abi(), preserved, reserved, core::mem::transmute(plisteners.unwrap_or(std::ptr::null_mut())), pcount).ok()
+    WTSEnumerateListenersA(hserver.param().abi(), preserved, reserved, core::mem::transmute(plisteners.unwrap_or(core::ptr::null_mut())), pcount).ok()
 }
 #[inline]
 pub unsafe fn WTSEnumerateListenersW<P0>(hserver: P0, preserved: *const core::ffi::c_void, reserved: u32, plisteners: Option<*mut *mut u16>, pcount: *mut u32) -> windows_core::Result<()>
@@ -78,7 +78,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("wtsapi32.dll" "system" fn WTSEnumerateListenersW(hserver : super::super::Foundation:: HANDLE, preserved : *const core::ffi::c_void, reserved : u32, plisteners : *mut *mut u16, pcount : *mut u32) -> super::super::Foundation:: BOOL);
-    WTSEnumerateListenersW(hserver.param().abi(), preserved, reserved, core::mem::transmute(plisteners.unwrap_or(std::ptr::null_mut())), pcount).ok()
+    WTSEnumerateListenersW(hserver.param().abi(), preserved, reserved, core::mem::transmute(plisteners.unwrap_or(core::ptr::null_mut())), pcount).ok()
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -1360,7 +1360,7 @@ impl ITsSbClientConnection {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<super::Variant::VARIANT>,
     {
-        (windows_core::Interface::vtable(self).PutContext)(windows_core::Interface::as_raw(self), contextid.param().abi(), context.param().abi(), core::mem::transmute(existingcontext.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).PutContext)(windows_core::Interface::as_raw(self), contextid.param().abi(), context.param().abi(), core::mem::transmute(existingcontext.unwrap_or(core::ptr::null_mut()))).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetContext<P0>(&self, contextid: P0) -> windows_core::Result<super::Variant::VARIANT>
@@ -7243,8 +7243,8 @@ impl Default for WTS_PROPERTY_VALUE {
 #[derive(Clone, Copy)]
 pub union WTS_PROPERTY_VALUE_0 {
     pub ulVal: u32,
-    pub strVal: WTS_PROPERTY_VALUE_0_1,
-    pub bVal: WTS_PROPERTY_VALUE_0_0,
+    pub strVal: WTS_PROPERTY_VALUE_0_0,
+    pub bVal: WTS_PROPERTY_VALUE_0_1,
     pub guidVal: windows_core::GUID,
 }
 impl windows_core::TypeKind for WTS_PROPERTY_VALUE_0 {
@@ -7257,28 +7257,28 @@ impl Default for WTS_PROPERTY_VALUE_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WTS_PROPERTY_VALUE_0_0 {
+pub struct WTS_PROPERTY_VALUE_0_1 {
     pub size: u32,
     pub pbVal: windows_core::PSTR,
 }
-impl windows_core::TypeKind for WTS_PROPERTY_VALUE_0_0 {
+impl windows_core::TypeKind for WTS_PROPERTY_VALUE_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WTS_PROPERTY_VALUE_0_0 {
+impl Default for WTS_PROPERTY_VALUE_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WTS_PROPERTY_VALUE_0_1 {
+pub struct WTS_PROPERTY_VALUE_0_0 {
     pub size: u32,
     pub pstrVal: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for WTS_PROPERTY_VALUE_0_1 {
+impl windows_core::TypeKind for WTS_PROPERTY_VALUE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WTS_PROPERTY_VALUE_0_1 {
+impl Default for WTS_PROPERTY_VALUE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

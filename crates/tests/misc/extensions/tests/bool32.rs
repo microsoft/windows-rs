@@ -7,17 +7,17 @@ fn test() {
 
     let status = BOOL(1);
     assert_eq!(status.0, 1);
-    assert_eq!(status.as_bool(), true);
-    assert_eq!(status.ok().is_ok(), true);
+    assert!(status.as_bool());
+    assert!(status.ok().is_ok());
 
     unsafe {
         SetLastError(ERROR_ACCESS_DENIED);
     }
     let status = BOOL(0);
     assert_eq!(status.0, 0);
-    assert_eq!(status.as_bool(), false);
+    assert!(!status.as_bool());
     let result = status.ok();
-    assert_eq!(result.is_ok(), false);
+    assert!(!result.is_ok());
     let error = result.unwrap_err();
     assert_eq!(error.code(), E_ACCESSDENIED);
 }

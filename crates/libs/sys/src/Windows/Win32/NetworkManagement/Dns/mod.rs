@@ -916,14 +916,14 @@ pub struct DNS_RECORDA {
     pub pName: windows_sys::core::PSTR,
     pub wType: u16,
     pub wDataLength: u16,
-    pub Flags: DNS_RECORDA_1,
+    pub Flags: DNS_RECORDA_0,
     pub dwTtl: u32,
     pub dwReserved: u32,
-    pub Data: DNS_RECORDA_0,
+    pub Data: DNS_RECORDA_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union DNS_RECORDA_0 {
+pub union DNS_RECORDA_1 {
     pub A: DNS_A_DATA,
     pub SOA: DNS_SOA_DATAA,
     pub Soa: DNS_SOA_DATAA,
@@ -1013,7 +1013,7 @@ pub union DNS_RECORDA_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union DNS_RECORDA_1 {
+pub union DNS_RECORDA_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
@@ -1024,14 +1024,14 @@ pub struct DNS_RECORDW {
     pub pName: windows_sys::core::PWSTR,
     pub wType: u16,
     pub wDataLength: u16,
-    pub Flags: DNS_RECORDW_1,
+    pub Flags: DNS_RECORDW_0,
     pub dwTtl: u32,
     pub dwReserved: u32,
-    pub Data: DNS_RECORDW_0,
+    pub Data: DNS_RECORDW_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union DNS_RECORDW_0 {
+pub union DNS_RECORDW_1 {
     pub A: DNS_A_DATA,
     pub SOA: DNS_SOA_DATAW,
     pub Soa: DNS_SOA_DATAW,
@@ -1121,7 +1121,7 @@ pub union DNS_RECORDW_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union DNS_RECORDW_1 {
+pub union DNS_RECORDW_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
@@ -1137,21 +1137,21 @@ pub struct DNS_RECORD_OPTW {
     pub pName: windows_sys::core::PWSTR,
     pub wType: u16,
     pub wDataLength: u16,
-    pub Flags: DNS_RECORD_OPTW_1,
+    pub Flags: DNS_RECORD_OPTW_0,
     pub ExtHeader: DNS_HEADER_EXT,
     pub wPayloadSize: u16,
     pub wReserved: u16,
-    pub Data: DNS_RECORD_OPTW_0,
+    pub Data: DNS_RECORD_OPTW_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union DNS_RECORD_OPTW_0 {
+pub union DNS_RECORD_OPTW_1 {
     pub OPT: DNS_OPT_DATA,
     pub Opt: DNS_OPT_DATA,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union DNS_RECORD_OPTW_1 {
+pub union DNS_RECORD_OPTW_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
@@ -1537,21 +1537,21 @@ pub struct _DnsRecordOptA {
     pub pName: windows_sys::core::PSTR,
     pub wType: u16,
     pub wDataLength: u16,
-    pub Flags: _DnsRecordOptA_1,
+    pub Flags: _DnsRecordOptA_0,
     pub ExtHeader: DNS_HEADER_EXT,
     pub wPayloadSize: u16,
     pub wReserved: u16,
-    pub Data: _DnsRecordOptA_0,
+    pub Data: _DnsRecordOptA_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union _DnsRecordOptA_0 {
+pub union _DnsRecordOptA_1 {
     pub OPT: DNS_OPT_DATA,
     pub Opt: DNS_OPT_DATA,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union _DnsRecordOptA_1 {
+pub union _DnsRecordOptA_0 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }

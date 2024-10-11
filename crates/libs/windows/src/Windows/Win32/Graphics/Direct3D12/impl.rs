@@ -1641,7 +1641,7 @@ impl ID3D12FunctionParameterReflection_Vtbl {
 }
 #[doc(hidden)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-struct ID3D12FunctionParameterReflection_ImplVtbl<T: ID3D12FunctionParameterReflection_Impl>(std::marker::PhantomData<T>);
+struct ID3D12FunctionParameterReflection_ImplVtbl<T: ID3D12FunctionParameterReflection_Impl>(core::marker::PhantomData<T>);
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl<T: ID3D12FunctionParameterReflection_Impl> ID3D12FunctionParameterReflection_ImplVtbl<T> {
     const VTABLE: ID3D12FunctionParameterReflection_Vtbl = ID3D12FunctionParameterReflection_Vtbl::new::<T>();
@@ -1715,7 +1715,7 @@ impl ID3D12FunctionReflection_Vtbl {
 }
 #[doc(hidden)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-struct ID3D12FunctionReflection_ImplVtbl<T: ID3D12FunctionReflection_Impl>(std::marker::PhantomData<T>);
+struct ID3D12FunctionReflection_ImplVtbl<T: ID3D12FunctionReflection_Impl>(core::marker::PhantomData<T>);
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl<T: ID3D12FunctionReflection_Impl> ID3D12FunctionReflection_ImplVtbl<T> {
     const VTABLE: ID3D12FunctionReflection_Vtbl = ID3D12FunctionReflection_Vtbl::new::<T>();
@@ -3395,7 +3395,7 @@ impl ID3D12ShaderReflectionConstantBuffer_Vtbl {
 }
 #[doc(hidden)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-struct ID3D12ShaderReflectionConstantBuffer_ImplVtbl<T: ID3D12ShaderReflectionConstantBuffer_Impl>(std::marker::PhantomData<T>);
+struct ID3D12ShaderReflectionConstantBuffer_ImplVtbl<T: ID3D12ShaderReflectionConstantBuffer_Impl>(core::marker::PhantomData<T>);
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl<T: ID3D12ShaderReflectionConstantBuffer_Impl> ID3D12ShaderReflectionConstantBuffer_ImplVtbl<T> {
     const VTABLE: ID3D12ShaderReflectionConstantBuffer_Vtbl = ID3D12ShaderReflectionConstantBuffer_Vtbl::new::<T>();
@@ -3497,7 +3497,7 @@ impl ID3D12ShaderReflectionType_Vtbl {
 }
 #[doc(hidden)]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
-struct ID3D12ShaderReflectionType_ImplVtbl<T: ID3D12ShaderReflectionType_Impl>(std::marker::PhantomData<T>);
+struct ID3D12ShaderReflectionType_ImplVtbl<T: ID3D12ShaderReflectionType_Impl>(core::marker::PhantomData<T>);
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl<T: ID3D12ShaderReflectionType_Impl> ID3D12ShaderReflectionType_ImplVtbl<T> {
     const VTABLE: ID3D12ShaderReflectionType_Vtbl = ID3D12ShaderReflectionType_Vtbl::new::<T>();
@@ -3542,7 +3542,7 @@ impl ID3D12ShaderReflectionVariable_Vtbl {
     }
 }
 #[doc(hidden)]
-struct ID3D12ShaderReflectionVariable_ImplVtbl<T: ID3D12ShaderReflectionVariable_Impl>(std::marker::PhantomData<T>);
+struct ID3D12ShaderReflectionVariable_ImplVtbl<T: ID3D12ShaderReflectionVariable_Impl>(core::marker::PhantomData<T>);
 impl<T: ID3D12ShaderReflectionVariable_Impl> ID3D12ShaderReflectionVariable_ImplVtbl<T> {
     const VTABLE: ID3D12ShaderReflectionVariable_Vtbl = ID3D12ShaderReflectionVariable_Vtbl::new::<T>();
 }

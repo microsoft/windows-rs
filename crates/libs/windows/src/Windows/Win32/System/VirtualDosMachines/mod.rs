@@ -290,8 +290,8 @@ impl Default for VDMLDT_ENTRY {
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
 pub union VDMLDT_ENTRY_0 {
-    pub Bytes: VDMLDT_ENTRY_0_1,
-    pub Bits: VDMLDT_ENTRY_0_0,
+    pub Bytes: VDMLDT_ENTRY_0_0,
+    pub Bits: VDMLDT_ENTRY_0_1,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for VDMLDT_ENTRY_0 {
@@ -306,27 +306,8 @@ impl Default for VDMLDT_ENTRY_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VDMLDT_ENTRY_0_0 {
-    pub _bitfield: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for VDMLDT_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for VDMLDT_ENTRY_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDMLDT_ENTRY_0_1 {
-    pub BaseMid: u8,
-    pub Flags1: u8,
-    pub Flags2: u8,
-    pub BaseHi: u8,
+    pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl windows_core::TypeKind for VDMLDT_ENTRY_0_1 {
@@ -334,6 +315,25 @@ impl windows_core::TypeKind for VDMLDT_ENTRY_0_1 {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for VDMLDT_ENTRY_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct VDMLDT_ENTRY_0_0 {
+    pub BaseMid: u8,
+    pub Flags1: u8,
+    pub Flags2: u8,
+    pub BaseHi: u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for VDMLDT_ENTRY_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for VDMLDT_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

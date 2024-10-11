@@ -4,15 +4,15 @@ use windows::{core::*, Win32::Foundation::*, Win32::Security::Cryptography::*};
 fn test() -> Result<()> {
     let status = NTSTATUS::default();
     assert_eq!(status.0, 0);
-    assert_eq!(status.is_ok(), true);
-    assert_eq!(status.is_err(), false);
-    assert_eq!(status.ok().is_ok(), true);
+    assert!(status.is_ok());
+    assert!(!status.is_err());
+    assert!(status.ok().is_ok());
 
     let status = STATUS_NOT_FOUND;
     assert_eq!(status.0, -1073741275);
-    assert_eq!(status.is_ok(), false);
-    assert_eq!(status.is_err(), true);
-    assert_eq!(status.ok().is_ok(), false);
+    assert!(!status.is_ok());
+    assert!(status.is_err());
+    assert!(!status.ok().is_ok());
 
     let error = status.ok().unwrap_err();
     assert_eq!(error.code(), HRESULT(-805305819));
@@ -64,9 +64,9 @@ fn is_valid(status: NTSTATUS) -> Result<bool> {
 
 #[test]
 fn test_verify() -> Result<()> {
-    assert_eq!(is_valid(STATUS_SUCCESS)?, true);
-    assert_eq!(is_valid(STATUS_INVALID_SIGNATURE)?, false);
-    assert_eq!(is_valid(STATUS_NOT_FOUND).is_err(), true);
+    assert!(is_valid(STATUS_SUCCESS)?);
+    assert!(!(is_valid(STATUS_INVALID_SIGNATURE)?));
+    assert!(is_valid(STATUS_NOT_FOUND).is_err());
 
     Ok(())
 }

@@ -455,7 +455,7 @@ where
 #[inline]
 pub unsafe fn GdipCreateBitmapFromScan0(width: i32, height: i32, stride: i32, format: i32, scan0: Option<*const u8>, bitmap: *mut *mut GpBitmap) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipCreateBitmapFromScan0(width : i32, height : i32, stride : i32, format : i32, scan0 : *const u8, bitmap : *mut *mut GpBitmap) -> Status);
-    GdipCreateBitmapFromScan0(width, height, stride, format, core::mem::transmute(scan0.unwrap_or(std::ptr::null())), bitmap)
+    GdipCreateBitmapFromScan0(width, height, stride, format, core::mem::transmute(scan0.unwrap_or(core::ptr::null())), bitmap)
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -2053,7 +2053,7 @@ pub unsafe fn GdipGetRegionBoundsI(region: *mut GpRegion, graphics: *mut GpGraph
 #[inline]
 pub unsafe fn GdipGetRegionData(region: *mut GpRegion, buffer: &mut [u8], sizefilled: Option<*mut u32>) -> Status {
     windows_targets::link!("gdiplus.dll" "system" fn GdipGetRegionData(region : *mut GpRegion, buffer : *mut u8, buffersize : u32, sizefilled : *mut u32) -> Status);
-    GdipGetRegionData(region, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(sizefilled.unwrap_or(std::ptr::null_mut())))
+    GdipGetRegionData(region, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), core::mem::transmute(sizefilled.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn GdipGetRegionDataSize(region: *mut GpRegion, buffersize: *mut u32) -> Status {

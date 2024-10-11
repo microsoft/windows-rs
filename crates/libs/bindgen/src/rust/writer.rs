@@ -535,7 +535,7 @@ impl Writer {
     }
     fn scoped_name(&self, def: metadata::TypeDef) -> String {
         if let Some(enclosing_type) = def.enclosing_type() {
-            for (index, nested_type) in self.reader.nested_types(enclosing_type).enumerate() {
+            for (index, nested_type) in self.reader.nested_types(enclosing_type) {
                 if nested_type.name() == def.name() {
                     return format!("{}_{index}", &self.scoped_name(enclosing_type));
                 }
@@ -1043,9 +1043,9 @@ impl Writer {
                         }
                         metadata::SignatureParamKind::OptionalPointer => {
                             if flags.contains(metadata::ParamAttributes::Out) {
-                                quote! { core::mem::transmute(#name.unwrap_or(std::ptr::null_mut())), }
+                                quote! { core::mem::transmute(#name.unwrap_or(core::ptr::null_mut())), }
                             } else {
-                                quote! { core::mem::transmute(#name.unwrap_or(std::ptr::null())), }
+                                quote! { core::mem::transmute(#name.unwrap_or(core::ptr::null())), }
                             }
                         }
                         metadata::SignatureParamKind::ValueType => {

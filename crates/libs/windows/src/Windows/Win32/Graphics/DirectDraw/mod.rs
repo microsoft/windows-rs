@@ -63,7 +63,7 @@ impl IDDVideoPortContainer {
         (windows_core::Interface::vtable(self).EnumVideoPorts)(windows_core::Interface::as_raw(self), param0, param1, param2, param3).ok()
     }
     pub unsafe fn GetVideoPortConnectInfo(&self, param0: u32, pcinfo: *mut u32, param2: Option<*mut DDVIDEOPORTCONNECT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetVideoPortConnectInfo)(windows_core::Interface::as_raw(self), param0, pcinfo, core::mem::transmute(param2.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetVideoPortConnectInfo)(windows_core::Interface::as_raw(self), param0, pcinfo, core::mem::transmute(param2.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn QueryVideoPortStatus(&self, param0: u32, param1: *mut DDVIDEOPORTSTATUS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).QueryVideoPortStatus)(windows_core::Interface::as_raw(self), param0, param1).ok()
@@ -1904,10 +1904,10 @@ impl IDirectDrawVideoPort {
         (windows_core::Interface::vtable(self).GetColorControls)(windows_core::Interface::as_raw(self), param0).ok()
     }
     pub unsafe fn GetInputFormats(&self, lpnumformats: *mut u32, param1: Option<*mut DDPIXELFORMAT>, param2: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetInputFormats)(windows_core::Interface::as_raw(self), lpnumformats, core::mem::transmute(param1.unwrap_or(std::ptr::null_mut())), param2).ok()
+        (windows_core::Interface::vtable(self).GetInputFormats)(windows_core::Interface::as_raw(self), lpnumformats, core::mem::transmute(param1.unwrap_or(core::ptr::null_mut())), param2).ok()
     }
     pub unsafe fn GetOutputFormats(&self, param0: *mut DDPIXELFORMAT, lpnumformats: *mut u32, param2: Option<*mut DDPIXELFORMAT>, param3: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetOutputFormats)(windows_core::Interface::as_raw(self), param0, lpnumformats, core::mem::transmute(param2.unwrap_or(std::ptr::null_mut())), param3).ok()
+        (windows_core::Interface::vtable(self).GetOutputFormats)(windows_core::Interface::as_raw(self), param0, lpnumformats, core::mem::transmute(param2.unwrap_or(core::ptr::null_mut())), param3).ok()
     }
     pub unsafe fn GetFieldPolarity(&self, param0: *mut super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).GetFieldPolarity)(windows_core::Interface::as_raw(self), param0).ok()

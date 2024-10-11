@@ -120,22 +120,22 @@ pub struct PSS_HANDLE_ENTRY {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PSS_HANDLE_ENTRY_0 {
-    pub Process: PSS_HANDLE_ENTRY_0_2,
-    pub Thread: PSS_HANDLE_ENTRY_0_5,
-    pub Mutant: PSS_HANDLE_ENTRY_0_1,
-    pub Event: PSS_HANDLE_ENTRY_0_0,
-    pub Section: PSS_HANDLE_ENTRY_0_3,
-    pub Semaphore: PSS_HANDLE_ENTRY_0_4,
+    pub Process: PSS_HANDLE_ENTRY_0_0,
+    pub Thread: PSS_HANDLE_ENTRY_0_1,
+    pub Mutant: PSS_HANDLE_ENTRY_0_2,
+    pub Event: PSS_HANDLE_ENTRY_0_3,
+    pub Section: PSS_HANDLE_ENTRY_0_4,
+    pub Semaphore: PSS_HANDLE_ENTRY_0_5,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct PSS_HANDLE_ENTRY_0_0 {
+pub struct PSS_HANDLE_ENTRY_0_3 {
     pub ManualReset: super::super::super::Foundation::BOOL,
     pub Signaled: super::super::super::Foundation::BOOL,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct PSS_HANDLE_ENTRY_0_1 {
+pub struct PSS_HANDLE_ENTRY_0_2 {
     pub CurrentCount: i32,
     pub Abandoned: super::super::super::Foundation::BOOL,
     pub OwnerProcessId: u32,
@@ -143,7 +143,7 @@ pub struct PSS_HANDLE_ENTRY_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct PSS_HANDLE_ENTRY_0_2 {
+pub struct PSS_HANDLE_ENTRY_0_0 {
     pub ExitStatus: u32,
     pub PebBaseAddress: *mut core::ffi::c_void,
     pub AffinityMask: usize,
@@ -154,20 +154,20 @@ pub struct PSS_HANDLE_ENTRY_0_2 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct PSS_HANDLE_ENTRY_0_3 {
+pub struct PSS_HANDLE_ENTRY_0_4 {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationAttributes: u32,
     pub MaximumSize: i64,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct PSS_HANDLE_ENTRY_0_4 {
+pub struct PSS_HANDLE_ENTRY_0_5 {
     pub CurrentCount: i32,
     pub MaximumCount: i32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct PSS_HANDLE_ENTRY_0_5 {
+pub struct PSS_HANDLE_ENTRY_0_1 {
     pub ExitStatus: u32,
     pub TebBaseAddress: *mut core::ffi::c_void,
     pub ProcessId: u32,

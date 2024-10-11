@@ -19,9 +19,9 @@ fn test_variant() -> Result<()> {
     let v = VARIANT::from(true);
     assert!(!v.is_empty());
     assert_eq!(v.vt(), VT_BOOL);
-    assert_eq!(bool::try_from(&v)?, true);
+    assert!(bool::try_from(&v)?);
     let v = VARIANT::from(false);
-    assert_eq!(bool::try_from(&v)?, false);
+    assert!(!(bool::try_from(&v)?));
     assert_eq!(VARIANT::from(true), VARIANT::from(true));
     assert_eq!(VARIANT::from(false), VARIANT::from(false));
     assert_ne!(VARIANT::from(true), VARIANT::from(false));
@@ -145,9 +145,9 @@ fn test_propvariant() -> Result<()> {
     let v = PROPVARIANT::from(true);
     assert!(!v.is_empty());
     assert_eq!(v.vt(), VT_BOOL);
-    assert_eq!(bool::try_from(&v)?, true);
+    assert!(bool::try_from(&v)?);
     let v = PROPVARIANT::from(false);
-    assert_eq!(bool::try_from(&v)?, false);
+    assert!(!(bool::try_from(&v)?));
     assert_eq!(PROPVARIANT::from(true), PROPVARIANT::from(true));
     assert_eq!(PROPVARIANT::from(false), PROPVARIANT::from(false));
     assert_ne!(PROPVARIANT::from(true), PROPVARIANT::from(false));

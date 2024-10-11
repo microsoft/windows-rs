@@ -32,7 +32,7 @@ pub unsafe fn NdisClCloseAddressFamily(ndisafhandle: *const core::ffi::c_void) -
 #[inline]
 pub unsafe fn NdisClCloseCall(ndisvchandle: *const core::ffi::c_void, ndispartyhandle: Option<*const core::ffi::c_void>, buffer: Option<*const core::ffi::c_void>, size: u32) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisClCloseCall(ndisvchandle : *const core::ffi::c_void, ndispartyhandle : *const core::ffi::c_void, buffer : *const core::ffi::c_void, size : u32) -> i32);
-    NdisClCloseCall(ndisvchandle, core::mem::transmute(ndispartyhandle.unwrap_or(std::ptr::null())), core::mem::transmute(buffer.unwrap_or(std::ptr::null())), size)
+    NdisClCloseCall(ndisvchandle, core::mem::transmute(ndispartyhandle.unwrap_or(core::ptr::null())), core::mem::transmute(buffer.unwrap_or(core::ptr::null())), size)
 }
 #[inline]
 pub unsafe fn NdisClDeregisterSap(ndissaphandle: *const core::ffi::c_void) -> i32 {
@@ -42,7 +42,7 @@ pub unsafe fn NdisClDeregisterSap(ndissaphandle: *const core::ffi::c_void) -> i3
 #[inline]
 pub unsafe fn NdisClDropParty(ndispartyhandle: *const core::ffi::c_void, buffer: Option<*const core::ffi::c_void>, size: u32) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisClDropParty(ndispartyhandle : *const core::ffi::c_void, buffer : *const core::ffi::c_void, size : u32) -> i32);
-    NdisClDropParty(ndispartyhandle, core::mem::transmute(buffer.unwrap_or(std::ptr::null())), size)
+    NdisClDropParty(ndispartyhandle, core::mem::transmute(buffer.unwrap_or(core::ptr::null())), size)
 }
 #[inline]
 pub unsafe fn NdisClGetProtocolVcContextFromTapiCallId(tapicallid: super::super::super::Win32::Foundation::UNICODE_STRING, protocolvccontext: *mut *mut core::ffi::c_void) -> i32 {
@@ -57,7 +57,7 @@ pub unsafe fn NdisClIncomingCallComplete(status: i32, ndisvchandle: *const core:
 #[inline]
 pub unsafe fn NdisClMakeCall(ndisvchandle: *const core::ffi::c_void, callparameters: *mut CO_CALL_PARAMETERS, protocolpartycontext: Option<*const core::ffi::c_void>, ndispartyhandle: Option<*mut *mut core::ffi::c_void>) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisClMakeCall(ndisvchandle : *const core::ffi::c_void, callparameters : *mut CO_CALL_PARAMETERS, protocolpartycontext : *const core::ffi::c_void, ndispartyhandle : *mut *mut core::ffi::c_void) -> i32);
-    NdisClMakeCall(ndisvchandle, callparameters, core::mem::transmute(protocolpartycontext.unwrap_or(std::ptr::null())), core::mem::transmute(ndispartyhandle.unwrap_or(std::ptr::null_mut())))
+    NdisClMakeCall(ndisvchandle, callparameters, core::mem::transmute(protocolpartycontext.unwrap_or(core::ptr::null())), core::mem::transmute(ndispartyhandle.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn NdisClModifyCallQoS(ndisvchandle: *const core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS) -> i32 {
@@ -87,7 +87,7 @@ pub unsafe fn NdisCmActivateVc(ndisvchandle: *const core::ffi::c_void, callparam
 #[inline]
 pub unsafe fn NdisCmAddPartyComplete(status: i32, ndispartyhandle: *const core::ffi::c_void, callmgrpartycontext: Option<*const core::ffi::c_void>, callparameters: *const CO_CALL_PARAMETERS) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmAddPartyComplete(status : i32, ndispartyhandle : *const core::ffi::c_void, callmgrpartycontext : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
-    NdisCmAddPartyComplete(status, ndispartyhandle, core::mem::transmute(callmgrpartycontext.unwrap_or(std::ptr::null())), callparameters)
+    NdisCmAddPartyComplete(status, ndispartyhandle, core::mem::transmute(callmgrpartycontext.unwrap_or(core::ptr::null())), callparameters)
 }
 #[inline]
 pub unsafe fn NdisCmCloseAddressFamilyComplete(status: i32, ndisafhandle: *const core::ffi::c_void) {
@@ -97,7 +97,7 @@ pub unsafe fn NdisCmCloseAddressFamilyComplete(status: i32, ndisafhandle: *const
 #[inline]
 pub unsafe fn NdisCmCloseCallComplete(status: i32, ndisvchandle: *const core::ffi::c_void, ndispartyhandle: Option<*const core::ffi::c_void>) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmCloseCallComplete(status : i32, ndisvchandle : *const core::ffi::c_void, ndispartyhandle : *const core::ffi::c_void));
-    NdisCmCloseCallComplete(status, ndisvchandle, core::mem::transmute(ndispartyhandle.unwrap_or(std::ptr::null())))
+    NdisCmCloseCallComplete(status, ndisvchandle, core::mem::transmute(ndispartyhandle.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn NdisCmDeactivateVc(ndisvchandle: *const core::ffi::c_void) -> i32 {
@@ -127,12 +127,12 @@ pub unsafe fn NdisCmDispatchIncomingCallQoSChange(ndisvchandle: *const core::ffi
 #[inline]
 pub unsafe fn NdisCmDispatchIncomingCloseCall(closestatus: i32, ndisvchandle: *const core::ffi::c_void, buffer: Option<*const core::ffi::c_void>, size: u32) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchIncomingCloseCall(closestatus : i32, ndisvchandle : *const core::ffi::c_void, buffer : *const core::ffi::c_void, size : u32));
-    NdisCmDispatchIncomingCloseCall(closestatus, ndisvchandle, core::mem::transmute(buffer.unwrap_or(std::ptr::null())), size)
+    NdisCmDispatchIncomingCloseCall(closestatus, ndisvchandle, core::mem::transmute(buffer.unwrap_or(core::ptr::null())), size)
 }
 #[inline]
 pub unsafe fn NdisCmDispatchIncomingDropParty(dropstatus: i32, ndispartyhandle: *const core::ffi::c_void, buffer: Option<*const core::ffi::c_void>, size: u32) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmDispatchIncomingDropParty(dropstatus : i32, ndispartyhandle : *const core::ffi::c_void, buffer : *const core::ffi::c_void, size : u32));
-    NdisCmDispatchIncomingDropParty(dropstatus, ndispartyhandle, core::mem::transmute(buffer.unwrap_or(std::ptr::null())), size)
+    NdisCmDispatchIncomingDropParty(dropstatus, ndispartyhandle, core::mem::transmute(buffer.unwrap_or(core::ptr::null())), size)
 }
 #[inline]
 pub unsafe fn NdisCmDropPartyComplete(status: i32, ndispartyhandle: *const core::ffi::c_void) {
@@ -142,7 +142,7 @@ pub unsafe fn NdisCmDropPartyComplete(status: i32, ndispartyhandle: *const core:
 #[inline]
 pub unsafe fn NdisCmMakeCallComplete(status: i32, ndisvchandle: *const core::ffi::c_void, ndispartyhandle: Option<*const core::ffi::c_void>, callmgrpartycontext: Option<*const core::ffi::c_void>, callparameters: *const CO_CALL_PARAMETERS) {
     windows_targets::link!("ndis.sys" "system" fn NdisCmMakeCallComplete(status : i32, ndisvchandle : *const core::ffi::c_void, ndispartyhandle : *const core::ffi::c_void, callmgrpartycontext : *const core::ffi::c_void, callparameters : *const CO_CALL_PARAMETERS));
-    NdisCmMakeCallComplete(status, ndisvchandle, core::mem::transmute(ndispartyhandle.unwrap_or(std::ptr::null())), core::mem::transmute(callmgrpartycontext.unwrap_or(std::ptr::null())), callparameters)
+    NdisCmMakeCallComplete(status, ndisvchandle, core::mem::transmute(ndispartyhandle.unwrap_or(core::ptr::null())), core::mem::transmute(callmgrpartycontext.unwrap_or(core::ptr::null())), callparameters)
 }
 #[inline]
 pub unsafe fn NdisCmModifyCallQoSComplete(status: i32, ndisvchandle: *const core::ffi::c_void, callparameters: *const CO_CALL_PARAMETERS) {
@@ -162,12 +162,12 @@ pub unsafe fn NdisCmRegisterSapComplete(status: i32, ndissaphandle: *const core:
 #[inline]
 pub unsafe fn NdisCoAssignInstanceName(ndisvchandle: *const core::ffi::c_void, baseinstancename: *const super::super::super::Win32::Foundation::UNICODE_STRING, vcinstancename: Option<*mut super::super::super::Win32::Foundation::UNICODE_STRING>) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisCoAssignInstanceName(ndisvchandle : *const core::ffi::c_void, baseinstancename : *const super::super::super::Win32::Foundation:: UNICODE_STRING, vcinstancename : *mut super::super::super::Win32::Foundation:: UNICODE_STRING) -> i32);
-    NdisCoAssignInstanceName(ndisvchandle, baseinstancename, core::mem::transmute(vcinstancename.unwrap_or(std::ptr::null_mut())))
+    NdisCoAssignInstanceName(ndisvchandle, baseinstancename, core::mem::transmute(vcinstancename.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn NdisCoCreateVc(ndisbindinghandle: *const core::ffi::c_void, ndisafhandle: Option<*const core::ffi::c_void>, protocolvccontext: *const core::ffi::c_void, ndisvchandle: *mut *mut core::ffi::c_void) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisCoCreateVc(ndisbindinghandle : *const core::ffi::c_void, ndisafhandle : *const core::ffi::c_void, protocolvccontext : *const core::ffi::c_void, ndisvchandle : *mut *mut core::ffi::c_void) -> i32);
-    NdisCoCreateVc(ndisbindinghandle, core::mem::transmute(ndisafhandle.unwrap_or(std::ptr::null())), protocolvccontext, ndisvchandle)
+    NdisCoCreateVc(ndisbindinghandle, core::mem::transmute(ndisafhandle.unwrap_or(core::ptr::null())), protocolvccontext, ndisvchandle)
 }
 #[inline]
 pub unsafe fn NdisCoDeleteVc(ndisvchandle: *const core::ffi::c_void) -> i32 {
@@ -259,7 +259,7 @@ pub unsafe fn NdisIMGetBindingContext(ndisbindinghandle: *const core::ffi::c_voi
 #[inline]
 pub unsafe fn NdisIMInitializeDeviceInstanceEx(driverhandle: *const core::ffi::c_void, driverinstance: *const super::super::super::Win32::Foundation::UNICODE_STRING, devicecontext: Option<*const core::ffi::c_void>) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisIMInitializeDeviceInstanceEx(driverhandle : *const core::ffi::c_void, driverinstance : *const super::super::super::Win32::Foundation:: UNICODE_STRING, devicecontext : *const core::ffi::c_void) -> i32);
-    NdisIMInitializeDeviceInstanceEx(driverhandle, driverinstance, core::mem::transmute(devicecontext.unwrap_or(std::ptr::null())))
+    NdisIMInitializeDeviceInstanceEx(driverhandle, driverinstance, core::mem::transmute(devicecontext.unwrap_or(core::ptr::null())))
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -283,7 +283,7 @@ pub unsafe fn NdisInitializeString(destination: *mut super::super::super::Win32:
 #[inline]
 pub unsafe fn NdisInitializeTimer(timer: *mut NDIS_TIMER, timerfunction: PNDIS_TIMER_FUNCTION, functioncontext: Option<*const core::ffi::c_void>) {
     windows_targets::link!("ndis.sys" "system" fn NdisInitializeTimer(timer : *mut NDIS_TIMER, timerfunction : PNDIS_TIMER_FUNCTION, functioncontext : *const core::ffi::c_void));
-    NdisInitializeTimer(timer, timerfunction, core::mem::transmute(functioncontext.unwrap_or(std::ptr::null())))
+    NdisInitializeTimer(timer, timerfunction, core::mem::transmute(functioncontext.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn NdisMAllocateSharedMemory<P0>(miniportadapterhandle: *const core::ffi::c_void, length: u32, cached: P0, virtualaddress: *mut *mut core::ffi::c_void, physicaladdress: *mut i64)
@@ -381,7 +381,7 @@ where
 #[inline]
 pub unsafe fn NdisMGetDeviceProperty(miniportadapterhandle: *const core::ffi::c_void, physicaldeviceobject: Option<*mut *mut super::super::Foundation::DEVICE_OBJECT>, functionaldeviceobject: Option<*mut *mut super::super::Foundation::DEVICE_OBJECT>, nextdeviceobject: Option<*mut *mut super::super::Foundation::DEVICE_OBJECT>, allocatedresources: Option<*mut *mut super::super::System::SystemServices::CM_RESOURCE_LIST>, allocatedresourcestranslated: Option<*mut *mut super::super::System::SystemServices::CM_RESOURCE_LIST>) {
     windows_targets::link!("ndis.sys" "system" fn NdisMGetDeviceProperty(miniportadapterhandle : *const core::ffi::c_void, physicaldeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, functionaldeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, nextdeviceobject : *mut *mut super::super::Foundation:: DEVICE_OBJECT, allocatedresources : *mut *mut super::super::System::SystemServices:: CM_RESOURCE_LIST, allocatedresourcestranslated : *mut *mut super::super::System::SystemServices:: CM_RESOURCE_LIST));
-    NdisMGetDeviceProperty(miniportadapterhandle, core::mem::transmute(physicaldeviceobject.unwrap_or(std::ptr::null_mut())), core::mem::transmute(functionaldeviceobject.unwrap_or(std::ptr::null_mut())), core::mem::transmute(nextdeviceobject.unwrap_or(std::ptr::null_mut())), core::mem::transmute(allocatedresources.unwrap_or(std::ptr::null_mut())), core::mem::transmute(allocatedresourcestranslated.unwrap_or(std::ptr::null_mut())))
+    NdisMGetDeviceProperty(miniportadapterhandle, core::mem::transmute(physicaldeviceobject.unwrap_or(core::ptr::null_mut())), core::mem::transmute(functionaldeviceobject.unwrap_or(core::ptr::null_mut())), core::mem::transmute(nextdeviceobject.unwrap_or(core::ptr::null_mut())), core::mem::transmute(allocatedresources.unwrap_or(core::ptr::null_mut())), core::mem::transmute(allocatedresourcestranslated.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn NdisMGetDmaAlignment(miniportadapterhandle: *const core::ffi::c_void) -> u32 {
@@ -577,7 +577,7 @@ pub unsafe fn NdisWriteErrorLogEntry(ndisadapterhandle: *const core::ffi::c_void
 #[inline]
 pub unsafe fn NdisWriteEventLogEntry(loghandle: *const core::ffi::c_void, eventcode: i32, uniqueeventvalue: u32, numstrings: u16, stringslist: Option<*const core::ffi::c_void>, datasize: u32, data: Option<*const core::ffi::c_void>) -> i32 {
     windows_targets::link!("ndis.sys" "system" fn NdisWriteEventLogEntry(loghandle : *const core::ffi::c_void, eventcode : i32, uniqueeventvalue : u32, numstrings : u16, stringslist : *const core::ffi::c_void, datasize : u32, data : *const core::ffi::c_void) -> i32);
-    NdisWriteEventLogEntry(loghandle, eventcode, uniqueeventvalue, numstrings, core::mem::transmute(stringslist.unwrap_or(std::ptr::null())), datasize, core::mem::transmute(data.unwrap_or(std::ptr::null())))
+    NdisWriteEventLogEntry(loghandle, eventcode, uniqueeventvalue, numstrings, core::mem::transmute(stringslist.unwrap_or(core::ptr::null())), datasize, core::mem::transmute(data.unwrap_or(core::ptr::null())))
 }
 pub const AUTHENTICATE: OFFLOAD_OPERATION_E = OFFLOAD_OPERATION_E(1i32);
 pub const BINARY_COMPATIBLE: u32 = 0u32;
@@ -4210,27 +4210,14 @@ impl Default for NDIS_INTERRUPT_MODERATION_PARAMETERS {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1 {
-    pub Supported: NDIS_IPSEC_OFFLOAD_V1_2,
-    pub IPv4AH: NDIS_IPSEC_OFFLOAD_V1_0,
-    pub IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_1,
+    pub Supported: NDIS_IPSEC_OFFLOAD_V1_0,
+    pub IPv4AH: NDIS_IPSEC_OFFLOAD_V1_1,
+    pub IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_2,
 }
 impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_IPSEC_OFFLOAD_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
-    pub _bitfield: u32,
-}
-impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NDIS_IPSEC_OFFLOAD_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -4251,16 +4238,29 @@ impl Default for NDIS_IPSEC_OFFLOAD_V1_1 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
+    pub _bitfield: u32,
+}
+impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for NDIS_IPSEC_OFFLOAD_V1_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub AhEspCombined: u32,
     pub TransportTunnelCombined: u32,
     pub IPv4Options: u32,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_2 {
+impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for NDIS_IPSEC_OFFLOAD_V1_2 {
+impl Default for NDIS_IPSEC_OFFLOAD_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5067,29 +5067,15 @@ impl Default for NDIS_TCP_CONNECTION_OFFLOAD {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    pub IPv4Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_1,
-    pub IPv4Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_0,
-    pub IPv6Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3,
-    pub IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_2,
+    pub IPv4Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_0,
+    pub IPv4Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_1,
+    pub IPv6Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_2,
+    pub IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3,
 }
 impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    pub Encapsulation: u32,
-    pub _bitfield: u32,
-}
-impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5110,14 +5096,14 @@ impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
-impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5132,6 +5118,20 @@ impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    pub Encapsulation: u32,
+    pub _bitfield: u32,
+}
+impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5152,27 +5152,14 @@ impl Default for NDIS_TCP_IP_CHECKSUM_PACKET_INFO {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
-    pub Transmit: NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1,
-    pub Receive: NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0,
+    pub Transmit: NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0,
+    pub Receive: NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1,
     pub Value: u32,
 }
 impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
-    pub _bitfield: u32,
-}
-impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5186,6 +5173,19 @@ impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
+    pub _bitfield: u32,
+}
+impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5539,9 +5539,9 @@ impl Default for NDIS_WMI_EVENT_HEADER {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    pub Supported: NDIS_WMI_IPSEC_OFFLOAD_V1_2,
-    pub IPv4AH: NDIS_WMI_IPSEC_OFFLOAD_V1_0,
-    pub IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_1,
+    pub Supported: NDIS_WMI_IPSEC_OFFLOAD_V1_0,
+    pub IPv4AH: NDIS_WMI_IPSEC_OFFLOAD_V1_1,
+    pub IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_2,
 }
 impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1 {
     type TypeKind = windows_core::CopyType;
@@ -5553,29 +5553,9 @@ impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     pub Md5: u32,
     pub Sha_1: u32,
-    pub Transport: u32,
-    pub Tunnel: u32,
-    pub Send: u32,
-    pub Receive: u32,
-}
-impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    pub Des: u32,
-    pub Reserved: u32,
-    pub TripleDes: u32,
-    pub NullEsp: u32,
     pub Transport: u32,
     pub Tunnel: u32,
     pub Send: u32,
@@ -5592,16 +5572,36 @@ impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+    pub Des: u32,
+    pub Reserved: u32,
+    pub TripleDes: u32,
+    pub NullEsp: u32,
+    pub Transport: u32,
+    pub Tunnel: u32,
+    pub Send: u32,
+    pub Receive: u32,
+}
+impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub AhEspCombined: u32,
     pub TransportTunnelCombined: u32,
     pub IPv4Options: u32,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5705,33 +5705,15 @@ impl Default for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    pub IPv4Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1,
-    pub IPv4Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0,
-    pub IPv6Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3,
-    pub IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2,
+    pub IPv4Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0,
+    pub IPv4Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1,
+    pub IPv6Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2,
+    pub IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3,
 }
 impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    pub Encapsulation: u32,
-    pub IpOptionsSupported: u32,
-    pub TcpOptionsSupported: u32,
-    pub TcpChecksum: u32,
-    pub UdpChecksum: u32,
-    pub IpChecksum: u32,
-}
-impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5756,17 +5738,18 @@ impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
-    pub IpExtensionHeadersSupported: u32,
+    pub IpOptionsSupported: u32,
     pub TcpOptionsSupported: u32,
     pub TcpChecksum: u32,
     pub UdpChecksum: u32,
+    pub IpChecksum: u32,
 }
-impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5784,6 +5767,23 @@ impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    pub Encapsulation: u32,
+    pub IpExtensionHeadersSupported: u32,
+    pub TcpOptionsSupported: u32,
+    pub TcpChecksum: u32,
+    pub UdpChecksum: u32,
+}
+impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

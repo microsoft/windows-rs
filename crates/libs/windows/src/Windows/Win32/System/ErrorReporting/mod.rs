@@ -112,7 +112,7 @@ where
     P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("wer.dll" "system" fn WerReportAddDump(hreporthandle : HREPORT, hprocess : super::super::Foundation:: HANDLE, hthread : super::super::Foundation:: HANDLE, dumptype : WER_DUMP_TYPE, pexceptionparam : *const WER_EXCEPTION_INFORMATION, pdumpcustomoptions : *const WER_DUMP_CUSTOM_OPTIONS, dwflags : u32) -> windows_core::HRESULT);
-    WerReportAddDump(hreporthandle.param().abi(), hprocess.param().abi(), hthread.param().abi(), dumptype, core::mem::transmute(pexceptionparam.unwrap_or(std::ptr::null())), core::mem::transmute(pdumpcustomoptions.unwrap_or(std::ptr::null())), dwflags).ok()
+    WerReportAddDump(hreporthandle.param().abi(), hprocess.param().abi(), hthread.param().abi(), dumptype, core::mem::transmute(pexceptionparam.unwrap_or(core::ptr::null())), core::mem::transmute(pdumpcustomoptions.unwrap_or(core::ptr::null())), dwflags).ok()
 }
 #[inline]
 pub unsafe fn WerReportAddFile<P0, P1>(hreporthandle: P0, pwzpath: P1, repfiletype: WER_FILE_TYPE, dwfileflags: WER_FILE) -> windows_core::Result<()>
@@ -138,7 +138,7 @@ where
 {
     windows_targets::link!("wer.dll" "system" fn WerReportCreate(pwzeventtype : windows_core::PCWSTR, reptype : WER_REPORT_TYPE, preportinformation : *const WER_REPORT_INFORMATION, phreporthandle : *mut HREPORT) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    WerReportCreate(pwzeventtype.param().abi(), reptype, core::mem::transmute(preportinformation.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
+    WerReportCreate(pwzeventtype.param().abi(), reptype, core::mem::transmute(preportinformation.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
 }
 #[inline]
 pub unsafe fn WerReportHang<P0, P1>(hwndhungapp: P0, pwzhungapplicationname: P1) -> windows_core::Result<()>
@@ -174,7 +174,7 @@ where
     P0: windows_core::Param<HREPORT>,
 {
     windows_targets::link!("wer.dll" "system" fn WerReportSubmit(hreporthandle : HREPORT, consent : WER_CONSENT, dwflags : WER_SUBMIT_FLAGS, psubmitresult : *mut WER_SUBMIT_RESULT) -> windows_core::HRESULT);
-    WerReportSubmit(hreporthandle.param().abi(), consent, dwflags, core::mem::transmute(psubmitresult.unwrap_or(std::ptr::null_mut()))).ok()
+    WerReportSubmit(hreporthandle.param().abi(), consent, dwflags, core::mem::transmute(psubmitresult.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WerSetFlags(dwflags: WER_FAULT_REPORTING) -> windows_core::Result<()> {
@@ -195,7 +195,7 @@ where
     P0: windows_core::Param<HREPORTSTORE>,
 {
     windows_targets::link!("wer.dll" "system" fn WerStoreGetFirstReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
-    WerStoreGetFirstReportKey(hreportstore.param().abi(), core::mem::transmute(ppszreportkey.unwrap_or(std::ptr::null_mut()))).ok()
+    WerStoreGetFirstReportKey(hreportstore.param().abi(), core::mem::transmute(ppszreportkey.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WerStoreGetNextReportKey<P0>(hreportstore: P0, ppszreportkey: Option<*mut windows_core::PCWSTR>) -> windows_core::Result<()>
@@ -203,7 +203,7 @@ where
     P0: windows_core::Param<HREPORTSTORE>,
 {
     windows_targets::link!("wer.dll" "system" fn WerStoreGetNextReportKey(hreportstore : HREPORTSTORE, ppszreportkey : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
-    WerStoreGetNextReportKey(hreportstore.param().abi(), core::mem::transmute(ppszreportkey.unwrap_or(std::ptr::null_mut()))).ok()
+    WerStoreGetNextReportKey(hreportstore.param().abi(), core::mem::transmute(ppszreportkey.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WerStoreGetReportCount<P0>(hreportstore: P0) -> windows_core::Result<u32>
@@ -268,7 +268,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wer.dll" "system" fn WerStoreUploadReport(hreportstore : HREPORTSTORE, pszreportkey : windows_core::PCWSTR, dwflags : u32, psubmitresult : *mut WER_SUBMIT_RESULT) -> windows_core::HRESULT);
-    WerStoreUploadReport(hreportstore.param().abi(), pszreportkey.param().abi(), dwflags, core::mem::transmute(psubmitresult.unwrap_or(std::ptr::null_mut()))).ok()
+    WerStoreUploadReport(hreportstore.param().abi(), pszreportkey.param().abi(), dwflags, core::mem::transmute(psubmitresult.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn WerUnregisterAdditionalProcess(processid: u32) -> windows_core::Result<()> {

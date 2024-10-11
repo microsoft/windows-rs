@@ -928,55 +928,55 @@ pub struct VIRTUAL_PROCESSOR_REGISTER_0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VIRTUAL_PROCESSOR_REGISTER_1 {
-    pub Segment: VIRTUAL_PROCESSOR_REGISTER_1_1,
-    pub Table: VIRTUAL_PROCESSOR_REGISTER_1_2,
-    pub FpControlStatus: VIRTUAL_PROCESSOR_REGISTER_1_0,
+    pub Segment: VIRTUAL_PROCESSOR_REGISTER_1_0,
+    pub Table: VIRTUAL_PROCESSOR_REGISTER_1_1,
+    pub FpControlStatus: VIRTUAL_PROCESSOR_REGISTER_1_2,
     pub XmmControlStatus: VIRTUAL_PROCESSOR_REGISTER_1_3,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct VIRTUAL_PROCESSOR_REGISTER_1_0 {
+pub struct VIRTUAL_PROCESSOR_REGISTER_1_2 {
     pub FpControl: u16,
     pub FpStatus: u16,
     pub FpTag: u8,
     pub Reserved: u8,
     pub LastFpOp: u16,
-    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_0_0,
+    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_2_0,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
+pub union VIRTUAL_PROCESSOR_REGISTER_1_2_0 {
     pub LastFpRip: u64,
-    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_0_0_0,
+    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_2_0_0,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
+pub struct VIRTUAL_PROCESSOR_REGISTER_1_2_0_0 {
     pub LastFpEip: u32,
     pub LastFpCs: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct VIRTUAL_PROCESSOR_REGISTER_1_1 {
+pub struct VIRTUAL_PROCESSOR_REGISTER_1_0 {
     pub Base: u64,
     pub Limit: u32,
     pub Selector: u16,
-    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_1_0,
+    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_0_0,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union VIRTUAL_PROCESSOR_REGISTER_1_1_0 {
+pub union VIRTUAL_PROCESSOR_REGISTER_1_0_0 {
     pub Attributes: u16,
-    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_1_0_0,
+    pub Anonymous: VIRTUAL_PROCESSOR_REGISTER_1_0_0_0,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct VIRTUAL_PROCESSOR_REGISTER_1_1_0_0 {
+pub struct VIRTUAL_PROCESSOR_REGISTER_1_0_0_0 {
     pub _bitfield: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct VIRTUAL_PROCESSOR_REGISTER_1_2 {
+pub struct VIRTUAL_PROCESSOR_REGISTER_1_1 {
     pub Limit: u16,
     pub Base: u64,
 }

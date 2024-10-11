@@ -9,12 +9,12 @@ where
 #[inline]
 pub unsafe fn OfflineFilesQueryStatus(pbactive: Option<*mut super::super::Foundation::BOOL>, pbenabled: Option<*mut super::super::Foundation::BOOL>) -> u32 {
     windows_targets::link!("cscapi.dll" "system" fn OfflineFilesQueryStatus(pbactive : *mut super::super::Foundation:: BOOL, pbenabled : *mut super::super::Foundation:: BOOL) -> u32);
-    OfflineFilesQueryStatus(core::mem::transmute(pbactive.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pbenabled.unwrap_or(std::ptr::null_mut())))
+    OfflineFilesQueryStatus(core::mem::transmute(pbactive.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pbenabled.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn OfflineFilesQueryStatusEx(pbactive: Option<*mut super::super::Foundation::BOOL>, pbenabled: Option<*mut super::super::Foundation::BOOL>, pbavailable: Option<*mut super::super::Foundation::BOOL>) -> u32 {
     windows_targets::link!("cscapi.dll" "system" fn OfflineFilesQueryStatusEx(pbactive : *mut super::super::Foundation:: BOOL, pbenabled : *mut super::super::Foundation:: BOOL, pbavailable : *mut super::super::Foundation:: BOOL) -> u32);
-    OfflineFilesQueryStatusEx(core::mem::transmute(pbactive.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pbenabled.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pbavailable.unwrap_or(std::ptr::null_mut())))
+    OfflineFilesQueryStatusEx(core::mem::transmute(pbactive.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pbenabled.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pbavailable.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn OfflineFilesStart() -> u32 {
@@ -99,7 +99,7 @@ impl IOfflineFilesCache {
         P2: windows_core::Param<IOfflineFilesSyncConflictHandler>,
         P3: windows_core::Param<IOfflineFilesSyncProgress>,
     {
-        (windows_core::Interface::vtable(self).Synchronize)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), basync.param().abi(), dwsynccontrol, pisyncconflicthandler.param().abi(), piprogress.param().abi(), core::mem::transmute(psyncid.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Synchronize)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), core::mem::transmute(rgpszpaths.as_ptr()), rgpszpaths.len().try_into().unwrap(), basync.param().abi(), dwsynccontrol, pisyncconflicthandler.param().abi(), piprogress.param().abi(), core::mem::transmute(psyncid.unwrap_or(core::ptr::null()))).ok()
     }
     pub unsafe fn DeleteItems<P0, P1>(&self, rgpszpaths: &[windows_core::PCWSTR], dwflags: u32, basync: P0, piprogress: P1) -> windows_core::Result<()>
     where

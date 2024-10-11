@@ -12,7 +12,7 @@ pub enum Item {
 pub struct Reader {
     items: BTreeMap<&'static str, BTreeMap<&'static str, Vec<Item>>>,
 
-    nested: HashMap<TypeDef, BTreeMap<&'static str, TypeDef>>,
+    nested: HashMap<TypeDef, BTreeMap<&'static str, (usize, TypeDef)>>,
 
     // The reader needs to store the filter since standalone code generation needs more than just the filtered items
     // in order to chase dependencies automatically. This is why `Reader::filter` can't just filter everything up front.
@@ -85,11 +85,8 @@ impl Reader {
 
             for key in file.table::<NestedClass>() {
                 let inner = key.inner();
-                reader
-                    .nested
-                    .entry(key.outer())
-                    .or_default()
-                    .insert(inner.name(), inner);
+                let types = reader.nested.entry(key.outer()).or_default();
+                types.insert(inner.name(), (types.len(), inner));
             }
         }
 
@@ -203,7 +200,7 @@ impl Reader {
         })
     }
 
-    pub fn nested_types(&self, type_def: TypeDef) -> impl Iterator<Item = TypeDef> + '_ {
+    pub fn nested_types(&self, type_def: TypeDef) -> impl Iterator<Item = (usize, TypeDef)> + '_ {
         self.nested
             .get(&type_def)
             .map(|map| map.values().copied())
@@ -262,7 +259,7 @@ impl Reader {
         // TODO: this needs to be deferred via a TypeName's optional nested type name?
         if let Some(outer) = enclosing {
             if full_name.namespace().is_empty() {
-                let Some(inner) = self
+                let Some((_, inner)) = self
                     .nested
                     .get(&outer)
                     .and_then(|nested| nested.get(full_name.name()))

@@ -2441,13 +2441,13 @@ pub struct CM_NOTIFY_EVENT_DATA {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CM_NOTIFY_EVENT_DATA_0 {
-    pub DeviceInterface: CM_NOTIFY_EVENT_DATA_0_2,
-    pub DeviceHandle: CM_NOTIFY_EVENT_DATA_0_0,
-    pub DeviceInstance: CM_NOTIFY_EVENT_DATA_0_1,
+    pub DeviceInterface: CM_NOTIFY_EVENT_DATA_0_0,
+    pub DeviceHandle: CM_NOTIFY_EVENT_DATA_0_1,
+    pub DeviceInstance: CM_NOTIFY_EVENT_DATA_0_2,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CM_NOTIFY_EVENT_DATA_0_0 {
+pub struct CM_NOTIFY_EVENT_DATA_0_1 {
     pub EventGuid: windows_sys::core::GUID,
     pub NameOffset: i32,
     pub DataSize: u32,
@@ -2455,12 +2455,12 @@ pub struct CM_NOTIFY_EVENT_DATA_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CM_NOTIFY_EVENT_DATA_0_1 {
+pub struct CM_NOTIFY_EVENT_DATA_0_2 {
     pub InstanceId: [u16; 1],
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct CM_NOTIFY_EVENT_DATA_0_2 {
+pub struct CM_NOTIFY_EVENT_DATA_0_0 {
     pub ClassGuid: windows_sys::core::GUID,
     pub SymbolicLink: [u16; 1],
 }
@@ -2476,23 +2476,23 @@ pub struct CM_NOTIFY_FILTER {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CM_NOTIFY_FILTER_0 {
-    pub DeviceInterface: CM_NOTIFY_FILTER_0_2,
-    pub DeviceHandle: CM_NOTIFY_FILTER_0_0,
-    pub DeviceInstance: CM_NOTIFY_FILTER_0_1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct CM_NOTIFY_FILTER_0_0 {
-    pub hTarget: super::super::Foundation::HANDLE,
+    pub DeviceInterface: CM_NOTIFY_FILTER_0_0,
+    pub DeviceHandle: CM_NOTIFY_FILTER_0_1,
+    pub DeviceInstance: CM_NOTIFY_FILTER_0_2,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CM_NOTIFY_FILTER_0_1 {
-    pub InstanceId: [u16; 200],
+    pub hTarget: super::super::Foundation::HANDLE,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct CM_NOTIFY_FILTER_0_2 {
+    pub InstanceId: [u16; 200],
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CM_NOTIFY_FILTER_0_0 {
     pub ClassGuid: windows_sys::core::GUID,
 }
 #[repr(C)]

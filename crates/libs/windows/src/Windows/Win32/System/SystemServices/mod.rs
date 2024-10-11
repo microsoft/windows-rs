@@ -3708,11 +3708,11 @@ impl Default for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_AUX_SYMBOL {
-    pub Sym: IMAGE_AUX_SYMBOL_3,
+    pub Sym: IMAGE_AUX_SYMBOL_0,
     pub File: IMAGE_AUX_SYMBOL_1,
     pub Section: IMAGE_AUX_SYMBOL_2,
     pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
-    pub CRC: IMAGE_AUX_SYMBOL_0,
+    pub CRC: IMAGE_AUX_SYMBOL_3,
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL {
     type TypeKind = windows_core::CopyType;
@@ -3724,14 +3724,14 @@ impl Default for IMAGE_AUX_SYMBOL {
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_0 {
+pub struct IMAGE_AUX_SYMBOL_3 {
     pub crc: u32,
     pub rgbReserved: [u8; 14],
 }
-impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_0 {
+impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for IMAGE_AUX_SYMBOL_0 {
+impl Default for IMAGE_AUX_SYMBOL_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3771,85 +3771,85 @@ impl Default for IMAGE_AUX_SYMBOL_2 {
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_3 {
+pub struct IMAGE_AUX_SYMBOL_0 {
     pub TagIndex: u32,
-    pub Misc: IMAGE_AUX_SYMBOL_3_1,
-    pub FcnAry: IMAGE_AUX_SYMBOL_3_0,
+    pub Misc: IMAGE_AUX_SYMBOL_0_0,
+    pub FcnAry: IMAGE_AUX_SYMBOL_0_1,
     pub TvIndex: u16,
 }
-impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_3 {
+impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for IMAGE_AUX_SYMBOL_3 {
+impl Default for IMAGE_AUX_SYMBOL_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union IMAGE_AUX_SYMBOL_3_0 {
-    pub Function: IMAGE_AUX_SYMBOL_3_0_1,
-    pub Array: IMAGE_AUX_SYMBOL_3_0_0,
+pub union IMAGE_AUX_SYMBOL_0_1 {
+    pub Function: IMAGE_AUX_SYMBOL_0_1_0,
+    pub Array: IMAGE_AUX_SYMBOL_0_1_1,
 }
-impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_3_0 {
+impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for IMAGE_AUX_SYMBOL_3_0 {
+impl Default for IMAGE_AUX_SYMBOL_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMAGE_AUX_SYMBOL_3_0_0 {
+pub struct IMAGE_AUX_SYMBOL_0_1_1 {
     pub Dimension: [u16; 4],
 }
-impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_3_0_0 {
+impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_0_1_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for IMAGE_AUX_SYMBOL_3_0_0 {
+impl Default for IMAGE_AUX_SYMBOL_0_1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_3_0_1 {
+pub struct IMAGE_AUX_SYMBOL_0_1_0 {
     pub PointerToLinenumber: u32,
     pub PointerToNextFunction: u32,
 }
-impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_3_0_1 {
+impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_0_1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for IMAGE_AUX_SYMBOL_3_0_1 {
+impl Default for IMAGE_AUX_SYMBOL_0_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
-pub union IMAGE_AUX_SYMBOL_3_1 {
-    pub LnSz: IMAGE_AUX_SYMBOL_3_1_0,
+pub union IMAGE_AUX_SYMBOL_0_0 {
+    pub LnSz: IMAGE_AUX_SYMBOL_0_0_0,
     pub TotalSize: u32,
 }
-impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_3_1 {
+impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for IMAGE_AUX_SYMBOL_3_1 {
+impl Default for IMAGE_AUX_SYMBOL_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMAGE_AUX_SYMBOL_3_1_0 {
+pub struct IMAGE_AUX_SYMBOL_0_0_0 {
     pub Linenumber: u16,
     pub Size: u16,
 }
-impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_3_1_0 {
+impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_0_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for IMAGE_AUX_SYMBOL_3_1_0 {
+impl Default for IMAGE_AUX_SYMBOL_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3857,11 +3857,11 @@ impl Default for IMAGE_AUX_SYMBOL_3_1_0 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_AUX_SYMBOL_EX {
-    pub Sym: IMAGE_AUX_SYMBOL_EX_4,
-    pub File: IMAGE_AUX_SYMBOL_EX_2,
-    pub Section: IMAGE_AUX_SYMBOL_EX_3,
-    pub Anonymous: IMAGE_AUX_SYMBOL_EX_0,
-    pub CRC: IMAGE_AUX_SYMBOL_EX_1,
+    pub Sym: IMAGE_AUX_SYMBOL_EX_0,
+    pub File: IMAGE_AUX_SYMBOL_EX_1,
+    pub Section: IMAGE_AUX_SYMBOL_EX_2,
+    pub Anonymous: IMAGE_AUX_SYMBOL_EX_3,
+    pub CRC: IMAGE_AUX_SYMBOL_EX_4,
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_EX {
     type TypeKind = windows_core::CopyType;
@@ -3873,56 +3873,8 @@ impl Default for IMAGE_AUX_SYMBOL_EX {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_EX_0 {
-    pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
-    pub rgbReserved: [u8; 2],
-}
-impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_EX_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMAGE_AUX_SYMBOL_EX_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
-pub struct IMAGE_AUX_SYMBOL_EX_1 {
-    pub crc: u32,
-    pub rgbReserved: [u8; 16],
-}
-impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_EX_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMAGE_AUX_SYMBOL_EX_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct IMAGE_AUX_SYMBOL_EX_2 {
-    pub Name: [u8; 20],
-}
-impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_EX_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for IMAGE_AUX_SYMBOL_EX_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(2))]
-#[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_EX_3 {
-    pub Length: u32,
-    pub NumberOfRelocations: u16,
-    pub NumberOfLinenumbers: u16,
-    pub CheckSum: u32,
-    pub Number: i16,
-    pub Selection: u8,
-    pub bReserved: u8,
-    pub HighNumber: i16,
+    pub TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF,
     pub rgbReserved: [u8; 2],
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_EX_3 {
@@ -3936,14 +3888,62 @@ impl Default for IMAGE_AUX_SYMBOL_EX_3 {
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_AUX_SYMBOL_EX_4 {
-    pub WeakDefaultSymIndex: u32,
-    pub WeakSearchType: u32,
-    pub rgbReserved: [u8; 12],
+    pub crc: u32,
+    pub rgbReserved: [u8; 16],
 }
 impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_EX_4 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_AUX_SYMBOL_EX_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct IMAGE_AUX_SYMBOL_EX_1 {
+    pub Name: [u8; 20],
+}
+impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_EX_1 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for IMAGE_AUX_SYMBOL_EX_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_EX_2 {
+    pub Length: u32,
+    pub NumberOfRelocations: u16,
+    pub NumberOfLinenumbers: u16,
+    pub CheckSum: u32,
+    pub Number: i16,
+    pub Selection: u8,
+    pub bReserved: u8,
+    pub HighNumber: i16,
+    pub rgbReserved: [u8; 2],
+}
+impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_EX_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for IMAGE_AUX_SYMBOL_EX_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(2))]
+#[derive(Clone, Copy)]
+pub struct IMAGE_AUX_SYMBOL_EX_0 {
+    pub WeakDefaultSymIndex: u32,
+    pub WeakSearchType: u32,
+    pub rgbReserved: [u8; 12],
+}
+impl windows_core::TypeKind for IMAGE_AUX_SYMBOL_EX_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for IMAGE_AUX_SYMBOL_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

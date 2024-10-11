@@ -19,7 +19,7 @@ fn variadic() {
     unsafe {
         let mut buffer = vec![0u8; 1024];
         let len = wsprintfA(buffer.as_mut_ptr(), s!("test-%d-%d!"), 123u32, 456u32);
-        let result = std::str::from_utf8_unchecked(&std::slice::from_raw_parts(
+        let result = std::str::from_utf8_unchecked(std::slice::from_raw_parts(
             buffer.as_ptr(),
             len as usize,
         ));

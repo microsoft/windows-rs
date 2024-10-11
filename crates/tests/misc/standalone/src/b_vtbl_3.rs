@@ -29,16 +29,16 @@ pub const IID_IInspectable: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7a
 pub struct IInspectable_Vtbl {
     pub base: IUnknown_Vtbl,
     pub GetIids: unsafe extern "system" fn(
-        this: *mut std::ffi::c_void,
+        this: *mut core::ffi::c_void,
         count: *mut u32,
         values: *mut *mut GUID,
     ) -> HRESULT,
     pub GetRuntimeClassName: unsafe extern "system" fn(
-        this: *mut std::ffi::c_void,
-        value: *mut *mut std::ffi::c_void,
+        this: *mut core::ffi::c_void,
+        value: *mut *mut core::ffi::c_void,
     ) -> HRESULT,
     pub GetTrustLevel:
-        unsafe extern "system" fn(this: *mut std::ffi::c_void, value: *mut i32) -> HRESULT,
+        unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut i32) -> HRESULT,
 }
 pub const IID_IStringable: GUID = GUID::from_u128(0x96369f54_8eb6_48f0_abce_c1b211e627c3);
 #[repr(C)]

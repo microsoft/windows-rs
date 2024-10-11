@@ -54,19 +54,19 @@ pub type WEB_SOCKET_PROPERTY_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WEB_SOCKET_BUFFER {
-    pub Data: WEB_SOCKET_BUFFER_1,
-    pub CloseStatus: WEB_SOCKET_BUFFER_0,
+    pub Data: WEB_SOCKET_BUFFER_0,
+    pub CloseStatus: WEB_SOCKET_BUFFER_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct WEB_SOCKET_BUFFER_0 {
+pub struct WEB_SOCKET_BUFFER_1 {
     pub pbReason: *mut u8,
     pub ulReasonLength: u32,
     pub usStatus: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct WEB_SOCKET_BUFFER_1 {
+pub struct WEB_SOCKET_BUFFER_0 {
     pub pbBuffer: *mut u8,
     pub ulBufferLength: u32,
 }

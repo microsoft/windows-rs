@@ -29,7 +29,7 @@ where
     P3: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("offreg.dll" "system" fn ORCreateKey(keyhandle : ORHKEY, lpsubkey : windows_core::PCWSTR, lpclass : windows_core::PCWSTR, dwoptions : u32, psecuritydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, phkresult : *mut ORHKEY, pdwdisposition : *mut u32) -> super::super::super::Win32::Foundation:: WIN32_ERROR);
-    ORCreateKey(keyhandle.param().abi(), lpsubkey.param().abi(), lpclass.param().abi(), dwoptions, psecuritydescriptor.param().abi(), phkresult, core::mem::transmute(pdwdisposition.unwrap_or(std::ptr::null_mut())))
+    ORCreateKey(keyhandle.param().abi(), lpsubkey.param().abi(), lpclass.param().abi(), dwoptions, psecuritydescriptor.param().abi(), phkresult, core::mem::transmute(pdwdisposition.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn ORDeleteKey<P0, P1>(handle: P0, lpsubkey: P1) -> super::super::super::Win32::Foundation::WIN32_ERROR
@@ -55,7 +55,7 @@ where
     P0: windows_core::Param<ORHKEY>,
 {
     windows_targets::link!("offreg.dll" "system" fn OREnumKey(handle : ORHKEY, dwindex : u32, lpname : windows_core::PWSTR, lpcname : *mut u32, lpclass : windows_core::PWSTR, lpcclass : *mut u32, lpftlastwritetime : *mut super::super::super::Win32::Foundation:: FILETIME) -> super::super::super::Win32::Foundation:: WIN32_ERROR);
-    OREnumKey(handle.param().abi(), dwindex, core::mem::transmute(lpname), lpcname, core::mem::transmute(lpclass), core::mem::transmute(lpcclass.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpftlastwritetime.unwrap_or(std::ptr::null_mut())))
+    OREnumKey(handle.param().abi(), dwindex, core::mem::transmute(lpname), lpcname, core::mem::transmute(lpclass), core::mem::transmute(lpcclass.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpftlastwritetime.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn OREnumValue<P0>(handle: P0, dwindex: u32, lpvaluename: windows_core::PWSTR, lpcvaluename: *mut u32, lptype: Option<*mut u32>, lpdata: Option<*mut u8>, lpcbdata: Option<*mut u32>) -> super::super::super::Win32::Foundation::WIN32_ERROR
@@ -63,7 +63,7 @@ where
     P0: windows_core::Param<ORHKEY>,
 {
     windows_targets::link!("offreg.dll" "system" fn OREnumValue(handle : ORHKEY, dwindex : u32, lpvaluename : windows_core::PWSTR, lpcvaluename : *mut u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> super::super::super::Win32::Foundation:: WIN32_ERROR);
-    OREnumValue(handle.param().abi(), dwindex, core::mem::transmute(lpvaluename), lpcvaluename, core::mem::transmute(lptype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(lpcbdata.unwrap_or(std::ptr::null_mut())))
+    OREnumValue(handle.param().abi(), dwindex, core::mem::transmute(lpvaluename), lpcvaluename, core::mem::transmute(lptype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpcbdata.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -82,7 +82,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("offreg.dll" "system" fn ORGetValue(handle : ORHKEY, lpsubkey : windows_core::PCWSTR, lpvalue : windows_core::PCWSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::super::Win32::Foundation:: WIN32_ERROR);
-    ORGetValue(handle.param().abi(), lpsubkey.param().abi(), lpvalue.param().abi(), core::mem::transmute(pdwtype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(std::ptr::null_mut())))
+    ORGetValue(handle.param().abi(), lpsubkey.param().abi(), lpvalue.param().abi(), core::mem::transmute(pdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn ORGetVersion(pdwmajorversion: *mut u32, pdwminorversion: *mut u32) -> super::super::super::Win32::Foundation::WIN32_ERROR {
@@ -136,15 +136,15 @@ where
     ORQueryInfoKey(
         handle.param().abi(),
         core::mem::transmute(lpclass),
-        core::mem::transmute(lpcclass.unwrap_or(std::ptr::null_mut())),
-        core::mem::transmute(lpcsubkeys.unwrap_or(std::ptr::null_mut())),
-        core::mem::transmute(lpcmaxsubkeylen.unwrap_or(std::ptr::null_mut())),
-        core::mem::transmute(lpcmaxclasslen.unwrap_or(std::ptr::null_mut())),
-        core::mem::transmute(lpcvalues.unwrap_or(std::ptr::null_mut())),
-        core::mem::transmute(lpcmaxvaluenamelen.unwrap_or(std::ptr::null_mut())),
-        core::mem::transmute(lpcmaxvaluelen.unwrap_or(std::ptr::null_mut())),
-        core::mem::transmute(lpcbsecuritydescriptor.unwrap_or(std::ptr::null_mut())),
-        core::mem::transmute(lpftlastwritetime.unwrap_or(std::ptr::null_mut())),
+        core::mem::transmute(lpcclass.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(lpcsubkeys.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(lpcmaxsubkeylen.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(lpcmaxclasslen.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(lpcvalues.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(lpcmaxvaluenamelen.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(lpcmaxvaluelen.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(lpcbsecuritydescriptor.unwrap_or(core::ptr::null_mut())),
+        core::mem::transmute(lpftlastwritetime.unwrap_or(core::ptr::null_mut())),
     )
 }
 #[inline]

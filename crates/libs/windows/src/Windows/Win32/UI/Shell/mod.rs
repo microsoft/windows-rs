@@ -28,7 +28,7 @@ where
     P0: windows_core::Param<IShellFolder>,
 {
     windows_targets::link!("shell32.dll" "system" fn AssocGetDetailsOfPropKey(psf : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, pkey : *const PropertiesSystem:: PROPERTYKEY, pv : *mut core::mem::MaybeUninit < super::super::System::Variant:: VARIANT >, pffoundpropkey : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
-    AssocGetDetailsOfPropKey(psf.param().abi(), pidl, pkey, core::mem::transmute(pv), core::mem::transmute(pffoundpropkey.unwrap_or(std::ptr::null_mut()))).ok()
+    AssocGetDetailsOfPropKey(psf.param().abi(), pidl, pkey, core::mem::transmute(pv), core::mem::transmute(pffoundpropkey.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
@@ -37,7 +37,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn AssocGetPerceivedType(pszext : windows_core::PCWSTR, ptype : *mut Common:: PERCEIVED, pflag : *mut u32, ppsztype : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    AssocGetPerceivedType(pszext.param().abi(), ptype, pflag, core::mem::transmute(ppsztype.unwrap_or(std::ptr::null_mut()))).ok()
+    AssocGetPerceivedType(pszext.param().abi(), ptype, pflag, core::mem::transmute(ppsztype.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn AssocIsDangerous<P0>(pszassoc: P0) -> super::super::Foundation::BOOL
@@ -116,7 +116,7 @@ where
 {
     windows_targets::link!("shell32.dll" "system" fn CDefFolderMenu_Create2(pidlfolder : *const Common:: ITEMIDLIST, hwnd : super::super::Foundation:: HWND, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, psf : * mut core::ffi::c_void, pfn : LPFNDFMCALLBACK, nkeys : u32, ahkeys : *const super::super::System::Registry:: HKEY, ppcm : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    CDefFolderMenu_Create2(core::mem::transmute(pidlfolder.unwrap_or(std::ptr::null())), hwnd.param().abi(), apidl.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psf.param().abi(), pfn, ahkeys.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ahkeys.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    CDefFolderMenu_Create2(core::mem::transmute(pidlfolder.unwrap_or(core::ptr::null())), hwnd.param().abi(), apidl.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psf.param().abi(), pfn, ahkeys.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ahkeys.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 #[inline]
@@ -174,7 +174,7 @@ where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn ConnectToConnectionPoint(punk : * mut core::ffi::c_void, riidevent : *const windows_core::GUID, fconnect : super::super::Foundation:: BOOL, punktarget : * mut core::ffi::c_void, pdwcookie : *mut u32, ppcpout : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
-    ConnectToConnectionPoint(punk.param().abi(), riidevent, fconnect.param().abi(), punktarget.param().abi(), pdwcookie, core::mem::transmute(ppcpout.unwrap_or(std::ptr::null_mut()))).ok()
+    ConnectToConnectionPoint(punk.param().abi(), riidevent, fconnect.param().abi(), punktarget.param().abi(), pdwcookie, core::mem::transmute(ppcpout.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn CreateProfile<P0, P1>(pszusersid: P0, pszusername: P1, pszprofilepath: &mut [u16]) -> windows_core::Result<()>
@@ -387,7 +387,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("shell32.dll" "system" fn ExtractIconExA(lpszfile : windows_core::PCSTR, niconindex : i32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, nicons : u32) -> u32);
-    ExtractIconExA(lpszfile.param().abi(), niconindex, core::mem::transmute(phiconlarge.unwrap_or(std::ptr::null_mut())), core::mem::transmute(phiconsmall.unwrap_or(std::ptr::null_mut())), nicons)
+    ExtractIconExA(lpszfile.param().abi(), niconindex, core::mem::transmute(phiconlarge.unwrap_or(core::ptr::null_mut())), core::mem::transmute(phiconsmall.unwrap_or(core::ptr::null_mut())), nicons)
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
@@ -396,7 +396,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shell32.dll" "system" fn ExtractIconExW(lpszfile : windows_core::PCWSTR, niconindex : i32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, nicons : u32) -> u32);
-    ExtractIconExW(lpszfile.param().abi(), niconindex, core::mem::transmute(phiconlarge.unwrap_or(std::ptr::null_mut())), core::mem::transmute(phiconsmall.unwrap_or(std::ptr::null_mut())), nicons)
+    ExtractIconExW(lpszfile.param().abi(), niconindex, core::mem::transmute(phiconlarge.unwrap_or(core::ptr::null_mut())), core::mem::transmute(phiconsmall.unwrap_or(core::ptr::null_mut())), nicons)
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
@@ -558,7 +558,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("comctl32.dll" "system" fn GetWindowSubclass(hwnd : super::super::Foundation:: HWND, pfnsubclass : SUBCLASSPROC, uidsubclass : usize, pdwrefdata : *mut usize) -> super::super::Foundation:: BOOL);
-    GetWindowSubclass(hwnd.param().abi(), pfnsubclass, uidsubclass, core::mem::transmute(pdwrefdata.unwrap_or(std::ptr::null_mut())))
+    GetWindowSubclass(hwnd.param().abi(), pfnsubclass, uidsubclass, core::mem::transmute(pdwrefdata.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -918,7 +918,7 @@ where
     P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("shell32.dll" "system" fn ILAppendID(pidl : *const Common:: ITEMIDLIST, pmkid : *const Common:: SHITEMID, fappend : super::super::Foundation:: BOOL) -> *mut Common:: ITEMIDLIST);
-    ILAppendID(core::mem::transmute(pidl.unwrap_or(std::ptr::null())), pmkid, fappend.param().abi())
+    ILAppendID(core::mem::transmute(pidl.unwrap_or(core::ptr::null())), pmkid, fappend.param().abi())
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
@@ -936,7 +936,7 @@ pub unsafe fn ILCloneFirst(pidl: *const Common::ITEMIDLIST) -> *mut Common::ITEM
 #[inline]
 pub unsafe fn ILCombine(pidl1: Option<*const Common::ITEMIDLIST>, pidl2: Option<*const Common::ITEMIDLIST>) -> *mut Common::ITEMIDLIST {
     windows_targets::link!("shell32.dll" "system" fn ILCombine(pidl1 : *const Common:: ITEMIDLIST, pidl2 : *const Common:: ITEMIDLIST) -> *mut Common:: ITEMIDLIST);
-    ILCombine(core::mem::transmute(pidl1.unwrap_or(std::ptr::null())), core::mem::transmute(pidl2.unwrap_or(std::ptr::null())))
+    ILCombine(core::mem::transmute(pidl1.unwrap_or(core::ptr::null())), core::mem::transmute(pidl2.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
@@ -972,19 +972,19 @@ pub unsafe fn ILFindLastID(pidl: *const Common::ITEMIDLIST) -> *mut Common::ITEM
 #[inline]
 pub unsafe fn ILFree(pidl: Option<*const Common::ITEMIDLIST>) {
     windows_targets::link!("shell32.dll" "system" fn ILFree(pidl : *const Common:: ITEMIDLIST));
-    ILFree(core::mem::transmute(pidl.unwrap_or(std::ptr::null())))
+    ILFree(core::mem::transmute(pidl.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn ILGetNext(pidl: Option<*const Common::ITEMIDLIST>) -> *mut Common::ITEMIDLIST {
     windows_targets::link!("shell32.dll" "system" fn ILGetNext(pidl : *const Common:: ITEMIDLIST) -> *mut Common:: ITEMIDLIST);
-    ILGetNext(core::mem::transmute(pidl.unwrap_or(std::ptr::null())))
+    ILGetNext(core::mem::transmute(pidl.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn ILGetSize(pidl: Option<*const Common::ITEMIDLIST>) -> u32 {
     windows_targets::link!("shell32.dll" "system" fn ILGetSize(pidl : *const Common:: ITEMIDLIST) -> u32);
-    ILGetSize(core::mem::transmute(pidl.unwrap_or(std::ptr::null())))
+    ILGetSize(core::mem::transmute(pidl.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
@@ -1015,7 +1015,7 @@ where
 #[inline]
 pub unsafe fn ILRemoveLastID(pidl: Option<*mut Common::ITEMIDLIST>) -> super::super::Foundation::BOOL {
     windows_targets::link!("shell32.dll" "system" fn ILRemoveLastID(pidl : *mut Common:: ITEMIDLIST) -> super::super::Foundation:: BOOL);
-    ILRemoveLastID(core::mem::transmute(pidl.unwrap_or(std::ptr::null_mut())))
+    ILRemoveLastID(core::mem::transmute(pidl.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 #[inline]
@@ -1115,7 +1115,7 @@ where
 #[inline]
 pub unsafe fn IUnknown_AtomicRelease(ppunk: Option<*mut *mut core::ffi::c_void>) {
     windows_targets::link!("shlwapi.dll" "system" fn IUnknown_AtomicRelease(ppunk : *mut *mut core::ffi::c_void));
-    IUnknown_AtomicRelease(core::mem::transmute(ppunk.unwrap_or(std::ptr::null_mut())))
+    IUnknown_AtomicRelease(core::mem::transmute(ppunk.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn IUnknown_GetSite<P0, T>(punk: P0) -> windows_core::Result<T>
@@ -1180,7 +1180,7 @@ pub unsafe fn InitNetworkAddressControl() -> super::super::Foundation::BOOL {
 #[inline]
 pub unsafe fn InitPropVariantFromStrRet(pstrret: *mut Common::STRRET, pidl: Option<*const Common::ITEMIDLIST>, ppropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
     windows_targets::link!("propsys.dll" "system" fn InitPropVariantFromStrRet(pstrret : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppropvar : *mut core::mem::MaybeUninit < super::super::System::Com::StructuredStorage:: PROPVARIANT >) -> windows_core::HRESULT);
-    InitPropVariantFromStrRet(pstrret, core::mem::transmute(pidl.unwrap_or(std::ptr::null())), core::mem::transmute(ppropvar)).ok()
+    InitPropVariantFromStrRet(pstrret, core::mem::transmute(pidl.unwrap_or(core::ptr::null())), core::mem::transmute(ppropvar)).ok()
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
 #[inline]
@@ -1404,7 +1404,7 @@ pub unsafe fn PathCchAddBackslash(pszpath: &mut [u16]) -> windows_core::HRESULT 
 #[inline]
 pub unsafe fn PathCchAddBackslashEx(pszpath: &mut [u16], ppszend: Option<*mut windows_core::PWSTR>, pcchremaining: Option<*mut usize>) -> windows_core::HRESULT {
     windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchAddBackslashEx(pszpath : windows_core::PWSTR, cchpath : usize, ppszend : *mut windows_core::PWSTR, pcchremaining : *mut usize) -> windows_core::HRESULT);
-    PathCchAddBackslashEx(core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap(), core::mem::transmute(ppszend.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchremaining.unwrap_or(std::ptr::null_mut())))
+    PathCchAddBackslashEx(core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap(), core::mem::transmute(ppszend.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchremaining.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn PathCchAddExtension<P0>(pszpath: &mut [u16], pszext: P0) -> windows_core::Result<()>
@@ -1489,7 +1489,7 @@ pub unsafe fn PathCchRemoveBackslash(pszpath: &mut [u16]) -> windows_core::HRESU
 #[inline]
 pub unsafe fn PathCchRemoveBackslashEx(pszpath: windows_core::PWSTR, cchpath: usize, ppszend: Option<*mut windows_core::PWSTR>, pcchremaining: Option<*mut usize>) -> windows_core::Result<()> {
     windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveBackslashEx(pszpath : windows_core::PWSTR, cchpath : usize, ppszend : *mut windows_core::PWSTR, pcchremaining : *mut usize) -> windows_core::HRESULT);
-    PathCchRemoveBackslashEx(core::mem::transmute(pszpath), cchpath, core::mem::transmute(ppszend.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchremaining.unwrap_or(std::ptr::null_mut()))).ok()
+    PathCchRemoveBackslashEx(core::mem::transmute(pszpath), cchpath, core::mem::transmute(ppszend.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchremaining.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn PathCchRemoveExtension(pszpath: windows_core::PWSTR, cchpath: usize) -> windows_core::Result<()> {
@@ -1697,12 +1697,12 @@ where
 #[inline]
 pub unsafe fn PathFindOnPathA(pszpath: &mut [u8; 260], ppszotherdirs: Option<*const *const i8>) -> super::super::Foundation::BOOL {
     windows_targets::link!("shlwapi.dll" "system" fn PathFindOnPathA(pszpath : windows_core::PSTR, ppszotherdirs : *const *const i8) -> super::super::Foundation:: BOOL);
-    PathFindOnPathA(core::mem::transmute(pszpath.as_ptr()), core::mem::transmute(ppszotherdirs.unwrap_or(std::ptr::null())))
+    PathFindOnPathA(core::mem::transmute(pszpath.as_ptr()), core::mem::transmute(ppszotherdirs.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn PathFindOnPathW(pszpath: &mut [u16; 260], ppszotherdirs: Option<*const *const u16>) -> super::super::Foundation::BOOL {
     windows_targets::link!("shlwapi.dll" "system" fn PathFindOnPathW(pszpath : windows_core::PWSTR, ppszotherdirs : *const *const u16) -> super::super::Foundation:: BOOL);
-    PathFindOnPathW(core::mem::transmute(pszpath.as_ptr()), core::mem::transmute(ppszotherdirs.unwrap_or(std::ptr::null())))
+    PathFindOnPathW(core::mem::transmute(pszpath.as_ptr()), core::mem::transmute(ppszotherdirs.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn PathFindSuffixArrayA<P0>(pszpath: P0, apszsuffix: &[windows_core::PCSTR]) -> windows_core::PCSTR
@@ -1987,7 +1987,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathIsUNCEx(pszpath : windows_core::PCWSTR, ppszserver : *mut windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    PathIsUNCEx(pszpath.param().abi(), core::mem::transmute(ppszserver.unwrap_or(std::ptr::null_mut())))
+    PathIsUNCEx(pszpath.param().abi(), core::mem::transmute(ppszserver.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn PathIsUNCServerA<P0>(pszpath: P0) -> super::super::Foundation::BOOL
@@ -2229,7 +2229,7 @@ where
 #[inline]
 pub unsafe fn PathResolve(pszpath: &mut [u16; 260], dirs: Option<*const *const u16>, fflags: PRF_FLAGS) -> i32 {
     windows_targets::link!("shell32.dll" "system" fn PathResolve(pszpath : windows_core::PWSTR, dirs : *const *const u16, fflags : u32) -> i32);
-    PathResolve(core::mem::transmute(pszpath.as_ptr()), core::mem::transmute(dirs.unwrap_or(std::ptr::null())), fflags.0 as _)
+    PathResolve(core::mem::transmute(pszpath.as_ptr()), core::mem::transmute(dirs.unwrap_or(core::ptr::null())), fflags.0 as _)
 }
 #[inline]
 pub unsafe fn PathSearchAndQualifyA<P0>(pszpath: P0, pszbuf: &mut [u8]) -> super::super::Foundation::BOOL
@@ -2369,7 +2369,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("shell32.dll" "system" fn PickIconDlg(hwnd : super::super::Foundation:: HWND, psziconpath : windows_core::PWSTR, cchiconpath : u32, piiconindex : *mut i32) -> i32);
-    PickIconDlg(hwnd.param().abi(), core::mem::transmute(psziconpath.as_ptr()), psziconpath.len().try_into().unwrap(), core::mem::transmute(piiconindex.unwrap_or(std::ptr::null_mut())))
+    PickIconDlg(hwnd.param().abi(), core::mem::transmute(psziconpath.as_ptr()), psziconpath.len().try_into().unwrap(), core::mem::transmute(piiconindex.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
 #[inline]
@@ -2402,12 +2402,12 @@ where
 #[inline]
 pub unsafe fn RegisterAppConstrainedChangeNotification(routine: PAPPCONSTRAIN_CHANGE_ROUTINE, context: Option<*const core::ffi::c_void>, registration: *mut PAPPCONSTRAIN_REGISTRATION) -> u32 {
     windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-1.dll" "system" fn RegisterAppConstrainedChangeNotification(routine : PAPPCONSTRAIN_CHANGE_ROUTINE, context : *const core::ffi::c_void, registration : *mut PAPPCONSTRAIN_REGISTRATION) -> u32);
-    RegisterAppConstrainedChangeNotification(routine, core::mem::transmute(context.unwrap_or(std::ptr::null())), registration)
+    RegisterAppConstrainedChangeNotification(routine, core::mem::transmute(context.unwrap_or(core::ptr::null())), registration)
 }
 #[inline]
 pub unsafe fn RegisterAppStateChangeNotification(routine: PAPPSTATE_CHANGE_ROUTINE, context: Option<*const core::ffi::c_void>, registration: *mut PAPPSTATE_REGISTRATION) -> u32 {
     windows_targets::link!("api-ms-win-core-psm-appnotify-l1-1-0.dll" "system" fn RegisterAppStateChangeNotification(routine : PAPPSTATE_CHANGE_ROUTINE, context : *const core::ffi::c_void, registration : *mut PAPPSTATE_REGISTRATION) -> u32);
-    RegisterAppStateChangeNotification(routine, core::mem::transmute(context.unwrap_or(std::ptr::null())), registration)
+    RegisterAppStateChangeNotification(routine, core::mem::transmute(context.unwrap_or(core::ptr::null())), registration)
 }
 #[inline]
 pub unsafe fn RegisterScaleChangeEvent<P0>(hevent: P0) -> windows_core::Result<usize>
@@ -2471,7 +2471,7 @@ where
 #[inline]
 pub unsafe fn SHAddToRecentDocs(uflags: u32, pv: Option<*const core::ffi::c_void>) {
     windows_targets::link!("shell32.dll" "system" fn SHAddToRecentDocs(uflags : u32, pv : *const core::ffi::c_void));
-    SHAddToRecentDocs(uflags, core::mem::transmute(pv.unwrap_or(std::ptr::null())))
+    SHAddToRecentDocs(uflags, core::mem::transmute(pv.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn SHAlloc(cb: usize) -> *mut core::ffi::c_void {
@@ -2481,7 +2481,7 @@ pub unsafe fn SHAlloc(cb: usize) -> *mut core::ffi::c_void {
 #[inline]
 pub unsafe fn SHAllocShared(pvdata: Option<*const core::ffi::c_void>, dwsize: u32, dwprocessid: u32) -> super::super::Foundation::HANDLE {
     windows_targets::link!("shlwapi.dll" "system" fn SHAllocShared(pvdata : *const core::ffi::c_void, dwsize : u32, dwprocessid : u32) -> super::super::Foundation:: HANDLE);
-    SHAllocShared(core::mem::transmute(pvdata.unwrap_or(std::ptr::null())), dwsize, dwprocessid)
+    SHAllocShared(core::mem::transmute(pvdata.unwrap_or(core::ptr::null())), dwsize, dwprocessid)
 }
 #[inline]
 pub unsafe fn SHAnsiToAnsi<P0>(pszsrc: P0, pszdst: &mut [u8]) -> i32
@@ -2540,7 +2540,7 @@ where
 {
     windows_targets::link!("shell32.dll" "system" fn SHBindToFolderIDListParent(psfroot : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    SHBindToFolderIDListParent(psfroot.param().abi(), pidl, &T::IID, &mut result__, core::mem::transmute(ppidllast.unwrap_or(std::ptr::null_mut()))).and_then(|| windows_core::Type::from_abi(result__))
+    SHBindToFolderIDListParent(psfroot.param().abi(), pidl, &T::IID, &mut result__, core::mem::transmute(ppidllast.unwrap_or(core::ptr::null_mut()))).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 #[inline]
@@ -2552,7 +2552,7 @@ where
 {
     windows_targets::link!("shell32.dll" "system" fn SHBindToFolderIDListParentEx(psfroot : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, ppbc : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    SHBindToFolderIDListParentEx(psfroot.param().abi(), pidl, ppbc.param().abi(), &T::IID, &mut result__, core::mem::transmute(ppidllast.unwrap_or(std::ptr::null_mut()))).and_then(|| windows_core::Type::from_abi(result__))
+    SHBindToFolderIDListParentEx(psfroot.param().abi(), pidl, ppbc.param().abi(), &T::IID, &mut result__, core::mem::transmute(ppidllast.unwrap_or(core::ptr::null_mut()))).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 #[inline]
@@ -2574,7 +2574,7 @@ where
 {
     windows_targets::link!("shell32.dll" "system" fn SHBindToParent(pidl : *const Common:: ITEMIDLIST, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut *mut Common:: ITEMIDLIST) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    SHBindToParent(pidl, &T::IID, &mut result__, core::mem::transmute(ppidllast.unwrap_or(std::ptr::null_mut()))).and_then(|| windows_core::Type::from_abi(result__))
+    SHBindToParent(pidl, &T::IID, &mut result__, core::mem::transmute(ppidllast.unwrap_or(core::ptr::null_mut()))).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
@@ -2604,7 +2604,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHChangeNotification_Lock(hchange : super::super::Foundation:: HANDLE, dwprocid : u32, pppidl : *mut *mut *mut Common:: ITEMIDLIST, plevent : *mut i32) -> super::super::Foundation:: HANDLE);
-    SHChangeNotification_Lock(hchange.param().abi(), dwprocid, core::mem::transmute(pppidl.unwrap_or(std::ptr::null_mut())), core::mem::transmute(plevent.unwrap_or(std::ptr::null_mut())))
+    SHChangeNotification_Lock(hchange.param().abi(), dwprocid, core::mem::transmute(pppidl.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plevent.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SHChangeNotification_Unlock<P0>(hlock: P0) -> super::super::Foundation::BOOL
@@ -2617,7 +2617,7 @@ where
 #[inline]
 pub unsafe fn SHChangeNotify(weventid: SHCNE_ID, uflags: SHCNF_FLAGS, dwitem1: Option<*const core::ffi::c_void>, dwitem2: Option<*const core::ffi::c_void>) {
     windows_targets::link!("shell32.dll" "system" fn SHChangeNotify(weventid : i32, uflags : SHCNF_FLAGS, dwitem1 : *const core::ffi::c_void, dwitem2 : *const core::ffi::c_void));
-    SHChangeNotify(weventid.0 as _, uflags, core::mem::transmute(dwitem1.unwrap_or(std::ptr::null())), core::mem::transmute(dwitem2.unwrap_or(std::ptr::null())))
+    SHChangeNotify(weventid.0 as _, uflags, core::mem::transmute(dwitem1.unwrap_or(core::ptr::null())), core::mem::transmute(dwitem2.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn SHChangeNotifyDeregister(ulid: u32) -> super::super::Foundation::BOOL {
@@ -2657,7 +2657,7 @@ where
 {
     windows_targets::link!("shell32.dll" "system" fn SHCoCreateInstance(pszclsid : windows_core::PCWSTR, pclsid : *const windows_core::GUID, punkouter : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    SHCoCreateInstance(pszclsid.param().abi(), core::mem::transmute(pclsid.unwrap_or(std::ptr::null())), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    SHCoCreateInstance(pszclsid.param().abi(), core::mem::transmute(pclsid.unwrap_or(core::ptr::null())), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -2699,7 +2699,7 @@ where
 {
     windows_targets::link!("shell32.dll" "system" fn SHCreateDataObject(pidlfolder : *const Common:: ITEMIDLIST, cidl : u32, apidl : *const *const Common:: ITEMIDLIST, pdtinner : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    SHCreateDataObject(core::mem::transmute(pidlfolder.unwrap_or(std::ptr::null())), apidl.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdtinner.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    SHCreateDataObject(core::mem::transmute(pidlfolder.unwrap_or(core::ptr::null())), apidl.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdtinner.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
 #[inline]
@@ -2746,7 +2746,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHCreateDirectoryExA(hwnd : super::super::Foundation:: HWND, pszpath : windows_core::PCSTR, psa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> i32);
-    SHCreateDirectoryExA(hwnd.param().abi(), pszpath.param().abi(), core::mem::transmute(psa.unwrap_or(std::ptr::null())))
+    SHCreateDirectoryExA(hwnd.param().abi(), pszpath.param().abi(), core::mem::transmute(psa.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
@@ -2756,7 +2756,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHCreateDirectoryExW(hwnd : super::super::Foundation:: HWND, pszpath : windows_core::PCWSTR, psa : *const super::super::Security:: SECURITY_ATTRIBUTES) -> i32);
-    SHCreateDirectoryExW(hwnd.param().abi(), pszpath.param().abi(), core::mem::transmute(psa.unwrap_or(std::ptr::null())))
+    SHCreateDirectoryExW(hwnd.param().abi(), pszpath.param().abi(), core::mem::transmute(psa.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn SHCreateFileExtractIconW<P0, T>(pszfile: P0, dwfileattributes: u32) -> windows_core::Result<T>
@@ -2822,7 +2822,7 @@ where
 {
     windows_targets::link!("shell32.dll" "system" fn SHCreateItemWithParent(pidlparent : *const Common:: ITEMIDLIST, psfparent : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, riid : *const windows_core::GUID, ppvitem : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    SHCreateItemWithParent(core::mem::transmute(pidlparent.unwrap_or(std::ptr::null())), psfparent.param().abi(), pidl, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    SHCreateItemWithParent(core::mem::transmute(pidlparent.unwrap_or(core::ptr::null())), psfparent.param().abi(), pidl, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -2875,7 +2875,7 @@ where
 {
     windows_targets::link!("shell32.dll" "system" fn SHCreateShellItem(pidlparent : *const Common:: ITEMIDLIST, psfparent : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, ppsi : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    SHCreateShellItem(core::mem::transmute(pidlparent.unwrap_or(std::ptr::null())), psfparent.param().abi(), pidl, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    SHCreateShellItem(core::mem::transmute(pidlparent.unwrap_or(core::ptr::null())), psfparent.param().abi(), pidl, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
@@ -2885,7 +2885,7 @@ where
 {
     windows_targets::link!("shell32.dll" "system" fn SHCreateShellItemArray(pidlparent : *const Common:: ITEMIDLIST, psf : * mut core::ffi::c_void, cidl : u32, ppidl : *const *const Common:: ITEMIDLIST, ppsiitemarray : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
-    SHCreateShellItemArray(core::mem::transmute(pidlparent.unwrap_or(std::ptr::null())), psf.param().abi(), ppidl.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppidl.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    SHCreateShellItemArray(core::mem::transmute(pidlparent.unwrap_or(core::ptr::null())), psf.param().abi(), ppidl.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppidl.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -2967,7 +2967,7 @@ where
 #[inline]
 pub unsafe fn SHCreateThread(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: Option<*const core::ffi::c_void>, flags: u32, pfncallback: super::super::System::Threading::LPTHREAD_START_ROUTINE) -> windows_core::Result<()> {
     windows_targets::link!("shlwapi.dll" "system" fn SHCreateThread(pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE, pdata : *const core::ffi::c_void, flags : u32, pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE) -> super::super::Foundation:: BOOL);
-    SHCreateThread(pfnthreadproc, core::mem::transmute(pdata.unwrap_or(std::ptr::null())), flags, pfncallback).ok()
+    SHCreateThread(pfnthreadproc, core::mem::transmute(pdata.unwrap_or(core::ptr::null())), flags, pfncallback).ok()
 }
 #[inline]
 pub unsafe fn SHCreateThreadRef(pcref: *mut i32, ppunk: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()> {
@@ -2978,7 +2978,7 @@ pub unsafe fn SHCreateThreadRef(pcref: *mut i32, ppunk: *mut Option<windows_core
 #[inline]
 pub unsafe fn SHCreateThreadWithHandle(pfnthreadproc: super::super::System::Threading::LPTHREAD_START_ROUTINE, pdata: Option<*const core::ffi::c_void>, flags: u32, pfncallback: super::super::System::Threading::LPTHREAD_START_ROUTINE, phandle: Option<*mut super::super::Foundation::HANDLE>) -> windows_core::Result<()> {
     windows_targets::link!("shlwapi.dll" "system" fn SHCreateThreadWithHandle(pfnthreadproc : super::super::System::Threading:: LPTHREAD_START_ROUTINE, pdata : *const core::ffi::c_void, flags : u32, pfncallback : super::super::System::Threading:: LPTHREAD_START_ROUTINE, phandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
-    SHCreateThreadWithHandle(pfnthreadproc, core::mem::transmute(pdata.unwrap_or(std::ptr::null())), flags, pfncallback, core::mem::transmute(phandle.unwrap_or(std::ptr::null_mut()))).ok()
+    SHCreateThreadWithHandle(pfnthreadproc, core::mem::transmute(pdata.unwrap_or(core::ptr::null())), flags, pfncallback, core::mem::transmute(phandle.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
@@ -2987,7 +2987,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHDefExtractIconA(psziconfile : windows_core::PCSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, niconsize : u32) -> windows_core::HRESULT);
-    SHDefExtractIconA(psziconfile.param().abi(), iindex, uflags, core::mem::transmute(phiconlarge.unwrap_or(std::ptr::null_mut())), core::mem::transmute(phiconsmall.unwrap_or(std::ptr::null_mut())), niconsize)
+    SHDefExtractIconA(psziconfile.param().abi(), iindex, uflags, core::mem::transmute(phiconlarge.unwrap_or(core::ptr::null_mut())), core::mem::transmute(phiconsmall.unwrap_or(core::ptr::null_mut())), niconsize)
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
@@ -2996,7 +2996,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHDefExtractIconW(psziconfile : windows_core::PCWSTR, iindex : i32, uflags : u32, phiconlarge : *mut super::WindowsAndMessaging:: HICON, phiconsmall : *mut super::WindowsAndMessaging:: HICON, niconsize : u32) -> windows_core::HRESULT);
-    SHDefExtractIconW(psziconfile.param().abi(), iindex, uflags, core::mem::transmute(phiconlarge.unwrap_or(std::ptr::null_mut())), core::mem::transmute(phiconsmall.unwrap_or(std::ptr::null_mut())), niconsize)
+    SHDefExtractIconW(psziconfile.param().abi(), iindex, uflags, core::mem::transmute(phiconlarge.unwrap_or(core::ptr::null_mut())), core::mem::transmute(phiconsmall.unwrap_or(core::ptr::null_mut())), niconsize)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -3123,7 +3123,7 @@ where
     P0: windows_core::Param<super::super::System::Registry::HKEY>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHEnumValueA(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszvaluename : windows_core::PSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHEnumValueA(hkey.param().abi(), dwindex, core::mem::transmute(pszvaluename), core::mem::transmute(pcchvaluename.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwtype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(std::ptr::null_mut())))
+    SHEnumValueA(hkey.param().abi(), dwindex, core::mem::transmute(pszvaluename), core::mem::transmute(pcchvaluename.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -3132,7 +3132,7 @@ where
     P0: windows_core::Param<super::super::System::Registry::HKEY>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHEnumValueW(hkey : super::super::System::Registry:: HKEY, dwindex : u32, pszvaluename : windows_core::PWSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHEnumValueW(hkey.param().abi(), dwindex, core::mem::transmute(pszvaluename), core::mem::transmute(pcchvaluename.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwtype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(std::ptr::null_mut())))
+    SHEnumValueW(hkey.param().abi(), dwindex, core::mem::transmute(pszvaluename), core::mem::transmute(pcchvaluename.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -3149,7 +3149,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHEvaluateSystemCommandTemplate(pszcmdtemplate : windows_core::PCWSTR, ppszapplication : *mut windows_core::PWSTR, ppszcommandline : *mut windows_core::PWSTR, ppszparameters : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    SHEvaluateSystemCommandTemplate(pszcmdtemplate.param().abi(), ppszapplication, core::mem::transmute(ppszcommandline.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppszparameters.unwrap_or(std::ptr::null_mut()))).ok()
+    SHEvaluateSystemCommandTemplate(pszcmdtemplate.param().abi(), ppszapplication, core::mem::transmute(ppszcommandline.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppszparameters.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn SHFileOperationA(lpfileop: *mut SHFILEOPSTRUCTA) -> i32 {
@@ -3165,7 +3165,7 @@ pub unsafe fn SHFileOperationW(lpfileop: *mut SHFILEOPSTRUCTW) -> i32 {
 #[inline]
 pub unsafe fn SHFindFiles(pidlfolder: Option<*const Common::ITEMIDLIST>, pidlsavefile: Option<*const Common::ITEMIDLIST>) -> super::super::Foundation::BOOL {
     windows_targets::link!("shell32.dll" "system" fn SHFindFiles(pidlfolder : *const Common:: ITEMIDLIST, pidlsavefile : *const Common:: ITEMIDLIST) -> super::super::Foundation:: BOOL);
-    SHFindFiles(core::mem::transmute(pidlfolder.unwrap_or(std::ptr::null())), core::mem::transmute(pidlsavefile.unwrap_or(std::ptr::null())))
+    SHFindFiles(core::mem::transmute(pidlfolder.unwrap_or(core::ptr::null())), core::mem::transmute(pidlsavefile.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
@@ -3185,12 +3185,12 @@ pub unsafe fn SHFlushSFCache() {
 #[inline]
 pub unsafe fn SHFormatDateTimeA(pft: *const super::super::Foundation::FILETIME, pdwflags: Option<*mut u32>, pszbuf: &mut [u8]) -> i32 {
     windows_targets::link!("shlwapi.dll" "system" fn SHFormatDateTimeA(pft : *const super::super::Foundation:: FILETIME, pdwflags : *mut u32, pszbuf : windows_core::PSTR, cchbuf : u32) -> i32);
-    SHFormatDateTimeA(pft, core::mem::transmute(pdwflags.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap())
+    SHFormatDateTimeA(pft, core::mem::transmute(pdwflags.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn SHFormatDateTimeW(pft: *const super::super::Foundation::FILETIME, pdwflags: Option<*mut u32>, pszbuf: &mut [u16]) -> i32 {
     windows_targets::link!("shlwapi.dll" "system" fn SHFormatDateTimeW(pft : *const super::super::Foundation:: FILETIME, pdwflags : *mut u32, pszbuf : windows_core::PWSTR, cchbuf : u32) -> i32);
-    SHFormatDateTimeW(pft, core::mem::transmute(pdwflags.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap())
+    SHFormatDateTimeW(pft, core::mem::transmute(pdwflags.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap())
 }
 #[inline]
 pub unsafe fn SHFormatDrive<P0>(hwnd: P0, drive: u32, fmtid: SHFMT_ID, options: SHFMT_OPT) -> u32
@@ -3203,7 +3203,7 @@ where
 #[inline]
 pub unsafe fn SHFree(pv: Option<*const core::ffi::c_void>) {
     windows_targets::link!("shell32.dll" "system" fn SHFree(pv : *const core::ffi::c_void));
-    SHFree(core::mem::transmute(pv.unwrap_or(std::ptr::null())))
+    SHFree(core::mem::transmute(pv.unwrap_or(core::ptr::null())))
 }
 #[inline]
 pub unsafe fn SHFreeNameMappings<P0>(hnamemappings: P0)
@@ -3228,7 +3228,7 @@ where
     P0: windows_core::Param<super::super::System::Com::IDataObject>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHGetAttributesFromDataObject(pdo : * mut core::ffi::c_void, dwattributemask : u32, pdwattributes : *mut u32, pcitems : *mut u32) -> windows_core::HRESULT);
-    SHGetAttributesFromDataObject(pdo.param().abi(), dwattributemask, core::mem::transmute(pdwattributes.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcitems.unwrap_or(std::ptr::null_mut())))
+    SHGetAttributesFromDataObject(pdo.param().abi(), dwattributemask, core::mem::transmute(pdwattributes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcitems.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
@@ -3260,7 +3260,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHGetDiskFreeSpaceExA(pszdirectoryname : windows_core::PCSTR, pulfreebytesavailabletocaller : *mut u64, pultotalnumberofbytes : *mut u64, pultotalnumberoffreebytes : *mut u64) -> super::super::Foundation:: BOOL);
-    SHGetDiskFreeSpaceExA(pszdirectoryname.param().abi(), core::mem::transmute(pulfreebytesavailabletocaller.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pultotalnumberofbytes.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pultotalnumberoffreebytes.unwrap_or(std::ptr::null_mut())))
+    SHGetDiskFreeSpaceExA(pszdirectoryname.param().abi(), core::mem::transmute(pulfreebytesavailabletocaller.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pultotalnumberofbytes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pultotalnumberoffreebytes.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SHGetDiskFreeSpaceExW<P0>(pszdirectoryname: P0, pulfreebytesavailabletocaller: Option<*mut u64>, pultotalnumberofbytes: Option<*mut u64>, pultotalnumberoffreebytes: Option<*mut u64>) -> super::super::Foundation::BOOL
@@ -3268,7 +3268,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHGetDiskFreeSpaceExW(pszdirectoryname : windows_core::PCWSTR, pulfreebytesavailabletocaller : *mut u64, pultotalnumberofbytes : *mut u64, pultotalnumberoffreebytes : *mut u64) -> super::super::Foundation:: BOOL);
-    SHGetDiskFreeSpaceExW(pszdirectoryname.param().abi(), core::mem::transmute(pulfreebytesavailabletocaller.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pultotalnumberofbytes.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pultotalnumberoffreebytes.unwrap_or(std::ptr::null_mut())))
+    SHGetDiskFreeSpaceExW(pszdirectoryname.param().abi(), core::mem::transmute(pulfreebytesavailabletocaller.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pultotalnumberofbytes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pultotalnumberoffreebytes.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SHGetDriveMedia<P0>(pszdrive: P0) -> windows_core::Result<u32>
@@ -3286,7 +3286,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHGetFileInfoA(pszpath : windows_core::PCSTR, dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES, psfi : *mut SHFILEINFOA, cbfileinfo : u32, uflags : SHGFI_FLAGS) -> usize);
-    SHGetFileInfoA(pszpath.param().abi(), dwfileattributes, core::mem::transmute(psfi.unwrap_or(std::ptr::null_mut())), cbfileinfo, uflags)
+    SHGetFileInfoA(pszpath.param().abi(), dwfileattributes, core::mem::transmute(psfi.unwrap_or(core::ptr::null_mut())), cbfileinfo, uflags)
 }
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
@@ -3295,7 +3295,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHGetFileInfoW(pszpath : windows_core::PCWSTR, dwfileattributes : super::super::Storage::FileSystem:: FILE_FLAGS_AND_ATTRIBUTES, psfi : *mut SHFILEINFOW, cbfileinfo : u32, uflags : SHGFI_FLAGS) -> usize);
-    SHGetFileInfoW(pszpath.param().abi(), dwfileattributes, core::mem::transmute(psfi.unwrap_or(std::ptr::null_mut())), cbfileinfo, uflags)
+    SHGetFileInfoW(pszpath.param().abi(), dwfileattributes, core::mem::transmute(psfi.unwrap_or(core::ptr::null_mut())), cbfileinfo, uflags)
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
@@ -3524,7 +3524,7 @@ where
     P0: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHGetSetSettings(lpss : *mut SHELLSTATEA, dwmask : SSF_MASK, bset : super::super::Foundation:: BOOL));
-    SHGetSetSettings(core::mem::transmute(lpss.unwrap_or(std::ptr::null_mut())), dwmask, bset.param().abi())
+    SHGetSetSettings(core::mem::transmute(lpss.unwrap_or(core::ptr::null_mut())), dwmask, bset.param().abi())
 }
 #[inline]
 pub unsafe fn SHGetSettings(psfs: *mut SHELLFLAGSTATE, dwmask: u32) {
@@ -3589,7 +3589,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHGetUnreadMailCountW(hkeyuser : super::super::System::Registry:: HKEY, pszmailaddress : windows_core::PCWSTR, pdwcount : *mut u32, pfiletime : *mut super::super::Foundation:: FILETIME, pszshellexecutecommand : windows_core::PWSTR, cchshellexecutecommand : i32) -> windows_core::HRESULT);
-    SHGetUnreadMailCountW(hkeyuser.param().abi(), pszmailaddress.param().abi(), core::mem::transmute(pdwcount.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pfiletime.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pszshellexecutecommand.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszshellexecutecommand.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
+    SHGetUnreadMailCountW(hkeyuser.param().abi(), pszmailaddress.param().abi(), core::mem::transmute(pdwcount.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pfiletime.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pszshellexecutecommand.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszshellexecutecommand.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -3600,7 +3600,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHGetValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_core::PCSTR, pszvalue : windows_core::PCSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHGetValueA(hkey.param().abi(), pszsubkey.param().abi(), pszvalue.param().abi(), core::mem::transmute(pdwtype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(std::ptr::null_mut())))
+    SHGetValueA(hkey.param().abi(), pszsubkey.param().abi(), pszvalue.param().abi(), core::mem::transmute(pdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -3611,7 +3611,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHGetValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_core::PCWSTR, pszvalue : windows_core::PCWSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHGetValueW(hkey.param().abi(), pszsubkey.param().abi(), pszvalue.param().abi(), core::mem::transmute(pdwtype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(std::ptr::null_mut())))
+    SHGetValueW(hkey.param().abi(), pszsubkey.param().abi(), pszvalue.param().abi(), core::mem::transmute(pdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
@@ -3622,7 +3622,7 @@ where
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHGetViewStatePropertyBag(pidl : *const Common:: ITEMIDLIST, pszbagname : windows_core::PCWSTR, dwflags : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    SHGetViewStatePropertyBag(core::mem::transmute(pidl.unwrap_or(std::ptr::null())), pszbagname.param().abi(), dwflags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    SHGetViewStatePropertyBag(core::mem::transmute(pidl.unwrap_or(core::ptr::null())), pszbagname.param().abi(), dwflags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 #[inline]
 pub unsafe fn SHGlobalCounterDecrement(id: SHGLOBALCOUNTER) -> i32 {
@@ -3652,7 +3652,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHILCreateFromPath(pszpath : windows_core::PCWSTR, ppidl : *mut *mut Common:: ITEMIDLIST, rgfinout : *mut u32) -> windows_core::HRESULT);
-    SHILCreateFromPath(pszpath.param().abi(), ppidl, core::mem::transmute(rgfinout.unwrap_or(std::ptr::null_mut()))).ok()
+    SHILCreateFromPath(pszpath.param().abi(), ppidl, core::mem::transmute(rgfinout.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn SHInvokePrinterCommandA<P0, P1, P2, P3>(hwnd: P0, uaction: u32, lpbuf1: P1, lpbuf2: P2, fmodal: P3) -> super::super::Foundation::BOOL
@@ -3682,7 +3682,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHIsFileAvailableOffline(pwszpath : windows_core::PCWSTR, pdwstatus : *mut u32) -> windows_core::HRESULT);
-    SHIsFileAvailableOffline(pwszpath.param().abi(), core::mem::transmute(pdwstatus.unwrap_or(std::ptr::null_mut()))).ok()
+    SHIsFileAvailableOffline(pwszpath.param().abi(), core::mem::transmute(pdwstatus.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn SHIsLowMemoryMachine(dwtype: u32) -> super::super::Foundation::BOOL {
@@ -3709,7 +3709,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHLoadIndirectString(pszsource : windows_core::PCWSTR, pszoutbuf : windows_core::PWSTR, cchoutbuf : u32, ppvreserved : *const *const core::ffi::c_void) -> windows_core::HRESULT);
-    SHLoadIndirectString(pszsource.param().abi(), core::mem::transmute(pszoutbuf.as_ptr()), pszoutbuf.len().try_into().unwrap(), core::mem::transmute(ppvreserved.unwrap_or(std::ptr::null()))).ok()
+    SHLoadIndirectString(pszsource.param().abi(), core::mem::transmute(pszoutbuf.as_ptr()), pszoutbuf.len().try_into().unwrap(), core::mem::transmute(ppvreserved.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
 pub unsafe fn SHLoadNonloadedIconOverlayIdentifiers() -> windows_core::Result<()> {
@@ -3731,7 +3731,7 @@ where
     P0: windows_core::Param<IShellFolder>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHMapPIDLToSystemImageListIndex(pshf : * mut core::ffi::c_void, pidl : *const Common:: ITEMIDLIST, piindexsel : *mut i32) -> i32);
-    SHMapPIDLToSystemImageListIndex(pshf.param().abi(), pidl, core::mem::transmute(piindexsel.unwrap_or(std::ptr::null_mut())))
+    SHMapPIDLToSystemImageListIndex(pshf.param().abi(), pidl, core::mem::transmute(piindexsel.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SHMessageBoxCheckA<P0, P1, P2, P3>(hwnd: P0, psztext: P1, pszcaption: P2, utype: u32, idefault: i32, pszregval: P3) -> i32
@@ -3790,7 +3790,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHOpenPropSheetW(pszcaption : windows_core::PCWSTR, ahkeys : *const super::super::System::Registry:: HKEY, ckeys : u32, pclsiddefault : *const windows_core::GUID, pdtobj : * mut core::ffi::c_void, psb : * mut core::ffi::c_void, pstartpage : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
-    SHOpenPropSheetW(pszcaption.param().abi(), core::mem::transmute(ahkeys.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ahkeys.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pclsiddefault.unwrap_or(std::ptr::null())), pdtobj.param().abi(), psb.param().abi(), pstartpage.param().abi())
+    SHOpenPropSheetW(pszcaption.param().abi(), core::mem::transmute(ahkeys.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ahkeys.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pclsiddefault.unwrap_or(core::ptr::null())), pdtobj.param().abi(), psb.param().abi(), pstartpage.param().abi())
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 #[inline]
@@ -3852,7 +3852,7 @@ where
     P1: windows_core::Param<super::super::System::Com::IBindCtx>,
 {
     windows_targets::link!("shell32.dll" "system" fn SHParseDisplayName(pszname : windows_core::PCWSTR, pbc : * mut core::ffi::c_void, ppidl : *mut *mut Common:: ITEMIDLIST, sfgaoin : u32, psfgaoout : *mut u32) -> windows_core::HRESULT);
-    SHParseDisplayName(pszname.param().abi(), pbc.param().abi(), ppidl, sfgaoin, core::mem::transmute(psfgaoout.unwrap_or(std::ptr::null_mut()))).ok()
+    SHParseDisplayName(pszname.param().abi(), pbc.param().abi(), ppidl, sfgaoin, core::mem::transmute(psfgaoout.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
 pub unsafe fn SHPathPrepareForWriteA<P0, P1, P2>(hwnd: P0, punkenablemodless: P1, pszpath: P2, dwflags: u32) -> windows_core::Result<()>
@@ -3881,7 +3881,7 @@ where
     P0: windows_core::Param<super::super::System::Registry::HKEY>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHQueryInfoKeyA(hkey : super::super::System::Registry:: HKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHQueryInfoKeyA(hkey.param().abi(), core::mem::transmute(pcsubkeys.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchmaxsubkeylen.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcvalues.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchmaxvaluenamelen.unwrap_or(std::ptr::null_mut())))
+    SHQueryInfoKeyA(hkey.param().abi(), core::mem::transmute(pcsubkeys.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchmaxsubkeylen.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcvalues.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchmaxvaluenamelen.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -3890,7 +3890,7 @@ where
     P0: windows_core::Param<super::super::System::Registry::HKEY>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHQueryInfoKeyW(hkey : super::super::System::Registry:: HKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHQueryInfoKeyW(hkey.param().abi(), core::mem::transmute(pcsubkeys.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchmaxsubkeylen.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcvalues.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchmaxvaluenamelen.unwrap_or(std::ptr::null_mut())))
+    SHQueryInfoKeyW(hkey.param().abi(), core::mem::transmute(pcsubkeys.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchmaxsubkeylen.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcvalues.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchmaxvaluenamelen.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SHQueryRecycleBinA<P0>(pszrootpath: P0, pshqueryrbinfo: *mut SHQUERYRBINFO) -> windows_core::Result<()>
@@ -3922,7 +3922,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHQueryValueExA(hkey : super::super::System::Registry:: HKEY, pszvalue : windows_core::PCSTR, pdwreserved : *const u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHQueryValueExA(hkey.param().abi(), pszvalue.param().abi(), core::mem::transmute(pdwreserved.unwrap_or(std::ptr::null())), core::mem::transmute(pdwtype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(std::ptr::null_mut())))
+    SHQueryValueExA(hkey.param().abi(), pszvalue.param().abi(), core::mem::transmute(pdwreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -3932,7 +3932,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHQueryValueExW(hkey : super::super::System::Registry:: HKEY, pszvalue : windows_core::PCWSTR, pdwreserved : *const u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHQueryValueExW(hkey.param().abi(), pszvalue.param().abi(), core::mem::transmute(pdwreserved.unwrap_or(std::ptr::null())), core::mem::transmute(pdwtype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(std::ptr::null_mut())))
+    SHQueryValueExW(hkey.param().abi(), pszvalue.param().abi(), core::mem::transmute(pdwreserved.unwrap_or(core::ptr::null())), core::mem::transmute(pdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SHRegCloseUSKey(huskey: isize) -> super::super::Foundation::WIN32_ERROR {
@@ -4009,12 +4009,12 @@ pub unsafe fn SHRegEnumUSKeyW(huskey: isize, dwindex: u32, pwzname: windows_core
 #[inline]
 pub unsafe fn SHRegEnumUSValueA(huskey: isize, dwindex: u32, pszvaluename: windows_core::PSTR, pcchvaluename: *mut u32, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("shlwapi.dll" "system" fn SHRegEnumUSValueA(huskey : isize, dwindex : u32, pszvaluename : windows_core::PSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-    SHRegEnumUSValueA(huskey, dwindex, core::mem::transmute(pszvaluename), pcchvaluename, core::mem::transmute(pdwtype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(std::ptr::null_mut())), enumregflags)
+    SHRegEnumUSValueA(huskey, dwindex, core::mem::transmute(pszvaluename), pcchvaluename, core::mem::transmute(pdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())), enumregflags)
 }
 #[inline]
 pub unsafe fn SHRegEnumUSValueW(huskey: isize, dwindex: u32, pszvaluename: windows_core::PWSTR, pcchvaluename: *mut u32, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("shlwapi.dll" "system" fn SHRegEnumUSValueW(huskey : isize, dwindex : u32, pszvaluename : windows_core::PWSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-    SHRegEnumUSValueW(huskey, dwindex, core::mem::transmute(pszvaluename), pcchvaluename, core::mem::transmute(pdwtype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(std::ptr::null_mut())), enumregflags)
+    SHRegEnumUSValueW(huskey, dwindex, core::mem::transmute(pszvaluename), pcchvaluename, core::mem::transmute(pdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())), enumregflags)
 }
 #[inline]
 pub unsafe fn SHRegGetBoolUSValueA<P0, P1, P2, P3>(pszsubkey: P0, pszvalue: P1, fignorehkcu: P2, fdefault: P3) -> super::super::Foundation::BOOL
@@ -4078,7 +4078,7 @@ where
     P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHRegGetUSValueA(pszsubkey : windows_core::PCSTR, pszvalue : windows_core::PCSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHRegGetUSValueA(pszsubkey.param().abi(), pszvalue.param().abi(), core::mem::transmute(pdwtype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(std::ptr::null_mut())), fignorehkcu.param().abi(), core::mem::transmute(pvdefaultdata.unwrap_or(std::ptr::null())), dwdefaultdatasize)
+    SHRegGetUSValueA(pszsubkey.param().abi(), pszvalue.param().abi(), core::mem::transmute(pdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())), fignorehkcu.param().abi(), core::mem::transmute(pvdefaultdata.unwrap_or(core::ptr::null())), dwdefaultdatasize)
 }
 #[inline]
 pub unsafe fn SHRegGetUSValueW<P0, P1, P2>(pszsubkey: P0, pszvalue: P1, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>, fignorehkcu: P2, pvdefaultdata: Option<*const core::ffi::c_void>, dwdefaultdatasize: u32) -> super::super::Foundation::WIN32_ERROR
@@ -4088,7 +4088,7 @@ where
     P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHRegGetUSValueW(pszsubkey : windows_core::PCWSTR, pszvalue : windows_core::PCWSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHRegGetUSValueW(pszsubkey.param().abi(), pszvalue.param().abi(), core::mem::transmute(pdwtype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(std::ptr::null_mut())), fignorehkcu.param().abi(), core::mem::transmute(pvdefaultdata.unwrap_or(std::ptr::null())), dwdefaultdatasize)
+    SHRegGetUSValueW(pszsubkey.param().abi(), pszvalue.param().abi(), core::mem::transmute(pdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())), fignorehkcu.param().abi(), core::mem::transmute(pvdefaultdata.unwrap_or(core::ptr::null())), dwdefaultdatasize)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -4099,7 +4099,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHRegGetValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_core::PCSTR, pszvalue : windows_core::PCSTR, srrfflags : i32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHRegGetValueA(hkey.param().abi(), pszsubkey.param().abi(), pszvalue.param().abi(), srrfflags, core::mem::transmute(pdwtype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(std::ptr::null_mut())))
+    SHRegGetValueA(hkey.param().abi(), pszsubkey.param().abi(), pszvalue.param().abi(), srrfflags, core::mem::transmute(pdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SHRegGetValueFromHKCUHKLM<P0, P1>(pwszkey: P0, pwszvalue: P1, srrfflags: i32, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>) -> super::super::Foundation::WIN32_ERROR
@@ -4108,7 +4108,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHRegGetValueFromHKCUHKLM(pwszkey : windows_core::PCWSTR, pwszvalue : windows_core::PCWSTR, srrfflags : i32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHRegGetValueFromHKCUHKLM(pwszkey.param().abi(), pwszvalue.param().abi(), srrfflags, core::mem::transmute(pdwtype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(std::ptr::null_mut())))
+    SHRegGetValueFromHKCUHKLM(pwszkey.param().abi(), pwszvalue.param().abi(), srrfflags, core::mem::transmute(pdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -4119,7 +4119,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHRegGetValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_core::PCWSTR, pszvalue : windows_core::PCWSTR, srrfflags : i32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHRegGetValueW(hkey.param().abi(), pszsubkey.param().abi(), pszvalue.param().abi(), srrfflags, core::mem::transmute(pdwtype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(std::ptr::null_mut())))
+    SHRegGetValueW(hkey.param().abi(), pszsubkey.param().abi(), pszvalue.param().abi(), srrfflags, core::mem::transmute(pdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
 pub unsafe fn SHRegOpenUSKeyA<P0, P1>(pszpath: P0, samdesired: u32, hrelativeuskey: isize, phnewuskey: *mut isize, fignorehkcu: P1) -> super::super::Foundation::WIN32_ERROR
@@ -4142,12 +4142,12 @@ where
 #[inline]
 pub unsafe fn SHRegQueryInfoUSKeyA(huskey: isize, pcsubkeys: Option<*mut u32>, pcchmaxsubkeylen: Option<*mut u32>, pcvalues: Option<*mut u32>, pcchmaxvaluenamelen: Option<*mut u32>, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("shlwapi.dll" "system" fn SHRegQueryInfoUSKeyA(huskey : isize, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-    SHRegQueryInfoUSKeyA(huskey, core::mem::transmute(pcsubkeys.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchmaxsubkeylen.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcvalues.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchmaxvaluenamelen.unwrap_or(std::ptr::null_mut())), enumregflags)
+    SHRegQueryInfoUSKeyA(huskey, core::mem::transmute(pcsubkeys.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchmaxsubkeylen.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcvalues.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchmaxvaluenamelen.unwrap_or(core::ptr::null_mut())), enumregflags)
 }
 #[inline]
 pub unsafe fn SHRegQueryInfoUSKeyW(huskey: isize, pcsubkeys: Option<*mut u32>, pcchmaxsubkeylen: Option<*mut u32>, pcvalues: Option<*mut u32>, pcchmaxvaluenamelen: Option<*mut u32>, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR {
     windows_targets::link!("shlwapi.dll" "system" fn SHRegQueryInfoUSKeyW(huskey : isize, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-    SHRegQueryInfoUSKeyW(huskey, core::mem::transmute(pcsubkeys.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchmaxsubkeylen.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcvalues.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcchmaxvaluenamelen.unwrap_or(std::ptr::null_mut())), enumregflags)
+    SHRegQueryInfoUSKeyW(huskey, core::mem::transmute(pcsubkeys.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchmaxsubkeylen.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcvalues.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcchmaxvaluenamelen.unwrap_or(core::ptr::null_mut())), enumregflags)
 }
 #[inline]
 pub unsafe fn SHRegQueryUSValueA<P0, P1>(huskey: isize, pszvalue: P0, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>, fignorehkcu: P1, pvdefaultdata: Option<*const core::ffi::c_void>, dwdefaultdatasize: u32) -> super::super::Foundation::WIN32_ERROR
@@ -4156,7 +4156,7 @@ where
     P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHRegQueryUSValueA(huskey : isize, pszvalue : windows_core::PCSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHRegQueryUSValueA(huskey, pszvalue.param().abi(), core::mem::transmute(pdwtype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(std::ptr::null_mut())), fignorehkcu.param().abi(), core::mem::transmute(pvdefaultdata.unwrap_or(std::ptr::null())), dwdefaultdatasize)
+    SHRegQueryUSValueA(huskey, pszvalue.param().abi(), core::mem::transmute(pdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())), fignorehkcu.param().abi(), core::mem::transmute(pvdefaultdata.unwrap_or(core::ptr::null())), dwdefaultdatasize)
 }
 #[inline]
 pub unsafe fn SHRegQueryUSValueW<P0, P1>(huskey: isize, pszvalue: P0, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>, fignorehkcu: P1, pvdefaultdata: Option<*const core::ffi::c_void>, dwdefaultdatasize: u32) -> super::super::Foundation::WIN32_ERROR
@@ -4165,7 +4165,7 @@ where
     P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHRegQueryUSValueW(huskey : isize, pszvalue : windows_core::PCWSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : super::super::Foundation:: BOOL, pvdefaultdata : *const core::ffi::c_void, dwdefaultdatasize : u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHRegQueryUSValueW(huskey, pszvalue.param().abi(), core::mem::transmute(pdwtype.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(std::ptr::null_mut())), fignorehkcu.param().abi(), core::mem::transmute(pvdefaultdata.unwrap_or(std::ptr::null())), dwdefaultdatasize)
+    SHRegQueryUSValueW(huskey, pszvalue.param().abi(), core::mem::transmute(pdwtype.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pvdata.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbdata.unwrap_or(core::ptr::null_mut())), fignorehkcu.param().abi(), core::mem::transmute(pvdefaultdata.unwrap_or(core::ptr::null())), dwdefaultdatasize)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -4198,7 +4198,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHRegSetUSValueA(pszsubkey : windows_core::PCSTR, pszvalue : windows_core::PCSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHRegSetUSValueA(pszsubkey.param().abi(), pszvalue.param().abi(), dwtype, core::mem::transmute(pvdata.unwrap_or(std::ptr::null())), cbdata, dwflags)
+    SHRegSetUSValueA(pszsubkey.param().abi(), pszvalue.param().abi(), dwtype, core::mem::transmute(pvdata.unwrap_or(core::ptr::null())), cbdata, dwflags)
 }
 #[inline]
 pub unsafe fn SHRegSetUSValueW<P0, P1>(pwzsubkey: P0, pwzvalue: P1, dwtype: u32, pvdata: Option<*const core::ffi::c_void>, cbdata: u32, dwflags: u32) -> super::super::Foundation::WIN32_ERROR
@@ -4207,7 +4207,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHRegSetUSValueW(pwzsubkey : windows_core::PCWSTR, pwzvalue : windows_core::PCWSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
-    SHRegSetUSValueW(pwzsubkey.param().abi(), pwzvalue.param().abi(), dwtype, core::mem::transmute(pvdata.unwrap_or(std::ptr::null())), cbdata, dwflags)
+    SHRegSetUSValueW(pwzsubkey.param().abi(), pwzvalue.param().abi(), dwtype, core::mem::transmute(pvdata.unwrap_or(core::ptr::null())), cbdata, dwflags)
 }
 #[inline]
 pub unsafe fn SHRegWriteUSValueA<P0>(huskey: isize, pszvalue: P0, dwtype: u32, pvdata: *const core::ffi::c_void, cbdata: u32, dwflags: u32) -> super::super::Foundation::WIN32_ERROR
@@ -4368,7 +4368,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHSetValueA(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_core::PCSTR, pszvalue : windows_core::PCSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32) -> i32);
-    SHSetValueA(hkey.param().abi(), pszsubkey.param().abi(), pszvalue.param().abi(), dwtype, core::mem::transmute(pvdata.unwrap_or(std::ptr::null())), cbdata)
+    SHSetValueA(hkey.param().abi(), pszsubkey.param().abi(), pszvalue.param().abi(), dwtype, core::mem::transmute(pvdata.unwrap_or(core::ptr::null())), cbdata)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
@@ -4379,7 +4379,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shlwapi.dll" "system" fn SHSetValueW(hkey : super::super::System::Registry:: HKEY, pszsubkey : windows_core::PCWSTR, pszvalue : windows_core::PCWSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32) -> i32);
-    SHSetValueW(hkey.param().abi(), pszsubkey.param().abi(), pszvalue.param().abi(), dwtype, core::mem::transmute(pvdata.unwrap_or(std::ptr::null())), cbdata)
+    SHSetValueW(hkey.param().abi(), pszsubkey.param().abi(), pszvalue.param().abi(), dwtype, core::mem::transmute(pvdata.unwrap_or(core::ptr::null())), cbdata)
 }
 #[inline]
 pub unsafe fn SHShellFolderView_Message<P0, P1>(hwndmain: P0, umsg: u32, lparam: P1) -> super::super::Foundation::LRESULT
@@ -4656,7 +4656,7 @@ where
 #[inline]
 pub unsafe fn Shell_GetImageLists(phiml: Option<*mut super::Controls::HIMAGELIST>, phimlsmall: Option<*mut super::Controls::HIMAGELIST>) -> super::super::Foundation::BOOL {
     windows_targets::link!("shell32.dll" "system" fn Shell_GetImageLists(phiml : *mut super::Controls:: HIMAGELIST, phimlsmall : *mut super::Controls:: HIMAGELIST) -> super::super::Foundation:: BOOL);
-    Shell_GetImageLists(core::mem::transmute(phiml.unwrap_or(std::ptr::null_mut())), core::mem::transmute(phimlsmall.unwrap_or(std::ptr::null_mut())))
+    Shell_GetImageLists(core::mem::transmute(phiml.unwrap_or(core::ptr::null_mut())), core::mem::transmute(phimlsmall.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
@@ -4700,7 +4700,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("shdocvw.dll" "system" fn SoftwareUpdateMessageBox(hwnd : super::super::Foundation:: HWND, pszdistunit : windows_core::PCWSTR, dwflags : u32, psdi : *mut super::super::System::Com::Urlmon:: SOFTDISTINFO) -> u32);
-    SoftwareUpdateMessageBox(hwnd.param().abi(), pszdistunit.param().abi(), dwflags, core::mem::transmute(psdi.unwrap_or(std::ptr::null_mut())))
+    SoftwareUpdateMessageBox(hwnd.param().abi(), pszdistunit.param().abi(), dwflags, core::mem::transmute(psdi.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
@@ -5151,31 +5151,31 @@ where
 #[inline]
 pub unsafe fn StrRetToBSTR(pstr: *mut Common::STRRET, pidl: Option<*const Common::ITEMIDLIST>, pbstr: *mut windows_core::BSTR) -> windows_core::Result<()> {
     windows_targets::link!("shlwapi.dll" "system" fn StrRetToBSTR(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pbstr : *mut core::mem::MaybeUninit < windows_core::BSTR >) -> windows_core::HRESULT);
-    StrRetToBSTR(pstr, core::mem::transmute(pidl.unwrap_or(std::ptr::null())), core::mem::transmute(pbstr)).ok()
+    StrRetToBSTR(pstr, core::mem::transmute(pidl.unwrap_or(core::ptr::null())), core::mem::transmute(pbstr)).ok()
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn StrRetToBufA(pstr: *mut Common::STRRET, pidl: Option<*const Common::ITEMIDLIST>, pszbuf: &mut [u8]) -> windows_core::Result<()> {
     windows_targets::link!("shlwapi.dll" "system" fn StrRetToBufA(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pszbuf : windows_core::PSTR, cchbuf : u32) -> windows_core::HRESULT);
-    StrRetToBufA(pstr, core::mem::transmute(pidl.unwrap_or(std::ptr::null())), core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()).ok()
+    StrRetToBufA(pstr, core::mem::transmute(pidl.unwrap_or(core::ptr::null())), core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()).ok()
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn StrRetToBufW(pstr: *mut Common::STRRET, pidl: Option<*const Common::ITEMIDLIST>, pszbuf: &mut [u16]) -> windows_core::Result<()> {
     windows_targets::link!("shlwapi.dll" "system" fn StrRetToBufW(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, pszbuf : windows_core::PWSTR, cchbuf : u32) -> windows_core::HRESULT);
-    StrRetToBufW(pstr, core::mem::transmute(pidl.unwrap_or(std::ptr::null())), core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()).ok()
+    StrRetToBufW(pstr, core::mem::transmute(pidl.unwrap_or(core::ptr::null())), core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()).ok()
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn StrRetToStrA(pstr: *mut Common::STRRET, pidl: Option<*const Common::ITEMIDLIST>, ppsz: *mut windows_core::PSTR) -> windows_core::Result<()> {
     windows_targets::link!("shlwapi.dll" "system" fn StrRetToStrA(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppsz : *mut windows_core::PSTR) -> windows_core::HRESULT);
-    StrRetToStrA(pstr, core::mem::transmute(pidl.unwrap_or(std::ptr::null())), ppsz).ok()
+    StrRetToStrA(pstr, core::mem::transmute(pidl.unwrap_or(core::ptr::null())), ppsz).ok()
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn StrRetToStrW(pstr: *mut Common::STRRET, pidl: Option<*const Common::ITEMIDLIST>, ppsz: *mut windows_core::PWSTR) -> windows_core::Result<()> {
     windows_targets::link!("shlwapi.dll" "system" fn StrRetToStrW(pstr : *mut Common:: STRRET, pidl : *const Common:: ITEMIDLIST, ppsz : *mut windows_core::PWSTR) -> windows_core::HRESULT);
-    StrRetToStrW(pstr, core::mem::transmute(pidl.unwrap_or(std::ptr::null())), ppsz).ok()
+    StrRetToStrW(pstr, core::mem::transmute(pidl.unwrap_or(core::ptr::null())), ppsz).ok()
 }
 #[inline]
 pub unsafe fn StrSpnA<P0, P1>(psz: P0, pszset: P1) -> i32
@@ -5552,12 +5552,12 @@ where
 #[inline]
 pub unsafe fn UrlUnescapeA(pszurl: windows_core::PSTR, pszunescaped: windows_core::PSTR, pcchunescaped: Option<*mut u32>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("shlwapi.dll" "system" fn UrlUnescapeA(pszurl : windows_core::PSTR, pszunescaped : windows_core::PSTR, pcchunescaped : *mut u32, dwflags : u32) -> windows_core::HRESULT);
-    UrlUnescapeA(core::mem::transmute(pszurl), core::mem::transmute(pszunescaped), core::mem::transmute(pcchunescaped.unwrap_or(std::ptr::null_mut())), dwflags).ok()
+    UrlUnescapeA(core::mem::transmute(pszurl), core::mem::transmute(pszunescaped), core::mem::transmute(pcchunescaped.unwrap_or(core::ptr::null_mut())), dwflags).ok()
 }
 #[inline]
 pub unsafe fn UrlUnescapeW(pszurl: windows_core::PWSTR, pszunescaped: windows_core::PWSTR, pcchunescaped: Option<*mut u32>, dwflags: u32) -> windows_core::Result<()> {
     windows_targets::link!("shlwapi.dll" "system" fn UrlUnescapeW(pszurl : windows_core::PWSTR, pszunescaped : windows_core::PWSTR, pcchunescaped : *mut u32, dwflags : u32) -> windows_core::HRESULT);
-    UrlUnescapeW(core::mem::transmute(pszurl), core::mem::transmute(pszunescaped), core::mem::transmute(pcchunescaped.unwrap_or(std::ptr::null_mut())), dwflags).ok()
+    UrlUnescapeW(core::mem::transmute(pszurl), core::mem::transmute(pszunescaped), core::mem::transmute(pcchunescaped.unwrap_or(core::ptr::null_mut())), dwflags).ok()
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common"))]
 #[inline]
@@ -7164,7 +7164,7 @@ impl IAttachmentExecute {
         P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pszverb.param().abi(), core::mem::transmute(phprocess.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pszverb.param().abi(), core::mem::transmute(phprocess.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn SaveWithUI<P0>(&self, hwnd: P0) -> windows_core::Result<()>
     where
@@ -7324,7 +7324,7 @@ impl IBandSite {
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn QueryBand(&self, dwbandid: u32, ppstb: Option<*mut Option<IDeskBand>>, pdwstate: Option<*mut u32>, pszname: Option<&mut [u16]>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).QueryBand)(windows_core::Interface::as_raw(self), dwbandid, core::mem::transmute(ppstb.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwstate.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pszname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
+        (windows_core::Interface::vtable(self).QueryBand)(windows_core::Interface::as_raw(self), dwbandid, core::mem::transmute(ppstb.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwstate.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pszname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
     }
     pub unsafe fn SetBandState(&self, dwbandid: u32, dwmask: u32, dwstate: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetBandState)(windows_core::Interface::as_raw(self), dwbandid, dwmask, dwstate).ok()
@@ -7848,7 +7848,7 @@ impl IBrowserService2 {
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self)._ExecChildren)(windows_core::Interface::as_raw(self), punkbar.param().abi(), fbroadcast.param().abi(), core::mem::transmute(pguidcmdgroup.unwrap_or(std::ptr::null())), ncmdid, ncmdexecopt, core::mem::transmute(pvarargin.unwrap_or(std::ptr::null())), core::mem::transmute(pvarargout.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self)._ExecChildren)(windows_core::Interface::as_raw(self), punkbar.param().abi(), fbroadcast.param().abi(), core::mem::transmute(pguidcmdgroup.unwrap_or(core::ptr::null())), ncmdid, ncmdexecopt, core::mem::transmute(pvarargin.unwrap_or(core::ptr::null())), core::mem::transmute(pvarargout.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn _SendChildren<P0, P1, P2, P3>(&self, hwndbar: P0, fbroadcast: P1, umsg: u32, wparam: P2, lparam: P3) -> windows_core::Result<()>
     where
@@ -8610,7 +8610,7 @@ impl IContextMenu {
         (windows_core::Interface::vtable(self).InvokeCommand)(windows_core::Interface::as_raw(self), pici).ok()
     }
     pub unsafe fn GetCommandString(&self, idcmd: usize, utype: u32, preserved: Option<*const u32>, pszname: windows_core::PSTR, cchmax: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCommandString)(windows_core::Interface::as_raw(self), idcmd, utype, core::mem::transmute(preserved.unwrap_or(std::ptr::null())), core::mem::transmute(pszname), cchmax).ok()
+        (windows_core::Interface::vtable(self).GetCommandString)(windows_core::Interface::as_raw(self), idcmd, utype, core::mem::transmute(preserved.unwrap_or(core::ptr::null())), core::mem::transmute(pszname), cchmax).ok()
     }
 }
 #[repr(C)]
@@ -8659,7 +8659,7 @@ impl IContextMenu3 {
         P0: windows_core::Param<super::super::Foundation::WPARAM>,
         P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).HandleMenuMsg2)(windows_core::Interface::as_raw(self), umsg, wparam.param().abi(), lparam.param().abi(), core::mem::transmute(plresult.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).HandleMenuMsg2)(windows_core::Interface::as_raw(self), umsg, wparam.param().abi(), lparam.param().abi(), core::mem::transmute(plresult.unwrap_or(core::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -9592,7 +9592,7 @@ impl IDefaultFolderMenuInitialize {
         P2: windows_core::Param<IShellFolder>,
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pcmcb.param().abi(), core::mem::transmute(pidlfolder.unwrap_or(std::ptr::null())), psf.param().abi(), apidl.len().try_into().unwrap(), core::mem::transmute(apidl.as_ptr()), punkassociation.param().abi(), ckeys, core::mem::transmute(akeys.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pcmcb.param().abi(), core::mem::transmute(pidlfolder.unwrap_or(core::ptr::null())), psf.param().abi(), apidl.len().try_into().unwrap(), core::mem::transmute(apidl.as_ptr()), punkassociation.param().abi(), ckeys, core::mem::transmute(akeys.unwrap_or(core::ptr::null()))).ok()
     }
     pub unsafe fn SetMenuRestrictions(&self, dfmrvalues: DEFAULT_FOLDER_MENU_RESTRICTIONS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SetMenuRestrictions)(windows_core::Interface::as_raw(self), dfmrvalues).ok()
@@ -10135,7 +10135,7 @@ impl IDragSourceHelper {
         P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<super::super::System::Com::IDataObject>,
     {
-        (windows_core::Interface::vtable(self).InitializeFromWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi(), core::mem::transmute(ppt.unwrap_or(std::ptr::null())), pdataobject.param().abi()).ok()
+        (windows_core::Interface::vtable(self).InitializeFromWindow)(windows_core::Interface::as_raw(self), hwnd.param().abi(), core::mem::transmute(ppt.unwrap_or(core::ptr::null())), pdataobject.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -10288,7 +10288,7 @@ impl core::ops::Deref for IEnumAssocHandlers {
 windows_core::imp::interface_hierarchy!(IEnumAssocHandlers, windows_core::IUnknown);
 impl IEnumAssocHandlers {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IAssocHandler>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -10306,7 +10306,7 @@ impl core::ops::Deref for IEnumExplorerCommand {
 windows_core::imp::interface_hierarchy!(IEnumExplorerCommand, windows_core::IUnknown);
 impl IEnumExplorerCommand {
     pub unsafe fn Next(&self, puicommand: &mut [Option<IExplorerCommand>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), puicommand.len().try_into().unwrap(), core::mem::transmute(puicommand.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut())))
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), puicommand.len().try_into().unwrap(), core::mem::transmute(puicommand.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut())))
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
@@ -10369,7 +10369,7 @@ windows_core::imp::interface_hierarchy!(IEnumFullIDList, windows_core::IUnknown)
 impl IEnumFullIDList {
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub unsafe fn Next(&self, rgelt: &mut [*mut Common::ITEMIDLIST], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut())))
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut())))
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
@@ -10435,7 +10435,7 @@ windows_core::imp::interface_hierarchy!(IEnumIDList, windows_core::IUnknown);
 impl IEnumIDList {
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub unsafe fn Next(&self, rgelt: &mut [*mut Common::ITEMIDLIST], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut())))
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut())))
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt)
@@ -10468,7 +10468,7 @@ impl core::ops::Deref for IEnumObjects {
 windows_core::imp::interface_hierarchy!(IEnumObjects, windows_core::IUnknown);
 impl IEnumObjects {
     pub unsafe fn Next(&self, riid: *const windows_core::GUID, rgelt: &mut [*mut core::ffi::c_void], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), riid, core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), riid, core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
@@ -10571,7 +10571,7 @@ impl core::ops::Deref for IEnumShellItems {
 windows_core::imp::interface_hierarchy!(IEnumShellItems, windows_core::IUnknown);
 impl IEnumShellItems {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IShellItem>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), core::mem::transmute(pceltfetched.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
@@ -10926,14 +10926,14 @@ impl IExplorerBrowser {
     where
         P0: windows_core::Param<super::super::Foundation::HWND>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), prc, core::mem::transmute(pfs.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), prc, core::mem::transmute(pfs.unwrap_or(core::ptr::null()))).ok()
     }
     pub unsafe fn Destroy(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self)).ok()
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn SetRect(&self, phdwp: Option<*mut super::WindowsAndMessaging::HDWP>, rcbrowser: super::super::Foundation::RECT) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SetRect)(windows_core::Interface::as_raw(self), core::mem::transmute(phdwp.unwrap_or(std::ptr::null_mut())), core::mem::transmute(rcbrowser)).ok()
+        (windows_core::Interface::vtable(self).SetRect)(windows_core::Interface::as_raw(self), core::mem::transmute(phdwp.unwrap_or(core::ptr::null_mut())), core::mem::transmute(rcbrowser)).ok()
     }
     pub unsafe fn SetPropertyBag<P0>(&self, pszpropertybag: P0) -> windows_core::Result<()>
     where
@@ -11262,7 +11262,7 @@ impl IExtractIconA {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        (windows_core::Interface::vtable(self).Extract)(windows_core::Interface::as_raw(self), pszfile.param().abi(), niconindex, core::mem::transmute(phiconlarge.unwrap_or(std::ptr::null_mut())), core::mem::transmute(phiconsmall.unwrap_or(std::ptr::null_mut())), niconsize).ok()
+        (windows_core::Interface::vtable(self).Extract)(windows_core::Interface::as_raw(self), pszfile.param().abi(), niconindex, core::mem::transmute(phiconlarge.unwrap_or(core::ptr::null_mut())), core::mem::transmute(phiconsmall.unwrap_or(core::ptr::null_mut())), niconsize).ok()
     }
 }
 #[repr(C)]
@@ -11291,7 +11291,7 @@ impl IExtractIconW {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Extract)(windows_core::Interface::as_raw(self), pszfile.param().abi(), niconindex, core::mem::transmute(phiconlarge.unwrap_or(std::ptr::null_mut())), core::mem::transmute(phiconsmall.unwrap_or(std::ptr::null_mut())), niconsize).ok()
+        (windows_core::Interface::vtable(self).Extract)(windows_core::Interface::as_raw(self), pszfile.param().abi(), niconindex, core::mem::transmute(phiconlarge.unwrap_or(core::ptr::null_mut())), core::mem::transmute(phiconsmall.unwrap_or(core::ptr::null_mut())), niconsize).ok()
     }
 }
 #[repr(C)]
@@ -12552,7 +12552,7 @@ impl IFolderView {
     }
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub unsafe fn SelectAndPositionItems(&self, cidl: u32, apidl: *const *const Common::ITEMIDLIST, apt: Option<*const super::super::Foundation::POINT>, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).SelectAndPositionItems)(windows_core::Interface::as_raw(self), cidl, apidl, core::mem::transmute(apt.unwrap_or(std::ptr::null())), dwflags).ok()
+        (windows_core::Interface::vtable(self).SelectAndPositionItems)(windows_core::Interface::as_raw(self), cidl, apidl, core::mem::transmute(apt.unwrap_or(core::ptr::null())), dwflags).ok()
     }
 }
 #[repr(C)]
@@ -12600,7 +12600,7 @@ impl IFolderView2 {
     }
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetGroupBy(&self, pkey: *mut PropertiesSystem::PROPERTYKEY, pfascending: Option<*mut super::super::Foundation::BOOL>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetGroupBy)(windows_core::Interface::as_raw(self), pkey, core::mem::transmute(pfascending.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetGroupBy)(windows_core::Interface::as_raw(self), pkey, core::mem::transmute(pfascending.unwrap_or(core::ptr::null_mut()))).ok()
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn SetViewProperty(&self, pidl: *const Common::ITEMIDLIST, propkey: *const PropertiesSystem::PROPERTYKEY, propvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
@@ -13167,7 +13167,7 @@ impl IHlink {
     }
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMonikerReference(&self, dwwhichref: u32, ppimktarget: Option<*mut Option<super::super::System::Com::IMoniker>>, ppwzlocation: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetMonikerReference)(windows_core::Interface::as_raw(self), dwwhichref, core::mem::transmute(ppimktarget.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppwzlocation.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetMonikerReference)(windows_core::Interface::as_raw(self), dwwhichref, core::mem::transmute(ppimktarget.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppwzlocation.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetStringReference<P0, P1>(&self, grfhlsetf: u32, pwztarget: P0, pwzlocation: P1) -> windows_core::Result<()>
     where
@@ -13177,7 +13177,7 @@ impl IHlink {
         (windows_core::Interface::vtable(self).SetStringReference)(windows_core::Interface::as_raw(self), grfhlsetf, pwztarget.param().abi(), pwzlocation.param().abi()).ok()
     }
     pub unsafe fn GetStringReference(&self, dwwhichref: u32, ppwztarget: Option<*mut windows_core::PWSTR>, ppwzlocation: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetStringReference)(windows_core::Interface::as_raw(self), dwwhichref, core::mem::transmute(ppwztarget.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppwzlocation.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetStringReference)(windows_core::Interface::as_raw(self), dwwhichref, core::mem::transmute(ppwztarget.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppwzlocation.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn SetFriendlyName<P0>(&self, pwzfriendlyname: P0) -> windows_core::Result<()>
     where
@@ -13569,7 +13569,7 @@ impl IIOCancelInformation {
         (windows_core::Interface::vtable(self).SetCancelInformation)(windows_core::Interface::as_raw(self), dwthreadid, umsgcancel).ok()
     }
     pub unsafe fn GetCancelInformation(&self, pdwthreadid: Option<*mut u32>, pumsgcancel: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetCancelInformation)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwthreadid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pumsgcancel.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetCancelInformation)(windows_core::Interface::as_raw(self), core::mem::transmute(pdwthreadid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pumsgcancel.unwrap_or(core::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -14092,7 +14092,7 @@ impl IKnownFolderManager {
         P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).Redirect)(windows_core::Interface::as_raw(self), rfid, hwnd.param().abi(), flags, psztargetpath.param().abi(), pexclusion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pexclusion.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(ppszerror.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).Redirect)(windows_core::Interface::as_raw(self), rfid, hwnd.param().abi(), flags, psztargetpath.param().abi(), pexclusion.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pexclusion.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(ppszerror.unwrap_or(core::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -14287,7 +14287,7 @@ windows_core::imp::interface_hierarchy!(IMenuPopup, windows_core::IUnknown, supe
 #[cfg(feature = "Win32_System_Ole")]
 impl IMenuPopup {
     pub unsafe fn Popup(&self, ppt: *const super::super::Foundation::POINTL, prcexclude: Option<*const super::super::Foundation::RECTL>, dwflags: i32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Popup)(windows_core::Interface::as_raw(self), ppt, core::mem::transmute(prcexclude.unwrap_or(std::ptr::null())), dwflags).ok()
+        (windows_core::Interface::vtable(self).Popup)(windows_core::Interface::as_raw(self), ppt, core::mem::transmute(prcexclude.unwrap_or(core::ptr::null())), dwflags).ok()
     }
     pub unsafe fn OnSelect(&self, dwselecttype: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).OnSelect)(windows_core::Interface::as_raw(self), dwselecttype).ok()
@@ -15697,7 +15697,7 @@ impl IParentAndItem {
     }
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub unsafe fn GetParentAndItem(&self, ppidlparent: Option<*mut *mut Common::ITEMIDLIST>, ppsf: Option<*mut Option<IShellFolder>>, ppidlchild: Option<*mut *mut Common::ITEMIDLIST>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetParentAndItem)(windows_core::Interface::as_raw(self), core::mem::transmute(ppidlparent.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppsf.unwrap_or(std::ptr::null_mut())), core::mem::transmute(ppidlchild.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetParentAndItem)(windows_core::Interface::as_raw(self), core::mem::transmute(ppidlparent.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppsf.unwrap_or(core::ptr::null_mut())), core::mem::transmute(ppidlchild.unwrap_or(core::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -16067,7 +16067,7 @@ impl IProgressDialog {
         P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).StartProgressDialog)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), punkenablemodless.param().abi(), dwflags, core::mem::transmute(pvresevered.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).StartProgressDialog)(windows_core::Interface::as_raw(self), hwndparent.param().abi(), punkenablemodless.param().abi(), dwflags, core::mem::transmute(pvresevered.unwrap_or(core::ptr::null()))).ok()
     }
     pub unsafe fn StopProgressDialog(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).StopProgressDialog)(windows_core::Interface::as_raw(self)).ok()
@@ -16098,16 +16098,16 @@ impl IProgressDialog {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
-        (windows_core::Interface::vtable(self).SetLine)(windows_core::Interface::as_raw(self), dwlinenum, pwzstring.param().abi(), fcompactpath.param().abi(), core::mem::transmute(pvresevered.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetLine)(windows_core::Interface::as_raw(self), dwlinenum, pwzstring.param().abi(), fcompactpath.param().abi(), core::mem::transmute(pvresevered.unwrap_or(core::ptr::null()))).ok()
     }
     pub unsafe fn SetCancelMsg<P0>(&self, pwzcancelmsg: P0, pvresevered: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetCancelMsg)(windows_core::Interface::as_raw(self), pwzcancelmsg.param().abi(), core::mem::transmute(pvresevered.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).SetCancelMsg)(windows_core::Interface::as_raw(self), pwzcancelmsg.param().abi(), core::mem::transmute(pvresevered.unwrap_or(core::ptr::null()))).ok()
     }
     pub unsafe fn Timer(&self, dwtimeraction: u32, pvresevered: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Timer)(windows_core::Interface::as_raw(self), dwtimeraction, core::mem::transmute(pvresevered.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Timer)(windows_core::Interface::as_raw(self), dwtimeraction, core::mem::transmute(pvresevered.unwrap_or(core::ptr::null()))).ok()
     }
 }
 #[repr(C)]
@@ -16245,7 +16245,7 @@ impl IPublishingWizard {
     }
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn GetTransferManifest(&self, phrfromtransfer: Option<*mut windows_core::HRESULT>, pdocmanifest: Option<*mut Option<super::super::Data::Xml::MsXml::IXMLDOMDocument>>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetTransferManifest)(windows_core::Interface::as_raw(self), core::mem::transmute(phrfromtransfer.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdocmanifest.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetTransferManifest)(windows_core::Interface::as_raw(self), core::mem::transmute(phrfromtransfer.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdocmanifest.unwrap_or(core::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -16296,7 +16296,7 @@ impl IQueryAssociations {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), flags, data, pszextra.param().abi(), core::mem::transmute(pvout.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pcbout.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), flags, data, pszextra.param().abi(), core::mem::transmute(pvout.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbout.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetEnum<P0>(&self, flags: ASSOCF, assocenum: ASSOCENUM, pszextra: P0, riid: *const windows_core::GUID, ppvout: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
     where
@@ -16543,7 +16543,7 @@ impl IResultsFolder {
     }
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub unsafe fn AddIDList(&self, pidl: *const Common::ITEMIDLIST, ppidladded: Option<*mut *mut Common::ITEMIDLIST>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AddIDList)(windows_core::Interface::as_raw(self), pidl, core::mem::transmute(ppidladded.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).AddIDList)(windows_core::Interface::as_raw(self), pidl, core::mem::transmute(ppidladded.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn RemoveItem<P0>(&self, psi: P0) -> windows_core::Result<()>
     where
@@ -17058,7 +17058,7 @@ impl IShellBrowser {
         P0: windows_core::Param<super::super::Foundation::WPARAM>,
         P1: windows_core::Param<super::super::Foundation::LPARAM>,
     {
-        (windows_core::Interface::vtable(self).SendControlMsg)(windows_core::Interface::as_raw(self), id, umsg, wparam.param().abi(), lparam.param().abi(), core::mem::transmute(pret.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).SendControlMsg)(windows_core::Interface::as_raw(self), id, umsg, wparam.param().abi(), lparam.param().abi(), core::mem::transmute(pret.unwrap_or(core::ptr::null_mut()))).ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn QueryActiveShellView(&self) -> windows_core::Result<IShellView> {
@@ -17133,7 +17133,7 @@ windows_core::imp::interface_hierarchy!(IShellChangeNotify, windows_core::IUnkno
 impl IShellChangeNotify {
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub unsafe fn OnChange(&self, levent: i32, pidl1: Option<*const Common::ITEMIDLIST>, pidl2: Option<*const Common::ITEMIDLIST>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).OnChange)(windows_core::Interface::as_raw(self), levent, core::mem::transmute(pidl1.unwrap_or(std::ptr::null())), core::mem::transmute(pidl2.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).OnChange)(windows_core::Interface::as_raw(self), levent, core::mem::transmute(pidl1.unwrap_or(core::ptr::null())), core::mem::transmute(pidl2.unwrap_or(core::ptr::null()))).ok()
     }
 }
 #[repr(C)]
@@ -17155,7 +17155,7 @@ windows_core::imp::interface_hierarchy!(IShellDetails, windows_core::IUnknown);
 impl IShellDetails {
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub unsafe fn GetDetailsOf(&self, pidl: Option<*const Common::ITEMIDLIST>, icolumn: u32, pdetails: *mut Common::SHELLDETAILS) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDetailsOf)(windows_core::Interface::as_raw(self), core::mem::transmute(pidl.unwrap_or(std::ptr::null())), icolumn, pdetails).ok()
+        (windows_core::Interface::vtable(self).GetDetailsOf)(windows_core::Interface::as_raw(self), core::mem::transmute(pidl.unwrap_or(core::ptr::null())), icolumn, pdetails).ok()
     }
     pub unsafe fn ColumnClick(&self, icolumn: u32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).ColumnClick)(windows_core::Interface::as_raw(self), icolumn).ok()
@@ -17593,7 +17593,7 @@ impl IShellExtInit {
         P0: windows_core::Param<super::super::System::Com::IDataObject>,
         P1: windows_core::Param<super::super::System::Registry::HKEY>,
     {
-        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pidlfolder.unwrap_or(std::ptr::null())), pdtobj.param().abi(), hkeyprogid.param().abi()).ok()
+        (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pidlfolder.unwrap_or(core::ptr::null())), pdtobj.param().abi(), hkeyprogid.param().abi()).ok()
     }
 }
 #[repr(C)]
@@ -17700,7 +17700,7 @@ impl IShellFolder {
         P1: windows_core::Param<super::super::System::Com::IBindCtx>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).ParseDisplayName)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pbc.param().abi(), pszdisplayname.param().abi(), core::mem::transmute(pcheaten.unwrap_or(std::ptr::null())), ppidl, pdwattributes).ok()
+        (windows_core::Interface::vtable(self).ParseDisplayName)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pbc.param().abi(), pszdisplayname.param().abi(), core::mem::transmute(pcheaten.unwrap_or(core::ptr::null())), ppidl, pdwattributes).ok()
     }
     pub unsafe fn EnumObjects<P0>(&self, hwnd: P0, grfflags: u32, ppenumidlist: *mut Option<IEnumIDList>) -> windows_core::HRESULT
     where
@@ -17752,7 +17752,7 @@ impl IShellFolder {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        (windows_core::Interface::vtable(self).GetUIObjectOf)(windows_core::Interface::as_raw(self), hwndowner.param().abi(), apidl.len().try_into().unwrap(), core::mem::transmute(apidl.as_ptr()), &T::IID, core::mem::transmute(rgfreserved.unwrap_or(std::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetUIObjectOf)(windows_core::Interface::as_raw(self), hwndowner.param().abi(), apidl.len().try_into().unwrap(), core::mem::transmute(apidl.as_ptr()), &T::IID, core::mem::transmute(rgfreserved.unwrap_or(core::ptr::null())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub unsafe fn GetDisplayNameOf(&self, pidl: *const Common::ITEMIDLIST, uflags: SHGDNF, pname: *mut Common::STRRET) -> windows_core::Result<()> {
@@ -17764,7 +17764,7 @@ impl IShellFolder {
         P0: windows_core::Param<super::super::Foundation::HWND>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        (windows_core::Interface::vtable(self).SetNameOf)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pidl, pszname.param().abi(), uflags, core::mem::transmute(ppidlout.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).SetNameOf)(windows_core::Interface::as_raw(self), hwnd.param().abi(), pidl, pszname.param().abi(), uflags, core::mem::transmute(ppidlout.unwrap_or(core::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -17881,7 +17881,7 @@ impl IShellFolderBand {
     where
         P0: windows_core::Param<IShellFolder>,
     {
-        (windows_core::Interface::vtable(self).InitializeSFB)(windows_core::Interface::as_raw(self), psf.param().abi(), core::mem::transmute(pidl.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).InitializeSFB)(windows_core::Interface::as_raw(self), psf.param().abi(), core::mem::transmute(pidl.unwrap_or(core::ptr::null()))).ok()
     }
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub unsafe fn SetBandInfoSFB(&self, pbi: *const BANDINFOSFB) -> windows_core::Result<()> {
@@ -17948,7 +17948,7 @@ impl IShellFolderView {
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub unsafe fn RemoveObject(&self, pidl: Option<*const Common::ITEMIDLIST>) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).RemoveObject)(windows_core::Interface::as_raw(self), core::mem::transmute(pidl.unwrap_or(std::ptr::null())), &mut result__).map(|| result__)
+        (windows_core::Interface::vtable(self).RemoveObject)(windows_core::Interface::as_raw(self), core::mem::transmute(pidl.unwrap_or(core::ptr::null())), &mut result__).map(|| result__)
     }
     pub unsafe fn GetObjectCount(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -19663,7 +19663,7 @@ impl IShellMenu {
         (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psmc.param().abi(), uid, uidancestor, dwflags).ok()
     }
     pub unsafe fn GetMenuInfo(&self, ppsmc: Option<*mut Option<IShellMenuCallback>>, puid: Option<*mut u32>, puidancestor: Option<*mut u32>, pdwflags: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetMenuInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsmc.unwrap_or(std::ptr::null_mut())), core::mem::transmute(puid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(puidancestor.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwflags.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetMenuInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(ppsmc.unwrap_or(core::ptr::null_mut())), core::mem::transmute(puid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(puidancestor.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwflags.unwrap_or(core::ptr::null_mut()))).ok()
     }
     #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_UI_Shell_Common"))]
     pub unsafe fn SetShellFolder<P0, P1>(&self, psf: P0, pidlfolder: Option<*const Common::ITEMIDLIST>, hkey: P1, dwflags: u32) -> windows_core::Result<()>
@@ -19671,7 +19671,7 @@ impl IShellMenu {
         P0: windows_core::Param<IShellFolder>,
         P1: windows_core::Param<super::super::System::Registry::HKEY>,
     {
-        (windows_core::Interface::vtable(self).SetShellFolder)(windows_core::Interface::as_raw(self), psf.param().abi(), core::mem::transmute(pidlfolder.unwrap_or(std::ptr::null())), hkey.param().abi(), dwflags).ok()
+        (windows_core::Interface::vtable(self).SetShellFolder)(windows_core::Interface::as_raw(self), psf.param().abi(), core::mem::transmute(pidlfolder.unwrap_or(core::ptr::null())), hkey.param().abi(), dwflags).ok()
     }
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub unsafe fn GetShellFolder(&self, pdwflags: *mut u32, ppidl: *mut *mut Common::ITEMIDLIST, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
@@ -19687,11 +19687,11 @@ impl IShellMenu {
     }
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetMenu(&self, phmenu: Option<*mut super::WindowsAndMessaging::HMENU>, phwnd: Option<*mut super::super::Foundation::HWND>, pdwflags: Option<*mut u32>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetMenu)(windows_core::Interface::as_raw(self), core::mem::transmute(phmenu.unwrap_or(std::ptr::null_mut())), core::mem::transmute(phwnd.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pdwflags.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetMenu)(windows_core::Interface::as_raw(self), core::mem::transmute(phmenu.unwrap_or(core::ptr::null_mut())), core::mem::transmute(phwnd.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pdwflags.unwrap_or(core::ptr::null_mut()))).ok()
     }
     #[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn InvalidateItem(&self, psmd: Option<*const SMDATA>, dwflags: u32) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).InvalidateItem)(windows_core::Interface::as_raw(self), core::mem::transmute(psmd.unwrap_or(std::ptr::null())), dwflags).ok()
+        (windows_core::Interface::vtable(self).InvalidateItem)(windows_core::Interface::as_raw(self), core::mem::transmute(psmd.unwrap_or(core::ptr::null())), dwflags).ok()
     }
     #[cfg(all(feature = "Win32_UI_Shell_Common", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetState(&self, psmd: *mut SMDATA) -> windows_core::Result<()> {
@@ -20051,7 +20051,7 @@ impl IShellUIHelper {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).AddFavorite)(windows_core::Interface::as_raw(self), url.param().abi(), core::mem::transmute(title.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).AddFavorite)(windows_core::Interface::as_raw(self), url.param().abi(), core::mem::transmute(title.unwrap_or(core::ptr::null()))).ok()
     }
     pub unsafe fn AddChannel<P0>(&self, url: P0) -> windows_core::Result<()>
     where
@@ -20065,7 +20065,7 @@ impl IShellUIHelper {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).AddDesktopComponent)(windows_core::Interface::as_raw(self), url.param().abi(), r#type.param().abi(), core::mem::transmute(left.unwrap_or(std::ptr::null())), core::mem::transmute(top.unwrap_or(std::ptr::null())), core::mem::transmute(width.unwrap_or(std::ptr::null())), core::mem::transmute(height.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).AddDesktopComponent)(windows_core::Interface::as_raw(self), url.param().abi(), r#type.param().abi(), core::mem::transmute(left.unwrap_or(core::ptr::null())), core::mem::transmute(top.unwrap_or(core::ptr::null())), core::mem::transmute(width.unwrap_or(core::ptr::null())), core::mem::transmute(height.unwrap_or(core::ptr::null()))).ok()
     }
     pub unsafe fn IsSubscribed<P0>(&self, url: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
     where
@@ -20091,7 +20091,7 @@ impl IShellUIHelper {
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AutoCompleteSaveForm(&self, form: Option<*const super::super::System::Variant::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AutoCompleteSaveForm)(windows_core::Interface::as_raw(self), core::mem::transmute(form.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).AutoCompleteSaveForm)(windows_core::Interface::as_raw(self), core::mem::transmute(form.unwrap_or(core::ptr::null()))).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AutoScan<P0, P1>(&self, strsearch: P0, strfailureurl: P1, pvartargetframe: Option<*const super::super::System::Variant::VARIANT>) -> windows_core::Result<()>
@@ -20099,11 +20099,11 @@ impl IShellUIHelper {
         P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).AutoScan)(windows_core::Interface::as_raw(self), strsearch.param().abi(), strfailureurl.param().abi(), core::mem::transmute(pvartargetframe.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).AutoScan)(windows_core::Interface::as_raw(self), strsearch.param().abi(), strfailureurl.param().abi(), core::mem::transmute(pvartargetframe.unwrap_or(core::ptr::null()))).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn AutoCompleteAttach(&self, reserved: Option<*const super::super::System::Variant::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).AutoCompleteAttach)(windows_core::Interface::as_raw(self), core::mem::transmute(reserved.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).AutoCompleteAttach)(windows_core::Interface::as_raw(self), core::mem::transmute(reserved.unwrap_or(core::ptr::null()))).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ShowBrowserUI<P0>(&self, bstrname: P0, pvarin: *const super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>
@@ -21367,11 +21367,11 @@ windows_core::imp::interface_hierarchy!(IStreamAsync, windows_core::IUnknown, su
 impl IStreamAsync {
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn ReadAsync(&self, pv: *mut core::ffi::c_void, cb: u32, pcbread: Option<*mut u32>, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ReadAsync)(windows_core::Interface::as_raw(self), pv, cb, core::mem::transmute(pcbread.unwrap_or(std::ptr::null_mut())), lpoverlapped).ok()
+        (windows_core::Interface::vtable(self).ReadAsync)(windows_core::Interface::as_raw(self), pv, cb, core::mem::transmute(pcbread.unwrap_or(core::ptr::null_mut())), lpoverlapped).ok()
     }
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn WriteAsync(&self, lpbuffer: *const core::ffi::c_void, cb: u32, pcbwritten: Option<*mut u32>, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).WriteAsync)(windows_core::Interface::as_raw(self), lpbuffer, cb, core::mem::transmute(pcbwritten.unwrap_or(std::ptr::null_mut())), lpoverlapped).ok()
+        (windows_core::Interface::vtable(self).WriteAsync)(windows_core::Interface::as_raw(self), lpbuffer, cb, core::mem::transmute(pcbwritten.unwrap_or(core::ptr::null_mut())), lpoverlapped).ok()
     }
     #[cfg(feature = "Win32_System_IO")]
     pub unsafe fn OverlappedResult<P0>(&self, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: P0) -> windows_core::Result<()>
@@ -22894,10 +22894,10 @@ impl IThumbnailCache {
     where
         P0: windows_core::Param<IShellItem>,
     {
-        (windows_core::Interface::vtable(self).GetThumbnail)(windows_core::Interface::as_raw(self), pshellitem.param().abi(), cxyrequestedthumbsize, flags, core::mem::transmute(ppvthumb.unwrap_or(std::ptr::null_mut())), core::mem::transmute(poutflags.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pthumbnailid.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetThumbnail)(windows_core::Interface::as_raw(self), pshellitem.param().abi(), cxyrequestedthumbsize, flags, core::mem::transmute(ppvthumb.unwrap_or(core::ptr::null_mut())), core::mem::transmute(poutflags.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pthumbnailid.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetThumbnailByID(&self, thumbnailid: WTS_THUMBNAILID, cxyrequestedthumbsize: u32, ppvthumb: Option<*mut Option<ISharedBitmap>>, poutflags: Option<*mut WTS_CACHEFLAGS>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetThumbnailByID)(windows_core::Interface::as_raw(self), core::mem::transmute(thumbnailid), cxyrequestedthumbsize, core::mem::transmute(ppvthumb.unwrap_or(std::ptr::null_mut())), core::mem::transmute(poutflags.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetThumbnailByID)(windows_core::Interface::as_raw(self), core::mem::transmute(thumbnailid), cxyrequestedthumbsize, core::mem::transmute(ppvthumb.unwrap_or(core::ptr::null_mut())), core::mem::transmute(poutflags.unwrap_or(core::ptr::null_mut()))).ok()
     }
 }
 #[repr(C)]
@@ -23421,7 +23421,7 @@ impl ITravelLog {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        (windows_core::Interface::vtable(self).GetTravelEntry)(windows_core::Interface::as_raw(self), punk.param().abi(), ioffset, core::mem::transmute(ppte.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetTravelEntry)(windows_core::Interface::as_raw(self), punk.param().abi(), ioffset, core::mem::transmute(ppte.unwrap_or(core::ptr::null_mut()))).ok()
     }
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub unsafe fn FindTravelEntry<P0>(&self, punk: P0, pidl: *const Common::ITEMIDLIST) -> windows_core::Result<ITravelEntry>
@@ -24076,14 +24076,14 @@ impl IWebBrowser {
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
-        (windows_core::Interface::vtable(self).Navigate)(windows_core::Interface::as_raw(self), url.param().abi(), core::mem::transmute(flags.unwrap_or(std::ptr::null())), core::mem::transmute(targetframename.unwrap_or(std::ptr::null())), core::mem::transmute(postdata.unwrap_or(std::ptr::null())), core::mem::transmute(headers.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Navigate)(windows_core::Interface::as_raw(self), url.param().abi(), core::mem::transmute(flags.unwrap_or(core::ptr::null())), core::mem::transmute(targetframename.unwrap_or(core::ptr::null())), core::mem::transmute(postdata.unwrap_or(core::ptr::null())), core::mem::transmute(headers.unwrap_or(core::ptr::null()))).ok()
     }
     pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Refresh2(&self, level: Option<*const super::super::System::Variant::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Refresh2)(windows_core::Interface::as_raw(self), core::mem::transmute(level.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Refresh2)(windows_core::Interface::as_raw(self), core::mem::transmute(level.unwrap_or(core::ptr::null()))).ok()
     }
     pub unsafe fn Stop(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok()
@@ -24220,7 +24220,7 @@ windows_core::imp::interface_hierarchy!(IWebBrowser2, windows_core::IUnknown, su
 impl IWebBrowser2 {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Navigate2(&self, url: *const super::super::System::Variant::VARIANT, flags: Option<*const super::super::System::Variant::VARIANT>, targetframename: Option<*const super::super::System::Variant::VARIANT>, postdata: Option<*const super::super::System::Variant::VARIANT>, headers: Option<*const super::super::System::Variant::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).Navigate2)(windows_core::Interface::as_raw(self), core::mem::transmute(url), core::mem::transmute(flags.unwrap_or(std::ptr::null())), core::mem::transmute(targetframename.unwrap_or(std::ptr::null())), core::mem::transmute(postdata.unwrap_or(std::ptr::null())), core::mem::transmute(headers.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).Navigate2)(windows_core::Interface::as_raw(self), core::mem::transmute(url), core::mem::transmute(flags.unwrap_or(core::ptr::null())), core::mem::transmute(targetframename.unwrap_or(core::ptr::null())), core::mem::transmute(postdata.unwrap_or(core::ptr::null())), core::mem::transmute(headers.unwrap_or(core::ptr::null()))).ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn QueryStatusWB(&self, cmdid: super::super::System::Ole::OLECMDID) -> windows_core::Result<super::super::System::Ole::OLECMDF> {
@@ -24229,11 +24229,11 @@ impl IWebBrowser2 {
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ExecWB(&self, cmdid: super::super::System::Ole::OLECMDID, cmdexecopt: super::super::System::Ole::OLECMDEXECOPT, pvain: Option<*const super::super::System::Variant::VARIANT>, pvaout: Option<*mut super::super::System::Variant::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ExecWB)(windows_core::Interface::as_raw(self), cmdid, cmdexecopt, core::mem::transmute(pvain.unwrap_or(std::ptr::null())), core::mem::transmute(pvaout.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).ExecWB)(windows_core::Interface::as_raw(self), cmdid, cmdexecopt, core::mem::transmute(pvain.unwrap_or(core::ptr::null())), core::mem::transmute(pvaout.unwrap_or(core::ptr::null_mut()))).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ShowBrowserBar(&self, pvaclsid: *const super::super::System::Variant::VARIANT, pvarshow: Option<*const super::super::System::Variant::VARIANT>, pvarsize: Option<*const super::super::System::Variant::VARIANT>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).ShowBrowserBar)(windows_core::Interface::as_raw(self), core::mem::transmute(pvaclsid), core::mem::transmute(pvarshow.unwrap_or(std::ptr::null())), core::mem::transmute(pvarsize.unwrap_or(std::ptr::null()))).ok()
+        (windows_core::Interface::vtable(self).ShowBrowserBar)(windows_core::Interface::as_raw(self), core::mem::transmute(pvaclsid), core::mem::transmute(pvarshow.unwrap_or(core::ptr::null())), core::mem::transmute(pvarsize.unwrap_or(core::ptr::null()))).ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn ReadyState(&self) -> windows_core::Result<super::super::System::Ole::READYSTATE> {

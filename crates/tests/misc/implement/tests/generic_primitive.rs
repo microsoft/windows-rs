@@ -41,7 +41,7 @@ fn test_implement() -> Result<()> {
     assert_eq!(012, v.GetAt(012)?);
     assert_eq!(123, v.Size()?);
     let mut index = 0;
-    assert_eq!(true, v.IndexOf(456, &mut index)?);
+    assert!(v.IndexOf(456, &mut index)?);
     assert_eq!(456, index);
 
     Ok(())

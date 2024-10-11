@@ -109,7 +109,7 @@ fn gen_struct_with_name(
         });
     }
 
-    for (index, nested_type) in writer.reader.nested_types(def).enumerate() {
+    for (index, nested_type) in writer.reader.nested_types(def) {
         let nested_name = format!("{struct_name}_{index}");
         tokens.combine(&gen_struct_with_name(
             writer,

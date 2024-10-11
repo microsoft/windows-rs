@@ -745,7 +745,7 @@ impl ISpNotifyCallback_Vtbl {
     }
 }
 #[doc(hidden)]
-struct ISpNotifyCallback_ImplVtbl<T: ISpNotifyCallback_Impl>(std::marker::PhantomData<T>);
+struct ISpNotifyCallback_ImplVtbl<T: ISpNotifyCallback_Impl>(core::marker::PhantomData<T>);
 impl<T: ISpNotifyCallback_Impl> ISpNotifyCallback_ImplVtbl<T> {
     const VTABLE: ISpNotifyCallback_Vtbl = ISpNotifyCallback_Vtbl::new::<T>();
 }
@@ -3079,7 +3079,7 @@ impl ISpTask_Vtbl {
     }
 }
 #[doc(hidden)]
-struct ISpTask_ImplVtbl<T: ISpTask_Impl>(std::marker::PhantomData<T>);
+struct ISpTask_ImplVtbl<T: ISpTask_Impl>(core::marker::PhantomData<T>);
 impl<T: ISpTask_Impl> ISpTask_ImplVtbl<T> {
     const VTABLE: ISpTask_Vtbl = ISpTask_Vtbl::new::<T>();
 }
@@ -3262,7 +3262,7 @@ impl ISpThreadTask_Vtbl {
     }
 }
 #[doc(hidden)]
-struct ISpThreadTask_ImplVtbl<T: ISpThreadTask_Impl>(std::marker::PhantomData<T>);
+struct ISpThreadTask_ImplVtbl<T: ISpThreadTask_Impl>(core::marker::PhantomData<T>);
 impl<T: ISpThreadTask_Impl> ISpThreadTask_ImplVtbl<T> {
     const VTABLE: ISpThreadTask_Vtbl = ISpThreadTask_Vtbl::new::<T>();
 }

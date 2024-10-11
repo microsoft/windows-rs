@@ -1461,7 +1461,7 @@ impl IDiscRecorder {
         (windows_core::Interface::vtable(self).GetRecorderType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
     pub unsafe fn GetDisplayNames(&self, pbstrvendorid: Option<*mut windows_core::BSTR>, pbstrproductid: Option<*mut windows_core::BSTR>, pbstrrevision: Option<*mut windows_core::BSTR>) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetDisplayNames)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrvendorid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pbstrproductid.unwrap_or(std::ptr::null_mut())), core::mem::transmute(pbstrrevision.unwrap_or(std::ptr::null_mut()))).ok()
+        (windows_core::Interface::vtable(self).GetDisplayNames)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrvendorid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pbstrproductid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pbstrrevision.unwrap_or(core::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetBasePnPID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();

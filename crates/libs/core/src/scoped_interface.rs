@@ -15,7 +15,7 @@ pub struct ScopedInterface<'a, T: Interface> {
     lifetime: PhantomData<&'a T>,
 }
 
-impl<'a, T: Interface> ScopedInterface<'a, T> {
+impl<T: Interface> ScopedInterface<'_, T> {
     pub fn new(interface: T) -> Self {
         Self {
             interface,
@@ -24,7 +24,7 @@ impl<'a, T: Interface> ScopedInterface<'a, T> {
     }
 }
 
-impl<'a, T: Interface> core::ops::Deref for ScopedInterface<'a, T> {
+impl<T: Interface> core::ops::Deref for ScopedInterface<'_, T> {
     type Target = T;
 
     fn deref(&self) -> &T {
@@ -32,7 +32,7 @@ impl<'a, T: Interface> core::ops::Deref for ScopedInterface<'a, T> {
     }
 }
 
-impl<'a, T: Interface> Drop for ScopedInterface<'a, T> {
+impl<T: Interface> Drop for ScopedInterface<'_, T> {
     fn drop(&mut self) {
         unsafe {
             let _ = Box::from_raw(self.interface.as_raw() as *const _ as *mut ScopedHeap);

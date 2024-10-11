@@ -1557,7 +1557,7 @@ impl IRoMetaDataLocator_Vtbl {
     }
 }
 #[doc(hidden)]
-struct IRoMetaDataLocator_ImplVtbl<T: IRoMetaDataLocator_Impl>(std::marker::PhantomData<T>);
+struct IRoMetaDataLocator_ImplVtbl<T: IRoMetaDataLocator_Impl>(core::marker::PhantomData<T>);
 impl<T: IRoMetaDataLocator_Impl> IRoMetaDataLocator_ImplVtbl<T> {
     const VTABLE: IRoMetaDataLocator_Vtbl = IRoMetaDataLocator_Vtbl::new::<T>();
 }
@@ -1647,7 +1647,7 @@ impl IRoSimpleMetaDataBuilder_Vtbl {
     }
 }
 #[doc(hidden)]
-struct IRoSimpleMetaDataBuilder_ImplVtbl<T: IRoSimpleMetaDataBuilder_Impl>(std::marker::PhantomData<T>);
+struct IRoSimpleMetaDataBuilder_ImplVtbl<T: IRoSimpleMetaDataBuilder_Impl>(core::marker::PhantomData<T>);
 impl<T: IRoSimpleMetaDataBuilder_Impl> IRoSimpleMetaDataBuilder_ImplVtbl<T> {
     const VTABLE: IRoSimpleMetaDataBuilder_Vtbl = IRoSimpleMetaDataBuilder_Vtbl::new::<T>();
 }
