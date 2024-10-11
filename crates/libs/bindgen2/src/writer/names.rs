@@ -128,8 +128,6 @@ impl Writer {
             }
         }
 
-
-
         // match item {
         //     Item::Struct(item) => {
         //         let name = to_ident(item.def.name());

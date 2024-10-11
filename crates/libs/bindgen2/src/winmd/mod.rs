@@ -7,13 +7,13 @@ mod codes;
 mod dependencies;
 mod file;
 mod item;
+mod ord;
 mod reader;
 mod row;
 mod signature;
 mod tables;
 mod r#type;
 mod type_name;
-mod ord;
 
 pub use attributes::*;
 use bindings::*;
@@ -60,4 +60,3 @@ pub struct GUID(
     pub u8,
     pub u8,
 );
-

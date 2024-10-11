@@ -31,7 +31,7 @@ impl Dependencies {
             }
         }
 
-        return true;
+        true
     }
 }
 
@@ -167,8 +167,8 @@ impl CppConst {
 impl CppDelegate {
     pub fn dependencies(&self, dependencies: &mut Dependencies, minimal: bool) {
         self.method()
-        .signature(&[])
-        .dependencies(dependencies, minimal);
+            .signature(&[])
+            .dependencies(dependencies, minimal);
     }
 }
 

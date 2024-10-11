@@ -103,8 +103,7 @@ impl<R: AsRow + Into<HasAttribute>> HasAttributes for R {
     }
 
     fn guid_attribute(&self) -> Option<GUID> {
-        self.find_attribute("GuidAttribute")
-        .map(|attribute| {
+        self.find_attribute("GuidAttribute").map(|attribute| {
             fn unwrap_u32(value: &Value) -> u32 {
                 match value {
                     Value::U32(value) => *value,

@@ -7,7 +7,7 @@ impl Writer {
         let signature = method.signature(&[]);
 
         let params = signature.params.iter().map(|(ty, param)| {
-            let name = to_ident(param.name());
+            let name = to_ident(&param.name().to_lowercase());
             let ty = self.write_default_name(ty);
             quote! { #name: #ty }
         });

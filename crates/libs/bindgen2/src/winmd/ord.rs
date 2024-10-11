@@ -1,6 +1,5 @@
 use super::*;
 
-
 // TODO: do we need this for other types?
 
 impl Ord for CppStruct {
@@ -51,7 +50,6 @@ impl PartialOrd for CppEnum {
         Some(self.cmp(other))
     }
 }
-
 
 impl Ord for CppConst {
     fn cmp(&self, other: &Self) -> Ordering {

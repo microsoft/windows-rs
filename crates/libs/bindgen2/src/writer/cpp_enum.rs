@@ -13,17 +13,17 @@ impl Writer {
 
         let fields = if is_scoped {
             let fields = item
-            .def
-            .fields()
-            .filter(|field| field.flags().contains(FieldAttributes::Literal))
-            .map(|field| {
-                let name = to_ident(field.name());
-                let value = self.write_value(&field.constant().unwrap().value());
+                .def
+                .fields()
+                .filter(|field| field.flags().contains(FieldAttributes::Literal))
+                .map(|field| {
+                    let name = to_ident(field.name());
+                    let value = self.write_value(&field.constant().unwrap().value());
 
-                quote! {
-                    pub const #name: Self = Self(#value);
-                }
-            });
+                    quote! {
+                        pub const #name: Self = Self(#value);
+                    }
+                });
 
             quote! {
                 impl #name {
@@ -31,7 +31,7 @@ impl Writer {
                 }
             }
         } else {
-            quote !{}
+            quote! {}
         };
 
         quote! {

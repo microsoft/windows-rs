@@ -45,12 +45,14 @@ impl Writer {
         }
 
         // TODO: simpler way to do this? needs a tesd too...
-        let mut compact : Vec::<&'static str> = dependencies.keys().map(|d|*d).collect();
+        let mut compact: Vec<&'static str> = dependencies.keys().copied().collect();
         compact.sort();
 
         for pos in 0..compact.len() {
             match (compact.get(pos), compact.get(pos + 1)) {
-                (Some(first), Some(second)) if namespace_starts_with(second, first) => {compact.remove(pos); }
+                (Some(first), Some(second)) if namespace_starts_with(second, first) => {
+                    compact.remove(pos);
+                }
                 (_, None) => break,
                 _ => continue,
             }

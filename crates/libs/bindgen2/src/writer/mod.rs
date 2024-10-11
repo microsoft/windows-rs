@@ -3,12 +3,12 @@ mod cpp_const;
 mod cpp_delegate;
 mod cpp_enum;
 mod cpp_fn;
+mod cpp_handle;
 mod cpp_struct;
 mod r#enum;
 mod format;
 mod literals;
 mod names;
-mod cpp_handle;
 mod r#struct;
 
 use super::*;
@@ -27,7 +27,7 @@ pub struct Writer {
     pub package: bool,
     pub rustfmt: String,
     pub sys: bool, // TODO: if sys and not package then include minimal "vtbl" definitions
-    // TODO: still need a "--no-deps" option to avoid refering to windows/windows-sys/windows-core/windows-targets crates - the default is to refer to types in windows and windows-sys etc.
+                   // TODO: still need a "--no-deps" option to avoid refering to windows/windows-sys/windows-core/windows-targets crates - the default is to refer to types in windows and windows-sys etc.
 }
 
 impl Writer {
@@ -128,10 +128,12 @@ impl Writer {
 
             let mut tokens = TokenStream::new();
 
-            for name in tree.nested.keys() {
+            for (name, tree) in &tree.nested {
                 let name = to_ident(name);
+                let feature = tree.feature();
 
                 tokens.combine(quote! {
+                    #[cfg(feature = #feature)]
                     pub mod #name;
                 });
             }
@@ -159,7 +161,7 @@ impl Writer {
         }
 
         for tree in trees.iter().skip(1) {
-            let feature = tree.namespace.split_once('.').unwrap().1.replace('.', "_");
+            let feature = tree.feature();
 
             if let Some(pos) = feature.rfind('_') {
                 let dependency = &feature[..pos];

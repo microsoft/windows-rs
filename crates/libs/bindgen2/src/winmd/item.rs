@@ -71,21 +71,19 @@ pub struct CppDelegate {
 
 impl Delegate {
     pub fn method(&self) -> MethodDef {
-        self
-        .def
-        .methods()
-        .find(|method| method.name() == "Invoke")
-        .unwrap()
+        self.def
+            .methods()
+            .find(|method| method.name() == "Invoke")
+            .unwrap()
     }
 }
 
 impl CppDelegate {
     pub fn method(&self) -> MethodDef {
-        self
-        .def
-        .methods()
-        .find(|method| method.name() == "Invoke")
-        .unwrap()
+        self.def
+            .methods()
+            .find(|method| method.name() == "Invoke")
+            .unwrap()
     }
 }
 
@@ -99,7 +97,6 @@ pub struct CppFn {
     pub def: TypeDef,
     pub method: MethodDef,
 }
-
 
 impl Item {
     pub fn namespace(&self) -> &'static str {

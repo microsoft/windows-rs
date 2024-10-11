@@ -25,7 +25,7 @@ impl Writer {
         let signature = item.method.signature(&[]);
 
         let params = signature.params.iter().map(|(ty, param)| {
-            let name = to_ident(param.name());
+            let name = to_ident(&param.name().to_lowercase());
             let ty = self.write_default_name(ty);
             quote! { #name: #ty }
         });
@@ -38,15 +38,23 @@ impl Writer {
             item.dependencies(&mut dependencies, self.minimal);
         }
 
-        let cfg = self.write_cfg(item.method, item.def.namespace(), dependencies, false);
-
-        let link = quote! {
-            #cfg
-            windows_targets::link!(#library #abi #symbol fn #name(#(#params),*) #return_sig);
+        let vararg = if self.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
+            quote! { , ... }
+        } else {
+            quote! {}
         };
 
+        let link = link_fmt(quote! {
+            windows_targets::link!(#library #abi #symbol fn #name(#(#params),* #vararg) #return_sig);
+        });
+
+        let cfg = self.write_cfg(item.method, item.def.namespace(), dependencies, false);
+
         if self.sys {
-            return link;
+            return quote! {
+                #cfg
+                #link
+            };
         }
 
         // TODO: build wrapper
@@ -69,4 +77,13 @@ impl Writer {
             }
         }
     }
+}
+
+// TODO: https://github.com/microsoft/windows-rs/issues/3314
+fn link_fmt(tokens: TokenStream) -> TokenStream {
+    let mut tokens = tokens.0.replacen(" ! (  ", "!(", 1);
+    tokens = tokens.replacen(" ( ", "(", 1);
+    tokens = tokens.replace(" , ", ", ");
+    tokens = tokens.replace(" )", ")");
+    tokens.into()
 }

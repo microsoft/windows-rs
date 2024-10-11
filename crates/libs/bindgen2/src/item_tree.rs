@@ -38,4 +38,8 @@ impl ItemTree {
         flatten.extend(self.nested.values().flat_map(|tree| tree.flatten()));
         flatten
     }
+
+    pub fn feature(&self) -> String {
+        self.namespace.split_once('.').unwrap().1.replace('.', "_")
+    }
 }
