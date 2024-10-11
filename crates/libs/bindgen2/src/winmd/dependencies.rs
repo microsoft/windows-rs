@@ -90,17 +90,10 @@ impl Type {
                 dependencies.insert("", "HRESULT");
             }
             Self::Item(item) => {
-                let namespace = item.namespace();
-
-                if namespace.is_empty() || dependencies.insert(namespace, item.name()) {
-                    item.dependencies(dependencies, config);
-                }
+                item.dependencies(dependencies, config);
             }
             Self::Generic(item, generics) => {
-                // Only chase dependencies if it was not previously added.
-                if dependencies.insert(item.namespace(), item.name()) {
-                    item.dependencies(dependencies, config);
-                }
+                item.dependencies(dependencies, config);
 
                 generics
                     .iter()
@@ -121,73 +114,113 @@ impl Signature {
     }
 }
 
+// tODO: this should be the pivot for short circuiting, not Type
 impl Item {
     pub fn dependencies(&'static self, dependencies: &mut Dependencies, config: &Config) {
-        match self {
-            Item::Class(item) => item.dependencies(dependencies, config),
-            Item::Delegate(item) => item.dependencies(dependencies, config),
-            Item::Interface(item) => item.dependencies(dependencies, config),
-            Item::Struct(item) => item.dependencies(dependencies, config),
-            Item::CppConst(item) => item.dependencies(dependencies, config),
-            Item::CppDelegate(item) => item.dependencies(dependencies, config),
-            Item::CppFn(item) => item.dependencies(dependencies, config),
-            Item::CppInterface(item) => item.dependencies(dependencies, config),
-            Item::CppStruct(item) => item.dependencies(dependencies, config),
-            _ => {}
-        }
+            match self {
+                Item::Class(item) => item.dependencies(dependencies, config),
+                Item::Delegate(item) => item.dependencies(dependencies, config),
+                Item::Enum(item) => item.dependencies(dependencies, config),
+                Item::Interface(item) => item.dependencies(dependencies, config),
+                Item::Struct(item) => item.dependencies(dependencies, config),
+                Item::CppConst(item) => item.dependencies(dependencies, config),
+                Item::CppDelegate(item) => item.dependencies(dependencies, config),
+                Item::CppFn(item) => item.dependencies(dependencies, config),
+                Item::CppInterface(item) => item.dependencies(dependencies, config),
+                Item::CppStruct(item) => item.dependencies(dependencies, config),
+                Item::CppEnum(item) => item.dependencies(dependencies, config),
+            }
     }
 }
 
 impl Class {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies, _config: &Config) {}
+    pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
+        if dependencies.insert(self.def.namespace(), self.def.name()) {
+            // TODO: add dependencies
+        }   
+    }
 }
 
 impl Delegate {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies, _config: &Config) {}
+    pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
+        if dependencies.insert(self.def.namespace(), self.def.name()) {
+            // TODO: add dependencies
+        }   
+    }
 }
 
 impl Interface {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies, _config: &Config) {}
+    pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
+        if dependencies.insert(self.def.namespace(), self.def.name()) {
+            // TODO: add dependencies
+        }   
+    }
 }
 
 impl Struct {
     pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
-        for field in self.def.fields() {
-            field.ty(None).dependencies(dependencies, config);
+        if dependencies.insert(self.def.namespace(), self.def.name()) {
+            for field in self.def.fields() {
+                field.ty(None).dependencies(dependencies, config);
+            }
         }
     }
 }
 
 impl CppConst {
     pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
+        if dependencies.insert(self.def.namespace(), self.field.name()) {
         self.field.ty(None).dependencies(dependencies, config);
+        }
     }
 }
 
 impl CppDelegate {
     pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
-        self.method()
-            .signature(&[])
-            .dependencies(dependencies, config);
+        if dependencies.insert(self.def.namespace(), self.def.name()) {
+            self.method()
+                .signature(&[])
+                .dependencies(dependencies, config);
+        }
     }
 }
 
 impl CppFn {
     pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
+        if dependencies.insert(self.def.namespace(), self.method.name()) {
         self.method
             .signature(&[])
             .dependencies(dependencies, config);
+        }
     }
 }
 
 impl CppInterface {
-    pub fn dependencies(&self, _dependencies: &mut Dependencies, _config: &Config) {}
+    pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
+        if dependencies.insert(self.def.namespace(), self.def.name()) {
+            // TODO: add dependencies
+        }   
+    }
 }
 
 impl CppStruct {
     pub fn dependencies(&'static self, dependencies: &mut Dependencies, config: &Config) {
+        if dependencies.insert(self.def.namespace(), self.def.name()) {
         for field in self.def.fields() {
             field.ty(Some(self)).dependencies(dependencies, config);
         }
+    }
+    }
+}
+
+impl CppEnum {
+    pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
+         dependencies.insert(self.def.namespace(), self.def.name());
+    }
+}
+
+impl Enum {
+    pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
+         dependencies.insert(self.def.namespace(), self.def.name());
     }
 }
