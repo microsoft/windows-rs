@@ -13,8 +13,8 @@ impl Writer {
 
         let mut dependencies = Dependencies::new();
 
-        if self.package {
-            item.dependencies(&mut dependencies, self.minimal);
+        if self.config.package {
+            item.dependencies(&mut dependencies, &self.config);
         }
 
         let cfg = self.write_cfg(item.def, item.def.namespace(), dependencies, false);
@@ -35,7 +35,7 @@ impl Writer {
 
         let mut derive = quote! { Clone, Copy, };
 
-        if !self.sys {
+        if !self.config.sys {
             derive.combine(quote! { Debug, PartialEq, });
         }
 
@@ -47,7 +47,7 @@ impl Writer {
             quote! { pub #name: #ty, }
         });
 
-        let type_kind = if self.sys {
+        let type_kind = if self.config.sys {
             quote! {}
         } else if is_copyable {
             quote! {
@@ -65,7 +65,7 @@ impl Writer {
             }
         };
 
-        let default = if self.sys {
+        let default = if self.config.sys {
             quote! {}
         } else {
             quote! {

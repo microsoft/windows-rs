@@ -16,18 +16,10 @@ use rayon::prelude::*;
 
 #[derive(Clone)]
 pub struct Writer {
+    pub config: Config,
     pub reader: &'static Reader,
     pub tree: &'static NameTree,
-    pub output: String,
     pub namespace: &'static str,
-    pub flat: bool,
-    pub minimal: bool, // TODO: if minimal then don't include dependencies for method parameters.
-    pub no_allow: bool,
-    pub no_comment: bool,
-    pub package: bool,
-    pub rustfmt: String,
-    pub sys: bool, // TODO: if sys and not package then include minimal "vtbl" definitions
-                   // TODO: still need a "--no-deps" option to avoid refering to windows/windows-sys/windows-core/windows-targets crates - the default is to refer to types in windows and windows-sys etc.
 }
 
 impl Writer {
@@ -38,7 +30,7 @@ impl Writer {
     }
 
     pub fn write(&self, tree: &ItemTree) {
-        if self.package {
+        if self.config.package {
             self.write_package(tree);
         } else {
             self.write_file(tree);
@@ -46,7 +38,7 @@ impl Writer {
     }
 
     fn write_file(&self, tree: &ItemTree) {
-        let mut tokens = if self.flat {
+        let mut tokens = if self.config.flat {
             self.write_flat(tree)
         } else {
             self.write_modules(tree)
@@ -54,7 +46,7 @@ impl Writer {
 
         // TODO: should be self.no_deps?
         // TODO: this is why it would be handy to have pseudo types for these in Item so we can write them more generically
-        if self.sys {
+        if self.config.sys {
             for dependency in &self.tree.items {
                 tokens.combine(match *dependency {
                     "HRESULT" => quote! { pub type HRESULT = i32; },
@@ -83,7 +75,7 @@ impl Writer {
             }
         }
 
-        write_to_file(&self.output, self.format(&tokens.into_string()));
+        write_to_file(&self.config.output, self.format(&tokens.into_string()));
     }
 
     fn write_flat(&self, tree: &ItemTree) -> TokenStream {
@@ -118,13 +110,17 @@ impl Writer {
 
     fn write_package(&self, tree: &ItemTree) {
         for name in tree.nested.keys() {
-            _ = std::fs::remove_dir_all(format!("{}/src/{name}", &self.output));
+            _ = std::fs::remove_dir_all(format!("{}/src/{name}", &self.config.output));
         }
 
         let trees = tree.flatten();
 
         trees.par_iter().for_each(|tree| {
-            let directory = format!("{}/src/{}", &self.output, tree.namespace.replace('.', "/"));
+            let directory = format!(
+                "{}/src/{}",
+                &self.config.output,
+                tree.namespace.replace('.', "/")
+            );
 
             let mut tokens = TokenStream::new();
 
@@ -148,7 +144,7 @@ impl Writer {
             write_to_file(&output, self.format(&tokens.into_string()));
         });
 
-        let toml_path = format!("{}/Cargo.toml", &self.output);
+        let toml_path = format!("{}/Cargo.toml", &self.config.output);
         let mut toml = String::new();
 
         for line in read_file_lines(&toml_path) {

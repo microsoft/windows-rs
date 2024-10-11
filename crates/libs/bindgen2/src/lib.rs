@@ -26,6 +26,22 @@ use tokens::*;
 use winmd::*;
 use writer::*;
 
+#[derive(Clone, Default)]
+struct Config {
+    pub output: String,
+    pub flat: bool,
+    pub minimal: bool, // TODO: if minimal then don't include dependencies for method parameters.
+    pub no_allow: bool,
+    pub no_comment: bool,
+    pub package: bool,
+    pub rustfmt: String,
+    pub sys: bool, // TODO: if sys and not package then include minimal "vtbl" definitions
+                   // TODO: still need a "--no-deps" option to avoid refering to windows/windows-sys/windows-core/windows-targets crates - the default is to refer to types in windows and windows-sys etc.
+
+                   // TODO: options to include deprecated APIs - excluded by default?
+                   // options to include preview APIs - excluded by default?
+}
+
 /// The Windows code generator.
 pub fn bindgen<I, S>(args: I)
 where
@@ -34,21 +50,11 @@ where
 {
     let args = expand_args(args);
     let mut kind = ArgKind::None;
-    let mut output = None;
     let mut input = Vec::new();
     let mut include = Vec::new();
     let mut exclude = Vec::new();
 
-    let mut flat = false;
-    let mut minimal = false;
-    let mut no_allow = false;
-    let mut no_comment = false;
-    let mut package = false;
-    let mut rustfmt = String::new();
-    let mut sys = false;
-
-    // TODO: options to include deprecated APIs - excluded by default?
-    // options to include preview APIs - excluded by default?
+    let mut config = Config::default();
 
     for arg in &args {
         if arg.starts_with('-') {
@@ -61,17 +67,17 @@ where
                 "--out" => kind = ArgKind::Output,
                 "--filter" => kind = ArgKind::Filter,
                 "--rustfmt" => kind = ArgKind::Rustfmt,
-                "--flat" => flat = true,
-                "--minimal" => minimal = true,
-                "--no-allow" => no_allow = true,
-                "--no-comment" => no_comment = true,
-                "--package" => package = true,
-                "--sys" => sys = true,
+                "--flat" => config.flat = true,
+                "--minimal" => config.minimal = true,
+                "--no-allow" => config.no_allow = true,
+                "--no-comment" => config.no_comment = true,
+                "--package" => config.package = true,
+                "--sys" => config.sys = true,
                 _ => panic!("windows-bindgen: invalid option `{arg}`"),
             },
             ArgKind::Output => {
-                if output.is_none() {
-                    output = Some(arg.as_str());
+                if config.output.is_empty() {
+                    config.output = arg.to_string();
                 } else {
                     panic!("windows-bindgen: too many outputs");
                 }
@@ -84,15 +90,15 @@ where
                     include.push(arg.as_str());
                 }
             }
-            ArgKind::Rustfmt => rustfmt = arg.to_string(),
+            ArgKind::Rustfmt => config.rustfmt = arg.to_string(),
         }
     }
 
-    if package && flat {
+    if config.package && config.flat {
         panic!("windows-bindgen: cannot combine `--package` and `--flat` options");
     }
 
-    let Some(output) = output.map(|output| output.to_string()) else {
+    if config.output.is_empty() {
         panic!("windows-bindgen: one `--out` is required");
     };
 
@@ -107,24 +113,17 @@ where
 
     // TODO: maybe pass this "name" tree to the writer so that when it comes to generating methods it can figure out whether to include
     // it based on whether its parameters are included. It may be excluded by "--minimal" was specified.
-    let tree = NameTree::new(reader, filter, minimal);
+    let tree = NameTree::new(reader, filter, &config);
 
     let items = ItemTree::new(reader, tree);
 
     // panic!("{:#?}", items);
 
     let writer = Writer {
+        config,
         reader,
         tree,
-        output,
         namespace: "",
-        flat,
-        no_allow,
-        no_comment,
-        package,
-        rustfmt,
-        sys,
-        minimal,
     };
 
     writer.write(&items)

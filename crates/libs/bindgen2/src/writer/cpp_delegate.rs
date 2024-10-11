@@ -16,8 +16,8 @@ impl Writer {
 
         let mut dependencies = Dependencies::new();
 
-        if self.package {
-            item.dependencies(&mut dependencies, self.minimal);
+        if self.config.package {
+            item.dependencies(&mut dependencies, &self.config);
         }
 
         let cfg = self.write_cfg(item.def, item.def.namespace(), dependencies, false);

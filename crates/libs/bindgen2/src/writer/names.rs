@@ -2,8 +2,8 @@ use super::*;
 
 impl Writer {
     pub fn write_crate(&self) -> TokenStream {
-        if self.sys {
-            if self.package {
+        if self.config.sys {
+            if self.config.package {
                 quote! { windows_sys::core:: }
             } else {
                 quote! {}
@@ -35,7 +35,7 @@ impl Writer {
                 quote! { #name BSTR }
             }
             Type::IUnknown => {
-                if self.sys {
+                if self.config.sys {
                     quote! { *mut core::ffi::c_void }
                 } else {
                     let name = self.write_crate();
@@ -51,7 +51,7 @@ impl Writer {
                 quote! { #name HRESULT }
             }
             Type::String => {
-                if self.sys {
+                if self.config.sys {
                     quote! { *mut core::ffi::c_void }
                 } else {
                     let name = self.write_crate();
@@ -59,7 +59,7 @@ impl Writer {
                 }
             }
             Type::Object => {
-                if self.sys {
+                if self.config.sys {
                     quote! { *mut core::ffi::c_void }
                 } else {
                     let name = self.write_crate();
@@ -110,7 +110,7 @@ impl Writer {
 
             if matches!(ty, Type::Param(_)) {
                 quote! { <#tokens as windows_core::Type<#tokens>>::Default }
-            } else if ty.is_nullable() && !self.sys {
+            } else if ty.is_nullable() && !self.config.sys {
                 quote! { Option<#tokens> }
             } else {
                 tokens
@@ -120,7 +120,7 @@ impl Writer {
 
     fn write_item_name(&self, item: &Item) -> TokenStream {
         match item {
-            Item::CppInterface(_) if self.sys => quote! { *mut core::ffi::c_void },
+            Item::CppInterface(_) if self.config.sys => quote! { *mut core::ffi::c_void },
             _ => {
                 let name = to_ident(item.name());
                 let namespace = self.write_namespace(item.namespace());
@@ -144,7 +144,7 @@ impl Writer {
     }
 
     fn write_namespace(&self, namespace: &str) -> TokenStream {
-        if self.flat || namespace.is_empty() || namespace == self.namespace {
+        if self.config.flat || namespace.is_empty() || namespace == self.namespace {
             return quote! {};
         }
 

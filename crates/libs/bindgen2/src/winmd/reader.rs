@@ -175,18 +175,6 @@ impl Reader {
             .flat_map(|map| map.values())
             .flatten()
     }
-
-    pub fn dependencies(
-        &'static self,
-        namespace: &str,
-        name: &str,
-        dependencies: &mut Dependencies,
-        minimal: bool,
-    ) {
-        for item in &self[namespace][name] {
-            item.dependencies(dependencies, minimal);
-        }
-    }
 }
 
 enum Category {

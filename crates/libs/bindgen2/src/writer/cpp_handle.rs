@@ -6,7 +6,7 @@ impl Writer {
         let ty = item.underlying_type();
         let ty = self.write_name(&ty);
 
-        if self.sys {
+        if self.config.sys {
             quote! {
                 pub type #name = #ty;
             }

@@ -34,15 +34,16 @@ impl Writer {
 
         let mut dependencies = Dependencies::new();
 
-        if self.package {
-            item.dependencies(&mut dependencies, self.minimal);
+        if self.config.package {
+            item.dependencies(&mut dependencies, &self.config);
         }
 
-        let vararg = if self.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
-            quote! { , ... }
-        } else {
-            quote! {}
-        };
+        let vararg =
+            if self.config.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
+                quote! { , ... }
+            } else {
+                quote! {}
+            };
 
         let link = link_fmt(quote! {
             windows_targets::link!(#library #abi #symbol fn #name(#(#params),* #vararg) #return_sig);
@@ -50,7 +51,7 @@ impl Writer {
 
         let cfg = self.write_cfg(item.method, item.def.namespace(), dependencies, false);
 
-        if self.sys {
+        if self.config.sys {
             return quote! {
                 #cfg
                 #link
