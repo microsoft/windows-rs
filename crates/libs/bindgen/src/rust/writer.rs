@@ -535,7 +535,7 @@ impl Writer {
     }
     fn scoped_name(&self, def: metadata::TypeDef) -> String {
         if let Some(enclosing_type) = def.enclosing_type() {
-            for (index, nested_type) in self.reader.nested_types(enclosing_type).enumerate() {
+            for (index, nested_type) in self.reader.nested_types(enclosing_type) {
                 if nested_type.name() == def.name() {
                     return format!("{}_{index}", &self.scoped_name(enclosing_type));
                 }
