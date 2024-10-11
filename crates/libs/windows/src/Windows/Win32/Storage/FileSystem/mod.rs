@@ -6756,16 +6756,16 @@ impl Default for CLFS_MGMT_POLICY {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CLFS_MGMT_POLICY_0 {
-    pub MaximumSize: CLFS_MGMT_POLICY_0_4,
-    pub MinimumSize: CLFS_MGMT_POLICY_0_5,
-    pub NewContainerSize: CLFS_MGMT_POLICY_0_8,
-    pub GrowthRate: CLFS_MGMT_POLICY_0_2,
-    pub LogTail: CLFS_MGMT_POLICY_0_3,
-    pub AutoShrink: CLFS_MGMT_POLICY_0_1,
-    pub AutoGrow: CLFS_MGMT_POLICY_0_0,
+    pub MaximumSize: CLFS_MGMT_POLICY_0_0,
+    pub MinimumSize: CLFS_MGMT_POLICY_0_1,
+    pub NewContainerSize: CLFS_MGMT_POLICY_0_2,
+    pub GrowthRate: CLFS_MGMT_POLICY_0_3,
+    pub LogTail: CLFS_MGMT_POLICY_0_4,
+    pub AutoShrink: CLFS_MGMT_POLICY_0_5,
+    pub AutoGrow: CLFS_MGMT_POLICY_0_6,
     pub NewContainerPrefix: CLFS_MGMT_POLICY_0_7,
-    pub NewContainerSuffix: CLFS_MGMT_POLICY_0_9,
-    pub NewContainerExtension: CLFS_MGMT_POLICY_0_6,
+    pub NewContainerSuffix: CLFS_MGMT_POLICY_0_8,
+    pub NewContainerExtension: CLFS_MGMT_POLICY_0_9,
 }
 impl windows_core::TypeKind for CLFS_MGMT_POLICY_0 {
     type TypeKind = windows_core::CopyType;
@@ -6777,40 +6777,26 @@ impl Default for CLFS_MGMT_POLICY_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_0 {
+pub struct CLFS_MGMT_POLICY_0_6 {
     pub Enabled: u32,
 }
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_0 {
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_6 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CLFS_MGMT_POLICY_0_0 {
+impl Default for CLFS_MGMT_POLICY_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_1 {
+pub struct CLFS_MGMT_POLICY_0_5 {
     pub Percentage: u32,
 }
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_1 {
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_5 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CLFS_MGMT_POLICY_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_2 {
-    pub AbsoluteGrowthInContainers: u32,
-    pub RelativeGrowthPercentage: u32,
-}
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CLFS_MGMT_POLICY_0_2 {
+impl Default for CLFS_MGMT_POLICY_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -6818,8 +6804,8 @@ impl Default for CLFS_MGMT_POLICY_0_2 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_3 {
-    pub MinimumAvailablePercentage: u32,
-    pub MinimumAvailableContainers: u32,
+    pub AbsoluteGrowthInContainers: u32,
+    pub RelativeGrowthPercentage: u32,
 }
 impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_3 {
     type TypeKind = windows_core::CopyType;
@@ -6832,7 +6818,8 @@ impl Default for CLFS_MGMT_POLICY_0_3 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_4 {
-    pub Containers: u32,
+    pub MinimumAvailablePercentage: u32,
+    pub MinimumAvailableContainers: u32,
 }
 impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_4 {
     type TypeKind = windows_core::CopyType;
@@ -6844,27 +6831,40 @@ impl Default for CLFS_MGMT_POLICY_0_4 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_5 {
+pub struct CLFS_MGMT_POLICY_0_0 {
     pub Containers: u32,
 }
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_5 {
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CLFS_MGMT_POLICY_0_5 {
+impl Default for CLFS_MGMT_POLICY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_6 {
+pub struct CLFS_MGMT_POLICY_0_1 {
+    pub Containers: u32,
+}
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for CLFS_MGMT_POLICY_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CLFS_MGMT_POLICY_0_9 {
     pub ExtensionLengthInBytes: u16,
     pub ExtensionString: [u16; 1],
 }
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_6 {
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_9 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CLFS_MGMT_POLICY_0_6 {
+impl Default for CLFS_MGMT_POLICY_0_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -6885,26 +6885,26 @@ impl Default for CLFS_MGMT_POLICY_0_7 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_8 {
+pub struct CLFS_MGMT_POLICY_0_2 {
     pub SizeInBytes: u32,
 }
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_8 {
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CLFS_MGMT_POLICY_0_8 {
+impl Default for CLFS_MGMT_POLICY_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CLFS_MGMT_POLICY_0_9 {
+pub struct CLFS_MGMT_POLICY_0_8 {
     pub NextContainerSuffix: u64,
 }
-impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_9 {
+impl windows_core::TypeKind for CLFS_MGMT_POLICY_0_8 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CLFS_MGMT_POLICY_0_9 {
+impl Default for CLFS_MGMT_POLICY_0_8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -7186,12 +7186,12 @@ impl Default for COPYFILE2_MESSAGE {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union COPYFILE2_MESSAGE_0 {
-    pub ChunkStarted: COPYFILE2_MESSAGE_0_1,
-    pub ChunkFinished: COPYFILE2_MESSAGE_0_0,
-    pub StreamStarted: COPYFILE2_MESSAGE_0_5,
-    pub StreamFinished: COPYFILE2_MESSAGE_0_4,
-    pub PollContinue: COPYFILE2_MESSAGE_0_3,
-    pub Error: COPYFILE2_MESSAGE_0_2,
+    pub ChunkStarted: COPYFILE2_MESSAGE_0_0,
+    pub ChunkFinished: COPYFILE2_MESSAGE_0_1,
+    pub StreamStarted: COPYFILE2_MESSAGE_0_2,
+    pub StreamFinished: COPYFILE2_MESSAGE_0_3,
+    pub PollContinue: COPYFILE2_MESSAGE_0_4,
+    pub Error: COPYFILE2_MESSAGE_0_5,
 }
 impl windows_core::TypeKind for COPYFILE2_MESSAGE_0 {
     type TypeKind = windows_core::CopyType;
@@ -7203,7 +7203,7 @@ impl Default for COPYFILE2_MESSAGE_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_0 {
+pub struct COPYFILE2_MESSAGE_0_1 {
     pub dwStreamNumber: u32,
     pub dwFlags: u32,
     pub hSourceFile: super::super::Foundation::HANDLE,
@@ -7215,26 +7215,6 @@ pub struct COPYFILE2_MESSAGE_0_0 {
     pub uliTotalFileSize: u64,
     pub uliTotalBytesTransferred: u64,
 }
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for COPYFILE2_MESSAGE_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_1 {
-    pub dwStreamNumber: u32,
-    pub dwReserved: u32,
-    pub hSourceFile: super::super::Foundation::HANDLE,
-    pub hDestinationFile: super::super::Foundation::HANDLE,
-    pub uliChunkNumber: u64,
-    pub uliChunkSize: u64,
-    pub uliStreamSize: u64,
-    pub uliTotalFileSize: u64,
-}
 impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_1 {
     type TypeKind = windows_core::CopyType;
 }
@@ -7245,7 +7225,27 @@ impl Default for COPYFILE2_MESSAGE_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_2 {
+pub struct COPYFILE2_MESSAGE_0_0 {
+    pub dwStreamNumber: u32,
+    pub dwReserved: u32,
+    pub hSourceFile: super::super::Foundation::HANDLE,
+    pub hDestinationFile: super::super::Foundation::HANDLE,
+    pub uliChunkNumber: u64,
+    pub uliChunkSize: u64,
+    pub uliStreamSize: u64,
+    pub uliTotalFileSize: u64,
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for COPYFILE2_MESSAGE_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct COPYFILE2_MESSAGE_0_5 {
     pub CopyPhase: COPYFILE2_COPY_PHASE,
     pub dwStreamNumber: u32,
     pub hrFailure: windows_core::HRESULT,
@@ -7256,23 +7256,10 @@ pub struct COPYFILE2_MESSAGE_0_2 {
     pub uliTotalFileSize: u64,
     pub uliTotalBytesTransferred: u64,
 }
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_2 {
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_5 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for COPYFILE2_MESSAGE_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_3 {
-    pub dwReserved: u32,
-}
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for COPYFILE2_MESSAGE_0_3 {
+impl Default for COPYFILE2_MESSAGE_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -7280,14 +7267,7 @@ impl Default for COPYFILE2_MESSAGE_0_3 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COPYFILE2_MESSAGE_0_4 {
-    pub dwStreamNumber: u32,
     pub dwReserved: u32,
-    pub hSourceFile: super::super::Foundation::HANDLE,
-    pub hDestinationFile: super::super::Foundation::HANDLE,
-    pub uliStreamSize: u64,
-    pub uliStreamBytesTransferred: u64,
-    pub uliTotalFileSize: u64,
-    pub uliTotalBytesTransferred: u64,
 }
 impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_4 {
     type TypeKind = windows_core::CopyType;
@@ -7299,7 +7279,27 @@ impl Default for COPYFILE2_MESSAGE_0_4 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct COPYFILE2_MESSAGE_0_5 {
+pub struct COPYFILE2_MESSAGE_0_3 {
+    pub dwStreamNumber: u32,
+    pub dwReserved: u32,
+    pub hSourceFile: super::super::Foundation::HANDLE,
+    pub hDestinationFile: super::super::Foundation::HANDLE,
+    pub uliStreamSize: u64,
+    pub uliStreamBytesTransferred: u64,
+    pub uliTotalFileSize: u64,
+    pub uliTotalBytesTransferred: u64,
+}
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for COPYFILE2_MESSAGE_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct COPYFILE2_MESSAGE_0_2 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
     pub hSourceFile: super::super::Foundation::HANDLE,
@@ -7307,10 +7307,10 @@ pub struct COPYFILE2_MESSAGE_0_5 {
     pub uliStreamSize: u64,
     pub uliTotalFileSize: u64,
 }
-impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_5 {
+impl windows_core::TypeKind for COPYFILE2_MESSAGE_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for COPYFILE2_MESSAGE_0_5 {
+impl Default for COPYFILE2_MESSAGE_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

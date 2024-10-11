@@ -7243,8 +7243,8 @@ impl Default for WTS_PROPERTY_VALUE {
 #[derive(Clone, Copy)]
 pub union WTS_PROPERTY_VALUE_0 {
     pub ulVal: u32,
-    pub strVal: WTS_PROPERTY_VALUE_0_1,
-    pub bVal: WTS_PROPERTY_VALUE_0_0,
+    pub strVal: WTS_PROPERTY_VALUE_0_0,
+    pub bVal: WTS_PROPERTY_VALUE_0_1,
     pub guidVal: windows_core::GUID,
 }
 impl windows_core::TypeKind for WTS_PROPERTY_VALUE_0 {
@@ -7257,28 +7257,28 @@ impl Default for WTS_PROPERTY_VALUE_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WTS_PROPERTY_VALUE_0_0 {
+pub struct WTS_PROPERTY_VALUE_0_1 {
     pub size: u32,
     pub pbVal: windows_core::PSTR,
 }
-impl windows_core::TypeKind for WTS_PROPERTY_VALUE_0_0 {
+impl windows_core::TypeKind for WTS_PROPERTY_VALUE_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WTS_PROPERTY_VALUE_0_0 {
+impl Default for WTS_PROPERTY_VALUE_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WTS_PROPERTY_VALUE_0_1 {
+pub struct WTS_PROPERTY_VALUE_0_0 {
     pub size: u32,
     pub pstrVal: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for WTS_PROPERTY_VALUE_0_1 {
+impl windows_core::TypeKind for WTS_PROPERTY_VALUE_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WTS_PROPERTY_VALUE_0_1 {
+impl Default for WTS_PROPERTY_VALUE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

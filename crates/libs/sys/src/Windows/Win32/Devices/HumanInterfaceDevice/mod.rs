@@ -3304,12 +3304,12 @@ pub struct HIDP_BUTTON_CAPS {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union HIDP_BUTTON_CAPS_0 {
-    pub Range: HIDP_BUTTON_CAPS_0_1,
-    pub NotRange: HIDP_BUTTON_CAPS_0_0,
+    pub Range: HIDP_BUTTON_CAPS_0_0,
+    pub NotRange: HIDP_BUTTON_CAPS_0_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct HIDP_BUTTON_CAPS_0_0 {
+pub struct HIDP_BUTTON_CAPS_0_1 {
     pub Usage: u16,
     pub Reserved1: u16,
     pub StringIndex: u16,
@@ -3321,7 +3321,7 @@ pub struct HIDP_BUTTON_CAPS_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct HIDP_BUTTON_CAPS_0_1 {
+pub struct HIDP_BUTTON_CAPS_0_0 {
     pub UsageMin: u16,
     pub UsageMax: u16,
     pub StringMin: u16,
@@ -3437,12 +3437,12 @@ pub struct HIDP_VALUE_CAPS {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union HIDP_VALUE_CAPS_0 {
-    pub Range: HIDP_VALUE_CAPS_0_1,
-    pub NotRange: HIDP_VALUE_CAPS_0_0,
+    pub Range: HIDP_VALUE_CAPS_0_0,
+    pub NotRange: HIDP_VALUE_CAPS_0_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct HIDP_VALUE_CAPS_0_0 {
+pub struct HIDP_VALUE_CAPS_0_1 {
     pub Usage: u16,
     pub Reserved1: u16,
     pub StringIndex: u16,
@@ -3454,7 +3454,7 @@ pub struct HIDP_VALUE_CAPS_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct HIDP_VALUE_CAPS_0_1 {
+pub struct HIDP_VALUE_CAPS_0_0 {
     pub UsageMin: u16,
     pub UsageMax: u16,
     pub StringMin: u16,

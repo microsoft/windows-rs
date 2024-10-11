@@ -2986,8 +2986,8 @@ impl Default for VAL {
 pub struct WIAS_CHANGED_VALUE_INFO {
     pub bChanged: super::super::Foundation::BOOL,
     pub vt: i32,
-    pub Old: WIAS_CHANGED_VALUE_INFO_1,
-    pub Current: WIAS_CHANGED_VALUE_INFO_0,
+    pub Old: WIAS_CHANGED_VALUE_INFO_0,
+    pub Current: WIAS_CHANGED_VALUE_INFO_1,
 }
 impl Clone for WIAS_CHANGED_VALUE_INFO {
     fn clone(&self) -> Self {
@@ -2998,26 +2998,6 @@ impl windows_core::TypeKind for WIAS_CHANGED_VALUE_INFO {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for WIAS_CHANGED_VALUE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-pub union WIAS_CHANGED_VALUE_INFO_0 {
-    pub lVal: i32,
-    pub fltVal: f32,
-    pub bstrVal: core::mem::ManuallyDrop<windows_core::BSTR>,
-    pub guidVal: windows_core::GUID,
-}
-impl Clone for WIAS_CHANGED_VALUE_INFO_0 {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-impl windows_core::TypeKind for WIAS_CHANGED_VALUE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for WIAS_CHANGED_VALUE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3038,6 +3018,26 @@ impl windows_core::TypeKind for WIAS_CHANGED_VALUE_INFO_1 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for WIAS_CHANGED_VALUE_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub union WIAS_CHANGED_VALUE_INFO_0 {
+    pub lVal: i32,
+    pub fltVal: f32,
+    pub bstrVal: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub guidVal: windows_core::GUID,
+}
+impl Clone for WIAS_CHANGED_VALUE_INFO_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl windows_core::TypeKind for WIAS_CHANGED_VALUE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for WIAS_CHANGED_VALUE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3368,14 +3368,14 @@ impl Default for WIA_PROPERTY_INFO {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 pub union WIA_PROPERTY_INFO_0 {
-    pub Range: WIA_PROPERTY_INFO_0_7,
-    pub RangeFloat: WIA_PROPERTY_INFO_0_6,
-    pub List: WIA_PROPERTY_INFO_0_4,
-    pub ListFloat: WIA_PROPERTY_INFO_0_2,
-    pub ListGuid: WIA_PROPERTY_INFO_0_3,
-    pub ListBStr: core::mem::ManuallyDrop<WIA_PROPERTY_INFO_0_1>,
-    pub Flag: WIA_PROPERTY_INFO_0_0,
-    pub None: WIA_PROPERTY_INFO_0_5,
+    pub Range: WIA_PROPERTY_INFO_0_0,
+    pub RangeFloat: WIA_PROPERTY_INFO_0_1,
+    pub List: WIA_PROPERTY_INFO_0_2,
+    pub ListFloat: WIA_PROPERTY_INFO_0_3,
+    pub ListGuid: WIA_PROPERTY_INFO_0_4,
+    pub ListBStr: core::mem::ManuallyDrop<WIA_PROPERTY_INFO_0_5>,
+    pub Flag: WIA_PROPERTY_INFO_0_6,
+    pub None: WIA_PROPERTY_INFO_0_7,
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl Clone for WIA_PROPERTY_INFO_0 {
@@ -3396,16 +3396,16 @@ impl Default for WIA_PROPERTY_INFO_0 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WIA_PROPERTY_INFO_0_0 {
+pub struct WIA_PROPERTY_INFO_0_6 {
     pub Nom: i32,
     pub ValidBits: i32,
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_0 {
+impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_6 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl Default for WIA_PROPERTY_INFO_0_0 {
+impl Default for WIA_PROPERTY_INFO_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3413,23 +3413,23 @@ impl Default for WIA_PROPERTY_INFO_0_0 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Debug, Eq, PartialEq)]
-pub struct WIA_PROPERTY_INFO_0_1 {
+pub struct WIA_PROPERTY_INFO_0_5 {
     pub cNumList: i32,
     pub Nom: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub pList: *mut windows_core::BSTR,
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl Clone for WIA_PROPERTY_INFO_0_1 {
+impl Clone for WIA_PROPERTY_INFO_0_5 {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_1 {
+impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_5 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl Default for WIA_PROPERTY_INFO_0_1 {
+impl Default for WIA_PROPERTY_INFO_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3437,28 +3437,10 @@ impl Default for WIA_PROPERTY_INFO_0_1 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WIA_PROPERTY_INFO_0_2 {
+pub struct WIA_PROPERTY_INFO_0_3 {
     pub cNumList: i32,
     pub Nom: f64,
     pub pList: *mut u8,
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Default for WIA_PROPERTY_INFO_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WIA_PROPERTY_INFO_0_3 {
-    pub cNumList: i32,
-    pub Nom: windows_core::GUID,
-    pub pList: *mut windows_core::GUID,
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_3 {
@@ -3475,8 +3457,8 @@ impl Default for WIA_PROPERTY_INFO_0_3 {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_4 {
     pub cNumList: i32,
-    pub Nom: i32,
-    pub pList: *mut u8,
+    pub Nom: windows_core::GUID,
+    pub pList: *mut windows_core::GUID,
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_4 {
@@ -3491,34 +3473,17 @@ impl Default for WIA_PROPERTY_INFO_0_4 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WIA_PROPERTY_INFO_0_5 {
-    pub Dummy: i32,
+pub struct WIA_PROPERTY_INFO_0_2 {
+    pub cNumList: i32,
+    pub Nom: i32,
+    pub pList: *mut u8,
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_5 {
+impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Variant")]
-impl Default for WIA_PROPERTY_INFO_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_Variant")]
-#[derive(Clone, Copy, Debug, PartialEq)]
-pub struct WIA_PROPERTY_INFO_0_6 {
-    pub Min: f64,
-    pub Nom: f64,
-    pub Max: f64,
-    pub Inc: f64,
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Variant")]
-impl Default for WIA_PROPERTY_INFO_0_6 {
+impl Default for WIA_PROPERTY_INFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3527,10 +3492,7 @@ impl Default for WIA_PROPERTY_INFO_0_6 {
 #[cfg(feature = "Win32_System_Variant")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_PROPERTY_INFO_0_7 {
-    pub Min: i32,
-    pub Nom: i32,
-    pub Max: i32,
-    pub Inc: i32,
+    pub Dummy: i32,
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_7 {
@@ -3538,6 +3500,44 @@ impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_7 {
 }
 #[cfg(feature = "Win32_System_Variant")]
 impl Default for WIA_PROPERTY_INFO_0_7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct WIA_PROPERTY_INFO_0_1 {
+    pub Min: f64,
+    pub Nom: f64,
+    pub Max: f64,
+    pub Inc: f64,
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl Default for WIA_PROPERTY_INFO_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_Variant")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct WIA_PROPERTY_INFO_0_0 {
+    pub Min: i32,
+    pub Nom: i32,
+    pub Max: i32,
+    pub Inc: i32,
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl windows_core::TypeKind for WIA_PROPERTY_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Variant")]
+impl Default for WIA_PROPERTY_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

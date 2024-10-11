@@ -428,7 +428,7 @@ pub struct GET_VIRTUAL_DISK_INFO {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union GET_VIRTUAL_DISK_INFO_0 {
-    pub Size: GET_VIRTUAL_DISK_INFO_0_3,
+    pub Size: GET_VIRTUAL_DISK_INFO_0_0,
     pub Identifier: windows_sys::core::GUID,
     pub ParentLocation: GET_VIRTUAL_DISK_INFO_0_1,
     pub ParentIdentifier: windows_sys::core::GUID,
@@ -442,11 +442,11 @@ pub union GET_VIRTUAL_DISK_INFO_0 {
     pub SmallestSafeVirtualSize: u64,
     pub FragmentationPercentage: u32,
     pub VirtualDiskId: windows_sys::core::GUID,
-    pub ChangeTrackingState: GET_VIRTUAL_DISK_INFO_0_0,
+    pub ChangeTrackingState: GET_VIRTUAL_DISK_INFO_0_3,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct GET_VIRTUAL_DISK_INFO_0_0 {
+pub struct GET_VIRTUAL_DISK_INFO_0_3 {
     pub Enabled: super::super::Foundation::BOOL,
     pub NewerChanges: super::super::Foundation::BOOL,
     pub MostRecentId: [u16; 1],
@@ -466,7 +466,7 @@ pub struct GET_VIRTUAL_DISK_INFO_0_2 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct GET_VIRTUAL_DISK_INFO_0_3 {
+pub struct GET_VIRTUAL_DISK_INFO_0_0 {
     pub VirtualSize: u64,
     pub PhysicalSize: u64,
     pub BlockSize: u32,
@@ -639,21 +639,21 @@ pub struct SET_VIRTUAL_DISK_INFO {
 pub union SET_VIRTUAL_DISK_INFO_0 {
     pub ParentFilePath: windows_sys::core::PCWSTR,
     pub UniqueIdentifier: windows_sys::core::GUID,
-    pub ParentPathWithDepthInfo: SET_VIRTUAL_DISK_INFO_0_1,
+    pub ParentPathWithDepthInfo: SET_VIRTUAL_DISK_INFO_0_0,
     pub VhdPhysicalSectorSize: u32,
     pub VirtualDiskId: windows_sys::core::GUID,
     pub ChangeTrackingEnabled: super::super::Foundation::BOOL,
-    pub ParentLocator: SET_VIRTUAL_DISK_INFO_0_0,
+    pub ParentLocator: SET_VIRTUAL_DISK_INFO_0_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct SET_VIRTUAL_DISK_INFO_0_0 {
+pub struct SET_VIRTUAL_DISK_INFO_0_1 {
     pub LinkageId: windows_sys::core::GUID,
     pub ParentFilePath: windows_sys::core::PCWSTR,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct SET_VIRTUAL_DISK_INFO_0_1 {
+pub struct SET_VIRTUAL_DISK_INFO_0_0 {
     pub ChildDepth: u32,
     pub ParentFilePath: windows_sys::core::PCWSTR,
 }

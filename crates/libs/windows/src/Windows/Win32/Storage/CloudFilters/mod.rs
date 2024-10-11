@@ -2331,17 +2331,17 @@ impl Default for CF_CALLBACK_PARAMETERS {
 #[derive(Clone, Copy)]
 pub union CF_CALLBACK_PARAMETERS_0 {
     pub Cancel: CF_CALLBACK_PARAMETERS_0_0,
-    pub FetchData: CF_CALLBACK_PARAMETERS_0_6,
-    pub ValidateData: CF_CALLBACK_PARAMETERS_0_11,
-    pub FetchPlaceholders: CF_CALLBACK_PARAMETERS_0_7,
-    pub OpenCompletion: CF_CALLBACK_PARAMETERS_0_8,
-    pub CloseCompletion: CF_CALLBACK_PARAMETERS_0_1,
-    pub Dehydrate: CF_CALLBACK_PARAMETERS_0_3,
-    pub DehydrateCompletion: CF_CALLBACK_PARAMETERS_0_2,
-    pub Delete: CF_CALLBACK_PARAMETERS_0_5,
-    pub DeleteCompletion: CF_CALLBACK_PARAMETERS_0_4,
+    pub FetchData: CF_CALLBACK_PARAMETERS_0_1,
+    pub ValidateData: CF_CALLBACK_PARAMETERS_0_2,
+    pub FetchPlaceholders: CF_CALLBACK_PARAMETERS_0_3,
+    pub OpenCompletion: CF_CALLBACK_PARAMETERS_0_4,
+    pub CloseCompletion: CF_CALLBACK_PARAMETERS_0_5,
+    pub Dehydrate: CF_CALLBACK_PARAMETERS_0_6,
+    pub DehydrateCompletion: CF_CALLBACK_PARAMETERS_0_7,
+    pub Delete: CF_CALLBACK_PARAMETERS_0_8,
+    pub DeleteCompletion: CF_CALLBACK_PARAMETERS_0_9,
     pub Rename: CF_CALLBACK_PARAMETERS_0_10,
-    pub RenameCompletion: CF_CALLBACK_PARAMETERS_0_9,
+    pub RenameCompletion: CF_CALLBACK_PARAMETERS_0_11,
 }
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -2394,8 +2394,81 @@ impl Default for CF_CALLBACK_PARAMETERS_0_0_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CF_CALLBACK_PARAMETERS_0_1 {
+pub struct CF_CALLBACK_PARAMETERS_0_5 {
     pub Flags: CF_CALLBACK_CLOSE_COMPLETION_FLAGS,
+}
+impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_5 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for CF_CALLBACK_PARAMETERS_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CF_CALLBACK_PARAMETERS_0_7 {
+    pub Flags: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS,
+    pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
+}
+impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_7 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for CF_CALLBACK_PARAMETERS_0_7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CF_CALLBACK_PARAMETERS_0_6 {
+    pub Flags: CF_CALLBACK_DEHYDRATE_FLAGS,
+    pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
+}
+impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_6 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for CF_CALLBACK_PARAMETERS_0_6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CF_CALLBACK_PARAMETERS_0_9 {
+    pub Flags: CF_CALLBACK_DELETE_COMPLETION_FLAGS,
+}
+impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_9 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for CF_CALLBACK_PARAMETERS_0_9 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CF_CALLBACK_PARAMETERS_0_8 {
+    pub Flags: CF_CALLBACK_DELETE_FLAGS,
+}
+impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_8 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for CF_CALLBACK_PARAMETERS_0_8 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CF_CALLBACK_PARAMETERS_0_1 {
+    pub Flags: CF_CALLBACK_FETCH_DATA_FLAGS,
+    pub RequiredFileOffset: i64,
+    pub RequiredLength: i64,
+    pub OptionalFileOffset: i64,
+    pub OptionalLength: i64,
+    pub LastDehydrationTime: i64,
+    pub LastDehydrationReason: CF_CALLBACK_DEHYDRATION_REASON,
 }
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
@@ -2407,23 +2480,9 @@ impl Default for CF_CALLBACK_PARAMETERS_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CF_CALLBACK_PARAMETERS_0_2 {
-    pub Flags: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS,
-    pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
-}
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CF_CALLBACK_PARAMETERS_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_3 {
-    pub Flags: CF_CALLBACK_DEHYDRATE_FLAGS,
-    pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
+    pub Flags: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS,
+    pub Pattern: windows_core::PCWSTR,
 }
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_3 {
     type TypeKind = windows_core::CopyType;
@@ -2436,7 +2495,7 @@ impl Default for CF_CALLBACK_PARAMETERS_0_3 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_4 {
-    pub Flags: CF_CALLBACK_DELETE_COMPLETION_FLAGS,
+    pub Flags: CF_CALLBACK_OPEN_COMPLETION_FLAGS,
 }
 impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_4 {
     type TypeKind = windows_core::CopyType;
@@ -2448,73 +2507,14 @@ impl Default for CF_CALLBACK_PARAMETERS_0_4 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CF_CALLBACK_PARAMETERS_0_5 {
-    pub Flags: CF_CALLBACK_DELETE_FLAGS,
-}
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CF_CALLBACK_PARAMETERS_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CF_CALLBACK_PARAMETERS_0_6 {
-    pub Flags: CF_CALLBACK_FETCH_DATA_FLAGS,
-    pub RequiredFileOffset: i64,
-    pub RequiredLength: i64,
-    pub OptionalFileOffset: i64,
-    pub OptionalLength: i64,
-    pub LastDehydrationTime: i64,
-    pub LastDehydrationReason: CF_CALLBACK_DEHYDRATION_REASON,
-}
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CF_CALLBACK_PARAMETERS_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CF_CALLBACK_PARAMETERS_0_7 {
-    pub Flags: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS,
-    pub Pattern: windows_core::PCWSTR,
-}
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_7 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CF_CALLBACK_PARAMETERS_0_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CF_CALLBACK_PARAMETERS_0_8 {
-    pub Flags: CF_CALLBACK_OPEN_COMPLETION_FLAGS,
-}
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_8 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CF_CALLBACK_PARAMETERS_0_8 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CF_CALLBACK_PARAMETERS_0_9 {
+pub struct CF_CALLBACK_PARAMETERS_0_11 {
     pub Flags: CF_CALLBACK_RENAME_COMPLETION_FLAGS,
     pub SourcePath: windows_core::PCWSTR,
 }
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_9 {
+impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_11 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CF_CALLBACK_PARAMETERS_0_9 {
+impl Default for CF_CALLBACK_PARAMETERS_0_11 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2535,15 +2535,15 @@ impl Default for CF_CALLBACK_PARAMETERS_0_10 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CF_CALLBACK_PARAMETERS_0_11 {
+pub struct CF_CALLBACK_PARAMETERS_0_2 {
     pub Flags: CF_CALLBACK_VALIDATE_DATA_FLAGS,
     pub RequiredFileOffset: i64,
     pub RequiredLength: i64,
 }
-impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_11 {
+impl windows_core::TypeKind for CF_CALLBACK_PARAMETERS_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CF_CALLBACK_PARAMETERS_0_11 {
+impl Default for CF_CALLBACK_PARAMETERS_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -2677,14 +2677,14 @@ impl Default for CF_OPERATION_PARAMETERS {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy)]
 pub union CF_OPERATION_PARAMETERS_0 {
-    pub TransferData: CF_OPERATION_PARAMETERS_0_6,
-    pub RetrieveData: CF_OPERATION_PARAMETERS_0_5,
-    pub AckData: CF_OPERATION_PARAMETERS_0_0,
-    pub RestartHydration: CF_OPERATION_PARAMETERS_0_4,
-    pub TransferPlaceholders: CF_OPERATION_PARAMETERS_0_7,
-    pub AckDehydrate: CF_OPERATION_PARAMETERS_0_1,
-    pub AckRename: CF_OPERATION_PARAMETERS_0_3,
-    pub AckDelete: CF_OPERATION_PARAMETERS_0_2,
+    pub TransferData: CF_OPERATION_PARAMETERS_0_0,
+    pub RetrieveData: CF_OPERATION_PARAMETERS_0_1,
+    pub AckData: CF_OPERATION_PARAMETERS_0_2,
+    pub RestartHydration: CF_OPERATION_PARAMETERS_0_3,
+    pub TransferPlaceholders: CF_OPERATION_PARAMETERS_0_4,
+    pub AckDehydrate: CF_OPERATION_PARAMETERS_0_5,
+    pub AckRename: CF_OPERATION_PARAMETERS_0_6,
+    pub AckDelete: CF_OPERATION_PARAMETERS_0_7,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0 {
@@ -2699,9 +2699,121 @@ impl Default for CF_OPERATION_PARAMETERS_0 {
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CF_OPERATION_PARAMETERS_0_0 {
+pub struct CF_OPERATION_PARAMETERS_0_2 {
     pub Flags: CF_OPERATION_ACK_DATA_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
+    pub Offset: i64,
+    pub Length: i64,
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for CF_OPERATION_PARAMETERS_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CF_OPERATION_PARAMETERS_0_5 {
+    pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
+    pub CompletionStatus: super::super::Foundation::NTSTATUS,
+    pub FileIdentity: *const core::ffi::c_void,
+    pub FileIdentityLength: u32,
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_5 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for CF_OPERATION_PARAMETERS_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CF_OPERATION_PARAMETERS_0_7 {
+    pub Flags: CF_OPERATION_ACK_DELETE_FLAGS,
+    pub CompletionStatus: super::super::Foundation::NTSTATUS,
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_7 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for CF_OPERATION_PARAMETERS_0_7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CF_OPERATION_PARAMETERS_0_6 {
+    pub Flags: CF_OPERATION_ACK_RENAME_FLAGS,
+    pub CompletionStatus: super::super::Foundation::NTSTATUS,
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_6 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for CF_OPERATION_PARAMETERS_0_6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CF_OPERATION_PARAMETERS_0_3 {
+    pub Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS,
+    pub FsMetadata: *const CF_FS_METADATA,
+    pub FileIdentity: *const core::ffi::c_void,
+    pub FileIdentityLength: u32,
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for CF_OPERATION_PARAMETERS_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CF_OPERATION_PARAMETERS_0_1 {
+    pub Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS,
+    pub Buffer: *mut core::ffi::c_void,
+    pub Offset: i64,
+    pub Length: i64,
+    pub ReturnedLength: i64,
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl Default for CF_OPERATION_PARAMETERS_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Storage_FileSystem")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CF_OPERATION_PARAMETERS_0_0 {
+    pub Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
+    pub CompletionStatus: super::super::Foundation::NTSTATUS,
+    pub Buffer: *const core::ffi::c_void,
     pub Offset: i64,
     pub Length: i64,
 }
@@ -2718,119 +2830,7 @@ impl Default for CF_OPERATION_PARAMETERS_0_0 {
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CF_OPERATION_PARAMETERS_0_1 {
-    pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
-    pub CompletionStatus: super::super::Foundation::NTSTATUS,
-    pub FileIdentity: *const core::ffi::c_void,
-    pub FileIdentityLength: u32,
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Default for CF_OPERATION_PARAMETERS_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CF_OPERATION_PARAMETERS_0_2 {
-    pub Flags: CF_OPERATION_ACK_DELETE_FLAGS,
-    pub CompletionStatus: super::super::Foundation::NTSTATUS,
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Default for CF_OPERATION_PARAMETERS_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CF_OPERATION_PARAMETERS_0_3 {
-    pub Flags: CF_OPERATION_ACK_RENAME_FLAGS,
-    pub CompletionStatus: super::super::Foundation::NTSTATUS,
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Default for CF_OPERATION_PARAMETERS_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_4 {
-    pub Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS,
-    pub FsMetadata: *const CF_FS_METADATA,
-    pub FileIdentity: *const core::ffi::c_void,
-    pub FileIdentityLength: u32,
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Default for CF_OPERATION_PARAMETERS_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CF_OPERATION_PARAMETERS_0_5 {
-    pub Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS,
-    pub Buffer: *mut core::ffi::c_void,
-    pub Offset: i64,
-    pub Length: i64,
-    pub ReturnedLength: i64,
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Default for CF_OPERATION_PARAMETERS_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CF_OPERATION_PARAMETERS_0_6 {
-    pub Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
-    pub CompletionStatus: super::super::Foundation::NTSTATUS,
-    pub Buffer: *const core::ffi::c_void,
-    pub Offset: i64,
-    pub Length: i64,
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl Default for CF_OPERATION_PARAMETERS_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CF_OPERATION_PARAMETERS_0_7 {
     pub Flags: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
     pub PlaceholderTotalCount: i64,
@@ -2839,11 +2839,11 @@ pub struct CF_OPERATION_PARAMETERS_0_7 {
     pub EntriesProcessed: u32,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_7 {
+impl windows_core::TypeKind for CF_OPERATION_PARAMETERS_0_4 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
-impl Default for CF_OPERATION_PARAMETERS_0_7 {
+impl Default for CF_OPERATION_PARAMETERS_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

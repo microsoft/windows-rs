@@ -4629,9 +4629,9 @@ pub struct D3DDDI_ALLOCATIONINFO2 {
     pub pPrivateDriverData: *mut core::ffi::c_void,
     pub PrivateDriverDataSize: u32,
     pub VidPnSourceId: u32,
-    pub Flags: D3DDDI_ALLOCATIONINFO2_2,
+    pub Flags: D3DDDI_ALLOCATIONINFO2_1,
     pub GpuVirtualAddress: u64,
-    pub Anonymous2: D3DDDI_ALLOCATIONINFO2_1,
+    pub Anonymous2: D3DDDI_ALLOCATIONINFO2_2,
     pub Reserved: [usize; 5],
 }
 impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2 {
@@ -4658,23 +4658,9 @@ impl Default for D3DDDI_ALLOCATIONINFO2_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union D3DDDI_ALLOCATIONINFO2_1 {
+pub union D3DDDI_ALLOCATIONINFO2_2 {
     pub Priority: u32,
     pub Unused: usize,
-}
-impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DDDI_ALLOCATIONINFO2_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DDDI_ALLOCATIONINFO2_2 {
-    pub Anonymous: D3DDDI_ALLOCATIONINFO2_2_0,
-    pub Value: u32,
 }
 impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_2 {
     type TypeKind = windows_core::CopyType;
@@ -4685,14 +4671,28 @@ impl Default for D3DDDI_ALLOCATIONINFO2_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DDDI_ALLOCATIONINFO2_2_0 {
-    pub _bitfield: u32,
+#[derive(Clone, Copy)]
+pub union D3DDDI_ALLOCATIONINFO2_1 {
+    pub Anonymous: D3DDDI_ALLOCATIONINFO2_1_0,
+    pub Value: u32,
 }
-impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_2_0 {
+impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for D3DDDI_ALLOCATIONINFO2_2_0 {
+impl Default for D3DDDI_ALLOCATIONINFO2_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct D3DDDI_ALLOCATIONINFO2_1_0 {
+    pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DDDI_ALLOCATIONINFO2_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DDDI_ALLOCATIONINFO2_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5676,9 +5676,9 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
-    pub SynchronizationMutex: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2,
+    pub SynchronizationMutex: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0,
     pub Semaphore: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1,
-    pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0,
+    pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2,
 }
 impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -5690,13 +5690,13 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
+pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     pub Reserved: [u32; 16],
 }
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
+impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5717,13 +5717,13 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
+pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     pub InitialState: super::super::super::Win32::Foundation::BOOL,
 }
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
+impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -5747,13 +5747,13 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
-    pub SynchronizationMutex: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6,
-    pub Semaphore: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5,
-    pub Fence: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1,
-    pub CPUNotification: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0,
-    pub MonitoredFence: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2,
-    pub PeriodicMonitoredFence: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3,
-    pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4,
+    pub SynchronizationMutex: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0,
+    pub Semaphore: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1,
+    pub Fence: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2,
+    pub CPUNotification: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3,
+    pub MonitoredFence: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4,
+    pub PeriodicMonitoredFence: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5,
+    pub Reserved: D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6,
 }
 impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
     type TypeKind = windows_core::CopyType;
@@ -5765,57 +5765,8 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
-    pub Event: super::super::super::Win32::Foundation::HANDLE,
-}
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
-    pub FenceValue: u64,
-}
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
-    pub InitialFenceValue: u64,
-    pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
-    pub FenceValueGPUVirtualAddress: u64,
-    pub EngineAffinity: u32,
-    pub Padding: u32,
-}
-impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
-    pub hAdapter: u32,
-    pub VidPnTargetId: u32,
-    pub Time: u64,
-    pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
-    pub FenceValueGPUVirtualAddress: u64,
-    pub EngineAffinity: u32,
-    pub Padding: u32,
+    pub Event: super::super::super::Win32::Foundation::HANDLE,
 }
 impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     type TypeKind = windows_core::CopyType;
@@ -5827,8 +5778,25 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
+    pub FenceValue: u64,
+}
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
-    pub Reserved: [u64; 8],
+    pub InitialFenceValue: u64,
+    pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
+    pub FenceValueGPUVirtualAddress: u64,
+    pub EngineAffinity: u32,
+    pub Padding: u32,
 }
 impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     type TypeKind = windows_core::CopyType;
@@ -5841,8 +5809,13 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
-    pub MaxCount: u32,
-    pub InitialCount: u32,
+    pub hAdapter: u32,
+    pub VidPnTargetId: u32,
+    pub Time: u64,
+    pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
+    pub FenceValueGPUVirtualAddress: u64,
+    pub EngineAffinity: u32,
+    pub Padding: u32,
 }
 impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     type TypeKind = windows_core::CopyType;
@@ -5855,12 +5828,39 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
-    pub InitialState: super::super::super::Win32::Foundation::BOOL,
+    pub Reserved: [u64; 8],
 }
 impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
+    pub MaxCount: u32,
+    pub InitialCount: u32,
+}
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
+    pub InitialState: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -6048,10 +6048,10 @@ impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
-    pub Map: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2,
+    pub Map: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0,
     pub MapProtect: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1,
-    pub Unmap: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3,
-    pub Copy: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0,
+    pub Unmap: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2,
+    pub Copy: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3,
 }
 impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
     type TypeKind = windows_core::CopyType;
@@ -6063,15 +6063,15 @@ impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
+pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
     pub SourceAddress: u64,
     pub SizeInBytes: u64,
     pub DestAddress: u64,
 }
-impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
+impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
+impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -6097,32 +6097,32 @@ impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
+pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
     pub BaseAddress: u64,
     pub SizeInBytes: u64,
     pub hAllocation: u32,
     pub AllocationOffsetInBytes: u64,
     pub AllocationSizeInBytes: u64,
 }
-impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
+impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
+impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
+pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     pub BaseAddress: u64,
     pub SizeInBytes: u64,
     pub Protection: D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE,
 }
-impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
+impl windows_core::TypeKind for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
+impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -16178,21 +16178,21 @@ impl Default for D3DKMT_VIDMM_ESCAPE {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3DKMT_VIDMM_ESCAPE_0 {
-    pub SetFault: D3DKMT_VIDMM_ESCAPE_0_9,
-    pub Evict: D3DKMT_VIDMM_ESCAPE_0_4,
-    pub EvictByNtHandle: D3DKMT_VIDMM_ESCAPE_0_3,
-    pub GetVads: D3DKMT_VIDMM_ESCAPE_0_6,
-    pub SetBudget: D3DKMT_VIDMM_ESCAPE_0_8,
-    pub SuspendProcess: D3DKMT_VIDMM_ESCAPE_0_11,
-    pub ResumeProcess: D3DKMT_VIDMM_ESCAPE_0_7,
-    pub GetBudget: D3DKMT_VIDMM_ESCAPE_0_5,
-    pub SetTrimIntervals: D3DKMT_VIDMM_ESCAPE_0_10,
+    pub SetFault: D3DKMT_VIDMM_ESCAPE_0_0,
+    pub Evict: D3DKMT_VIDMM_ESCAPE_0_1,
+    pub EvictByNtHandle: D3DKMT_VIDMM_ESCAPE_0_2,
+    pub GetVads: D3DKMT_VIDMM_ESCAPE_0_3,
+    pub SetBudget: D3DKMT_VIDMM_ESCAPE_0_4,
+    pub SuspendProcess: D3DKMT_VIDMM_ESCAPE_0_5,
+    pub ResumeProcess: D3DKMT_VIDMM_ESCAPE_0_6,
+    pub GetBudget: D3DKMT_VIDMM_ESCAPE_0_7,
+    pub SetTrimIntervals: D3DKMT_VIDMM_ESCAPE_0_8,
     pub EvictByCriteria: D3DKMT_EVICTION_CRITERIA,
-    pub Wake: D3DKMT_VIDMM_ESCAPE_0_13,
-    pub Defrag: D3DKMT_VIDMM_ESCAPE_0_0,
-    pub DelayExecution: D3DKMT_VIDMM_ESCAPE_0_1,
+    pub Wake: D3DKMT_VIDMM_ESCAPE_0_9,
+    pub Defrag: D3DKMT_VIDMM_ESCAPE_0_10,
+    pub DelayExecution: D3DKMT_VIDMM_ESCAPE_0_11,
     pub VerifyIntegrity: D3DKMT_VIDMM_ESCAPE_0_12,
-    pub DelayedEvictionConfig: D3DKMT_VIDMM_ESCAPE_0_2,
+    pub DelayedEvictionConfig: D3DKMT_VIDMM_ESCAPE_0_13,
 }
 impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0 {
     type TypeKind = windows_core::CopyType;
@@ -16204,211 +16204,13 @@ impl Default for D3DKMT_VIDMM_ESCAPE_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_0 {
+pub struct D3DKMT_VIDMM_ESCAPE_0_10 {
     pub Operation: D3DKMT_DEFRAG_ESCAPE_OPERATION,
     pub SegmentId: u32,
     pub TotalCommitted: u64,
     pub TotalFree: u64,
     pub LargestGapBefore: u64,
     pub LargestGapAfter: u64,
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_1 {
-    pub hPagingQueue: u32,
-    pub PhysicalAdapterIndex: u32,
-    pub Milliseconds: u32,
-    pub PagingFenceValue: u64,
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_2 {
-    pub TimerValue: i64,
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_3 {
-    pub NtHandle: u64,
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_4 {
-    pub ResourceHandle: u32,
-    pub AllocationHandle: u32,
-    pub hProcess: super::super::super::Win32::Foundation::HANDLE,
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_5 {
-    pub NumBytesToTrim: u64,
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_6 {
-    pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_6_0,
-    pub Command: D3DKMT_VAD_ESCAPE_COMMAND,
-    pub Status: super::super::super::Win32::Foundation::NTSTATUS,
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DKMT_VIDMM_ESCAPE_0_6_0 {
-    pub GetNumVads: D3DKMT_VIDMM_ESCAPE_0_6_0_0,
-    pub GetVad: D3DKMT_VAD_DESC,
-    pub GetVadRange: D3DKMT_VA_RANGE_DESC,
-    pub GetGpuMmuCaps: D3DKMT_GET_GPUMMU_CAPS,
-    pub GetPte: D3DKMT_GET_PTE,
-    pub GetSegmentCaps: D3DKMT_GET_SEGMENT_CAPS,
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_6_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_6_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_6_0_0 {
-    pub NumVads: u32,
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_6_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_6_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_7 {
-    pub hProcess: super::super::super::Win32::Foundation::HANDLE,
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_7 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_8 {
-    pub LocalMemoryBudget: u64,
-    pub SystemMemoryBudget: u64,
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_8 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_8 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_9 {
-    pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_9_0,
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_9 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_9 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub union D3DKMT_VIDMM_ESCAPE_0_9_0 {
-    pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_9_0_0,
-    pub Value: u32,
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_9_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_9_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_9_0_0 {
-    pub _bitfield: u32,
-}
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_9_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for D3DKMT_VIDMM_ESCAPE_0_9_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_10 {
-    pub MinTrimInterval: u32,
-    pub MaxTrimInterval: u32,
-    pub IdleTrimInterval: u32,
 }
 impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_10 {
     type TypeKind = windows_core::CopyType;
@@ -16421,13 +16223,211 @@ impl Default for D3DKMT_VIDMM_ESCAPE_0_10 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_11 {
-    pub hProcess: super::super::super::Win32::Foundation::HANDLE,
-    pub bAllowWakeOnSubmission: super::super::super::Win32::Foundation::BOOL,
+    pub hPagingQueue: u32,
+    pub PhysicalAdapterIndex: u32,
+    pub Milliseconds: u32,
+    pub PagingFenceValue: u64,
 }
 impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_11 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for D3DKMT_VIDMM_ESCAPE_0_11 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_13 {
+    pub TimerValue: i64,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_13 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_13 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_2 {
+    pub NtHandle: u64,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_1 {
+    pub ResourceHandle: u32,
+    pub AllocationHandle: u32,
+    pub hProcess: super::super::super::Win32::Foundation::HANDLE,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_7 {
+    pub NumBytesToTrim: u64,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_7 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_3 {
+    pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_3_0,
+    pub Command: D3DKMT_VAD_ESCAPE_COMMAND,
+    pub Status: super::super::super::Win32::Foundation::NTSTATUS,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3DKMT_VIDMM_ESCAPE_0_3_0 {
+    pub GetNumVads: D3DKMT_VIDMM_ESCAPE_0_3_0_0,
+    pub GetVad: D3DKMT_VAD_DESC,
+    pub GetVadRange: D3DKMT_VA_RANGE_DESC,
+    pub GetGpuMmuCaps: D3DKMT_GET_GPUMMU_CAPS,
+    pub GetPte: D3DKMT_GET_PTE,
+    pub GetSegmentCaps: D3DKMT_GET_SEGMENT_CAPS,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_3_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_3_0_0 {
+    pub NumVads: u32,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_3_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_3_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_6 {
+    pub hProcess: super::super::super::Win32::Foundation::HANDLE,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_6 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_4 {
+    pub LocalMemoryBudget: u64,
+    pub SystemMemoryBudget: u64,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_4 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_0 {
+    pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3DKMT_VIDMM_ESCAPE_0_0_0 {
+    pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0_0,
+    pub Value: u32,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_0_0_0 {
+    pub _bitfield: u32,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_0_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_8 {
+    pub MinTrimInterval: u32,
+    pub MaxTrimInterval: u32,
+    pub IdleTrimInterval: u32,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_8 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_8 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct D3DKMT_VIDMM_ESCAPE_0_5 {
+    pub hProcess: super::super::super::Win32::Foundation::HANDLE,
+    pub bAllowWakeOnSubmission: super::super::super::Win32::Foundation::BOOL,
+}
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_5 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for D3DKMT_VIDMM_ESCAPE_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -16447,13 +16447,13 @@ impl Default for D3DKMT_VIDMM_ESCAPE_0_12 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3DKMT_VIDMM_ESCAPE_0_13 {
+pub struct D3DKMT_VIDMM_ESCAPE_0_9 {
     pub bFlush: super::super::super::Win32::Foundation::BOOL,
 }
-impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_13 {
+impl windows_core::TypeKind for D3DKMT_VIDMM_ESCAPE_0_9 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for D3DKMT_VIDMM_ESCAPE_0_13 {
+impl Default for D3DKMT_VIDMM_ESCAPE_0_9 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

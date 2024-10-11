@@ -16307,9 +16307,9 @@ impl Default for ChannelInfo {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union ChannelInfo_0 {
-    pub DVB: ChannelInfo_0_2,
+    pub DVB: ChannelInfo_0_0,
     pub DC: ChannelInfo_0_1,
-    pub ATSC: ChannelInfo_0_0,
+    pub ATSC: ChannelInfo_0_2,
 }
 impl windows_core::TypeKind for ChannelInfo_0 {
     type TypeKind = windows_core::CopyType;
@@ -16321,13 +16321,13 @@ impl Default for ChannelInfo_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ChannelInfo_0_0 {
+pub struct ChannelInfo_0_2 {
     pub lProgNumber: i32,
 }
-impl windows_core::TypeKind for ChannelInfo_0_0 {
+impl windows_core::TypeKind for ChannelInfo_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for ChannelInfo_0_0 {
+impl Default for ChannelInfo_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -16347,15 +16347,15 @@ impl Default for ChannelInfo_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct ChannelInfo_0_2 {
+pub struct ChannelInfo_0_0 {
     pub lONID: i32,
     pub lTSID: i32,
     pub lSID: i32,
 }
-impl windows_core::TypeKind for ChannelInfo_0_2 {
+impl windows_core::TypeKind for ChannelInfo_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for ChannelInfo_0_2 {
+impl Default for ChannelInfo_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

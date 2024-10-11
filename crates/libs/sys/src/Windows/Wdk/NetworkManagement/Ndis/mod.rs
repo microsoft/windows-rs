@@ -2867,14 +2867,9 @@ pub struct NDIS_INTERRUPT_MODERATION_PARAMETERS {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NDIS_IPSEC_OFFLOAD_V1 {
-    pub Supported: NDIS_IPSEC_OFFLOAD_V1_2,
-    pub IPv4AH: NDIS_IPSEC_OFFLOAD_V1_0,
-    pub IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_1,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
-    pub _bitfield: u32,
+    pub Supported: NDIS_IPSEC_OFFLOAD_V1_0,
+    pub IPv4AH: NDIS_IPSEC_OFFLOAD_V1_1,
+    pub IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_2,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2884,6 +2879,11 @@ pub struct NDIS_IPSEC_OFFLOAD_V1_1 {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub AhEspCombined: u32,
     pub TransportTunnelCombined: u32,
@@ -3258,16 +3258,10 @@ pub struct NDIS_TCP_CONNECTION_OFFLOAD {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    pub IPv4Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_1,
-    pub IPv4Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_0,
-    pub IPv6Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3,
-    pub IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_2,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    pub Encapsulation: u32,
-    pub _bitfield: u32,
+    pub IPv4Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_0,
+    pub IPv4Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_1,
+    pub IPv6Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_2,
+    pub IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3277,7 +3271,7 @@ pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
@@ -3289,24 +3283,30 @@ pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    pub Encapsulation: u32,
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO {
     pub Anonymous: NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0 {
-    pub Transmit: NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1,
-    pub Receive: NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0,
+    pub Transmit: NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0,
+    pub Receive: NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1,
     pub Value: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
+pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_1 {
+pub struct NDIS_TCP_IP_CHECKSUM_PACKET_INFO_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
@@ -3500,13 +3500,13 @@ pub struct NDIS_WMI_EVENT_HEADER {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    pub Supported: NDIS_WMI_IPSEC_OFFLOAD_V1_2,
-    pub IPv4AH: NDIS_WMI_IPSEC_OFFLOAD_V1_0,
-    pub IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_1,
+    pub Supported: NDIS_WMI_IPSEC_OFFLOAD_V1_0,
+    pub IPv4AH: NDIS_WMI_IPSEC_OFFLOAD_V1_1,
+    pub IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_2,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     pub Md5: u32,
     pub Sha_1: u32,
     pub Transport: u32,
@@ -3516,7 +3516,7 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     pub Des: u32,
     pub Reserved: u32,
     pub TripleDes: u32,
@@ -3528,7 +3528,7 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub AhEspCombined: u32,
     pub TransportTunnelCombined: u32,
@@ -3590,20 +3590,10 @@ pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    pub IPv4Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1,
-    pub IPv4Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0,
-    pub IPv6Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3,
-    pub IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2,
-}
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    pub Encapsulation: u32,
-    pub IpOptionsSupported: u32,
-    pub TcpOptionsSupported: u32,
-    pub TcpChecksum: u32,
-    pub UdpChecksum: u32,
-    pub IpChecksum: u32,
+    pub IPv4Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0,
+    pub IPv4Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1,
+    pub IPv6Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2,
+    pub IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3617,7 +3607,17 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    pub Encapsulation: u32,
+    pub IpOptionsSupported: u32,
+    pub TcpOptionsSupported: u32,
+    pub TcpChecksum: u32,
+    pub UdpChecksum: u32,
+    pub IpChecksum: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub Encapsulation: u32,
     pub IpExtensionHeadersSupported: u32,
     pub TcpOptionsSupported: u32,
@@ -3626,7 +3626,7 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub Encapsulation: u32,
     pub IpExtensionHeadersSupported: u32,
     pub TcpOptionsSupported: u32,

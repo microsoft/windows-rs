@@ -4366,8 +4366,8 @@ impl Default for CHANGE_ATTRIBUTES_PARAMETERS {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CHANGE_ATTRIBUTES_PARAMETERS_0 {
-    pub MbrPartInfo: CHANGE_ATTRIBUTES_PARAMETERS_0_1,
-    pub GptPartInfo: CHANGE_ATTRIBUTES_PARAMETERS_0_0,
+    pub MbrPartInfo: CHANGE_ATTRIBUTES_PARAMETERS_0_0,
+    pub GptPartInfo: CHANGE_ATTRIBUTES_PARAMETERS_0_1,
 }
 impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -4379,26 +4379,26 @@ impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
+pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
     pub attributes: u64,
 }
-impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
+impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
+impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
+pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
     pub bootIndicator: super::super::Foundation::BOOLEAN,
 }
-impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
+impl windows_core::TypeKind for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
+impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -4420,8 +4420,8 @@ impl Default for CHANGE_PARTITION_TYPE_PARAMETERS {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CHANGE_PARTITION_TYPE_PARAMETERS_0 {
-    pub MbrPartInfo: CHANGE_PARTITION_TYPE_PARAMETERS_0_1,
-    pub GptPartInfo: CHANGE_PARTITION_TYPE_PARAMETERS_0_0,
+    pub MbrPartInfo: CHANGE_PARTITION_TYPE_PARAMETERS_0_0,
+    pub GptPartInfo: CHANGE_PARTITION_TYPE_PARAMETERS_0_1,
 }
 impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -4433,26 +4433,26 @@ impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
+pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
     pub partitionType: windows_core::GUID,
 }
-impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
+impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
+impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
+pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
     pub partitionType: u8,
 }
-impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
+impl windows_core::TypeKind for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
+impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -4474,8 +4474,8 @@ impl Default for CREATE_PARTITION_PARAMETERS {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CREATE_PARTITION_PARAMETERS_0 {
-    pub MbrPartInfo: CREATE_PARTITION_PARAMETERS_0_1,
-    pub GptPartInfo: CREATE_PARTITION_PARAMETERS_0_0,
+    pub MbrPartInfo: CREATE_PARTITION_PARAMETERS_0_0,
+    pub GptPartInfo: CREATE_PARTITION_PARAMETERS_0_1,
 }
 impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -4487,30 +4487,30 @@ impl Default for CREATE_PARTITION_PARAMETERS_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CREATE_PARTITION_PARAMETERS_0_0 {
+pub struct CREATE_PARTITION_PARAMETERS_0_1 {
     pub partitionType: windows_core::GUID,
     pub partitionId: windows_core::GUID,
     pub attributes: u64,
     pub name: [u16; 36],
 }
-impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0_0 {
+impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CREATE_PARTITION_PARAMETERS_0_0 {
+impl Default for CREATE_PARTITION_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CREATE_PARTITION_PARAMETERS_0_1 {
+pub struct CREATE_PARTITION_PARAMETERS_0_0 {
     pub partitionType: u8,
     pub bootIndicator: super::super::Foundation::BOOLEAN,
 }
-impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0_1 {
+impl windows_core::TypeKind for CREATE_PARTITION_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for CREATE_PARTITION_PARAMETERS_0_1 {
+impl Default for CREATE_PARTITION_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -4584,14 +4584,14 @@ impl Default for VDS_ASYNC_OUTPUT {
 }
 #[repr(C)]
 pub union VDS_ASYNC_OUTPUT_0 {
-    pub cp: VDS_ASYNC_OUTPUT_0_2,
-    pub cv: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_5>,
-    pub bvp: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_0>,
-    pub sv: VDS_ASYNC_OUTPUT_0_7,
-    pub cl: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_1>,
-    pub ct: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_4>,
-    pub cpg: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_3>,
-    pub cvd: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_6>,
+    pub cp: VDS_ASYNC_OUTPUT_0_0,
+    pub cv: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_1>,
+    pub bvp: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_2>,
+    pub sv: VDS_ASYNC_OUTPUT_0_3,
+    pub cl: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_4>,
+    pub ct: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_5>,
+    pub cpg: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_6>,
+    pub cvd: core::mem::ManuallyDrop<VDS_ASYNC_OUTPUT_0_7>,
 }
 impl Clone for VDS_ASYNC_OUTPUT_0 {
     fn clone(&self) -> Self {
@@ -4608,45 +4608,13 @@ impl Default for VDS_ASYNC_OUTPUT_0 {
 }
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
-pub struct VDS_ASYNC_OUTPUT_0_0 {
+pub struct VDS_ASYNC_OUTPUT_0_2 {
     pub pVolumeUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
-impl Clone for VDS_ASYNC_OUTPUT_0_0 {
+impl Clone for VDS_ASYNC_OUTPUT_0_2 {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
-}
-impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VDS_ASYNC_OUTPUT_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Debug, Eq, PartialEq)]
-pub struct VDS_ASYNC_OUTPUT_0_1 {
-    pub pLunUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-impl Clone for VDS_ASYNC_OUTPUT_0_1 {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VDS_ASYNC_OUTPUT_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VDS_ASYNC_OUTPUT_0_2 {
-    pub ullOffset: u64,
-    pub volumeId: windows_core::GUID,
 }
 impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_2 {
     type TypeKind = windows_core::CopyType;
@@ -4658,26 +4626,8 @@ impl Default for VDS_ASYNC_OUTPUT_0_2 {
 }
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
-pub struct VDS_ASYNC_OUTPUT_0_3 {
-    pub pPortalGroupUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
-}
-impl Clone for VDS_ASYNC_OUTPUT_0_3 {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for VDS_ASYNC_OUTPUT_0_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Debug, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_4 {
-    pub pTargetUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub pLunUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 impl Clone for VDS_ASYNC_OUTPUT_0_4 {
     fn clone(&self) -> Self {
@@ -4693,9 +4643,41 @@ impl Default for VDS_ASYNC_OUTPUT_0_4 {
     }
 }
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct VDS_ASYNC_OUTPUT_0_0 {
+    pub ullOffset: u64,
+    pub volumeId: windows_core::GUID,
+}
+impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for VDS_ASYNC_OUTPUT_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
+pub struct VDS_ASYNC_OUTPUT_0_6 {
+    pub pPortalGroupUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+impl Clone for VDS_ASYNC_OUTPUT_0_6 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_6 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for VDS_ASYNC_OUTPUT_0_6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_5 {
-    pub pVolumeUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+    pub pTargetUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 impl Clone for VDS_ASYNC_OUTPUT_0_5 {
     fn clone(&self) -> Self {
@@ -4712,31 +4694,49 @@ impl Default for VDS_ASYNC_OUTPUT_0_5 {
 }
 #[repr(C)]
 #[derive(Debug, Eq, PartialEq)]
-pub struct VDS_ASYNC_OUTPUT_0_6 {
-    pub pVDiskUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+pub struct VDS_ASYNC_OUTPUT_0_1 {
+    pub pVolumeUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
-impl Clone for VDS_ASYNC_OUTPUT_0_6 {
+impl Clone for VDS_ASYNC_OUTPUT_0_1 {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_6 {
+impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for VDS_ASYNC_OUTPUT_0_6 {
+impl Default for VDS_ASYNC_OUTPUT_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Debug, Eq, PartialEq)]
+pub struct VDS_ASYNC_OUTPUT_0_7 {
+    pub pVDiskUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+impl Clone for VDS_ASYNC_OUTPUT_0_7 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_7 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for VDS_ASYNC_OUTPUT_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct VDS_ASYNC_OUTPUT_0_7 {
+pub struct VDS_ASYNC_OUTPUT_0_3 {
     pub ullReclaimedBytes: u64,
 }
-impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_7 {
+impl windows_core::TypeKind for VDS_ASYNC_OUTPUT_0_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for VDS_ASYNC_OUTPUT_0_7 {
+impl Default for VDS_ASYNC_OUTPUT_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

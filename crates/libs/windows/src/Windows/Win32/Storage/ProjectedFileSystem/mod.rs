@@ -546,8 +546,8 @@ impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
-    pub Notification: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1,
-    pub Enumeration: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0,
+    pub Notification: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0,
+    pub Enumeration: PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1,
 }
 impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
@@ -559,26 +559,26 @@ impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
+pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     pub DirEntryBufferHandle: PRJ_DIR_ENTRY_BUFFER_HANDLE,
 }
-impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
+impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
+impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
+pub struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
-impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
+impl windows_core::TypeKind for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
+impl Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -692,9 +692,9 @@ impl Default for PRJ_NOTIFICATION_MAPPING {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PRJ_NOTIFICATION_PARAMETERS {
-    pub PostCreate: PRJ_NOTIFICATION_PARAMETERS_2,
+    pub PostCreate: PRJ_NOTIFICATION_PARAMETERS_0,
     pub FileRenamed: PRJ_NOTIFICATION_PARAMETERS_1,
-    pub FileDeletedOnHandleClose: PRJ_NOTIFICATION_PARAMETERS_0,
+    pub FileDeletedOnHandleClose: PRJ_NOTIFICATION_PARAMETERS_2,
 }
 impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS {
     type TypeKind = windows_core::CopyType;
@@ -706,13 +706,13 @@ impl Default for PRJ_NOTIFICATION_PARAMETERS {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PRJ_NOTIFICATION_PARAMETERS_0 {
+pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
     pub IsFileModified: super::super::Foundation::BOOLEAN,
 }
-impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_0 {
+impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for PRJ_NOTIFICATION_PARAMETERS_0 {
+impl Default for PRJ_NOTIFICATION_PARAMETERS_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -732,13 +732,13 @@ impl Default for PRJ_NOTIFICATION_PARAMETERS_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
+pub struct PRJ_NOTIFICATION_PARAMETERS_0 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
-impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_2 {
+impl windows_core::TypeKind for PRJ_NOTIFICATION_PARAMETERS_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for PRJ_NOTIFICATION_PARAMETERS_2 {
+impl Default for PRJ_NOTIFICATION_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

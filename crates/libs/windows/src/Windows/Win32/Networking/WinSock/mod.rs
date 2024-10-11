@@ -6422,8 +6422,8 @@ impl Default for NETRESOURCE2W {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NLA_BLOB {
-    pub header: NLA_BLOB_1,
-    pub data: NLA_BLOB_0,
+    pub header: NLA_BLOB_0,
+    pub data: NLA_BLOB_1,
 }
 impl windows_core::TypeKind for NLA_BLOB {
     type TypeKind = windows_core::CopyType;
@@ -6435,104 +6435,104 @@ impl Default for NLA_BLOB {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union NLA_BLOB_0 {
+pub union NLA_BLOB_1 {
     pub rawData: [i8; 1],
-    pub interfaceData: NLA_BLOB_0_2,
-    pub locationData: NLA_BLOB_0_3,
-    pub connectivity: NLA_BLOB_0_1,
-    pub ICS: NLA_BLOB_0_0,
+    pub interfaceData: NLA_BLOB_1_0,
+    pub locationData: NLA_BLOB_1_1,
+    pub connectivity: NLA_BLOB_1_2,
+    pub ICS: NLA_BLOB_1_3,
 }
-impl windows_core::TypeKind for NLA_BLOB_0 {
+impl windows_core::TypeKind for NLA_BLOB_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for NLA_BLOB_0 {
+impl Default for NLA_BLOB_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NLA_BLOB_0_0 {
-    pub remote: NLA_BLOB_0_0_0,
+pub struct NLA_BLOB_1_3 {
+    pub remote: NLA_BLOB_1_3_0,
 }
-impl windows_core::TypeKind for NLA_BLOB_0_0 {
+impl windows_core::TypeKind for NLA_BLOB_1_3 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for NLA_BLOB_0_0 {
+impl Default for NLA_BLOB_1_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NLA_BLOB_0_0_0 {
+pub struct NLA_BLOB_1_3_0 {
     pub speed: u32,
     pub r#type: u32,
     pub state: u32,
     pub machineName: [u16; 256],
     pub sharedAdapterName: [u16; 256],
 }
-impl windows_core::TypeKind for NLA_BLOB_0_0_0 {
+impl windows_core::TypeKind for NLA_BLOB_1_3_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for NLA_BLOB_0_0_0 {
+impl Default for NLA_BLOB_1_3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NLA_BLOB_0_1 {
+pub struct NLA_BLOB_1_2 {
     pub r#type: NLA_CONNECTIVITY_TYPE,
     pub internet: NLA_INTERNET,
 }
-impl windows_core::TypeKind for NLA_BLOB_0_1 {
+impl windows_core::TypeKind for NLA_BLOB_1_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for NLA_BLOB_0_1 {
+impl Default for NLA_BLOB_1_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NLA_BLOB_0_2 {
+pub struct NLA_BLOB_1_0 {
     pub dwType: u32,
     pub dwSpeed: u32,
     pub adapterName: [i8; 1],
 }
-impl windows_core::TypeKind for NLA_BLOB_0_2 {
+impl windows_core::TypeKind for NLA_BLOB_1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for NLA_BLOB_0_2 {
+impl Default for NLA_BLOB_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NLA_BLOB_0_3 {
+pub struct NLA_BLOB_1_1 {
     pub information: [i8; 1],
 }
-impl windows_core::TypeKind for NLA_BLOB_0_3 {
+impl windows_core::TypeKind for NLA_BLOB_1_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for NLA_BLOB_0_3 {
+impl Default for NLA_BLOB_1_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NLA_BLOB_1 {
+pub struct NLA_BLOB_0 {
     pub r#type: NLA_BLOB_DATA_TYPE,
     pub dwSize: u32,
     pub nextOffset: u32,
 }
-impl windows_core::TypeKind for NLA_BLOB_1 {
+impl windows_core::TypeKind for NLA_BLOB_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for NLA_BLOB_1 {
+impl Default for NLA_BLOB_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -8525,10 +8525,10 @@ impl Default for WSACOMPLETION {
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy)]
 pub union WSACOMPLETION_0 {
-    pub WindowMessage: WSACOMPLETION_0_3,
+    pub WindowMessage: WSACOMPLETION_0_0,
     pub Event: WSACOMPLETION_0_1,
-    pub Apc: WSACOMPLETION_0_0,
-    pub Port: WSACOMPLETION_0_2,
+    pub Apc: WSACOMPLETION_0_2,
+    pub Port: WSACOMPLETION_0_3,
 }
 #[cfg(feature = "Win32_System_IO")]
 impl windows_core::TypeKind for WSACOMPLETION_0 {
@@ -8543,16 +8543,16 @@ impl Default for WSACOMPLETION_0 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WSACOMPLETION_0_0 {
+pub struct WSACOMPLETION_0_2 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
     pub lpfnCompletionProc: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
 }
 #[cfg(feature = "Win32_System_IO")]
-impl windows_core::TypeKind for WSACOMPLETION_0_0 {
+impl windows_core::TypeKind for WSACOMPLETION_0_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_IO")]
-impl Default for WSACOMPLETION_0_0 {
+impl Default for WSACOMPLETION_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -8576,28 +8576,10 @@ impl Default for WSACOMPLETION_0_1 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WSACOMPLETION_0_2 {
+pub struct WSACOMPLETION_0_3 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
     pub hPort: super::super::Foundation::HANDLE,
     pub Key: usize,
-}
-#[cfg(feature = "Win32_System_IO")]
-impl windows_core::TypeKind for WSACOMPLETION_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_IO")]
-impl Default for WSACOMPLETION_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[cfg(feature = "Win32_System_IO")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WSACOMPLETION_0_3 {
-    pub hWnd: super::super::Foundation::HWND,
-    pub uMsg: u32,
-    pub context: super::super::Foundation::WPARAM,
 }
 #[cfg(feature = "Win32_System_IO")]
 impl windows_core::TypeKind for WSACOMPLETION_0_3 {
@@ -8605,6 +8587,24 @@ impl windows_core::TypeKind for WSACOMPLETION_0_3 {
 }
 #[cfg(feature = "Win32_System_IO")]
 impl Default for WSACOMPLETION_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_System_IO")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct WSACOMPLETION_0_0 {
+    pub hWnd: super::super::Foundation::HWND,
+    pub uMsg: u32,
+    pub context: super::super::Foundation::WPARAM,
+}
+#[cfg(feature = "Win32_System_IO")]
+impl windows_core::TypeKind for WSACOMPLETION_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_IO")]
+impl Default for WSACOMPLETION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

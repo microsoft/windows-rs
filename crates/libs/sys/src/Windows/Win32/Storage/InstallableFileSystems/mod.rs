@@ -168,18 +168,18 @@ pub struct FILTER_AGGREGATE_BASIC_INFORMATION {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FILTER_AGGREGATE_BASIC_INFORMATION_0 {
-    pub MiniFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_1,
-    pub LegacyFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_0,
+    pub MiniFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_0,
+    pub LegacyFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
+pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     pub FilterNameLength: u16,
     pub FilterNameBufferOffset: u16,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
+pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     pub FrameID: u32,
     pub NumberOfInstances: u32,
     pub FilterNameLength: u16,
@@ -197,12 +197,12 @@ pub struct FILTER_AGGREGATE_STANDARD_INFORMATION {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
-    pub MiniFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_1,
-    pub LegacyFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_0,
+    pub MiniFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_0,
+    pub LegacyFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
+pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub Flags: u32,
     pub FilterNameLength: u16,
     pub FilterNameBufferOffset: u16,
@@ -211,7 +211,7 @@ pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
+pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub Flags: u32,
     pub FrameID: u32,
     pub NumberOfInstances: u32,
@@ -269,12 +269,12 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
-    pub MiniFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1,
-    pub LegacyFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0,
+    pub MiniFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0,
+    pub LegacyFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
+pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub Flags: u32,
     pub AltitudeLength: u16,
     pub AltitudeBufferOffset: u16,
@@ -286,7 +286,7 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
+pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub Flags: u32,
     pub FrameID: u32,
     pub VolumeFileSystemType: FLT_FILESYSTEM_TYPE,

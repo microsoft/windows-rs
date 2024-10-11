@@ -2608,9 +2608,9 @@ impl Default for EVENT_PROPERTY_INFO {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union EVENT_PROPERTY_INFO_0 {
-    pub nonStructType: EVENT_PROPERTY_INFO_0_1,
-    pub structType: EVENT_PROPERTY_INFO_0_2,
-    pub customSchemaType: EVENT_PROPERTY_INFO_0_0,
+    pub nonStructType: EVENT_PROPERTY_INFO_0_0,
+    pub structType: EVENT_PROPERTY_INFO_0_1,
+    pub customSchemaType: EVENT_PROPERTY_INFO_0_2,
 }
 impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0 {
     type TypeKind = windows_core::CopyType;
@@ -2622,10 +2622,25 @@ impl Default for EVENT_PROPERTY_INFO_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EVENT_PROPERTY_INFO_0_0 {
+pub struct EVENT_PROPERTY_INFO_0_2 {
     pub InType: u16,
     pub OutType: u16,
     pub CustomSchemaOffset: u32,
+}
+impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for EVENT_PROPERTY_INFO_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct EVENT_PROPERTY_INFO_0_0 {
+    pub InType: u16,
+    pub OutType: u16,
+    pub MapNameOffset: u32,
 }
 impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -2638,29 +2653,14 @@ impl Default for EVENT_PROPERTY_INFO_0_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENT_PROPERTY_INFO_0_1 {
-    pub InType: u16,
-    pub OutType: u16,
-    pub MapNameOffset: u32,
+    pub StructStartIndex: u16,
+    pub NumOfStructMembers: u16,
+    pub padding: u32,
 }
 impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for EVENT_PROPERTY_INFO_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct EVENT_PROPERTY_INFO_0_2 {
-    pub StructStartIndex: u16,
-    pub NumOfStructMembers: u16,
-    pub padding: u32,
-}
-impl windows_core::TypeKind for EVENT_PROPERTY_INFO_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for EVENT_PROPERTY_INFO_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

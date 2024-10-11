@@ -508,12 +508,12 @@ impl Default for PSS_HANDLE_ENTRY {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PSS_HANDLE_ENTRY_0 {
-    pub Process: PSS_HANDLE_ENTRY_0_2,
-    pub Thread: PSS_HANDLE_ENTRY_0_5,
-    pub Mutant: PSS_HANDLE_ENTRY_0_1,
-    pub Event: PSS_HANDLE_ENTRY_0_0,
-    pub Section: PSS_HANDLE_ENTRY_0_3,
-    pub Semaphore: PSS_HANDLE_ENTRY_0_4,
+    pub Process: PSS_HANDLE_ENTRY_0_0,
+    pub Thread: PSS_HANDLE_ENTRY_0_1,
+    pub Mutant: PSS_HANDLE_ENTRY_0_2,
+    pub Event: PSS_HANDLE_ENTRY_0_3,
+    pub Section: PSS_HANDLE_ENTRY_0_4,
+    pub Semaphore: PSS_HANDLE_ENTRY_0_5,
 }
 impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0 {
     type TypeKind = windows_core::CopyType;
@@ -525,59 +525,9 @@ impl Default for PSS_HANDLE_ENTRY_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PSS_HANDLE_ENTRY_0_0 {
+pub struct PSS_HANDLE_ENTRY_0_3 {
     pub ManualReset: super::super::super::Foundation::BOOL,
     pub Signaled: super::super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PSS_HANDLE_ENTRY_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PSS_HANDLE_ENTRY_0_1 {
-    pub CurrentCount: i32,
-    pub Abandoned: super::super::super::Foundation::BOOL,
-    pub OwnerProcessId: u32,
-    pub OwnerThreadId: u32,
-}
-impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PSS_HANDLE_ENTRY_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PSS_HANDLE_ENTRY_0_2 {
-    pub ExitStatus: u32,
-    pub PebBaseAddress: *mut core::ffi::c_void,
-    pub AffinityMask: usize,
-    pub BasePriority: i32,
-    pub ProcessId: u32,
-    pub ParentProcessId: u32,
-    pub Flags: u32,
-}
-impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for PSS_HANDLE_ENTRY_0_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PSS_HANDLE_ENTRY_0_3 {
-    pub BaseAddress: *mut core::ffi::c_void,
-    pub AllocationAttributes: u32,
-    pub MaximumSize: i64,
 }
 impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_3 {
     type TypeKind = windows_core::CopyType;
@@ -589,9 +539,45 @@ impl Default for PSS_HANDLE_ENTRY_0_3 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct PSS_HANDLE_ENTRY_0_4 {
+pub struct PSS_HANDLE_ENTRY_0_2 {
     pub CurrentCount: i32,
-    pub MaximumCount: i32,
+    pub Abandoned: super::super::super::Foundation::BOOL,
+    pub OwnerProcessId: u32,
+    pub OwnerThreadId: u32,
+}
+impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for PSS_HANDLE_ENTRY_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct PSS_HANDLE_ENTRY_0_0 {
+    pub ExitStatus: u32,
+    pub PebBaseAddress: *mut core::ffi::c_void,
+    pub AffinityMask: usize,
+    pub BasePriority: i32,
+    pub ProcessId: u32,
+    pub ParentProcessId: u32,
+    pub Flags: u32,
+}
+impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for PSS_HANDLE_ENTRY_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct PSS_HANDLE_ENTRY_0_4 {
+    pub BaseAddress: *mut core::ffi::c_void,
+    pub AllocationAttributes: u32,
+    pub MaximumSize: i64,
 }
 impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_4 {
     type TypeKind = windows_core::CopyType;
@@ -604,6 +590,20 @@ impl Default for PSS_HANDLE_ENTRY_0_4 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSS_HANDLE_ENTRY_0_5 {
+    pub CurrentCount: i32,
+    pub MaximumCount: i32,
+}
+impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_5 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for PSS_HANDLE_ENTRY_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct PSS_HANDLE_ENTRY_0_1 {
     pub ExitStatus: u32,
     pub TebBaseAddress: *mut core::ffi::c_void,
     pub ProcessId: u32,
@@ -613,10 +613,10 @@ pub struct PSS_HANDLE_ENTRY_0_5 {
     pub BasePriority: i32,
     pub Win32StartAddress: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_5 {
+impl windows_core::TypeKind for PSS_HANDLE_ENTRY_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for PSS_HANDLE_ENTRY_0_5 {
+impl Default for PSS_HANDLE_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

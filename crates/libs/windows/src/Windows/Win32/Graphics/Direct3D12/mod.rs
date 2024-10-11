@@ -12403,12 +12403,12 @@ impl Default for D3D12_INDIRECT_ARGUMENT_DESC {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union D3D12_INDIRECT_ARGUMENT_DESC_0 {
-    pub VertexBuffer: D3D12_INDIRECT_ARGUMENT_DESC_0_5,
+    pub VertexBuffer: D3D12_INDIRECT_ARGUMENT_DESC_0_0,
     pub Constant: D3D12_INDIRECT_ARGUMENT_DESC_0_1,
-    pub ConstantBufferView: D3D12_INDIRECT_ARGUMENT_DESC_0_0,
+    pub ConstantBufferView: D3D12_INDIRECT_ARGUMENT_DESC_0_2,
     pub ShaderResourceView: D3D12_INDIRECT_ARGUMENT_DESC_0_3,
     pub UnorderedAccessView: D3D12_INDIRECT_ARGUMENT_DESC_0_4,
-    pub IncrementingConstant: D3D12_INDIRECT_ARGUMENT_DESC_0_2,
+    pub IncrementingConstant: D3D12_INDIRECT_ARGUMENT_DESC_0_5,
 }
 impl windows_core::TypeKind for D3D12_INDIRECT_ARGUMENT_DESC_0 {
     type TypeKind = windows_core::CopyType;
@@ -12420,13 +12420,13 @@ impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_0 {
+pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_2 {
     pub RootParameterIndex: u32,
 }
-impl windows_core::TypeKind for D3D12_INDIRECT_ARGUMENT_DESC_0_0 {
+impl windows_core::TypeKind for D3D12_INDIRECT_ARGUMENT_DESC_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_0 {
+impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -12448,14 +12448,14 @@ impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_2 {
+pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_5 {
     pub RootParameterIndex: u32,
     pub DestOffsetIn32BitValues: u32,
 }
-impl windows_core::TypeKind for D3D12_INDIRECT_ARGUMENT_DESC_0_2 {
+impl windows_core::TypeKind for D3D12_INDIRECT_ARGUMENT_DESC_0_5 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_2 {
+impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -12488,13 +12488,13 @@ impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_4 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_5 {
+pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_0 {
     pub Slot: u32,
 }
-impl windows_core::TypeKind for D3D12_INDIRECT_ARGUMENT_DESC_0_5 {
+impl windows_core::TypeKind for D3D12_INDIRECT_ARGUMENT_DESC_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_5 {
+impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

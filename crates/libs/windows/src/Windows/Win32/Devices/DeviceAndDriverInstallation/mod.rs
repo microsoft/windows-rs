@@ -7457,9 +7457,9 @@ impl Default for CM_NOTIFY_EVENT_DATA {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CM_NOTIFY_EVENT_DATA_0 {
-    pub DeviceInterface: CM_NOTIFY_EVENT_DATA_0_2,
-    pub DeviceHandle: CM_NOTIFY_EVENT_DATA_0_0,
-    pub DeviceInstance: CM_NOTIFY_EVENT_DATA_0_1,
+    pub DeviceInterface: CM_NOTIFY_EVENT_DATA_0_0,
+    pub DeviceHandle: CM_NOTIFY_EVENT_DATA_0_1,
+    pub DeviceInstance: CM_NOTIFY_EVENT_DATA_0_2,
 }
 impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0 {
     type TypeKind = windows_core::CopyType;
@@ -7471,24 +7471,11 @@ impl Default for CM_NOTIFY_EVENT_DATA_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CM_NOTIFY_EVENT_DATA_0_0 {
+pub struct CM_NOTIFY_EVENT_DATA_0_1 {
     pub EventGuid: windows_core::GUID,
     pub NameOffset: i32,
     pub DataSize: u32,
     pub Data: [u8; 1],
-}
-impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CM_NOTIFY_EVENT_DATA_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CM_NOTIFY_EVENT_DATA_0_1 {
-    pub InstanceId: [u16; 1],
 }
 impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_1 {
     type TypeKind = windows_core::CopyType;
@@ -7501,13 +7488,26 @@ impl Default for CM_NOTIFY_EVENT_DATA_0_1 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_EVENT_DATA_0_2 {
-    pub ClassGuid: windows_core::GUID,
-    pub SymbolicLink: [u16; 1],
+    pub InstanceId: [u16; 1],
 }
 impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_2 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_NOTIFY_EVENT_DATA_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CM_NOTIFY_EVENT_DATA_0_0 {
+    pub ClassGuid: windows_core::GUID,
+    pub SymbolicLink: [u16; 1],
+}
+impl windows_core::TypeKind for CM_NOTIFY_EVENT_DATA_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for CM_NOTIFY_EVENT_DATA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -7532,9 +7532,9 @@ impl Default for CM_NOTIFY_FILTER {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union CM_NOTIFY_FILTER_0 {
-    pub DeviceInterface: CM_NOTIFY_FILTER_0_2,
-    pub DeviceHandle: CM_NOTIFY_FILTER_0_0,
-    pub DeviceInstance: CM_NOTIFY_FILTER_0_1,
+    pub DeviceInterface: CM_NOTIFY_FILTER_0_0,
+    pub DeviceHandle: CM_NOTIFY_FILTER_0_1,
+    pub DeviceInstance: CM_NOTIFY_FILTER_0_2,
 }
 impl windows_core::TypeKind for CM_NOTIFY_FILTER_0 {
     type TypeKind = windows_core::CopyType;
@@ -7546,21 +7546,8 @@ impl Default for CM_NOTIFY_FILTER_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CM_NOTIFY_FILTER_0_0 {
-    pub hTarget: super::super::Foundation::HANDLE,
-}
-impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for CM_NOTIFY_FILTER_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_FILTER_0_1 {
-    pub InstanceId: [u16; 200],
+    pub hTarget: super::super::Foundation::HANDLE,
 }
 impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_1 {
     type TypeKind = windows_core::CopyType;
@@ -7573,12 +7560,25 @@ impl Default for CM_NOTIFY_FILTER_0_1 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_FILTER_0_2 {
-    pub ClassGuid: windows_core::GUID,
+    pub InstanceId: [u16; 200],
 }
 impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_2 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for CM_NOTIFY_FILTER_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct CM_NOTIFY_FILTER_0_0 {
+    pub ClassGuid: windows_core::GUID,
+}
+impl windows_core::TypeKind for CM_NOTIFY_FILTER_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for CM_NOTIFY_FILTER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

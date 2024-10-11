@@ -5620,8 +5620,8 @@ impl Default for KSCAMERA_PROFILE_INFO {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSCAMERA_PROFILE_MEDIAINFO {
-    pub Resolution: KSCAMERA_PROFILE_MEDIAINFO_1,
-    pub MaxFrameRate: KSCAMERA_PROFILE_MEDIAINFO_0,
+    pub Resolution: KSCAMERA_PROFILE_MEDIAINFO_0,
+    pub MaxFrameRate: KSCAMERA_PROFILE_MEDIAINFO_1,
     pub Flags: u64,
     pub Data0: u32,
     pub Data1: u32,
@@ -5638,28 +5638,28 @@ impl Default for KSCAMERA_PROFILE_MEDIAINFO {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct KSCAMERA_PROFILE_MEDIAINFO_0 {
+pub struct KSCAMERA_PROFILE_MEDIAINFO_1 {
     pub Numerator: u32,
     pub Denominator: u32,
 }
-impl windows_core::TypeKind for KSCAMERA_PROFILE_MEDIAINFO_0 {
+impl windows_core::TypeKind for KSCAMERA_PROFILE_MEDIAINFO_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for KSCAMERA_PROFILE_MEDIAINFO_0 {
+impl Default for KSCAMERA_PROFILE_MEDIAINFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct KSCAMERA_PROFILE_MEDIAINFO_1 {
+pub struct KSCAMERA_PROFILE_MEDIAINFO_0 {
     pub X: u32,
     pub Y: u32,
 }
-impl windows_core::TypeKind for KSCAMERA_PROFILE_MEDIAINFO_1 {
+impl windows_core::TypeKind for KSCAMERA_PROFILE_MEDIAINFO_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for KSCAMERA_PROFILE_MEDIAINFO_1 {
+impl Default for KSCAMERA_PROFILE_MEDIAINFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -6220,9 +6220,9 @@ impl Default for KSEVENTDATA {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union KSEVENTDATA_0 {
-    pub EventHandle: KSEVENTDATA_0_1,
-    pub SemaphoreHandle: KSEVENTDATA_0_2,
-    pub Alignment: KSEVENTDATA_0_0,
+    pub EventHandle: KSEVENTDATA_0_0,
+    pub SemaphoreHandle: KSEVENTDATA_0_1,
+    pub Alignment: KSEVENTDATA_0_2,
 }
 impl windows_core::TypeKind for KSEVENTDATA_0 {
     type TypeKind = windows_core::CopyType;
@@ -6234,9 +6234,23 @@ impl Default for KSEVENTDATA_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct KSEVENTDATA_0_0 {
+pub struct KSEVENTDATA_0_2 {
     pub Unused: *mut core::ffi::c_void,
     pub Alignment: [isize; 2],
+}
+impl windows_core::TypeKind for KSEVENTDATA_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for KSEVENTDATA_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct KSEVENTDATA_0_0 {
+    pub Event: super::super::Foundation::HANDLE,
+    pub Reserved: [usize; 2],
 }
 impl windows_core::TypeKind for KSEVENTDATA_0_0 {
     type TypeKind = windows_core::CopyType;
@@ -6249,28 +6263,14 @@ impl Default for KSEVENTDATA_0_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSEVENTDATA_0_1 {
-    pub Event: super::super::Foundation::HANDLE,
-    pub Reserved: [usize; 2],
+    pub Semaphore: super::super::Foundation::HANDLE,
+    pub Reserved: u32,
+    pub Adjustment: i32,
 }
 impl windows_core::TypeKind for KSEVENTDATA_0_1 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for KSEVENTDATA_0_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct KSEVENTDATA_0_2 {
-    pub Semaphore: super::super::Foundation::HANDLE,
-    pub Reserved: u32,
-    pub Adjustment: i32,
-}
-impl windows_core::TypeKind for KSEVENTDATA_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for KSEVENTDATA_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -7415,10 +7415,10 @@ pub union KSPROPERTY_EXTXPORT_NODE_S_0 {
     pub LoadMedium: u32,
     pub MediumInfo: MEDIUM_INFO,
     pub XPrtState: TRANSPORT_STATE,
-    pub Timecode: KSPROPERTY_EXTXPORT_NODE_S_0_1,
+    pub Timecode: KSPROPERTY_EXTXPORT_NODE_S_0_0,
     pub dwTimecode: u32,
     pub dwAbsTrackNumber: u32,
-    pub RawAVC: KSPROPERTY_EXTXPORT_NODE_S_0_0,
+    pub RawAVC: KSPROPERTY_EXTXPORT_NODE_S_0_1,
 }
 impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S_0 {
     type TypeKind = windows_core::CopyType;
@@ -7430,30 +7430,30 @@ impl Default for KSPROPERTY_EXTXPORT_NODE_S_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct KSPROPERTY_EXTXPORT_NODE_S_0_0 {
+pub struct KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     pub PayloadSize: u32,
     pub Payload: [u8; 512],
 }
-impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
+impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
+impl Default for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct KSPROPERTY_EXTXPORT_NODE_S_0_1 {
+pub struct KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     pub frame: u8,
     pub second: u8,
     pub minute: u8,
     pub hour: u8,
 }
-impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
+impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
+impl Default for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -7480,10 +7480,10 @@ pub union KSPROPERTY_EXTXPORT_S_0 {
     pub LoadMedium: u32,
     pub MediumInfo: MEDIUM_INFO,
     pub XPrtState: TRANSPORT_STATE,
-    pub Timecode: KSPROPERTY_EXTXPORT_S_0_1,
+    pub Timecode: KSPROPERTY_EXTXPORT_S_0_0,
     pub dwTimecode: u32,
     pub dwAbsTrackNumber: u32,
-    pub RawAVC: KSPROPERTY_EXTXPORT_S_0_0,
+    pub RawAVC: KSPROPERTY_EXTXPORT_S_0_1,
 }
 impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_S_0 {
     type TypeKind = windows_core::CopyType;
@@ -7495,30 +7495,30 @@ impl Default for KSPROPERTY_EXTXPORT_S_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct KSPROPERTY_EXTXPORT_S_0_0 {
+pub struct KSPROPERTY_EXTXPORT_S_0_1 {
     pub PayloadSize: u32,
     pub Payload: [u8; 512],
 }
-impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_S_0_0 {
+impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_S_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for KSPROPERTY_EXTXPORT_S_0_0 {
+impl Default for KSPROPERTY_EXTXPORT_S_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct KSPROPERTY_EXTXPORT_S_0_1 {
+pub struct KSPROPERTY_EXTXPORT_S_0_0 {
     pub frame: u8,
     pub second: u8,
     pub minute: u8,
     pub hour: u8,
 }
-impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_S_0_1 {
+impl windows_core::TypeKind for KSPROPERTY_EXTXPORT_S_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for KSPROPERTY_EXTXPORT_S_0_1 {
+impl Default for KSPROPERTY_EXTXPORT_S_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

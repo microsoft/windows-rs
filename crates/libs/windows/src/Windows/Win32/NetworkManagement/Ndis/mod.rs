@@ -3275,27 +3275,14 @@ impl Default for NDIS_INTERRUPT_MODERATION_PARAMETERS {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1 {
-    pub Supported: NDIS_IPSEC_OFFLOAD_V1_2,
-    pub IPv4AH: NDIS_IPSEC_OFFLOAD_V1_0,
-    pub IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_1,
+    pub Supported: NDIS_IPSEC_OFFLOAD_V1_0,
+    pub IPv4AH: NDIS_IPSEC_OFFLOAD_V1_1,
+    pub IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_2,
 }
 impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_IPSEC_OFFLOAD_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
-    pub _bitfield: u32,
-}
-impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NDIS_IPSEC_OFFLOAD_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3316,16 +3303,29 @@ impl Default for NDIS_IPSEC_OFFLOAD_V1_1 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
+    pub _bitfield: u32,
+}
+impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for NDIS_IPSEC_OFFLOAD_V1_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub AhEspCombined: u32,
     pub TransportTunnelCombined: u32,
     pub IPv4Options: u32,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_2 {
+impl windows_core::TypeKind for NDIS_IPSEC_OFFLOAD_V1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for NDIS_IPSEC_OFFLOAD_V1_2 {
+impl Default for NDIS_IPSEC_OFFLOAD_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3819,29 +3819,15 @@ impl Default for NDIS_TCP_CONNECTION_OFFLOAD {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    pub IPv4Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_1,
-    pub IPv4Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_0,
-    pub IPv6Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3,
-    pub IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_2,
+    pub IPv4Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_0,
+    pub IPv4Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_1,
+    pub IPv6Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_2,
+    pub IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3,
 }
 impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    pub Encapsulation: u32,
-    pub _bitfield: u32,
-}
-impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3862,14 +3848,14 @@ impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
-impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -3884,6 +3870,20 @@ impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    pub Encapsulation: u32,
+    pub _bitfield: u32,
+}
+impl windows_core::TypeKind for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -4137,9 +4137,9 @@ impl Default for NDIS_WMI_EVENT_HEADER {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    pub Supported: NDIS_WMI_IPSEC_OFFLOAD_V1_2,
-    pub IPv4AH: NDIS_WMI_IPSEC_OFFLOAD_V1_0,
-    pub IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_1,
+    pub Supported: NDIS_WMI_IPSEC_OFFLOAD_V1_0,
+    pub IPv4AH: NDIS_WMI_IPSEC_OFFLOAD_V1_1,
+    pub IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_2,
 }
 impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1 {
     type TypeKind = windows_core::CopyType;
@@ -4151,29 +4151,9 @@ impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     pub Md5: u32,
     pub Sha_1: u32,
-    pub Transport: u32,
-    pub Tunnel: u32,
-    pub Send: u32,
-    pub Receive: u32,
-}
-impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    pub Des: u32,
-    pub Reserved: u32,
-    pub TripleDes: u32,
-    pub NullEsp: u32,
     pub Transport: u32,
     pub Tunnel: u32,
     pub Send: u32,
@@ -4190,16 +4170,36 @@ impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+    pub Des: u32,
+    pub Reserved: u32,
+    pub TripleDes: u32,
+    pub NullEsp: u32,
+    pub Transport: u32,
+    pub Tunnel: u32,
+    pub Send: u32,
+    pub Receive: u32,
+}
+impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub AhEspCombined: u32,
     pub TransportTunnelCombined: u32,
     pub IPv4Options: u32,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+impl windows_core::TypeKind for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+impl Default for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -4297,33 +4297,15 @@ impl Default for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    pub IPv4Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1,
-    pub IPv4Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0,
-    pub IPv6Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3,
-    pub IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2,
+    pub IPv4Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0,
+    pub IPv4Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1,
+    pub IPv6Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2,
+    pub IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3,
 }
 impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    pub Encapsulation: u32,
-    pub IpOptionsSupported: u32,
-    pub TcpOptionsSupported: u32,
-    pub TcpChecksum: u32,
-    pub UdpChecksum: u32,
-    pub IpChecksum: u32,
-}
-impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    type TypeKind = windows_core::CopyType;
-}
-impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -4348,17 +4330,18 @@ impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
-    pub IpExtensionHeadersSupported: u32,
+    pub IpOptionsSupported: u32,
     pub TcpOptionsSupported: u32,
     pub TcpChecksum: u32,
     pub UdpChecksum: u32,
+    pub IpChecksum: u32,
 }
-impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -4376,6 +4359,23 @@ impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     type TypeKind = windows_core::CopyType;
 }
 impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    pub Encapsulation: u32,
+    pub IpExtensionHeadersSupported: u32,
+    pub TcpOptionsSupported: u32,
+    pub TcpChecksum: u32,
+    pub UdpChecksum: u32,
+}
+impl windows_core::TypeKind for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    type TypeKind = windows_core::CopyType;
+}
+impl Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

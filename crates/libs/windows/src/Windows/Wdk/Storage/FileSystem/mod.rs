@@ -8492,10 +8492,10 @@ impl Default for FS_FILTER_CALLBACK_DATA {
 #[derive(Clone, Copy)]
 pub union FS_FILTER_PARAMETERS {
     pub AcquireForModifiedPageWriter: FS_FILTER_PARAMETERS_0,
-    pub ReleaseForModifiedPageWriter: FS_FILTER_PARAMETERS_4,
-    pub AcquireForSectionSynchronization: FS_FILTER_PARAMETERS_1,
+    pub ReleaseForModifiedPageWriter: FS_FILTER_PARAMETERS_1,
+    pub AcquireForSectionSynchronization: FS_FILTER_PARAMETERS_2,
     pub QueryOpen: FS_FILTER_PARAMETERS_3,
-    pub Others: FS_FILTER_PARAMETERS_2,
+    pub Others: FS_FILTER_PARAMETERS_4,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl windows_core::TypeKind for FS_FILTER_PARAMETERS {
@@ -8527,7 +8527,7 @@ impl Default for FS_FILTER_PARAMETERS_0 {
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FS_FILTER_PARAMETERS_1 {
+pub struct FS_FILTER_PARAMETERS_2 {
     pub SyncType: FS_FILTER_SECTION_SYNC_TYPE,
     pub PageProtection: u32,
     pub OutputInformation: *mut FS_FILTER_SECTION_SYNC_OUTPUT,
@@ -8535,11 +8535,11 @@ pub struct FS_FILTER_PARAMETERS_1 {
     pub AllocationAttributes: u32,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for FS_FILTER_PARAMETERS_1 {
+impl windows_core::TypeKind for FS_FILTER_PARAMETERS_2 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for FS_FILTER_PARAMETERS_1 {
+impl Default for FS_FILTER_PARAMETERS_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -8547,7 +8547,7 @@ impl Default for FS_FILTER_PARAMETERS_1 {
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FS_FILTER_PARAMETERS_2 {
+pub struct FS_FILTER_PARAMETERS_4 {
     pub Argument1: *mut core::ffi::c_void,
     pub Argument2: *mut core::ffi::c_void,
     pub Argument3: *mut core::ffi::c_void,
@@ -8555,11 +8555,11 @@ pub struct FS_FILTER_PARAMETERS_2 {
     pub Argument5: *mut core::ffi::c_void,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for FS_FILTER_PARAMETERS_2 {
+impl windows_core::TypeKind for FS_FILTER_PARAMETERS_4 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for FS_FILTER_PARAMETERS_2 {
+impl Default for FS_FILTER_PARAMETERS_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -8587,15 +8587,15 @@ impl Default for FS_FILTER_PARAMETERS_3 {
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct FS_FILTER_PARAMETERS_4 {
+pub struct FS_FILTER_PARAMETERS_1 {
     pub ResourceToRelease: *mut super::super::Foundation::ERESOURCE,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl windows_core::TypeKind for FS_FILTER_PARAMETERS_4 {
+impl windows_core::TypeKind for FS_FILTER_PARAMETERS_1 {
     type TypeKind = windows_core::CopyType;
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-impl Default for FS_FILTER_PARAMETERS_4 {
+impl Default for FS_FILTER_PARAMETERS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -10022,9 +10022,9 @@ impl Default for REPARSE_DATA_BUFFER {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union REPARSE_DATA_BUFFER_0 {
-    pub SymbolicLinkReparseBuffer: REPARSE_DATA_BUFFER_0_2,
+    pub SymbolicLinkReparseBuffer: REPARSE_DATA_BUFFER_0_0,
     pub MountPointReparseBuffer: REPARSE_DATA_BUFFER_0_1,
-    pub GenericReparseBuffer: REPARSE_DATA_BUFFER_0_0,
+    pub GenericReparseBuffer: REPARSE_DATA_BUFFER_0_2,
 }
 impl windows_core::TypeKind for REPARSE_DATA_BUFFER_0 {
     type TypeKind = windows_core::CopyType;
@@ -10036,13 +10036,13 @@ impl Default for REPARSE_DATA_BUFFER_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct REPARSE_DATA_BUFFER_0_0 {
+pub struct REPARSE_DATA_BUFFER_0_2 {
     pub DataBuffer: [u8; 1],
 }
-impl windows_core::TypeKind for REPARSE_DATA_BUFFER_0_0 {
+impl windows_core::TypeKind for REPARSE_DATA_BUFFER_0_2 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for REPARSE_DATA_BUFFER_0_0 {
+impl Default for REPARSE_DATA_BUFFER_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -10066,7 +10066,7 @@ impl Default for REPARSE_DATA_BUFFER_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct REPARSE_DATA_BUFFER_0_2 {
+pub struct REPARSE_DATA_BUFFER_0_0 {
     pub SubstituteNameOffset: u16,
     pub SubstituteNameLength: u16,
     pub PrintNameOffset: u16,
@@ -10074,10 +10074,10 @@ pub struct REPARSE_DATA_BUFFER_0_2 {
     pub Flags: u32,
     pub PathBuffer: [u16; 1],
 }
-impl windows_core::TypeKind for REPARSE_DATA_BUFFER_0_2 {
+impl windows_core::TypeKind for REPARSE_DATA_BUFFER_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for REPARSE_DATA_BUFFER_0_2 {
+impl Default for REPARSE_DATA_BUFFER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

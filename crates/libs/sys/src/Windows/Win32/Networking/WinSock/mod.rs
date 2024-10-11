@@ -3206,26 +3206,26 @@ pub struct NETRESOURCE2W {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct NLA_BLOB {
-    pub header: NLA_BLOB_1,
-    pub data: NLA_BLOB_0,
+    pub header: NLA_BLOB_0,
+    pub data: NLA_BLOB_1,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub union NLA_BLOB_0 {
+pub union NLA_BLOB_1 {
     pub rawData: [i8; 1],
-    pub interfaceData: NLA_BLOB_0_2,
-    pub locationData: NLA_BLOB_0_3,
-    pub connectivity: NLA_BLOB_0_1,
-    pub ICS: NLA_BLOB_0_0,
+    pub interfaceData: NLA_BLOB_1_0,
+    pub locationData: NLA_BLOB_1_1,
+    pub connectivity: NLA_BLOB_1_2,
+    pub ICS: NLA_BLOB_1_3,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NLA_BLOB_0_0 {
-    pub remote: NLA_BLOB_0_0_0,
+pub struct NLA_BLOB_1_3 {
+    pub remote: NLA_BLOB_1_3_0,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NLA_BLOB_0_0_0 {
+pub struct NLA_BLOB_1_3_0 {
     pub speed: u32,
     pub r#type: u32,
     pub state: u32,
@@ -3234,25 +3234,25 @@ pub struct NLA_BLOB_0_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NLA_BLOB_0_1 {
+pub struct NLA_BLOB_1_2 {
     pub r#type: NLA_CONNECTIVITY_TYPE,
     pub internet: NLA_INTERNET,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NLA_BLOB_0_2 {
+pub struct NLA_BLOB_1_0 {
     pub dwType: u32,
     pub dwSpeed: u32,
     pub adapterName: [i8; 1],
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NLA_BLOB_0_3 {
+pub struct NLA_BLOB_1_1 {
     pub information: [i8; 1],
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct NLA_BLOB_1 {
+pub struct NLA_BLOB_0 {
     pub r#type: NLA_BLOB_DATA_TYPE,
     pub dwSize: u32,
     pub nextOffset: u32,
@@ -4228,15 +4228,15 @@ pub struct WSACOMPLETION {
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy)]
 pub union WSACOMPLETION_0 {
-    pub WindowMessage: WSACOMPLETION_0_3,
+    pub WindowMessage: WSACOMPLETION_0_0,
     pub Event: WSACOMPLETION_0_1,
-    pub Apc: WSACOMPLETION_0_0,
-    pub Port: WSACOMPLETION_0_2,
+    pub Apc: WSACOMPLETION_0_2,
+    pub Port: WSACOMPLETION_0_3,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy)]
-pub struct WSACOMPLETION_0_0 {
+pub struct WSACOMPLETION_0_2 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
     pub lpfnCompletionProc: LPWSAOVERLAPPED_COMPLETION_ROUTINE,
 }
@@ -4249,7 +4249,7 @@ pub struct WSACOMPLETION_0_1 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy)]
-pub struct WSACOMPLETION_0_2 {
+pub struct WSACOMPLETION_0_3 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
     pub hPort: super::super::Foundation::HANDLE,
     pub Key: usize,
@@ -4257,7 +4257,7 @@ pub struct WSACOMPLETION_0_2 {
 #[repr(C)]
 #[cfg(feature = "Win32_System_IO")]
 #[derive(Clone, Copy)]
-pub struct WSACOMPLETION_0_3 {
+pub struct WSACOMPLETION_0_0 {
     pub hWnd: super::super::Foundation::HWND,
     pub uMsg: u32,
     pub context: super::super::Foundation::WPARAM,

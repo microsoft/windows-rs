@@ -2370,9 +2370,9 @@ pub struct PICTDESC {
 #[derive(Clone, Copy)]
 pub union PICTDESC_0 {
     pub bmp: PICTDESC_0_0,
-    pub wmf: PICTDESC_0_3,
+    pub wmf: PICTDESC_0_1,
     pub icon: PICTDESC_0_2,
-    pub emf: PICTDESC_0_1,
+    pub emf: PICTDESC_0_3,
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -2384,7 +2384,7 @@ pub struct PICTDESC_0_0 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
-pub struct PICTDESC_0_1 {
+pub struct PICTDESC_0_3 {
     pub hemf: super::super::Graphics::Gdi::HENHMETAFILE,
 }
 #[repr(C)]
@@ -2396,7 +2396,7 @@ pub struct PICTDESC_0_2 {
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[derive(Clone, Copy)]
-pub struct PICTDESC_0_3 {
+pub struct PICTDESC_0_1 {
     pub hmeta: super::super::Graphics::Gdi::HMETAFILE,
     pub xExt: i32,
     pub yExt: i32,

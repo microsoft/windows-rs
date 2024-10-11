@@ -200,8 +200,8 @@ impl core::fmt::Debug for WEB_SOCKET_PROPERTY_TYPE {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union WEB_SOCKET_BUFFER {
-    pub Data: WEB_SOCKET_BUFFER_1,
-    pub CloseStatus: WEB_SOCKET_BUFFER_0,
+    pub Data: WEB_SOCKET_BUFFER_0,
+    pub CloseStatus: WEB_SOCKET_BUFFER_1,
 }
 impl windows_core::TypeKind for WEB_SOCKET_BUFFER {
     type TypeKind = windows_core::CopyType;
@@ -213,29 +213,29 @@ impl Default for WEB_SOCKET_BUFFER {
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEB_SOCKET_BUFFER_0 {
+pub struct WEB_SOCKET_BUFFER_1 {
     pub pbReason: *mut u8,
     pub ulReasonLength: u32,
     pub usStatus: u16,
 }
-impl windows_core::TypeKind for WEB_SOCKET_BUFFER_0 {
+impl windows_core::TypeKind for WEB_SOCKET_BUFFER_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WEB_SOCKET_BUFFER_0 {
+impl Default for WEB_SOCKET_BUFFER_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct WEB_SOCKET_BUFFER_1 {
+pub struct WEB_SOCKET_BUFFER_0 {
     pub pbBuffer: *mut u8,
     pub ulBufferLength: u32,
 }
-impl windows_core::TypeKind for WEB_SOCKET_BUFFER_1 {
+impl windows_core::TypeKind for WEB_SOCKET_BUFFER_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for WEB_SOCKET_BUFFER_1 {
+impl Default for WEB_SOCKET_BUFFER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }

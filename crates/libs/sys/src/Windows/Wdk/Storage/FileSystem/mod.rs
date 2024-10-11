@@ -3233,10 +3233,10 @@ pub struct FS_FILTER_CALLBACK_DATA {
 #[derive(Clone, Copy)]
 pub union FS_FILTER_PARAMETERS {
     pub AcquireForModifiedPageWriter: FS_FILTER_PARAMETERS_0,
-    pub ReleaseForModifiedPageWriter: FS_FILTER_PARAMETERS_4,
-    pub AcquireForSectionSynchronization: FS_FILTER_PARAMETERS_1,
+    pub ReleaseForModifiedPageWriter: FS_FILTER_PARAMETERS_1,
+    pub AcquireForSectionSynchronization: FS_FILTER_PARAMETERS_2,
     pub QueryOpen: FS_FILTER_PARAMETERS_3,
-    pub Others: FS_FILTER_PARAMETERS_2,
+    pub Others: FS_FILTER_PARAMETERS_4,
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -3248,7 +3248,7 @@ pub struct FS_FILTER_PARAMETERS_0 {
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
-pub struct FS_FILTER_PARAMETERS_1 {
+pub struct FS_FILTER_PARAMETERS_2 {
     pub SyncType: FS_FILTER_SECTION_SYNC_TYPE,
     pub PageProtection: u32,
     pub OutputInformation: *mut FS_FILTER_SECTION_SYNC_OUTPUT,
@@ -3258,7 +3258,7 @@ pub struct FS_FILTER_PARAMETERS_1 {
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
-pub struct FS_FILTER_PARAMETERS_2 {
+pub struct FS_FILTER_PARAMETERS_4 {
     pub Argument1: *mut core::ffi::c_void,
     pub Argument2: *mut core::ffi::c_void,
     pub Argument3: *mut core::ffi::c_void,
@@ -3278,7 +3278,7 @@ pub struct FS_FILTER_PARAMETERS_3 {
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy)]
-pub struct FS_FILTER_PARAMETERS_4 {
+pub struct FS_FILTER_PARAMETERS_1 {
     pub ResourceToRelease: *mut super::super::Foundation::ERESOURCE,
 }
 #[repr(C)]
@@ -3965,13 +3965,13 @@ pub struct REPARSE_DATA_BUFFER {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union REPARSE_DATA_BUFFER_0 {
-    pub SymbolicLinkReparseBuffer: REPARSE_DATA_BUFFER_0_2,
+    pub SymbolicLinkReparseBuffer: REPARSE_DATA_BUFFER_0_0,
     pub MountPointReparseBuffer: REPARSE_DATA_BUFFER_0_1,
-    pub GenericReparseBuffer: REPARSE_DATA_BUFFER_0_0,
+    pub GenericReparseBuffer: REPARSE_DATA_BUFFER_0_2,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct REPARSE_DATA_BUFFER_0_0 {
+pub struct REPARSE_DATA_BUFFER_0_2 {
     pub DataBuffer: [u8; 1],
 }
 #[repr(C)]
@@ -3985,7 +3985,7 @@ pub struct REPARSE_DATA_BUFFER_0_1 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
-pub struct REPARSE_DATA_BUFFER_0_2 {
+pub struct REPARSE_DATA_BUFFER_0_0 {
     pub SubstituteNameOffset: u16,
     pub SubstituteNameLength: u16,
     pub PrintNameOffset: u16,

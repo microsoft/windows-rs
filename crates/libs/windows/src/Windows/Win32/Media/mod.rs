@@ -319,8 +319,8 @@ pub union MMTIME_0 {
     pub sample: u32,
     pub cb: u32,
     pub ticks: u32,
-    pub smpte: MMTIME_0_1,
-    pub midi: MMTIME_0_0,
+    pub smpte: MMTIME_0_0,
+    pub midi: MMTIME_0_1,
 }
 impl windows_core::TypeKind for MMTIME_0 {
     type TypeKind = windows_core::CopyType;
@@ -332,20 +332,20 @@ impl Default for MMTIME_0 {
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
-pub struct MMTIME_0_0 {
+pub struct MMTIME_0_1 {
     pub songptrpos: u32,
 }
-impl windows_core::TypeKind for MMTIME_0_0 {
+impl windows_core::TypeKind for MMTIME_0_1 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for MMTIME_0_0 {
+impl Default for MMTIME_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct MMTIME_0_1 {
+pub struct MMTIME_0_0 {
     pub hour: u8,
     pub min: u8,
     pub sec: u8,
@@ -354,10 +354,10 @@ pub struct MMTIME_0_1 {
     pub dummy: u8,
     pub pad: [u8; 2],
 }
-impl windows_core::TypeKind for MMTIME_0_1 {
+impl windows_core::TypeKind for MMTIME_0_0 {
     type TypeKind = windows_core::CopyType;
 }
-impl Default for MMTIME_0_1 {
+impl Default for MMTIME_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
