@@ -24,7 +24,7 @@ impl Writer {
 
             if field_ty == constant_ty {
                 if field_ty == Type::String {
-                    let crate_name = self.write_crate();
+                    let crate_name = self.write_core();
                     let value = self.write_value(&constant.value());
 
                     // TODO: if self.no_deps then write these literals out as byte strings?
@@ -100,7 +100,7 @@ impl Writer {
     }
 
     pub fn write_cpp_const_guid(&self, name: TokenStream, value: &GUID) -> TokenStream {
-        let crate_name = self.write_crate();
+        let crate_name = self.write_core();
         let value = self.write_guid_u128(value);
 
         quote! {
@@ -109,7 +109,7 @@ impl Writer {
     }
 
     fn write_guid_u128(&self, value: &GUID) -> TokenStream {
-        let crate_name = self.write_crate();
+        let crate_name = self.write_core();
         let number: TokenStream = format!(
             "0x{:08x?}_{:04x?}_{:04x?}_{:02x?}{:02x?}_{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}",
             value.0,

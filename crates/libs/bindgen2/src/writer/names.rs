@@ -1,13 +1,21 @@
 use super::*;
 
 impl Writer {
-    pub fn write_crate(&self) -> TokenStream {
-        if self.config.sys {
-            if self.config.package {
-                quote! { windows_sys::core:: }
-            } else {
+    pub fn write_core(&self) -> TokenStream {
+        if self.config.no_deps {
+            if self.config.flat {
                 quote! {}
+            } else {
+                let mut tokens = TokenStream::new();
+
+                for _ in 0..self.namespace.split('.').count() {
+                    tokens.push_str("super::");
+                }
+
+                tokens
             }
+        } else if self.config.sys {
+                quote! { windows_sys::core:: }
         } else {
             quote! { windows_core:: }
         }
@@ -31,55 +39,51 @@ impl Writer {
             Type::ISize => quote! { isize },
             Type::USize => quote! { usize },
             Type::BSTR => {
-                let name = self.write_crate();
+                let name = self.write_core();
                 quote! { #name BSTR }
             }
             Type::IUnknown => {
                 if self.config.sys {
                     quote! { *mut core::ffi::c_void }
                 } else {
-                    let name = self.write_crate();
+                    let name = self.write_core();
                     quote! { #name IUnknown }
                 }
             }
             Type::GUID => {
-                let name = self.write_crate();
+                let name = self.write_core();
                 quote! { #name GUID }
             }
             Type::HRESULT => {
-                let name = self.write_crate();
+                let name = self.write_core();
                 quote! { #name HRESULT }
             }
             Type::String => {
-                if self.config.sys {
-                    quote! { *mut core::ffi::c_void }
-                } else {
-                    let name = self.write_crate();
-                    quote! { #name HSTRING }
-                }
+                let name = self.write_core();
+                quote! { #name HSTRING }
             }
             Type::Object => {
                 if self.config.sys {
                     quote! { *mut core::ffi::c_void }
                 } else {
-                    let name = self.write_crate();
+                    let name = self.write_core();
                     quote! { #name IInspectable }
                 }
             }
             Type::PSTR => {
-                let name = self.write_crate();
+                let name = self.write_core();
                 quote! { #name PSTR }
             }
             Type::PCSTR => {
-                let name = self.write_crate();
+                let name = self.write_core();
                 quote! { #name PCSTR }
             }
             Type::PWSTR => {
-                let name = self.write_crate();
+                let name = self.write_core();
                 quote! { #name PWSTR }
             }
             Type::PCWSTR => {
-                let name = self.write_crate();
+                let name = self.write_core();
                 quote! { #name PCWSTR }
             }
             Type::Item(item) => self.write_item_name(item),

@@ -29,24 +29,23 @@ impl Writer {
         clone
     }
 
-    pub fn write(&self, tree: &ItemTree) {
+    pub fn write(&self, tree: ItemTree) {
         if self.config.package {
-            self.write_package(tree);
+            self.write_package(&tree);
         } else {
             self.write_file(tree);
         }
     }
 
-    fn write_file(&self, tree: &ItemTree) {
+    fn write_file(&self, tree: ItemTree) {
         let mut tokens = if self.config.flat {
             self.write_flat(tree)
         } else {
-            self.write_modules(tree)
+            self.write_modules(&tree)
         };
 
-        // TODO: should be self.no_deps?
         // TODO: this is why it would be handy to have pseudo types for these in Item so we can write them more generically
-        if self.config.sys {
+        if self.config.no_deps {
             for dependency in &self.tree.items {
                 tokens.combine(match *dependency {
                     "HRESULT" => quote! { pub type HRESULT = i32; },
@@ -54,7 +53,7 @@ impl Writer {
                     "PCSTR" => quote! { pub type PCSTR = *const u8; },
                     "PSTR" => quote! { pub type PSTR = *mut u8; },
                     "PCWSTR" => quote! { pub type PCWSTR = *const u16; },
-                    "String" => quote! { pub type String = WAT; },
+                    "String" => quote! { pub type HSTRING = *mut core::ffi::c_void; },
                     "GUID" => quote! { 
                         #[repr(C)]
                         #[derive(Clone, Copy)]
@@ -78,15 +77,11 @@ impl Writer {
         write_to_file(&self.config.output, self.format(&tokens.into_string()));
     }
 
-    fn write_flat(&self, tree: &ItemTree) -> TokenStream {
+    fn write_flat(&self, tree: ItemTree) -> TokenStream {
         let mut tokens = TokenStream::new();
 
-        for item in &tree.items {
+        for item in tree.flatten_items() {
             tokens.combine(self.write_item(item));
-        }
-
-        for tree in tree.nested.values() {
-            tokens.combine(self.write_flat(tree));
         }
 
         tokens
@@ -113,7 +108,7 @@ impl Writer {
             _ = std::fs::remove_dir_all(format!("{}/src/{name}", &self.config.output));
         }
 
-        let trees = tree.flatten();
+        let trees = tree.flatten_trees();
 
         trees.par_iter().for_each(|tree| {
             let directory = format!(

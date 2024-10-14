@@ -29,14 +29,32 @@ impl ItemTree {
         new
     }
 
-    pub fn flatten(&self) -> Vec<&Self> {
+    // This is used to provide a flat iterator of trees so that they can be processed in parallel.
+    pub fn flatten_trees(&self) -> Vec<&Self> {
         let mut flatten = if self.namespace.is_empty() {
             vec![]
         } else {
             vec![self]
         };
-        flatten.extend(self.nested.values().flat_map(|tree| tree.flatten()));
+        flatten.extend(self.nested.values().flat_map(|tree| tree.flatten_trees()));
         flatten
+    }
+
+    // This is used to actually remove the tree structure and just have a flat iterator or items
+    // that just happen to be sorted, thanks to BTreeSet, so that a flat list of items can be
+    // generated in sort order.
+    pub fn flatten_items(mut self) -> BTreeSet<&'static Item> {
+        fn flatten(set: &mut BTreeSet<&'static Item>, tree: &mut ItemTree) {
+            set.append(&mut tree.items);
+
+            for tree in tree.nested.values_mut() {
+                flatten(set, tree);
+            }
+        }
+
+        let mut items = BTreeSet::new();
+        flatten(&mut items, &mut self);
+        items
     }
 
     pub fn feature(&self) -> String {

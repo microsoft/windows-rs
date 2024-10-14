@@ -16,7 +16,6 @@ fn main() {
     std::fs::remove_dir_all("crates/tests/bindgen/src").unwrap();
     std::fs::create_dir_all("crates/tests/bindgen/src").unwrap();
     std::env::set_current_dir("crates/tests/bindgen/src").unwrap();
-    std::fs::write("lib.rs", "").unwrap();
 
     split("--out smoke.rs --filter GetTickCount --sys --flat --no-comment --no-allow");
 

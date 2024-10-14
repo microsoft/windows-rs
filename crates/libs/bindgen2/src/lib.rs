@@ -128,7 +128,7 @@ where
         namespace: "",
     };
 
-    writer.write(&items)
+    writer.write(items)
 }
 
 enum ArgKind {
