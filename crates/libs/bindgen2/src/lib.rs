@@ -33,10 +33,11 @@ struct Config {
     pub minimal: bool, // TODO: if minimal then don't include dependencies for method parameters.
     pub no_allow: bool,
     pub no_comment: bool,
+    pub no_deps: bool, // TODO: to avoid refering to windows/windows-sys/windows-core/windows-targets crates - the default is to refer to types in windows-core/windows/windows-sys/windows-targets etc?
     pub package: bool,
     pub rustfmt: String,
     pub sys: bool, // TODO: if sys and not package then include minimal "vtbl" definitions
-                   // TODO: still need a "--no-deps" option to avoid refering to windows/windows-sys/windows-core/windows-targets crates - the default is to refer to types in windows and windows-sys etc.
+                   
 
                    // TODO: options to include deprecated APIs - excluded by default?
                    // options to include preview APIs - excluded by default?
@@ -71,6 +72,7 @@ where
                 "--minimal" => config.minimal = true,
                 "--no-allow" => config.no_allow = true,
                 "--no-comment" => config.no_comment = true,
+                "--no-deps" => config.no_deps = true,
                 "--package" => config.package = true,
                 "--sys" => config.sys = true,
                 _ => panic!("windows-bindgen: invalid option `{arg}`"),
