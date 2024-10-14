@@ -1,7 +1,7 @@
 use test_bindgen2::deps::*;
 
 #[test]
-fn smoke() {
+fn test() {
     unsafe {
         let library = LoadLibraryExA(
             "kernel32.dll\0".as_ptr(),

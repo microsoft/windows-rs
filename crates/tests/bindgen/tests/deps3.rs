@@ -1,4 +1,4 @@
-use test_bindgen2::deps2::Windows::Win32::{Foundation::*, System::LibraryLoader::*};
+use test_bindgen2::deps3::Windows::Win32::{Foundation::*, System::LibraryLoader::*};
 
 #[test]
 fn test() {

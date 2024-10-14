@@ -22,9 +22,12 @@ fn main() {
 
     // Generate functions and include dependencies automatically.
     split("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --flat --no-deps --no-comment");
-    
-    // Same as above with with namespace/module structure due to lack of "--flat" option.
+
+    // Same as 'deps.rs' but with namespace/module structure due to lack of "--flat" option.
     split("--out deps2.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-deps --no-comment");
+
+    // Same as 'deps2.rs' but with dependency on `windows-sys` for core types. TODO: what about other types found in windows-sys?
+    split("--out deps3.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-comment");
 
     // TODO: test with path using white space
 

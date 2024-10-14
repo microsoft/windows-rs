@@ -1,7 +1,7 @@
 use test_bindgen2::iota::*;
 
 #[test]
-fn smoke() {
+fn test() {
     unsafe {
         assert!(GetTickCount() > 0);
     }
