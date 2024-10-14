@@ -19,6 +19,11 @@ pub enum Item {
     // TODO: have psuedo items for the core types like PWSTR so that those can be written out for standalone code gen?
 }
 
+// TODO: maybe just order on Item directly
+// 1. order functions first
+// 2. order everything else by name
+// Otherwise it looks weird when you have things like LOAD_LIBRARY_FLAGS sorting before BOOL
+
 // impl Ord for Item {
 //     fn cmp(&self, other: &Self) -> Ordering {
 //     }

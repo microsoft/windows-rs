@@ -15,7 +15,7 @@ impl Writer {
                 tokens
             }
         } else if self.config.sys {
-                quote! { windows_sys::core:: }
+            quote! { windows_sys::core:: }
         } else {
             quote! { windows_core:: }
         }
