@@ -1,4 +1,4 @@
-use test_bindgen2::deps_auto::*;
+use test_bindgen2::deps2::{Windows::Win32::{Foundation::*, System::LibraryLoader::*} };
 
 #[test]
 fn smoke() {

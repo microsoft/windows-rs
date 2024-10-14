@@ -18,10 +18,13 @@ fn main() {
     std::env::set_current_dir("crates/tests/bindgen/src").unwrap();
 
     // Very minimal example of generating just a single item.
-    split("--out smoke.rs --filter GetTickCount --sys --flat --no-comment --no-allow");
+    split("--out iota.rs --filter GetTickCount --sys --flat --no-comment --no-allow");
 
     // Generate functions and include dependencies automatically.
-    split("--out deps_auto.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --flat --no-deps --no-comment");
+    split("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --flat --no-deps --no-comment");
+    
+    // Same as above with with namespace/module structure due to lack of "--flat" option.
+    split("--out deps2.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-deps --no-comment");
 
     // TODO: test with path using white space
 
