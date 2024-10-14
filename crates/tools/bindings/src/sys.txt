@@ -1,13 +1,8 @@
---out /git/windows-rs/crates/libs/sys
+--out crates/libs/sys
 --package --sys --no-comment --no-allow
 --rustfmt max_width=800,newline_style=Unix
 
 --filter
-// hmm this works but is a little weird
-    !EapHostPeerConfigXml2Blob
-    !EapHostPeerCredentialsXml2Blob
-    !EapHostPeerConfigBlob2Xml
-
     Windows.Wdk
     Windows.Win32
     !Windows.AI

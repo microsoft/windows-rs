@@ -117,19 +117,19 @@ impl Signature {
 // tODO: this should be the pivot for short circuiting, not Type
 impl Item {
     pub fn dependencies(&'static self, dependencies: &mut Dependencies, config: &Config) {
-            match self {
-                Item::Class(item) => item.dependencies(dependencies, config),
-                Item::Delegate(item) => item.dependencies(dependencies, config),
-                Item::Enum(item) => item.dependencies(dependencies, config),
-                Item::Interface(item) => item.dependencies(dependencies, config),
-                Item::Struct(item) => item.dependencies(dependencies, config),
-                Item::CppConst(item) => item.dependencies(dependencies, config),
-                Item::CppDelegate(item) => item.dependencies(dependencies, config),
-                Item::CppFn(item) => item.dependencies(dependencies, config),
-                Item::CppInterface(item) => item.dependencies(dependencies, config),
-                Item::CppStruct(item) => item.dependencies(dependencies, config),
-                Item::CppEnum(item) => item.dependencies(dependencies, config),
-            }
+        match self {
+            Item::Class(item) => item.dependencies(dependencies, config),
+            Item::Delegate(item) => item.dependencies(dependencies, config),
+            Item::Enum(item) => item.dependencies(dependencies, config),
+            Item::Interface(item) => item.dependencies(dependencies, config),
+            Item::Struct(item) => item.dependencies(dependencies, config),
+            Item::CppConst(item) => item.dependencies(dependencies, config),
+            Item::CppDelegate(item) => item.dependencies(dependencies, config),
+            Item::CppFn(item) => item.dependencies(dependencies, config),
+            Item::CppInterface(item) => item.dependencies(dependencies, config),
+            Item::CppStruct(item) => item.dependencies(dependencies, config),
+            Item::CppEnum(item) => item.dependencies(dependencies, config),
+        }
     }
 }
 
@@ -137,7 +137,7 @@ impl Class {
     pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
             // TODO: add dependencies
-        }   
+        }
     }
 }
 
@@ -145,7 +145,7 @@ impl Delegate {
     pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
             // TODO: add dependencies
-        }   
+        }
     }
 }
 
@@ -153,7 +153,7 @@ impl Interface {
     pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
             // TODO: add dependencies
-        }   
+        }
     }
 }
 
@@ -170,7 +170,7 @@ impl Struct {
 impl CppConst {
     pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
         if dependencies.insert(self.def.namespace(), self.field.name()) {
-        self.field.ty(None).dependencies(dependencies, config);
+            self.field.ty(None).dependencies(dependencies, config);
         }
     }
 }
@@ -188,9 +188,9 @@ impl CppDelegate {
 impl CppFn {
     pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
         if dependencies.insert(self.def.namespace(), self.method.name()) {
-        self.method
-            .signature(&[])
-            .dependencies(dependencies, config);
+            self.method
+                .signature(&[])
+                .dependencies(dependencies, config);
         }
     }
 }
@@ -200,7 +200,7 @@ impl CppInterface {
         if !config.sys {
             if dependencies.insert(self.def.namespace(), self.def.name()) {
                 // TODO: add dependencies
-            }   
+            }
         }
     }
 }
@@ -208,21 +208,21 @@ impl CppInterface {
 impl CppStruct {
     pub fn dependencies(&'static self, dependencies: &mut Dependencies, config: &Config) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
-        for field in self.def.fields() {
-            field.ty(Some(self)).dependencies(dependencies, config);
+            for field in self.def.fields() {
+                field.ty(Some(self)).dependencies(dependencies, config);
+            }
         }
-    }
     }
 }
 
 impl CppEnum {
     pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
-         dependencies.insert(self.def.namespace(), self.def.name());
+        dependencies.insert(self.def.namespace(), self.def.name());
     }
 }
 
 impl Enum {
     pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
-         dependencies.insert(self.def.namespace(), self.def.name());
+        dependencies.insert(self.def.namespace(), self.def.name());
     }
 }
