@@ -16,7 +16,7 @@ impl Dependencies {
 
     pub fn combine(&mut self, other: Self) {
         for (namespace, name) in other.iter() {
-                self.insert(namespace, name);
+            self.insert(namespace, name);
         }
     }
 
@@ -35,7 +35,9 @@ impl Dependencies {
     }
 
     pub fn iter(&self) -> impl Iterator<Item = (&'static str, &'static str)> + '_ {
-        self.0.iter().flat_map(|(namespace, names)|names.iter().map(move |name|(*namespace, *name)))
+        self.0
+            .iter()
+            .flat_map(|(namespace, names)| names.iter().map(move |name| (*namespace, *name)))
     }
 }
 

@@ -28,6 +28,7 @@ impl Writer {
         let fields: Vec<_> = item
             .def
             .fields()
+            .filter(|field| !field.flags().contains(FieldAttributes::Literal))
             .map(|field| (field.name(), field.ty(Some(item))))
             .collect();
 
@@ -91,6 +92,37 @@ impl Writer {
             quote! { #[repr(C)] }
         };
 
+        let constants = {
+            let constants = item.def.fields().filter_map(|f| {
+                if f.flags().contains(FieldAttributes::Literal) {
+                    if let Some(constant) = f.constant() {
+                        let name = to_ident(f.name());
+                        let ty = self.write_name(&constant.ty());
+                        let value = self.write_value(&constant.value());
+
+                        return Some(quote! {
+                            pub const #name: #ty = #value;
+                        });
+                    }
+                }
+
+                None
+            });
+
+            let mut constants = quote! { #(#constants)* };
+
+            if !constants.is_empty() {
+                constants = quote! {
+                    #cfg
+                    impl #name {
+                        #constants
+                    }
+                };
+            }
+
+            constants
+        };
+
         let mut tokens = quote! {
             #repr
             #cfg
@@ -98,6 +130,7 @@ impl Writer {
             pub #struct_or_union #name {
                 #(#fields)*
             }
+            #constants
             #default
             #type_kind
         };

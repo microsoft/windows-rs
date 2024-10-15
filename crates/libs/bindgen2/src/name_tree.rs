@@ -21,12 +21,15 @@ impl NameTree {
                 for name in reader[namespace].keys() {
                     if filter.includes_type_name(namespace, name) {
                         let mut item_dependencies = Dependencies::new();
-                        
+
                         for item in &reader[namespace][name] {
                             item.dependencies(&mut item_dependencies, config);
                         }
 
-                        if item_dependencies.iter().any(|(namespace, name)| filter.excludes_type_name(namespace, name)) {
+                        if item_dependencies
+                            .iter()
+                            .any(|(namespace, name)| filter.excludes_type_name(namespace, name))
+                        {
                             continue;
                         }
 
@@ -38,7 +41,7 @@ impl NameTree {
         }
 
         for (namespace, name) in dependencies.iter() {
-                tree.insert_namespace(namespace).items.insert(name);
+            tree.insert_namespace(namespace).items.insert(name);
         }
 
         Box::leak(Box::new(tree))
