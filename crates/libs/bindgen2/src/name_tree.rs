@@ -20,20 +20,25 @@ impl NameTree {
 
                 for name in reader[namespace].keys() {
                     if filter.includes_type_name(namespace, name) {
-                        tree.items.insert(name);
-                        //reader.dependencies(namespace, name, &mut dependencies, minimal);
+                        let mut item_dependencies = Dependencies::new();
+                        
                         for item in &reader[namespace][name] {
-                            item.dependencies(&mut dependencies, config);
+                            item.dependencies(&mut item_dependencies, config);
                         }
+
+                        if item_dependencies.iter().any(|(namespace, name)| filter.excludes_type_name(namespace, name)) {
+                            continue;
+                        }
+
+                        tree.items.insert(name);
+                        dependencies.combine(item_dependencies);
                     }
                 }
             }
         }
 
-        for (namespace, names) in dependencies.iter() {
-            for name in names {
+        for (namespace, name) in dependencies.iter() {
                 tree.insert_namespace(namespace).items.insert(name);
-            }
         }
 
         Box::leak(Box::new(tree))

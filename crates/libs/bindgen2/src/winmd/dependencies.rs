@@ -14,24 +14,28 @@ impl Dependencies {
         self.entry(namespace).or_default().insert(name)
     }
 
-    pub fn extend(&mut self, other: Self) {
-        self.0.extend(other.0)
+    pub fn combine(&mut self, other: Self) {
+        for (namespace, name) in other.iter() {
+                self.insert(namespace, name);
+        }
     }
 
     pub fn included(&self, filter: &Filter) -> bool {
-        for (namespace, names) in self.iter() {
+        for (namespace, name) in self.iter() {
             if namespace.is_empty() {
                 continue;
             }
 
-            for name in names {
-                if !filter.includes_type_name(namespace, name) {
-                    return false;
-                }
+            if !filter.includes_type_name(namespace, name) {
+                return false;
             }
         }
 
         true
+    }
+
+    pub fn iter(&self) -> impl Iterator<Item = (&'static str, &'static str)> + '_ {
+        self.0.iter().flat_map(|(namespace, names)|names.iter().map(move |name|(*namespace, *name)))
     }
 }
 

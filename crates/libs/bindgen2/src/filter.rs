@@ -58,6 +58,16 @@ impl Filter {
 
         false
     }
+
+    pub fn excludes_type_name(&self, namespace: &str, name: &str) -> bool {
+        for rule in &self.0 {
+            if match_type_name(&rule.0, namespace, name) {
+                return !rule.1;
+            }
+        }
+
+        false
+    }
 }
 
 fn push_filter(reader: &Reader, rules: &mut Vec<(String, bool)>, filter: &str, include: bool) {
