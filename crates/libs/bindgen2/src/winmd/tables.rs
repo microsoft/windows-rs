@@ -322,9 +322,9 @@ impl ImplMap {
 }
 
 impl InterfaceImpl {
-    // pub fn ty(&self, generics: &[Type]) -> Type {
-    //     self.reader().type_from_ref(self.decode(1), None, generics)
-    // }
+     pub fn ty(&self, generics: &[Type]) -> Type {
+        Type::from_ref(self.decode(1), None, generics)
+     }
 }
 
 impl MemberRef {

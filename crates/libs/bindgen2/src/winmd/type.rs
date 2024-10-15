@@ -279,7 +279,8 @@ impl Type {
             Self::Object => "cinterface(IInspectable)".to_string(),
             Self::GUID => "g16".to_string(),
             Self::HRESULT => "struct(Windows.Foundation.HResult;i4)".to_string(),
-            Self::Item(item) => item.signature(),
+            Self::Item(item) => item.signature(&[]),
+            Self::Generic(item, generics) => item.signature(generics),
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }

@@ -4,3 +4,6 @@ pub mod deps;
 pub mod deps2;
 pub mod deps3;
 pub mod iota;
+pub mod iota_win;
+pub mod winrt_enum;
+pub mod winrt_struct;

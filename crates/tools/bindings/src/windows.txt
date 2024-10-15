@@ -1,4 +1,4 @@
---out crates/libs/windows/src/lib.rs
+--out crates/libs/windows
 --package --no-comment
 //--config prepend:Windows.Win32.Foundation.WIN32_ERROR=#[must_use]
 //--config prepend:Windows.Win32.Foundation.BOOL=#[must_use]

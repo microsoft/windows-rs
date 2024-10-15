@@ -20,6 +20,9 @@ fn main() {
     // Very minimal example of generating just a single item.
     split("--out iota.rs --filter GetTickCount --sys --flat --no-comment --no-allow");
 
+    // Same as 'iota.rs' but without `--sys`. 
+    split("--out iota_win.rs --filter GetTickCount --flat --no-comment --no-allow");
+
     // Generate functions and include dependencies automatically.
     split("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --flat --no-deps --no-comment");
 
@@ -28,6 +31,9 @@ fn main() {
 
     // Same as 'deps2.rs' but `--no-deps` is implied.
     split("--out deps3.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-comment");
+
+    split("--out winrt_struct.rs --filter Windows.Foundation.Rect --flat --no-comment");
+    split("--out winrt_enum.rs --filter Windows.Foundation.AsyncStatus --flat --no-comment");
 
     // TODO: probably want to avoid generating dependencies on windows and windows-sys - just windows-core/result/string/targets
     // 1. so in that model --sys bindings imply --no-deps and the latter is only useful for removing the above dependencies for non-sys bindings
