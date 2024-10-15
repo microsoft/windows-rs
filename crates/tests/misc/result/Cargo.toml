@@ -8,6 +8,12 @@ publish = false
 doc = false
 doctest = false
 
+[dependencies.windows]
+workspace = true
+features = [
+    "Win32_Foundation",
+]
+
 [dependencies.windows-result]
 workspace = true
 
