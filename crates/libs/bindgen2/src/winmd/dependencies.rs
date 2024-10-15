@@ -51,20 +51,14 @@ impl std::ops::DerefMut for Dependencies {
 
 impl Type {
     pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
-        // First get the underlying type.
-        let ty = match self {
-            Self::PtrMut(ty, _) => ty,
-            Self::PtrConst(ty, _) => ty,
-            Self::ArrayFixed(ty, _) => ty,
-            Self::Array(ty) => ty,
-            Self::ArrayRef(ty) => ty,
-            Self::ConstRef(ty) => ty,
-            Self::PrimitiveOrEnum(_, ty) => ty,
-            _ => self,
-        };
-
-        // Then insert its name into the dependencies map.
-        match ty {
+        match self {
+            Self::PtrMut(ty, _) => ty.dependencies(dependencies, config),
+            Self::PtrConst(ty, _) => ty.dependencies(dependencies, config),
+            Self::ArrayFixed(ty, _) => ty.dependencies(dependencies, config),
+            Self::Array(ty) => ty.dependencies(dependencies, config),
+            Self::ArrayRef(ty) => ty.dependencies(dependencies, config),
+            Self::ConstRef(ty) => ty.dependencies(dependencies, config),
+            Self::PrimitiveOrEnum(_, ty) => ty.dependencies(dependencies, config),
             Self::String => {
                 dependencies.insert("", "String");
             }
