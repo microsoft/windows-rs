@@ -31,6 +31,8 @@ struct Config {
     pub output: String,
     pub flat: bool,
     pub minimal: bool, // TODO: if minimal then don't include dependencies for method parameters.
+    // and possibly types who's dependencies are filtered out?
+    // and unscoped enum variants?
     pub no_allow: bool,
     pub no_comment: bool,
     pub no_deps: bool, // TODO: to avoid refering to windows/windows-sys/windows-core/windows-targets crates - the default is to refer to types in windows-core/windows/windows-sys/windows-targets etc?
