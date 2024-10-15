@@ -45,6 +45,7 @@ struct Config {
 }
 
 /// The Windows code generator.
+#[track_caller]
 pub fn bindgen<I, S>(args: I)
 where
     I: IntoIterator<Item = S>,
