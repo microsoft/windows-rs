@@ -9,6 +9,12 @@ impl Ord for CppStruct {
     }
 }
 
+impl Ord for CppFn {
+    fn cmp(&self, other: &Self) -> Ordering {
+        (self.method.name(), self.method).cmp(&(other.method.name(), other.method))
+    }
+}
+
 impl PartialOrd for CppStruct {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
@@ -17,7 +23,7 @@ impl PartialOrd for CppStruct {
 
 impl Ord for CppDelegate {
     fn cmp(&self, other: &Self) -> Ordering {
-        self.def.name().cmp(other.def.name())
+        (self.def.name(), self.def).cmp(&(other.def.name(), other.def))
     }
 }
 
@@ -27,11 +33,7 @@ impl PartialOrd for CppDelegate {
     }
 }
 
-impl Ord for CppFn {
-    fn cmp(&self, other: &Self) -> Ordering {
-        self.method.name().cmp(other.method.name())
-    }
-}
+
 
 impl PartialOrd for CppFn {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
