@@ -191,10 +191,8 @@ impl CppFn {
 
 impl CppInterface {
     pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
-        if !config.sys {
-            if dependencies.insert(self.def.namespace(), self.def.name()) {
-                // TODO: add dependencies
-            }
+        if !config.sys && dependencies.insert(self.def.namespace(), self.def.name()) {
+            // TODO: add dependencies
         }
     }
 }
