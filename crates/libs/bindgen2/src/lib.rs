@@ -95,6 +95,10 @@ where
         }
     }
 
+    if config.sys && !config.package {
+        config.no_deps = true;
+    }
+
     if config.package && config.flat {
         panic!("windows-bindgen: cannot combine `--package` and `--flat` options");
     }

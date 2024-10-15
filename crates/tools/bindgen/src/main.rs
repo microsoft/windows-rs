@@ -26,9 +26,17 @@ fn main() {
     // Same as 'deps.rs' but with namespace/module structure due to lack of "--flat" option.
     split("--out deps2.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-deps --no-comment");
 
-    // Same as 'deps2.rs' but with dependency on `windows-sys` for core types. TODO: what about other types found in windows-sys?
+    // Same as 'deps2.rs' but `--no-deps` is implied.
     split("--out deps3.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-comment");
 
+    // TODO: probably want to avoid generating dependencies on windows and windows-sys - just windows-core/result/string/targets 
+    // 1. so in that model --sys bindings imply --no-deps and the latter is only useful for removing the above dependencies for non-sys bindings
+
+
+    // Same as 'deps3.rs' but with dependency on `windows-core` for core types. TODO: what about other types found in windows?
+    // split("--out deps4.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --no-comment");
+
+    
     // TODO: test with path using white space
 
     // TODO: test failure/panics
