@@ -7,8 +7,11 @@ impl Writer {
             return self.write_cpp_handle(item.def);
         }
 
-        if let Some(guid) = item.def.guid_attribute() {
-            return self.write_cpp_const_guid(to_ident(item.name()), &guid);
+        // TODO: there are actually structs with fields and GUIDs like LOGGING_PARAMETERS
+        if item.def.fields().next().is_none() {
+            if let Some(guid) = item.def.guid_attribute() {
+                return self.write_cpp_const_guid(to_ident(item.name()), &guid);
+            }
         }
 
         let mut dependencies = Dependencies::new();

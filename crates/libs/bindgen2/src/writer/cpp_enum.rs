@@ -11,6 +11,12 @@ impl Writer {
         let name = to_ident(item.def.name());
         let underlying_type = self.write_name(&item.def.underlying_type());
 
+        let mut derive = quote! { Copy, Clone, };
+
+        if !self.config.sys {
+            derive.combine(quote! { Debug, PartialEq, });
+        }
+
         let fields = if is_scoped {
             let fields = item
                 .def
@@ -34,15 +40,23 @@ impl Writer {
             quote! {}
         };
 
+        // TODO: is TypeKind really needed on all these Win32 types?
+        let type_kind = if self.config.sys {
+            quote! {}
+        } else {
+            quote! {
+                impl windows_core::TypeKind for #name {
+                    type TypeKind = windows_core::CopyType;
+                }
+            }
+        };
+
         quote! {
             #[repr(transparent)]
-            #[derive(Clone, Debug, Default, PartialEq)]
+            #[derive(#derive)]
             pub struct #name(pub #underlying_type);
             #fields
-            // TODO: is TypeKind really needed on all these Win32 types?
-            impl windows_core::TypeKind for #name {
-                type TypeKind = windows_core::CopyType;
-            }
+            #type_kind
         }
     }
 }
