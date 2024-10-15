@@ -203,7 +203,8 @@ impl CppInterface {
 
 impl CppStruct {
     pub fn dependencies(&'static self, dependencies: &mut Dependencies, config: &Config) {
-        if dependencies.insert(self.def.namespace(), self.def.name()) {
+        let namespace = self.def.namespace();
+        if namespace.is_empty() || dependencies.insert(namespace, self.def.name()) {
             for field in self.def.fields() {
                 field.ty(Some(self)).dependencies(dependencies, config);
             }

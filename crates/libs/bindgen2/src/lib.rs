@@ -122,6 +122,8 @@ where
     // it based on whether its parameters are included. It may be excluded by "--minimal" was specified.
     let tree = NameTree::new(reader, filter, &config);
 
+    //panic!("{:#?}", tree);
+
     let items = ItemTree::new(reader, tree);
 
     // panic!("{:#?}", items);
