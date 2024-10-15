@@ -34,6 +34,26 @@ impl Writer {
 
         let is_copyable = fields.iter().all(|(_, ty)| ty.is_copyable());
 
+        let fields = {
+            let fields = fields.iter().map(|(name, ty)| {
+                let name = to_ident(name);
+                let ty = self.write_default_name(ty);
+                quote! { pub #name: #ty, }
+            });
+            
+            let fields = quote! { #(#fields)* };
+
+            if fields.is_empty() {
+                quote! {
+                    (pub u8);
+                }
+            } else {
+                quote! {
+                    { #fields }
+                }
+            }
+        };
+
         let mut derive = quote! { Clone, Copy, };
 
         if !self.config.sys {
@@ -41,12 +61,6 @@ impl Writer {
         }
 
         // TODO: add any user-defined derive names
-
-        let fields = fields.iter().map(|(name, ty)| {
-            let name = to_ident(name);
-            let ty = self.write_default_name(ty);
-            quote! { pub #name: #ty, }
-        });
 
         let type_kind = if self.config.sys {
             quote! {}
@@ -127,9 +141,8 @@ impl Writer {
             #repr
             #cfg
             #[derive(#derive)]
-            pub #struct_or_union #name {
-                #(#fields)*
-            }
+            pub #struct_or_union #name
+            #fields
             #constants
             #default
             #type_kind
