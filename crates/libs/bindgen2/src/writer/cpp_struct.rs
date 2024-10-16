@@ -43,7 +43,7 @@ impl Writer {
                 let ty = self.write_default_name(ty);
                 quote! { pub #name: #ty, }
             });
-            
+
             let fields = quote! { #(#fields)* };
 
             if fields.is_empty() {

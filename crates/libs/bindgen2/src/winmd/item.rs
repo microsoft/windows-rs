@@ -157,60 +157,17 @@ impl Item {
     }
 }
 
-// TODO: put signatures in their own rs file?
-impl Item {
-    pub fn signature(&self, generics: &[Type]) -> String {
-        match self {
-             Self::Class(item) => item.signature(generics),
-             Self::Delegate(item) => item.signature(generics),
-            Self::Enum(item) => item.signature(),
-             Self::Interface(item) => item.signature(generics),
-            Self::Struct(item) => item.signature(),
-            rest => panic!("windows-bindgen: {rest:?}"),
-        }
-    }
-}
+
 
 impl Class {
-    pub fn signature(&self, generics: &[Type]) -> String {
-        format!(
-            "rc({}.{};{})",self.def.namespace(), self.def.name(), 
-        self.default_interface(generics).unwrap().signature())
-    }
-
     pub fn default_interface(&self, generics: &[Type]) -> Option<Type> {
-        self.def.interface_impls().find(|imp|imp.has_attribute("DefaultAttribute")).map(|imp|imp.ty(generics))
+        self.def
+            .interface_impls()
+            .find(|imp| imp.has_attribute("DefaultAttribute"))
+            .map(|imp| imp.ty(generics))
     }
 }
 
-impl Interface {
-    pub fn signature(&self, generics: &[Type]) -> String {
-        interface_signature(self.def, generics)
-    }
-}
-
-impl Delegate {
-    pub fn signature(&self, generics: &[Type]) -> String {
-        if generics.is_empty() {
-            let guid = self.def.guid_attribute().unwrap();
-            format!("delegate({{{guid}}})")
-        } else {
-            interface_signature(self.def, generics)
-        }
-    }
-}
-
-impl Struct {
-    pub fn signature(&self) -> String {
-        let mut signature = format!("struct({}.{}", self.def.namespace(), self.def.name());
-        for field in self.def.fields() {
-            signature.push(';');
-            signature.push_str(&field.ty(None).signature());
-        }
-        signature.push(')');
-        signature
-    }
-}
 
 impl CppStruct {
     pub fn name(&self) -> &str {
@@ -220,33 +177,4 @@ impl CppStruct {
             &self.name
         }
     }
-}
-
-impl Enum {
-    pub fn signature(&self) -> String {
-        format!(
-            "enum({}.{};{})",
-            self.def.namespace(),
-            self.def.name(),
-            self.def.underlying_type().signature()
-        )
-    }
-}
-
-fn interface_signature(def: TypeDef, generics: &[Type]) -> String {
-    if generics.is_empty() {
-        let guid = def.guid_attribute().unwrap();
-        format!("{{{guid}}}")
-        } else {
-            let guid = def.guid_attribute().unwrap();
-            let mut signature = format!("pinterface({{{guid}}})");
-    
-            for generic in generics {
-                signature.push(';');
-                signature.push_str(&generic.signature())
-            }
-    
-            signature.push(')');
-            signature
-        }
 }

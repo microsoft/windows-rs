@@ -322,9 +322,9 @@ impl ImplMap {
 }
 
 impl InterfaceImpl {
-     pub fn ty(&self, generics: &[Type]) -> Type {
+    pub fn ty(&self, generics: &[Type]) -> Type {
         Type::from_ref(self.decode(1), None, generics)
-     }
+    }
 }
 
 impl MemberRef {
@@ -467,9 +467,11 @@ impl TypeDef {
         self.list(4)
     }
 
-    pub fn generics(&self) -> RowIterator<GenericParam> {
+    pub fn generics(&self) -> Vec<Type> {
         self.file()
             .equal_range(2, TypeOrMethodDef::TypeDef(*self).encode())
+            .map(|generic: GenericParam| Type::Param(generic.name()))
+            .collect()
     }
 
     pub fn interface_impls(&self) -> RowIterator<InterfaceImpl> {

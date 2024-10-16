@@ -87,6 +87,7 @@ impl Writer {
                 quote! { #name PCWSTR }
             }
             Type::Item(item) => self.write_item_name(item),
+            Type::Generic(item, generics) => self.write_generic_name(item, generics),
             Type::PtrMut(ty, pointers) => {
                 let pointers = write_ptr_mut(*pointers);
                 let ty = self.write_default_name(ty);
@@ -145,6 +146,13 @@ impl Writer {
         //     }
         //     rest => panic!("windows-bindgen: {rest:?}"),
         // }
+    }
+
+    fn write_generic_name(&self, item: &Item, generics: &[Type]) -> TokenStream {
+        let name = to_ident(item.name());
+        let namespace = self.write_namespace(item.namespace());
+        let generics = generics.iter().map(|ty| self.write_name(ty));
+        quote! { #namespace #name <#(#generics),*> }
     }
 
     fn write_namespace(&self, namespace: &str) -> TokenStream {

@@ -7,12 +7,26 @@ mod cpp_handle;
 mod cpp_struct;
 mod r#enum;
 mod format;
+mod interface;
 mod literals;
 mod names;
 mod r#struct;
+mod runtime_signature;
+mod method;
+mod method_names;
 
+use method_names::*;
 use super::*;
 use rayon::prelude::*;
+
+#[derive(Copy, Clone, PartialEq, Eq)]
+pub enum InterfaceKind {
+    Default,
+    Overridable,
+    Static,
+    Composable,
+    Base,
+}
 
 #[derive(Clone)]
 pub struct Writer {
@@ -175,13 +189,14 @@ impl Writer {
 
     fn write_item(&self, item: &'static Item) -> TokenStream {
         match item {
-            Item::Struct(def) => self.write_struct(def),
-            Item::Enum(def) => self.write_enum(def),
-            Item::CppStruct(def) => self.write_cpp_struct(def),
-            Item::CppEnum(def) => self.write_cpp_enum(def),
-            Item::CppFn(def) => self.write_cpp_fn(def),
-            Item::CppConst(def) => self.write_cpp_const(def),
-            Item::CppDelegate(def) => self.write_cpp_delegate(def),
+            Item::Struct(item) => self.write_struct(item),
+            Item::Enum(item) => self.write_enum(item),
+            Item::Interface(item) => self.write_interface(item),
+            Item::CppStruct(item) => self.write_cpp_struct(item),
+            Item::CppEnum(item) => self.write_cpp_enum(item),
+            Item::CppFn(item) => self.write_cpp_fn(item),
+            Item::CppConst(item) => self.write_cpp_const(item),
+            Item::CppDelegate(item) => self.write_cpp_delegate(item),
             _ => quote! {},
         }
     }

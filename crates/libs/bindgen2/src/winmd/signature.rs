@@ -16,3 +16,5 @@ impl Signature {
 }
 
 // TODO: put WrapperSignature here? better name...
+
+// Maybe just call it a CppSignature if its only useful to non-WinRT functions/methods

@@ -18,7 +18,7 @@ impl Writer {
                 }
             });
 
-        let signature = Literal::byte_string(&item.signature());
+        let signature = Literal::byte_string(&item.runtime_signature());
 
         quote! {
             #[repr(transparent)]

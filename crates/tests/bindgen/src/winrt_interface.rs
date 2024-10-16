@@ -1,0 +1,35 @@
+#![allow(
+    non_snake_case,
+    non_upper_case_globals,
+    non_camel_case_types,
+    dead_code,
+    clippy::all
+)]
+
+windows_core::imp::define_interface!(
+    IStringable,
+    IStringable_Vtbl,
+    0x96369f54_8eb6_48f0_abce_c1b211e627c3
+);
+impl core::ops::Deref for IStringable {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(
+    IStringable,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl IStringable {
+    pub fn ToString(&self) {}
+}
+impl windows_core::RuntimeType for IStringable {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IStringable_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}

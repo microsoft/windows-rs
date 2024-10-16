@@ -104,13 +104,12 @@ impl Writer {
         let value = self.write_guid_u128(value);
 
         quote! {
-            pub const #name: #crate_name GUID = #value;
+            pub const #name: #crate_name GUID = #crate_name GUID::from_u128(#value);
         }
     }
 
-    fn write_guid_u128(&self, value: &GUID) -> TokenStream {
-        let crate_name = self.write_core();
-        let number: TokenStream = format!(
+    pub fn write_guid_u128(&self, value: &GUID) -> TokenStream {
+        format!(
             "0x{:08x?}_{:04x?}_{:04x?}_{:02x?}{:02x?}_{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}",
             value.0,
             value.1,
@@ -124,11 +123,7 @@ impl Writer {
             value.9,
             value.10
         )
-        .into();
-
-        quote! {
-            #crate_name GUID::from_u128(#number)
-        }
+        .into()
     }
 
     // TODO: make method?
@@ -151,7 +146,8 @@ impl Writer {
                     literals[9].parse().unwrap(),
                     literals[10].parse().unwrap(),
                 ));
-                (quote! { #name: #value, }, rest)
+                let crate_name = self.write_core();
+                (quote! { #name: #crate_name GUID::from_u128(#value), }, rest)
             }
             Type::ArrayFixed(_, len) => {
                 let (literals, rest) = read_literal_array(input, len);

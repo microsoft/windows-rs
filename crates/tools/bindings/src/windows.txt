@@ -1,5 +1,5 @@
 --out crates/libs/windows
---package --no-comment
+--package --no-comment --no-allow
 //--config prepend:Windows.Win32.Foundation.WIN32_ERROR=#[must_use]
 //--config prepend:Windows.Win32.Foundation.BOOL=#[must_use]
 //--config prepend:Windows.Win32.Foundation.NTSTATUS=#[must_use]
