@@ -54,10 +54,19 @@ impl Reader {
                 if def.flags().contains(TypeAttributes::WindowsRuntime) {
                     let item = match category {
                         Category::Attribute => continue,
-                        Category::Class => Item::Class(Class { def }),
-                        Category::Delegate => Item::Delegate(Delegate { def }),
+                        Category::Class => Item::Class(Class {
+                            def,
+                            generics: def.generics(),
+                        }),
+                        Category::Delegate => Item::Delegate(Delegate {
+                            def,
+                            generics: def.generics(),
+                        }),
                         Category::Enum => Item::Enum(Enum { def }),
-                        Category::Interface => Item::Interface(Interface { def }),
+                        Category::Interface => Item::Interface(Interface {
+                            def,
+                            generics: def.generics(),
+                        }),
                         Category::Struct => {
                             // Skip marker types representing API contracts.
                             if def.has_attribute("ApiContractAttribute") {
@@ -151,29 +160,32 @@ impl Reader {
     }
 
     /// Gets all items matching the given namespace and name.
-    pub fn with_full_name(&self, namespace: &str, name: &str) -> impl Iterator<Item = &Item> + '_ {
+    pub fn with_full_name(&self, namespace: &str, name: &str) -> impl Iterator<Item = Item> + '_ {
         self.get(namespace)
             .and_then(|items| items.get(name))
             .into_iter()
             .flatten()
+            .cloned()
     }
 
     /// Gets all items with the given name regardless of namespace.
-    pub fn with_name(&self, name: &str) -> Vec<&Item> {
+    pub fn with_name(&self, name: &str) -> Vec<Item> {
         // This doesn't return an iterator as that would require `name` to be a static reference.
         self.values()
             .flatten()
             .filter_map(|(key, value)| (*key == name).then_some(value))
             .flatten()
+            .cloned()
             .collect()
     }
 
     /// Gets all items from the given namespace.
-    pub fn with_namespace(&self, namespace: &str) -> impl Iterator<Item = &Item> + '_ {
+    pub fn with_namespace(&self, namespace: &str) -> impl Iterator<Item = Item> + '_ {
         self.get(namespace)
             .into_iter()
             .flat_map(|map| map.values())
             .flatten()
+            .cloned()
     }
 }
 

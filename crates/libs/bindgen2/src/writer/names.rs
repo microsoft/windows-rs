@@ -87,7 +87,7 @@ impl Writer {
                 quote! { #name PCWSTR }
             }
             Type::Item(item) => self.write_item_name(item),
-            Type::Generic(item, generics) => self.write_generic_name(item, generics),
+            //Type::Generic(item, generics) => self.write_generic_name(item, generics),
             Type::PtrMut(ty, pointers) => {
                 let pointers = write_ptr_mut(*pointers);
                 let ty = self.write_default_name(ty);

@@ -1,7 +1,7 @@
 use super::*;
 
 impl Writer {
-    pub fn write_cpp_struct(&self, item: &'static CppStruct) -> TokenStream {
+    pub fn write_cpp_struct(&self, item: &CppStruct) -> TokenStream {
         // TODO: do we need to ass cfg into this?
         if item.def.has_attribute("NativeTypedefAttribute") {
             return self.write_cpp_handle(item.def);
@@ -24,7 +24,7 @@ impl Writer {
         self.write_with_cfg(item, &cfg)
     }
 
-    fn write_with_cfg(&self, item: &'static CppStruct, cfg: &TokenStream) -> TokenStream {
+    fn write_with_cfg(&self, item: &CppStruct, cfg: &TokenStream) -> TokenStream {
         let name = to_ident(item.name());
         let flags = item.def.flags();
 

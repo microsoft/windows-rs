@@ -1,7 +1,7 @@
 #[derive(Copy, Clone, Debug, Hash, PartialEq, Eq, Ord, PartialOrd)]
-pub struct TypeName(pub &'static str, pub &'static str);
+pub struct TypeName<'a>(pub &'a str, pub &'a str);
 
-impl TypeName {
+impl TypeName<'_> {
     pub const Object: Self = Self("System", "Object");
     pub const GUID: Self = Self("System", "Guid");
     pub const Type: Self = Self("System", "Type");
@@ -49,16 +49,16 @@ impl TypeName {
         Self(&full_name[0..index], &full_name[index + 1..])
     }
 
-    pub fn namespace(&self) -> &'static str {
+    pub fn namespace(&self) -> &str {
         self.0
     }
 
-    pub fn name(&self) -> &'static str {
+    pub fn name(&self) -> &str {
         self.1
     }
 }
 
-impl std::fmt::Display for TypeName {
+impl std::fmt::Display for TypeName<'_> {
     fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(fmt, "{}.{}", self.0, self.1)
     }

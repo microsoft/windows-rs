@@ -9,14 +9,14 @@ mod r#enum;
 mod format;
 mod interface;
 mod literals;
-mod names;
-mod r#struct;
-mod runtime_signature;
 mod method;
 mod method_names;
+mod names;
+mod runtime_signature;
+mod r#struct;
 
-use method_names::*;
 use super::*;
+use method_names::*;
 use rayon::prelude::*;
 
 #[derive(Copy, Clone, PartialEq, Eq)]
@@ -96,7 +96,7 @@ impl Writer {
         let mut tokens = TokenStream::new();
 
         for item in tree.flatten_items() {
-            tokens.combine(self.write_item(item));
+            tokens.combine(self.write_item(&item));
         }
 
         tokens
@@ -187,7 +187,7 @@ impl Writer {
         write_to_file(&toml_path, toml);
     }
 
-    fn write_item(&self, item: &'static Item) -> TokenStream {
+    fn write_item(&self, item: &Item) -> TokenStream {
         match item {
             Item::Struct(item) => self.write_struct(item),
             Item::Enum(item) => self.write_enum(item),

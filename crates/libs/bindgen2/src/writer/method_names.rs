@@ -22,10 +22,7 @@ impl MethodNames {
 
 fn method_def_special_name(row: MethodDef) -> String {
     let name = row.name();
-    if row
-        .flags()
-        .contains(MethodAttributes::SpecialName)
-    {
+    if row.flags().contains(MethodAttributes::SpecialName) {
         if name.starts_with("get") {
             name[4..].to_string()
         } else if name.starts_with("put") {

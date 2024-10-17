@@ -1,7 +1,7 @@
 use super::*;
 
 // TODO: implement Ord for CppFn manually so that it sorts by library and then name
-#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub enum Item {
     CppFn(CppFn),
 
@@ -35,41 +35,44 @@ pub enum Item {
 //     }
 // }
 
-#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Interface {
     pub def: TypeDef,
+    pub generics: Vec<Type>,
 }
-#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Class {
     pub def: TypeDef,
+    pub generics: Vec<Type>,
 }
-#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Enum {
     pub def: TypeDef,
 }
-#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Struct {
     pub def: TypeDef,
 }
-#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Delegate {
     pub def: TypeDef,
+    pub generics: Vec<Type>,
 }
-#[derive(Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct CppInterface {
     pub def: TypeDef,
 }
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub struct CppEnum {
     pub def: TypeDef,
 }
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub struct CppStruct {
     pub def: TypeDef,
     pub name: String,
     pub nested: BTreeMap<&'static str, Item>,
 }
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub struct CppDelegate {
     pub def: TypeDef,
 }
@@ -92,18 +95,27 @@ impl CppDelegate {
     }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub struct CppConst {
     pub def: TypeDef,
     pub field: Field,
 }
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub struct CppFn {
     pub def: TypeDef,
     pub method: MethodDef,
 }
 
 impl Item {
+    pub fn generics_mut(&mut self) -> &mut Vec<Type> {
+        match self {
+            Self::Class(item) => &mut item.generics,
+            Self::Interface(item) => &mut item.generics,
+            Self::Delegate(item) => &mut item.generics,
+            rest => panic!("windows-bindgen: {rest:?}"),
+        }
+    }
+
     pub fn namespace(&self) -> &'static str {
         match self {
             Self::Class(item) => item.def.namespace(),
@@ -157,8 +169,6 @@ impl Item {
     }
 }
 
-
-
 impl Class {
     pub fn default_interface(&self, generics: &[Type]) -> Option<Type> {
         self.def
@@ -167,7 +177,6 @@ impl Class {
             .map(|imp| imp.ty(generics))
     }
 }
-
 
 impl CppStruct {
     pub fn name(&self) -> &str {

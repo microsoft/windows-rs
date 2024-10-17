@@ -188,7 +188,8 @@ impl Attribute {
                 Type::String => Value::String(values.read_str().to_string()),
                 Type::Type => Value::TypeName(TypeName::parse(values.read_str())),
                 Type::Item(item) => {
-                    Value::EnumDef(item, Box::new(values.read_integer(item.underlying_type())))
+                    let underlying_type = item.underlying_type();
+                    Value::EnumDef(item, Box::new(values.read_integer(underlying_type)))
                 }
                 rest => panic!("windows-bindgen: {rest:?}"),
             };
@@ -217,7 +218,8 @@ impl Attribute {
                         .next()
                         .expect("Type not found");
                     name = values.read_str();
-                    Value::EnumDef(def, Box::new(values.read_integer(def.underlying_type())))
+                    let underlying_type = def.underlying_type();
+                    Value::EnumDef(def, Box::new(values.read_integer(underlying_type)))
                 }
                 rest => panic!("windows-bindgen: {rest:?}"),
             };
@@ -282,7 +284,7 @@ impl Field {
             .next()
     }
 
-    pub fn ty(&self, enclosing: Option<&'static CppStruct>) -> Type {
+    pub fn ty(&self, enclosing: Option<&CppStruct>) -> Type {
         let mut blob = self.blob(2);
         blob.read_usize();
         blob.read_modifiers();

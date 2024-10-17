@@ -75,7 +75,7 @@ impl Writer {
                 panic!()
             };
 
-            let Type::Item(Item::CppStruct(item)) = field_ty else {
+            let Type::Item(Item::CppStruct(item)) = &field_ty else {
                 panic!()
             };
 

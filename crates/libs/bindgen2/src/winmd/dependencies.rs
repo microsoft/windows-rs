@@ -92,13 +92,13 @@ impl Type {
             Self::Item(item) => {
                 item.dependencies(dependencies, config);
             }
-            Self::Generic(item, generics) => {
-                item.dependencies(dependencies, config);
+            // Self::Generic(item, generics) => {
+            //     item.dependencies(dependencies, config);
 
-                generics
-                    .iter()
-                    .for_each(|ty| ty.dependencies(dependencies, config));
-            }
+            //     generics
+            //         .iter()
+            //         .for_each(|ty| ty.dependencies(dependencies, config));
+            // }
             _ => {}
         }
     }
@@ -116,7 +116,7 @@ impl Signature {
 
 // tODO: this should be the pivot for short circuiting, not Type
 impl Item {
-    pub fn dependencies(&'static self, dependencies: &mut Dependencies, config: &Config) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
         match self {
             Item::Class(item) => item.dependencies(dependencies, config),
             Item::Delegate(item) => item.dependencies(dependencies, config),
@@ -204,7 +204,7 @@ impl CppInterface {
 }
 
 impl CppStruct {
-    pub fn dependencies(&'static self, dependencies: &mut Dependencies, config: &Config) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
         let namespace = self.def.namespace();
         if namespace.is_empty() || dependencies.insert(namespace, self.def.name()) {
             for field in self.def.fields() {

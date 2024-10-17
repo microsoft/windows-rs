@@ -43,8 +43,8 @@ pub enum Value {
     F32(f32),
     F64(f64),
     String(String),
-    TypeName(TypeName),
-    EnumDef(&'static Item, Box<Self>),
+    TypeName(TypeName<'static>),
+    EnumDef(Item, Box<Self>),
 }
 
 pub struct GUID(

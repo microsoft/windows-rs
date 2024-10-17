@@ -5,7 +5,7 @@ use super::*;
 pub struct ItemTree {
     pub namespace: &'static str,
     pub nested: BTreeMap<&'static str, Self>,
-    pub items: BTreeSet<&'static Item>,
+    pub items: BTreeSet<Item>,
 }
 
 impl ItemTree {
@@ -43,8 +43,8 @@ impl ItemTree {
     // This is used to actually remove the tree structure and just have a flat iterator or items
     // that just happen to be sorted, thanks to BTreeSet, so that a flat list of items can be
     // generated in sort order.
-    pub fn flatten_items(mut self) -> BTreeSet<&'static Item> {
-        fn flatten(set: &mut BTreeSet<&'static Item>, tree: &mut ItemTree) {
+    pub fn flatten_items(mut self) -> BTreeSet<Item> {
+        fn flatten(set: &mut BTreeSet<Item>, tree: &mut ItemTree) {
             set.append(&mut tree.items);
 
             for tree in tree.nested.values_mut() {

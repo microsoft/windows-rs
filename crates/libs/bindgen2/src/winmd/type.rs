@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub enum Type {
     Void,
     Bool,
@@ -30,8 +30,8 @@ pub enum Type {
     IUnknown,
     BSTR,
 
-    Item(&'static Item),
-    Generic(&'static Item, Vec<Self>),
+    Item(Item),
+    //Generic(&'static Item, Vec<Self>),
     Param(&'static str),
     PtrMut(Box<Self>, usize),
     PtrConst(Box<Self>, usize),
@@ -82,11 +82,7 @@ impl Type {
         }
     }
 
-    pub fn from_ref(
-        code: TypeDefOrRef,
-        enclosing: Option<&'static CppStruct>,
-        generics: &[Self],
-    ) -> Self {
+    pub fn from_ref(code: TypeDefOrRef, enclosing: Option<&CppStruct>, generics: &[Self]) -> Self {
         if let TypeDefOrRef::TypeSpec(def) = code {
             let mut blob = def.blob(0);
             return Self::from_blob_impl(&mut blob, None, generics);
@@ -102,7 +98,7 @@ impl Type {
         // TODO: this needs to be deferred via a TypeName's optional nested type name?
         if let Some(outer) = enclosing {
             if namespace.is_empty() {
-                return Type::Item(&outer.nested[name]);
+                return Type::Item(outer.nested[name].clone());
             }
         }
 
@@ -113,11 +109,7 @@ impl Type {
         }
     }
 
-    pub fn from_blob(
-        blob: &mut Blob,
-        enclosing: Option<&'static CppStruct>,
-        generics: &[Type],
-    ) -> Self {
+    pub fn from_blob(blob: &mut Blob, enclosing: Option<&CppStruct>, generics: &[Type]) -> Self {
         // Used by WinRT to indicate that a struct input parameter is passed by reference rather than by value on the ABI.
         let is_const = blob.read_modifiers().iter().any(|def| {
             let type_name = TypeName(def.namespace(), def.name());
@@ -157,11 +149,7 @@ impl Type {
         }
     }
 
-    fn from_blob_impl(
-        blob: &mut Blob,
-        enclosing: Option<&'static CppStruct>,
-        generics: &[Type],
-    ) -> Self {
+    fn from_blob_impl(blob: &mut Blob, enclosing: Option<&CppStruct>, generics: &[Type]) -> Self {
         let code = blob.read_usize();
 
         if let Some(code) = Type::from_element_type(code) {
@@ -190,7 +178,7 @@ impl Type {
                 let namespace = code.namespace();
                 let name = code.name();
 
-                let def = blob
+                let mut item = blob
                     .reader()
                     .with_full_name(namespace, name)
                     .next()
@@ -198,13 +186,13 @@ impl Type {
                         panic!("windows-bindgen: type not found: {namespace}.{name}")
                     });
 
-                let mut args = Vec::with_capacity(blob.read_usize());
+                let generics = item.generics_mut();
 
-                for _ in 0..args.capacity() {
-                    args.push(Self::from_blob_impl(blob, enclosing, generics));
+                for _ in 0..blob.read_usize() {
+                    generics.push(Self::from_blob_impl(blob, enclosing, generics));
                 }
 
-                Type::Generic(def, args)
+                Type::Item(item)
             }
             rest => panic!("windows-bindgen: {rest:?}"),
         }
@@ -258,5 +246,4 @@ impl Type {
             _ => true,
         }
     }
-
 }

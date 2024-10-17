@@ -1,7 +1,7 @@
 use super::*;
 
 impl Writer {
-    pub fn write_cpp_fn(&self, item: &'static CppFn) -> TokenStream {
+    pub fn write_cpp_fn(&self, item: &CppFn) -> TokenStream {
         let name = item.method.name();
         let library = item.method.module_name().to_lowercase();
         let impl_map = item.method.impl_map().expect("ImplMap not found");

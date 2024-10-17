@@ -7,13 +7,13 @@ impl Writer {
         let vtbl_name = self.write_vtbl_ident(item);
         let guid = self.write_guid_u128(&item.def.guid_attribute().unwrap());
         let non_exclusive = !item.def.has_attribute("ExclusiveToAttribute");
-        
-        let methods = non_exclusive.then(||{
+
+        let methods = non_exclusive.then(|| {
             let method_names = &mut MethodNames::new();
 
-            let methods = item.def.methods().map(|method|
+            let methods = item.def.methods().map(|method| {
                 self.write_method(method, &generics, InterfaceKind::Default, method_names)
-            );
+            });
 
             quote! {
                 impl #name {
@@ -21,7 +21,7 @@ impl Writer {
                 }
             }
         });
-        
+
         quote! {
             windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
             impl core::ops::Deref for #name {

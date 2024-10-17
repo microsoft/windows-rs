@@ -1,7 +1,6 @@
 use super::*;
 
 impl Type {
-    
     pub fn runtime_signature(&self) -> String {
         match self {
             Self::Bool => "b1".to_string(),
@@ -22,8 +21,8 @@ impl Type {
             Self::Object => "cinterface(IInspectable)".to_string(),
             Self::GUID => "g16".to_string(),
             Self::HRESULT => "struct(Windows.Foundation.HResult;i4)".to_string(),
-            Self::Item(item) => item.runtime_signature(&[]),
-            Self::Generic(item, generics) => item.runtime_signature(generics),
+            Self::Item(item) => item.runtime_signature(),
+            //Self::Generic(item, generics) => item.runtime_signature(generics),
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
@@ -31,12 +30,12 @@ impl Type {
 
 // TODO: put signatures in their own rs file?
 impl Item {
-    pub fn runtime_signature(&self, generics: &[Type]) -> String {
+    pub fn runtime_signature(&self) -> String {
         match self {
-            Self::Class(item) => item.runtime_signature(generics),
-            Self::Delegate(item) => item.runtime_signature(generics),
+            Self::Class(item) => item.runtime_signature(),
+            Self::Delegate(item) => item.runtime_signature(),
             Self::Enum(item) => item.runtime_signature(),
-            Self::Interface(item) => item.runtime_signature(generics),
+            Self::Interface(item) => item.runtime_signature(),
             Self::Struct(item) => item.runtime_signature(),
             rest => panic!("windows-bindgen: {rest:?}"),
         }
@@ -44,31 +43,31 @@ impl Item {
 }
 
 impl Class {
-    pub fn runtime_signature(&self, generics: &[Type]) -> String {
+    pub fn runtime_signature(&self) -> String {
         format!(
             "rc({}.{};{})",
             self.def.namespace(),
             self.def.name(),
-            self.default_interface(generics).unwrap().runtime_signature()
+            self.default_interface(&self.generics)
+                .unwrap()
+                .runtime_signature()
         )
     }
-
 }
 
 impl Interface {
-    pub fn runtime_signature(&self, generics: &[Type]) -> String {
-        interface_signature(self.def, generics)
+    pub fn runtime_signature(&self) -> String {
+        interface_signature(self.def, &self.generics)
     }
 }
 
-
 impl Delegate {
-    pub fn runtime_signature(&self, generics: &[Type]) -> String {
-        if generics.is_empty() {
+    pub fn runtime_signature(&self) -> String {
+        if self.generics.is_empty() {
             let guid = self.def.guid_attribute().unwrap();
             format!("delegate({{{guid}}})")
         } else {
-            interface_signature(self.def, generics)
+            interface_signature(self.def, &self.generics)
         }
     }
 }

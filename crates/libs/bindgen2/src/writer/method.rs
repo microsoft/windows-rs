@@ -2,8 +2,14 @@ use super::*;
 
 impl Writer {
     // This is only for WinRT methods - use write_cpp_method for nono-WinRT methods
-    pub fn write_method(&self, method: MethodDef, generics: &[Type], kind: InterfaceKind, method_names: &mut MethodNames,) -> TokenStream {
-         let signature = method.signature(generics);
+    pub fn write_method(
+        &self,
+        method: MethodDef,
+        generics: &[Type],
+        kind: InterfaceKind,
+        method_names: &mut MethodNames,
+    ) -> TokenStream {
+        let signature = method.signature(generics);
 
         let params = if kind == InterfaceKind::Composable {
             &signature.params[..signature.params.len() - 2]
@@ -17,7 +23,7 @@ impl Writer {
             method_names.add(method)
         };
 
-        quote! { 
+        quote! {
             pub fn #name(&self) {
 
             }

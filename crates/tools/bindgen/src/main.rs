@@ -16,6 +16,7 @@ fn main() {
     std::fs::remove_dir_all("crates/tests/bindgen/src").unwrap();
     std::fs::create_dir_all("crates/tests/bindgen/src").unwrap();
     std::env::set_current_dir("crates/tests/bindgen/src").unwrap();
+    std::fs::write("lib.rs", "").unwrap();
 
     // Very minimal example of generating just a single item.
     split("--out iota.rs --filter GetTickCount --sys --flat --no-comment --no-allow");
@@ -33,6 +34,7 @@ fn main() {
     split("--out deps3.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-comment");
 
     split("--out winrt_struct.rs --filter Windows.Foundation.Rect --flat --no-comment");
+    //split("--out winrt_struct_with_ref.rs --filter HttpProgress --flat --no-comment");
     split("--out winrt_enum.rs --filter Windows.Foundation.AsyncStatus --flat --no-comment");
     split("--out winrt_interface.rs --filter Windows.Foundation.IStringable --flat --no-comment");
 
