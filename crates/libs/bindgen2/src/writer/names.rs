@@ -1,19 +1,5 @@
 use super::*;
 
-impl Item {
-    pub fn write_name(&self, writer: &Writer) -> TokenStream {
-        match self {
-            Item::CppInterface(_) if writer.config.sys => quote! { *mut core::ffi::c_void },
-            Item::Interface(item) => item.write_name(writer),
-            _ => {
-                let name = to_ident(self.name());
-                let namespace = writer.write_namespace(self.namespace());
-                quote! { #namespace #name }
-            }
-        }
-    }
-}
-
 impl Writer {
     pub fn write_core(&self) -> TokenStream {
         if self.config.no_deps {
@@ -35,113 +21,11 @@ impl Writer {
         }
     }
 
-    pub fn write_name(&self, ty: &Type) -> TokenStream {
-        match ty {
-            Type::Void => quote! { core::ffi::c_void },
-            Type::Bool => quote! { bool },
-            Type::Char => quote! { u16 },
-            Type::I8 => quote! { i8 },
-            Type::U8 => quote! { u8 },
-            Type::I16 => quote! { i16 },
-            Type::U16 => quote! { u16 },
-            Type::I32 => quote! { i32 },
-            Type::U32 => quote! { u32 },
-            Type::I64 => quote! { i64 },
-            Type::U64 => quote! { u64 },
-            Type::F32 => quote! { f32 },
-            Type::F64 => quote! { f64 },
-            Type::ISize => quote! { isize },
-            Type::USize => quote! { usize },
-            Type::BSTR => {
-                let name = self.write_core();
-                quote! { #name BSTR }
-            }
-            Type::IUnknown => {
-                if self.config.sys {
-                    quote! { *mut core::ffi::c_void }
-                } else {
-                    let name = self.write_core();
-                    quote! { #name IUnknown }
-                }
-            }
-            Type::GUID => {
-                let name = self.write_core();
-                quote! { #name GUID }
-            }
-            Type::HRESULT => {
-                let name = self.write_core();
-                quote! { #name HRESULT }
-            }
-            Type::String => {
-                let name = self.write_core();
-                quote! { #name HSTRING }
-            }
-            Type::Object => {
-                if self.config.sys {
-                    quote! { *mut core::ffi::c_void }
-                } else {
-                    let name = self.write_core();
-                    quote! { #name IInspectable }
-                }
-            }
-            Type::PSTR => {
-                let name = self.write_core();
-                quote! { #name PSTR }
-            }
-            Type::PCSTR => {
-                let name = self.write_core();
-                quote! { #name PCSTR }
-            }
-            Type::PWSTR => {
-                let name = self.write_core();
-                quote! { #name PWSTR }
-            }
-            Type::PCWSTR => {
-                let name = self.write_core();
-                quote! { #name PCWSTR }
-            }
-            Type::Item(item) => item.write_name(self),
-            Type::Param(param) => to_ident(param),
-            Type::PtrMut(ty, pointers) => {
-                let pointers = write_ptr_mut(*pointers);
-                let ty = self.write_default_name(ty);
-                quote! { #pointers #ty }
-            }
-            Type::PtrConst(ty, pointers) => {
-                let pointers = write_ptr_const(*pointers);
-                let ty = self.write_default_name(ty);
-                quote! { #pointers #ty }
-            }
-            Type::ArrayFixed(ty, len) => {
-                let name = self.write_default_name(ty);
-                let len = Literal::usize_unsuffixed(*len);
-                quote! { [#name; #len] }
-            }
-            rest => panic!("windows-bindgen: {rest:?}"),
-        }
-    }
-
-    pub fn write_default_name(&self, ty: &Type) -> TokenStream {
-        if let Type::Array(ty) = ty {
-            self.write_default_name(ty)
-        } else {
-            let tokens = self.write_name(ty);
-
-            if matches!(ty, Type::Param(_)) {
-                quote! { <#tokens as windows_core::Type<#tokens>>::Default }
-            } else if ty.is_nullable() && !self.config.sys {
-                quote! { Option<#tokens> }
-            } else {
-                tokens
-            }
-        }
-    }
-
     pub fn write_generic_names(&self, generics: &[Type]) -> TokenStream {
         if generics.is_empty() {
             quote! {}
         } else {
-            let generics = generics.iter().map(|ty| self.write_name(ty));
+            let generics = generics.iter().map(|ty| ty.write(self));
             quote! { <#(#generics),*> }
         }
     }
@@ -150,7 +34,7 @@ impl Writer {
         if generics.is_empty() {
             quote! {}
         } else {
-            let generics = generics.iter().map(|ty| self.write_name(ty));
+            let generics = generics.iter().map(|ty| ty.write(self));
             quote! { #(core::marker::PhantomData::<#generics>),* }
         }
     }
@@ -159,7 +43,7 @@ impl Writer {
         if generics.is_empty() {
             quote! {}
         } else {
-            let generics = generics.iter().map(|ty| self.write_name(ty));
+            let generics = generics.iter().map(|ty| ty.write(self));
             quote! { #(#generics: windows_core::RuntimeType + 'static),* }
         }
     }
@@ -197,12 +81,4 @@ impl Writer {
 
         tokens
     }
-}
-
-fn write_ptr_mut(pointers: usize) -> TokenStream {
-    "*mut ".repeat(pointers).into()
-}
-
-fn write_ptr_const(pointers: usize) -> TokenStream {
-    "*const ".repeat(pointers).into()
 }

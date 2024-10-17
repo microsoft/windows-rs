@@ -1,38 +1,38 @@
 use super::*;
 
-impl Writer {
-    pub fn write_cpp_struct(&self, item: &CppStruct) -> TokenStream {
+impl CppStruct {
+    pub fn write(&self, writer: &Writer) -> TokenStream {
         // TODO: do we need to ass cfg into this?
-        if item.def.has_attribute("NativeTypedefAttribute") {
-            return self.write_cpp_handle(item.def);
+        if self.def.has_attribute("NativeTypedefAttribute") {
+            return writer.write_cpp_handle(self.def);
         }
 
         // TODO: there are actually structs with fields and GUIDs like LOGGING_PARAMETERS
-        if item.def.fields().next().is_none() {
-            if let Some(guid) = item.def.guid_attribute() {
-                return self.write_cpp_const_guid(to_ident(item.name()), &guid);
+        if self.def.fields().next().is_none() {
+            if let Some(guid) = self.def.guid_attribute() {
+                return writer.write_cpp_const_guid(to_ident(self.name()), &guid);
             }
         }
 
         let mut dependencies = Dependencies::new();
 
-        if self.config.package {
-            item.dependencies(&mut dependencies, &self.config);
+        if writer.config.package {
+            self.dependencies(&mut dependencies, &writer.config);
         }
 
-        let cfg = self.write_cfg(item.def, item.def.namespace(), dependencies, false);
-        self.write_with_cfg(item, &cfg)
+        let cfg = writer.write_cfg(self.def, self.def.namespace(), dependencies, false);
+        self.write_with_cfg(writer, &cfg)
     }
 
-    fn write_with_cfg(&self, item: &CppStruct, cfg: &TokenStream) -> TokenStream {
-        let name = to_ident(item.name());
-        let flags = item.def.flags();
+    fn write_with_cfg(&self, writer: &Writer, cfg: &TokenStream) -> TokenStream {
+        let name = to_ident(self.name());
+        let flags = self.def.flags();
 
-        let fields: Vec<_> = item
+        let fields: Vec<_> = self
             .def
             .fields()
             .filter(|field| !field.flags().contains(FieldAttributes::Literal))
-            .map(|field| (field.name(), field.ty(Some(item))))
+            .map(|field| (field.name(), field.ty(Some(self))))
             .collect();
 
         let is_copyable = fields.iter().all(|(_, ty)| ty.is_copyable());
@@ -40,7 +40,7 @@ impl Writer {
         let fields = {
             let fields = fields.iter().map(|(name, ty)| {
                 let name = to_ident(name);
-                let ty = self.write_default_name(ty);
+                let ty = ty.write_default(writer);
                 quote! { pub #name: #ty, }
             });
 
@@ -59,13 +59,13 @@ impl Writer {
 
         let mut derive = quote! { Clone, Copy, };
 
-        if !self.config.sys {
+        if !writer.config.sys {
             derive.combine(quote! { Debug, PartialEq, });
         }
 
         // TODO: add any user-defined derive names
 
-        let type_kind = if self.config.sys {
+        let type_kind = if writer.config.sys {
             quote! {}
         } else if is_copyable {
             quote! {
@@ -83,7 +83,7 @@ impl Writer {
             }
         };
 
-        let default = if self.config.sys {
+        let default = if writer.config.sys {
             quote! {}
         } else {
             quote! {
@@ -102,7 +102,7 @@ impl Writer {
             quote! { struct }
         };
 
-        let repr = if let Some(layout) = item.def.class_layout() {
+        let repr = if let Some(layout) = self.def.class_layout() {
             let packing = Literal::usize_unsuffixed(layout.packing_size());
             quote! { #[repr(C, packed(#packing))] }
         } else {
@@ -110,12 +110,12 @@ impl Writer {
         };
 
         let constants = {
-            let constants = item.def.fields().filter_map(|f| {
+            let constants = self.def.fields().filter_map(|f| {
                 if f.flags().contains(FieldAttributes::Literal) {
                     if let Some(constant) = f.constant() {
                         let name = to_ident(f.name());
-                        let ty = self.write_name(&constant.ty());
-                        let value = self.write_value(&constant.value());
+                        let ty = constant.ty().write(writer);
+                        let value = constant.value().write();
 
                         return Some(quote! {
                             pub const #name: #ty = #value;
@@ -151,9 +151,9 @@ impl Writer {
             #type_kind
         };
 
-        for nested in item.nested.values() {
+        for nested in self.nested.values() {
             if let Item::CppStruct(item) = nested {
-                tokens.combine(self.write_with_cfg(item, cfg));
+                tokens.combine(item.write_with_cfg(writer, cfg));
             } else {
                 panic!();
             }

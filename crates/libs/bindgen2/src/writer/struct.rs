@@ -1,10 +1,10 @@
 use super::*;
 
-impl Writer {
-    pub fn write_struct(&self, item: &Struct) -> TokenStream {
-        let name = to_ident(item.def.name());
+impl Struct {
+    pub fn write(&self, writer: &Writer) -> TokenStream {
+        let name = to_ident(self.def.name());
 
-        let fields: Vec<_> = item
+        let fields: Vec<_> = self
             .def
             .fields()
             .map(|field| (field.name(), field.ty(None)))
@@ -17,7 +17,7 @@ impl Writer {
 
         let fields = fields.iter().map(|(name, ty)| {
             let name = to_ident(name);
-            let ty = self.write_default_name(ty);
+            let ty = ty.write_default(writer);
             quote! { pub #name: #ty, }
         });
 
@@ -27,7 +27,7 @@ impl Writer {
             quote! { CloneType }
         };
 
-        let signature = Literal::byte_string(&item.runtime_signature());
+        let signature = Literal::byte_string(&self.runtime_signature());
 
         quote! {
             #[repr(C)]

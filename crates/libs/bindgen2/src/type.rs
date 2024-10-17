@@ -247,4 +247,114 @@ impl Type {
             _ => true,
         }
     }
+
+    pub fn write(&self, writer: &Writer) -> TokenStream {
+        match self {
+            Type::Void => quote! { core::ffi::c_void },
+            Type::Bool => quote! { bool },
+            Type::Char => quote! { u16 },
+            Type::I8 => quote! { i8 },
+            Type::U8 => quote! { u8 },
+            Type::I16 => quote! { i16 },
+            Type::U16 => quote! { u16 },
+            Type::I32 => quote! { i32 },
+            Type::U32 => quote! { u32 },
+            Type::I64 => quote! { i64 },
+            Type::U64 => quote! { u64 },
+            Type::F32 => quote! { f32 },
+            Type::F64 => quote! { f64 },
+            Type::ISize => quote! { isize },
+            Type::USize => quote! { usize },
+            Type::BSTR => {
+                let name = writer.write_core();
+                quote! { #name BSTR }
+            }
+            Type::IUnknown => {
+                if writer.config.sys {
+                    quote! { *mut core::ffi::c_void }
+                } else {
+                    let name = writer.write_core();
+                    quote! { #name IUnknown }
+                }
+            }
+            Type::GUID => {
+                let name = writer.write_core();
+                quote! { #name GUID }
+            }
+            Type::HRESULT => {
+                let name = writer.write_core();
+                quote! { #name HRESULT }
+            }
+            Type::String => {
+                let name = writer.write_core();
+                quote! { #name HSTRING }
+            }
+            Type::Object => {
+                if writer.config.sys {
+                    quote! { *mut core::ffi::c_void }
+                } else {
+                    let name = writer.write_core();
+                    quote! { #name IInspectable }
+                }
+            }
+            Type::PSTR => {
+                let name = writer.write_core();
+                quote! { #name PSTR }
+            }
+            Type::PCSTR => {
+                let name = writer.write_core();
+                quote! { #name PCSTR }
+            }
+            Type::PWSTR => {
+                let name = writer.write_core();
+                quote! { #name PWSTR }
+            }
+            Type::PCWSTR => {
+                let name = writer.write_core();
+                quote! { #name PCWSTR }
+            }
+            Type::Item(item) => item.write_name(writer),
+            Type::Param(param) => to_ident(param),
+            Type::PtrMut(ty, pointers) => {
+                let pointers = write_ptr_mut(*pointers);
+                let ty = ty.write_default(writer);
+                quote! { #pointers #ty }
+            }
+            Type::PtrConst(ty, pointers) => {
+                let pointers = write_ptr_const(*pointers);
+                let ty = ty.write_default(writer);
+                quote! { #pointers #ty }
+            }
+            Type::ArrayFixed(ty, len) => {
+                let name = ty.write_default(writer);
+                let len = Literal::usize_unsuffixed(*len);
+                quote! { [#name; #len] }
+            }
+            rest => panic!("windows-bindgen: {rest:?}"),
+        }
+    }
+
+    pub fn write_default(&self, writer: &Writer) -> TokenStream {
+        if let Type::Array(ty) = self {
+            ty.write_default(writer)
+        } else {
+            let tokens = self.write(writer);
+
+            if matches!(self, Self::Param(_)) {
+                quote! { <#tokens as windows_core::Type<#tokens>>::Default }
+            } else if self.is_nullable() && !writer.config.sys {
+                quote! { Option<#tokens> }
+            } else {
+                tokens
+            }
+        }
+    }
+}
+
+fn write_ptr_mut(pointers: usize) -> TokenStream {
+    "*mut ".repeat(pointers).into()
+}
+
+fn write_ptr_const(pointers: usize) -> TokenStream {
+    "*const ".repeat(pointers).into()
 }

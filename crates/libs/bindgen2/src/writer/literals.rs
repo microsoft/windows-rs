@@ -1,20 +1,20 @@
 use super::*;
 
-impl Writer {
-    pub fn write_value(&self, value: &Value) -> TokenStream {
-        match value {
-            Value::Bool(value) => quote! { #value },
-            Value::U8(value) => quote! { #value },
-            Value::I8(value) => quote! { #value },
-            Value::U16(value) => quote! { #value },
-            Value::I16(value) => quote! { #value },
-            Value::U32(value) => quote! { #value },
-            Value::I32(value) => quote! { #value },
-            Value::U64(value) => quote! { #value },
-            Value::I64(value) => quote! { #value },
-            Value::F32(value) => quote! { #value },
-            Value::F64(value) => quote! { #value },
-            Value::String(value) => {
+impl Value {
+    pub fn write(&self) -> TokenStream {
+        match self {
+            Self::Bool(value) => quote! { #value },
+            Self::U8(value) => quote! { #value },
+            Self::I8(value) => quote! { #value },
+            Self::U16(value) => quote! { #value },
+            Self::I16(value) => quote! { #value },
+            Self::U32(value) => quote! { #value },
+            Self::I32(value) => quote! { #value },
+            Self::U64(value) => quote! { #value },
+            Self::I64(value) => quote! { #value },
+            Self::F32(value) => quote! { #value },
+            Self::F64(value) => quote! { #value },
+            Self::String(value) => {
                 let mut tokens = "\"".to_string();
 
                 for u in value.chars() {

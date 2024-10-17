@@ -1,27 +1,18 @@
 use super::*;
 
 impl Interface {
-    pub fn write_name(&self, writer: &Writer) -> TokenStream {
-        let name = to_ident(self.def.name());
-        let namespace = writer.write_namespace(self.def.namespace());
-        let generics = writer.write_generic_names(&self.generics);
-        quote! { #namespace #name #generics }
-    }
-}
-
-impl Writer {
-    pub fn write_interface(&self, item: &Interface) -> TokenStream {
-        let name = item.write_name(self);
-        let vtbl_name = self.write_vtbl_ident(item);
-        let guid = self.write_guid_u128(&item.def.guid_attribute().unwrap());
-        let non_exclusive = !item.def.has_attribute("ExclusiveToAttribute");
-        let constraints = self.write_generic_constraints(&item.generics);
+    pub fn write(&self, writer: &Writer) -> TokenStream {
+        let name = self.write_name(writer);
+        let vtbl_name = self.write_vtbl_name();
+        let guid = writer.write_guid_u128(&self.def.guid_attribute().unwrap());
+        let non_exclusive = !self.def.has_attribute("ExclusiveToAttribute");
+        let constraints = writer.write_generic_constraints(&self.generics);
 
         let methods = non_exclusive.then(|| {
             let method_names = &mut MethodNames::new();
 
-            let methods = item.def.methods().map(|method| {
-                self.write_method(method, &item.generics, InterfaceKind::Default, method_names)
+            let methods = self.def.methods().map(|method| {
+                writer.write_method(method, &self.generics, InterfaceKind::Default, method_names)
             });
 
             quote! {
@@ -31,13 +22,13 @@ impl Writer {
             }
         });
 
-        let definition = if item.generics.is_empty() {
+        let definition = if self.generics.is_empty() {
             quote! {
                 windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
                 windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
             }
         } else {
-            let phantoms = self.write_generic_phantoms(&item.generics);
+            let phantoms = writer.write_generic_phantoms(&self.generics);
 
             quote! {
                 #[repr(transparent)]
@@ -72,7 +63,14 @@ impl Writer {
         }
     }
 
-    pub fn write_vtbl_ident(&self, item: &Interface) -> TokenStream {
-        format!("{}_Vtbl", item.def.name()).into()
+    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+        let name = to_ident(self.def.name());
+        let namespace = writer.write_namespace(self.def.namespace());
+        let generics = writer.write_generic_names(&self.generics);
+        quote! { #namespace #name #generics }
+    }
+
+    pub fn write_vtbl_name(&self) -> TokenStream {
+        format!("{}_Vtbl", self.def.name()).into()
     }
 }

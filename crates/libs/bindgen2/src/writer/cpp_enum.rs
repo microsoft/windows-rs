@@ -1,30 +1,30 @@
 use super::*;
 
-impl Writer {
-    pub fn write_cpp_enum(&self, item: &CppEnum) -> TokenStream {
-        let is_scoped = item.def.has_attribute("ScopedEnumAttribute");
+impl CppEnum {
+    pub fn write(&self, writer: &Writer) -> TokenStream {
+        let is_scoped = self.def.has_attribute("ScopedEnumAttribute");
 
-        if !is_scoped && self.config.sys {
-            return self.write_cpp_handle(item.def);
+        if !is_scoped && writer.config.sys {
+            return writer.write_cpp_handle(self.def);
         }
 
-        let name = to_ident(item.def.name());
-        let underlying_type = self.write_name(&item.def.underlying_type());
+        let name = to_ident(self.def.name());
+        let underlying_type = self.def.underlying_type().write(writer);
 
         let mut derive = quote! { Copy, Clone, };
 
-        if !self.config.sys {
+        if !writer.config.sys {
             derive.combine(quote! { Debug, PartialEq, });
         }
 
         let fields = if is_scoped {
-            let fields = item
+            let fields = self
                 .def
                 .fields()
                 .filter(|field| field.flags().contains(FieldAttributes::Literal))
                 .map(|field| {
                     let name = to_ident(field.name());
-                    let value = self.write_value(&field.constant().unwrap().value());
+                    let value = field.constant().unwrap().value().write();
 
                     quote! {
                         pub const #name: Self = Self(#value);
@@ -41,7 +41,7 @@ impl Writer {
         };
 
         // TODO: is TypeKind really needed on all these Win32 types?
-        let type_kind = if self.config.sys {
+        let type_kind = if writer.config.sys {
             quote! {}
         } else {
             quote! {

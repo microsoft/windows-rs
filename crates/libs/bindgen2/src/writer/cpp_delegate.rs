@@ -1,26 +1,26 @@
 use super::*;
 
-impl Writer {
-    pub fn write_cpp_delegate(&self, item: &CppDelegate) -> TokenStream {
-        let name = to_ident(item.def.name());
-        let method = item.method();
+impl CppDelegate {
+    pub fn write(&self, writer: &Writer) -> TokenStream {
+        let name = to_ident(self.def.name());
+        let method = self.method();
         let signature = method.signature(&[]);
 
         let params = signature.params.iter().map(|(ty, param)| {
             let name = to_ident(&param.name().to_lowercase());
-            let ty = self.write_default_name(ty);
+            let ty = ty.write_default(writer);
             quote! { #name: #ty }
         });
 
-        let return_sig = self.write_return_sig(method, &signature);
+        let return_sig = writer.write_return_sig(method, &signature);
 
         let mut dependencies = Dependencies::new();
 
-        if self.config.package {
-            item.dependencies(&mut dependencies, &self.config);
+        if writer.config.package {
+            self.dependencies(&mut dependencies, &writer.config);
         }
 
-        let cfg = self.write_cfg(item.def, item.def.namespace(), dependencies, false);
+        let cfg = writer.write_cfg(self.def, self.def.namespace(), dependencies, false);
 
         // TODO: are all callback "system" ABI?
 

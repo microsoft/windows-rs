@@ -1,17 +1,17 @@
 use super::*;
 
-impl Writer {
-    pub fn write_cpp_fn(&self, item: &CppFn) -> TokenStream {
-        let name = item.method.name();
-        let library = item.method.module_name().to_lowercase();
-        let impl_map = item.method.impl_map().expect("ImplMap not found");
+impl CppFn {
+    pub fn write(&self, writer: &Writer) -> TokenStream {
+        let name = self.method.name();
+        let library = self.method.module_name().to_lowercase();
+        let impl_map = self.method.impl_map().expect("ImplMap not found");
         let mut symbol = Some(impl_map.import_name());
 
         if symbol == Some(name) {
             symbol = None;
         }
 
-        let name = to_ident(item.method.name());
+        let name = to_ident(self.method.name());
         let impl_flags = impl_map.flags();
 
         let abi = if impl_flags.contains(PInvokeAttributes::CallConvPlatformapi) {
@@ -22,24 +22,24 @@ impl Writer {
             unimplemented!()
         };
 
-        let signature = item.method.signature(&[]);
+        let signature = self.method.signature(&[]);
 
         let params = signature.params.iter().map(|(ty, param)| {
             let name = to_ident(&param.name().to_lowercase());
-            let ty = self.write_default_name(ty);
+            let ty = ty.write_default(writer);
             quote! { #name: #ty }
         });
 
-        let return_sig = self.write_return_sig(item.method, &signature);
+        let return_sig = writer.write_return_sig(self.method, &signature);
 
         let mut dependencies = Dependencies::new();
 
-        if self.config.package {
-            item.dependencies(&mut dependencies, &self.config);
+        if writer.config.package {
+            self.dependencies(&mut dependencies, &writer.config);
         }
 
         let vararg =
-            if self.config.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
+            if writer.config.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
                 quote! { , ... }
             } else {
                 quote! {}
@@ -49,9 +49,9 @@ impl Writer {
             windows_targets::link!(#library #abi #symbol fn #name(#(#params),* #vararg) #return_sig);
         });
 
-        let cfg = self.write_cfg(item.method, item.def.namespace(), dependencies, false);
+        let cfg = writer.write_cfg(self.method, self.def.namespace(), dependencies, false);
 
-        if self.config.sys {
+        if writer.config.sys {
             return quote! {
                 #cfg
                 #link
@@ -62,7 +62,9 @@ impl Writer {
 
         quote! {}
     }
+}
 
+impl Writer {
     pub fn write_return_sig(&self, method: MethodDef, signature: &Signature) -> TokenStream {
         match &signature.return_type.0 {
             Type::Void => {
@@ -72,8 +74,8 @@ impl Writer {
                     quote! {}
                 }
             }
-            rest => {
-                let ty = self.write_default_name(rest);
+            ty => {
+                let ty = ty.write_default(self);
                 quote! { -> #ty }
             }
         }

@@ -1,34 +1,34 @@
 use super::*;
 
-impl Writer {
-    pub fn write_cpp_const(&self, item: &CppConst) -> TokenStream {
-        let name = to_ident(item.field.name());
+impl CppConst {
+    pub fn write(&self, writer: &Writer) -> TokenStream {
+        let name = to_ident(self.field.name());
 
         // TODO: is this even needed?
-        if let Some(guid) = item.field.guid_attribute() {
-            return self.write_cpp_const_guid(name, &guid);
+        if let Some(guid) = self.field.guid_attribute() {
+            return writer.write_cpp_const_guid(name, &guid);
         }
 
-        let field_ty = item.field.ty(None).to_const_type();
+        let field_ty = self.field.ty(None).to_const_type();
 
         let mut dependencies = Dependencies::new();
 
-        if self.config.package {
-            item.dependencies(&mut dependencies, &self.config);
+        if writer.config.package {
+            self.dependencies(&mut dependencies, &writer.config);
         }
 
-        let cfg = self.write_cfg(item.field, item.def.namespace(), dependencies, false);
+        let cfg = writer.write_cfg(self.field, self.def.namespace(), dependencies, false);
 
-        if let Some(constant) = item.field.constant() {
+        if let Some(constant) = self.field.constant() {
             let constant_ty = constant.ty();
 
             if field_ty == constant_ty {
                 if field_ty == Type::String {
-                    let crate_name = self.write_core();
-                    let value = self.write_value(&constant.value());
+                    let crate_name = writer.write_core();
+                    let value = constant.value().write();
 
-                    // TODO: if self.no_deps then write these literals out as byte strings?
-                    if is_ansi_encoding(item.field) {
+                    // TODO: if writer.no_deps then write these literals out as byte strings?
+                    if is_ansi_encoding(self.field) {
                         quote! {
                             #cfg
                             pub const #name: #crate_name PCSTR = #crate_name s!(#value);
@@ -41,8 +41,8 @@ impl Writer {
                     }
                 } else {
                     // TODO: typed value
-                    let ty = self.write_name(&field_ty);
-                    let value = self.write_value(&constant.value());
+                    let ty = field_ty.write(writer);
+                    let value = constant.value().write();
 
                     quote! {
                         #cfg
@@ -51,8 +51,8 @@ impl Writer {
                 }
             } else {
                 let underlying_ty = underlying_type(&field_ty);
-                let ty = self.write_name(&field_ty);
-                let mut value = self.write_value(&constant.value());
+                let ty = field_ty.write(writer);
+                let mut value = constant.value().write();
 
                 if underlying_ty == constant_ty {
                     if is_signed_error(&field_ty) {
@@ -69,7 +69,7 @@ impl Writer {
                     pub const #name: #ty = #value;
                 }
             }
-        } else if let Some(attribute) = item.field.find_attribute("ConstantAttribute") {
+        } else if let Some(attribute) = self.field.find_attribute("ConstantAttribute") {
             let args = attribute.args();
             let Some((_, Value::String(input))) = args.first() else {
                 panic!()
@@ -83,12 +83,12 @@ impl Writer {
             let mut tokens = quote! {};
 
             for field in item.def.fields() {
-                let (value, rest) = self.field_initializer(field, input);
+                let (value, rest) = writer.field_initializer(field, input);
                 input = rest;
                 tokens.combine(value);
             }
 
-            let ty = self.write_name(&field_ty);
+            let ty = field_ty.write(writer);
 
             quote! {
                 #cfg
@@ -96,75 +96,6 @@ impl Writer {
             }
         } else {
             panic!()
-        }
-    }
-
-    pub fn write_cpp_const_guid(&self, name: TokenStream, value: &GUID) -> TokenStream {
-        let crate_name = self.write_core();
-        let value = self.write_guid_u128(value);
-
-        quote! {
-            pub const #name: #crate_name GUID = #crate_name GUID::from_u128(#value);
-        }
-    }
-
-    pub fn write_guid_u128(&self, value: &GUID) -> TokenStream {
-        format!(
-            "0x{:08x?}_{:04x?}_{:04x?}_{:02x?}{:02x?}_{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}",
-            value.0,
-            value.1,
-            value.2,
-            value.3,
-            value.4,
-            value.5,
-            value.6,
-            value.7,
-            value.8,
-            value.9,
-            value.10
-        )
-        .into()
-    }
-
-    // TODO: make method?
-    fn field_initializer<'a>(&self, field: Field, input: &'a str) -> (TokenStream, &'a str) {
-        let name = to_ident(field.name());
-
-        match field.ty(None) {
-            Type::GUID => {
-                let (literals, rest) = read_literal_array(input, 11);
-                let value = self.write_guid_u128(&GUID(
-                    literals[0].parse().unwrap(),
-                    literals[1].parse().unwrap(),
-                    literals[2].parse().unwrap(),
-                    literals[3].parse().unwrap(),
-                    literals[4].parse().unwrap(),
-                    literals[5].parse().unwrap(),
-                    literals[6].parse().unwrap(),
-                    literals[7].parse().unwrap(),
-                    literals[8].parse().unwrap(),
-                    literals[9].parse().unwrap(),
-                    literals[10].parse().unwrap(),
-                ));
-                let crate_name = self.write_core();
-                (quote! { #name: #crate_name GUID::from_u128(#value), }, rest)
-            }
-            Type::ArrayFixed(_, len) => {
-                let (literals, rest) = read_literal_array(input, len);
-                let literals = literals.iter().map(|literal| TokenStream::from(*literal));
-                (quote! { #name: [#(#literals,)*], }, rest)
-            }
-            Type::PtrMut(_, _) => {
-                // The Win32 metadata uses integer values for initializing pointers. This is a workaround
-                // to allow most such cases to work.
-                let (_, rest) = read_literal(input);
-                (quote! { #name: core::ptr::null_mut(), }, rest)
-            }
-            _ => {
-                let (literal, rest) = read_literal(input);
-                let literal: TokenStream = literal.into();
-                (quote! { #name: #literal, }, rest)
-            }
         }
     }
 }
@@ -187,51 +118,4 @@ fn underlying_type(ty: &Type) -> Type {
         Type::HRESULT => Type::I32,
         _ => ty.clone(),
     }
-}
-
-fn read_literal_array(input: &str, len: usize) -> (Vec<&str>, &str) {
-    let mut input = read_token(input, b'{');
-    let mut result = vec![];
-
-    for _ in 0..len {
-        let (literal, rest) = read_literal(input);
-        result.push(literal);
-        input = rest;
-    }
-
-    (result, read_token(input, b'}'))
-}
-
-fn read_literal(input: &str) -> (&str, &str) {
-    let mut start = None;
-    let mut end = 0;
-
-    for (pos, c) in input.bytes().enumerate() {
-        if start.is_none() {
-            if c != b' ' && c != b',' {
-                start = Some(pos);
-            }
-        } else if c == b' ' || c == b',' || c == b'}' {
-            break;
-        }
-        end += 1;
-    }
-
-    let Some(start) = start else {
-        unimplemented!();
-    };
-
-    (&input[start..end], &input[end..])
-}
-
-fn read_token(input: &str, token: u8) -> &str {
-    for (pos, c) in input.bytes().enumerate() {
-        if c == token {
-            return &input[pos + 1..];
-        } else if c != b' ' && c != b',' {
-            break;
-        }
-    }
-
-    panic!("`{}` expected", token.escape_ascii());
 }

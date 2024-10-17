@@ -8,12 +8,14 @@ mod cpp_struct;
 mod r#enum;
 mod format;
 mod interface;
+mod item;
 mod literals;
 mod method;
 mod method_names;
 mod names;
 mod runtime_signature;
 mod r#struct;
+mod value;
 
 use super::*;
 use method_names::*;
@@ -96,7 +98,7 @@ impl Writer {
         let mut tokens = TokenStream::new();
 
         for item in tree.flatten_items() {
-            tokens.combine(self.write_item(&item));
+            tokens.combine(item.write(self));
         }
 
         tokens
@@ -106,7 +108,7 @@ impl Writer {
         let mut tokens = TokenStream::new();
 
         for item in &tree.items {
-            tokens.combine(self.write_item(item));
+            tokens.combine(item.write(self));
         }
 
         for (name, tree) in &tree.nested {
@@ -147,7 +149,7 @@ impl Writer {
             let writer = self.with_namespace(tree.namespace);
 
             for item in &tree.items {
-                tokens.combine(writer.write_item(item));
+                tokens.combine(item.write(&writer));
             }
 
             let output = format!("{directory}/mod.rs");
@@ -185,19 +187,5 @@ impl Writer {
         }
 
         write_to_file(&toml_path, toml);
-    }
-
-    fn write_item(&self, item: &Item) -> TokenStream {
-        match item {
-            Item::Struct(item) => self.write_struct(item),
-            Item::Enum(item) => self.write_enum(item),
-            Item::Interface(item) => self.write_interface(item),
-            Item::CppStruct(item) => self.write_cpp_struct(item),
-            Item::CppEnum(item) => self.write_cpp_enum(item),
-            Item::CppFn(item) => self.write_cpp_fn(item),
-            Item::CppConst(item) => self.write_cpp_const(item),
-            Item::CppDelegate(item) => self.write_cpp_delegate(item),
-            _ => quote! {},
-        }
     }
 }

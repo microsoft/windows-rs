@@ -1,8 +1,6 @@
 use super::*;
 
 mod attributes;
-mod bindings;
-mod blob;
 mod codes;
 mod dependencies;
 mod file;
@@ -12,17 +10,13 @@ mod reader;
 mod row;
 mod signature;
 mod tables;
-mod r#type;
 mod type_name;
 
 pub use attributes::*;
-use bindings::*;
-use blob::*;
 pub use codes::*;
 pub use dependencies::*;
 pub use file::*;
 pub use item::*;
-pub use r#type::*;
 pub use reader::*;
 pub use row::*;
 pub use signature::*;

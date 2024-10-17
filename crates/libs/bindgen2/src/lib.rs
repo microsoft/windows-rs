@@ -7,18 +7,24 @@
 // TODO: remove this once bindgen2 is up and running
 #![allow(dead_code)]
 
+mod bindings;
+mod blob;
 mod filter;
 mod io;
 mod item_tree;
 mod name_tree;
 mod tokens;
+mod r#type;
 mod winmd;
 mod writer;
 
+use bindings::*;
+use blob::*;
 use filter::*;
 use io::*;
 use item_tree::*;
 use name_tree::*;
+use r#type::*;
 use std::cmp::Ordering;
 use std::collections::*;
 use std::fmt::Write;

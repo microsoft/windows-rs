@@ -1,24 +1,24 @@
 use super::*;
 
-impl Writer {
-    pub fn write_enum(&self, item: &Enum) -> TokenStream {
-        let name = to_ident(item.def.name());
-        let underlying_type = self.write_name(&item.def.underlying_type());
+impl Enum {
+    pub fn write(&self, writer: &Writer) -> TokenStream {
+        let name = to_ident(self.def.name());
+        let underlying_type = self.def.underlying_type().write(writer);
 
-        let fields = item
+        let fields = self
             .def
             .fields()
             .filter(|field| field.flags().contains(FieldAttributes::Literal))
             .map(|field| {
                 let name = to_ident(field.name());
-                let value = self.write_value(&field.constant().unwrap().value());
+                let value = field.constant().unwrap().value().write();
 
                 quote! {
                     pub const #name: Self = Self(#value);
                 }
             });
 
-        let signature = Literal::byte_string(&item.runtime_signature());
+        let signature = Literal::byte_string(&self.runtime_signature());
 
         quote! {
             #[repr(transparent)]
