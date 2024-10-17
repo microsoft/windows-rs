@@ -165,6 +165,22 @@ impl Item {
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
+
+    pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
+        match self {
+            Item::Class(item) => item.dependencies(dependencies, config),
+            Item::Delegate(item) => item.dependencies(dependencies, config),
+            Item::Enum(item) => item.dependencies(dependencies, config),
+            Item::Interface(item) => item.dependencies(dependencies, config),
+            Item::Struct(item) => item.dependencies(dependencies, config),
+            Item::CppConst(item) => item.dependencies(dependencies, config),
+            Item::CppDelegate(item) => item.dependencies(dependencies, config),
+            Item::CppFn(item) => item.dependencies(dependencies, config),
+            Item::CppInterface(item) => item.dependencies(dependencies, config),
+            Item::CppStruct(item) => item.dependencies(dependencies, config),
+            Item::CppEnum(item) => item.dependencies(dependencies, config),
+        }
+    }
 }
 
 fn interface_signature(def: TypeDef, generics: &[Type]) -> String {

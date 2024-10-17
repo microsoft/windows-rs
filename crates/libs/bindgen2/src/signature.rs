@@ -13,6 +13,13 @@ impl Signature {
     //         .iter()
     //         .fold(0, |sum, param| sum + std::cmp::max(4, param.0.size()))
     // }
+
+    pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
+        self.return_type.0.dependencies(dependencies, config);
+        self.params
+            .iter()
+            .for_each(|(ty, _)| ty.dependencies(dependencies, config));
+    }
 }
 
 // TODO: put WrapperSignature here? better name...

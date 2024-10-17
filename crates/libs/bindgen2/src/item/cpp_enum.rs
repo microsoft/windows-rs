@@ -76,4 +76,8 @@ impl CppEnum {
             #type_kind
         }
     }
+
+    pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
+        dependencies.insert(self.def.namespace(), self.def.name());
+    }
 }

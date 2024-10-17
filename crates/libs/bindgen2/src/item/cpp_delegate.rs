@@ -53,4 +53,12 @@ impl CppDelegate {
             pub type #name = Option<unsafe extern "system" fn(#(#params),*) #return_sig>;
         }
     }
+
+    pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
+        if dependencies.insert(self.def.namespace(), self.def.name()) {
+            self.method()
+                .signature(&[])
+                .dependencies(dependencies, config);
+        }
+    }
 }

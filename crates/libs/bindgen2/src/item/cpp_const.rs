@@ -116,6 +116,12 @@ impl CppConst {
             panic!()
         }
     }
+
+    pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
+        if dependencies.insert(self.def.namespace(), self.field.name()) {
+            self.field.ty(None).dependencies(dependencies, config);
+        }
+    }
 }
 
 fn is_ansi_encoding(row: Field) -> bool {

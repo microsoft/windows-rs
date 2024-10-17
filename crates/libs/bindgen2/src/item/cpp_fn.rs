@@ -80,6 +80,14 @@ impl CppFn {
 
         quote! {}
     }
+
+    pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
+        if dependencies.insert(self.def.namespace(), self.method.name()) {
+            self.method
+                .signature(&[])
+                .dependencies(dependencies, config);
+        }
+    }
 }
 
 impl Writer {

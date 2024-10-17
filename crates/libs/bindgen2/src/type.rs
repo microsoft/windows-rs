@@ -374,6 +374,53 @@ impl Type {
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
+
+    pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
+        match self {
+            Self::PtrMut(ty, _) => ty.dependencies(dependencies, config),
+            Self::PtrConst(ty, _) => ty.dependencies(dependencies, config),
+            Self::ArrayFixed(ty, _) => ty.dependencies(dependencies, config),
+            Self::Array(ty) => ty.dependencies(dependencies, config),
+            Self::ArrayRef(ty) => ty.dependencies(dependencies, config),
+            Self::ConstRef(ty) => ty.dependencies(dependencies, config),
+            Self::PrimitiveOrEnum(_, ty) => ty.dependencies(dependencies, config),
+            Self::String => {
+                dependencies.insert("", "String");
+            }
+            Self::Object => {
+                dependencies.insert("", "Object");
+            }
+            Self::PSTR => {
+                dependencies.insert("", "PSTR");
+            }
+            Self::PCSTR => {
+                dependencies.insert("", "PCSTR");
+            }
+            Self::PWSTR => {
+                dependencies.insert("", "PWSTR");
+            }
+            Self::PCWSTR => {
+                dependencies.insert("", "PCWSTR");
+            }
+            Self::GUID => {
+                dependencies.insert("", "GUID");
+            }
+            Self::HRESULT => {
+                dependencies.insert("", "HRESULT");
+            }
+            Self::Item(item) => {
+                item.dependencies(dependencies, config);
+            }
+            // Self::Generic(item, generics) => {
+            //     item.dependencies(dependencies, config);
+
+            //     generics
+            //         .iter()
+            //         .for_each(|ty| ty.dependencies(dependencies, config));
+            // }
+            _ => {}
+        }
+    }
 }
 
 fn write_ptr_mut(pointers: usize) -> TokenStream {

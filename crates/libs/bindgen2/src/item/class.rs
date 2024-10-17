@@ -24,4 +24,10 @@ impl Class {
                 .runtime_signature()
         )
     }
+
+    pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
+        if dependencies.insert(self.def.namespace(), self.def.name()) {
+            // TODO: add dependencies
+        }
+    }
 }

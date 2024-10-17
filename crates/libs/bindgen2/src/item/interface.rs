@@ -83,4 +83,10 @@ impl Interface {
     pub fn runtime_signature(&self) -> String {
         interface_signature(self.def, &self.generics)
     }
+
+    pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
+        if dependencies.insert(self.def.namespace(), self.def.name()) {
+            // TODO: add dependencies
+        }
+    }
 }

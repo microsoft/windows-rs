@@ -22,4 +22,10 @@ impl Delegate {
             interface_signature(self.def, &self.generics)
         }
     }
+
+    pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
+        if dependencies.insert(self.def.namespace(), self.def.name()) {
+            // TODO: add dependencies
+        }
+    }
 }

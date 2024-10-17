@@ -49,4 +49,8 @@ impl Enum {
             self.def.underlying_type().runtime_signature()
         )
     }
+
+    pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
+        dependencies.insert(self.def.namespace(), self.def.name());
+    }
 }
