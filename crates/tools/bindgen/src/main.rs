@@ -34,9 +34,10 @@ fn main() {
     split("--out deps3.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-comment");
 
     split("--out winrt_struct.rs --filter Windows.Foundation.Rect --flat --no-comment");
-    //split("--out winrt_struct_with_ref.rs --filter HttpProgress --flat --no-comment");
+    split("--out winrt_struct_with_generic.rs --filter HttpProgress --flat --no-comment");
     split("--out winrt_enum.rs --filter Windows.Foundation.AsyncStatus --flat --no-comment");
     split("--out winrt_interface.rs --filter Windows.Foundation.IStringable --flat --no-comment");
+    split("--out winrt_interface_generic.rs --filter Windows.Foundation.IAsyncOperation --flat --no-comment");
 
     // TODO: probably want to avoid generating dependencies on windows and windows-sys - just windows-core/result/string/targets
     // 1. so in that model --sys bindings imply --no-deps and the latter is only useful for removing the above dependencies for non-sys bindings

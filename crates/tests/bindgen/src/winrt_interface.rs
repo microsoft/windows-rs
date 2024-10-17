@@ -11,17 +11,17 @@ windows_core::imp::define_interface!(
     IStringable_Vtbl,
     0x96369f54_8eb6_48f0_abce_c1b211e627c3
 );
+windows_core::imp::interface_hierarchy!(
+    IStringable,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
 impl core::ops::Deref for IStringable {
     type Target = windows_core::IInspectable;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
 }
-windows_core::imp::interface_hierarchy!(
-    IStringable,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
 impl IStringable {
     pub fn ToString(&self) {}
 }

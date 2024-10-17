@@ -107,11 +107,20 @@ pub struct CppFn {
 }
 
 impl Item {
-    pub fn generics_mut(&mut self) -> &mut Vec<Type> {
+    pub fn generics(&self) -> &[Type] {
         match self {
-            Self::Class(item) => &mut item.generics,
-            Self::Interface(item) => &mut item.generics,
-            Self::Delegate(item) => &mut item.generics,
+            Self::Class(item) => &item.generics,
+            Self::Interface(item) => &item.generics,
+            Self::Delegate(item) => &item.generics,
+            _ => &[],
+        }
+    }
+
+    pub fn set_generics(&mut self, generics: Vec<Type>) {
+        match self {
+            Self::Class(item) => item.generics = generics,
+            Self::Interface(item) => item.generics = generics,
+            Self::Delegate(item) => item.generics = generics,
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }

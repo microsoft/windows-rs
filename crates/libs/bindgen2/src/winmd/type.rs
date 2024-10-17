@@ -186,12 +186,13 @@ impl Type {
                         panic!("windows-bindgen: type not found: {namespace}.{name}")
                     });
 
-                let generics = item.generics_mut();
+                let mut item_generics = vec![];
 
                 for _ in 0..blob.read_usize() {
-                    generics.push(Self::from_blob_impl(blob, enclosing, generics));
+                    item_generics.push(Self::from_blob_impl(blob, enclosing, generics));
                 }
 
+                item.set_generics(item_generics);
                 Type::Item(item)
             }
             rest => panic!("windows-bindgen: {rest:?}"),

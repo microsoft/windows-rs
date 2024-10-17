@@ -22,7 +22,6 @@ impl Type {
             Self::GUID => "g16".to_string(),
             Self::HRESULT => "struct(Windows.Foundation.HResult;i4)".to_string(),
             Self::Item(item) => item.runtime_signature(),
-            //Self::Generic(item, generics) => item.runtime_signature(generics),
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
@@ -101,7 +100,7 @@ fn interface_signature(def: TypeDef, generics: &[Type]) -> String {
         format!("{{{guid}}}")
     } else {
         let guid = def.guid_attribute().unwrap();
-        let mut signature = format!("pinterface({{{guid}}})");
+        let mut signature = format!("pinterface({{{guid}}}");
 
         for generic in generics {
             signature.push(';');

@@ -1,5 +1,19 @@
 use super::*;
 
+impl Item {
+    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+        match self {
+            Item::CppInterface(_) if writer.config.sys => quote! { *mut core::ffi::c_void },
+            Item::Interface(item) => item.write_name(writer),
+            _ => {
+                let name = to_ident(self.name());
+                let namespace = writer.write_namespace(self.namespace());
+                quote! { #namespace #name }
+            }
+        }
+    }
+}
+
 impl Writer {
     pub fn write_core(&self) -> TokenStream {
         if self.config.no_deps {
@@ -86,8 +100,8 @@ impl Writer {
                 let name = self.write_core();
                 quote! { #name PCWSTR }
             }
-            Type::Item(item) => self.write_item_name(item),
-            //Type::Generic(item, generics) => self.write_generic_name(item, generics),
+            Type::Item(item) => item.write_name(self),
+            Type::Param(param) => to_ident(param),
             Type::PtrMut(ty, pointers) => {
                 let pointers = write_ptr_mut(*pointers);
                 let ty = self.write_default_name(ty);
@@ -123,39 +137,34 @@ impl Writer {
         }
     }
 
-    fn write_item_name(&self, item: &Item) -> TokenStream {
-        match item {
-            Item::CppInterface(_) if self.config.sys => quote! { *mut core::ffi::c_void },
-            _ => {
-                let name = to_ident(item.name());
-                let namespace = self.write_namespace(item.namespace());
-                quote! { #namespace #name }
-            }
+    pub fn write_generic_names(&self, generics: &[Type]) -> TokenStream {
+        if generics.is_empty() {
+            quote! {}
+        } else {
+            let generics = generics.iter().map(|ty| self.write_name(ty));
+            quote! { <#(#generics),*> }
         }
-
-        // match item {
-        //     Item::Struct(item) => {
-        //         let name = to_ident(item.def.name());
-        //         let namespace = self.write_namespace(item.def.namespace());
-        //         quote! { #namespace #name }
-        //     }
-        //     Item::CppStruct(item) => {
-        //         let name = to_ident(item.name());
-        //         let namespace = self.write_namespace(item.def.namespace());
-        //         quote! { #namespace #name }
-        //     }
-        //     rest => panic!("windows-bindgen: {rest:?}"),
-        // }
     }
 
-    fn write_generic_name(&self, item: &Item, generics: &[Type]) -> TokenStream {
-        let name = to_ident(item.name());
-        let namespace = self.write_namespace(item.namespace());
-        let generics = generics.iter().map(|ty| self.write_name(ty));
-        quote! { #namespace #name <#(#generics),*> }
+    pub fn write_generic_phantoms(&self, generics: &[Type]) -> TokenStream {
+        if generics.is_empty() {
+            quote! {}
+        } else {
+            let generics = generics.iter().map(|ty| self.write_name(ty));
+            quote! { #(core::marker::PhantomData::<#generics>),* }
+        }
     }
 
-    fn write_namespace(&self, namespace: &str) -> TokenStream {
+    pub fn write_generic_constraints(&self, generics: &[Type]) -> TokenStream {
+        if generics.is_empty() {
+            quote! {}
+        } else {
+            let generics = generics.iter().map(|ty| self.write_name(ty));
+            quote! { #(#generics: windows_core::RuntimeType + 'static),* }
+        }
+    }
+
+    pub fn write_namespace(&self, namespace: &str) -> TokenStream {
         if self.config.flat || namespace.is_empty() || namespace == self.namespace {
             return quote! {};
         }
