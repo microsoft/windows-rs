@@ -1,5 +1,10 @@
 use super::*;
 
+#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
+pub struct Struct {
+    pub def: TypeDef,
+}
+
 impl Struct {
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.def.name());
@@ -42,5 +47,15 @@ impl Struct {
                 const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#signature);
             }
         }
+    }
+
+    pub fn runtime_signature(&self) -> String {
+        let mut signature = format!("struct({}.{}", self.def.namespace(), self.def.name());
+        for field in self.def.fields() {
+            signature.push(';');
+            signature.push_str(&field.ty(None).runtime_signature());
+        }
+        signature.push(')');
+        signature
     }
 }

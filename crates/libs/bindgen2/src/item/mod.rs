@@ -1,6 +1,29 @@
 use super::*;
 
-// TODO: implement Ord for CppFn manually so that it sorts by library and then name
+mod class;
+mod cpp_const;
+mod cpp_delegate;
+mod cpp_enum;
+mod cpp_fn;
+mod cpp_interface;
+mod cpp_struct;
+mod delegate;
+mod r#enum;
+mod interface;
+mod r#struct;
+
+pub use class::*;
+pub use cpp_const::*;
+pub use cpp_delegate::*;
+pub use cpp_enum::*;
+pub use cpp_fn::*;
+pub use cpp_interface::*;
+pub use cpp_struct::*;
+pub use delegate::*;
+pub use interface::*;
+pub use r#enum::*;
+pub use r#struct::*;
+
 #[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub enum Item {
     CppFn(CppFn),
@@ -35,78 +58,33 @@ pub enum Item {
 //     }
 // }
 
-#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
-pub struct Interface {
-    pub def: TypeDef,
-    pub generics: Vec<Type>,
-}
-#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
-pub struct Class {
-    pub def: TypeDef,
-    pub generics: Vec<Type>,
-}
-#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
-pub struct Enum {
-    pub def: TypeDef,
-}
-#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
-pub struct Struct {
-    pub def: TypeDef,
-}
-#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
-pub struct Delegate {
-    pub def: TypeDef,
-    pub generics: Vec<Type>,
-}
-#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
-pub struct CppInterface {
-    pub def: TypeDef,
-}
-#[derive(Clone, Debug, PartialEq, Eq)]
-pub struct CppEnum {
-    pub def: TypeDef,
-}
-#[derive(Clone, Debug, PartialEq, Eq)]
-pub struct CppStruct {
-    pub def: TypeDef,
-    pub name: String,
-    pub nested: BTreeMap<&'static str, Item>,
-}
-#[derive(Clone, Debug, PartialEq, Eq)]
-pub struct CppDelegate {
-    pub def: TypeDef,
-}
-
-impl Delegate {
-    pub fn method(&self) -> MethodDef {
-        self.def
-            .methods()
-            .find(|method| method.name() == "Invoke")
-            .unwrap()
-    }
-}
-
-impl CppDelegate {
-    pub fn method(&self) -> MethodDef {
-        self.def
-            .methods()
-            .find(|method| method.name() == "Invoke")
-            .unwrap()
-    }
-}
-
-#[derive(Clone, Debug, PartialEq, Eq)]
-pub struct CppConst {
-    pub def: TypeDef,
-    pub field: Field,
-}
-#[derive(Clone, Debug, PartialEq, Eq)]
-pub struct CppFn {
-    pub def: TypeDef,
-    pub method: MethodDef,
-}
-
 impl Item {
+    pub fn write(&self, writer: &Writer) -> TokenStream {
+        match self {
+            Item::Struct(item) => item.write(writer),
+            Item::Enum(item) => item.write(writer),
+            Item::Interface(item) => item.write(writer),
+            Item::CppStruct(item) => item.write(writer),
+            Item::CppEnum(item) => item.write(writer),
+            Item::CppFn(item) => item.write(writer),
+            Item::CppConst(item) => item.write(writer),
+            Item::CppDelegate(item) => item.write(writer),
+            _ => quote! {},
+        }
+    }
+
+    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+        match self {
+            Item::CppInterface(_) if writer.config.sys => quote! { *mut core::ffi::c_void },
+            Item::Interface(item) => item.write_name(writer),
+            _ => {
+                let name = to_ident(self.name());
+                let namespace = writer.write_namespace(self.namespace());
+                quote! { #namespace #name }
+            }
+        }
+    }
+
     pub fn generics(&self) -> &[Type] {
         match self {
             Self::Class(item) => &item.generics,
@@ -176,23 +154,33 @@ impl Item {
     pub fn is_copyable(&self) -> bool {
         matches!(self, Self::Enum(_) | Self::CppEnum(_))
     }
-}
 
-impl Class {
-    pub fn default_interface(&self, generics: &[Type]) -> Option<Type> {
-        self.def
-            .interface_impls()
-            .find(|imp| imp.has_attribute("DefaultAttribute"))
-            .map(|imp| imp.ty(generics))
+    pub fn runtime_signature(&self) -> String {
+        match self {
+            Self::Class(item) => item.runtime_signature(),
+            Self::Delegate(item) => item.runtime_signature(),
+            Self::Enum(item) => item.runtime_signature(),
+            Self::Interface(item) => item.runtime_signature(),
+            Self::Struct(item) => item.runtime_signature(),
+            rest => panic!("windows-bindgen: {rest:?}"),
+        }
     }
 }
 
-impl CppStruct {
-    pub fn name(&self) -> &str {
-        if self.name.is_empty() {
-            self.def.name()
-        } else {
-            &self.name
+fn interface_signature(def: TypeDef, generics: &[Type]) -> String {
+    if generics.is_empty() {
+        let guid = def.guid_attribute().unwrap();
+        format!("{{{guid}}}")
+    } else {
+        let guid = def.guid_attribute().unwrap();
+        let mut signature = format!("pinterface({{{guid}}}");
+
+        for generic in generics {
+            signature.push(';');
+            signature.push_str(&generic.runtime_signature())
         }
+
+        signature.push(')');
+        signature
     }
 }

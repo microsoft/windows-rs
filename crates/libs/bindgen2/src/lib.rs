@@ -9,19 +9,24 @@
 
 mod bindings;
 mod blob;
+mod dependencies;
 mod filter;
 mod io;
+mod item;
 mod item_tree;
 mod name_tree;
 mod tokens;
 mod r#type;
+mod type_name;
 mod winmd;
 mod writer;
 
 use bindings::*;
 use blob::*;
+use dependencies::*;
 use filter::*;
 use io::*;
+use item::*;
 use item_tree::*;
 use name_tree::*;
 use r#type::*;
@@ -29,9 +34,11 @@ use std::cmp::Ordering;
 use std::collections::*;
 use std::fmt::Write;
 use tokens::*;
+use type_name::*;
 use winmd::*;
 use writer::*;
-
+mod method_names;
+use method_names::*;
 #[derive(Clone, Default)]
 struct Config {
     pub output: String,

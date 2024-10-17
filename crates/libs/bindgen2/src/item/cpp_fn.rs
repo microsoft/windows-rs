@@ -1,5 +1,23 @@
 use super::*;
 
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct CppFn {
+    pub def: TypeDef,
+    pub method: MethodDef,
+}
+
+impl Ord for CppFn {
+    fn cmp(&self, other: &Self) -> Ordering {
+        (self.method.name(), self.method).cmp(&(other.method.name(), other.method))
+    }
+}
+
+impl PartialOrd for CppFn {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
 impl CppFn {
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = self.method.name();

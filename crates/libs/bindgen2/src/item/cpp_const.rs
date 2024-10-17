@@ -1,5 +1,23 @@
 use super::*;
 
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct CppConst {
+    pub def: TypeDef,
+    pub field: Field,
+}
+
+impl Ord for CppConst {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.field.name().cmp(other.field.name())
+    }
+}
+
+impl PartialOrd for CppConst {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
 impl CppConst {
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.field.name());

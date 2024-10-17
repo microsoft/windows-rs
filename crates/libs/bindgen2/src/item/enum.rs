@@ -1,5 +1,10 @@
 use super::*;
 
+#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
+pub struct Enum {
+    pub def: TypeDef,
+}
+
 impl Enum {
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.def.name());
@@ -34,5 +39,14 @@ impl Enum {
                 const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(#signature);
             }
         }
+    }
+
+    pub fn runtime_signature(&self) -> String {
+        format!(
+            "enum({}.{};{})",
+            self.def.namespace(),
+            self.def.name(),
+            self.def.underlying_type().runtime_signature()
+        )
     }
 }

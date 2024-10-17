@@ -1,5 +1,11 @@
 use super::*;
 
+#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
+pub struct Interface {
+    pub def: TypeDef,
+    pub generics: Vec<Type>,
+}
+
 impl Interface {
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = self.write_name(writer);
@@ -72,5 +78,9 @@ impl Interface {
 
     pub fn write_vtbl_name(&self) -> TokenStream {
         format!("{}_Vtbl", self.def.name()).into()
+    }
+
+    pub fn runtime_signature(&self) -> String {
+        interface_signature(self.def, &self.generics)
     }
 }

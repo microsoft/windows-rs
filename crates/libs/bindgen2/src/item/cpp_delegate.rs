@@ -1,6 +1,30 @@
 use super::*;
 
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct CppDelegate {
+    pub def: TypeDef,
+}
+
+impl Ord for CppDelegate {
+    fn cmp(&self, other: &Self) -> Ordering {
+        (self.def.name(), self.def).cmp(&(other.def.name(), other.def))
+    }
+}
+
+impl PartialOrd for CppDelegate {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
 impl CppDelegate {
+    pub fn method(&self) -> MethodDef {
+        self.def
+            .methods()
+            .find(|method| method.name() == "Invoke")
+            .unwrap()
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.def.name());
         let method = self.method();

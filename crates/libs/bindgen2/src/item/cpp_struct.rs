@@ -1,6 +1,34 @@
 use super::*;
 
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct CppStruct {
+    pub def: TypeDef,
+    pub name: String,
+    pub nested: BTreeMap<&'static str, Item>,
+}
+
+impl Ord for CppStruct {
+    fn cmp(&self, other: &Self) -> Ordering {
+        // TODO: need to do the same for other Cpp types that may have multiple arches
+        (self.def.name(), self.def).cmp(&(other.def.name(), other.def))
+    }
+}
+
+impl PartialOrd for CppStruct {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
 impl CppStruct {
+    pub fn name(&self) -> &str {
+        if self.name.is_empty() {
+            self.def.name()
+        } else {
+            &self.name
+        }
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         // TODO: do we need to ass cfg into this?
         if self.def.has_attribute("NativeTypedefAttribute") {

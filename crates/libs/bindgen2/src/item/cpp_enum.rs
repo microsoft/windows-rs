@@ -1,5 +1,22 @@
 use super::*;
 
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct CppEnum {
+    pub def: TypeDef,
+}
+
+impl Ord for CppEnum {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.def.name().cmp(other.def.name())
+    }
+}
+
+impl PartialOrd for CppEnum {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
 impl CppEnum {
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let is_scoped = self.def.has_attribute("ScopedEnumAttribute");

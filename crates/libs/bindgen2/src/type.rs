@@ -349,6 +349,31 @@ impl Type {
             }
         }
     }
+
+    pub fn runtime_signature(&self) -> String {
+        match self {
+            Self::Bool => "b1".to_string(),
+            Self::Char => "c2".to_string(),
+            Self::I8 => "i1".to_string(),
+            Self::U8 => "u1".to_string(),
+            Self::I16 => "i2".to_string(),
+            Self::U16 => "u2".to_string(),
+            Self::I32 => "i4".to_string(),
+            Self::U32 => "u4".to_string(),
+            Self::I64 => "i8".to_string(),
+            Self::U64 => "u8".to_string(),
+            Self::F32 => "f4".to_string(),
+            Self::F64 => "f8".to_string(),
+            Self::ISize => "is".to_string(),
+            Self::USize => "us".to_string(),
+            Self::String => "string".to_string(),
+            Self::Object => "cinterface(IInspectable)".to_string(),
+            Self::GUID => "g16".to_string(),
+            Self::HRESULT => "struct(Windows.Foundation.HResult;i4)".to_string(),
+            Self::Item(item) => item.runtime_signature(),
+            rest => panic!("windows-bindgen: {rest:?}"),
+        }
+    }
 }
 
 fn write_ptr_mut(pointers: usize) -> TokenStream {
