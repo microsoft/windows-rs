@@ -32,7 +32,7 @@ impl Writer {
         });
 
         let definition = if item.generics.is_empty() {
-            quote ! { 
+            quote! {
                 windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
                 windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
             }
