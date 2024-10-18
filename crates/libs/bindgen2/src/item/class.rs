@@ -7,6 +7,10 @@ pub struct Class {
 }
 
 impl Class {
+    pub fn write(&self, _writer: &Writer) -> TokenStream {
+        quote! {}
+    }
+
     pub fn default_interface(&self, generics: &[Type]) -> Option<Type> {
         self.def
             .interface_impls()

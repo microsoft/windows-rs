@@ -70,7 +70,8 @@ impl Item {
             Item::CppConst(item) => item.write(writer),
             Item::CppDelegate(item) => item.write(writer),
             Item::Delegate(item) => item.write(writer),
-            _ => quote! {},
+            Item::Class(item) => item.write(writer),
+            Item::CppInterface(item) => item.write(writer),
         }
     }
 
