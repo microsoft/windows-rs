@@ -20,7 +20,13 @@ impl Interface {
             let virtual_names = &mut MethodNames::new();
 
             let methods = self.def.methods().map(|method| {
-                writer.write_method(method, &self.generics, InterfaceKind::Default, method_names, virtual_names)
+                method.write(
+                    writer,
+                    &self.generics,
+                    InterfaceKind::Default,
+                    method_names,
+                    virtual_names,
+                )
             });
 
             quote! {

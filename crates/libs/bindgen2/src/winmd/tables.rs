@@ -406,6 +406,40 @@ impl MethodDef {
             params,
         }
     }
+
+    // This is only for WinRT methods - use write_cpp_method for nono-WinRT methods
+    pub fn write(
+        &self,
+        _writer: &Writer,
+        generics: &[Type],
+        kind: InterfaceKind,
+        method_names: &mut MethodNames,
+        _virtual_names: &mut MethodNames,
+    ) -> TokenStream {
+        let signature = self.signature(generics);
+
+        let params = if kind == InterfaceKind::Composable {
+            &signature.params[..signature.params.len() - 2]
+        } else {
+            &signature.params
+        };
+
+        let name = if kind == InterfaceKind::Composable && params.is_empty() {
+            quote!(new)
+        } else {
+            method_names.add(self)
+        };
+
+        quote! {
+            pub fn #name(&self) {
+
+            }
+        }
+    }
+
+    pub fn write_cpp(&self, _writer: &Writer) -> TokenStream {
+        quote! {}
+    }
 }
 
 impl ModuleRef {

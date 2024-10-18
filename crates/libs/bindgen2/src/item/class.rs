@@ -26,7 +26,13 @@ impl Class {
             let mut virtual_names = MethodNames::new();
 
             for method in interface.def.methods() {
-                methods.combine(writer.write_method(method, &interface.generics, *kind, &mut method_names, &mut virtual_names));
+                methods.combine(method.write(
+                    writer,
+                    &interface.generics,
+                    *kind,
+                    &mut method_names,
+                    &mut virtual_names,
+                ));
             }
         }
 

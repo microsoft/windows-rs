@@ -1,7 +1,6 @@
 mod cfg;
 mod cpp_handle;
 mod format;
-mod method;
 mod names;
 mod value;
 

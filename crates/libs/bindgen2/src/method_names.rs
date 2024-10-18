@@ -8,7 +8,7 @@ impl MethodNames {
         Self(BTreeMap::new())
     }
 
-    pub fn add(&mut self, method: MethodDef) -> TokenStream {
+    pub fn add(&mut self, method: &MethodDef) -> TokenStream {
         let name = method_def_special_name(method);
         let overload = self.0.entry(name.to_string()).or_insert(0);
         *overload += 1;
@@ -20,7 +20,7 @@ impl MethodNames {
     }
 }
 
-fn method_def_special_name(row: MethodDef) -> String {
+fn method_def_special_name(row: &MethodDef) -> String {
     let name = row.name();
     if row.flags().contains(MethodAttributes::SpecialName) {
         if name.starts_with("get") {
