@@ -18,6 +18,18 @@ impl Class {
             }
         };
 
+        let required_interfaces = self.required_interfaces();
+        let mut methods = quote! {};
+        let mut method_names = MethodNames::new();
+
+        for (interface, kind) in &required_interfaces {
+            let mut virtual_names = MethodNames::new();
+
+            for method in interface.def.methods() {
+                methods.combine(writer.write_method(method, &interface.generics, *kind, &mut method_names, &mut virtual_names));
+            }
+        }
+
         if let Some(default_interface) = self.default_interface(&self.generics) {
             let default_interface = default_interface.write(writer);
 
@@ -28,7 +40,7 @@ impl Class {
                 windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
                 //windows_core::imp::required_hierarchy!(#name, IClosable);
                 impl #name {
-                    //#(#methods)*
+                    #methods
                 }
                 impl windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, #default_interface>();

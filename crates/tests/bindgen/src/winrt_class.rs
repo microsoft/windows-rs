@@ -89,7 +89,11 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl Deferral {}
+impl Deferral {
+    pub fn Close(&self) {}
+    pub fn Complete(&self) {}
+    pub fn Create(&self) {}
+}
 impl windows_core::RuntimeType for Deferral {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IDeferral>();

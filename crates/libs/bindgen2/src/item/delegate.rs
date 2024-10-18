@@ -18,6 +18,7 @@ impl Delegate {
             &self.generics,
             InterfaceKind::Default,
             &mut MethodNames::new(),
+            &mut MethodNames::new(),
         );
 
         let definition = if self.generics.is_empty() {

@@ -8,6 +8,7 @@ impl Writer {
         generics: &[Type],
         kind: InterfaceKind,
         method_names: &mut MethodNames,
+        _virtual_names: &mut MethodNames,
     ) -> TokenStream {
         let signature = method.signature(generics);
 

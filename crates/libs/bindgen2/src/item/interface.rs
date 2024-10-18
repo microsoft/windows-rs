@@ -17,9 +17,10 @@ impl Interface {
 
         let methods = non_exclusive.then(|| {
             let method_names = &mut MethodNames::new();
+            let virtual_names = &mut MethodNames::new();
 
             let methods = self.def.methods().map(|method| {
-                writer.write_method(method, &self.generics, InterfaceKind::Default, method_names)
+                writer.write_method(method, &self.generics, InterfaceKind::Default, method_names, virtual_names)
             });
 
             quote! {
