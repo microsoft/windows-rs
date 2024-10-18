@@ -141,6 +141,7 @@ impl Item {
         match self {
             Self::Struct(item) => item.def.underlying_type(),
             Self::CppEnum(item) => item.def.underlying_type(),
+            Self::Enum(item) => item.def.underlying_type(),
             Self::CppStruct(item) => item.def.underlying_type(),
             rest => panic!("windows-bindgen: {rest:?}"),
         }
