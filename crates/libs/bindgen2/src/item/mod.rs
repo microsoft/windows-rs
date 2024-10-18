@@ -69,6 +69,7 @@ impl Item {
             Item::CppFn(item) => item.write(writer),
             Item::CppConst(item) => item.write(writer),
             Item::CppDelegate(item) => item.write(writer),
+            Item::Delegate(item) => item.write(writer),
             _ => quote! {},
         }
     }

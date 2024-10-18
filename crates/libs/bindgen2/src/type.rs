@@ -31,7 +31,6 @@ pub enum Type {
     BSTR,
 
     Item(Item),
-    //Generic(&'static Item, Vec<Self>),
     Param(&'static str),
     PtrMut(Box<Self>, usize),
     PtrConst(Box<Self>, usize),
@@ -411,13 +410,6 @@ impl Type {
             Self::Item(item) => {
                 item.dependencies(dependencies, config);
             }
-            // Self::Generic(item, generics) => {
-            //     item.dependencies(dependencies, config);
-
-            //     generics
-            //         .iter()
-            //         .for_each(|ty| ty.dependencies(dependencies, config));
-            // }
             _ => {}
         }
     }
