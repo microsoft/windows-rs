@@ -28,10 +28,10 @@ pub use r#struct::*;
 pub enum Item {
     CppFn(CppFn),
 
+    Interface(Interface),
     Class(Class),
     Delegate(Delegate),
     Enum(Enum),
-    Interface(Interface),
     Struct(Struct),
 
     CppConst(CppConst),

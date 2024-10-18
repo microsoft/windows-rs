@@ -9,7 +9,7 @@ impl CppInterface {
     pub fn write(&self, _writer: &Writer) -> TokenStream {
         quote! {}
     }
-    
+
     pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
         if !config.sys && dependencies.insert(self.def.namespace(), self.def.name()) {
             // TODO: add dependencies

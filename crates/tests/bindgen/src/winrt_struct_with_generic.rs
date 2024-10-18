@@ -7,28 +7,6 @@
 )]
 
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct HttpProgressStage(pub i32);
-impl HttpProgressStage {
-    pub const None: Self = Self(0i32);
-    pub const DetectingProxy: Self = Self(10i32);
-    pub const ResolvingName: Self = Self(20i32);
-    pub const ConnectingToServer: Self = Self(30i32);
-    pub const NegotiatingSsl: Self = Self(40i32);
-    pub const SendingHeaders: Self = Self(50i32);
-    pub const SendingContent: Self = Self(60i32);
-    pub const WaitingForResponse: Self = Self(70i32);
-    pub const ReceivingHeaders: Self = Self(80i32);
-    pub const ReceivingContent: Self = Self(90i32);
-}
-impl windows_core::TypeKind for HttpProgressStage {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for HttpProgressStage {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpProgressStage;i4)");
-}
-#[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IReference<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
 where
@@ -62,6 +40,28 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IRefe
 #[repr(C)]
 pub struct IReference_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct HttpProgressStage(pub i32);
+impl HttpProgressStage {
+    pub const None: Self = Self(0i32);
+    pub const DetectingProxy: Self = Self(10i32);
+    pub const ResolvingName: Self = Self(20i32);
+    pub const ConnectingToServer: Self = Self(30i32);
+    pub const NegotiatingSsl: Self = Self(40i32);
+    pub const SendingHeaders: Self = Self(50i32);
+    pub const SendingContent: Self = Self(60i32);
+    pub const WaitingForResponse: Self = Self(70i32);
+    pub const ReceivingHeaders: Self = Self(80i32);
+    pub const ReceivingContent: Self = Self(90i32);
+}
+impl windows_core::TypeKind for HttpProgressStage {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HttpProgressStage {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.HttpProgressStage;i4)");
 }
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]

@@ -13,7 +13,12 @@ impl Delegate {
         let guid = writer.write_guid_u128(&self.def.guid_attribute().unwrap());
         let constraints = writer.write_generic_constraints(&self.generics);
 
-        let method = writer.write_method(self.method(), &self.generics, InterfaceKind::Default, &mut MethodNames::new());
+        let method = writer.write_method(
+            self.method(),
+            &self.generics,
+            InterfaceKind::Default,
+            &mut MethodNames::new(),
+        );
 
         let definition = if self.generics.is_empty() {
             quote! {

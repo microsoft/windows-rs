@@ -5,6 +5,8 @@ pub mod deps2;
 pub mod deps3;
 pub mod iota;
 pub mod iota_win;
+pub mod winrt_class;
+pub mod winrt_class_static;
 pub mod winrt_delegate;
 pub mod winrt_delegate_generic;
 pub mod winrt_enum;
