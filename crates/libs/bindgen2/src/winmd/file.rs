@@ -153,6 +153,7 @@ impl File {
         let mut unused_assembly_os = Table::default();
         let mut unused_assembly_processor = Table::default();
         let mut unused_assembly_ref_os = Table::default();
+        let mut unused_assembly_ref = Table::default();
         let mut unused_assembly_ref_processor = Table::default();
         let mut unused_decl_security = Table::default();
         let mut unused_event = Table::default();
@@ -208,7 +209,7 @@ impl File {
                 0x20 => unused_assembly.len = len,
                 0x21 => unused_assembly_processor.len = len,
                 0x22 => unused_assembly_os.len = len,
-                0x23 => result.tables[AssemblyRef::TABLE].len = len,
+                0x23 => unused_assembly_ref.len = len,
                 0x24 => unused_assembly_ref_processor.len = len,
                 0x25 => unused_assembly_ref_os.len = len,
                 0x26 => unused_file.len = len,
@@ -254,7 +255,7 @@ impl File {
             coded_index_size(&[tables[Field::TABLE].len, tables[MethodDef::TABLE].len]);
         let implementation = coded_index_size(&[
             unused_file.len,
-            tables[AssemblyRef::TABLE].len,
+            unused_assembly_ref.len,
             unused_exported_type.len,
         ]);
         let custom_attribute_type = coded_index_size(&[
@@ -267,7 +268,7 @@ impl File {
         let resolution_scope = coded_index_size(&[
             tables[Module::TABLE].len,
             tables[ModuleRef::TABLE].len,
-            tables[AssemblyRef::TABLE].len,
+            unused_assembly_ref.len,
             tables[TypeRef::TABLE].len,
         ]);
         let type_or_method_def =
@@ -288,7 +289,7 @@ impl File {
             tables[ModuleRef::TABLE].len,
             tables[TypeSpec::TABLE].len,
             unused_assembly.len,
-            tables[AssemblyRef::TABLE].len,
+            unused_assembly_ref.len,
             unused_file.len,
             unused_exported_type.len,
             unused_manifest_resource.len,
@@ -307,7 +308,7 @@ impl File {
         );
         unused_assembly_os.set_columns(4, 4, 4, 0, 0, 0);
         unused_assembly_processor.set_columns(4, 0, 0, 0, 0, 0);
-        result.tables[AssemblyRef::TABLE].set_columns(
+        unused_assembly_ref.set_columns(
             8,
             4,
             blob_index_size,
@@ -315,22 +316,8 @@ impl File {
             string_index_size,
             blob_index_size,
         );
-        unused_assembly_ref_os.set_columns(
-            4,
-            4,
-            4,
-            result.tables[AssemblyRef::TABLE].index_width(),
-            0,
-            0,
-        );
-        unused_assembly_ref_processor.set_columns(
-            4,
-            result.tables[AssemblyRef::TABLE].index_width(),
-            0,
-            0,
-            0,
-            0,
-        );
+        unused_assembly_ref_os.set_columns(4, 4, 4, unused_assembly_ref.index_width(), 0, 0);
+        unused_assembly_ref_processor.set_columns(4, unused_assembly_ref.index_width(), 0, 0, 0, 0);
         result.tables[ClassLayout::TABLE].set_columns(
             2,
             4,
@@ -511,7 +498,7 @@ impl File {
         unused_assembly.set_data(&mut view);
         unused_assembly_processor.set_data(&mut view);
         unused_assembly_os.set_data(&mut view);
-        result.tables[AssemblyRef::TABLE].set_data(&mut view);
+        unused_assembly_ref.set_data(&mut view);
         unused_assembly_ref_processor.set_data(&mut view);
         unused_assembly_ref_os.set_data(&mut view);
         unused_file.set_data(&mut view);

@@ -74,13 +74,6 @@ code! { TypeOrMethodDef(1)
     (TypeDef, 0)
 }
 
-code! { ResolutionScope(2)
-    (Module, 0)
-    (ModuleRef, 1)
-    (AssemblyRef, 2)
-    (TypeRef, 3)
-}
-
 impl TypeDefOrRef {
     pub fn name(&self) -> &'static str {
         match self {
