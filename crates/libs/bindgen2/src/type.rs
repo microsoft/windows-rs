@@ -54,6 +54,7 @@ impl Type {
             TypeName::IInspectable => Some(Type::Object),
             TypeName::CHAR => Some(Type::I8),
             TypeName::IUnknown => Some(Type::IUnknown),
+            TypeName::Type => Some(Type::Type),
             _ => None,
         }
     }

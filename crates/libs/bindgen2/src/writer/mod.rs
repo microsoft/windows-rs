@@ -10,8 +10,8 @@ use rayon::prelude::*;
 
 #[derive(Copy, Clone, PartialEq, Eq)]
 pub enum InterfaceKind {
+    None,
     Default,
-    Overridable,
     Static,
     Composable,
     Base,

@@ -31,8 +31,7 @@ impl Interface {
 
         let required_hierarchy =non_exclusive.then(|| {
             if self.generics.is_empty() {
-                
-                    if required_hierarchy.is_empty(){ 
+                    if required_hierarchy.is_empty() {
                         quote! {}
                     } else {
                         let required_hierarchy = required_hierarchy.iter().map(|ty| ty.write_name(writer));
@@ -51,7 +50,6 @@ impl Interface {
                 quote! {
                     #(#required_hierarchy)*
                 }
-    
             }
         });
 
@@ -64,7 +62,6 @@ impl Interface {
             }
         } else {
             let phantoms = writer.write_generic_phantoms(&self.generics);
-
 
             quote! {
                 #[repr(transparent)]
@@ -123,10 +120,13 @@ impl Interface {
     }
 
     // TODO: this is where we can use config.minimal to elide required interfaces that aren't included?
-    pub fn required_interfaces(&self, ) -> BTreeSet<Interface> {
+    pub fn required_interfaces(&self) -> BTreeSet<Interface> {
         fn walk(interface: &Interface, set: &mut BTreeSet<Interface>) {
-            for ty in interface.def
-            .interface_impls().map(|imp|imp.ty(&interface.generics)) {
+            for ty in interface
+                .def
+                .interface_impls()
+                .map(|imp| imp.ty(&interface.generics))
+            {
                 let Type::Item(Item::Interface(interface)) = ty else {
                     panic!();
                 };

@@ -57,8 +57,6 @@ impl Class {
             .map(|imp| imp.ty(generics))
     }
 
-    //pub fn required_interfaces(&self, )
-
     pub fn runtime_signature(&self) -> String {
         format!(
             "rc({}.{};{})",
@@ -72,9 +70,101 @@ impl Class {
 
     pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
-            if let Some(default_interface) = self.default_interface(&self.generics) {
-                default_interface.dependencies(dependencies, config);
+            for (interface, _) in self.required_interfaces() {
+                interface.dependencies(dependencies, config);
             }
         }
+    }
+
+    fn bases(&self) -> Vec<Self> {
+        let mut bases = Vec::new();
+        let mut def = self.def;
+        let reader = def.reader();
+
+        loop {
+            let extends = def.extends().unwrap();
+            let extends = TypeName(extends.namespace(), extends.name());
+
+            if extends == TypeName::Object {
+                break;
+            }
+
+            let Some(Item::Class(base)) = reader
+                .with_full_name(extends.namespace(), extends.name())
+                .next()
+            else {
+                panic!("Type not found");
+            };
+
+            def = base.def;
+            bases.push(base);
+        }
+
+        bases
+    }
+
+    // TODO: this is where we can use config.minimal to elide required interfaces that aren't included?
+    pub fn required_interfaces(&self) -> BTreeMap<Interface, InterfaceKind> {
+        fn walk(
+            def: TypeDef,
+            generics: &[Type],
+            is_base: bool,
+            set: &mut BTreeMap<Interface, InterfaceKind>,
+        ) {
+            for imp in def.interface_impls() {
+                let Type::Item(Item::Interface(interface)) = imp.ty(generics) else {
+                    panic!();
+                };
+
+                let kind = if !is_base && imp.has_attribute("DefaultAttribute") {
+                    InterfaceKind::Default
+                } else if is_base {
+                    InterfaceKind::Base
+                } else {
+                    InterfaceKind::None
+                };
+
+                if let Some(existing) = set.get_mut(&interface) {
+                    if kind == InterfaceKind::Default {
+                        *existing = kind;
+                    }
+                } else {
+                    walk(interface.def, &interface.generics, is_base, set);
+                    set.insert(interface, kind);
+                }
+            }
+        }
+        let mut set = BTreeMap::new();
+        walk(self.def, &self.generics, false, &mut set);
+
+        for base in self.bases() {
+            walk(base.def, &[], true, &mut set);
+        }
+
+        for attribute in self.def.attributes() {
+            let kind = match attribute.name() {
+                "StaticAttribute" | "ActivatableAttribute" => InterfaceKind::Static,
+                "ComposableAttribute" => InterfaceKind::Composable,
+                _ => continue,
+            };
+
+            for (_, arg) in attribute.args() {
+                if let Value::TypeName(type_name) = arg {
+                    let Some(Item::Interface(interface)) = self
+                        .def
+                        .reader()
+                        .with_full_name(type_name.namespace(), type_name.name())
+                        .next()
+                    else {
+                        panic!("Type not found");
+                    };
+
+                    set.insert(interface, kind);
+                    break;
+                }
+            }
+        }
+
+        set
     }
 }

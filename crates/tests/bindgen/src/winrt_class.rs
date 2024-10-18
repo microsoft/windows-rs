@@ -57,6 +57,30 @@ impl windows_core::RuntimeType for IDeferral {
 pub struct IDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
+windows_core::imp::define_interface!(
+    IDeferralFactory,
+    IDeferralFactory_Vtbl,
+    0x65a1ecc5_3fb5_4832_8ca9_f061b281d13a
+);
+windows_core::imp::interface_hierarchy!(
+    IDeferralFactory,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl core::ops::Deref for IDeferralFactory {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeType for IDeferralFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDeferralFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Deferral(windows_core::IUnknown);
