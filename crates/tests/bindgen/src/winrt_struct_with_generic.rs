@@ -6,6 +6,71 @@
     clippy::all
 )]
 
+windows_core::imp::define_interface!(
+    IPropertyValue,
+    IPropertyValue_Vtbl,
+    0x4bd682dd_7554_40e9_9a9b_82654ede7e62
+);
+windows_core::imp::interface_hierarchy!(
+    IPropertyValue,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl core::ops::Deref for IPropertyValue {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl IPropertyValue {
+    pub fn Type(&self) {}
+    pub fn IsNumericScalar(&self) {}
+    pub fn GetUInt8(&self) {}
+    pub fn GetInt16(&self) {}
+    pub fn GetUInt16(&self) {}
+    pub fn GetInt32(&self) {}
+    pub fn GetUInt32(&self) {}
+    pub fn GetInt64(&self) {}
+    pub fn GetUInt64(&self) {}
+    pub fn GetSingle(&self) {}
+    pub fn GetDouble(&self) {}
+    pub fn GetChar16(&self) {}
+    pub fn GetBoolean(&self) {}
+    pub fn GetString(&self) {}
+    pub fn GetGuid(&self) {}
+    pub fn GetDateTime(&self) {}
+    pub fn GetTimeSpan(&self) {}
+    pub fn GetPoint(&self) {}
+    pub fn GetSize(&self) {}
+    pub fn GetRect(&self) {}
+    pub fn GetUInt8Array(&self) {}
+    pub fn GetInt16Array(&self) {}
+    pub fn GetUInt16Array(&self) {}
+    pub fn GetInt32Array(&self) {}
+    pub fn GetUInt32Array(&self) {}
+    pub fn GetInt64Array(&self) {}
+    pub fn GetUInt64Array(&self) {}
+    pub fn GetSingleArray(&self) {}
+    pub fn GetDoubleArray(&self) {}
+    pub fn GetChar16Array(&self) {}
+    pub fn GetBooleanArray(&self) {}
+    pub fn GetStringArray(&self) {}
+    pub fn GetInspectableArray(&self) {}
+    pub fn GetGuidArray(&self) {}
+    pub fn GetDateTimeArray(&self) {}
+    pub fn GetTimeSpanArray(&self) {}
+    pub fn GetPointArray(&self) {}
+    pub fn GetSizeArray(&self) {}
+    pub fn GetRectArray(&self) {}
+}
+impl windows_core::RuntimeType for IPropertyValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IPropertyValue_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IReference<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
@@ -18,6 +83,11 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_
 impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable>
     for IReference<T>
 {
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IPropertyValue>
+    for IReference<T>
+{
+    const QUERY: bool = true;
 }
 unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IReference<T> {
     type Vtable = IReference_Vtbl;

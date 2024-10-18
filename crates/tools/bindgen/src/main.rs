@@ -42,6 +42,7 @@ fn main() {
 
     split("--out winrt_interface.rs --filter Windows.Foundation.IStringable --flat --no-comment");
     split("--out winrt_interface_generic.rs --filter Windows.Foundation.IAsyncOperation --flat --no-comment");
+    split("--out winrt_interface_required.rs --filter Windows.Foundation.IAsyncAction --flat --no-comment");
 
     split("--out winrt_delegate.rs --filter Windows.Foundation.DeferralCompletedHandler --flat --no-comment");
     split("--out winrt_delegate_generic.rs --filter Windows.Foundation.EventHandler --flat --no-comment");

@@ -13,6 +13,7 @@ impl Interface {
         let guid = writer.write_guid_u128(&self.def.guid_attribute().unwrap());
         let non_exclusive = !self.def.has_attribute("ExclusiveToAttribute");
         let constraints = writer.write_generic_constraints(&self.generics);
+        let required_hierarchy = self.required_interfaces();
 
         let methods = non_exclusive.then(|| {
             let method_names = &mut MethodNames::new();
@@ -28,13 +29,42 @@ impl Interface {
             }
         });
 
+        let required_hierarchy =non_exclusive.then(|| {
+            if self.generics.is_empty() {
+                
+                    if required_hierarchy.is_empty(){ 
+                        quote! {}
+                    } else {
+                        let required_hierarchy = required_hierarchy.iter().map(|ty| ty.write_name(writer));
+                        quote! {
+                            windows_core::imp::required_hierarchy!(#name, #(#required_hierarchy),*);
+                        }
+                    }
+            } else {
+                let required_hierarchy = required_hierarchy.iter().map(|ty| {
+                    let ty = ty.write_name(writer);
+                    quote!{
+                        impl<#constraints> windows_core::imp::CanInto<#ty> for #name { const QUERY: bool = true; }
+                    }
+                });
+
+                quote! {
+                    #(#required_hierarchy)*
+                }
+    
+            }
+        });
+
+        // TODO: this disparity is a real pain to code gen
         let definition = if self.generics.is_empty() {
             quote! {
                 windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
                 windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
+                #required_hierarchy
             }
         } else {
             let phantoms = writer.write_generic_phantoms(&self.generics);
+
 
             quote! {
                 #[repr(transparent)]
@@ -42,7 +72,7 @@ impl Interface {
                 pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
                 impl<#constraints> windows_core::imp::CanInto<windows_core::IUnknown> for #name {}
                 impl<#constraints> windows_core::imp::CanInto<windows_core::IInspectable> for #name {}
-                // TODO: add required interfaces here
+                #required_hierarchy
                 unsafe impl<#constraints> windows_core::Interface for #name {
                     type Vtable = #vtbl_name;
                     const IID: windows_core::GUID = windows_core::GUID::from_u128(#guid);
@@ -84,9 +114,31 @@ impl Interface {
         interface_signature(self.def, &self.generics)
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
-            // TODO: add dependencies
+            for interface in self.required_interfaces() {
+                interface.dependencies(dependencies, config);
+            }
         }
+    }
+
+    // TODO: this is where we can use config.minimal to elide required interfaces that aren't included?
+    pub fn required_interfaces(&self, ) -> BTreeSet<Interface> {
+        fn walk(interface: &Interface, set: &mut BTreeSet<Interface>) {
+            for ty in interface.def
+            .interface_impls().map(|imp|imp.ty(&interface.generics)) {
+                let Type::Item(Item::Interface(interface)) = ty else {
+                    panic!();
+                };
+
+                if !set.contains(&interface) {
+                    walk(&interface, set);
+                    set.insert(interface);
+                }
+            }
+        }
+        let mut set = BTreeSet::new();
+        walk(self, &mut set);
+        set
     }
 }

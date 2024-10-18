@@ -57,6 +57,8 @@ impl Class {
             .map(|imp| imp.ty(generics))
     }
 
+    //pub fn required_interfaces(&self, )
+
     pub fn runtime_signature(&self) -> String {
         format!(
             "rc({}.{};{})",
