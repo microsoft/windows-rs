@@ -74,14 +74,14 @@ impl MethodDef {
         }
     }
 
-    // This is only for WinRT methods - use write_cpp_method for nono-WinRT methods
     pub fn write(
         &self,
         _writer: &Writer,
+        _interface_name: TokenStream,
         generics: &[Type],
         kind: InterfaceKind,
         method_names: &mut MethodNames,
-        _virtual_names: &mut MethodNames,
+        virtual_names: &mut MethodNames,
     ) -> TokenStream {
         let signature = self.signature(generics);
 
@@ -96,6 +96,10 @@ impl MethodDef {
         } else {
             method_names.add(self)
         };
+
+        let _vname = virtual_names.add(self);
+        
+
 
         quote! {
             pub fn #name(&self) {

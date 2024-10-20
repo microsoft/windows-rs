@@ -28,6 +28,7 @@ impl Class {
             for method in interface.def.methods() {
                 methods.combine(method.write(
                     writer,
+                    interface.write_name(writer),
                     &interface.generics,
                     *kind,
                     &mut method_names,

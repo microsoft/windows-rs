@@ -50,6 +50,11 @@ fn main() {
 
     split("--out winrt_class.rs --filter Windows.Foundation.Deferral --flat --no-comment");
     split("--out winrt_class_static.rs --filter Windows.Foundation.GuidHelper --flat --no-comment");
+
+    split("--out winrt_class_deps.rs --filter WwwFormUrlDecoder --flat --no-comment");
+    split("--out winrt_class_deps2.rs --filter WwwFormUrlDecoder --no-comment");
+    
+
     // TODO test class with generic default interface
     // TODO test class with async default interface
     // TODO test class with collection default interface

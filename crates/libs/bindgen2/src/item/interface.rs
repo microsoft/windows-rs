@@ -22,6 +22,7 @@ impl Interface {
             let methods = self.def.methods().map(|method| {
                 method.write(
                     writer,
+                    self.write_name(writer),
                     &self.generics,
                     InterfaceKind::Default,
                     method_names,

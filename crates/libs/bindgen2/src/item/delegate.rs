@@ -15,6 +15,7 @@ impl Delegate {
 
         let method = self.method().write(
             writer,
+            self.write_name(writer),
             &self.generics,
             InterfaceKind::Default,
             &mut MethodNames::new(),
