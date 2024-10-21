@@ -121,6 +121,7 @@ impl Interface {
 
     pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
+            // TODO: These are not required for the interface to be (minimally) generated
             for interface in self.required_interfaces() {
                 interface.dependencies(dependencies, _config);
             }

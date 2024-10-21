@@ -18,7 +18,7 @@ pub enum InterfaceKind {
 
 #[derive(Clone)]
 pub struct Writer {
-    pub config: Config,
+    pub config: &'static Config,
     pub reader: &'static Reader,
     pub tree: &'static NameTree,
     pub namespace: &'static str,

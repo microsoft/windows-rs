@@ -37,7 +37,7 @@ impl Class {
             }
         }
 
-        if let Some(default_interface) = self.default_interface(&self.generics) {
+        if let Some(default_interface) = self.default_interface() {
             let default_interface = default_interface.write(writer);
 
             quote! {
@@ -69,11 +69,11 @@ impl Class {
         }
     }
 
-    pub fn default_interface(&self, generics: &[Type]) -> Option<Type> {
+    pub fn default_interface(&self) -> Option<Type> {
         self.def
             .interface_impls()
             .find(|imp| imp.has_attribute("DefaultAttribute"))
-            .map(|imp| imp.ty(generics))
+            .map(|imp| imp.ty(&self.generics))
     }
 
     pub fn runtime_signature(&self) -> String {
@@ -81,7 +81,7 @@ impl Class {
             "rc({}.{};{})",
             self.def.namespace(),
             self.def.name(),
-            self.default_interface(&self.generics)
+            self.default_interface()
                 .unwrap()
                 .runtime_signature()
         )
@@ -89,6 +89,12 @@ impl Class {
 
     pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
+            // This is required for the class to be generated
+            if let Some (default_interface) = self.default_interface() {
+                default_interface.dependencies(dependencies, config);
+            }
+
+            // TODO: These are not required for the class to be (minimally) generated
             for (interface, _) in self.required_interfaces() {
                 interface.dependencies(dependencies, config);
             }

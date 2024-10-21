@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug)]
+#[derive(Clone, Debug, Default)]
 pub struct Filter(Vec<(String, bool)>);
 
 impl Filter {

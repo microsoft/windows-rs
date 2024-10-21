@@ -43,8 +43,9 @@ use winmd::*;
 use writer::*;
 mod method_names;
 use method_names::*;
-#[derive(Clone, Default)]
+
 struct Config {
+    pub filter: &'static Filter,
     pub output: String,
     pub flat: bool,
     pub minimal: bool, // TODO: if minimal then don't include dependencies for method parameters.
@@ -74,7 +75,15 @@ where
     let mut include = Vec::new();
     let mut exclude = Vec::new();
 
-    let mut config = Config::default();
+    let mut flat = false;
+    let mut minimal = false;
+    let mut no_allow = false;
+    let mut no_comment = false;
+    let mut no_deps = false;
+    let mut package = false;
+    let mut rustfmt = String::new();
+    let mut output = String::new();
+    let mut sys = false;
 
     for arg in &args {
         if arg.starts_with('-') {
@@ -87,18 +96,18 @@ where
                 "--out" => kind = ArgKind::Output,
                 "--filter" => kind = ArgKind::Filter,
                 "--rustfmt" => kind = ArgKind::Rustfmt,
-                "--flat" => config.flat = true,
-                "--minimal" => config.minimal = true,
-                "--no-allow" => config.no_allow = true,
-                "--no-comment" => config.no_comment = true,
-                "--no-deps" => config.no_deps = true,
-                "--package" => config.package = true,
-                "--sys" => config.sys = true,
+                "--flat" => flat = true,
+                "--minimal" => minimal = true,
+                "--no-allow" => no_allow = true,
+                "--no-comment" => no_comment = true,
+                "--no-deps" => no_deps = true,
+                "--package" => package = true,
+                "--sys" => sys = true,
                 _ => panic!("windows-bindgen: invalid option `{arg}`"),
             },
             ArgKind::Output => {
-                if config.output.is_empty() {
-                    config.output = arg.to_string();
+                if output.is_empty() {
+                    output = arg.to_string();
                 } else {
                     panic!("windows-bindgen: too many outputs");
                 }
@@ -111,19 +120,19 @@ where
                     include.push(arg.as_str());
                 }
             }
-            ArgKind::Rustfmt => config.rustfmt = arg.to_string(),
+            ArgKind::Rustfmt => rustfmt = arg.to_string(),
         }
     }
 
-    if config.sys && !config.package {
-        config.no_deps = true;
+    if sys && !package {
+        no_deps = true;
     }
 
-    if config.package && config.flat {
+    if package && flat {
         panic!("windows-bindgen: cannot combine `--package` and `--flat` options");
     }
 
-    if config.output.is_empty() {
+    if output.is_empty() {
         panic!("windows-bindgen: one `--out` is required");
     };
 
@@ -134,17 +143,31 @@ where
     }
 
     let reader = Reader::new(expand_input(&input));
-    let filter = Filter::new(reader, &include, &exclude);
+
+    let config = Box::leak(Box::new(Config {
+        filter: Filter::new(reader, &include, &exclude),
+        flat,
+        minimal,
+        no_allow,
+        no_comment,
+        no_deps,
+        package,
+        rustfmt,
+        output,
+        sys,
+}));
+
+    //dbg!(&filter);
 
     // TODO: maybe pass this "name" tree to the writer so that when it comes to generating methods it can figure out whether to include
     // it based on whether its parameters are included. It may be excluded by "--minimal" was specified.
-    let tree = NameTree::new(reader, filter, &config);
+    let tree = NameTree::new(reader, &config);
 
-    //panic!("{:#?}", tree);
+    // dbg!(&tree);
 
     let items = ItemTree::new(reader, tree);
 
-    //panic!("{:#?}", items);
+    //dbg!(&items);
 
     let writer = Writer {
         config,

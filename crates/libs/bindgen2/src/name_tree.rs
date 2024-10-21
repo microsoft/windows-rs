@@ -10,16 +10,16 @@ pub struct NameTree {
 // TODO: can't just use filter onces name tree is built since the filter won't include dependencies
 
 impl NameTree {
-    pub fn new(reader: &'static Reader, filter: &Filter, config: &Config) -> &'static Self {
+    pub fn new(reader: &'static Reader,  config: &Config) -> &'static Self {
         let mut tree = Self::with_namespace("");
         let mut dependencies = Dependencies::new();
 
         for namespace in reader.keys() {
-            if filter.includes_namespace(namespace) {
+            if config.filter.includes_namespace(namespace) {
                 let tree = tree.insert_namespace(namespace);
 
                 for name in reader[namespace].keys() {
-                    if filter.includes_type_name(namespace, name) {
+                    if config.filter.includes_type_name(namespace, name) {
                         let mut item_dependencies = Dependencies::new();
 
                         for item in &reader[namespace][name] {
@@ -28,7 +28,7 @@ impl NameTree {
 
                         if item_dependencies
                             .iter()
-                            .any(|(namespace, name)| filter.excludes_type_name(namespace, name))
+                            .any(|(namespace, name)| config.filter.excludes_type_name(namespace, name))
                         {
                             continue;
                         }

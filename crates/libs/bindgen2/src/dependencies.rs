@@ -20,19 +20,19 @@ impl Dependencies {
         }
     }
 
-    pub fn included(&self, filter: &Filter) -> bool {
-        for (namespace, name) in self.iter() {
-            if namespace.is_empty() {
-                continue;
-            }
+    // pub fn included(&self, filter: &Filter) -> bool {
+    //     for (namespace, name) in self.iter() {
+    //         if namespace.is_empty() {
+    //             continue;
+    //         }
 
-            if !filter.includes_type_name(namespace, name) {
-                return false;
-            }
-        }
+    //         if !filter.includes_type_name(namespace, name) {
+    //             return false;
+    //         }
+    //     }
 
-        true
-    }
+    //     true
+    // }
 
     pub fn iter(&self) -> impl Iterator<Item = (&'static str, &'static str)> + '_ {
         self.0
