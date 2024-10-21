@@ -50,8 +50,8 @@ impl CppFn {
 
         let return_sig = writer.write_return_sig(self.method, &signature);
 
-        let mut dependencies = Dependencies::new(&writer.config);
-
+        let mut dependencies = Dependencies::new();
+        
         if writer.config.package {
             self.dependencies(&mut dependencies);
         }

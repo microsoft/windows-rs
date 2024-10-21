@@ -29,7 +29,7 @@ impl CppConst {
 
         let field_ty = self.field.ty(None).to_const_type();
 
-        let mut dependencies = Dependencies::new(&writer.config);
+        let mut dependencies = Dependencies::new();
 
         if writer.config.package {
             self.dependencies(&mut dependencies);
