@@ -19,7 +19,6 @@ pub enum InterfaceKind {
 #[derive(Clone)]
 pub struct Writer {
     pub config: &'static Config,
-    pub tree: &'static NameTree,
     pub namespace: &'static str,
 }
 
@@ -48,7 +47,7 @@ impl Writer {
         // TODO: this is why it would be handy to have pseudo types for these in Item so we can write them more generically
         // TODO: should provide non-sys versions of these as well for no-deps builds?
         if self.config.no_deps {
-            for dependency in &self.tree.items {
+            for dependency in &self.config.tree.items {
                 tokens.combine(match *dependency {
                     "HRESULT" => quote! { pub type HRESULT = i32; },
                     "PWSTR" => quote! { pub type PWSTR = *mut u16; },

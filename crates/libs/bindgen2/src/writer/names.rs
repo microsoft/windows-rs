@@ -53,7 +53,7 @@ impl Writer {
             return quote! {};
         }
 
-        if !self.tree.includes_namespace(namespace) {
+        if !self.config.tree.includes_namespace(namespace) {
             todo!("deal with external references `{namespace}`");
         }
 
