@@ -38,10 +38,11 @@ impl CppDelegate {
 
         let return_sig = writer.write_return_sig(method, &signature);
 
-        let mut dependencies = Dependencies::new();
+        // TODO: maybe create Dependencies with config as arg and use a trait to capture depdnencies if "package"
+        let mut dependencies = Dependencies::new(&writer.config);
 
         if writer.config.package {
-            self.dependencies(&mut dependencies, &writer.config);
+            self.dependencies(&mut dependencies);
         }
 
         let cfg = writer.write_cfg(self.def, self.def.namespace(), dependencies, false);
@@ -54,11 +55,11 @@ impl CppDelegate {
         }
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
             self.method()
                 .signature(&[])
-                .dependencies(dependencies, config);
+                .dependencies(dependencies);
         }
     }
 }

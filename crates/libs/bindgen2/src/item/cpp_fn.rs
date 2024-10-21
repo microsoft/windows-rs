@@ -50,10 +50,10 @@ impl CppFn {
 
         let return_sig = writer.write_return_sig(self.method, &signature);
 
-        let mut dependencies = Dependencies::new();
+        let mut dependencies = Dependencies::new(&writer.config);
 
         if writer.config.package {
-            self.dependencies(&mut dependencies, &writer.config);
+            self.dependencies(&mut dependencies);
         }
 
         let vararg =
@@ -81,11 +81,11 @@ impl CppFn {
         quote! {}
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies) {
         if dependencies.insert(self.def.namespace(), self.method.name()) {
             self.method
                 .signature(&[])
-                .dependencies(dependencies, config);
+                .dependencies(dependencies);
         }
     }
 }

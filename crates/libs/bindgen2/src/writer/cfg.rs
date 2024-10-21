@@ -45,7 +45,7 @@ impl Writer {
         }
 
         // TODO: simpler way to do this? needs a tesd too...
-        let mut compact: Vec<&'static str> = dependencies.keys().copied().collect();
+        let mut compact: Vec<&'static str> = dependencies.namespaces().collect();
         compact.sort();
 
         for pos in 0..compact.len() {

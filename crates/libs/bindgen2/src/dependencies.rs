@@ -2,16 +2,15 @@ use super::*;
 
 type Map = HashMap<&'static str, HashSet<&'static str>>;
 
-#[derive(Debug)]
-pub struct Dependencies(Map);
+pub struct Dependencies{map: Map, pub config: &'static Config,}
 
 impl Dependencies {
-    pub fn new() -> Self {
-        Self(Map::new())
+    pub fn new(config: &'static Config) -> Self {
+        Self{ map: Map::new(), config }
     }
 
     pub fn insert(&mut self, namespace: &'static str, name: &'static str) -> bool {
-        self.entry(namespace).or_default().insert(name)
+        self.map.entry(namespace).or_default().insert(name)
     }
 
     pub fn combine(&mut self, other: Self) {
@@ -34,23 +33,17 @@ impl Dependencies {
     //     true
     // }
 
+    pub fn namespaces(&self) -> impl Iterator<Item = &'static str> + '_ {
+        self.map.keys().copied()
+    }
+
     pub fn iter(&self) -> impl Iterator<Item = (&'static str, &'static str)> + '_ {
-        self.0
+        self.map
             .iter()
             .flat_map(|(namespace, names)| names.iter().map(move |name| (*namespace, *name)))
     }
 }
 
-impl std::ops::Deref for Dependencies {
-    type Target = Map;
-
-    fn deref(&self) -> &Self::Target {
-        &self.0
-    }
-}
-
-impl std::ops::DerefMut for Dependencies {
-    fn deref_mut(&mut self) -> &mut Map {
-        &mut self.0
-    }
-}
+// pub trait Dependent {
+//     fn dependencies(&self, dependencies: &mut Dependencies);
+// }

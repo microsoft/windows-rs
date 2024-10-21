@@ -59,10 +59,10 @@ impl Struct {
         signature
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
             for field in self.def.fields() {
-                field.ty(None).dependencies(dependencies, config);
+                field.ty(None).dependencies(dependencies);
             }
         }
     }

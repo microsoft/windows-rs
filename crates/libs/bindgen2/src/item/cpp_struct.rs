@@ -42,10 +42,10 @@ impl CppStruct {
             }
         }
 
-        let mut dependencies = Dependencies::new();
+        let mut dependencies = Dependencies::new(&writer.config);
 
         if writer.config.package {
-            self.dependencies(&mut dependencies, &writer.config);
+            self.dependencies(&mut dependencies);
         }
 
         let cfg = writer.write_cfg(self.def, self.def.namespace(), dependencies, false);
@@ -190,11 +190,11 @@ impl CppStruct {
         tokens
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies) {
         let namespace = self.def.namespace();
         if namespace.is_empty() || dependencies.insert(namespace, self.def.name()) {
             for field in self.def.fields() {
-                field.ty(Some(self)).dependencies(dependencies, config);
+                field.ty(Some(self)).dependencies(dependencies);
             }
         }
     }

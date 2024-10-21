@@ -29,10 +29,10 @@ impl CppConst {
 
         let field_ty = self.field.ty(None).to_const_type();
 
-        let mut dependencies = Dependencies::new();
+        let mut dependencies = Dependencies::new(&writer.config);
 
         if writer.config.package {
-            self.dependencies(&mut dependencies, &writer.config);
+            self.dependencies(&mut dependencies);
         }
 
         let cfg = writer.write_cfg(self.field, self.def.namespace(), dependencies, false);
@@ -117,9 +117,9 @@ impl CppConst {
         }
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies) {
         if dependencies.insert(self.def.namespace(), self.field.name()) {
-            self.field.ty(None).dependencies(dependencies, config);
+            self.field.ty(None).dependencies(dependencies);
         }
     }
 }

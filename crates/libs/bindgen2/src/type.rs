@@ -375,15 +375,15 @@ impl Type {
         }
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies) {
         match self {
-            Self::PtrMut(ty, _) => ty.dependencies(dependencies, config),
-            Self::PtrConst(ty, _) => ty.dependencies(dependencies, config),
-            Self::ArrayFixed(ty, _) => ty.dependencies(dependencies, config),
-            Self::Array(ty) => ty.dependencies(dependencies, config),
-            Self::ArrayRef(ty) => ty.dependencies(dependencies, config),
-            Self::ConstRef(ty) => ty.dependencies(dependencies, config),
-            Self::PrimitiveOrEnum(_, ty) => ty.dependencies(dependencies, config),
+            Self::PtrMut(ty, _) => ty.dependencies(dependencies),
+            Self::PtrConst(ty, _) => ty.dependencies(dependencies),
+            Self::ArrayFixed(ty, _) => ty.dependencies(dependencies),
+            Self::Array(ty) => ty.dependencies(dependencies),
+            Self::ArrayRef(ty) => ty.dependencies(dependencies),
+            Self::ConstRef(ty) => ty.dependencies(dependencies),
+            Self::PrimitiveOrEnum(_, ty) => ty.dependencies(dependencies),
             Self::String => {
                 dependencies.insert("", "String");
             }
@@ -409,7 +409,7 @@ impl Type {
                 dependencies.insert("", "HRESULT");
             }
             Self::Item(item) => {
-                item.dependencies(dependencies, config);
+                item.dependencies(dependencies);
             }
             _ => {}
         }

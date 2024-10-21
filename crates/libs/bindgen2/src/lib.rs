@@ -161,10 +161,13 @@ where
 
     // TODO: maybe pass this "name" tree to the writer so that when it comes to generating methods it can figure out whether to include
     // it based on whether its parameters are included. It may be excluded by "--minimal" was specified.
-    let tree = NameTree::new(reader, &config);
+    let tree = NameTree::new(reader, config);
+
+    // TODO: the "name tree" wouldn't be needed after creating the "item tree" if the root/core named types were represented by Item(...)
 
     // dbg!(&tree);
 
+    
     let items = ItemTree::new(reader, tree);
 
     //dbg!(&items);

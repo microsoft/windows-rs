@@ -80,7 +80,7 @@ impl Delegate {
         }
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies, _config: &Config) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
             // TODO: add dependencies
         }

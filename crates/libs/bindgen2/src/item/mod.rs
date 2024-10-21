@@ -169,19 +169,19 @@ impl Item {
         }
     }
 
-    pub fn dependencies(&self, dependencies: &mut Dependencies, config: &Config) {
+    pub fn dependencies(&self, dependencies: &mut Dependencies) {
         match self {
-            Item::Class(item) => item.dependencies(dependencies, config),
-            Item::Delegate(item) => item.dependencies(dependencies, config),
-            Item::Enum(item) => item.dependencies(dependencies, config),
-            Item::Interface(item) => item.dependencies(dependencies, config),
-            Item::Struct(item) => item.dependencies(dependencies, config),
-            Item::CppConst(item) => item.dependencies(dependencies, config),
-            Item::CppDelegate(item) => item.dependencies(dependencies, config),
-            Item::CppFn(item) => item.dependencies(dependencies, config),
-            Item::CppInterface(item) => item.dependencies(dependencies, config),
-            Item::CppStruct(item) => item.dependencies(dependencies, config),
-            Item::CppEnum(item) => item.dependencies(dependencies, config),
+            Item::Class(item) => item.dependencies(dependencies),
+            Item::Delegate(item) => item.dependencies(dependencies),
+            Item::Enum(item) => item.dependencies(dependencies),
+            Item::Interface(item) => item.dependencies(dependencies),
+            Item::Struct(item) => item.dependencies(dependencies),
+            Item::CppConst(item) => item.dependencies(dependencies),
+            Item::CppDelegate(item) => item.dependencies(dependencies),
+            Item::CppFn(item) => item.dependencies(dependencies),
+            Item::CppInterface(item) => item.dependencies(dependencies),
+            Item::CppStruct(item) => item.dependencies(dependencies),
+            Item::CppEnum(item) => item.dependencies(dependencies),
         }
     }
 }
