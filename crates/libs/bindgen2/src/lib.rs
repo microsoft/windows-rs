@@ -171,7 +171,6 @@ where
 
     let writer = Writer {
         config,
-        reader,
         tree,
         namespace: "",
     };
