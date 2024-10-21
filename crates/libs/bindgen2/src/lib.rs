@@ -143,11 +143,11 @@ where
     }
 
     let reader = Reader::new(expand_input(&input));
-    let filter =  Filter::new(reader, &include, &exclude);
+    let filter = Filter::new(reader, &include, &exclude);
     let tree = NameTree::new(reader, filter);
 
     let config = Box::leak(Box::new(Config {
-       tree,
+        tree,
         flat,
         minimal,
         no_allow,
@@ -157,19 +157,17 @@ where
         rustfmt,
         output,
         sys,
-}));
+    }));
 
     //dbg!(&filter);
 
     // TODO: maybe pass this "name" tree to the writer so that when it comes to generating methods it can figure out whether to include
     // it based on whether its parameters are included. It may be excluded by "--minimal" was specified.
-    
 
     // TODO: the "name tree" wouldn't be needed after creating the "item tree" if the root/core named types were represented by Item(...)
 
     // dbg!(&tree);
 
-    
     let items = ItemTree::new(reader, tree);
 
     //dbg!(&items);

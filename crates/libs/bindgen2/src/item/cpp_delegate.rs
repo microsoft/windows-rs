@@ -57,9 +57,7 @@ impl CppDelegate {
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
-            self.method()
-                .signature(&[])
-                .dependencies(dependencies);
+            self.method().signature(&[]).dependencies(dependencies);
         }
     }
 }

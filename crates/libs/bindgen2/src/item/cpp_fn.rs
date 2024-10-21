@@ -51,7 +51,7 @@ impl CppFn {
         let return_sig = writer.write_return_sig(self.method, &signature);
 
         let mut dependencies = Dependencies::new();
-        
+
         if writer.config.package {
             self.dependencies(&mut dependencies);
         }
@@ -83,9 +83,7 @@ impl CppFn {
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         if dependencies.insert(self.def.namespace(), self.method.name()) {
-            self.method
-                .signature(&[])
-                .dependencies(dependencies);
+            self.method.signature(&[]).dependencies(dependencies);
         }
     }
 }

@@ -81,9 +81,7 @@ impl Class {
             "rc({}.{};{})",
             self.def.namespace(),
             self.def.name(),
-            self.default_interface()
-                .unwrap()
-                .runtime_signature()
+            self.default_interface().unwrap().runtime_signature()
         )
     }
 
@@ -91,7 +89,7 @@ impl Class {
         // TODO: this should succeed only if config is not excluding this item
         if dependencies.insert(self.def.namespace(), self.def.name()) {
             // This is required for the class to be generated
-            if let Some (default_interface) = self.default_interface() {
+            if let Some(default_interface) = self.default_interface() {
                 default_interface.dependencies(dependencies);
             }
 

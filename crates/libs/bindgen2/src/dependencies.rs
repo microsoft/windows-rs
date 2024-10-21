@@ -2,11 +2,13 @@ use super::*;
 
 type Map = HashMap<&'static str, HashSet<&'static str>>;
 
-pub struct Dependencies{map: Map}
+pub struct Dependencies {
+    map: Map,
+}
 
 impl Dependencies {
     pub fn new() -> Self {
-        Self{ map: Map::new() }
+        Self { map: Map::new() }
     }
 
     pub fn insert(&mut self, namespace: &'static str, name: &'static str) -> bool {

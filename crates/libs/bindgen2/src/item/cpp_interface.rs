@@ -11,8 +11,8 @@ impl CppInterface {
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
-        if 
-        // !dependencies.config.sys && 
+        if
+        // !dependencies.config.sys &&
         dependencies.insert(self.def.namespace(), self.def.name()) {
             // TODO: add dependencies
         }

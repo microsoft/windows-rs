@@ -98,8 +98,6 @@ impl MethodDef {
         };
 
         let _vname = virtual_names.add(self);
-        
-
 
         quote! {
             pub fn #name(&self) {
