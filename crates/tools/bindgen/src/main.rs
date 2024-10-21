@@ -3,7 +3,7 @@
 use std::path::Path;
 use windows_bindgen2::bindgen;
 
-fn split(args: &str) {
+fn test(args: &str) {
     bindgen(args.split_whitespace());
 }
 
@@ -19,41 +19,48 @@ fn main() {
     std::fs::write("lib.rs", "").unwrap();
 
     // Very minimal example of generating just a single item.
-    split("--out iota.rs --filter GetTickCount --sys --flat --no-comment --no-allow");
+    test("--out iota.rs --filter GetTickCount --sys --flat --no-comment --no-allow");
 
     // Same as 'iota.rs' but without `--sys`.
-    split("--out iota_win.rs --filter GetTickCount --flat --no-comment --no-allow");
+    test("--out iota_win.rs --filter GetTickCount --flat --no-comment --no-allow");
 
     // Generate functions and include dependencies automatically.
-    split("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --flat --no-deps --no-comment");
+    test("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --flat --no-deps --no-comment");
 
     // Same as 'deps.rs' but with namespace/module structure due to lack of "--flat" option.
-    split("--out deps2.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-deps --no-comment");
+    test("--out deps2.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-deps --no-comment");
 
     // Same as 'deps2.rs' but `--no-deps` is implied.
-    split("--out deps3.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-comment");
+    test("--out deps3.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --no-comment");
 
     // TODO: for winrt we could have dedicated .idl files to test the various edge cases like dependencies and other
     // scenarios that are hard to come by.
-    split("--out winrt_struct.rs --filter Windows.Foundation.Rect --flat --no-comment");
-    split("--out winrt_struct_with_generic.rs --filter HttpProgress --flat --no-comment");
+    test("--out winrt_struct.rs --filter Windows.Foundation.Rect --flat --no-comment");
+    test("--out winrt_struct_with_generic.rs --filter HttpProgress --flat --no-comment");
 
-    split("--out winrt_enum.rs --filter Windows.Foundation.AsyncStatus --flat --no-comment");
+    test("--out winrt_enum.rs --filter Windows.Foundation.AsyncStatus --flat --no-comment");
 
-    split("--out winrt_interface.rs --filter Windows.Foundation.IStringable --flat --no-comment");
-    split("--out winrt_interface_generic.rs --filter Windows.Foundation.IAsyncOperation --flat --no-comment");
-    split("--out winrt_interface_generic2.rs --filter Windows.Foundation.Collections.IVector --flat --no-comment");
-    split("--out winrt_interface_required.rs --filter Windows.Foundation.IAsyncAction --flat --no-comment");
+    test("--out winrt_interface.rs --filter Windows.Foundation.IStringable --flat --no-comment");
+    test("--out winrt_interface_generic.rs --filter Windows.Foundation.IAsyncOperation --flat --no-comment");
+    test("--out winrt_interface_generic2.rs --filter Windows.Foundation.Collections.IVector --flat --no-comment");
+    test("--out winrt_interface_required.rs --filter Windows.Foundation.IAsyncAction --flat --no-comment");
 
-    split("--out winrt_delegate.rs --filter Windows.Foundation.DeferralCompletedHandler --flat --no-comment");
-    split("--out winrt_delegate_generic.rs --filter Windows.Foundation.EventHandler --flat --no-comment");
+    test("--out winrt_delegate.rs --filter Windows.Foundation.DeferralCompletedHandler --flat --no-comment");
+    test("--out winrt_delegate_generic.rs --filter Windows.Foundation.EventHandler --flat --no-comment");
 
-    split("--out winrt_class.rs --filter Windows.Foundation.Deferral --flat --no-comment");
-    split("--out winrt_class_static.rs --filter Windows.Foundation.GuidHelper --flat --no-comment");
+    test("--out winrt_class.rs --filter Windows.Foundation.Deferral --flat --no-comment");
+    test("--out winrt_class_static.rs --filter Windows.Foundation.GuidHelper --flat --no-comment");
 
-    split("--out winrt_class_deps.rs --filter WwwFormUrlDecoder --flat --no-comment");
-    split("--out winrt_class_deps2.rs --filter WwwFormUrlDecoder --no-comment");
-    
+    test("--out winrt_class_deps.rs --filter WwwFormUrlDecoder --flat --no-comment");
+
+    // Tree version
+    test("--out winrt_class_deps2.rs --filter WwwFormUrlDecoder --no-comment");
+
+    // TODO: what does minimal do for methods?
+    test("--out winrt_class_deps3.rs --filter WwwFormUrlDecoder --flat --minimal --no-comment");
+
+    // This should exclude WwwFormUrlDecoder's dependencies on the collection interfaces
+    test("--out winrt_class_deps4.rs --filter WwwFormUrlDecoder !Windows.Foundation.Collections --flat --no-comment");
 
     // TODO test class with generic default interface
     // TODO test class with async default interface
@@ -63,7 +70,7 @@ fn main() {
     // 1. so in that model --sys bindings imply --no-deps and the latter is only useful for removing the above dependencies for non-sys bindings
 
     // Same as 'deps3.rs' but with dependency on `windows-core` for core types. TODO: what about other types found in windows?
-    // split("--out deps4.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --no-comment");
+    // test("--out deps4.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --no-comment");
 
     // TODO: test with path using white space
 
