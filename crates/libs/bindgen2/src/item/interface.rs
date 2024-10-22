@@ -7,6 +7,13 @@ pub struct Interface {
 }
 
 impl Interface {
+    pub fn methods(&self) -> Vec<Method> {
+        self.def
+            .methods()
+            .map(|def| Method::new(def, &self.generics))
+            .collect()
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = self.write_name(writer);
         let vtbl_name = self.write_vtbl_name();
@@ -14,16 +21,16 @@ impl Interface {
         let non_exclusive = !self.def.has_attribute("ExclusiveToAttribute");
         let constraints = writer.write_generic_constraints(&self.generics);
         let required_hierarchy = self.required_interfaces();
+        let methods = self.methods();
 
         let methods = non_exclusive.then(|| {
             let method_names = &mut MethodNames::new();
             let virtual_names = &mut MethodNames::new();
 
-            let methods = self.def.methods().map(|method| {
+            let methods = methods.iter().map(|method| {
                 method.write(
                     writer,
                     self.write_name(writer),
-                    &self.generics,
                     InterfaceKind::Default,
                     method_names,
                     virtual_names,
@@ -121,7 +128,6 @@ impl Interface {
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
-            // TODO: These are not required for the interface to be (minimally) generated
             for interface in self.required_interfaces() {
                 interface.dependencies(dependencies);
             }

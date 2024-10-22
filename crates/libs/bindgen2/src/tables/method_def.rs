@@ -73,40 +73,4 @@ impl MethodDef {
             params,
         }
     }
-
-    pub fn write(
-        &self,
-        _writer: &Writer,
-        _interface_name: TokenStream,
-        generics: &[Type],
-        kind: InterfaceKind,
-        method_names: &mut MethodNames,
-        virtual_names: &mut MethodNames,
-    ) -> TokenStream {
-        let signature = self.signature(generics);
-
-        let params = if kind == InterfaceKind::Composable {
-            &signature.params[..signature.params.len() - 2]
-        } else {
-            &signature.params
-        };
-
-        let name = if kind == InterfaceKind::Composable && params.is_empty() {
-            quote!(new)
-        } else {
-            method_names.add(self)
-        };
-
-        let _vname = virtual_names.add(self);
-
-        quote! {
-            pub fn #name(&self) {
-
-            }
-        }
-    }
-
-    pub fn write_cpp(&self, _writer: &Writer) -> TokenStream {
-        quote! {}
-    }
 }

@@ -2,6 +2,7 @@ use super::*;
 
 #[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub struct Delegate {
+    // TODO: maybe this should be an `Interface` for simplicity
     pub def: TypeDef,
     pub generics: Vec<Type>,
 }
@@ -16,7 +17,6 @@ impl Delegate {
         let method = self.method().write(
             writer,
             self.write_name(writer),
-            &self.generics,
             InterfaceKind::Default,
             &mut MethodNames::new(),
             &mut MethodNames::new(),
@@ -64,11 +64,12 @@ impl Delegate {
         }
     }
 
-    pub fn method(&self) -> MethodDef {
-        self.def
+    pub fn method(&self) -> Method {
+       Method::new(self.def
             .methods()
             .find(|method| method.name() == "Invoke")
-            .unwrap()
+            .unwrap(),
+            &self.generics)
     }
 
     pub fn runtime_signature(&self) -> String {

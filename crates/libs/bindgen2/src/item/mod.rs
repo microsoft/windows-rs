@@ -10,6 +10,7 @@ mod cpp_struct;
 mod delegate;
 mod r#enum;
 mod interface;
+mod method;
 mod r#struct;
 
 pub use class::*;
@@ -21,6 +22,7 @@ pub use cpp_interface::*;
 pub use cpp_struct::*;
 pub use delegate::*;
 pub use interface::*;
+pub use method::*;
 pub use r#enum::*;
 pub use r#struct::*;
 

@@ -25,11 +25,10 @@ impl Class {
         for (interface, kind) in &required_interfaces {
             let mut virtual_names = MethodNames::new();
 
-            for method in interface.def.methods() {
+            for method in interface.methods() {
                 methods.combine(method.write(
                     writer,
                     interface.write_name(writer),
-                    &interface.generics,
                     *kind,
                     &mut method_names,
                     &mut virtual_names,
@@ -88,12 +87,6 @@ impl Class {
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         // TODO: this should succeed only if config is not excluding this item
         if dependencies.insert(self.def.namespace(), self.def.name()) {
-            // This is required for the class to be generated
-            if let Some(default_interface) = self.default_interface() {
-                default_interface.dependencies(dependencies);
-            }
-
-            // TODO: These are not required for the class to be (minimally) generated
             for (interface, _) in self.required_interfaces() {
                 interface.dependencies(dependencies);
             }
