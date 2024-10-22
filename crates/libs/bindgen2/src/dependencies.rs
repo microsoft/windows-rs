@@ -44,6 +44,13 @@ impl Dependencies {
             .iter()
             .flat_map(|(namespace, names)| names.iter().map(move |name| (*namespace, *name)))
     }
+
+    // TODO: Should this be in the positive e.g. included
+    pub fn excluded(&self, filter: &Filter) -> bool {
+         self
+        .iter()
+        .any(|(namespace, name)| filter.excludes_type_name(namespace, name))
+    }
 }
 
 pub trait Dependent {

@@ -26,9 +26,7 @@ impl NameTree {
                             item.dependencies(&mut item_dependencies);
                         }
 
-                        if item_dependencies
-                            .iter()
-                            .any(|(namespace, name)| filter.excludes_type_name(namespace, name))
+                        if item_dependencies.excluded(filter)
                         {
                             continue;
                         }

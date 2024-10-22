@@ -62,6 +62,9 @@ fn main() {
     // This should exclude WwwFormUrlDecoder's dependencies on the collection interfaces
     test("--out winrt_class_deps4.rs --filter WwwFormUrlDecoder !Windows.Foundation.Collections --flat --no-comment");
 
+    test("--out winrt_class_uri.rs --filter Uri --flat --no-comment");
+    test("--out winrt_class_uri_no_decoder.rs --filter Uri !WwwFormUrlDecoder --flat --no-comment");
+
     // TODO test class with generic default interface
     // TODO test class with async default interface
     // TODO test class with collection default interface

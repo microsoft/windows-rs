@@ -26,6 +26,10 @@ impl Class {
             let mut virtual_names = MethodNames::new();
 
             for method in interface.methods() {
+                if method.dependencies.excluded(writer.config.filter) {
+                    continue;
+                }
+
                 methods.combine(method.write(
                     writer,
                     interface.write_name(writer),

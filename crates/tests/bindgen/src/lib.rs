@@ -11,6 +11,8 @@ pub mod winrt_class_deps2;
 pub mod winrt_class_deps3;
 pub mod winrt_class_deps4;
 pub mod winrt_class_static;
+pub mod winrt_class_uri;
+pub mod winrt_class_uri_no_decoder;
 pub mod winrt_delegate;
 pub mod winrt_delegate_generic;
 pub mod winrt_enum;

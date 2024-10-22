@@ -45,7 +45,8 @@ mod method_names;
 use method_names::*;
 
 struct Config {
-    pub tree: &'static NameTree,
+    pub tree: &'static NameTree, // TODO: can we get rid of NameTree and just use it to create the ItemTree?
+    pub filter: &'static Filter,
     pub output: String,
     pub flat: bool,
     pub minimal: bool, // TODO: if minimal then don't include dependencies for method parameters.
@@ -147,6 +148,7 @@ where
     let tree = NameTree::new(reader, filter);
 
     let config = Box::leak(Box::new(Config {
+        filter,
         tree,
         flat,
         minimal,
