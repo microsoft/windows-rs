@@ -51,6 +51,9 @@ fn main() {
     test("--out winrt_interface_no_status.rs --filter IAsyncInfo --flat --no-comment");
     test("--out winrt_interface_status.rs --filter IAsyncInfo AsyncStatus --flat --no-comment");
 
+    test("--out winrt_class_with_handler.rs --filter Deferral DeferralCompletedHandler --flat --no-comment");
+    test("--out winrt_class_without_handler.rs --filter Deferral --flat --no-comment");
+
     // test("--out winrt_class.rs --filter Windows.Foundation.Deferral --flat --no-comment");
     // test("--out winrt_class_static.rs --filter Windows.Foundation.GuidHelper --flat --no-comment");
 
