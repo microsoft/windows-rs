@@ -7,8 +7,6 @@ mod value;
 use super::*;
 use rayon::prelude::*;
 
-
-
 #[derive(Clone)]
 pub struct Writer {
     pub config: &'static Config,

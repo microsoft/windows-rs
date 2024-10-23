@@ -8,21 +8,20 @@ pub struct Class {
 }
 
 impl Class {
-     pub fn expand(&mut self, filter:&NameTree)  {
-         // TODO: load interfaces, methods, bases?
+    pub fn expand(&mut self, filter: &NameTree) {
+        // TODO: load interfaces, methods, bases?
         //  for interface in self.required_interfaces() {
         //     set.interfaces.insert(interface.expand(filter));
         //  }
 
         debug_assert!(self.required_interfaces.is_empty());
-        
 
         self.required_interfaces = self.required_interfaces();
         self.required_interfaces.sort();
         for interface in self.required_interfaces.iter_mut() {
             interface.expand(filter);
         }
-     }
+    }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.def.name());
@@ -41,11 +40,11 @@ impl Class {
         for interface in &self.required_interfaces {
             let mut virtual_names = MethodNames::new();
 
-            for method in interface.methods() {
-                if !method.included(&writer.config.tree) {
-                    continue;
-                }
-
+            for method in interface
+                .methods
+                .iter()
+                .filter_map(|method| method.as_ref())
+            {
                 methods.combine(method.write(
                     writer,
                     interface.write_name(writer),
@@ -142,12 +141,7 @@ impl Class {
 
     // TODO: this is where we can use config.minimal to elide required interfaces that aren't included?
     pub fn required_interfaces(&self) -> Vec<Interface> {
-        fn walk(
-            def: TypeDef,
-            generics: &[Type],
-            is_base: bool,
-            set: &mut Vec<Interface>,
-        ) {
+        fn walk(def: TypeDef, generics: &[Type], is_base: bool, set: &mut Vec<Interface>) {
             for imp in def.interface_impls() {
                 let Type::Item(Item::Interface(mut interface)) = imp.ty(generics) else {
                     panic!();
@@ -161,16 +155,12 @@ impl Class {
                     InterfaceKind::None
                 };
 
-                // TODO: replace for loop with iterator -> is_some()
-
-                let mut found = false;
-                for existing in set.iter_mut() {
-                    if existing.def == interface.def {
-                        found = true;
-                        existing.kind = interface.kind;
-                    }
-                }
-                    if found {
+                if let Some(pos) = set
+                    .iter()
+                    .position(|existing| existing.def == interface.def)
+                {
+                    set[pos].kind = interface.kind;
+                } else {
                     walk(interface.def, &interface.generics, is_base, set);
                     set.push(interface);
                 }

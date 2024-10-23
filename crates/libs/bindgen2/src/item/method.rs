@@ -24,9 +24,9 @@ impl Method {
         }
     }
 
-    pub fn included(&self, filter: &NameTree) -> bool {
-        self.dependencies.included(filter)
-    }
+    // pub fn included(&self, filter: &NameTree) -> bool {
+    //     self.dependencies.included(filter)
+    // }
 
     pub fn write(
         &self,

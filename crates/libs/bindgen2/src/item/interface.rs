@@ -15,6 +15,7 @@ pub struct Interface {
     pub generics: Vec<Type>,
     pub methods: Vec<Option<Method>>,
     pub kind: InterfaceKind,
+    pub required_interfaces: Vec<Interface>,
 }
 
 impl PartialEq for Interface {
@@ -44,18 +45,24 @@ impl Interface {
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics);
-                method.included(filter).then_some(method)
+                method.dependencies.included(filter).then_some(method)
             })
             .collect();
+
+        self.required_interfaces = self.required_interfaces();
+        self.required_interfaces.sort();
+        for interface in self.required_interfaces.iter_mut() {
+            interface.expand(filter);
+        }
     }
 
-    // TODO: get rid of this - use `expand` instead
-    pub fn methods(&self) -> Vec<Method> {
-        self.def
-            .methods()
-            .map(|def| Method::new(def, &self.generics))
-            .collect()
-    }
+    // // TODO: get rid of this - use `expand` instead
+    // pub fn methods(&self) -> Vec<Method> {
+    //     self.def
+    //         .methods()
+    //         .map(|def| Method::new(def, &self.generics))
+    //         .collect()
+    // }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = self.write_name(writer);
@@ -181,8 +188,8 @@ impl Interface {
     }
 
     // TODO: this is where we can use config.minimal to elide required interfaces that aren't included?
-    pub fn required_interfaces(&self) -> BTreeSet<Interface> {
-        fn walk(interface: &Interface, set: &mut BTreeSet<Interface>) {
+    pub fn required_interfaces(&self) -> Vec<Interface> {
+        fn walk(interface: &Interface, set: &mut Vec<Interface>) {
             for ty in interface
                 .def
                 .interface_impls()
@@ -192,13 +199,17 @@ impl Interface {
                     panic!();
                 };
 
-                if !set.contains(&interface) {
+                if set
+                    .iter()
+                    .position(|existing| existing.def == interface.def)
+                    .is_none()
+                {
                     walk(&interface, set);
-                    set.insert(interface);
+                    set.push(interface);
                 }
             }
         }
-        let mut set = BTreeSet::new();
+        let mut set = vec![];
         walk(self, &mut set);
         set
     }

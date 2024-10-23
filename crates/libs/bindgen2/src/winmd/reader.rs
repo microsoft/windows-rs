@@ -57,7 +57,7 @@ impl Reader {
                         Category::Class => Item::Class(Class {
                             def,
                             generics: def.generics(),
-                            interfaces: vec![],
+                            required_interfaces: vec![],
                         }),
                         Category::Delegate => Item::Delegate(Delegate {
                             def,
@@ -69,6 +69,7 @@ impl Reader {
                             generics: def.generics(),
                             methods: vec![],
                             kind: InterfaceKind::None,
+                            required_interfaces: vec![],
                         }),
                         Category::Struct => {
                             // Skip marker types representing API contracts.
