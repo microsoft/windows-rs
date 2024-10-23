@@ -6,9 +6,8 @@ pub struct CppInterface {
 }
 
 impl CppInterface {
-    pub fn expand(self, _filter: &NameTree) -> Self {
+    pub fn expand(&mut self, _filter: &NameTree) {
         // TODO: load methods, base interfaces
-        self
     }
 
     pub fn write(&self, _writer: &Writer) -> TokenStream {

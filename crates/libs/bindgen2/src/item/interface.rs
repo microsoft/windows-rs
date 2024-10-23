@@ -1,11 +1,29 @@
 use super::*;
 
-#[derive(Clone, Debug, PartialEq, Eq)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
+pub enum InterfaceKind {
+    None,
+    Default,
+    Static,
+    Composable,
+    Base,
+}
+
+#[derive(Clone, Debug)]
 pub struct Interface {
     pub def: TypeDef,
     pub generics: Vec<Type>,
     pub methods: Vec<Option<Method>>,
+    pub kind: InterfaceKind,
 }
+
+impl PartialEq for Interface {
+    fn eq(&self, other: &Self) -> bool {
+        self.def == other.def
+    }
+}
+
+impl Eq for Interface {}
 
 impl Ord for Interface {
     fn cmp(&self, other: &Self) -> Ordering {
@@ -20,7 +38,7 @@ impl PartialOrd for Interface {
 }
 
 impl Interface {
-    pub fn expand(mut self, filter: &NameTree) -> Self {
+    pub fn expand(&mut self, filter: &NameTree) {
         self.methods = self
             .def
             .methods()
@@ -29,10 +47,9 @@ impl Interface {
                 method.included(filter).then_some(method)
             })
             .collect();
-
-        self
     }
 
+    // TODO: get rid of this - use `expand` instead
     pub fn methods(&self) -> Vec<Method> {
         self.def
             .methods()

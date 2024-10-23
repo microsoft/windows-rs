@@ -7,14 +7,7 @@ mod value;
 use super::*;
 use rayon::prelude::*;
 
-#[derive(Copy, Clone, PartialEq, Eq)]
-pub enum InterfaceKind {
-    None,
-    Default,
-    Static,
-    Composable,
-    Base,
-}
+
 
 #[derive(Clone)]
 pub struct Writer {

@@ -4,13 +4,25 @@ use super::*;
 pub struct Class {
     pub def: TypeDef,
     pub generics: Vec<Type>,
+    pub required_interfaces: Vec<Interface>, // This is required interfaces that have been "expanded" to include methods
 }
 
 impl Class {
-    // pub fn expand(self, _filter:&NameTree) -> Self {
-    //     // TODO: load interfaces, methods, bases?
-    //     self
-    // }
+     pub fn expand(&mut self, filter:&NameTree)  {
+         // TODO: load interfaces, methods, bases?
+        //  for interface in self.required_interfaces() {
+        //     set.interfaces.insert(interface.expand(filter));
+        //  }
+
+        debug_assert!(self.required_interfaces.is_empty());
+        
+
+        self.required_interfaces = self.required_interfaces();
+        self.required_interfaces.sort();
+        for interface in self.required_interfaces.iter_mut() {
+            interface.expand(filter);
+        }
+     }
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.def.name());
@@ -23,11 +35,10 @@ impl Class {
             }
         };
 
-        let required_interfaces = self.required_interfaces();
         let mut methods = quote! {};
         let mut method_names = MethodNames::new();
 
-        for (interface, kind) in &required_interfaces {
+        for interface in &self.required_interfaces {
             let mut virtual_names = MethodNames::new();
 
             for method in interface.methods() {
@@ -38,7 +49,7 @@ impl Class {
                 methods.combine(method.write(
                     writer,
                     interface.write_name(writer),
-                    *kind,
+                    interface.kind,
                     &mut method_names,
                     &mut virtual_names,
                 ));
@@ -96,7 +107,7 @@ impl Class {
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         // TODO: this should succeed only if config is not excluding this item
         if dependencies.insert(self.def.namespace(), self.def.name()) {
-            for (interface, _) in self.required_interfaces() {
+            for interface in self.required_interfaces() {
                 interface.dependencies(dependencies);
             }
         }
@@ -130,19 +141,19 @@ impl Class {
     }
 
     // TODO: this is where we can use config.minimal to elide required interfaces that aren't included?
-    pub fn required_interfaces(&self) -> BTreeMap<Interface, InterfaceKind> {
+    pub fn required_interfaces(&self) -> Vec<Interface> {
         fn walk(
             def: TypeDef,
             generics: &[Type],
             is_base: bool,
-            set: &mut BTreeMap<Interface, InterfaceKind>,
+            set: &mut Vec<Interface>,
         ) {
             for imp in def.interface_impls() {
-                let Type::Item(Item::Interface(interface)) = imp.ty(generics) else {
+                let Type::Item(Item::Interface(mut interface)) = imp.ty(generics) else {
                     panic!();
                 };
 
-                let kind = if !is_base && imp.has_attribute("DefaultAttribute") {
+                interface.kind = if !is_base && imp.has_attribute("DefaultAttribute") {
                     InterfaceKind::Default
                 } else if is_base {
                     InterfaceKind::Base
@@ -150,17 +161,22 @@ impl Class {
                     InterfaceKind::None
                 };
 
-                if let Some(existing) = set.get_mut(&interface) {
-                    if kind == InterfaceKind::Default {
-                        *existing = kind;
+                // TODO: replace for loop with iterator -> is_some()
+
+                let mut found = false;
+                for existing in set.iter_mut() {
+                    if existing.def == interface.def {
+                        found = true;
+                        existing.kind = interface.kind;
                     }
-                } else {
+                }
+                    if found {
                     walk(interface.def, &interface.generics, is_base, set);
-                    set.insert(interface, kind);
+                    set.push(interface);
                 }
             }
         }
-        let mut set = BTreeMap::new();
+        let mut set = vec![];
         walk(self.def, &self.generics, false, &mut set);
 
         for base in self.bases() {
@@ -176,7 +192,7 @@ impl Class {
 
             for (_, arg) in attribute.args() {
                 if let Value::TypeName(type_name) = arg {
-                    let Some(Item::Interface(interface)) = self
+                    let Some(Item::Interface(mut interface)) = self
                         .def
                         .reader()
                         .with_full_name(type_name.namespace(), type_name.name())
@@ -185,7 +201,9 @@ impl Class {
                         panic!("Type not found");
                     };
 
-                    set.insert(interface, kind);
+                    interface.kind = kind;
+
+                    set.push(interface);
                     break;
                 }
             }

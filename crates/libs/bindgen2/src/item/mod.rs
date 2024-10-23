@@ -61,12 +61,12 @@ pub enum Item {
 // }
 
 impl Item {
-    pub fn expand(self, filter: &NameTree) -> Self {
+    pub fn expand(&mut self, filter: &NameTree) {
         match self {
-            Self::Interface(item) => Self::Interface(item.expand(filter)),
+            Self::Interface(item) => item.expand(filter),
             //Self::CppInterface(item) => Self::CppInterface(item.expand(filter)),
-            //Self::Class(item) => Self::Class(item.expand(filter)),
-            _ => self,
+            Self::Class(item) => item.expand(filter),
+            _ => {}
         }
     }
 
