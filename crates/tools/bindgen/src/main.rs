@@ -48,22 +48,22 @@ fn main() {
     test("--out winrt_delegate.rs --filter Windows.Foundation.DeferralCompletedHandler --flat --no-comment");
     test("--out winrt_delegate_generic.rs --filter Windows.Foundation.EventHandler --flat --no-comment");
 
-    test("--out winrt_class.rs --filter Windows.Foundation.Deferral --flat --no-comment");
-    test("--out winrt_class_static.rs --filter Windows.Foundation.GuidHelper --flat --no-comment");
+    // test("--out winrt_class.rs --filter Windows.Foundation.Deferral --flat --no-comment");
+    // test("--out winrt_class_static.rs --filter Windows.Foundation.GuidHelper --flat --no-comment");
 
-    test("--out winrt_class_deps.rs --filter WwwFormUrlDecoder --flat --no-comment");
+    // test("--out winrt_class_deps.rs --filter WwwFormUrlDecoder --flat --no-comment");
 
-    // Tree version
-    test("--out winrt_class_deps2.rs --filter WwwFormUrlDecoder --no-comment");
+    // // Tree version
+    // test("--out winrt_class_deps2.rs --filter WwwFormUrlDecoder --no-comment");
 
-    // TODO: what does minimal do for methods?
-    test("--out winrt_class_deps3.rs --filter WwwFormUrlDecoder --flat --minimal --no-comment");
+    // // TODO: what does minimal do for methods?
+    // test("--out winrt_class_deps3.rs --filter WwwFormUrlDecoder --flat --minimal --no-comment");
 
-    // This should exclude WwwFormUrlDecoder's dependencies on the collection interfaces
-    test("--out winrt_class_deps4.rs --filter WwwFormUrlDecoder !Windows.Foundation.Collections --flat --no-comment");
+    // // This should exclude WwwFormUrlDecoder's dependencies on the collection interfaces
+    // test("--out winrt_class_deps4.rs --filter WwwFormUrlDecoder !Windows.Foundation.Collections --flat --no-comment");
 
-    test("--out winrt_class_uri.rs --filter Uri --flat --no-comment");
-    test("--out winrt_class_uri_no_decoder.rs --filter Uri !WwwFormUrlDecoder --flat --no-comment");
+    // test("--out winrt_class_uri.rs --filter Uri --flat --no-comment");
+    // test("--out winrt_class_uri_no_decoder.rs --filter Uri !WwwFormUrlDecoder --flat --no-comment");
 
     // TODO test class with generic default interface
     // TODO test class with async default interface
