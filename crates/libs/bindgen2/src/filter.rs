@@ -1,10 +1,10 @@
 use super::*;
 
-#[derive(Clone, Debug, Default)]
+#[derive(Debug, Default)]
 pub struct Filter(Vec<(String, bool)>);
 
 impl Filter {
-    pub fn new(reader: &Reader, include: &[&str], exclude: &[&str]) -> &'static Self {
+    pub fn new(reader: &Reader, include: &[&str], exclude: &[&str]) -> Self {
         let mut rules = vec![];
 
         for filter in include {
@@ -23,7 +23,7 @@ impl Filter {
             left.cmp(&right).reverse()
         });
 
-        Box::leak(Box::new(Self(rules)))
+        Self(rules)
     }
 
     // TODO: use namespace_starts_with?

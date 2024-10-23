@@ -9,26 +9,31 @@ pub struct ItemTree {
 }
 
 impl ItemTree {
-    pub fn new(reader: &'static Reader, tree: &NameTree, filter: &NameTree) -> Self {
-        let mut new = Self {
-            namespace: tree.namespace,
-            nested: BTreeMap::new(),
-            items: BTreeSet::new(),
-        };
+    pub fn new(reader: &'static Reader, tree: &NameTree) -> Self {
 
-        for name in &tree.items {
-            for item in reader.with_full_name(tree.namespace, name) {
-                new.items.insert(item.expand(filter));
+            fn expand(reader: &'static Reader, tree: &NameTree, root: &NameTree) -> ItemTree {
+            let mut new = ItemTree {
+                namespace: tree.namespace,
+                nested: BTreeMap::new(),
+                items: BTreeSet::new(),
+            };
+
+            for name in &tree.items {
+                for item in reader.with_full_name(tree.namespace, name) {
+                    new.items.insert(item.expand(root));
+                }
             }
+
+            for (name, tree) in &tree.nested {
+                new.nested.insert(name, expand(reader, tree, root));
+            }
+
+            // TODO: load methods here or above
+
+            new
         }
 
-        for (name, tree) in &tree.nested {
-            new.nested.insert(name, Self::new(reader, tree, filter));
-        }
-
-        // TODO: load methods here or above
-
-        new
+        expand(reader, tree, tree)
     }
 
     // This is used to provide a flat iterator of trees so that they can be processed in parallel.
