@@ -65,13 +65,7 @@ pub mod Windows {
             windows_core::IInspectable
         );
         impl WwwFormUrlDecoder {
-            pub fn First(&self) {}
-            pub fn GetAt(&self) {}
             pub fn Size(&self) {}
-            pub fn IndexOf(&self) {}
-            pub fn GetMany(&self) {}
-            pub fn GetFirstValueByName(&self) {}
-            pub fn CreateWwwFormUrlDecoder(&self) {}
         }
         impl windows_core::RuntimeType for WwwFormUrlDecoder {
             const SIGNATURE: windows_core::imp::ConstBuffer =

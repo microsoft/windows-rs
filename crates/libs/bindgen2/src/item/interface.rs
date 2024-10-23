@@ -1,12 +1,37 @@
 use super::*;
 
-#[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub struct Interface {
     pub def: TypeDef,
     pub generics: Vec<Type>,
+    pub methods: Vec<Option<Method>>,
+}
+
+impl Ord for Interface {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.def.cmp(&other.def)
+    }
+}
+
+impl PartialOrd for Interface {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
 }
 
 impl Interface {
+    pub fn prime(mut self, filter:&Filter) -> Self {
+        self.methods =         self.def
+        .methods()
+        .map(|def| {
+            let method = Method::new(def, &self.generics);
+            method.included(filter).then_some(method)
+        })
+        .collect();
+
+        self
+    }
+
     pub fn methods(&self) -> Vec<Method> {
         self.def
             .methods()

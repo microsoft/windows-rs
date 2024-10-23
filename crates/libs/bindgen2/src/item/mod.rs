@@ -61,26 +61,35 @@ pub enum Item {
 // }
 
 impl Item {
+    pub fn prime(self, filter:&Filter) -> Self {
+        match self {
+            Self::Interface(item) => Self::Interface(item.prime(filter)),
+            //Self::CppInterface(item) => Self::CppInterface(item.prime(filter)),
+            //Self::Class(item) => Self::Class(item.prime(filter)),
+            _ => self,
+        }
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         match self {
-            Item::Struct(item) => item.write(writer),
-            Item::Enum(item) => item.write(writer),
-            Item::Interface(item) => item.write(writer),
-            Item::CppStruct(item) => item.write(writer),
-            Item::CppEnum(item) => item.write(writer),
-            Item::CppFn(item) => item.write(writer),
-            Item::CppConst(item) => item.write(writer),
-            Item::CppDelegate(item) => item.write(writer),
-            Item::Delegate(item) => item.write(writer),
-            Item::Class(item) => item.write(writer),
-            Item::CppInterface(item) => item.write(writer),
+            Self::Struct(item) => item.write(writer),
+            Self::Enum(item) => item.write(writer),
+            Self::Interface(item) => item.write(writer),
+            Self::CppStruct(item) => item.write(writer),
+            Self::CppEnum(item) => item.write(writer),
+            Self::CppFn(item) => item.write(writer),
+            Self::CppConst(item) => item.write(writer),
+            Self::CppDelegate(item) => item.write(writer),
+            Self::Delegate(item) => item.write(writer),
+            Self::Class(item) => item.write(writer),
+            Self::CppInterface(item) => item.write(writer),
         }
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
         match self {
-            Item::CppInterface(_) if writer.config.sys => quote! { *mut core::ffi::c_void },
-            Item::Interface(item) => item.write_name(writer),
+            Self::CppInterface(_) if writer.config.sys => quote! { *mut core::ffi::c_void },
+            Self::Interface(item) => item.write_name(writer),
             _ => {
                 let name = to_ident(self.name());
                 let namespace = writer.write_namespace(self.namespace());
@@ -173,17 +182,17 @@ impl Item {
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         match self {
-            Item::Class(item) => item.dependencies(dependencies),
-            Item::Delegate(item) => item.dependencies(dependencies),
-            Item::Enum(item) => item.dependencies(dependencies),
-            Item::Interface(item) => item.dependencies(dependencies),
-            Item::Struct(item) => item.dependencies(dependencies),
-            Item::CppConst(item) => item.dependencies(dependencies),
-            Item::CppDelegate(item) => item.dependencies(dependencies),
-            Item::CppFn(item) => item.dependencies(dependencies),
-            Item::CppInterface(item) => item.dependencies(dependencies),
-            Item::CppStruct(item) => item.dependencies(dependencies),
-            Item::CppEnum(item) => item.dependencies(dependencies),
+            Self::Class(item) => item.dependencies(dependencies),
+            Self::Delegate(item) => item.dependencies(dependencies),
+            Self::Enum(item) => item.dependencies(dependencies),
+            Self::Interface(item) => item.dependencies(dependencies),
+            Self::Struct(item) => item.dependencies(dependencies),
+            Self::CppConst(item) => item.dependencies(dependencies),
+            Self::CppDelegate(item) => item.dependencies(dependencies),
+            Self::CppFn(item) => item.dependencies(dependencies),
+            Self::CppInterface(item) => item.dependencies(dependencies),
+            Self::CppStruct(item) => item.dependencies(dependencies),
+            Self::CppEnum(item) => item.dependencies(dependencies),
         }
     }
 }

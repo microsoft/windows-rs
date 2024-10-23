@@ -1,6 +1,7 @@
 use super::*;
 
 // This is WinRT methods only
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub struct Method {
     pub def: MethodDef,
     pub generics: Vec<Type>,
@@ -21,6 +22,10 @@ impl Method {
             signature,
             dependencies,
         }
+    }
+
+    pub fn included(&self, filter: &Filter) -> bool {
+        self.dependencies.included(filter)
     }
 
     pub fn write(

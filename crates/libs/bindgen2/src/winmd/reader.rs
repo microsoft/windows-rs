@@ -66,6 +66,7 @@ impl Reader {
                         Category::Interface => Item::Interface(Interface {
                             def,
                             generics: def.generics(),
+                            methods: vec![],
                         }),
                         Category::Struct => {
                             // Skip marker types representing API contracts.

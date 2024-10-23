@@ -134,29 +134,8 @@ pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
 pub struct Uri(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Uri, windows_core::IUnknown, windows_core::IInspectable);
 impl Uri {
-    pub fn ToString(&self) {}
-    pub fn UnescapeComponent(&self) {}
-    pub fn EscapeComponent(&self) {}
-    pub fn AbsoluteUri(&self) {}
-    pub fn DisplayUri(&self) {}
-    pub fn Domain(&self) {}
-    pub fn Extension(&self) {}
-    pub fn Fragment(&self) {}
-    pub fn Host(&self) {}
-    pub fn Password(&self) {}
-    pub fn Path(&self) {}
-    pub fn Query(&self) {}
-    pub fn RawUri(&self) {}
-    pub fn SchemeName(&self) {}
-    pub fn UserName(&self) {}
     pub fn Port(&self) {}
     pub fn Suspicious(&self) {}
-    pub fn Equals(&self) {}
-    pub fn CombineUri(&self) {}
-    pub fn CreateUri(&self) {}
-    pub fn CreateWithRelativeUri(&self) {}
-    pub fn AbsoluteCanonicalUri(&self) {}
-    pub fn DisplayIri(&self) {}
 }
 impl windows_core::RuntimeType for Uri {
     const SIGNATURE: windows_core::imp::ConstBuffer =

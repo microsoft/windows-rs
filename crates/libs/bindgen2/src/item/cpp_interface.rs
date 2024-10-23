@@ -6,6 +6,11 @@ pub struct CppInterface {
 }
 
 impl CppInterface {
+    pub fn prime(self, _filter:&Filter) -> Self {
+        // TODO: load methods, base interfaces
+        self
+    }
+
     pub fn write(&self, _writer: &Writer) -> TokenStream {
         quote! {}
     }

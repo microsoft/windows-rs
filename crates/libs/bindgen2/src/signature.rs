@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug)]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub struct Signature {
     pub call_flags: MethodCallAttributes,
     pub return_type: (Type, Option<Param>),

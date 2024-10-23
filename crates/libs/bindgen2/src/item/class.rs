@@ -7,6 +7,11 @@ pub struct Class {
 }
 
 impl Class {
+    // pub fn prime(self, _filter:&Filter) -> Self {
+    //     // TODO: load interfaces, methods, bases?
+    //     self
+    // }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.def.name());
 
@@ -26,7 +31,7 @@ impl Class {
             let mut virtual_names = MethodNames::new();
 
             for method in interface.methods() {
-                if method.dependencies.excluded(writer.config.filter) {
+                if !method.included(writer.config.filter) {
                     continue;
                 }
 

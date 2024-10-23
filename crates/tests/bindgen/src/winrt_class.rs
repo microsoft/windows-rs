@@ -92,7 +92,6 @@ windows_core::imp::interface_hierarchy!(
 impl Deferral {
     pub fn Close(&self) {}
     pub fn Complete(&self) {}
-    pub fn Create(&self) {}
 }
 impl windows_core::RuntimeType for Deferral {
     const SIGNATURE: windows_core::imp::ConstBuffer =

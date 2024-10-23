@@ -2,6 +2,7 @@ use super::*;
 
 type Map = HashMap<&'static str, HashSet<&'static str>>;
 
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub struct Dependencies {
     map: Map,
 }
@@ -45,7 +46,10 @@ impl Dependencies {
             .flat_map(|(namespace, names)| names.iter().map(move |name| (*namespace, *name)))
     }
 
-    // TODO: Should this be in the positive e.g. included
+    pub fn included(&self, filter: &Filter) -> bool {
+        self.iter().all(|(namespace, name)| filter.includes_type_name(namespace, name))
+    }
+
     pub fn excluded(&self, filter: &Filter) -> bool {
          self
         .iter()
