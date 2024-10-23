@@ -7,7 +7,7 @@ pub struct Class {
 }
 
 impl Class {
-    // pub fn prime(self, _filter:&Filter) -> Self {
+    // pub fn expand(self, _filter:&NameTree) -> Self {
     //     // TODO: load interfaces, methods, bases?
     //     self
     // }
@@ -31,7 +31,7 @@ impl Class {
             let mut virtual_names = MethodNames::new();
 
             for method in interface.methods() {
-                if !method.included(writer.config.filter) {
+                if !method.included(&writer.config.tree) {
                     continue;
                 }
 

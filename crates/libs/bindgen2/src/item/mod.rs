@@ -61,11 +61,11 @@ pub enum Item {
 // }
 
 impl Item {
-    pub fn prime(self, filter:&Filter) -> Self {
+    pub fn expand(self, filter: &NameTree) -> Self {
         match self {
-            Self::Interface(item) => Self::Interface(item.prime(filter)),
-            //Self::CppInterface(item) => Self::CppInterface(item.prime(filter)),
-            //Self::Class(item) => Self::Class(item.prime(filter)),
+            Self::Interface(item) => Self::Interface(item.expand(filter)),
+            //Self::CppInterface(item) => Self::CppInterface(item.expand(filter)),
+            //Self::Class(item) => Self::Class(item.expand(filter)),
             _ => self,
         }
     }

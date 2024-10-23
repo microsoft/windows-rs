@@ -26,8 +26,7 @@ impl NameTree {
                             item.dependencies(&mut item_dependencies);
                         }
 
-                        if item_dependencies.excluded(filter)
-                        {
+                        if item_dependencies.excluded(filter) {
                             continue;
                         }
 
@@ -53,6 +52,20 @@ impl NameTree {
         } else {
             self.nested.contains_key(namespace)
         }
+    }
+
+    pub fn includes_type_name(&self, namespace: &str, name: &str) -> bool {
+        fn get<'a>(tree: &'a NameTree, path: &str) -> Option<&'a NameTree> {
+            if let Some(next) = path.find('.') {
+                tree.nested
+                    .get(&path[..next])
+                    .map_or(None, |tree| get(tree, &path[next + 1..]))
+            } else {
+                tree.nested.get(path)
+            }
+        }
+
+        get(self, namespace).is_some_and(|tree| tree.items.contains(name))
     }
 
     fn with_namespace(namespace: &'static str) -> Self {

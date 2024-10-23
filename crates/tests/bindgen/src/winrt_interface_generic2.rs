@@ -30,9 +30,7 @@ impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IIterable<T> {
         unsafe { core::mem::transmute(self) }
     }
 }
-impl<T: windows_core::RuntimeType + 'static> IIterable<T> {
-    pub fn First(&self) {}
-}
+impl<T: windows_core::RuntimeType + 'static> IIterable<T> {}
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIterable<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -73,7 +71,6 @@ impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IVector<T> {
 impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     pub fn GetAt(&self) {}
     pub fn Size(&self) {}
-    pub fn GetView(&self) {}
     pub fn IndexOf(&self) {}
     pub fn SetAt(&self) {}
     pub fn InsertAt(&self) {}

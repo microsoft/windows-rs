@@ -9,7 +9,7 @@ pub struct ItemTree {
 }
 
 impl ItemTree {
-    pub fn new(reader: &'static Reader, tree: &NameTree, filter:&Filter) -> Self {
+    pub fn new(reader: &'static Reader, tree: &NameTree, filter: &NameTree) -> Self {
         let mut new = Self {
             namespace: tree.namespace,
             nested: BTreeMap::new(),
@@ -18,7 +18,7 @@ impl ItemTree {
 
         for name in &tree.items {
             for item in reader.with_full_name(tree.namespace, name) {
-                new.items.insert(item.prime(filter));
+                new.items.insert(item.expand(filter));
             }
         }
 

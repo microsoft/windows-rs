@@ -23,7 +23,6 @@ impl core::ops::Deref for IPropertyValue {
     }
 }
 impl IPropertyValue {
-    pub fn Type(&self) {}
     pub fn IsNumericScalar(&self) {}
     pub fn GetUInt8(&self) {}
     pub fn GetInt16(&self) {}
@@ -38,11 +37,6 @@ impl IPropertyValue {
     pub fn GetBoolean(&self) {}
     pub fn GetString(&self) {}
     pub fn GetGuid(&self) {}
-    pub fn GetDateTime(&self) {}
-    pub fn GetTimeSpan(&self) {}
-    pub fn GetPoint(&self) {}
-    pub fn GetSize(&self) {}
-    pub fn GetRect(&self) {}
     pub fn GetUInt8Array(&self) {}
     pub fn GetInt16Array(&self) {}
     pub fn GetUInt16Array(&self) {}
@@ -57,11 +51,6 @@ impl IPropertyValue {
     pub fn GetStringArray(&self) {}
     pub fn GetInspectableArray(&self) {}
     pub fn GetGuidArray(&self) {}
-    pub fn GetDateTimeArray(&self) {}
-    pub fn GetTimeSpanArray(&self) {}
-    pub fn GetPointArray(&self) {}
-    pub fn GetSizeArray(&self) {}
-    pub fn GetRectArray(&self) {}
 }
 impl windows_core::RuntimeType for IPropertyValue {
     const SIGNATURE: windows_core::imp::ConstBuffer =

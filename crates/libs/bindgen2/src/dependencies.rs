@@ -46,14 +46,17 @@ impl Dependencies {
             .flat_map(|(namespace, names)| names.iter().map(move |name| (*namespace, *name)))
     }
 
-    pub fn included(&self, filter: &Filter) -> bool {
-        self.iter().all(|(namespace, name)| filter.includes_type_name(namespace, name))
+    pub fn included(&self, filter: &NameTree) -> bool {
+        self.iter().all(|(namespace, name)| {
+            // An empty namespace covers core types like `HRESULT`. This way we don't exclude methods
+            // that depend on core types that aren't explicitly included in the filter.
+            namespace.is_empty() || filter.includes_type_name(namespace, name)
+        })
     }
 
     pub fn excluded(&self, filter: &Filter) -> bool {
-         self
-        .iter()
-        .any(|(namespace, name)| filter.excludes_type_name(namespace, name))
+        self.iter()
+            .any(|(namespace, name)| filter.excludes_type_name(namespace, name))
     }
 }
 

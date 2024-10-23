@@ -24,7 +24,7 @@ impl Method {
         }
     }
 
-    pub fn included(&self, filter: &Filter) -> bool {
+    pub fn included(&self, filter: &NameTree) -> bool {
         self.dependencies.included(filter)
     }
 
@@ -36,9 +36,7 @@ impl Method {
         method_names: &mut MethodNames,
         virtual_names: &mut MethodNames,
     ) -> TokenStream {
-
         // TODO: here's where we decide whether to "include" this method based on filter info...
-
 
         // TODO: for config.package the dependencies need to be used to generate [cfg] and for
         // whether to include the method at all based on filtering/exclusions

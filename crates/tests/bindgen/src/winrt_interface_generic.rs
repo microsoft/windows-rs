@@ -24,7 +24,6 @@ impl core::ops::Deref for IAsyncInfo {
 }
 impl IAsyncInfo {
     pub fn Id(&self) {}
-    pub fn Status(&self) {}
     pub fn ErrorCode(&self) {}
     pub fn Cancel(&self) {}
     pub fn Close(&self) {}
@@ -69,8 +68,6 @@ impl<TResult: windows_core::RuntimeType + 'static> core::ops::Deref for IAsyncOp
     }
 }
 impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
-    pub fn SetCompleted(&self) {}
-    pub fn Completed(&self) {}
     pub fn GetResults(&self) {}
 }
 impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType

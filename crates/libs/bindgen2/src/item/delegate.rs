@@ -65,11 +65,13 @@ impl Delegate {
     }
 
     pub fn method(&self) -> Method {
-       Method::new(self.def
-            .methods()
-            .find(|method| method.name() == "Invoke")
-            .unwrap(),
-            &self.generics)
+        Method::new(
+            self.def
+                .methods()
+                .find(|method| method.name() == "Invoke")
+                .unwrap(),
+            &self.generics,
+        )
     }
 
     pub fn runtime_signature(&self) -> String {

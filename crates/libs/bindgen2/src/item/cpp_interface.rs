@@ -6,7 +6,7 @@ pub struct CppInterface {
 }
 
 impl CppInterface {
-    pub fn prime(self, _filter:&Filter) -> Self {
+    pub fn expand(self, _filter: &NameTree) -> Self {
         // TODO: load methods, base interfaces
         self
     }

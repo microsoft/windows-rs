@@ -20,14 +20,15 @@ impl PartialOrd for Interface {
 }
 
 impl Interface {
-    pub fn prime(mut self, filter:&Filter) -> Self {
-        self.methods =         self.def
-        .methods()
-        .map(|def| {
-            let method = Method::new(def, &self.generics);
-            method.included(filter).then_some(method)
-        })
-        .collect();
+    pub fn expand(mut self, filter: &NameTree) -> Self {
+        self.methods = self
+            .def
+            .methods()
+            .map(|def| {
+                let method = Method::new(def, &self.generics);
+                method.included(filter).then_some(method)
+            })
+            .collect();
 
         self
     }
@@ -46,21 +47,24 @@ impl Interface {
         let non_exclusive = !self.def.has_attribute("ExclusiveToAttribute");
         let constraints = writer.write_generic_constraints(&self.generics);
         let required_hierarchy = self.required_interfaces();
-        let methods = self.methods();
 
         let methods = non_exclusive.then(|| {
             let method_names = &mut MethodNames::new();
             let virtual_names = &mut MethodNames::new();
 
-            let methods = methods.iter().map(|method| {
-                method.write(
-                    writer,
-                    self.write_name(writer),
-                    InterfaceKind::Default,
-                    method_names,
-                    virtual_names,
-                )
-            });
+            let methods = self
+                .methods
+                .iter()
+                .filter_map(|method| method.as_ref())
+                .map(|method| {
+                    method.write(
+                        writer,
+                        self.write_name(writer),
+                        InterfaceKind::Default,
+                        method_names,
+                        virtual_names,
+                    )
+                });
 
             quote! {
                 impl<#constraints> #name {
