@@ -23,7 +23,13 @@ impl core::ops::Deref for IClosable {
     }
 }
 impl IClosable {
-    pub fn Close(&self) {}
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this))
+                .ok()
+        }
+    }
 }
 impl windows_core::RuntimeType for IClosable {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -90,9 +96,31 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Deferral {
-    pub fn Close(&self) {}
-    pub fn Complete(&self) {}
-    pub fn Create(&self) {}
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IClosable>(self)?;
+        unsafe {
+            (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this))
+                .ok()
+        }
+    }
+    pub fn Complete(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this))
+                .ok()
+        }
+    }
+    pub fn Create(handler: &DeferralCompletedHandler) -> windows_core::Result<Deferral> {
+        Self::IDeferralFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Create)(
+                windows_core::Interface::as_raw(this),
+                handler.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
 }
 impl windows_core::RuntimeType for Deferral {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -122,7 +150,13 @@ impl core::ops::Deref for DeferralCompletedHandler {
     }
 }
 impl DeferralCompletedHandler {
-    pub fn Invoke(&self) {}
+    pub fn Invoke(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this))
+                .ok()
+        }
+    }
 }
 impl windows_core::RuntimeType for DeferralCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =

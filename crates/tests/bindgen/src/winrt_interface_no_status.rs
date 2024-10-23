@@ -23,10 +23,42 @@ impl core::ops::Deref for IAsyncInfo {
     }
 }
 impl IAsyncInfo {
-    pub fn Id(&self) {}
-    pub fn ErrorCode(&self) {}
-    pub fn Cancel(&self) {}
-    pub fn Close(&self) {}
+    pub fn Id(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Id)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ErrorCode)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn Cancel(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).Cancel)(windows_core::Interface::as_raw(this))
+                .ok()
+        }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this))
+                .ok()
+        }
+    }
 }
 impl windows_core::RuntimeType for IAsyncInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer =

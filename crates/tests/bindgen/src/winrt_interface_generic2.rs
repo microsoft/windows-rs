@@ -69,17 +69,132 @@ impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IVector<T> {
     }
 }
 impl<T: windows_core::RuntimeType + 'static> IVector<T> {
-    pub fn GetAt(&self) {}
-    pub fn Size(&self) {}
-    pub fn IndexOf(&self) {}
-    pub fn SetAt(&self) {}
-    pub fn InsertAt(&self) {}
-    pub fn RemoveAt(&self) {}
-    pub fn Append(&self) {}
-    pub fn RemoveAtEnd(&self) {}
-    pub fn Clear(&self) {}
-    pub fn GetMany(&self) {}
-    pub fn ReplaceAll(&self) {}
+    pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetAt)(
+                windows_core::Interface::as_raw(this),
+                index,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Size(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Size)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn IndexOf(&self, value: &T, index: &mut u32) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IndexOf)(
+                windows_core::Interface::as_raw(this),
+                value.param().abi(),
+                index,
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn SetAt(&self, index: u32, value: &T) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).SetAt)(
+                windows_core::Interface::as_raw(this),
+                index,
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub fn InsertAt(&self, index: u32, value: &T) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).InsertAt)(
+                windows_core::Interface::as_raw(this),
+                index,
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).RemoveAt)(
+                windows_core::Interface::as_raw(this),
+                index,
+            )
+            .ok()
+        }
+    }
+    pub fn Append(&self, value: &T) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).Append)(
+                windows_core::Interface::as_raw(this),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+    pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(
+                this,
+            ))
+            .ok()
+        }
+    }
+    pub fn Clear(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this))
+                .ok()
+        }
+    }
+    pub fn GetMany(
+        &self,
+        startIndex: u32,
+        items: &mut [<T as windows_core::Type<T>>::Default],
+    ) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetMany)(
+                windows_core::Interface::as_raw(this),
+                startIndex,
+                items.len().try_into().unwrap(),
+                core::mem::transmute_copy(&items),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn ReplaceAll(
+        &self,
+        items: &[<T as windows_core::Type<T>>::Default],
+    ) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).ReplaceAll)(
+                windows_core::Interface::as_raw(this),
+                items.len().try_into().unwrap(),
+                core::mem::transmute(items.as_ptr()),
+            )
+            .ok()
+        }
+    }
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVector<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer =

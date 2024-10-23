@@ -198,4 +198,9 @@ impl CppStruct {
             }
         }
     }
+
+    pub fn is_blittable(&self) -> bool {
+        // TODO: for compat may need to return true for VARIANT and PROPVARIANT
+        false
+    }
 }

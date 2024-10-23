@@ -169,6 +169,18 @@ impl Item {
         matches!(self, Self::Enum(_) | Self::CppEnum(_))
     }
 
+    pub fn is_blittable(&self) -> bool {
+        match self {
+            Self::Struct(item) => item.is_blittable(),
+            Self::CppStruct(item) => item.is_blittable(),
+            Self::Enum(_) => true,
+            Self::CppEnum(_) => true,
+            Self::Delegate(_) => false,
+            Self::CppDelegate(_) => false,
+            _ => false,
+        }
+    }
+
     pub fn runtime_signature(&self) -> String {
         match self {
             Self::Class(item) => item.runtime_signature(),

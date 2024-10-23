@@ -330,6 +330,12 @@ impl Type {
                 let len = Literal::usize_unsuffixed(*len);
                 quote! { [#name; #len] }
             }
+            Type::Array(ty) => {
+                ty.write(writer)
+            }
+            Type::ArrayRef(ty) => {
+                ty.write(writer)
+            }
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
@@ -413,6 +419,45 @@ impl Type {
             }
             _ => {}
         }
+    }
+
+    pub fn is_winrt_array(&self) -> bool {
+        matches!(self, Self::Array(_))
+    }
+
+    pub fn is_winrt_array_ref(&self) -> bool {
+        matches!(self, Self::ArrayRef(_))
+    }
+
+    pub fn is_blittable(&self) -> bool {
+        match self {
+            Self::Item(item) => item.is_blittable(),
+            Self::String
+            | Type::BSTR
+            | Type::Object
+            | Type::IUnknown
+            | Type::Param(_) => false,
+            Type::ArrayFixed(ty, _) => ty.is_blittable(),
+            Type::Array(ty) => ty.is_blittable(),
+            _ => true,
+        }
+    }
+
+    pub fn is_borrowed(&self) -> bool {
+        match self {
+            Type::Item(item) => !item.is_blittable(),
+            Type::BSTR
+            | Type::PCSTR
+            | Type::PCWSTR
+            | Type::Object
+            | Type::IUnknown
+            | Type::Param(_) => true,
+            _ => false,
+        }
+    }
+
+    pub fn is_const_ref(&self) -> bool {
+        matches!(self, Type::ConstRef(_))
     }
 }
 

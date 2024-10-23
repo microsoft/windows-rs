@@ -23,10 +23,42 @@ impl core::ops::Deref for IAsyncInfo {
     }
 }
 impl IAsyncInfo {
-    pub fn Id(&self) {}
-    pub fn ErrorCode(&self) {}
-    pub fn Cancel(&self) {}
-    pub fn Close(&self) {}
+    pub fn Id(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Id)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ErrorCode)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn Cancel(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).Cancel)(windows_core::Interface::as_raw(this))
+                .ok()
+        }
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this))
+                .ok()
+        }
+    }
 }
 impl windows_core::RuntimeType for IAsyncInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -68,7 +100,17 @@ impl<TResult: windows_core::RuntimeType + 'static> core::ops::Deref for IAsyncOp
     }
 }
 impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
-    pub fn GetResults(&self) {}
+    pub fn GetResults(&self) -> windows_core::Result<TResult> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetResults)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType
     for IAsyncOperation<TResult>

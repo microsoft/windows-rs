@@ -23,7 +23,17 @@ impl core::ops::Deref for IStringable {
     }
 }
 impl IStringable {
-    pub fn ToString(&self) {}
+    pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ToString)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
 }
 impl windows_core::RuntimeType for IStringable {
     const SIGNATURE: windows_core::imp::ConstBuffer =

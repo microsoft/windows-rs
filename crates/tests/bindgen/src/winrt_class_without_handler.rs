@@ -23,7 +23,13 @@ impl core::ops::Deref for IClosable {
     }
 }
 impl IClosable {
-    pub fn Close(&self) {}
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this))
+                .ok()
+        }
+    }
 }
 impl windows_core::RuntimeType for IClosable {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -90,8 +96,20 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Deferral {
-    pub fn Close(&self) {}
-    pub fn Complete(&self) {}
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IClosable>(self)?;
+        unsafe {
+            (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this))
+                .ok()
+        }
+    }
+    pub fn Complete(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this))
+                .ok()
+        }
+    }
 }
 impl windows_core::RuntimeType for Deferral {
     const SIGNATURE: windows_core::imp::ConstBuffer =

@@ -31,7 +31,21 @@ impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for EventHandler<T
     }
 }
 impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
-    pub fn Invoke(&self) {}
+    pub fn Invoke(
+        &self,
+        sender: &windows_core::IInspectable,
+        args: &T,
+    ) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
+                sender.param().abi(),
+                args.param().abi(),
+            )
+            .ok()
+        }
+    }
 }
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for EventHandler<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer =

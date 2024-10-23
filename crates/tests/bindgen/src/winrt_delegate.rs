@@ -23,7 +23,13 @@ impl core::ops::Deref for DeferralCompletedHandler {
     }
 }
 impl DeferralCompletedHandler {
-    pub fn Invoke(&self) {}
+    pub fn Invoke(&self) -> windows_core::Result<()> {
+        let this = self;
+        unsafe {
+            (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this))
+                .ok()
+        }
+    }
 }
 impl windows_core::RuntimeType for DeferralCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
