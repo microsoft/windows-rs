@@ -75,7 +75,7 @@ impl Interface {
         let phantoms = writer.write_generic_phantoms(&self.generics);
         // TODO: should be able to "quote" this from the above
         let named_phantoms = writer.write_generic_named_phantoms(&self.generics);
-        let required_hierarchy = self.required_interfaces();
+        let interfaces = self.required_interfaces();
 
         let methods = non_exclusive.then(|| {
             let method_names = &mut MethodNames::new();
@@ -118,18 +118,26 @@ impl Interface {
             }
         });
 
-        let required_hierarchy =non_exclusive.then(|| {
+        // TODO: rather than all this nesting/chaining - jsut have a result token stream
+        // that we combine into in successive flat conditions
+
+        let interfaces =non_exclusive.then(|| {
             if self.generics.is_empty() {
-                    if required_hierarchy.is_empty() {
-                        quote! {}
+                    let hierarchy = quote! {
+                        windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
+                    };
+
+                    if interfaces.is_empty() {
+                        hierarchy
                     } else {
-                        let required_hierarchy = required_hierarchy.iter().map(|ty| ty.write_name(writer));
+                        let interfaces = interfaces.iter().map(|ty| ty.write_name(writer));
                         quote! {
-                            windows_core::imp::required_hierarchy!(#name, #(#required_hierarchy),*);
+                            #hierarchy
+                            windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
                         }
                     }
             } else {
-                let required_hierarchy = required_hierarchy.iter().map(|ty| {
+                let interfaces = interfaces.iter().map(|ty| {
                     let ty = ty.write_name(writer);
                     quote!{
                         impl<#constraints> windows_core::imp::CanInto<#ty> for #name { const QUERY: bool = true; }
@@ -137,7 +145,7 @@ impl Interface {
                 });
 
                 quote! {
-                    #(#required_hierarchy)*
+                    #(#interfaces)*
                 }
             }
         });
@@ -146,8 +154,7 @@ impl Interface {
         let definition = if self.generics.is_empty() {
             quote! {
                 windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
-                windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
-                #required_hierarchy
+                #interfaces
             }
         } else {
             quote! {
@@ -156,7 +163,7 @@ impl Interface {
                 pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
                 impl<#constraints> windows_core::imp::CanInto<windows_core::IUnknown> for #name {}
                 impl<#constraints> windows_core::imp::CanInto<windows_core::IInspectable> for #name {}
-                #required_hierarchy
+                #interfaces
                 unsafe impl<#constraints> windows_core::Interface for #name {
                     type Vtable = #vtbl_name;
                     const IID: windows_core::GUID = windows_core::GUID::from_u128(#guid);
@@ -166,12 +173,6 @@ impl Interface {
 
         quote! {
             #definition
-            impl<#constraints> core::ops::Deref for #name {
-                type Target = windows_core::IInspectable;
-                fn deref(&self) -> &Self::Target {
-                    unsafe { core::mem::transmute(self) }
-                }
-            }
             #methods
             impl<#constraints> windows_core::RuntimeType for #name {
                 const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

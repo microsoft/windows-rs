@@ -336,6 +336,9 @@ impl Type {
             Type::ArrayRef(ty) => {
                 ty.write(writer)
             }
+            Type::ConstRef(ty) => {
+                ty.write(writer)
+            }
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }

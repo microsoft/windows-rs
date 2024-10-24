@@ -90,6 +90,7 @@ impl Item {
         match self {
             Self::CppInterface(_) if writer.config.sys => quote! { *mut core::ffi::c_void },
             Self::Interface(item) => item.write_name(writer),
+            Self::Delegate(item) => item.write_name(writer),
             _ => {
                 let name = to_ident(self.name());
                 let namespace = writer.write_namespace(self.namespace());
