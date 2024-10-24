@@ -81,26 +81,48 @@ impl Interface {
             let method_names = &mut MethodNames::new();
             let virtual_names = &mut MethodNames::new();
 
-            let methods = self
-                .methods
+            let mut methods = TokenStream::new();
+
+            for method in 
+                self.methods
                 .iter()
                 .filter_map(|method| match &method {
                     MethodOrName::Method(method) => Some(method),
                     _ => None,
-                })
-                .map(|method| {
-                    method.write(
+                }) {
+                   methods.combine(method.write(
                         writer,
                         self.write_name(writer),
                         InterfaceKind::Default,
                         method_names,
                         virtual_names,
-                    )
-                });
+                    ));
+                }
+
+                for interface in &self.required_interfaces {
+                    let  virtual_names = &mut MethodNames::new();
+        
+                    for method in interface
+                        .methods
+                        .iter()
+                        .filter_map(|method| match &method {
+                            MethodOrName::Method(method) => Some(method),
+                            _ => None,
+                        })
+                    {
+                        methods.combine(method.write(
+                            writer,
+                            interface.write_name(writer),
+                            interface.kind,
+                             method_names,
+                             virtual_names,
+                        ));
+                    }
+                }
 
             quote! {
                 impl<#constraints> #name {
-                    #(#methods)*
+                    #methods
                 }
             }
         });
