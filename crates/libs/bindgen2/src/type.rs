@@ -358,7 +358,7 @@ impl Type {
 
     pub fn write_abi(&self, writer: &Writer) -> TokenStream {
         match self {
-            Self::IUnknown | Self::Object => quote! { *mut core::ffi::c_void },
+            Self::IUnknown | Self::Object | Self::Item(Item::Delegate(_)) | Self::Item(Item::Class(_)) => quote! { *mut core::ffi::c_void },
             Self::String => quote! { core::mem::MaybeUninit<windows_core::HSTRING> },
             Self::BSTR => quote! { core::mem::MaybeUninit<windows_core::BSTR> },
             Self::ArrayFixed(ty, len) => {

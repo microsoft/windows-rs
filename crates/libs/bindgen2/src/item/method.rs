@@ -185,6 +185,36 @@ impl Method {
             }
         };
 
+        let generics =  params.iter().enumerate().filter_map(|(position, (ty, def))| {
+                if is_convertible(&ty, *def) {
+                    let name: TokenStream = format!("P{position}").into();
+                    Some(name)
+                } else {
+                    None
+                }
+            });
+
+        let where_clause = {
+            let constraints: Vec<_> = params.iter().enumerate().filter_map(|(position, (ty, def))| {
+                if is_convertible(&ty, *def) {
+                    let name: TokenStream = format!("P{position}").into();
+                    let ty = ty.write(writer);
+                    
+                    Some(
+                        quote! { #name: windows_core::Param<#ty>, }
+                    )
+                } else {
+                    None
+                }
+            }).collect();
+
+            if constraints.is_empty() {
+                quote! {}
+            } else {
+                quote! { where #(#constraints)* }
+            }
+        };
+
         let params = params.iter().enumerate().map(|(position, param)| {
             let name = to_ident(&param.1.name());
             let kind = param.0.write(writer);
@@ -297,13 +327,11 @@ impl Method {
         };
 
         let features = quote!{};
-        let generics = quote!{};
-        let where_clause = quote!{};
 
         match kind {
             InterfaceKind::Default => quote! {
                 #features
-                pub fn #name<#generics>(&self, #(#params)*) #return_type #where_clause {
+                pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
                     let this = self;
                     unsafe {
                         #vcall
@@ -320,7 +348,7 @@ impl Method {
     
                 quote! {
                     #features
-                    pub fn #name<#generics>(&self, #(#params)*) #return_type #where_clause {
+                    pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
                         let this = &windows_core::Interface::cast::<#interface_name>(self)#unwrap;
                         unsafe {
                             #vcall
@@ -331,7 +359,7 @@ impl Method {
             InterfaceKind::Static | InterfaceKind::Composable => {
                 quote! {
                     #features
-                    pub fn #name<#generics>(#(#params)*) #return_type #where_clause {
+                    pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
                         Self::#interface_name(|this| unsafe { #vcall })
                     }
                 }
@@ -340,6 +368,6 @@ impl Method {
     }
 }
 
-fn is_convertible(_ty: &Type, _param: Param) -> bool {
-    false
+fn is_convertible(ty: &Type, param: Param) -> bool {
+    param.flags().contains(ParamAttributes::In) && !ty.is_winrt_array() && ty.is_borrowed()
 }
