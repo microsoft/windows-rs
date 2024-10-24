@@ -38,6 +38,7 @@ impl windows_core::RuntimeType for IClosable {
 #[repr(C)]
 pub struct IClosable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IDeferral,
@@ -62,6 +63,7 @@ impl windows_core::RuntimeType for IDeferral {
 #[repr(C)]
 pub struct IDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IDeferralFactory,
@@ -86,6 +88,7 @@ impl windows_core::RuntimeType for IDeferralFactory {
 #[repr(C)]
 pub struct IDeferralFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    Create: usize,
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -109,6 +112,13 @@ impl Deferral {
             (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this))
                 .ok()
         }
+    }
+    fn IDeferralFactory<R, F: FnOnce(&IDeferralFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Deferral, IDeferralFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl windows_core::RuntimeType for Deferral {

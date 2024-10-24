@@ -42,4 +42,8 @@ impl windows_core::RuntimeType for IStringable {
 #[repr(C)]
 pub struct IStringable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub ToString: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::mem::MaybeUninit<windows_core::HSTRING>,
+    ) -> windows_core::HRESULT,
 }

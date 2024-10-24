@@ -67,6 +67,14 @@ impl windows_core::RuntimeType for IAsyncInfo {
 #[repr(C)]
 pub struct IAsyncInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    get_Status: usize,
+    pub ErrorCode: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::HRESULT,
+    ) -> windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -89,7 +97,7 @@ impl<TResult: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IA
 unsafe impl<TResult: windows_core::RuntimeType + 'static> windows_core::Interface
     for IAsyncOperation<TResult>
 {
-    type Vtable = IAsyncOperation_Vtbl;
+    type Vtable = IAsyncOperation_Vtbl<TResult>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_u128(0x9fc2b0bb_e446_44e2_aa61_9cab8f636af2);
 }
@@ -119,6 +127,16 @@ impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-pub struct IAsyncOperation_Vtbl {
+pub struct IAsyncOperation_Vtbl<TResult>
+where
+    TResult: windows_core::RuntimeType + 'static,
+{
     pub base__: windows_core::IInspectable_Vtbl,
+    put_Completed: usize,
+    get_Completed: usize,
+    pub GetResults: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::AbiType<TResult>,
+    ) -> windows_core::HRESULT,
+    TResult: core::marker::PhantomData<TResult>,
 }

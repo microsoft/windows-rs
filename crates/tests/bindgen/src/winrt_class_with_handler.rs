@@ -38,6 +38,7 @@ impl windows_core::RuntimeType for IClosable {
 #[repr(C)]
 pub struct IClosable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IDeferral,
@@ -62,6 +63,7 @@ impl windows_core::RuntimeType for IDeferral {
 #[repr(C)]
 pub struct IDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IDeferralFactory,
@@ -86,6 +88,11 @@ impl windows_core::RuntimeType for IDeferralFactory {
 #[repr(C)]
 pub struct IDeferralFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Create: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -110,7 +117,10 @@ impl Deferral {
                 .ok()
         }
     }
-    pub fn Create(handler: &DeferralCompletedHandler) -> windows_core::Result<Deferral> {
+    pub fn Create<P0>(handler: P0) -> windows_core::Result<Deferral>
+    where
+        P0: windows_core::Param<DeferralCompletedHandler>,
+    {
         Self::IDeferralFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(
@@ -120,6 +130,13 @@ impl Deferral {
             )
             .and_then(|| windows_core::Type::from_abi(result__))
         })
+    }
+    fn IDeferralFactory<R, F: FnOnce(&IDeferralFactory) -> windows_core::Result<R>>(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<Deferral, IDeferralFactory> =
+            windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
 impl windows_core::RuntimeType for Deferral {
@@ -138,17 +155,6 @@ windows_core::imp::define_interface!(
     DeferralCompletedHandler_Vtbl,
     0xed32a372_f3c8_4faa_9cfb_470148da3888
 );
-windows_core::imp::interface_hierarchy!(
-    DeferralCompletedHandler,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-impl core::ops::Deref for DeferralCompletedHandler {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 impl DeferralCompletedHandler {
     pub fn Invoke(&self) -> windows_core::Result<()> {
         let this = self;
@@ -165,4 +171,5 @@ impl windows_core::RuntimeType for DeferralCompletedHandler {
 #[repr(C)]
 pub struct DeferralCompletedHandler_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }

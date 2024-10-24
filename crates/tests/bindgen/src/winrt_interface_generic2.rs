@@ -20,7 +20,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_
 {
 }
 unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IIterable<T> {
-    type Vtable = IIterable_Vtbl;
+    type Vtable = IIterable_Vtbl<T>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_u128(0xfaa585ea_6214_4217_afda_7f46de5869b3);
 }
@@ -36,8 +36,13 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIter
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-pub struct IIterable_Vtbl {
+pub struct IIterable_Vtbl<T>
+where
+    T: windows_core::RuntimeType + 'static,
+{
     pub base__: windows_core::IInspectable_Vtbl,
+    First: usize,
+    T: core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -58,7 +63,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterabl
     const QUERY: bool = true;
 }
 unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IVector<T> {
-    type Vtable = IVector_Vtbl;
+    type Vtable = IVector_Vtbl<T>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_u128(0x913337e9_11a1_4345_a3a2_4e7f956e222d);
 }
@@ -92,7 +97,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
             .map(|| result__)
         }
     }
-    pub fn IndexOf(&self, value: &T, index: &mut u32) -> windows_core::Result<bool> {
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
+    where
+        P0: windows_core::Param<T>,
+    {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -105,7 +113,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
             .map(|| result__)
         }
     }
-    pub fn SetAt(&self, index: u32, value: &T) -> windows_core::Result<()> {
+    pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<T>,
+    {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetAt)(
@@ -116,7 +127,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
             .ok()
         }
     }
-    pub fn InsertAt(&self, index: u32, value: &T) -> windows_core::Result<()> {
+    pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<T>,
+    {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).InsertAt)(
@@ -137,7 +151,10 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
             .ok()
         }
     }
-    pub fn Append(&self, value: &T) -> windows_core::Result<()> {
+    pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<T>,
+    {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).Append)(
@@ -201,6 +218,49 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVect
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-pub struct IVector_Vtbl {
+pub struct IVector_Vtbl<T>
+where
+    T: windows_core::RuntimeType + 'static,
+{
     pub base__: windows_core::IInspectable_Vtbl,
+    pub GetAt: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        *mut windows_core::AbiType<T>,
+    ) -> windows_core::HRESULT,
+    pub Size: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    GetView: usize,
+    pub IndexOf: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::AbiType<T>,
+        *mut u32,
+        *mut bool,
+    ) -> windows_core::HRESULT,
+    pub SetAt: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        windows_core::AbiType<T>,
+    ) -> windows_core::HRESULT,
+    pub InsertAt: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        windows_core::AbiType<T>,
+    ) -> windows_core::HRESULT,
+    pub RemoveAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub Append: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::AbiType<T>,
+    ) -> windows_core::HRESULT,
+    pub RemoveAtEnd: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetMany: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        u32,
+        u32,
+        *mut T,
+        *mut u32,
+    ) -> windows_core::HRESULT,
+    pub ReplaceAll:
+        unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const T) -> windows_core::HRESULT,
+    T: core::marker::PhantomData<T>,
 }

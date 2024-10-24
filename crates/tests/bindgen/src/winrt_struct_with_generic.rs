@@ -351,6 +351,119 @@ impl windows_core::RuntimeType for IPropertyValue {
 #[repr(C)]
 pub struct IPropertyValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    get_Type: usize,
+    pub IsNumericScalar:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub GetUInt8:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
+    pub GetInt16:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i16) -> windows_core::HRESULT,
+    pub GetUInt16:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+    pub GetInt32:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub GetUInt32:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub GetInt64:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub GetUInt64:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub GetSingle:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
+    pub GetDouble:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    pub GetChar16:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
+    pub GetBoolean:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub GetString: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::mem::MaybeUninit<windows_core::HSTRING>,
+    ) -> windows_core::HRESULT,
+    pub GetGuid: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::GUID,
+    ) -> windows_core::HRESULT,
+    GetDateTime: usize,
+    GetTimeSpan: usize,
+    GetPoint: usize,
+    GetSize: usize,
+    GetRect: usize,
+    pub GetUInt8Array: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut u8,
+    ) -> windows_core::HRESULT,
+    pub GetInt16Array: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut i16,
+    ) -> windows_core::HRESULT,
+    pub GetUInt16Array: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut u16,
+    ) -> windows_core::HRESULT,
+    pub GetInt32Array: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut i32,
+    ) -> windows_core::HRESULT,
+    pub GetUInt32Array: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut u32,
+    ) -> windows_core::HRESULT,
+    pub GetInt64Array: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut i64,
+    ) -> windows_core::HRESULT,
+    pub GetUInt64Array: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut u64,
+    ) -> windows_core::HRESULT,
+    pub GetSingleArray: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut f32,
+    ) -> windows_core::HRESULT,
+    pub GetDoubleArray: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut f64,
+    ) -> windows_core::HRESULT,
+    pub GetChar16Array: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut u16,
+    ) -> windows_core::HRESULT,
+    pub GetBooleanArray: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut bool,
+    ) -> windows_core::HRESULT,
+    pub GetStringArray: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut windows_core::HSTRING,
+    ) -> windows_core::HRESULT,
+    pub GetInspectableArray: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut windows_core::IInspectable,
+    ) -> windows_core::HRESULT,
+    pub GetGuidArray: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut u32,
+        *mut *mut windows_core::GUID,
+    ) -> windows_core::HRESULT,
+    GetDateTimeArray: usize,
+    GetTimeSpanArray: usize,
+    GetPointArray: usize,
+    GetSizeArray: usize,
+    GetRectArray: usize,
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -371,7 +484,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IPropert
     const QUERY: bool = true;
 }
 unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IReference<T> {
-    type Vtable = IReference_Vtbl;
+    type Vtable = IReference_Vtbl<T>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_u128(0x61c17706_2d65_11e0_9ae8_d48564015472);
 }
@@ -399,8 +512,16 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IRefe
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
-pub struct IReference_Vtbl {
+pub struct IReference_Vtbl<T>
+where
+    T: windows_core::RuntimeType + 'static,
+{
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Value: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::AbiType<T>,
+    ) -> windows_core::HRESULT,
+    T: core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Default, PartialEq)]

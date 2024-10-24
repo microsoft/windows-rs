@@ -41,6 +41,9 @@ impl windows_core::RuntimeType for IAsyncAction {
 #[repr(C)]
 pub struct IAsyncAction_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    put_Completed: usize,
+    get_Completed: usize,
+    pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IAsyncInfo,
@@ -103,4 +106,12 @@ impl windows_core::RuntimeType for IAsyncInfo {
 #[repr(C)]
 pub struct IAsyncInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    get_Status: usize,
+    pub ErrorCode: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_core::HRESULT,
+    ) -> windows_core::HRESULT,
+    pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
