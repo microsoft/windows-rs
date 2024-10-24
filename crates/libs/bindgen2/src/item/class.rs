@@ -43,7 +43,10 @@ impl Class {
             for method in interface
                 .methods
                 .iter()
-                .filter_map(|method| method.as_ref())
+                .filter_map(|method| match &method {
+                    MethodOrName::Method(method) => Some(method),
+                    _ => None,
+                })
             {
                 methods.combine(method.write(
                     writer,
@@ -54,6 +57,29 @@ impl Class {
                 ));
             }
         }
+
+        let factories = self.required_interfaces.iter().filter_map(|interface| match interface.kind {
+            InterfaceKind::Static | InterfaceKind::Composable => {
+                if interface.methods.is_empty() {
+                    None
+                } else {
+                        let interface_type = interface.write_name(writer);
+                        let cfg = quote! {};
+    
+                        Some(quote! {
+                            #cfg
+                            fn #interface_type<R, F: FnOnce(&#interface_type) -> windows_core::Result<R>>(
+                                callback: F,
+                            ) -> windows_core::Result<R> {
+                                static SHARED: windows_core::imp::FactoryCache<#name, #interface_type> =
+                                    windows_core::imp::FactoryCache::new();
+                                SHARED.call(callback)
+                            }
+                        })
+                    }
+                }
+                _ => None,
+            });
 
         if let Some(default_interface) = self.default_interface() {
             let default_interface = default_interface.write(writer);
@@ -66,6 +92,7 @@ impl Class {
                 //windows_core::imp::required_hierarchy!(#name, IClosable);
                 impl #name {
                     #methods
+                    #(#factories)*
                 }
                 impl windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, #default_interface>();

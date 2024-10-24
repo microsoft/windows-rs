@@ -39,6 +39,15 @@ impl Writer {
         }
     }
 
+    pub fn write_generic_named_phantoms(&self, generics: &[Type]) -> TokenStream {
+        if generics.is_empty() {
+            quote! {}
+        } else {
+            let generics = generics.iter().map(|ty| ty.write(self));
+            quote! { #(#generics: core::marker::PhantomData::<#generics>),* }
+        }
+    }
+
     pub fn write_generic_constraints(&self, generics: &[Type]) -> TokenStream {
         if generics.is_empty() {
             quote! {}

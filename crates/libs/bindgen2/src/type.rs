@@ -356,6 +356,32 @@ impl Type {
         }
     }
 
+    pub fn write_abi(&self, writer: &Writer) -> TokenStream {
+        match self {
+            Self::IUnknown | Self::Object => quote! { *mut core::ffi::c_void },
+            Self::String => quote! { core::mem::MaybeUninit<windows_core::HSTRING> },
+            Self::BSTR => quote! { core::mem::MaybeUninit<windows_core::BSTR> },
+            Self::ArrayFixed(ty, len) => {
+                let name = ty.write_abi(writer);
+                let len = Literal::usize_unsuffixed(*len);
+                quote! { [#name; #len] }
+            }
+            Self::Param(name) => {
+                let name = to_ident(name);
+                quote! { windows_core::AbiType<#name> }
+            }
+            Self::Item(Item::Struct(item)) => {
+                let name = self.write(writer);
+                if item.is_blittable() {
+                    name
+                } else {
+                    quote! { core::mem::MaybeUninit<#name> }
+                }
+            }
+            ty => ty.write(writer),
+        }
+    }
+
     pub fn runtime_signature(&self) -> String {
         match self {
             Self::Bool => "b1".to_string(),

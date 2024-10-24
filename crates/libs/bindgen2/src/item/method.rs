@@ -28,6 +28,82 @@ impl Method {
     //     self.dependencies.included(filter)
     // }
 
+    pub fn write_vtbl(&self, writer: &Writer, named_params: bool, virtual_names: &mut MethodNames) -> TokenStream {
+        let name = virtual_names.add(self.def);
+
+        let args = {
+            let args = self.signature.params.iter().map(|param| {
+                let name = to_ident(&param.1.name());
+                let abi = param.0.write_abi(writer);
+                let abi_size_name: TokenStream = format!("{}_array_size", name.as_str()).into();
+
+                if param.1.flags().contains(ParamAttributes::In) {
+                    if param.0.is_winrt_array() {
+                        if named_params {
+                            quote! { #abi_size_name: u32, #name: *const #abi }
+                        } else {
+                            quote! { u32, *const #abi }
+                        }
+                    } else if param.0.is_const_ref() {
+                        if named_params {
+                            quote! { #name: &#abi }
+                        } else {
+                            quote! { &#abi }
+                        }
+                    } else if named_params {
+                        quote! { #name: #abi }
+                    } else {
+                        quote! { #abi }
+                    }
+                } else if param.0.is_winrt_array() {
+                    if named_params {
+                        quote! { #abi_size_name: u32, #name: *mut #abi }
+                    } else {
+                        quote! { u32, *mut #abi }
+                    }
+                } else if param.0.is_winrt_array_ref() {
+                    if named_params {
+                        quote! { #abi_size_name: *mut u32, #name: *mut *mut #abi }
+                    } else {
+                        quote! { *mut u32, *mut *mut #abi }
+                    }
+                } else if named_params {
+                    quote! { #name: *mut #abi }
+                } else {
+                    quote! { *mut #abi }
+                }
+            });
+
+            let return_arg = match &self.signature.return_type.0 {
+                Type::Void => quote! {},
+                Type::Array(ty) => {
+                    let ty = ty.write_abi(writer);
+                    if named_params {
+                        quote! { result_size__: *mut u32, result__: *mut *mut #ty }
+                    } else {
+                        quote! { *mut u32, *mut *mut #ty }
+                    }
+                }
+                ty =>  {
+                    let ty = ty.write_abi(writer);
+                    if named_params {
+                        quote! { result__: *mut #ty }
+                    } else {
+                        quote! { *mut #ty }
+                    }
+                }
+            };
+
+            quote! {
+                #(#args,)* #return_arg
+            }
+        };
+
+        quote! { 
+            pub #name: unsafe extern "system" fn(*mut core::ffi::c_void, #args) -> windows_core::HRESULT,
+        }
+    }
+
     pub fn write(
         &self,
         writer: &Writer,
@@ -160,6 +236,7 @@ impl Method {
             quote! { -> windows_core::Result<#return_type> }
         };
 
+        // TODO: have test for difference between name and vname
         let vname = virtual_names.add(self.def);
         let vcall = quote! { (windows_core::Interface::vtable(this).#vname)(windows_core::Interface::as_raw(this), #args) };
 

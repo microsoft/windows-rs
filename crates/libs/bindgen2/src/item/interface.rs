@@ -10,10 +10,16 @@ pub enum InterfaceKind {
 }
 
 #[derive(Clone, Debug)]
+pub enum MethodOrName {
+    Method(Method),
+    Name(&'static str),
+}
+
+#[derive(Clone, Debug)]
 pub struct Interface {
     pub def: TypeDef,
     pub generics: Vec<Type>,
-    pub methods: Vec<Option<Method>>,
+    pub methods: Vec<MethodOrName>,
     pub kind: InterfaceKind,
     pub required_interfaces: Vec<Interface>,
 }
@@ -45,7 +51,11 @@ impl Interface {
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics);
-                method.dependencies.included(filter).then_some(method)
+                if method.dependencies.included(filter) {
+                    MethodOrName::Method(method)
+                } else {
+                    MethodOrName::Name(method.def.name())
+                }
             })
             .collect();
 
@@ -56,20 +66,15 @@ impl Interface {
         }
     }
 
-    // // TODO: get rid of this - use `expand` instead
-    // pub fn methods(&self) -> Vec<Method> {
-    //     self.def
-    //         .methods()
-    //         .map(|def| Method::new(def, &self.generics))
-    //         .collect()
-    // }
-
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = self.write_name(writer);
-        let vtbl_name = self.write_vtbl_name();
+        let vtbl_name = self.write_vtbl_name(writer);
         let guid = writer.write_guid_u128(&self.def.guid_attribute().unwrap());
         let non_exclusive = !self.def.has_attribute("ExclusiveToAttribute");
         let constraints = writer.write_generic_constraints(&self.generics);
+        let phantoms = writer.write_generic_phantoms(&self.generics);
+        // TODO: should be able to "quote" this from the above
+        let named_phantoms = writer.write_generic_named_phantoms(&self.generics);
         let required_hierarchy = self.required_interfaces();
 
         let methods = non_exclusive.then(|| {
@@ -79,7 +84,10 @@ impl Interface {
             let methods = self
                 .methods
                 .iter()
-                .filter_map(|method| method.as_ref())
+                .filter_map(|method| match &method {
+                    MethodOrName::Method(method) => Some(method),
+                    _ => None,
+                })
                 .map(|method| {
                     method.write(
                         writer,
@@ -94,6 +102,19 @@ impl Interface {
                 impl<#constraints> #name {
                     #(#methods)*
                 }
+            }
+        });
+
+        let virtual_names = &mut MethodNames::new();
+        
+        let vtbl_methods = self.methods.iter().map(|method| {
+            match method {
+            MethodOrName::Method(method) => 
+                method.write_vtbl(writer, false, virtual_names),
+            MethodOrName::Name(name) => {
+                let name = to_ident(name);
+                quote! { #name: usize, }
+            }
             }
         });
 
@@ -129,8 +150,6 @@ impl Interface {
                 #required_hierarchy
             }
         } else {
-            let phantoms = writer.write_generic_phantoms(&self.generics);
-
             quote! {
                 #[repr(transparent)]
                 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -158,8 +177,10 @@ impl Interface {
                 const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
             }
             #[repr(C)]
-            pub struct #vtbl_name {
+            pub struct #vtbl_name where #constraints {
                 pub base__: windows_core::IInspectable_Vtbl,
+                #(#vtbl_methods)*
+                #named_phantoms
             }
         }
     }
@@ -171,8 +192,11 @@ impl Interface {
         quote! { #namespace #name #generics }
     }
 
-    pub fn write_vtbl_name(&self) -> TokenStream {
-        format!("{}_Vtbl", self.def.name()).into()
+    pub fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
+        let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
+        let generics = writer.write_generic_names(&self.generics);
+        quote! { #name #generics }
+
     }
 
     pub fn runtime_signature(&self) -> String {
