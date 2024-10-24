@@ -488,6 +488,30 @@ impl Type {
     pub fn is_const_ref(&self) -> bool {
         matches!(self, Type::ConstRef(_))
     }
+
+    pub fn is_primitive(&self) -> bool {
+        match self {
+            Type::Item(item) => item.is_primitive(),
+            Type::Bool
+            | Type::Char
+            | Type::I8
+            | Type::U8
+            | Type::I16
+            | Type::U16
+            | Type::I32
+            | Type::U32
+            | Type::I64
+            | Type::U64
+            | Type::F32
+            | Type::F64
+            | Type::ISize
+            | Type::USize
+            | Type::HRESULT
+            | Type::PtrConst(_, _)
+            | Type::PtrMut(_, _) => true,
+            _ => false,
+        }
+    }
 }
 
 fn write_ptr_mut(pointers: usize) -> TokenStream {

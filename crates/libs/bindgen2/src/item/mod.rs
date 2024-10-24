@@ -182,6 +182,14 @@ impl Item {
         }
     }
 
+    pub fn is_primitive(&self) -> bool {
+        match self {
+            Self::Enum(_) | Self::CppEnum(_) | Self::CppDelegate(_) => true,
+            Self::CppStruct(item) => item.def.has_attribute("NativeTypedefAttribute"),
+            _ => false,
+        }
+    }
+
     pub fn runtime_signature(&self) -> String {
         match self {
             Self::Class(item) => item.runtime_signature(),

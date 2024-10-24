@@ -109,8 +109,13 @@ impl Interface {
         
         let vtbl_methods = self.methods.iter().map(|method| {
             match method {
-            MethodOrName::Method(method) => 
-                method.write_vtbl(writer, false, virtual_names),
+            MethodOrName::Method(method) => {
+                let name = virtual_names.add(method.def);
+                let vtbl = method.write_abi(writer, false);
+                quote! {
+                    pub #name: unsafe extern "system" fn(#vtbl) -> windows_core::HRESULT,
+                }
+            }
             MethodOrName::Name(name) => {
                 let name = to_ident(name);
                 quote! { #name: usize, }
@@ -189,15 +194,24 @@ impl Interface {
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.def.name());
         let namespace = writer.write_namespace(self.def.namespace());
-        let generics = writer.write_generic_names(&self.generics);
-        quote! { #namespace #name #generics }
+
+        if self.generics.is_empty() {
+            quote! { #namespace #name }
+        } else {
+            let generics = self.generics.iter().map(|ty| ty.write(writer));
+            quote! { #namespace #name < #(#generics,)* > }
+        }
     }
 
     pub fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
         let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
-        let generics = writer.write_generic_names(&self.generics);
-        quote! { #name #generics }
 
+        if self.generics.is_empty() {
+            name
+        } else {
+            let generics = self.generics.iter().map(|ty| ty.write(writer));
+            quote! { #name < #(#generics,)* > }
+        }
     }
 
     pub fn runtime_signature(&self) -> String {

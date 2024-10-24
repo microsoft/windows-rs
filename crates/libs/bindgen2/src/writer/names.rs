@@ -21,15 +21,6 @@ impl Writer {
         }
     }
 
-    pub fn write_generic_names(&self, generics: &[Type]) -> TokenStream {
-        if generics.is_empty() {
-            quote! {}
-        } else {
-            let generics = generics.iter().map(|ty| ty.write(self));
-            quote! { <#(#generics),*> }
-        }
-    }
-
     pub fn write_generic_phantoms(&self, generics: &[Type]) -> TokenStream {
         if generics.is_empty() {
             quote! {}
@@ -53,7 +44,7 @@ impl Writer {
             quote! {}
         } else {
             let generics = generics.iter().map(|ty| ty.write(self));
-            quote! { #(#generics: windows_core::RuntimeType + 'static),* }
+            quote! { #(#generics: windows_core::RuntimeType + 'static,)* }
         }
     }
 

@@ -16,12 +16,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl core::ops::Deref for IClosable {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 impl IClosable {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = self;
@@ -45,17 +39,6 @@ windows_core::imp::define_interface!(
     IDeferral_Vtbl,
     0xd6269732_3b7f_46a7_b40b_4fdca2a2c693
 );
-windows_core::imp::interface_hierarchy!(
-    IDeferral,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-impl core::ops::Deref for IDeferral {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 impl windows_core::RuntimeType for IDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -70,17 +53,6 @@ windows_core::imp::define_interface!(
     IDeferralFactory_Vtbl,
     0x65a1ecc5_3fb5_4832_8ca9_f061b281d13a
 );
-windows_core::imp::interface_hierarchy!(
-    IDeferralFactory,
-    windows_core::IUnknown,
-    windows_core::IInspectable
-);
-impl core::ops::Deref for IDeferralFactory {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 impl windows_core::RuntimeType for IDeferralFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -156,6 +128,14 @@ windows_core::imp::define_interface!(
     0xed32a372_f3c8_4faa_9cfb_470148da3888
 );
 impl DeferralCompletedHandler {
+    pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = DeferralCompletedHandlerBox {
+            vtable: &DeferralCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
     pub fn Invoke(&self) -> windows_core::Result<()> {
         let this = self;
         unsafe {
@@ -170,6 +150,62 @@ impl windows_core::RuntimeType for DeferralCompletedHandler {
 }
 #[repr(C)]
 pub struct DeferralCompletedHandler_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[repr(C)]
+struct DeferralCompletedHandlerBox<F: FnMut() -> windows_core::Result<()> + Send + 'static> {
+    vtable: *const DeferralCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> DeferralCompletedHandlerBox<F> {
+    const VTABLE: DeferralCompletedHandler_Vtbl = DeferralCompletedHandler_Vtbl {
+        base__: windows_core::IUnknown_Vtbl {
+            QueryInterface: Self::QueryInterface,
+            AddRef: Self::AddRef,
+            Release: Self::Release,
+        },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return windows_core::HRESULT(-2147467261);
+        }
+        *interface = if *iid == <DeferralCompletedHandler as windows_core::Interface>::IID
+            || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
+            || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
+        {
+            &mut (*this).vtable as *mut _ as _
+        } else {
+            core::ptr::null_mut()
+        };
+        if (*interface).is_null() {
+            windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+        (this.invoke)().into()
+    }
 }

@@ -16,12 +16,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl core::ops::Deref for IAsyncInfo {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 impl IAsyncInfo {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = self;

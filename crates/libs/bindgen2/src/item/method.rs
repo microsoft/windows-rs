@@ -28,10 +28,188 @@ impl Method {
     //     self.dependencies.included(filter)
     // }
 
-    pub fn write_vtbl(&self, writer: &Writer, named_params: bool, virtual_names: &mut MethodNames) -> TokenStream {
-        let name = virtual_names.add(self.def);
+    pub fn write_upcall(&self, 
+    inner: TokenStream,
+    this: bool,
+) -> TokenStream {
+    let noexcept = self.def.has_attribute("NoExceptionAttribute");
 
-        let args = {
+    let invoke_args = self.signature
+        .params
+        .iter()
+        .map(|param| {
+            let name = to_ident(param.1.name());
+            let abi_size_name: TokenStream = format!("{}_array_size", param.1.name()).into();
+        
+            if param.1.flags().contains(ParamAttributes::In) {
+                if param.0.is_winrt_array() {
+                    quote! { core::slice::from_raw_parts(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
+                } else if param.0.is_primitive() {
+                    quote! { #name }
+                } else if param.0.is_const_ref() {
+                    quote! { core::mem::transmute_copy(&#name) }
+                } else if param.0.is_nullable() {
+                    quote! { windows_core::from_raw_borrowed(&#name) }
+                } else {
+                    quote! { core::mem::transmute(&#name) }
+                }
+            } else if param.0.is_winrt_array() {
+                quote! { core::slice::from_raw_parts_mut(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
+            } else if param.0.is_winrt_array_ref() {
+                quote! { windows_core::ArrayProxy::from_raw_parts(core::mem::transmute_copy(&#name), #abi_size_name).as_array() }
+            } else {
+                quote! { core::mem::transmute_copy(&#name) }
+            }
+        });
+
+    let this = if this {
+        quote! { this, }
+    } else {
+        quote! {}
+    };
+
+    match &self.signature.return_type.0 {
+        Type::Void => {
+            if noexcept {
+                quote! {
+                    #inner(#this #(#invoke_args,)*);
+                    windows_core::HRESULT(0)
+                }
+            } else {
+                quote! {
+                    #inner(#this #(#invoke_args,)*).into()
+                }
+            }
+        }
+        _ if self.signature.return_type.0.is_winrt_array() => {
+            if noexcept {
+                quote! {
+                    let ok__ = #inner(#this #(#invoke_args,)*);
+                    let (ok_data__, ok_data_len__) = ok__.into_abi();
+                    result__.write(ok_data__);
+                    result_size__.write(ok_data_len__);
+                    windows_core::HRESULT(0)
+                }
+            } else {
+                quote! {
+                    match #inner(#this #(#invoke_args,)*) {
+                        Ok(ok__) => {
+                            let (ok_data__, ok_data_len__) = ok__.into_abi();
+                            // use `ptr::write` since `result` could be uninitialized
+                            result__.write(ok_data__);
+                            result_size__.write(ok_data_len__);
+                            windows_core::HRESULT(0)
+                        }
+                        Err(err) => err.into()
+                    }
+                }
+            }
+        }
+        _ => {
+            let forget = if self.signature.return_type.0.is_blittable() {
+                quote! {}
+            } else {
+                quote! { core::mem::forget(ok__); }
+            };
+
+            if noexcept {
+                quote! {
+                    let ok__ = #inner(#this #(#invoke_args,)*);
+                    // use `ptr::write` since `result` could be uninitialized
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    #forget
+                    windows_core::HRESULT(0)
+                }
+            } else {
+                quote! {
+                    match #inner(#this #(#invoke_args,)*) {
+                        Ok(ok__) => {
+                            // use `ptr::write` since `result` could be uninitialized
+                            result__.write(core::mem::transmute_copy(&ok__));
+                            #forget
+                            windows_core::HRESULT(0)
+                        }
+                        Err(err) => err.into()
+                    }
+                }
+            }
+        }
+    }
+}
+
+    pub fn write_impl_signature(&self, writer: &Writer, named_params: bool, has_this: bool) -> TokenStream {
+        let noexcept = self.def.has_attribute("NoExceptionAttribute");
+
+        let params = self.signature
+            .params
+            .iter()
+            .map(|p| {
+                let default_type = p.0.write_default(writer);
+
+                let sig = if p.1.flags().contains(ParamAttributes::In) {
+                    if p.0.is_winrt_array() {
+                        quote! { &[#default_type] }
+                    } else if p.0.is_primitive() {
+                        quote! { #default_type }
+                    } else if p.0.is_nullable() {
+                        let type_name = p.0.write(writer);
+                        quote! { Option<&#type_name> }
+                    } else {
+                        quote! { &#default_type }
+                    }
+                } else if p.0.is_winrt_array() {
+                    quote! { &mut [#default_type] }
+                } else if p.0.is_winrt_array_ref() {
+                    let kind = p.0.write(writer);
+                    quote! { &mut windows_core::Array<#kind> }
+                } else {
+                    quote! { &mut #default_type }
+                };
+        
+                if named_params {
+                    let name = to_ident(&p.1.name());
+                    quote! { #name: #sig }
+                } else {
+                    sig
+                }
+            });
+
+        let return_type_tokens = if self.signature.return_type.0 == Type::Void {
+            quote! { () }
+        } else {
+            let tokens = self.signature.return_type.0.write(writer);
+
+            if self.signature.return_type.0.is_winrt_array() {
+                quote! { windows_core::Array<#tokens> }
+            } else {
+                tokens
+            }
+        };
+
+        let return_type_tokens = if noexcept {
+            if self.signature.return_type.0.is_nullable() {
+                quote! { -> Option<#return_type_tokens> }
+            } else if self.signature.return_type.0 == Type::Void {
+                quote! {}
+            } else {
+                quote! { -> #return_type_tokens }
+            }
+        } else {
+            quote! { -> windows_core::Result<#return_type_tokens> }
+        };
+
+        if has_this {
+            quote! { 
+                (&self, #(#params),*) #return_type_tokens
+             }
+        } else {
+            quote! {
+                (#(#params),*) #return_type_tokens
+            }
+        }
+    }
+
+    pub fn write_abi(&self, writer: &Writer, named_params: bool, ) -> TokenStream {
             let args = self.signature.params.iter().map(|param| {
                 let name = to_ident(&param.1.name());
                 let abi = param.0.write_abi(writer);
@@ -94,14 +272,15 @@ impl Method {
                 }
             };
 
-            quote! {
-                #(#args,)* #return_arg
+            if named_params {
+                quote! {
+                    this: *mut core::ffi::c_void, #(#args,)* #return_arg
+                }
+            } else {
+                quote! {
+                    *mut core::ffi::c_void, #(#args,)* #return_arg
+                }
             }
-        };
-
-        quote! { 
-            pub #name: unsafe extern "system" fn(*mut core::ffi::c_void, #args) -> windows_core::HRESULT,
-        }
     }
 
     pub fn write(

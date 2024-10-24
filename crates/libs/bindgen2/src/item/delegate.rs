@@ -10,8 +10,13 @@ pub struct Delegate {
 impl Delegate {
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = self.write_name(writer);
-        let vtbl_name = self.write_vtbl_name(writer);
+        //let vtbl_name = self.write_vtbl_name(writer);
+        let vtbl_name : TokenStream = format!("{}_Vtbl", self.def.name()).into();
+        let boxed: TokenStream = format!("{}Box", self.def.name()).into();
         let guid = writer.write_guid_u128(&self.def.guid_attribute().unwrap());
+        let generic_names = self.generics.iter().map(|ty| ty.write(writer));
+        let generic_names = quote! { #(#generic_names,)* };
+
         let constraints = writer.write_generic_constraints(&self.generics);
         let named_phantoms = writer.write_generic_named_phantoms(&self.generics);
         let method = self.method();
@@ -24,7 +29,7 @@ impl Delegate {
             &mut MethodNames::new(),
         );
 
-        let invoke_vtbl = method.write_vtbl(writer, false, &mut MethodNames::new());
+        let invoke_vtbl = method.write_abi(writer, true);
 
         let definition = if self.generics.is_empty() {
             quote! {
@@ -38,26 +43,98 @@ impl Delegate {
                 #[derive(PartialEq, Eq, Debug, Clone)]
                 pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
                 unsafe impl<#constraints> windows_core::Interface for #name {
-                    type Vtable = #vtbl_name;
+                    type Vtable = #vtbl_name<#generic_names>;
                     const IID: windows_core::GUID = windows_core::GUID::from_u128(#guid);
                 }
             }
         };
 
+        let fn_constraint = {
+            let signature = method.write_impl_signature(writer, false, false);
+
+            quote! { F: FnMut #signature + Send + 'static }
+        };
+
+        let invoke_upcall = method.write_upcall( quote! { (this.invoke) }, false);
+
         quote! {
             #definition
             impl<#constraints> #name {
-                //#new
+                pub fn new<#fn_constraint>(invoke: F) -> Self {
+                    let com = #boxed {
+                        vtable: &#boxed::<#generic_names F>::VTABLE,
+                        count: windows_core::imp::RefCount::new(1),
+                        invoke,
+                    };
+                    unsafe {
+                        core::mem::transmute(Box::new(com))
+                    }
+                }
                 #invoke
             }
             impl<#constraints> windows_core::RuntimeType for #name {
                 const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
             }
             #[repr(C)]
-            pub struct #vtbl_name where #constraints {
-                pub base__: windows_core::IInspectable_Vtbl,
-                #invoke_vtbl
+            pub struct #vtbl_name<#generic_names> where #constraints {
+                base__: windows_core::IUnknown_Vtbl,
+                Invoke: unsafe extern "system" fn(#invoke_vtbl) -> windows_core::HRESULT,
                 #named_phantoms
+            }
+            #[repr(C)]
+            struct #boxed<#generic_names #fn_constraint> where #constraints {
+                vtable: *const #vtbl_name<#generic_names>,
+                invoke: F,
+                count: windows_core::imp::RefCount,
+            }
+            impl<#constraints #fn_constraint> #boxed<#generic_names F> {
+                const VTABLE: #vtbl_name<#generic_names> = #vtbl_name::<#generic_names>{
+                    base__: windows_core::IUnknown_Vtbl{QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release},
+                    Invoke: Self::Invoke,
+                    #named_phantoms
+                };
+                unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+                    let this = this as *mut *mut core::ffi::c_void as *mut Self;
+    
+                    if iid.is_null() || interface.is_null() {
+                        return windows_core::HRESULT(-2147467261); // E_POINTER
+                    }
+    
+                    *interface = if *iid == <#name as windows_core::Interface>::IID ||
+                        *iid == <windows_core::IUnknown as windows_core::Interface>::IID ||
+                        *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
+                            &mut (*this).vtable as *mut _ as _
+                        } else {
+                            core::ptr::null_mut()
+                        };
+    
+                    // TODO: implement IMarshal
+    
+                    if (*interface).is_null() {
+                        windows_core::HRESULT(-2147467262) // E_NOINTERFACE
+                    } else {
+                        (*this).count.add_ref();
+                        windows_core::HRESULT(0)
+                    }
+                }
+                unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+                    let this = this as *mut *mut core::ffi::c_void as *mut Self;
+                    (*this).count.add_ref()
+                }
+                unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+                    let this = this as *mut *mut core::ffi::c_void as *mut Self;
+                    let remaining = (*this).count.release();
+    
+                    if remaining == 0 {
+                        let _ = Box::from_raw(this);
+                    }
+    
+                    remaining
+                }
+                unsafe extern "system" fn Invoke(#invoke_vtbl) -> windows_core::HRESULT {
+                    let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+                    #invoke_upcall
+                }
             }
         }
     }
@@ -90,14 +167,23 @@ impl Delegate {
     pub fn write_name(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.def.name());
         let namespace = writer.write_namespace(self.def.namespace());
-        let generics = writer.write_generic_names(&self.generics);
-        quote! { #namespace #name #generics }
+
+        if self.generics.is_empty() {
+            quote! { #namespace #name }
+        } else {
+            let generics = self.generics.iter().map(|ty| ty.write(writer));
+            quote! { #namespace #name < #(#generics,)* > }
+        }
     }
 
-    pub fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
-        let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
-        let generics = writer.write_generic_names(&self.generics);
-        quote! { #name #generics }
+    // pub fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
+    //     let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
 
-    }
+    //     if self.generics.is_empty() {
+    //         name
+    //     } else {
+    //         let generics = self.generics.iter().map(|ty| ty.write(writer));
+    //         quote! { #name < #(#generics,)* > }
+    //     }
+    // }
 }

@@ -16,12 +16,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl core::ops::Deref for IPropertyValue {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 impl IPropertyValue {
     pub fn IsNumericScalar(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -487,12 +481,6 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for 
     type Vtable = IReference_Vtbl<T>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_u128(0x61c17706_2d65_11e0_9ae8_d48564015472);
-}
-impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IReference<T> {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
 }
 impl<T: windows_core::RuntimeType + 'static> IReference<T> {
     pub fn Value(&self) -> windows_core::Result<T> {

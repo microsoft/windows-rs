@@ -24,12 +24,6 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for 
     const IID: windows_core::GUID =
         windows_core::GUID::from_u128(0xfaa585ea_6214_4217_afda_7f46de5869b3);
 }
-impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IIterable<T> {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 impl<T: windows_core::RuntimeType + 'static> IIterable<T> {}
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIterable<T> {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -66,12 +60,6 @@ unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for 
     type Vtable = IVector_Vtbl<T>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_u128(0x913337e9_11a1_4345_a3a2_4e7f956e222d);
-}
-impl<T: windows_core::RuntimeType + 'static> core::ops::Deref for IVector<T> {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
 }
 impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {

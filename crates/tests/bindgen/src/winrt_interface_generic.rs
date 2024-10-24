@@ -16,12 +16,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl core::ops::Deref for IAsyncInfo {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 impl IAsyncInfo {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -100,12 +94,6 @@ unsafe impl<TResult: windows_core::RuntimeType + 'static> windows_core::Interfac
     type Vtable = IAsyncOperation_Vtbl<TResult>;
     const IID: windows_core::GUID =
         windows_core::GUID::from_u128(0x9fc2b0bb_e446_44e2_aa61_9cab8f636af2);
-}
-impl<TResult: windows_core::RuntimeType + 'static> core::ops::Deref for IAsyncOperation<TResult> {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
 }
 impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
     pub fn GetResults(&self) -> windows_core::Result<TResult> {

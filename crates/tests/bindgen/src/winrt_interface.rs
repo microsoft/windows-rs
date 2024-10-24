@@ -16,12 +16,6 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl core::ops::Deref for IStringable {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 impl IStringable {
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
