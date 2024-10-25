@@ -72,12 +72,14 @@ impl windows_core::RuntimeType for CoreAppWindowPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreAppWindowPreview>();
 }
 unsafe impl windows_core::Interface for CoreAppWindowPreview {
-    type Vtable = <ICoreAppWindowPreview as windows_core::Interface>::Vtable;
+    type Vtable = ICoreAppWindowPreview_Vtbl;
     const IID: windows_core::GUID = <ICoreAppWindowPreview as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreAppWindowPreview {
     const NAME: &'static str = "Windows.UI.Core.Preview.CoreAppWindowPreview";
 }
+unsafe impl Send for CoreAppWindowPreview {}
+unsafe impl Sync for CoreAppWindowPreview {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemNavigationCloseRequestedPreviewEventArgs(windows_core::IUnknown);
@@ -106,12 +108,14 @@ impl windows_core::RuntimeType for SystemNavigationCloseRequestedPreviewEventArg
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemNavigationCloseRequestedPreviewEventArgs>();
 }
 unsafe impl windows_core::Interface for SystemNavigationCloseRequestedPreviewEventArgs {
-    type Vtable = <ISystemNavigationCloseRequestedPreviewEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ISystemNavigationCloseRequestedPreviewEventArgs_Vtbl;
     const IID: windows_core::GUID = <ISystemNavigationCloseRequestedPreviewEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SystemNavigationCloseRequestedPreviewEventArgs {
     const NAME: &'static str = "Windows.UI.Core.Preview.SystemNavigationCloseRequestedPreviewEventArgs";
 }
+unsafe impl Send for SystemNavigationCloseRequestedPreviewEventArgs {}
+unsafe impl Sync for SystemNavigationCloseRequestedPreviewEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemNavigationManagerPreview(windows_core::IUnknown);
@@ -146,9 +150,11 @@ impl windows_core::RuntimeType for SystemNavigationManagerPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemNavigationManagerPreview>();
 }
 unsafe impl windows_core::Interface for SystemNavigationManagerPreview {
-    type Vtable = <ISystemNavigationManagerPreview as windows_core::Interface>::Vtable;
+    type Vtable = ISystemNavigationManagerPreview_Vtbl;
     const IID: windows_core::GUID = <ISystemNavigationManagerPreview as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SystemNavigationManagerPreview {
     const NAME: &'static str = "Windows.UI.Core.Preview.SystemNavigationManagerPreview";
 }
+unsafe impl Send for SystemNavigationManagerPreview {}
+unsafe impl Sync for SystemNavigationManagerPreview {}

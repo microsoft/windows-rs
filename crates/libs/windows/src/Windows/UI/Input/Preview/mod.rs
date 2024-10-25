@@ -13,7 +13,22 @@ pub struct IInputActivationListenerPreviewStatics_Vtbl {
     CreateForApplicationWindow: usize,
 }
 pub struct InputActivationListenerPreview;
-impl InputActivationListenerPreview {}
+impl InputActivationListenerPreview {
+    #[cfg(feature = "UI_WindowManagement")]
+    pub fn CreateForApplicationWindow<P0>(window: P0) -> windows_core::Result<super::InputActivationListener>
+    where
+        P0: windows_core::Param<super::super::WindowManagement::AppWindow>,
+    {
+        Self::IInputActivationListenerPreviewStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateForApplicationWindow)(windows_core::Interface::as_raw(this), window.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IInputActivationListenerPreviewStatics<R, F: FnOnce(&IInputActivationListenerPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<InputActivationListenerPreview, IInputActivationListenerPreviewStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeName for InputActivationListenerPreview {
     const NAME: &'static str = "Windows.UI.Input.Preview.InputActivationListenerPreview";
 }

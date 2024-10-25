@@ -134,45 +134,47 @@ impl Print3DWorkflow {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsPrintReady)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PrintRequested<P0>(&self, eventHandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn PrintRequested<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrintRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrintRequested)(windows_core::Interface::as_raw(this), eventHandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PrintRequested)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePrintRequested(&self, eventCookie: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemovePrintRequested(&self, eventcookie: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemovePrintRequested)(windows_core::Interface::as_raw(this), eventCookie).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemovePrintRequested)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    pub fn PrinterChanged<P0>(&self, eventHandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn PrinterChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrinterChangedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IPrint3DWorkflow2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PrinterChanged)(windows_core::Interface::as_raw(this), eventHandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).PrinterChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePrinterChanged(&self, eventCookie: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemovePrinterChanged(&self, eventcookie: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrint3DWorkflow2>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemovePrinterChanged)(windows_core::Interface::as_raw(this), eventCookie).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemovePrinterChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
 }
 impl windows_core::RuntimeType for Print3DWorkflow {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrint3DWorkflow>();
 }
 unsafe impl windows_core::Interface for Print3DWorkflow {
-    type Vtable = <IPrint3DWorkflow as windows_core::Interface>::Vtable;
+    type Vtable = IPrint3DWorkflow_Vtbl;
     const IID: windows_core::GUID = <IPrint3DWorkflow as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Print3DWorkflow {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.Print3DWorkflow";
 }
+unsafe impl Send for Print3DWorkflow {}
+unsafe impl Sync for Print3DWorkflow {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DWorkflowPrintRequestedEventArgs(windows_core::IUnknown);
@@ -205,12 +207,14 @@ impl windows_core::RuntimeType for Print3DWorkflowPrintRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrint3DWorkflowPrintRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for Print3DWorkflowPrintRequestedEventArgs {
-    type Vtable = <IPrint3DWorkflowPrintRequestedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPrint3DWorkflowPrintRequestedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPrint3DWorkflowPrintRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Print3DWorkflowPrintRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.Print3DWorkflowPrintRequestedEventArgs";
 }
+unsafe impl Send for Print3DWorkflowPrintRequestedEventArgs {}
+unsafe impl Sync for Print3DWorkflowPrintRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DWorkflowPrinterChangedEventArgs(windows_core::IUnknown);
@@ -228,14 +232,27 @@ impl windows_core::RuntimeType for Print3DWorkflowPrinterChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrint3DWorkflowPrinterChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for Print3DWorkflowPrinterChangedEventArgs {
-    type Vtable = <IPrint3DWorkflowPrinterChangedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPrint3DWorkflowPrinterChangedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPrint3DWorkflowPrinterChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Print3DWorkflowPrinterChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.Print3DWorkflowPrinterChangedEventArgs";
 }
+unsafe impl Send for Print3DWorkflowPrinterChangedEventArgs {}
+unsafe impl Sync for Print3DWorkflowPrinterChangedEventArgs {}
 pub struct PrintExtensionContext;
-impl PrintExtensionContext {}
+impl PrintExtensionContext {
+    pub fn FromDeviceId(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
+        Self::IPrintExtensionContextStatic(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FromDeviceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IPrintExtensionContextStatic<R, F: FnOnce(&IPrintExtensionContextStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PrintExtensionContext, IPrintExtensionContextStatic> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeName for PrintExtensionContext {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintExtensionContext";
 }
@@ -267,12 +284,14 @@ impl windows_core::RuntimeType for PrintNotificationEventDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintNotificationEventDetails>();
 }
 unsafe impl windows_core::Interface for PrintNotificationEventDetails {
-    type Vtable = <IPrintNotificationEventDetails as windows_core::Interface>::Vtable;
+    type Vtable = IPrintNotificationEventDetails_Vtbl;
     const IID: windows_core::GUID = <IPrintNotificationEventDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintNotificationEventDetails {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintNotificationEventDetails";
 }
+unsafe impl Send for PrintNotificationEventDetails {}
+unsafe impl Sync for PrintNotificationEventDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskConfiguration(windows_core::IUnknown);
@@ -285,26 +304,26 @@ impl PrintTaskConfiguration {
             (windows_core::Interface::vtable(this).PrinterExtensionContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SaveRequested<P0>(&self, eventHandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn SaveRequested<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintTaskConfiguration, PrintTaskConfigurationSaveRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SaveRequested)(windows_core::Interface::as_raw(this), eventHandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SaveRequested)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSaveRequested(&self, eventCookie: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveSaveRequested(&self, eventcookie: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveSaveRequested)(windows_core::Interface::as_raw(this), eventCookie).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveSaveRequested)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
 }
 impl windows_core::RuntimeType for PrintTaskConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskConfiguration>();
 }
 unsafe impl windows_core::Interface for PrintTaskConfiguration {
-    type Vtable = <IPrintTaskConfiguration as windows_core::Interface>::Vtable;
+    type Vtable = IPrintTaskConfiguration_Vtbl;
     const IID: windows_core::GUID = <IPrintTaskConfiguration as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintTaskConfiguration {
@@ -319,12 +338,12 @@ impl PrintTaskConfigurationSaveRequest {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Cancel)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Save<P0>(&self, printerExtensionContext: P0) -> windows_core::Result<()>
+    pub fn Save<P0>(&self, printerextensioncontext: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Save)(windows_core::Interface::as_raw(this), printerExtensionContext.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Save)(windows_core::Interface::as_raw(this), printerextensioncontext.param().abi()).ok() }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<PrintTaskConfigurationSaveRequestedDeferral> {
         let this = self;
@@ -345,7 +364,7 @@ impl windows_core::RuntimeType for PrintTaskConfigurationSaveRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskConfigurationSaveRequest>();
 }
 unsafe impl windows_core::Interface for PrintTaskConfigurationSaveRequest {
-    type Vtable = <IPrintTaskConfigurationSaveRequest as windows_core::Interface>::Vtable;
+    type Vtable = IPrintTaskConfigurationSaveRequest_Vtbl;
     const IID: windows_core::GUID = <IPrintTaskConfigurationSaveRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintTaskConfigurationSaveRequest {
@@ -365,7 +384,7 @@ impl windows_core::RuntimeType for PrintTaskConfigurationSaveRequestedDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskConfigurationSaveRequestedDeferral>();
 }
 unsafe impl windows_core::Interface for PrintTaskConfigurationSaveRequestedDeferral {
-    type Vtable = <IPrintTaskConfigurationSaveRequestedDeferral as windows_core::Interface>::Vtable;
+    type Vtable = IPrintTaskConfigurationSaveRequestedDeferral_Vtbl;
     const IID: windows_core::GUID = <IPrintTaskConfigurationSaveRequestedDeferral as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintTaskConfigurationSaveRequestedDeferral {
@@ -388,14 +407,14 @@ impl windows_core::RuntimeType for PrintTaskConfigurationSaveRequestedEventArgs 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskConfigurationSaveRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintTaskConfigurationSaveRequestedEventArgs {
-    type Vtable = <IPrintTaskConfigurationSaveRequestedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPrintTaskConfigurationSaveRequestedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPrintTaskConfigurationSaveRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintTaskConfigurationSaveRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintTaskConfigurationSaveRequestedEventArgs";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct Print3DWorkflowDetail(pub i32);
 impl Print3DWorkflowDetail {
     pub const Unknown: Self = Self(0i32);
@@ -409,11 +428,16 @@ impl Print3DWorkflowDetail {
 impl windows_core::TypeKind for Print3DWorkflowDetail {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for Print3DWorkflowDetail {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("Print3DWorkflowDetail").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for Print3DWorkflowDetail {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowDetail;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct Print3DWorkflowStatus(pub i32);
 impl Print3DWorkflowStatus {
     pub const Abandoned: Self = Self(0i32);
@@ -424,6 +448,11 @@ impl Print3DWorkflowStatus {
 }
 impl windows_core::TypeKind for Print3DWorkflowStatus {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for Print3DWorkflowStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("Print3DWorkflowStatus").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for Print3DWorkflowStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowStatus;i4)");

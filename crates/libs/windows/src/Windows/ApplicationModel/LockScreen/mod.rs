@@ -126,12 +126,14 @@ impl windows_core::RuntimeType for LockApplicationHost {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockApplicationHost>();
 }
 unsafe impl windows_core::Interface for LockApplicationHost {
-    type Vtable = <ILockApplicationHost as windows_core::Interface>::Vtable;
+    type Vtable = ILockApplicationHost_Vtbl;
     const IID: windows_core::GUID = <ILockApplicationHost as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LockApplicationHost {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockApplicationHost";
 }
+unsafe impl Send for LockApplicationHost {}
+unsafe impl Sync for LockApplicationHost {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenBadge(windows_core::IUnknown);
@@ -176,12 +178,14 @@ impl windows_core::RuntimeType for LockScreenBadge {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenBadge>();
 }
 unsafe impl windows_core::Interface for LockScreenBadge {
-    type Vtable = <ILockScreenBadge as windows_core::Interface>::Vtable;
+    type Vtable = ILockScreenBadge_Vtbl;
     const IID: windows_core::GUID = <ILockScreenBadge as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LockScreenBadge {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenBadge";
 }
+unsafe impl Send for LockScreenBadge {}
+unsafe impl Sync for LockScreenBadge {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenInfo(windows_core::IUnknown);
@@ -280,12 +284,14 @@ impl windows_core::RuntimeType for LockScreenInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenInfo>();
 }
 unsafe impl windows_core::Interface for LockScreenInfo {
-    type Vtable = <ILockScreenInfo as windows_core::Interface>::Vtable;
+    type Vtable = ILockScreenInfo_Vtbl;
     const IID: windows_core::GUID = <ILockScreenInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LockScreenInfo {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenInfo";
 }
+unsafe impl Send for LockScreenInfo {}
+unsafe impl Sync for LockScreenInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenUnlockingDeferral(windows_core::IUnknown);
@@ -300,12 +306,14 @@ impl windows_core::RuntimeType for LockScreenUnlockingDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenUnlockingDeferral>();
 }
 unsafe impl windows_core::Interface for LockScreenUnlockingDeferral {
-    type Vtable = <ILockScreenUnlockingDeferral as windows_core::Interface>::Vtable;
+    type Vtable = ILockScreenUnlockingDeferral_Vtbl;
     const IID: windows_core::GUID = <ILockScreenUnlockingDeferral as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LockScreenUnlockingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenUnlockingDeferral";
 }
+unsafe impl Send for LockScreenUnlockingDeferral {}
+unsafe impl Sync for LockScreenUnlockingDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenUnlockingEventArgs(windows_core::IUnknown);
@@ -330,9 +338,11 @@ impl windows_core::RuntimeType for LockScreenUnlockingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenUnlockingEventArgs>();
 }
 unsafe impl windows_core::Interface for LockScreenUnlockingEventArgs {
-    type Vtable = <ILockScreenUnlockingEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ILockScreenUnlockingEventArgs_Vtbl;
     const IID: windows_core::GUID = <ILockScreenUnlockingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LockScreenUnlockingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.LockScreen.LockScreenUnlockingEventArgs";
 }
+unsafe impl Send for LockScreenUnlockingEventArgs {}
+unsafe impl Sync for LockScreenUnlockingEventArgs {}

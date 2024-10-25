@@ -111,10 +111,10 @@ impl Battery {
             (windows_core::Interface::vtable(this).AggregateBattery)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceId: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Battery>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Battery>> {
         Self::IBatteryStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
@@ -132,12 +132,14 @@ impl windows_core::RuntimeType for Battery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBattery>();
 }
 unsafe impl windows_core::Interface for Battery {
-    type Vtable = <IBattery as windows_core::Interface>::Vtable;
+    type Vtable = IBattery_Vtbl;
     const IID: windows_core::GUID = <IBattery as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Battery {
     const NAME: &'static str = "Windows.Devices.Power.Battery";
 }
+unsafe impl Send for Battery {}
+unsafe impl Sync for Battery {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BatteryReport(windows_core::IUnknown);
@@ -184,12 +186,14 @@ impl windows_core::RuntimeType for BatteryReport {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBatteryReport>();
 }
 unsafe impl windows_core::Interface for BatteryReport {
-    type Vtable = <IBatteryReport as windows_core::Interface>::Vtable;
+    type Vtable = IBatteryReport_Vtbl;
     const IID: windows_core::GUID = <IBatteryReport as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for BatteryReport {
     const NAME: &'static str = "Windows.Devices.Power.BatteryReport";
 }
+unsafe impl Send for BatteryReport {}
+unsafe impl Sync for BatteryReport {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PowerGridData(windows_core::IUnknown);
@@ -214,12 +218,14 @@ impl windows_core::RuntimeType for PowerGridData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPowerGridData>();
 }
 unsafe impl windows_core::Interface for PowerGridData {
-    type Vtable = <IPowerGridData as windows_core::Interface>::Vtable;
+    type Vtable = IPowerGridData_Vtbl;
     const IID: windows_core::GUID = <IPowerGridData as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PowerGridData {
     const NAME: &'static str = "Windows.Devices.Power.PowerGridData";
 }
+unsafe impl Send for PowerGridData {}
+unsafe impl Sync for PowerGridData {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PowerGridForecast(windows_core::IUnknown);
@@ -274,9 +280,11 @@ impl windows_core::RuntimeType for PowerGridForecast {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPowerGridForecast>();
 }
 unsafe impl windows_core::Interface for PowerGridForecast {
-    type Vtable = <IPowerGridForecast as windows_core::Interface>::Vtable;
+    type Vtable = IPowerGridForecast_Vtbl;
     const IID: windows_core::GUID = <IPowerGridForecast as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PowerGridForecast {
     const NAME: &'static str = "Windows.Devices.Power.PowerGridForecast";
 }
+unsafe impl Send for PowerGridForecast {}
+unsafe impl Sync for PowerGridForecast {}

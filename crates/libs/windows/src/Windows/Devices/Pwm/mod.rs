@@ -81,11 +81,11 @@ impl PwmController {
             (windows_core::Interface::vtable(this).ActualFrequency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDesiredFrequency(&self, desiredFrequency: f64) -> windows_core::Result<f64> {
+    pub fn SetDesiredFrequency(&self, desiredfrequency: f64) -> windows_core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetDesiredFrequency)(windows_core::Interface::as_raw(this), desiredFrequency, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SetDesiredFrequency)(windows_core::Interface::as_raw(this), desiredfrequency, &mut result__).map(|| result__)
         }
     }
     pub fn MinFrequency(&self) -> windows_core::Result<f64> {
@@ -102,11 +102,11 @@ impl PwmController {
             (windows_core::Interface::vtable(this).MaxFrequency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn OpenPin(&self, pinNumber: i32) -> windows_core::Result<PwmPin> {
+    pub fn OpenPin(&self, pinnumber: i32) -> windows_core::Result<PwmPin> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenPin)(windows_core::Interface::as_raw(this), pinNumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OpenPin)(windows_core::Interface::as_raw(this), pinnumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Devices_Pwm_Provider", feature = "Foundation_Collections"))]
@@ -131,16 +131,16 @@ impl PwmController {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDeviceSelectorFromFriendlyName(friendlyName: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelectorFromFriendlyName(friendlyname: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
         Self::IPwmControllerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyName), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceId: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PwmController>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<PwmController>> {
         Self::IPwmControllerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPwmControllerStatics<R, F: FnOnce(&IPwmControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -160,17 +160,24 @@ impl windows_core::RuntimeType for PwmController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPwmController>();
 }
 unsafe impl windows_core::Interface for PwmController {
-    type Vtable = <IPwmController as windows_core::Interface>::Vtable;
+    type Vtable = IPwmController_Vtbl;
     const IID: windows_core::GUID = <IPwmController as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PwmController {
     const NAME: &'static str = "Windows.Devices.Pwm.PwmController";
 }
+unsafe impl Send for PwmController {}
+unsafe impl Sync for PwmController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PwmPin(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PwmPin, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PwmPin, super::super::Foundation::IClosable);
 impl PwmPin {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     pub fn Controller(&self) -> windows_core::Result<PwmController> {
         let this = self;
         unsafe {
@@ -185,9 +192,9 @@ impl PwmPin {
             (windows_core::Interface::vtable(this).GetActiveDutyCyclePercentage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetActiveDutyCyclePercentage(&self, dutyCyclePercentage: f64) -> windows_core::Result<()> {
+    pub fn SetActiveDutyCyclePercentage(&self, dutycyclepercentage: f64) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetActiveDutyCyclePercentage)(windows_core::Interface::as_raw(this), dutyCyclePercentage).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetActiveDutyCyclePercentage)(windows_core::Interface::as_raw(this), dutycyclepercentage).ok() }
     }
     pub fn Polarity(&self) -> windows_core::Result<PwmPulsePolarity> {
         let this = self;
@@ -215,23 +222,21 @@ impl PwmPin {
             (windows_core::Interface::vtable(this).IsStarted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
 }
 impl windows_core::RuntimeType for PwmPin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPwmPin>();
 }
 unsafe impl windows_core::Interface for PwmPin {
-    type Vtable = <IPwmPin as windows_core::Interface>::Vtable;
+    type Vtable = IPwmPin_Vtbl;
     const IID: windows_core::GUID = <IPwmPin as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PwmPin {
     const NAME: &'static str = "Windows.Devices.Pwm.PwmPin";
 }
+unsafe impl Send for PwmPin {}
+unsafe impl Sync for PwmPin {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PwmPulsePolarity(pub i32);
 impl PwmPulsePolarity {
     pub const ActiveHigh: Self = Self(0i32);
@@ -239,6 +244,11 @@ impl PwmPulsePolarity {
 }
 impl windows_core::TypeKind for PwmPulsePolarity {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PwmPulsePolarity {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PwmPulsePolarity").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for PwmPulsePolarity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Pwm.PwmPulsePolarity;i4)");

@@ -44,9 +44,9 @@ pub struct IIsolatedWindowsEnvironment_Vtbl {
     pub TerminateWithTelemetryAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     TerminateWithTelemetryAsync: usize,
-    #[cfg(feature = "deprecated")]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub RegisterMessageReceiver: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     RegisterMessageReceiver: usize,
     #[cfg(feature = "deprecated")]
     pub UnregisterMessageReceiver: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
@@ -696,9 +696,9 @@ impl windows_core::RuntimeType for IIsolatedWindowsHostMessengerStatics2 {
 #[repr(C)]
 pub struct IIsolatedWindowsHostMessengerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "deprecated")]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub RegisterHostMessageReceiver: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
     RegisterHostMessageReceiver: usize,
     #[cfg(feature = "deprecated")]
     pub UnregisterHostMessageReceiver: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
@@ -722,64 +722,64 @@ impl IsolatedWindowsEnvironment {
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn StartProcessSilentlyAsync(&self, hostExePath: &windows_core::HSTRING, arguments: &windows_core::HSTRING, activator: IsolatedWindowsEnvironmentActivator) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>> {
+    pub fn StartProcessSilentlyAsync(&self, hostexepath: &windows_core::HSTRING, arguments: &windows_core::HSTRING, activator: IsolatedWindowsEnvironmentActivator) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartProcessSilentlyAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(hostExePath), core::mem::transmute_copy(arguments), activator, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartProcessSilentlyAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(hostexepath), core::mem::transmute_copy(arguments), activator, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn StartProcessSilentlyWithTelemetryAsync<P3>(&self, hostExePath: &windows_core::HSTRING, arguments: &windows_core::HSTRING, activator: IsolatedWindowsEnvironmentActivator, telemetryParameters: P3) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>
+    pub fn StartProcessSilentlyWithTelemetryAsync<P0>(&self, hostexepath: &windows_core::HSTRING, arguments: &windows_core::HSTRING, activator: IsolatedWindowsEnvironmentActivator, telemetryparameters: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>
     where
-        P3: windows_core::Param<IsolatedWindowsEnvironmentTelemetryParameters>,
+        P0: windows_core::Param<IsolatedWindowsEnvironmentTelemetryParameters>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartProcessSilentlyWithTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(hostExePath), core::mem::transmute_copy(arguments), activator, telemetryParameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartProcessSilentlyWithTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(hostexepath), core::mem::transmute_copy(arguments), activator, telemetryparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn ShareFolderAsync<P1>(&self, hostFolder: &windows_core::HSTRING, requestOptions: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>
+    pub fn ShareFolderAsync<P0>(&self, hostfolder: &windows_core::HSTRING, requestoptions: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>
     where
-        P1: windows_core::Param<IsolatedWindowsEnvironmentShareFolderRequestOptions>,
+        P0: windows_core::Param<IsolatedWindowsEnvironmentShareFolderRequestOptions>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShareFolderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(hostFolder), requestOptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ShareFolderAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(hostfolder), requestoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn ShareFolderWithTelemetryAsync<P1, P2>(&self, hostFolder: &windows_core::HSTRING, requestOptions: P1, telemetryParameters: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>
+    pub fn ShareFolderWithTelemetryAsync<P0, P1>(&self, hostfolder: &windows_core::HSTRING, requestoptions: P0, telemetryparameters: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>
     where
-        P1: windows_core::Param<IsolatedWindowsEnvironmentShareFolderRequestOptions>,
-        P2: windows_core::Param<IsolatedWindowsEnvironmentTelemetryParameters>,
+        P0: windows_core::Param<IsolatedWindowsEnvironmentShareFolderRequestOptions>,
+        P1: windows_core::Param<IsolatedWindowsEnvironmentTelemetryParameters>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShareFolderWithTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(hostFolder), requestOptions.param().abi(), telemetryParameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ShareFolderWithTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(hostfolder), requestoptions.param().abi(), telemetryparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn LaunchFileWithUIAsync(&self, appExePath: &windows_core::HSTRING, argumentsTemplate: &windows_core::HSTRING, filePath: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>> {
+    pub fn LaunchFileWithUIAsync(&self, appexepath: &windows_core::HSTRING, argumentstemplate: &windows_core::HSTRING, filepath: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFileWithUIAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appExePath), core::mem::transmute_copy(argumentsTemplate), core::mem::transmute_copy(filePath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchFileWithUIAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appexepath), core::mem::transmute_copy(argumentstemplate), core::mem::transmute_copy(filepath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn LaunchFileWithUIAndTelemetryAsync<P3>(&self, appExePath: &windows_core::HSTRING, argumentsTemplate: &windows_core::HSTRING, filePath: &windows_core::HSTRING, telemetryParameters: P3) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>
+    pub fn LaunchFileWithUIAndTelemetryAsync<P0>(&self, appexepath: &windows_core::HSTRING, argumentstemplate: &windows_core::HSTRING, filepath: &windows_core::HSTRING, telemetryparameters: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>
     where
-        P3: windows_core::Param<IsolatedWindowsEnvironmentTelemetryParameters>,
+        P0: windows_core::Param<IsolatedWindowsEnvironmentTelemetryParameters>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFileWithUIAndTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appExePath), core::mem::transmute_copy(argumentsTemplate), core::mem::transmute_copy(filePath), telemetryParameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).LaunchFileWithUIAndTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appexepath), core::mem::transmute_copy(argumentstemplate), core::mem::transmute_copy(filepath), telemetryparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "deprecated")]
@@ -791,50 +791,50 @@ impl IsolatedWindowsEnvironment {
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn TerminateWithTelemetryAsync<P0>(&self, telemetryParameters: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn TerminateWithTelemetryAsync<P0>(&self, telemetryparameters: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: windows_core::Param<IsolatedWindowsEnvironmentTelemetryParameters>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TerminateWithTelemetryAsync)(windows_core::Interface::as_raw(this), telemetryParameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TerminateWithTelemetryAsync)(windows_core::Interface::as_raw(this), telemetryparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
-    pub fn RegisterMessageReceiver<P1>(&self, receiverId: windows_core::GUID, messageReceivedCallback: P1) -> windows_core::Result<()>
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub fn RegisterMessageReceiver<P0>(&self, receiverid: windows_core::GUID, messagereceivedcallback: P0) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<MessageReceivedCallback>,
+        P0: windows_core::Param<MessageReceivedCallback>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RegisterMessageReceiver)(windows_core::Interface::as_raw(this), receiverId, messageReceivedCallback.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RegisterMessageReceiver)(windows_core::Interface::as_raw(this), receiverid, messagereceivedcallback.param().abi()).ok() }
     }
     #[cfg(feature = "deprecated")]
-    pub fn UnregisterMessageReceiver(&self, receiverId: windows_core::GUID) -> windows_core::Result<()> {
+    pub fn UnregisterMessageReceiver(&self, receiverid: windows_core::GUID) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UnregisterMessageReceiver)(windows_core::Interface::as_raw(this), receiverId).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UnregisterMessageReceiver)(windows_core::Interface::as_raw(this), receiverid).ok() }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn PostMessageToReceiverAsync<P1>(&self, receiverId: windows_core::GUID, message: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
+    pub fn PostMessageToReceiverAsync<P0>(&self, receiverid: windows_core::GUID, message: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
     where
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PostMessageToReceiverAsync)(windows_core::Interface::as_raw(this), receiverId, message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PostMessageToReceiverAsync)(windows_core::Interface::as_raw(this), receiverid, message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn PostMessageToReceiverWithTelemetryAsync<P1, P2>(&self, receiverId: windows_core::GUID, message: P1, telemetryParameters: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
+    pub fn PostMessageToReceiverWithTelemetryAsync<P0, P1>(&self, receiverid: windows_core::GUID, message: P0, telemetryparameters: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
     where
-        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::IInspectable>>,
-        P2: windows_core::Param<IsolatedWindowsEnvironmentTelemetryParameters>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::IInspectable>>,
+        P1: windows_core::Param<IsolatedWindowsEnvironmentTelemetryParameters>,
     {
         let this = &windows_core::Interface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PostMessageToReceiverWithTelemetryAsync)(windows_core::Interface::as_raw(this), receiverId, message.param().abi(), telemetryParameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PostMessageToReceiverWithTelemetryAsync)(windows_core::Interface::as_raw(this), receiverid, message.param().abi(), telemetryparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "deprecated")]
@@ -846,32 +846,32 @@ impl IsolatedWindowsEnvironment {
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn ShareFileAsync<P1>(&self, filePath: &windows_core::HSTRING, options: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>
+    pub fn ShareFileAsync<P0>(&self, filepath: &windows_core::HSTRING, options: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>
     where
-        P1: windows_core::Param<IsolatedWindowsEnvironmentShareFileRequestOptions>,
+        P0: windows_core::Param<IsolatedWindowsEnvironmentShareFileRequestOptions>,
     {
         let this = &windows_core::Interface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShareFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filePath), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ShareFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filepath), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn ShareFileWithTelemetryAsync<P1, P2>(&self, filePath: &windows_core::HSTRING, options: P1, telemetryParameters: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>
+    pub fn ShareFileWithTelemetryAsync<P0, P1>(&self, filepath: &windows_core::HSTRING, options: P0, telemetryparameters: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>
     where
-        P1: windows_core::Param<IsolatedWindowsEnvironmentShareFileRequestOptions>,
-        P2: windows_core::Param<IsolatedWindowsEnvironmentTelemetryParameters>,
+        P0: windows_core::Param<IsolatedWindowsEnvironmentShareFileRequestOptions>,
+        P1: windows_core::Param<IsolatedWindowsEnvironmentTelemetryParameters>,
     {
         let this = &windows_core::Interface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShareFileWithTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filePath), options.param().abi(), telemetryParameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ShareFileWithTelemetryAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filepath), options.param().abi(), telemetryparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn ChangePriority(&self, Priority: IsolatedWindowsEnvironmentCreationPriority) -> windows_core::Result<()> {
+    pub fn ChangePriority(&self, priority: IsolatedWindowsEnvironmentCreationPriority) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IIsolatedWindowsEnvironment4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).ChangePriority)(windows_core::Interface::as_raw(this), Priority).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ChangePriority)(windows_core::Interface::as_raw(this), priority).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn CreateAsync<P0>(options: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>
@@ -884,30 +884,31 @@ impl IsolatedWindowsEnvironment {
         })
     }
     #[cfg(feature = "deprecated")]
-    pub fn CreateWithTelemetryAsync<P0, P1>(options: P0, telemetryParameters: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>
+    pub fn CreateWithTelemetryAsync<P0, P1>(options: P0, telemetryparameters: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>
     where
         P0: windows_core::Param<IsolatedWindowsEnvironmentOptions>,
         P1: windows_core::Param<IsolatedWindowsEnvironmentTelemetryParameters>,
     {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithTelemetryAsync)(windows_core::Interface::as_raw(this), options.param().abi(), telemetryParameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithTelemetryAsync)(windows_core::Interface::as_raw(this), options.param().abi(), telemetryparameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "deprecated")]
-    pub fn GetById(environmentId: &windows_core::HSTRING) -> windows_core::Result<IsolatedWindowsEnvironment> {
+    pub fn GetById(environmentid: &windows_core::HSTRING) -> windows_core::Result<IsolatedWindowsEnvironment> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(environmentId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(environmentid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn FindByOwnerId(environmentOwnerId: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>> {
+    pub fn FindByOwnerId(environmentownerid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FindByOwnerId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(environmentOwnerId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FindByOwnerId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(environmentownerid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
+    #[cfg(feature = "deprecated")]
     fn IIsolatedWindowsEnvironmentFactory<R, F: FnOnce(&IIsolatedWindowsEnvironmentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<IsolatedWindowsEnvironment, IIsolatedWindowsEnvironmentFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -919,13 +920,17 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironment {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironment {
-    type Vtable = <IIsolatedWindowsEnvironment as windows_core::Interface>::Vtable;
+    type Vtable = IIsolatedWindowsEnvironment_Vtbl;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironment as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IsolatedWindowsEnvironment {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironment";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironment {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironment {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -970,13 +975,17 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentCreateResult {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentCreateResult {
-    type Vtable = <IIsolatedWindowsEnvironmentCreateResult as windows_core::Interface>::Vtable;
+    type Vtable = IIsolatedWindowsEnvironmentCreateResult_Vtbl;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentCreateResult as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentCreateResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentCreateResult {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentCreateResult {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1029,7 +1038,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentFile {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentFile {
-    type Vtable = <IIsolatedWindowsEnvironmentFile as windows_core::Interface>::Vtable;
+    type Vtable = IIsolatedWindowsEnvironmentFile_Vtbl;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentFile as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1037,9 +1046,33 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentFile {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentFile";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentFile {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentFile {}
+#[cfg(feature = "deprecated")]
 pub struct IsolatedWindowsEnvironmentHost;
 #[cfg(feature = "deprecated")]
-impl IsolatedWindowsEnvironmentHost {}
+impl IsolatedWindowsEnvironmentHost {
+    #[cfg(feature = "deprecated")]
+    pub fn IsReady() -> windows_core::Result<bool> {
+        Self::IIsolatedWindowsEnvironmentHostStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsReady)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub fn HostErrors() -> windows_core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironmentHostError>> {
+        Self::IIsolatedWindowsEnvironmentHostStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).HostErrors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "deprecated")]
+    fn IIsolatedWindowsEnvironmentHostStatics<R, F: FnOnce(&IIsolatedWindowsEnvironmentHostStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<IsolatedWindowsEnvironmentHost, IIsolatedWindowsEnvironmentHostStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentHost {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentHost";
@@ -1083,13 +1116,17 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileResult {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentLaunchFileResult {
-    type Vtable = <IIsolatedWindowsEnvironmentLaunchFileResult as windows_core::Interface>::Vtable;
+    type Vtable = IIsolatedWindowsEnvironmentLaunchFileResult_Vtbl;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentLaunchFileResult as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentLaunchFileResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileResult";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentLaunchFileResult {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentLaunchFileResult {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1174,9 +1211,9 @@ impl IsolatedWindowsEnvironmentOptions {
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn ShareHostFolderForUntrustedItems(&self, SharedHostFolderPath: &windows_core::HSTRING, ShareFolderNameInEnvironment: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn ShareHostFolderForUntrustedItems(&self, sharedhostfolderpath: &windows_core::HSTRING, sharefoldernameinenvironment: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ShareHostFolderForUntrustedItems)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(SharedHostFolderPath), core::mem::transmute_copy(ShareFolderNameInEnvironment)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ShareHostFolderForUntrustedItems)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sharedhostfolderpath), core::mem::transmute_copy(sharefoldernameinenvironment)).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn PersistUserProfile(&self) -> windows_core::Result<bool> {
@@ -1276,7 +1313,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentOptions {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentOptions {
-    type Vtable = <IIsolatedWindowsEnvironmentOptions as windows_core::Interface>::Vtable;
+    type Vtable = IIsolatedWindowsEnvironmentOptions_Vtbl;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentOptions as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1284,9 +1321,33 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentOptions {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentOptions {}
+#[cfg(feature = "deprecated")]
 pub struct IsolatedWindowsEnvironmentOwnerRegistration;
 #[cfg(feature = "deprecated")]
-impl IsolatedWindowsEnvironmentOwnerRegistration {}
+impl IsolatedWindowsEnvironmentOwnerRegistration {
+    #[cfg(feature = "deprecated")]
+    pub fn Register<P0>(ownername: &windows_core::HSTRING, ownerregistrationdata: P0) -> windows_core::Result<IsolatedWindowsEnvironmentOwnerRegistrationResult>
+    where
+        P0: windows_core::Param<IsolatedWindowsEnvironmentOwnerRegistrationData>,
+    {
+        Self::IIsolatedWindowsEnvironmentOwnerRegistrationStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(ownername), ownerregistrationdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn Unregister(ownername: &windows_core::HSTRING) -> windows_core::Result<()> {
+        Self::IIsolatedWindowsEnvironmentOwnerRegistrationStatics(|this| unsafe { (windows_core::Interface::vtable(this).Unregister)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(ownername)).ok() })
+    }
+    #[cfg(feature = "deprecated")]
+    fn IIsolatedWindowsEnvironmentOwnerRegistrationStatics<R, F: FnOnce(&IIsolatedWindowsEnvironmentOwnerRegistrationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<IsolatedWindowsEnvironmentOwnerRegistration, IIsolatedWindowsEnvironmentOwnerRegistrationStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistration {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistration";
@@ -1345,13 +1406,17 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationDa
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentOwnerRegistrationData {
-    type Vtable = <IIsolatedWindowsEnvironmentOwnerRegistrationData as windows_core::Interface>::Vtable;
+    type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentOwnerRegistrationData as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationData {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationData";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentOwnerRegistrationData {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentOwnerRegistrationData {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1383,13 +1448,17 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationRe
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentOwnerRegistrationResult {
-    type Vtable = <IIsolatedWindowsEnvironmentOwnerRegistrationResult as windows_core::Interface>::Vtable;
+    type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationResult_Vtbl;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentOwnerRegistrationResult as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationResult";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1421,13 +1490,17 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentPostMessageResult {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentPostMessageResult {
-    type Vtable = <IIsolatedWindowsEnvironmentPostMessageResult as windows_core::Interface>::Vtable;
+    type Vtable = IIsolatedWindowsEnvironmentPostMessageResult_Vtbl;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentPostMessageResult as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentPostMessageResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentPostMessageResult {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentPostMessageResult {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1458,9 +1531,9 @@ impl IsolatedWindowsEnvironmentProcess {
         unsafe { (windows_core::Interface::vtable(this).WaitForExit)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "deprecated")]
-    pub fn WaitForExitWithTimeout(&self, timeoutMilliseconds: u32) -> windows_core::Result<()> {
+    pub fn WaitForExitWithTimeout(&self, timeoutmilliseconds: u32) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).WaitForExitWithTimeout)(windows_core::Interface::as_raw(this), timeoutMilliseconds).ok() }
+        unsafe { (windows_core::Interface::vtable(this).WaitForExitWithTimeout)(windows_core::Interface::as_raw(this), timeoutmilliseconds).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn WaitForExitAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncAction> {
@@ -1477,13 +1550,17 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentProcess {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentProcess {
-    type Vtable = <IIsolatedWindowsEnvironmentProcess as windows_core::Interface>::Vtable;
+    type Vtable = IIsolatedWindowsEnvironmentProcess_Vtbl;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentProcess as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentProcess {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentProcess {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentProcess {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1519,13 +1596,17 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFileRequestOpt
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentShareFileRequestOptions {
-    type Vtable = <IIsolatedWindowsEnvironmentShareFileRequestOptions as windows_core::Interface>::Vtable;
+    type Vtable = IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentShareFileRequestOptions as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFileRequestOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentShareFileRequestOptions {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentShareFileRequestOptions {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1565,13 +1646,17 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFileResult {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentShareFileResult {
-    type Vtable = <IIsolatedWindowsEnvironmentShareFileResult as windows_core::Interface>::Vtable;
+    type Vtable = IIsolatedWindowsEnvironmentShareFileResult_Vtbl;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentShareFileResult as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFileResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentShareFileResult {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentShareFileResult {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1607,13 +1692,17 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFolderRequestO
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentShareFolderRequestOptions {
-    type Vtable = <IIsolatedWindowsEnvironmentShareFolderRequestOptions as windows_core::Interface>::Vtable;
+    type Vtable = IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentShareFolderRequestOptions as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFolderRequestOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderRequestOptions";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1645,13 +1734,17 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFolderResult {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentShareFolderResult {
-    type Vtable = <IIsolatedWindowsEnvironmentShareFolderResult as windows_core::Interface>::Vtable;
+    type Vtable = IIsolatedWindowsEnvironmentShareFolderResult_Vtbl;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentShareFolderResult as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFolderResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderResult";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentShareFolderResult {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentShareFolderResult {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1691,13 +1784,17 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentStartProcessResult 
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentStartProcessResult {
-    type Vtable = <IIsolatedWindowsEnvironmentStartProcessResult as windows_core::Interface>::Vtable;
+    type Vtable = IIsolatedWindowsEnvironmentStartProcessResult_Vtbl;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentStartProcessResult as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentStartProcessResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessResult";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentStartProcessResult {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentStartProcessResult {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1733,13 +1830,17 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentTelemetryParameters
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentTelemetryParameters {
-    type Vtable = <IIsolatedWindowsEnvironmentTelemetryParameters as windows_core::Interface>::Vtable;
+    type Vtable = IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentTelemetryParameters as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IsolatedWindowsEnvironmentTelemetryParameters {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentTelemetryParameters";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentTelemetryParameters {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentTelemetryParameters {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1787,7 +1888,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentUserInfo {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentUserInfo {
-    type Vtable = <IIsolatedWindowsEnvironmentUserInfo as windows_core::Interface>::Vtable;
+    type Vtable = IIsolatedWindowsEnvironmentUserInfo_Vtbl;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentUserInfo as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1795,41 +1896,618 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentUserInfo {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo";
 }
 #[cfg(feature = "deprecated")]
+unsafe impl Send for IsolatedWindowsEnvironmentUserInfo {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for IsolatedWindowsEnvironmentUserInfo {}
+#[cfg(feature = "deprecated")]
 pub struct IsolatedWindowsHostMessenger;
 #[cfg(feature = "deprecated")]
-impl IsolatedWindowsHostMessenger {}
+impl IsolatedWindowsHostMessenger {
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub fn PostMessageToReceiver<P0>(receiverid: windows_core::GUID, message: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>,
+    {
+        Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe { (windows_core::Interface::vtable(this).PostMessageToReceiver)(windows_core::Interface::as_raw(this), receiverid, message.param().abi()).ok() })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn GetFileId(filepath: &windows_core::HSTRING) -> windows_core::Result<windows_core::GUID> {
+        Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetFileId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filepath), &mut result__).map(|| result__)
+        })
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub fn RegisterHostMessageReceiver<P0>(receiverid: windows_core::GUID, hostmessagereceivedcallback: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<HostMessageReceivedCallback>,
+    {
+        Self::IIsolatedWindowsHostMessengerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RegisterHostMessageReceiver)(windows_core::Interface::as_raw(this), receiverid, hostmessagereceivedcallback.param().abi()).ok() })
+    }
+    #[cfg(feature = "deprecated")]
+    pub fn UnregisterHostMessageReceiver(receiverid: windows_core::GUID) -> windows_core::Result<()> {
+        Self::IIsolatedWindowsHostMessengerStatics2(|this| unsafe { (windows_core::Interface::vtable(this).UnregisterHostMessageReceiver)(windows_core::Interface::as_raw(this), receiverid).ok() })
+    }
+    #[cfg(feature = "deprecated")]
+    fn IIsolatedWindowsHostMessengerStatics<R, F: FnOnce(&IIsolatedWindowsHostMessengerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<IsolatedWindowsHostMessenger, IIsolatedWindowsHostMessengerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[cfg(feature = "deprecated")]
+    fn IIsolatedWindowsHostMessengerStatics2<R, F: FnOnce(&IIsolatedWindowsHostMessengerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<IsolatedWindowsHostMessenger, IIsolatedWindowsHostMessengerStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for IsolatedWindowsHostMessenger {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsHostMessenger";
 }
-windows_core::imp::define_interface!(HostMessageReceivedCallback, HostMessageReceivedCallback_Vtbl, 0xfaf26ffa_8ce1_4cc1_b278_322d31a5e4a3);
-impl windows_core::RuntimeType for HostMessageReceivedCallback {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IsolatedWindowsEnvironmentActivator(pub i32);
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentActivator {
+    pub const System: Self = Self(0i32);
+    pub const User: Self = Self(1i32);
 }
-impl HostMessageReceivedCallback {
-    pub fn new<F: FnMut(&windows_core::GUID, Option<&super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = HostMessageReceivedCallbackBox { vtable: &HostMessageReceivedCallbackBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
-        unsafe { core::mem::transmute(Box::new(com)) }
+#[cfg(feature = "deprecated")]
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentActivator {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for IsolatedWindowsEnvironmentActivator {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentActivator").field(&self.0).finish()
     }
-    pub fn Invoke<P1>(&self, receiverId: windows_core::GUID, message: P1) -> windows_core::Result<()>
-    where
-        P1: windows_core::Param<super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), receiverId, message.param().abi()).ok() }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentActivator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentActivator;i4)");
+}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IsolatedWindowsEnvironmentAllowedClipboardFormats(pub u32);
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    pub const None: Self = Self(0u32);
+    pub const Text: Self = Self(1u32);
+    pub const Image: Self = Self(2u32);
+    pub const Rtf: Self = Self(4u32);
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentAllowedClipboardFormats").field(&self.0).finish()
     }
+}
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+#[cfg(feature = "deprecated")]
+impl core::ops::BitOr for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl core::ops::BitAnd for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl core::ops::BitOrAssign for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl core::ops::BitAndAssign for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl core::ops::Not for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats;u4)");
+}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IsolatedWindowsEnvironmentAvailablePrinters(pub u32);
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentAvailablePrinters {
+    pub const None: Self = Self(0u32);
+    pub const Local: Self = Self(1u32);
+    pub const Network: Self = Self(2u32);
+    pub const SystemPrintToPdf: Self = Self(4u32);
+    pub const SystemPrintToXps: Self = Self(8u32);
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentAvailablePrinters {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for IsolatedWindowsEnvironmentAvailablePrinters {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentAvailablePrinters").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentAvailablePrinters {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+#[cfg(feature = "deprecated")]
+impl core::ops::BitOr for IsolatedWindowsEnvironmentAvailablePrinters {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl core::ops::BitAnd for IsolatedWindowsEnvironmentAvailablePrinters {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl core::ops::BitOrAssign for IsolatedWindowsEnvironmentAvailablePrinters {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl core::ops::BitAndAssign for IsolatedWindowsEnvironmentAvailablePrinters {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl core::ops::Not for IsolatedWindowsEnvironmentAvailablePrinters {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentAvailablePrinters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAvailablePrinters;u4)");
+}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IsolatedWindowsEnvironmentClipboardCopyPasteDirections(pub u32);
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    pub const None: Self = Self(0u32);
+    pub const HostToIsolatedWindowsEnvironment: Self = Self(1u32);
+    pub const IsolatedWindowsEnvironmentToHost: Self = Self(2u32);
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentClipboardCopyPasteDirections").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+#[cfg(feature = "deprecated")]
+impl core::ops::BitOr for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl core::ops::BitAnd for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl core::ops::BitOrAssign for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl core::ops::BitAndAssign for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl core::ops::Not for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentClipboardCopyPasteDirections;u4)");
+}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IsolatedWindowsEnvironmentCreateStatus(pub i32);
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentCreateStatus {
+    pub const Success: Self = Self(0i32);
+    pub const FailureByPolicy: Self = Self(1i32);
+    pub const UnknownFailure: Self = Self(2i32);
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentCreateStatus {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for IsolatedWindowsEnvironmentCreateStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentCreateStatus").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentCreateStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateStatus;i4)");
+}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IsolatedWindowsEnvironmentCreationPriority(pub i32);
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentCreationPriority {
+    pub const Low: Self = Self(0i32);
+    pub const Normal: Self = Self(1i32);
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentCreationPriority {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for IsolatedWindowsEnvironmentCreationPriority {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentCreationPriority").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentCreationPriority {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreationPriority;i4)");
+}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IsolatedWindowsEnvironmentHostError(pub i32);
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentHostError {
+    pub const AdminPolicyIsDisabledOrNotPresent: Self = Self(0i32);
+    pub const FeatureNotInstalled: Self = Self(1i32);
+    pub const HardwareRequirementsNotMet: Self = Self(2i32);
+    pub const RebootRequired: Self = Self(3i32);
+    pub const UnknownError: Self = Self(4i32);
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentHostError {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for IsolatedWindowsEnvironmentHostError {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentHostError").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentHostError {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentHostError;i4)");
+}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IsolatedWindowsEnvironmentLaunchFileStatus(pub i32);
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentLaunchFileStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const EnvironmentUnavailable: Self = Self(2i32);
+    pub const FileNotFound: Self = Self(3i32);
+    pub const TimedOut: Self = Self(4i32);
+    pub const AlreadySharedWithConflictingOptions: Self = Self(5i32);
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentLaunchFileStatus {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for IsolatedWindowsEnvironmentLaunchFileStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentLaunchFileStatus").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileStatus;i4)");
+}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IsolatedWindowsEnvironmentOwnerRegistrationStatus(pub i32);
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+    pub const Success: Self = Self(0i32);
+    pub const InvalidArgument: Self = Self(1i32);
+    pub const AccessDenied: Self = Self(2i32);
+    pub const InsufficientMemory: Self = Self(3i32);
+    pub const UnknownFailure: Self = Self(4i32);
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentOwnerRegistrationStatus").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationStatus;i4)");
+}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IsolatedWindowsEnvironmentPostMessageStatus(pub i32);
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentPostMessageStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const EnvironmentUnavailable: Self = Self(2i32);
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentPostMessageStatus {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for IsolatedWindowsEnvironmentPostMessageStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentPostMessageStatus").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentPostMessageStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus;i4)");
+}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IsolatedWindowsEnvironmentProcessState(pub i32);
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentProcessState {
+    pub const Running: Self = Self(1i32);
+    pub const Aborted: Self = Self(2i32);
+    pub const Completed: Self = Self(3i32);
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentProcessState {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for IsolatedWindowsEnvironmentProcessState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentProcessState").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentProcessState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProcessState;i4)");
+}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IsolatedWindowsEnvironmentProgressState(pub i32);
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentProgressState {
+    pub const Queued: Self = Self(0i32);
+    pub const Processing: Self = Self(1i32);
+    pub const Completed: Self = Self(2i32);
+    pub const Creating: Self = Self(3i32);
+    pub const Retrying: Self = Self(4i32);
+    pub const Starting: Self = Self(5i32);
+    pub const Finalizing: Self = Self(6i32);
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentProgressState {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for IsolatedWindowsEnvironmentProgressState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentProgressState").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentProgressState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4)");
+}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IsolatedWindowsEnvironmentShareFileStatus(pub i32);
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentShareFileStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const EnvironmentUnavailable: Self = Self(2i32);
+    pub const AlreadySharedWithConflictingOptions: Self = Self(3i32);
+    pub const FileNotFound: Self = Self(4i32);
+    pub const AccessDenied: Self = Self(5i32);
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentShareFileStatus {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for IsolatedWindowsEnvironmentShareFileStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentShareFileStatus").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFileStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileStatus;i4)");
+}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IsolatedWindowsEnvironmentShareFolderStatus(pub i32);
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentShareFolderStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const EnvironmentUnavailable: Self = Self(2i32);
+    pub const FolderNotFound: Self = Self(3i32);
+    pub const AccessDenied: Self = Self(4i32);
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentShareFolderStatus {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for IsolatedWindowsEnvironmentShareFolderStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentShareFolderStatus").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFolderStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderStatus;i4)");
+}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IsolatedWindowsEnvironmentSignInProgress(pub i32);
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentSignInProgress {
+    pub const Connecting: Self = Self(0i32);
+    pub const Connected: Self = Self(1i32);
+    pub const Authenticating: Self = Self(2i32);
+    pub const SettingUpAccount: Self = Self(3i32);
+    pub const Finalizing: Self = Self(4i32);
+    pub const Completed: Self = Self(5i32);
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentSignInProgress {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for IsolatedWindowsEnvironmentSignInProgress {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentSignInProgress").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentSignInProgress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentSignInProgress;i4)");
+}
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
+pub struct IsolatedWindowsEnvironmentStartProcessStatus(pub i32);
+#[cfg(feature = "deprecated")]
+impl IsolatedWindowsEnvironmentStartProcessStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const EnvironmentUnavailable: Self = Self(2i32);
+    pub const FileNotFound: Self = Self(3i32);
+    pub const AppNotRegistered: Self = Self(4i32);
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentStartProcessStatus {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "deprecated")]
+impl core::fmt::Debug for IsolatedWindowsEnvironmentStartProcessStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentStartProcessStatus").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentStartProcessStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessStatus;i4)");
 }
 #[repr(C)]
-pub struct HostMessageReceivedCallback_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, receiverId: windows_core::GUID, message: *mut core::ffi::c_void) -> windows_core::HRESULT,
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct IsolatedWindowsEnvironmentCreateProgress {
+    pub State: IsolatedWindowsEnvironmentProgressState,
+    pub PercentComplete: u32,
 }
+impl windows_core::TypeKind for IsolatedWindowsEnvironmentCreateProgress {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentCreateProgress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateProgress;enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4);u4)");
+}
+impl Default for IsolatedWindowsEnvironmentCreateProgress {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+windows_core::imp::define_interface!(HostMessageReceivedCallback, HostMessageReceivedCallback_Vtbl, 0xfaf26ffa_8ce1_4cc1_b278_322d31a5e4a3);
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+impl HostMessageReceivedCallback {
+    pub fn new<F: FnMut(&windows_core::GUID, Option<&super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+        let com = HostMessageReceivedCallbackBox::<F> { vtable: &HostMessageReceivedCallbackBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        unsafe { core::mem::transmute(Box::new(com)) }
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub fn Invoke<P0>(&self, receiverid: windows_core::GUID, message: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), receiverid, message.param().abi()).ok() }
+    }
+}
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 #[repr(C)]
 struct HostMessageReceivedCallbackBox<F: FnMut(&windows_core::GUID, Option<&super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const HostMessageReceivedCallback_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl<F: FnMut(&windows_core::GUID, Option<&super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> HostMessageReceivedCallbackBox<F> {
     const VTABLE: HostMessageReceivedCallback_Vtbl = HostMessageReceivedCallback_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1857,39 +2535,49 @@ impl<F: FnMut(&windows_core::GUID, Option<&super::super::Foundation::Collections
         }
         remaining
     }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, receiverId: windows_core::GUID, message: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, receiverid: windows_core::GUID, message: *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(core::mem::transmute(&receiverId), windows_core::from_raw_borrowed(&message)).into()
+        (this.invoke)(core::mem::transmute(&receiverid), windows_core::from_raw_borrowed(&message)).into()
     }
 }
-windows_core::imp::define_interface!(MessageReceivedCallback, MessageReceivedCallback_Vtbl, 0xf5b4c8ff_1d9d_4995_9fea_4d15257c0757);
-impl windows_core::RuntimeType for MessageReceivedCallback {
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+impl windows_core::RuntimeType for HostMessageReceivedCallback {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+#[repr(C)]
+pub struct HostMessageReceivedCallback_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    Invoke: usize,
+}
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+windows_core::imp::define_interface!(MessageReceivedCallback, MessageReceivedCallback_Vtbl, 0xf5b4c8ff_1d9d_4995_9fea_4d15257c0757);
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl MessageReceivedCallback {
     pub fn new<F: FnMut(&windows_core::GUID, Option<&super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = MessageReceivedCallbackBox { vtable: &MessageReceivedCallbackBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = MessageReceivedCallbackBox::<F> { vtable: &MessageReceivedCallbackBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
-    pub fn Invoke<P1>(&self, receiverId: windows_core::GUID, message: P1) -> windows_core::Result<()>
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub fn Invoke<P0>(&self, receiverid: windows_core::GUID, message: P0) -> windows_core::Result<()>
     where
-        P1: windows_core::Param<super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>,
+        P0: windows_core::Param<super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), receiverId, message.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), receiverid, message.param().abi()).ok() }
     }
 }
-#[repr(C)]
-pub struct MessageReceivedCallback_Vtbl {
-    base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, receiverId: windows_core::GUID, message: *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 #[repr(C)]
 struct MessageReceivedCallbackBox<F: FnMut(&windows_core::GUID, Option<&super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const MessageReceivedCallback_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 impl<F: FnMut(&windows_core::GUID, Option<&super::super::Foundation::Collections::IVectorView<windows_core::IInspectable>>) -> windows_core::Result<()> + Send + 'static> MessageReceivedCallbackBox<F> {
     const VTABLE: MessageReceivedCallback_Vtbl = MessageReceivedCallback_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1917,266 +2605,21 @@ impl<F: FnMut(&windows_core::GUID, Option<&super::super::Foundation::Collections
         }
         remaining
     }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, receiverId: windows_core::GUID, message: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, receiverid: windows_core::GUID, message: *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(core::mem::transmute(&receiverId), windows_core::from_raw_borrowed(&message)).into()
+        (this.invoke)(core::mem::transmute(&receiverid), windows_core::from_raw_borrowed(&message)).into()
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentActivator(pub i32);
-impl IsolatedWindowsEnvironmentActivator {
-    pub const System: Self = Self(0i32);
-    pub const User: Self = Self(1i32);
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+impl windows_core::RuntimeType for MessageReceivedCallback {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentActivator {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentActivator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentActivator;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentAllowedClipboardFormats(pub u32);
-impl IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    pub const None: Self = Self(0u32);
-    pub const Text: Self = Self(1u32);
-    pub const Image: Self = Self(2u32);
-    pub const Rtf: Self = Self(4u32);
-}
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats;u4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentAvailablePrinters(pub u32);
-impl IsolatedWindowsEnvironmentAvailablePrinters {
-    pub const None: Self = Self(0u32);
-    pub const Local: Self = Self(1u32);
-    pub const Network: Self = Self(2u32);
-    pub const SystemPrintToPdf: Self = Self(4u32);
-    pub const SystemPrintToXps: Self = Self(8u32);
-}
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentAvailablePrinters {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentAvailablePrinters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAvailablePrinters;u4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentClipboardCopyPasteDirections(pub u32);
-impl IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    pub const None: Self = Self(0u32);
-    pub const HostToIsolatedWindowsEnvironment: Self = Self(1u32);
-    pub const IsolatedWindowsEnvironmentToHost: Self = Self(2u32);
-}
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentClipboardCopyPasteDirections;u4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentCreateStatus(pub i32);
-impl IsolatedWindowsEnvironmentCreateStatus {
-    pub const Success: Self = Self(0i32);
-    pub const FailureByPolicy: Self = Self(1i32);
-    pub const UnknownFailure: Self = Self(2i32);
-}
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentCreateStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentCreateStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentCreationPriority(pub i32);
-impl IsolatedWindowsEnvironmentCreationPriority {
-    pub const Low: Self = Self(0i32);
-    pub const Normal: Self = Self(1i32);
-}
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentCreationPriority {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentCreationPriority {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreationPriority;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentHostError(pub i32);
-impl IsolatedWindowsEnvironmentHostError {
-    pub const AdminPolicyIsDisabledOrNotPresent: Self = Self(0i32);
-    pub const FeatureNotInstalled: Self = Self(1i32);
-    pub const HardwareRequirementsNotMet: Self = Self(2i32);
-    pub const RebootRequired: Self = Self(3i32);
-    pub const UnknownError: Self = Self(4i32);
-}
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentHostError {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentHostError {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentHostError;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentLaunchFileStatus(pub i32);
-impl IsolatedWindowsEnvironmentLaunchFileStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const EnvironmentUnavailable: Self = Self(2i32);
-    pub const FileNotFound: Self = Self(3i32);
-    pub const TimedOut: Self = Self(4i32);
-    pub const AlreadySharedWithConflictingOptions: Self = Self(5i32);
-}
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentLaunchFileStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentOwnerRegistrationStatus(pub i32);
-impl IsolatedWindowsEnvironmentOwnerRegistrationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const InvalidArgument: Self = Self(1i32);
-    pub const AccessDenied: Self = Self(2i32);
-    pub const InsufficientMemory: Self = Self(3i32);
-    pub const UnknownFailure: Self = Self(4i32);
-}
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentPostMessageStatus(pub i32);
-impl IsolatedWindowsEnvironmentPostMessageStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const EnvironmentUnavailable: Self = Self(2i32);
-}
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentPostMessageStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentPostMessageStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentProcessState(pub i32);
-impl IsolatedWindowsEnvironmentProcessState {
-    pub const Running: Self = Self(1i32);
-    pub const Aborted: Self = Self(2i32);
-    pub const Completed: Self = Self(3i32);
-}
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentProcessState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentProcessState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProcessState;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentProgressState(pub i32);
-impl IsolatedWindowsEnvironmentProgressState {
-    pub const Queued: Self = Self(0i32);
-    pub const Processing: Self = Self(1i32);
-    pub const Completed: Self = Self(2i32);
-    pub const Creating: Self = Self(3i32);
-    pub const Retrying: Self = Self(4i32);
-    pub const Starting: Self = Self(5i32);
-    pub const Finalizing: Self = Self(6i32);
-}
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentProgressState {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentProgressState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentShareFileStatus(pub i32);
-impl IsolatedWindowsEnvironmentShareFileStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const EnvironmentUnavailable: Self = Self(2i32);
-    pub const AlreadySharedWithConflictingOptions: Self = Self(3i32);
-    pub const FileNotFound: Self = Self(4i32);
-    pub const AccessDenied: Self = Self(5i32);
-}
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentShareFileStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFileStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentShareFolderStatus(pub i32);
-impl IsolatedWindowsEnvironmentShareFolderStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const EnvironmentUnavailable: Self = Self(2i32);
-    pub const FolderNotFound: Self = Self(3i32);
-    pub const AccessDenied: Self = Self(4i32);
-}
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentShareFolderStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFolderStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentSignInProgress(pub i32);
-impl IsolatedWindowsEnvironmentSignInProgress {
-    pub const Connecting: Self = Self(0i32);
-    pub const Connected: Self = Self(1i32);
-    pub const Authenticating: Self = Self(2i32);
-    pub const SettingUpAccount: Self = Self(3i32);
-    pub const Finalizing: Self = Self(4i32);
-    pub const Completed: Self = Self(5i32);
-}
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentSignInProgress {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentSignInProgress {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentSignInProgress;i4)");
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentStartProcessStatus(pub i32);
-impl IsolatedWindowsEnvironmentStartProcessStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const EnvironmentUnavailable: Self = Self(2i32);
-    pub const FileNotFound: Self = Self(3i32);
-    pub const AppNotRegistered: Self = Self(4i32);
-}
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentStartProcessStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentStartProcessStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessStatus;i4)");
-}
+#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct IsolatedWindowsEnvironmentCreateProgress {
-    pub State: IsolatedWindowsEnvironmentProgressState,
-    pub PercentComplete: u32,
-}
-impl windows_core::TypeKind for IsolatedWindowsEnvironmentCreateProgress {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentCreateProgress {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateProgress;enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4);u4)");
+pub struct MessageReceivedCallback_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    Invoke: usize,
 }

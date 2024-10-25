@@ -96,53 +96,59 @@ pub struct ICoreDragUIOverride_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ICoreDropOperationTarget, ICoreDropOperationTarget_Vtbl, 0xd9126196_4c5b_417d_bb37_76381def8db4);
+impl core::ops::Deref for ICoreDropOperationTarget {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ICoreDropOperationTarget, windows_core::IUnknown, windows_core::IInspectable);
+impl ICoreDropOperationTarget {
+    pub fn EnterAsync<P0, P1>(&self, draginfo: P0, draguioverride: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>
+    where
+        P0: windows_core::Param<CoreDragInfo>,
+        P1: windows_core::Param<CoreDragUIOverride>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EnterAsync)(windows_core::Interface::as_raw(this), draginfo.param().abi(), draguioverride.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn OverAsync<P0, P1>(&self, draginfo: P0, draguioverride: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>
+    where
+        P0: windows_core::Param<CoreDragInfo>,
+        P1: windows_core::Param<CoreDragUIOverride>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OverAsync)(windows_core::Interface::as_raw(this), draginfo.param().abi(), draguioverride.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn LeaveAsync<P0>(&self, draginfo: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<CoreDragInfo>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LeaveAsync)(windows_core::Interface::as_raw(this), draginfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DropAsync<P0>(&self, draginfo: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>
+    where
+        P0: windows_core::Param<CoreDragInfo>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DropAsync)(windows_core::Interface::as_raw(this), draginfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
 impl windows_core::RuntimeType for ICoreDropOperationTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-impl ICoreDropOperationTarget {
-    pub fn EnterAsync<P0, P1>(&self, dragInfo: P0, dragUIOverride: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>
-    where
-        P0: windows_core::Param<CoreDragInfo>,
-        P1: windows_core::Param<CoreDragUIOverride>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).EnterAsync)(windows_core::Interface::as_raw(this), dragInfo.param().abi(), dragUIOverride.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn OverAsync<P0, P1>(&self, dragInfo: P0, dragUIOverride: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>
-    where
-        P0: windows_core::Param<CoreDragInfo>,
-        P1: windows_core::Param<CoreDragUIOverride>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OverAsync)(windows_core::Interface::as_raw(this), dragInfo.param().abi(), dragUIOverride.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn LeaveAsync<P0>(&self, dragInfo: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
-    where
-        P0: windows_core::Param<CoreDragInfo>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LeaveAsync)(windows_core::Interface::as_raw(this), dragInfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn DropAsync<P0>(&self, dragInfo: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>>
-    where
-        P0: windows_core::Param<CoreDragInfo>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DropAsync)(windows_core::Interface::as_raw(this), dragInfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
 }
 #[repr(C)]
 pub struct ICoreDropOperationTarget_Vtbl {
@@ -206,33 +212,35 @@ impl windows_core::RuntimeType for CoreDragDropManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDragDropManager>();
 }
 unsafe impl windows_core::Interface for CoreDragDropManager {
-    type Vtable = <ICoreDragDropManager as windows_core::Interface>::Vtable;
+    type Vtable = ICoreDragDropManager_Vtbl;
     const IID: windows_core::GUID = <ICoreDragDropManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreDragDropManager {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager";
 }
+unsafe impl Send for CoreDragDropManager {}
+unsafe impl Sync for CoreDragDropManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreDragInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreDragInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreDragInfo {
     pub fn Data(&self) -> windows_core::Result<super::super::DataPackageView> {
-        let this = &windows_core::Interface::cast::<ICoreDragInfo>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Modifiers(&self) -> windows_core::Result<super::DragDropModifiers> {
-        let this = &windows_core::Interface::cast::<ICoreDragInfo>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Modifiers)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Position(&self) -> windows_core::Result<super::super::super::super::Foundation::Point> {
-        let this = &windows_core::Interface::cast::<ICoreDragInfo>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -250,12 +258,14 @@ impl windows_core::RuntimeType for CoreDragInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDragInfo>();
 }
 unsafe impl windows_core::Interface for CoreDragInfo {
-    type Vtable = <ICoreDragInfo as windows_core::Interface>::Vtable;
+    type Vtable = ICoreDragInfo_Vtbl;
     const IID: windows_core::GUID = <ICoreDragInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreDragInfo {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragInfo";
 }
+unsafe impl Send for CoreDragInfo {}
+unsafe impl Sync for CoreDragInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreDragOperation(windows_core::IUnknown);
@@ -269,45 +279,45 @@ impl CoreDragOperation {
         SHARED.call(callback)
     }
     pub fn Data(&self) -> windows_core::Result<super::super::DataPackage> {
-        let this = &windows_core::Interface::cast::<ICoreDragOperation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetPointerId(&self, pointerId: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ICoreDragOperation>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPointerId)(windows_core::Interface::as_raw(this), pointerId).ok() }
+    pub fn SetPointerId(&self, pointerid: u32) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPointerId)(windows_core::Interface::as_raw(this), pointerid).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetDragUIContentFromSoftwareBitmap<P0>(&self, softwareBitmap: P0) -> windows_core::Result<()>
+    pub fn SetDragUIContentFromSoftwareBitmap<P0>(&self, softwarebitmap: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::super::Graphics::Imaging::SoftwareBitmap>,
     {
-        let this = &windows_core::Interface::cast::<ICoreDragOperation>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDragUIContentFromSoftwareBitmap)(windows_core::Interface::as_raw(this), softwareBitmap.param().abi()).ok() }
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDragUIContentFromSoftwareBitmap)(windows_core::Interface::as_raw(this), softwarebitmap.param().abi()).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetDragUIContentFromSoftwareBitmapWithAnchorPoint<P0>(&self, softwareBitmap: P0, anchorPoint: super::super::super::super::Foundation::Point) -> windows_core::Result<()>
+    pub fn SetDragUIContentFromSoftwareBitmapWithAnchorPoint<P0>(&self, softwarebitmap: P0, anchorpoint: super::super::super::super::Foundation::Point) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::super::Graphics::Imaging::SoftwareBitmap>,
     {
-        let this = &windows_core::Interface::cast::<ICoreDragOperation>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetDragUIContentFromSoftwareBitmapWithAnchorPoint)(windows_core::Interface::as_raw(this), softwareBitmap.param().abi(), anchorPoint).ok() }
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetDragUIContentFromSoftwareBitmapWithAnchorPoint)(windows_core::Interface::as_raw(this), softwarebitmap.param().abi(), anchorpoint).ok() }
     }
     pub fn DragUIContentMode(&self) -> windows_core::Result<CoreDragUIContentMode> {
-        let this = &windows_core::Interface::cast::<ICoreDragOperation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DragUIContentMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetDragUIContentMode(&self, value: CoreDragUIContentMode) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<ICoreDragOperation>(self)?;
+        let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDragUIContentMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn StartAsync(&self) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::DataPackageOperation>> {
-        let this = &windows_core::Interface::cast::<ICoreDragOperation>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -329,32 +339,34 @@ impl windows_core::RuntimeType for CoreDragOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDragOperation>();
 }
 unsafe impl windows_core::Interface for CoreDragOperation {
-    type Vtable = <ICoreDragOperation as windows_core::Interface>::Vtable;
+    type Vtable = ICoreDragOperation_Vtbl;
     const IID: windows_core::GUID = <ICoreDragOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreDragOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation";
 }
+unsafe impl Send for CoreDragOperation {}
+unsafe impl Sync for CoreDragOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreDragUIOverride(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreDragUIOverride, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreDragUIOverride {
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetContentFromSoftwareBitmap<P0>(&self, softwareBitmap: P0) -> windows_core::Result<()>
+    pub fn SetContentFromSoftwareBitmap<P0>(&self, softwarebitmap: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::super::Graphics::Imaging::SoftwareBitmap>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentFromSoftwareBitmap)(windows_core::Interface::as_raw(this), softwareBitmap.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentFromSoftwareBitmap)(windows_core::Interface::as_raw(this), softwarebitmap.param().abi()).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetContentFromSoftwareBitmapWithAnchorPoint<P0>(&self, softwareBitmap: P0, anchorPoint: super::super::super::super::Foundation::Point) -> windows_core::Result<()>
+    pub fn SetContentFromSoftwareBitmapWithAnchorPoint<P0>(&self, softwarebitmap: P0, anchorpoint: super::super::super::super::Foundation::Point) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::super::Graphics::Imaging::SoftwareBitmap>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetContentFromSoftwareBitmapWithAnchorPoint)(windows_core::Interface::as_raw(this), softwareBitmap.param().abi(), anchorPoint).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetContentFromSoftwareBitmapWithAnchorPoint)(windows_core::Interface::as_raw(this), softwarebitmap.param().abi(), anchorpoint).ok() }
     }
     pub fn IsContentVisible(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -409,12 +421,14 @@ impl windows_core::RuntimeType for CoreDragUIOverride {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDragUIOverride>();
 }
 unsafe impl windows_core::Interface for CoreDragUIOverride {
-    type Vtable = <ICoreDragUIOverride as windows_core::Interface>::Vtable;
+    type Vtable = ICoreDragUIOverride_Vtbl;
     const IID: windows_core::GUID = <ICoreDragUIOverride as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreDragUIOverride {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIOverride";
 }
+unsafe impl Send for CoreDragUIOverride {}
+unsafe impl Sync for CoreDragUIOverride {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreDropOperationTargetRequestedEventArgs(windows_core::IUnknown);
@@ -432,14 +446,16 @@ impl windows_core::RuntimeType for CoreDropOperationTargetRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDropOperationTargetRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreDropOperationTargetRequestedEventArgs {
-    type Vtable = <ICoreDropOperationTargetRequestedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = ICoreDropOperationTargetRequestedEventArgs_Vtbl;
     const IID: windows_core::GUID = <ICoreDropOperationTargetRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CoreDropOperationTargetRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDropOperationTargetRequestedEventArgs";
 }
+unsafe impl Send for CoreDropOperationTargetRequestedEventArgs {}
+unsafe impl Sync for CoreDropOperationTargetRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CoreDragUIContentMode(pub u32);
 impl CoreDragUIContentMode {
     pub const Auto: Self = Self(0u32);
@@ -448,6 +464,46 @@ impl CoreDragUIContentMode {
 impl windows_core::TypeKind for CoreDragUIContentMode {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CoreDragUIContentMode {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CoreDragUIContentMode").field(&self.0).finish()
+    }
+}
+impl CoreDragUIContentMode {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CoreDragUIContentMode {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CoreDragUIContentMode {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CoreDragUIContentMode {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CoreDragUIContentMode {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CoreDragUIContentMode {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 impl windows_core::RuntimeType for CoreDragUIContentMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIContentMode;u4)");
 }
+#[cfg(feature = "implement")]
+core::include!("impl.rs");

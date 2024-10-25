@@ -1,3 +1,1461 @@
+#[inline]
+pub unsafe fn AVIBuildFilterA<P0>(lpszfilter: &mut [u8], fsaving: P0) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterA(lpszfilter : windows_core::PSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    AVIBuildFilterA(core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn AVIBuildFilterW<P0>(lpszfilter: &mut [u16], fsaving: P0) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::Foundation::BOOL>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIBuildFilterW(lpszfilter : windows_core::PWSTR, cbfilter : i32, fsaving : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
+    AVIBuildFilterW(core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn AVIClearClipboard() -> windows_core::Result<()> {
+    windows_targets::link!("avifil32.dll" "system" fn AVIClearClipboard() -> windows_core::HRESULT);
+    AVIClearClipboard().ok()
+}
+#[inline]
+pub unsafe fn AVIFileAddRef<P0>(pfile: P0) -> u32
+where
+    P0: windows_core::Param<IAVIFile>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIFileAddRef(pfile : * mut core::ffi::c_void) -> u32);
+    AVIFileAddRef(pfile.param().abi())
+}
+#[inline]
+pub unsafe fn AVIFileCreateStreamA<P0>(pfile: P0, ppavi: *mut Option<IAVIStream>, psi: *const AVISTREAMINFOA) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIFile>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIFileCreateStreamA(pfile : * mut core::ffi::c_void, ppavi : *mut * mut core::ffi::c_void, psi : *const AVISTREAMINFOA) -> windows_core::HRESULT);
+    AVIFileCreateStreamA(pfile.param().abi(), core::mem::transmute(ppavi), psi).ok()
+}
+#[inline]
+pub unsafe fn AVIFileCreateStreamW<P0>(pfile: P0, ppavi: *mut Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIFile>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIFileCreateStreamW(pfile : * mut core::ffi::c_void, ppavi : *mut * mut core::ffi::c_void, psi : *const AVISTREAMINFOW) -> windows_core::HRESULT);
+    AVIFileCreateStreamW(pfile.param().abi(), core::mem::transmute(ppavi), psi).ok()
+}
+#[inline]
+pub unsafe fn AVIFileEndRecord<P0>(pfile: P0) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIFile>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIFileEndRecord(pfile : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    AVIFileEndRecord(pfile.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn AVIFileExit() {
+    windows_targets::link!("avifil32.dll" "system" fn AVIFileExit());
+    AVIFileExit()
+}
+#[inline]
+pub unsafe fn AVIFileGetStream<P0>(pfile: P0, ppavi: *mut Option<IAVIStream>, fcctype: u32, lparam: i32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIFile>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIFileGetStream(pfile : * mut core::ffi::c_void, ppavi : *mut * mut core::ffi::c_void, fcctype : u32, lparam : i32) -> windows_core::HRESULT);
+    AVIFileGetStream(pfile.param().abi(), core::mem::transmute(ppavi), fcctype, lparam).ok()
+}
+#[inline]
+pub unsafe fn AVIFileInfoA<P0>(pfile: P0, pfi: *mut AVIFILEINFOA, lsize: i32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIFile>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIFileInfoA(pfile : * mut core::ffi::c_void, pfi : *mut AVIFILEINFOA, lsize : i32) -> windows_core::HRESULT);
+    AVIFileInfoA(pfile.param().abi(), pfi, lsize).ok()
+}
+#[inline]
+pub unsafe fn AVIFileInfoW<P0>(pfile: P0, pfi: *mut AVIFILEINFOW, lsize: i32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIFile>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIFileInfoW(pfile : * mut core::ffi::c_void, pfi : *mut AVIFILEINFOW, lsize : i32) -> windows_core::HRESULT);
+    AVIFileInfoW(pfile.param().abi(), pfi, lsize).ok()
+}
+#[inline]
+pub unsafe fn AVIFileInit() {
+    windows_targets::link!("avifil32.dll" "system" fn AVIFileInit());
+    AVIFileInit()
+}
+#[inline]
+pub unsafe fn AVIFileOpenA<P0>(ppfile: *mut Option<IAVIFile>, szfile: P0, umode: u32, lphandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIFileOpenA(ppfile : *mut * mut core::ffi::c_void, szfile : windows_core::PCSTR, umode : u32, lphandler : *const windows_core::GUID) -> windows_core::HRESULT);
+    AVIFileOpenA(core::mem::transmute(ppfile), szfile.param().abi(), umode, core::mem::transmute(lphandler.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn AVIFileOpenW<P0>(ppfile: *mut Option<IAVIFile>, szfile: P0, umode: u32, lphandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIFileOpenW(ppfile : *mut * mut core::ffi::c_void, szfile : windows_core::PCWSTR, umode : u32, lphandler : *const windows_core::GUID) -> windows_core::HRESULT);
+    AVIFileOpenW(core::mem::transmute(ppfile), szfile.param().abi(), umode, core::mem::transmute(lphandler.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn AVIFileReadData<P0>(pfile: P0, ckid: u32, lpdata: *mut core::ffi::c_void, lpcbdata: *mut i32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIFile>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIFileReadData(pfile : * mut core::ffi::c_void, ckid : u32, lpdata : *mut core::ffi::c_void, lpcbdata : *mut i32) -> windows_core::HRESULT);
+    AVIFileReadData(pfile.param().abi(), ckid, lpdata, lpcbdata).ok()
+}
+#[inline]
+pub unsafe fn AVIFileRelease<P0>(pfile: P0) -> u32
+where
+    P0: windows_core::Param<IAVIFile>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIFileRelease(pfile : * mut core::ffi::c_void) -> u32);
+    AVIFileRelease(pfile.param().abi())
+}
+#[inline]
+pub unsafe fn AVIFileWriteData<P0>(pfile: P0, ckid: u32, lpdata: *const core::ffi::c_void, cbdata: i32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIFile>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIFileWriteData(pfile : * mut core::ffi::c_void, ckid : u32, lpdata : *const core::ffi::c_void, cbdata : i32) -> windows_core::HRESULT);
+    AVIFileWriteData(pfile.param().abi(), ckid, lpdata, cbdata).ok()
+}
+#[inline]
+pub unsafe fn AVIGetFromClipboard() -> windows_core::Result<IAVIFile> {
+    windows_targets::link!("avifil32.dll" "system" fn AVIGetFromClipboard(lppf : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    let mut result__ = core::mem::zeroed();
+    AVIGetFromClipboard(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
+}
+#[inline]
+pub unsafe fn AVIMakeCompressedStream<P0>(ppscompressed: *mut Option<IAVIStream>, ppssource: P0, lpoptions: *const AVICOMPRESSOPTIONS, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIMakeCompressedStream(ppscompressed : *mut * mut core::ffi::c_void, ppssource : * mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
+    AVIMakeCompressedStream(core::mem::transmute(ppscompressed), ppssource.param().abi(), lpoptions, core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn AVIMakeFileFromStreams(ppfile: *mut Option<IAVIFile>, papstreams: &[Option<IAVIStream>]) -> windows_core::Result<()> {
+    windows_targets::link!("avifil32.dll" "system" fn AVIMakeFileFromStreams(ppfile : *mut * mut core::ffi::c_void, nstreams : i32, papstreams : *const * mut core::ffi::c_void) -> windows_core::HRESULT);
+    AVIMakeFileFromStreams(core::mem::transmute(ppfile), papstreams.len().try_into().unwrap(), core::mem::transmute(papstreams.as_ptr())).ok()
+}
+#[inline]
+pub unsafe fn AVIMakeStreamFromClipboard<P0>(cfformat: u32, hglobal: P0) -> windows_core::Result<IAVIStream>
+where
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIMakeStreamFromClipboard(cfformat : u32, hglobal : super::super::Foundation:: HANDLE, ppstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    let mut result__ = core::mem::zeroed();
+    AVIMakeStreamFromClipboard(cfformat, hglobal.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+}
+#[inline]
+pub unsafe fn AVIPutFileOnClipboard<P0>(pf: P0) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIFile>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIPutFileOnClipboard(pf : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    AVIPutFileOnClipboard(pf.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn AVISaveA<P0, P1>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P1, lpoptions: *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "cdecl" fn AVISaveA(szfile : windows_core::PCSTR, pclsidhandler : *const windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : * mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
+    AVISaveA(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), lpfncallback, nstreams, pfile.param().abi(), lpoptions).ok()
+}
+#[inline]
+pub unsafe fn AVISaveOptions<P0>(hwnd: P0, uiflags: u32, nstreams: i32, ppavi: *const Option<IAVIStream>, plpoptions: *mut *mut AVICOMPRESSOPTIONS) -> isize
+where
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVISaveOptions(hwnd : super::super::Foundation:: HWND, uiflags : u32, nstreams : i32, ppavi : *const * mut core::ffi::c_void, plpoptions : *mut *mut AVICOMPRESSOPTIONS) -> isize);
+    AVISaveOptions(hwnd.param().abi(), uiflags, nstreams, core::mem::transmute(ppavi), plpoptions)
+}
+#[inline]
+pub unsafe fn AVISaveOptionsFree(plpoptions: &[*const AVICOMPRESSOPTIONS]) -> windows_core::Result<()> {
+    windows_targets::link!("avifil32.dll" "system" fn AVISaveOptionsFree(nstreams : i32, plpoptions : *const *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
+    AVISaveOptionsFree(plpoptions.len().try_into().unwrap(), core::mem::transmute(plpoptions.as_ptr())).ok()
+}
+#[inline]
+pub unsafe fn AVISaveVA<P0>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVISaveVA(szfile : windows_core::PCSTR, pclsidhandler : *const windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const * mut core::ffi::c_void, plpoptions : *const *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
+    AVISaveVA(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), lpfncallback, nstreams, core::mem::transmute(ppavi), plpoptions).ok()
+}
+#[inline]
+pub unsafe fn AVISaveVW<P0>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const Option<IAVIStream>, plpoptions: *const *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVISaveVW(szfile : windows_core::PCWSTR, pclsidhandler : *const windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, ppavi : *const * mut core::ffi::c_void, plpoptions : *const *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
+    AVISaveVW(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), lpfncallback, nstreams, core::mem::transmute(ppavi), plpoptions).ok()
+}
+#[inline]
+pub unsafe fn AVISaveW<P0, P1>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, pfile: P1, lpoptions: *const AVICOMPRESSOPTIONS) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "cdecl" fn AVISaveW(szfile : windows_core::PCWSTR, pclsidhandler : *const windows_core::GUID, lpfncallback : AVISAVECALLBACK, nstreams : i32, pfile : * mut core::ffi::c_void, lpoptions : *const AVICOMPRESSOPTIONS) -> windows_core::HRESULT);
+    AVISaveW(szfile.param().abi(), core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null())), lpfncallback, nstreams, pfile.param().abi(), lpoptions).ok()
+}
+#[inline]
+pub unsafe fn AVIStreamAddRef<P0>(pavi: P0) -> u32
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamAddRef(pavi : * mut core::ffi::c_void) -> u32);
+    AVIStreamAddRef(pavi.param().abi())
+}
+#[inline]
+pub unsafe fn AVIStreamBeginStreaming<P0>(pavi: P0, lstart: i32, lend: i32, lrate: i32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamBeginStreaming(pavi : * mut core::ffi::c_void, lstart : i32, lend : i32, lrate : i32) -> windows_core::HRESULT);
+    AVIStreamBeginStreaming(pavi.param().abi(), lstart, lend, lrate).ok()
+}
+#[inline]
+pub unsafe fn AVIStreamCreate(ppavi: *mut Option<IAVIStream>, lparam1: i32, lparam2: i32, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()> {
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamCreate(ppavi : *mut * mut core::ffi::c_void, lparam1 : i32, lparam2 : i32, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
+    AVIStreamCreate(core::mem::transmute(ppavi), lparam1, lparam2, core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn AVIStreamEndStreaming<P0>(pavi: P0) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamEndStreaming(pavi : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    AVIStreamEndStreaming(pavi.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn AVIStreamFindSample<P0>(pavi: P0, lpos: i32, lflags: i32) -> i32
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamFindSample(pavi : * mut core::ffi::c_void, lpos : i32, lflags : i32) -> i32);
+    AVIStreamFindSample(pavi.param().abi(), lpos, lflags)
+}
+#[inline]
+pub unsafe fn AVIStreamGetFrame<P0>(pg: P0, lpos: i32) -> *mut core::ffi::c_void
+where
+    P0: windows_core::Param<IGetFrame>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamGetFrame(pg : * mut core::ffi::c_void, lpos : i32) -> *mut core::ffi::c_void);
+    AVIStreamGetFrame(pg.param().abi(), lpos)
+}
+#[inline]
+pub unsafe fn AVIStreamGetFrameClose<P0>(pg: P0) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IGetFrame>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamGetFrameClose(pg : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    AVIStreamGetFrameClose(pg.param().abi()).ok()
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn AVIStreamGetFrameOpen<P0>(pavi: P0, lpbiwanted: Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>) -> Option<IGetFrame>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamGetFrameOpen(pavi : * mut core::ffi::c_void, lpbiwanted : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER) -> Option < IGetFrame >);
+    AVIStreamGetFrameOpen(pavi.param().abi(), core::mem::transmute(lpbiwanted.unwrap_or(core::ptr::null())))
+}
+#[inline]
+pub unsafe fn AVIStreamInfoA<P0>(pavi: P0, psi: *mut AVISTREAMINFOA, lsize: i32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamInfoA(pavi : * mut core::ffi::c_void, psi : *mut AVISTREAMINFOA, lsize : i32) -> windows_core::HRESULT);
+    AVIStreamInfoA(pavi.param().abi(), psi, lsize).ok()
+}
+#[inline]
+pub unsafe fn AVIStreamInfoW<P0>(pavi: P0, psi: *mut AVISTREAMINFOW, lsize: i32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamInfoW(pavi : * mut core::ffi::c_void, psi : *mut AVISTREAMINFOW, lsize : i32) -> windows_core::HRESULT);
+    AVIStreamInfoW(pavi.param().abi(), psi, lsize).ok()
+}
+#[inline]
+pub unsafe fn AVIStreamLength<P0>(pavi: P0) -> i32
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamLength(pavi : * mut core::ffi::c_void) -> i32);
+    AVIStreamLength(pavi.param().abi())
+}
+#[inline]
+pub unsafe fn AVIStreamOpenFromFileA<P0>(ppavi: *mut Option<IAVIStream>, szfile: P0, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamOpenFromFileA(ppavi : *mut * mut core::ffi::c_void, szfile : windows_core::PCSTR, fcctype : u32, lparam : i32, mode : u32, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
+    AVIStreamOpenFromFileA(core::mem::transmute(ppavi), szfile.param().abi(), fcctype, lparam, mode, core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn AVIStreamOpenFromFileW<P0>(ppavi: *mut Option<IAVIStream>, szfile: P0, fcctype: u32, lparam: i32, mode: u32, pclsidhandler: Option<*const windows_core::GUID>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamOpenFromFileW(ppavi : *mut * mut core::ffi::c_void, szfile : windows_core::PCWSTR, fcctype : u32, lparam : i32, mode : u32, pclsidhandler : *const windows_core::GUID) -> windows_core::HRESULT);
+    AVIStreamOpenFromFileW(core::mem::transmute(ppavi), szfile.param().abi(), fcctype, lparam, mode, core::mem::transmute(pclsidhandler.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn AVIStreamRead<P0>(pavi: P0, lstart: i32, lsamples: i32, lpbuffer: Option<*mut core::ffi::c_void>, cbbuffer: i32, plbytes: Option<*mut i32>, plsamples: Option<*mut i32>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamRead(pavi : * mut core::ffi::c_void, lstart : i32, lsamples : i32, lpbuffer : *mut core::ffi::c_void, cbbuffer : i32, plbytes : *mut i32, plsamples : *mut i32) -> windows_core::HRESULT);
+    AVIStreamRead(pavi.param().abi(), lstart, lsamples, core::mem::transmute(lpbuffer.unwrap_or(core::ptr::null_mut())), cbbuffer, core::mem::transmute(plbytes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plsamples.unwrap_or(core::ptr::null_mut()))).ok()
+}
+#[inline]
+pub unsafe fn AVIStreamReadData<P0>(pavi: P0, fcc: u32, lp: Option<*mut core::ffi::c_void>, lpcb: *mut i32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamReadData(pavi : * mut core::ffi::c_void, fcc : u32, lp : *mut core::ffi::c_void, lpcb : *mut i32) -> windows_core::HRESULT);
+    AVIStreamReadData(pavi.param().abi(), fcc, core::mem::transmute(lp.unwrap_or(core::ptr::null_mut())), lpcb).ok()
+}
+#[inline]
+pub unsafe fn AVIStreamReadFormat<P0>(pavi: P0, lpos: i32, lpformat: Option<*mut core::ffi::c_void>, lpcbformat: *mut i32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamReadFormat(pavi : * mut core::ffi::c_void, lpos : i32, lpformat : *mut core::ffi::c_void, lpcbformat : *mut i32) -> windows_core::HRESULT);
+    AVIStreamReadFormat(pavi.param().abi(), lpos, core::mem::transmute(lpformat.unwrap_or(core::ptr::null_mut())), lpcbformat).ok()
+}
+#[inline]
+pub unsafe fn AVIStreamRelease<P0>(pavi: P0) -> u32
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamRelease(pavi : * mut core::ffi::c_void) -> u32);
+    AVIStreamRelease(pavi.param().abi())
+}
+#[inline]
+pub unsafe fn AVIStreamSampleToTime<P0>(pavi: P0, lsample: i32) -> i32
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamSampleToTime(pavi : * mut core::ffi::c_void, lsample : i32) -> i32);
+    AVIStreamSampleToTime(pavi.param().abi(), lsample)
+}
+#[inline]
+pub unsafe fn AVIStreamSetFormat<P0>(pavi: P0, lpos: i32, lpformat: *const core::ffi::c_void, cbformat: i32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamSetFormat(pavi : * mut core::ffi::c_void, lpos : i32, lpformat : *const core::ffi::c_void, cbformat : i32) -> windows_core::HRESULT);
+    AVIStreamSetFormat(pavi.param().abi(), lpos, lpformat, cbformat).ok()
+}
+#[inline]
+pub unsafe fn AVIStreamStart<P0>(pavi: P0) -> i32
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamStart(pavi : * mut core::ffi::c_void) -> i32);
+    AVIStreamStart(pavi.param().abi())
+}
+#[inline]
+pub unsafe fn AVIStreamTimeToSample<P0>(pavi: P0, ltime: i32) -> i32
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamTimeToSample(pavi : * mut core::ffi::c_void, ltime : i32) -> i32);
+    AVIStreamTimeToSample(pavi.param().abi(), ltime)
+}
+#[inline]
+pub unsafe fn AVIStreamWrite<P0>(pavi: P0, lstart: i32, lsamples: i32, lpbuffer: *const core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: Option<*mut i32>, plbyteswritten: Option<*mut i32>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamWrite(pavi : * mut core::ffi::c_void, lstart : i32, lsamples : i32, lpbuffer : *const core::ffi::c_void, cbbuffer : i32, dwflags : u32, plsampwritten : *mut i32, plbyteswritten : *mut i32) -> windows_core::HRESULT);
+    AVIStreamWrite(pavi.param().abi(), lstart, lsamples, lpbuffer, cbbuffer, dwflags, core::mem::transmute(plsampwritten.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plbyteswritten.unwrap_or(core::ptr::null_mut()))).ok()
+}
+#[inline]
+pub unsafe fn AVIStreamWriteData<P0>(pavi: P0, fcc: u32, lp: *const core::ffi::c_void, cb: i32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn AVIStreamWriteData(pavi : * mut core::ffi::c_void, fcc : u32, lp : *const core::ffi::c_void, cb : i32) -> windows_core::HRESULT);
+    AVIStreamWriteData(pavi.param().abi(), fcc, lp, cb).ok()
+}
+#[inline]
+pub unsafe fn CloseDriver<P0, P1, P2>(hdriver: P0, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
+where
+    P0: windows_core::Param<HDRVR>,
+    P1: windows_core::Param<super::super::Foundation::LPARAM>,
+    P2: windows_core::Param<super::super::Foundation::LPARAM>,
+{
+    windows_targets::link!("winmm.dll" "system" fn CloseDriver(hdriver : HDRVR, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
+    CloseDriver(hdriver.param().abi(), lparam1.param().abi(), lparam2.param().abi())
+}
+#[inline]
+pub unsafe fn CreateEditableStream<P0>(ppseditable: *mut Option<IAVIStream>, pssource: P0) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn CreateEditableStream(ppseditable : *mut * mut core::ffi::c_void, pssource : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    CreateEditableStream(core::mem::transmute(ppseditable), pssource.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn DefDriverProc<P0, P1, P2>(dwdriveridentifier: usize, hdrvr: P0, umsg: u32, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
+where
+    P0: windows_core::Param<HDRVR>,
+    P1: windows_core::Param<super::super::Foundation::LPARAM>,
+    P2: windows_core::Param<super::super::Foundation::LPARAM>,
+{
+    windows_targets::link!("winmm.dll" "system" fn DefDriverProc(dwdriveridentifier : usize, hdrvr : HDRVR, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
+    DefDriverProc(dwdriveridentifier, hdrvr.param().abi(), umsg, lparam1.param().abi(), lparam2.param().abi())
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn DrawDibBegin<P0>(hdd: isize, hdc: P0, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
+{
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibBegin(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
+    DrawDibBegin(hdd, hdc.param().abi(), dxdst, dydst, lpbi, dxsrc, dysrc, wflags)
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn DrawDibChangePalette(hdd: isize, istart: i32, lppe: &[super::super::Graphics::Gdi::PALETTEENTRY]) -> super::super::Foundation::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibChangePalette(hdd : isize, istart : i32, ilen : i32, lppe : *const super::super::Graphics::Gdi:: PALETTEENTRY) -> super::super::Foundation:: BOOL);
+    DrawDibChangePalette(hdd, istart, lppe.len().try_into().unwrap(), core::mem::transmute(lppe.as_ptr()))
+}
+#[inline]
+pub unsafe fn DrawDibClose(hdd: isize) -> super::super::Foundation::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibClose(hdd : isize) -> super::super::Foundation:: BOOL);
+    DrawDibClose(hdd)
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn DrawDibDraw<P0>(hdd: isize, hdc: P0, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, lpbits: Option<*const core::ffi::c_void>, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, wflags: u32) -> super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
+{
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibDraw(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, wflags : u32) -> super::super::Foundation:: BOOL);
+    DrawDibDraw(hdd, hdc.param().abi(), xdst, ydst, dxdst, dydst, core::mem::transmute(lpbi.unwrap_or(core::ptr::null())), core::mem::transmute(lpbits.unwrap_or(core::ptr::null())), xsrc, ysrc, dxsrc, dysrc, wflags)
+}
+#[inline]
+pub unsafe fn DrawDibEnd(hdd: isize) -> super::super::Foundation::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibEnd(hdd : isize) -> super::super::Foundation:: BOOL);
+    DrawDibEnd(hdd)
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn DrawDibGetBuffer(hdd: isize, lpbi: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, dwsize: u32, dwflags: u32) -> *mut core::ffi::c_void {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibGetBuffer(hdd : isize, lpbi : *mut super::super::Graphics::Gdi:: BITMAPINFOHEADER, dwsize : u32, dwflags : u32) -> *mut core::ffi::c_void);
+    DrawDibGetBuffer(hdd, lpbi, dwsize, dwflags)
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn DrawDibGetPalette(hdd: isize) -> super::super::Graphics::Gdi::HPALETTE {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibGetPalette(hdd : isize) -> super::super::Graphics::Gdi:: HPALETTE);
+    DrawDibGetPalette(hdd)
+}
+#[inline]
+pub unsafe fn DrawDibOpen() -> isize {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibOpen() -> isize);
+    DrawDibOpen()
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn DrawDibProfileDisplay(lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER) -> super::super::Foundation::LRESULT {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibProfileDisplay(lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER) -> super::super::Foundation:: LRESULT);
+    DrawDibProfileDisplay(lpbi)
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn DrawDibRealize<P0, P1>(hdd: isize, hdc: P0, fbackground: P1) -> u32
+where
+    P0: windows_core::Param<super::super::Graphics::Gdi::HDC>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
+{
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibRealize(hdd : isize, hdc : super::super::Graphics::Gdi:: HDC, fbackground : super::super::Foundation:: BOOL) -> u32);
+    DrawDibRealize(hdd, hdc.param().abi(), fbackground.param().abi())
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn DrawDibSetPalette<P0>(hdd: isize, hpal: P0) -> super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::Graphics::Gdi::HPALETTE>,
+{
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibSetPalette(hdd : isize, hpal : super::super::Graphics::Gdi:: HPALETTE) -> super::super::Foundation:: BOOL);
+    DrawDibSetPalette(hdd, hpal.param().abi())
+}
+#[inline]
+pub unsafe fn DrawDibStart(hdd: isize, rate: u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibStart(hdd : isize, rate : u32) -> super::super::Foundation:: BOOL);
+    DrawDibStart(hdd, rate)
+}
+#[inline]
+pub unsafe fn DrawDibStop(hdd: isize) -> super::super::Foundation::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibStop(hdd : isize) -> super::super::Foundation:: BOOL);
+    DrawDibStop(hdd)
+}
+#[inline]
+pub unsafe fn DrawDibTime(hdd: isize, lpddtime: *mut DRAWDIBTIME) -> super::super::Foundation::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn DrawDibTime(hdd : isize, lpddtime : *mut DRAWDIBTIME) -> super::super::Foundation:: BOOL);
+    DrawDibTime(hdd, lpddtime)
+}
+#[inline]
+pub unsafe fn DriverCallback<P0>(dwcallback: usize, dwflags: u32, hdevice: P0, dwmsg: u32, dwuser: usize, dwparam1: usize, dwparam2: usize) -> super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<HDRVR>,
+{
+    windows_targets::link!("winmm.dll" "system" fn DriverCallback(dwcallback : usize, dwflags : u32, hdevice : HDRVR, dwmsg : u32, dwuser : usize, dwparam1 : usize, dwparam2 : usize) -> super::super::Foundation:: BOOL);
+    DriverCallback(dwcallback, dwflags, hdevice.param().abi(), dwmsg, dwuser, dwparam1, dwparam2)
+}
+#[inline]
+pub unsafe fn DrvGetModuleHandle<P0>(hdriver: P0) -> super::super::Foundation::HMODULE
+where
+    P0: windows_core::Param<HDRVR>,
+{
+    windows_targets::link!("winmm.dll" "system" fn DrvGetModuleHandle(hdriver : HDRVR) -> super::super::Foundation:: HMODULE);
+    DrvGetModuleHandle(hdriver.param().abi())
+}
+#[inline]
+pub unsafe fn EditStreamClone<P0>(pavi: P0) -> windows_core::Result<IAVIStream>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn EditStreamClone(pavi : * mut core::ffi::c_void, ppresult : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    let mut result__ = core::mem::zeroed();
+    EditStreamClone(pavi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+}
+#[inline]
+pub unsafe fn EditStreamCopy<P0>(pavi: P0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn EditStreamCopy(pavi : * mut core::ffi::c_void, plstart : *mut i32, pllength : *mut i32, ppresult : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    EditStreamCopy(pavi.param().abi(), plstart, pllength, core::mem::transmute(ppresult)).ok()
+}
+#[inline]
+pub unsafe fn EditStreamCut<P0>(pavi: P0, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn EditStreamCut(pavi : * mut core::ffi::c_void, plstart : *mut i32, pllength : *mut i32, ppresult : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    EditStreamCut(pavi.param().abi(), plstart, pllength, core::mem::transmute(ppresult)).ok()
+}
+#[inline]
+pub unsafe fn EditStreamPaste<P0, P1>(pavi: P0, plpos: *mut i32, pllength: *mut i32, pstream: P1, lstart: i32, lend: i32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+    P1: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn EditStreamPaste(pavi : * mut core::ffi::c_void, plpos : *mut i32, pllength : *mut i32, pstream : * mut core::ffi::c_void, lstart : i32, lend : i32) -> windows_core::HRESULT);
+    EditStreamPaste(pavi.param().abi(), plpos, pllength, pstream.param().abi(), lstart, lend).ok()
+}
+#[inline]
+pub unsafe fn EditStreamSetInfoA<P0>(pavi: P0, lpinfo: *const AVISTREAMINFOA, cbinfo: i32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn EditStreamSetInfoA(pavi : * mut core::ffi::c_void, lpinfo : *const AVISTREAMINFOA, cbinfo : i32) -> windows_core::HRESULT);
+    EditStreamSetInfoA(pavi.param().abi(), lpinfo, cbinfo).ok()
+}
+#[inline]
+pub unsafe fn EditStreamSetInfoW<P0>(pavi: P0, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn EditStreamSetInfoW(pavi : * mut core::ffi::c_void, lpinfo : *const AVISTREAMINFOW, cbinfo : i32) -> windows_core::HRESULT);
+    EditStreamSetInfoW(pavi.param().abi(), lpinfo, cbinfo).ok()
+}
+#[inline]
+pub unsafe fn EditStreamSetNameA<P0, P1>(pavi: P0, lpszname: P1) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn EditStreamSetNameA(pavi : * mut core::ffi::c_void, lpszname : windows_core::PCSTR) -> windows_core::HRESULT);
+    EditStreamSetNameA(pavi.param().abi(), lpszname.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn EditStreamSetNameW<P0, P1>(pavi: P0, lpszname: P1) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<IAVIStream>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("avifil32.dll" "system" fn EditStreamSetNameW(pavi : * mut core::ffi::c_void, lpszname : windows_core::PCWSTR) -> windows_core::HRESULT);
+    EditStreamSetNameW(pavi.param().abi(), lpszname.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn GetDriverModuleHandle<P0>(hdriver: P0) -> super::super::Foundation::HMODULE
+where
+    P0: windows_core::Param<HDRVR>,
+{
+    windows_targets::link!("winmm.dll" "system" fn GetDriverModuleHandle(hdriver : HDRVR) -> super::super::Foundation:: HMODULE);
+    GetDriverModuleHandle(hdriver.param().abi())
+}
+#[cfg(feature = "Win32_UI_Controls_Dialogs")]
+#[inline]
+pub unsafe fn GetOpenFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> super::super::Foundation:: BOOL);
+    GetOpenFileNamePreviewA(lpofn)
+}
+#[cfg(feature = "Win32_UI_Controls_Dialogs")]
+#[inline]
+pub unsafe fn GetOpenFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn GetOpenFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> super::super::Foundation:: BOOL);
+    GetOpenFileNamePreviewW(lpofn)
+}
+#[cfg(feature = "Win32_UI_Controls_Dialogs")]
+#[inline]
+pub unsafe fn GetSaveFileNamePreviewA(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA) -> super::super::Foundation::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewA(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEA) -> super::super::Foundation:: BOOL);
+    GetSaveFileNamePreviewA(lpofn)
+}
+#[cfg(feature = "Win32_UI_Controls_Dialogs")]
+#[inline]
+pub unsafe fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW) -> super::super::Foundation::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn GetSaveFileNamePreviewW(lpofn : *mut super::super::UI::Controls::Dialogs:: OPENFILENAMEW) -> super::super::Foundation:: BOOL);
+    GetSaveFileNamePreviewW(lpofn)
+}
+#[inline]
+pub unsafe fn ICClose<P0>(hic: P0) -> super::super::Foundation::LRESULT
+where
+    P0: windows_core::Param<HIC>,
+{
+    windows_targets::link!("msvfw32.dll" "system" fn ICClose(hic : HIC) -> super::super::Foundation:: LRESULT);
+    ICClose(hic.param().abi())
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICCompress<P0>(hic: P0, dwflags: u32, lpbioutput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *mut core::ffi::c_void, lpbiinput: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *const core::ffi::c_void, lpckid: Option<*mut u32>, lpdwflags: Option<*mut u32>, lframenum: i32, dwframesize: u32, dwquality: u32, lpbiprev: Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, lpprev: Option<*const core::ffi::c_void>) -> u32
+where
+    P0: windows_core::Param<HIC>,
+{
+    windows_targets::link!("msvfw32.dll" "cdecl" fn ICCompress(hic : HIC, dwflags : u32, lpbioutput : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpdata : *mut core::ffi::c_void, lpbiinput : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *const core::ffi::c_void, lpckid : *mut u32, lpdwflags : *mut u32, lframenum : i32, dwframesize : u32, dwquality : u32, lpbiprev : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpprev : *const core::ffi::c_void) -> u32);
+    ICCompress(hic.param().abi(), dwflags, lpbioutput, lpdata, lpbiinput, lpbits, core::mem::transmute(lpckid.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpdwflags.unwrap_or(core::ptr::null_mut())), lframenum, dwframesize, dwquality, core::mem::transmute(lpbiprev.unwrap_or(core::ptr::null())), core::mem::transmute(lpprev.unwrap_or(core::ptr::null())))
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICCompressorChoose<P0, P1>(hwnd: P0, uiflags: u32, pvin: Option<*const core::ffi::c_void>, lpdata: Option<*const core::ffi::c_void>, pc: *mut COMPVARS, lpsztitle: P1) -> super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("msvfw32.dll" "system" fn ICCompressorChoose(hwnd : super::super::Foundation:: HWND, uiflags : u32, pvin : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, pc : *mut COMPVARS, lpsztitle : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
+    ICCompressorChoose(hwnd.param().abi(), uiflags, core::mem::transmute(pvin.unwrap_or(core::ptr::null())), core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), pc, lpsztitle.param().abi())
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICCompressorFree(pc: *const COMPVARS) {
+    windows_targets::link!("msvfw32.dll" "system" fn ICCompressorFree(pc : *const COMPVARS));
+    ICCompressorFree(pc)
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICDecompress<P0>(hic: P0, dwflags: u32, lpbiformat: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpdata: *const core::ffi::c_void, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: *mut core::ffi::c_void) -> u32
+where
+    P0: windows_core::Param<HIC>,
+{
+    windows_targets::link!("msvfw32.dll" "cdecl" fn ICDecompress(hic : HIC, dwflags : u32, lpbiformat : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpdata : *const core::ffi::c_void, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbits : *mut core::ffi::c_void) -> u32);
+    ICDecompress(hic.param().abi(), dwflags, lpbiformat, lpdata, lpbi, lpbits)
+}
+#[inline]
+pub unsafe fn ICDraw<P0>(hic: P0, dwflags: u32, lpformat: *const core::ffi::c_void, lpdata: Option<*const core::ffi::c_void>, cbdata: u32, ltime: i32) -> u32
+where
+    P0: windows_core::Param<HIC>,
+{
+    windows_targets::link!("msvfw32.dll" "cdecl" fn ICDraw(hic : HIC, dwflags : u32, lpformat : *const core::ffi::c_void, lpdata : *const core::ffi::c_void, cbdata : u32, ltime : i32) -> u32);
+    ICDraw(hic.param().abi(), dwflags, lpformat, core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), cbdata, ltime)
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICDrawBegin<P0, P1, P2, P3>(hic: P0, dwflags: u32, hpal: P1, hwnd: P2, hdc: P3, xdst: i32, ydst: i32, dxdst: i32, dydst: i32, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, xsrc: i32, ysrc: i32, dxsrc: i32, dysrc: i32, dwrate: u32, dwscale: u32) -> u32
+where
+    P0: windows_core::Param<HIC>,
+    P1: windows_core::Param<super::super::Graphics::Gdi::HPALETTE>,
+    P2: windows_core::Param<super::super::Foundation::HWND>,
+    P3: windows_core::Param<super::super::Graphics::Gdi::HDC>,
+{
+    windows_targets::link!("msvfw32.dll" "cdecl" fn ICDrawBegin(hic : HIC, dwflags : u32, hpal : super::super::Graphics::Gdi:: HPALETTE, hwnd : super::super::Foundation:: HWND, hdc : super::super::Graphics::Gdi:: HDC, xdst : i32, ydst : i32, dxdst : i32, dydst : i32, lpbi : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, xsrc : i32, ysrc : i32, dxsrc : i32, dysrc : i32, dwrate : u32, dwscale : u32) -> u32);
+    ICDrawBegin(hic.param().abi(), dwflags, hpal.param().abi(), hwnd.param().abi(), hdc.param().abi(), xdst, ydst, dxdst, dydst, lpbi, xsrc, ysrc, dxsrc, dysrc, dwrate, dwscale)
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICGetDisplayFormat<P0>(hic: P0, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, bitdepth: i32, dx: i32, dy: i32) -> HIC
+where
+    P0: windows_core::Param<HIC>,
+{
+    windows_targets::link!("msvfw32.dll" "system" fn ICGetDisplayFormat(hic : HIC, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbiout : *mut super::super::Graphics::Gdi:: BITMAPINFOHEADER, bitdepth : i32, dx : i32, dy : i32) -> HIC);
+    ICGetDisplayFormat(hic.param().abi(), lpbiin, lpbiout, bitdepth, dx, dy)
+}
+#[inline]
+pub unsafe fn ICGetInfo<P0>(hic: P0, picinfo: *mut ICINFO, cb: u32) -> super::super::Foundation::LRESULT
+where
+    P0: windows_core::Param<HIC>,
+{
+    windows_targets::link!("msvfw32.dll" "system" fn ICGetInfo(hic : HIC, picinfo : *mut ICINFO, cb : u32) -> super::super::Foundation:: LRESULT);
+    ICGetInfo(hic.param().abi(), picinfo, cb)
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICImageCompress<P0>(hic: P0, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const core::ffi::c_void, lpbiout: Option<*const super::super::Graphics::Gdi::BITMAPINFO>, lquality: i32, plsize: Option<*mut i32>) -> super::super::Foundation::HANDLE
+where
+    P0: windows_core::Param<HIC>,
+{
+    windows_targets::link!("msvfw32.dll" "system" fn ICImageCompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO, lpbits : *const core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFO, lquality : i32, plsize : *mut i32) -> super::super::Foundation:: HANDLE);
+    ICImageCompress(hic.param().abi(), uiflags, lpbiin, lpbits, core::mem::transmute(lpbiout.unwrap_or(core::ptr::null())), lquality, core::mem::transmute(plsize.unwrap_or(core::ptr::null_mut())))
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICImageDecompress<P0>(hic: P0, uiflags: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO, lpbits: *const core::ffi::c_void, lpbiout: Option<*const super::super::Graphics::Gdi::BITMAPINFO>) -> super::super::Foundation::HANDLE
+where
+    P0: windows_core::Param<HIC>,
+{
+    windows_targets::link!("msvfw32.dll" "system" fn ICImageDecompress(hic : HIC, uiflags : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO, lpbits : *const core::ffi::c_void, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: HANDLE);
+    ICImageDecompress(hic.param().abi(), uiflags, lpbiin, lpbits, core::mem::transmute(lpbiout.unwrap_or(core::ptr::null())))
+}
+#[inline]
+pub unsafe fn ICInfo(fcctype: u32, fcchandler: u32, lpicinfo: *mut ICINFO) -> super::super::Foundation::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn ICInfo(fcctype : u32, fcchandler : u32, lpicinfo : *mut ICINFO) -> super::super::Foundation:: BOOL);
+    ICInfo(fcctype, fcchandler, lpicinfo)
+}
+#[inline]
+pub unsafe fn ICInstall<P0, P1>(fcctype: u32, fcchandler: u32, lparam: P0, szdesc: P1, wflags: u32) -> super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::Foundation::LPARAM>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("msvfw32.dll" "system" fn ICInstall(fcctype : u32, fcchandler : u32, lparam : super::super::Foundation:: LPARAM, szdesc : windows_core::PCSTR, wflags : u32) -> super::super::Foundation:: BOOL);
+    ICInstall(fcctype, fcchandler, lparam.param().abi(), szdesc.param().abi(), wflags)
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICLocate(fcctype: u32, fcchandler: u32, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbiout: Option<*const super::super::Graphics::Gdi::BITMAPINFOHEADER>, wflags: u16) -> HIC {
+    windows_targets::link!("msvfw32.dll" "system" fn ICLocate(fcctype : u32, fcchandler : u32, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, lpbiout : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, wflags : u16) -> HIC);
+    ICLocate(fcctype, fcchandler, lpbiin, core::mem::transmute(lpbiout.unwrap_or(core::ptr::null())), wflags)
+}
+#[inline]
+pub unsafe fn ICOpen(fcctype: u32, fcchandler: u32, wmode: u32) -> HIC {
+    windows_targets::link!("msvfw32.dll" "system" fn ICOpen(fcctype : u32, fcchandler : u32, wmode : u32) -> HIC);
+    ICOpen(fcctype, fcchandler, wmode)
+}
+#[inline]
+pub unsafe fn ICOpenFunction(fcctype: u32, fcchandler: u32, wmode: u32, lpfnhandler: super::super::Foundation::FARPROC) -> HIC {
+    windows_targets::link!("msvfw32.dll" "system" fn ICOpenFunction(fcctype : u32, fcchandler : u32, wmode : u32, lpfnhandler : super::super::Foundation:: FARPROC) -> HIC);
+    ICOpenFunction(fcctype, fcchandler, wmode, lpfnhandler)
+}
+#[inline]
+pub unsafe fn ICRemove(fcctype: u32, fcchandler: u32, wflags: u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn ICRemove(fcctype : u32, fcchandler : u32, wflags : u32) -> super::super::Foundation:: BOOL);
+    ICRemove(fcctype, fcchandler, wflags)
+}
+#[inline]
+pub unsafe fn ICSendMessage<P0>(hic: P0, msg: u32, dw1: usize, dw2: usize) -> super::super::Foundation::LRESULT
+where
+    P0: windows_core::Param<HIC>,
+{
+    windows_targets::link!("msvfw32.dll" "system" fn ICSendMessage(hic : HIC, msg : u32, dw1 : usize, dw2 : usize) -> super::super::Foundation:: LRESULT);
+    ICSendMessage(hic.param().abi(), msg, dw1, dw2)
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICSeqCompressFrame(pc: *const COMPVARS, uiflags: u32, lpbits: *const core::ffi::c_void, pfkey: *mut super::super::Foundation::BOOL, plsize: Option<*mut i32>) -> *mut core::ffi::c_void {
+    windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrame(pc : *const COMPVARS, uiflags : u32, lpbits : *const core::ffi::c_void, pfkey : *mut super::super::Foundation:: BOOL, plsize : *mut i32) -> *mut core::ffi::c_void);
+    ICSeqCompressFrame(pc, uiflags, lpbits, pfkey, core::mem::transmute(plsize.unwrap_or(core::ptr::null_mut())))
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICSeqCompressFrameEnd(pc: *const COMPVARS) {
+    windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrameEnd(pc : *const COMPVARS));
+    ICSeqCompressFrameEnd(pc)
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super::super::Graphics::Gdi::BITMAPINFO) -> super::super::Foundation::BOOL {
+    windows_targets::link!("msvfw32.dll" "system" fn ICSeqCompressFrameStart(pc : *const COMPVARS, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: BOOL);
+    ICSeqCompressFrameStart(pc, lpbiin)
+}
+#[inline]
+pub unsafe fn MCIWndCreateA<P0, P1, P2>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P2) -> super::super::Foundation::HWND
+where
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndCreateA(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : windows_core::PCSTR) -> super::super::Foundation:: HWND);
+    MCIWndCreateA(hwndparent.param().abi(), hinstance.param().abi(), dwstyle, szfile.param().abi())
+}
+#[inline]
+pub unsafe fn MCIWndCreateW<P0, P1, P2>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P2) -> super::super::Foundation::HWND
+where
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::HINSTANCE>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndCreateW(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : windows_core::PCWSTR) -> super::super::Foundation:: HWND);
+    MCIWndCreateW(hwndparent.param().abi(), hinstance.param().abi(), dwstyle, szfile.param().abi())
+}
+#[inline]
+pub unsafe fn MCIWndRegisterClass() -> super::super::Foundation::BOOL {
+    windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndRegisterClass() -> super::super::Foundation:: BOOL);
+    MCIWndRegisterClass()
+}
+#[inline]
+pub unsafe fn OpenDriver<P0, P1, P2>(szdrivername: P0, szsectionname: P1, lparam2: P2) -> HDRVR
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<super::super::Foundation::LPARAM>,
+{
+    windows_targets::link!("winmm.dll" "system" fn OpenDriver(szdrivername : windows_core::PCWSTR, szsectionname : windows_core::PCWSTR, lparam2 : super::super::Foundation:: LPARAM) -> HDRVR);
+    OpenDriver(szdrivername.param().abi(), szsectionname.param().abi(), lparam2.param().abi())
+}
+#[inline]
+pub unsafe fn SendDriverMessage<P0, P1, P2>(hdriver: P0, message: u32, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
+where
+    P0: windows_core::Param<HDRVR>,
+    P1: windows_core::Param<super::super::Foundation::LPARAM>,
+    P2: windows_core::Param<super::super::Foundation::LPARAM>,
+{
+    windows_targets::link!("winmm.dll" "system" fn SendDriverMessage(hdriver : HDRVR, message : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
+    SendDriverMessage(hdriver.param().abi(), message, lparam1.param().abi(), lparam2.param().abi())
+}
+#[inline]
+pub unsafe fn VideoForWindowsVersion() -> u32 {
+    windows_targets::link!("msvfw32.dll" "system" fn VideoForWindowsVersion() -> u32);
+    VideoForWindowsVersion()
+}
+#[inline]
+pub unsafe fn capCreateCaptureWindowA<P0, P1>(lpszwindowname: P0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P1, nid: i32) -> super::super::Foundation::HWND
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
+{
+    windows_targets::link!("avicap32.dll" "system" fn capCreateCaptureWindowA(lpszwindowname : windows_core::PCSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, nid : i32) -> super::super::Foundation:: HWND);
+    capCreateCaptureWindowA(lpszwindowname.param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.param().abi(), nid)
+}
+#[inline]
+pub unsafe fn capCreateCaptureWindowW<P0, P1>(lpszwindowname: P0, dwstyle: u32, x: i32, y: i32, nwidth: i32, nheight: i32, hwndparent: P1, nid: i32) -> super::super::Foundation::HWND
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
+{
+    windows_targets::link!("avicap32.dll" "system" fn capCreateCaptureWindowW(lpszwindowname : windows_core::PCWSTR, dwstyle : u32, x : i32, y : i32, nwidth : i32, nheight : i32, hwndparent : super::super::Foundation:: HWND, nid : i32) -> super::super::Foundation:: HWND);
+    capCreateCaptureWindowW(lpszwindowname.param().abi(), dwstyle, x, y, nwidth, nheight, hwndparent.param().abi(), nid)
+}
+#[inline]
+pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: &mut [u8], lpszver: &mut [u8]) -> super::super::Foundation::BOOL {
+    windows_targets::link!("avicap32.dll" "system" fn capGetDriverDescriptionA(wdriverindex : u32, lpszname : windows_core::PSTR, cbname : i32, lpszver : windows_core::PSTR, cbver : i32) -> super::super::Foundation:: BOOL);
+    capGetDriverDescriptionA(wdriverindex, core::mem::transmute(lpszname.as_ptr()), lpszname.len().try_into().unwrap(), core::mem::transmute(lpszver.as_ptr()), lpszver.len().try_into().unwrap())
+}
+#[inline]
+pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: &mut [u16], lpszver: &mut [u16]) -> super::super::Foundation::BOOL {
+    windows_targets::link!("avicap32.dll" "system" fn capGetDriverDescriptionW(wdriverindex : u32, lpszname : windows_core::PWSTR, cbname : i32, lpszver : windows_core::PWSTR, cbver : i32) -> super::super::Foundation:: BOOL);
+    capGetDriverDescriptionW(wdriverindex, core::mem::transmute(lpszname.as_ptr()), lpszname.len().try_into().unwrap(), core::mem::transmute(lpszver.as_ptr()), lpszver.len().try_into().unwrap())
+}
+#[inline]
+pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32 {
+    windows_targets::link!("winmm.dll" "system" fn joyGetDevCapsA(ujoyid : usize, pjc : *mut JOYCAPSA, cbjc : u32) -> u32);
+    joyGetDevCapsA(ujoyid, pjc, cbjc)
+}
+#[inline]
+pub unsafe fn joyGetDevCapsW(ujoyid: usize, pjc: *mut JOYCAPSW, cbjc: u32) -> u32 {
+    windows_targets::link!("winmm.dll" "system" fn joyGetDevCapsW(ujoyid : usize, pjc : *mut JOYCAPSW, cbjc : u32) -> u32);
+    joyGetDevCapsW(ujoyid, pjc, cbjc)
+}
+#[inline]
+pub unsafe fn joyGetNumDevs() -> u32 {
+    windows_targets::link!("winmm.dll" "system" fn joyGetNumDevs() -> u32);
+    joyGetNumDevs()
+}
+#[inline]
+pub unsafe fn joyGetPos(ujoyid: u32, pji: *mut JOYINFO) -> u32 {
+    windows_targets::link!("winmm.dll" "system" fn joyGetPos(ujoyid : u32, pji : *mut JOYINFO) -> u32);
+    joyGetPos(ujoyid, pji)
+}
+#[inline]
+pub unsafe fn joyGetPosEx(ujoyid: u32, pji: *mut JOYINFOEX) -> u32 {
+    windows_targets::link!("winmm.dll" "system" fn joyGetPosEx(ujoyid : u32, pji : *mut JOYINFOEX) -> u32);
+    joyGetPosEx(ujoyid, pji)
+}
+#[inline]
+pub unsafe fn joyGetThreshold(ujoyid: u32, puthreshold: *mut u32) -> u32 {
+    windows_targets::link!("winmm.dll" "system" fn joyGetThreshold(ujoyid : u32, puthreshold : *mut u32) -> u32);
+    joyGetThreshold(ujoyid, puthreshold)
+}
+#[inline]
+pub unsafe fn joyReleaseCapture(ujoyid: u32) -> u32 {
+    windows_targets::link!("winmm.dll" "system" fn joyReleaseCapture(ujoyid : u32) -> u32);
+    joyReleaseCapture(ujoyid)
+}
+#[inline]
+pub unsafe fn joySetCapture<P0, P1>(hwnd: P0, ujoyid: u32, uperiod: u32, fchanged: P1) -> u32
+where
+    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
+{
+    windows_targets::link!("winmm.dll" "system" fn joySetCapture(hwnd : super::super::Foundation:: HWND, ujoyid : u32, uperiod : u32, fchanged : super::super::Foundation:: BOOL) -> u32);
+    joySetCapture(hwnd.param().abi(), ujoyid, uperiod, fchanged.param().abi())
+}
+#[inline]
+pub unsafe fn joySetThreshold(ujoyid: u32, uthreshold: u32) -> u32 {
+    windows_targets::link!("winmm.dll" "system" fn joySetThreshold(ujoyid : u32, uthreshold : u32) -> u32);
+    joySetThreshold(ujoyid, uthreshold)
+}
+#[inline]
+pub unsafe fn mciDriverNotify<P0>(hwndcallback: P0, wdeviceid: u32, ustatus: u32) -> super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mciDriverNotify(hwndcallback : super::super::Foundation:: HANDLE, wdeviceid : u32, ustatus : u32) -> super::super::Foundation:: BOOL);
+    mciDriverNotify(hwndcallback.param().abi(), wdeviceid, ustatus)
+}
+#[inline]
+pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
+    windows_targets::link!("winmm.dll" "system" fn mciDriverYield(wdeviceid : u32) -> u32);
+    mciDriverYield(wdeviceid)
+}
+#[inline]
+pub unsafe fn mciFreeCommandResource(wtable: u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winmm.dll" "system" fn mciFreeCommandResource(wtable : u32) -> super::super::Foundation:: BOOL);
+    mciFreeCommandResource(wtable)
+}
+#[inline]
+pub unsafe fn mciGetCreatorTask(mciid: u32) -> super::HTASK {
+    windows_targets::link!("winmm.dll" "system" fn mciGetCreatorTask(mciid : u32) -> super:: HTASK);
+    mciGetCreatorTask(mciid)
+}
+#[inline]
+pub unsafe fn mciGetDeviceIDA<P0>(pszdevice: P0) -> u32
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mciGetDeviceIDA(pszdevice : windows_core::PCSTR) -> u32);
+    mciGetDeviceIDA(pszdevice.param().abi())
+}
+#[inline]
+pub unsafe fn mciGetDeviceIDFromElementIDA<P0>(dwelementid: u32, lpstrtype: P0) -> u32
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mciGetDeviceIDFromElementIDA(dwelementid : u32, lpstrtype : windows_core::PCSTR) -> u32);
+    mciGetDeviceIDFromElementIDA(dwelementid, lpstrtype.param().abi())
+}
+#[inline]
+pub unsafe fn mciGetDeviceIDFromElementIDW<P0>(dwelementid: u32, lpstrtype: P0) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mciGetDeviceIDFromElementIDW(dwelementid : u32, lpstrtype : windows_core::PCWSTR) -> u32);
+    mciGetDeviceIDFromElementIDW(dwelementid, lpstrtype.param().abi())
+}
+#[inline]
+pub unsafe fn mciGetDeviceIDW<P0>(pszdevice: P0) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mciGetDeviceIDW(pszdevice : windows_core::PCWSTR) -> u32);
+    mciGetDeviceIDW(pszdevice.param().abi())
+}
+#[inline]
+pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
+    windows_targets::link!("winmm.dll" "system" fn mciGetDriverData(wdeviceid : u32) -> usize);
+    mciGetDriverData(wdeviceid)
+}
+#[inline]
+pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: &mut [u8]) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winmm.dll" "system" fn mciGetErrorStringA(mcierr : u32, psztext : windows_core::PSTR, cchtext : u32) -> super::super::Foundation:: BOOL);
+    mciGetErrorStringA(mcierr, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap())
+}
+#[inline]
+pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: &mut [u16]) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winmm.dll" "system" fn mciGetErrorStringW(mcierr : u32, psztext : windows_core::PWSTR, cchtext : u32) -> super::super::Foundation:: BOOL);
+    mciGetErrorStringW(mcierr, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap())
+}
+#[inline]
+pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> YIELDPROC {
+    windows_targets::link!("winmm.dll" "system" fn mciGetYieldProc(mciid : u32, pdwyielddata : *const u32) -> YIELDPROC);
+    mciGetYieldProc(mciid, pdwyielddata)
+}
+#[inline]
+pub unsafe fn mciLoadCommandResource<P0, P1>(hinstance: P0, lpresname: P1, wtype: u32) -> u32
+where
+    P0: windows_core::Param<super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mciLoadCommandResource(hinstance : super::super::Foundation:: HANDLE, lpresname : windows_core::PCWSTR, wtype : u32) -> u32);
+    mciLoadCommandResource(hinstance.param().abi(), lpresname.param().abi(), wtype)
+}
+#[inline]
+pub unsafe fn mciSendCommandA(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
+    windows_targets::link!("winmm.dll" "system" fn mciSendCommandA(mciid : u32, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
+    mciSendCommandA(mciid, umsg, dwparam1, dwparam2)
+}
+#[inline]
+pub unsafe fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
+    windows_targets::link!("winmm.dll" "system" fn mciSendCommandW(mciid : u32, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
+    mciSendCommandW(mciid, umsg, dwparam1, dwparam2)
+}
+#[inline]
+pub unsafe fn mciSendStringA<P0, P1>(lpstrcommand: P0, lpstrreturnstring: Option<&mut [u8]>, hwndcallback: P1) -> u32
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mciSendStringA(lpstrcommand : windows_core::PCSTR, lpstrreturnstring : windows_core::PSTR, ureturnlength : u32, hwndcallback : super::super::Foundation:: HWND) -> u32);
+    mciSendStringA(lpstrcommand.param().abi(), core::mem::transmute(lpstrreturnstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), hwndcallback.param().abi())
+}
+#[inline]
+pub unsafe fn mciSendStringW<P0, P1>(lpstrcommand: P0, lpstrreturnstring: Option<&mut [u16]>, hwndcallback: P1) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mciSendStringW(lpstrcommand : windows_core::PCWSTR, lpstrreturnstring : windows_core::PWSTR, ureturnlength : u32, hwndcallback : super::super::Foundation:: HWND) -> u32);
+    mciSendStringW(lpstrcommand.param().abi(), core::mem::transmute(lpstrreturnstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), hwndcallback.param().abi())
+}
+#[inline]
+pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winmm.dll" "system" fn mciSetDriverData(wdeviceid : u32, dwdata : usize) -> super::super::Foundation:: BOOL);
+    mciSetDriverData(wdeviceid, dwdata)
+}
+#[inline]
+pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: YIELDPROC, dwyielddata: u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winmm.dll" "system" fn mciSetYieldProc(mciid : u32, fpyieldproc : YIELDPROC, dwyielddata : u32) -> super::super::Foundation:: BOOL);
+    mciSetYieldProc(mciid, fpyieldproc, dwyielddata)
+}
+#[inline]
+pub unsafe fn mmDrvInstall<P0, P1>(hdriver: P0, wszdrventry: P1, drvmessage: DRIVERMSGPROC, wflags: u32) -> u32
+where
+    P0: windows_core::Param<HDRVR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmDrvInstall(hdriver : HDRVR, wszdrventry : windows_core::PCWSTR, drvmessage : DRIVERMSGPROC, wflags : u32) -> u32);
+    mmDrvInstall(hdriver.param().abi(), wszdrventry.param().abi(), drvmessage, wflags)
+}
+#[inline]
+pub unsafe fn mmGetCurrentTask() -> u32 {
+    windows_targets::link!("winmm.dll" "system" fn mmGetCurrentTask() -> u32);
+    mmGetCurrentTask()
+}
+#[inline]
+pub unsafe fn mmTaskBlock(h: u32) {
+    windows_targets::link!("winmm.dll" "system" fn mmTaskBlock(h : u32));
+    mmTaskBlock(h)
+}
+#[inline]
+pub unsafe fn mmTaskCreate(lpfn: LPTASKCALLBACK, lph: *mut super::super::Foundation::HANDLE, dwinst: usize) -> u32 {
+    windows_targets::link!("winmm.dll" "system" fn mmTaskCreate(lpfn : LPTASKCALLBACK, lph : *mut super::super::Foundation:: HANDLE, dwinst : usize) -> u32);
+    mmTaskCreate(lpfn, lph, dwinst)
+}
+#[inline]
+pub unsafe fn mmTaskSignal(h: u32) -> super::super::Foundation::BOOL {
+    windows_targets::link!("winmm.dll" "system" fn mmTaskSignal(h : u32) -> super::super::Foundation:: BOOL);
+    mmTaskSignal(h)
+}
+#[inline]
+pub unsafe fn mmTaskYield() {
+    windows_targets::link!("winmm.dll" "system" fn mmTaskYield());
+    mmTaskYield()
+}
+#[inline]
+pub unsafe fn mmioAdvance<P0>(hmmio: P0, pmmioinfo: Option<*const MMIOINFO>, fuadvance: u32) -> u32
+where
+    P0: windows_core::Param<HMMIO>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioAdvance(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuadvance : u32) -> u32);
+    mmioAdvance(hmmio.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null())), fuadvance)
+}
+#[inline]
+pub unsafe fn mmioAscend<P0>(hmmio: P0, pmmcki: *const MMCKINFO, fuascend: u32) -> u32
+where
+    P0: windows_core::Param<HMMIO>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioAscend(hmmio : HMMIO, pmmcki : *const MMCKINFO, fuascend : u32) -> u32);
+    mmioAscend(hmmio.param().abi(), pmmcki, fuascend)
+}
+#[inline]
+pub unsafe fn mmioClose<P0>(hmmio: P0, fuclose: u32) -> u32
+where
+    P0: windows_core::Param<HMMIO>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioClose(hmmio : HMMIO, fuclose : u32) -> u32);
+    mmioClose(hmmio.param().abi(), fuclose)
+}
+#[inline]
+pub unsafe fn mmioCreateChunk<P0>(hmmio: P0, pmmcki: *const MMCKINFO, fucreate: u32) -> u32
+where
+    P0: windows_core::Param<HMMIO>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioCreateChunk(hmmio : HMMIO, pmmcki : *const MMCKINFO, fucreate : u32) -> u32);
+    mmioCreateChunk(hmmio.param().abi(), pmmcki, fucreate)
+}
+#[inline]
+pub unsafe fn mmioDescend<P0>(hmmio: P0, pmmcki: *mut MMCKINFO, pmmckiparent: Option<*const MMCKINFO>, fudescend: u32) -> u32
+where
+    P0: windows_core::Param<HMMIO>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioDescend(hmmio : HMMIO, pmmcki : *mut MMCKINFO, pmmckiparent : *const MMCKINFO, fudescend : u32) -> u32);
+    mmioDescend(hmmio.param().abi(), pmmcki, core::mem::transmute(pmmckiparent.unwrap_or(core::ptr::null())), fudescend)
+}
+#[inline]
+pub unsafe fn mmioFlush<P0>(hmmio: P0, fuflush: u32) -> u32
+where
+    P0: windows_core::Param<HMMIO>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioFlush(hmmio : HMMIO, fuflush : u32) -> u32);
+    mmioFlush(hmmio.param().abi(), fuflush)
+}
+#[inline]
+pub unsafe fn mmioGetInfo<P0>(hmmio: P0, pmmioinfo: *mut MMIOINFO, fuinfo: u32) -> u32
+where
+    P0: windows_core::Param<HMMIO>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioGetInfo(hmmio : HMMIO, pmmioinfo : *mut MMIOINFO, fuinfo : u32) -> u32);
+    mmioGetInfo(hmmio.param().abi(), pmmioinfo, fuinfo)
+}
+#[inline]
+pub unsafe fn mmioInstallIOProcA(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
+    windows_targets::link!("winmm.dll" "system" fn mmioInstallIOProcA(fccioproc : u32, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
+    mmioInstallIOProcA(fccioproc, pioproc, dwflags)
+}
+#[inline]
+pub unsafe fn mmioInstallIOProcW(fccioproc: u32, pioproc: LPMMIOPROC, dwflags: u32) -> LPMMIOPROC {
+    windows_targets::link!("winmm.dll" "system" fn mmioInstallIOProcW(fccioproc : u32, pioproc : LPMMIOPROC, dwflags : u32) -> LPMMIOPROC);
+    mmioInstallIOProcW(fccioproc, pioproc, dwflags)
+}
+#[inline]
+pub unsafe fn mmioOpenA(pszfilename: Option<&mut [u8; 128]>, pmmioinfo: Option<*mut MMIOINFO>, fdwopen: u32) -> HMMIO {
+    windows_targets::link!("winmm.dll" "system" fn mmioOpenA(pszfilename : windows_core::PSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
+    mmioOpenA(core::mem::transmute(pszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null_mut())), fdwopen)
+}
+#[inline]
+pub unsafe fn mmioOpenW(pszfilename: Option<&mut [u16; 128]>, pmmioinfo: Option<*mut MMIOINFO>, fdwopen: u32) -> HMMIO {
+    windows_targets::link!("winmm.dll" "system" fn mmioOpenW(pszfilename : windows_core::PWSTR, pmmioinfo : *mut MMIOINFO, fdwopen : u32) -> HMMIO);
+    mmioOpenW(core::mem::transmute(pszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null_mut())), fdwopen)
+}
+#[inline]
+pub unsafe fn mmioRead<P0>(hmmio: P0, pch: &mut [u8]) -> i32
+where
+    P0: windows_core::Param<HMMIO>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioRead(hmmio : HMMIO, pch : *mut i8, cch : i32) -> i32);
+    mmioRead(hmmio.param().abi(), core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap())
+}
+#[inline]
+pub unsafe fn mmioRenameA<P0, P1>(pszfilename: P0, psznewfilename: P1, pmmioinfo: Option<*const MMIOINFO>, fdwrename: u32) -> u32
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioRenameA(pszfilename : windows_core::PCSTR, psznewfilename : windows_core::PCSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> u32);
+    mmioRenameA(pszfilename.param().abi(), psznewfilename.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null())), fdwrename)
+}
+#[inline]
+pub unsafe fn mmioRenameW<P0, P1>(pszfilename: P0, psznewfilename: P1, pmmioinfo: Option<*const MMIOINFO>, fdwrename: u32) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioRenameW(pszfilename : windows_core::PCWSTR, psznewfilename : windows_core::PCWSTR, pmmioinfo : *const MMIOINFO, fdwrename : u32) -> u32);
+    mmioRenameW(pszfilename.param().abi(), psznewfilename.param().abi(), core::mem::transmute(pmmioinfo.unwrap_or(core::ptr::null())), fdwrename)
+}
+#[inline]
+pub unsafe fn mmioSeek<P0>(hmmio: P0, loffset: i32, iorigin: i32) -> i32
+where
+    P0: windows_core::Param<HMMIO>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioSeek(hmmio : HMMIO, loffset : i32, iorigin : i32) -> i32);
+    mmioSeek(hmmio.param().abi(), loffset, iorigin)
+}
+#[inline]
+pub unsafe fn mmioSendMessage<P0, P1, P2>(hmmio: P0, umsg: u32, lparam1: P1, lparam2: P2) -> super::super::Foundation::LRESULT
+where
+    P0: windows_core::Param<HMMIO>,
+    P1: windows_core::Param<super::super::Foundation::LPARAM>,
+    P2: windows_core::Param<super::super::Foundation::LPARAM>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioSendMessage(hmmio : HMMIO, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
+    mmioSendMessage(hmmio.param().abi(), umsg, lparam1.param().abi(), lparam2.param().abi())
+}
+#[inline]
+pub unsafe fn mmioSetBuffer<P0>(hmmio: P0, pchbuffer: Option<&mut [u8]>, fubuffer: u32) -> u32
+where
+    P0: windows_core::Param<HMMIO>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioSetBuffer(hmmio : HMMIO, pchbuffer : windows_core::PSTR, cchbuffer : i32, fubuffer : u32) -> u32);
+    mmioSetBuffer(hmmio.param().abi(), core::mem::transmute(pchbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pchbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), fubuffer)
+}
+#[inline]
+pub unsafe fn mmioSetInfo<P0>(hmmio: P0, pmmioinfo: *const MMIOINFO, fuinfo: u32) -> u32
+where
+    P0: windows_core::Param<HMMIO>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioSetInfo(hmmio : HMMIO, pmmioinfo : *const MMIOINFO, fuinfo : u32) -> u32);
+    mmioSetInfo(hmmio.param().abi(), pmmioinfo, fuinfo)
+}
+#[inline]
+pub unsafe fn mmioStringToFOURCCA<P0>(sz: P0, uflags: u32) -> u32
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioStringToFOURCCA(sz : windows_core::PCSTR, uflags : u32) -> u32);
+    mmioStringToFOURCCA(sz.param().abi(), uflags)
+}
+#[inline]
+pub unsafe fn mmioStringToFOURCCW<P0>(sz: P0, uflags: u32) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioStringToFOURCCW(sz : windows_core::PCWSTR, uflags : u32) -> u32);
+    mmioStringToFOURCCW(sz.param().abi(), uflags)
+}
+#[inline]
+pub unsafe fn mmioWrite<P0>(hmmio: P0, pch: &[u8]) -> i32
+where
+    P0: windows_core::Param<HMMIO>,
+{
+    windows_targets::link!("winmm.dll" "system" fn mmioWrite(hmmio : HMMIO, pch : windows_core::PCSTR, cch : i32) -> i32);
+    mmioWrite(hmmio.param().abi(), core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap())
+}
+#[inline]
+pub unsafe fn sndOpenSound<P0, P1>(eventname: P0, appname: P1, flags: i32, filehandle: *mut super::super::Foundation::HANDLE) -> i32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("api-ms-win-mm-misc-l1-1-1.dll" "system" fn sndOpenSound(eventname : windows_core::PCWSTR, appname : windows_core::PCWSTR, flags : i32, filehandle : *mut super::super::Foundation:: HANDLE) -> i32);
+    sndOpenSound(eventname.param().abi(), appname.param().abi(), flags, filehandle)
+}
+windows_core::imp::define_interface!(IAVIEditStream, IAVIEditStream_Vtbl, 0x00020024_0000_0000_c000_000000000046);
+impl core::ops::Deref for IAVIEditStream {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IAVIEditStream, windows_core::IUnknown);
+impl IAVIEditStream {
+    pub unsafe fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Cut)(windows_core::Interface::as_raw(self), plstart, pllength, core::mem::transmute(ppresult)).ok()
+    }
+    pub unsafe fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), plstart, pllength, core::mem::transmute(ppresult)).ok()
+    }
+    pub unsafe fn Paste<P0>(&self, plpos: *mut i32, pllength: *mut i32, pstream: P0, lstart: i32, lend: i32) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<IAVIStream>,
+    {
+        (windows_core::Interface::vtable(self).Paste)(windows_core::Interface::as_raw(self), plpos, pllength, pstream.param().abi(), lstart, lend).ok()
+    }
+    pub unsafe fn Clone(&self) -> windows_core::Result<IAVIStream> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
+    pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetInfo)(windows_core::Interface::as_raw(self), lpinfo, cbinfo).ok()
+    }
+}
+#[repr(C)]
+pub struct IAVIEditStream_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Cut: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Paste: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const AVISTREAMINFOW, i32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IAVIFile, IAVIFile_Vtbl, 0x00020020_0000_0000_c000_000000000046);
+impl core::ops::Deref for IAVIFile {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IAVIFile, windows_core::IUnknown);
+impl IAVIFile {
+    pub unsafe fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Info)(windows_core::Interface::as_raw(self), pfi, lsize).ok()
+    }
+    pub unsafe fn GetStream(&self, ppstream: *mut Option<IAVIStream>, fcctype: u32, lparam: i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetStream)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstream), fcctype, lparam).ok()
+    }
+    pub unsafe fn CreateStream(&self, ppstream: *mut Option<IAVIStream>, psi: *const AVISTREAMINFOW) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).CreateStream)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstream), psi).ok()
+    }
+    pub unsafe fn WriteData(&self, ckid: u32, lpdata: *const core::ffi::c_void, cbdata: i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).WriteData)(windows_core::Interface::as_raw(self), ckid, lpdata, cbdata).ok()
+    }
+    pub unsafe fn ReadData(&self, ckid: u32, lpdata: *mut core::ffi::c_void, lpcbdata: *mut i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ReadData)(windows_core::Interface::as_raw(self), ckid, lpdata, lpcbdata).ok()
+    }
+    pub unsafe fn EndRecord(&self) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).EndRecord)(windows_core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn DeleteStream(&self, fcctype: u32, lparam: i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).DeleteStream)(windows_core::Interface::as_raw(self), fcctype, lparam).ok()
+    }
+}
+#[repr(C)]
+pub struct IAVIFile_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Info: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AVIFILEINFOW, i32) -> windows_core::HRESULT,
+    pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, i32) -> windows_core::HRESULT,
+    pub CreateStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *const AVISTREAMINFOW) -> windows_core::HRESULT,
+    pub WriteData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub ReadData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub EndRecord: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeleteStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32) -> windows_core::HRESULT,
+}
+#[cfg(feature = "Win32_System_Com")]
+windows_core::imp::define_interface!(IAVIPersistFile, IAVIPersistFile_Vtbl, 0x00020025_0000_0000_c000_000000000046);
+#[cfg(feature = "Win32_System_Com")]
+impl core::ops::Deref for IAVIPersistFile {
+    type Target = super::super::System::Com::IPersistFile;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+windows_core::imp::interface_hierarchy!(IAVIPersistFile, windows_core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistFile);
+#[cfg(feature = "Win32_System_Com")]
+impl IAVIPersistFile {
+    pub unsafe fn Reserved1(&self) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Reserved1)(windows_core::Interface::as_raw(self)).ok()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+pub struct IAVIPersistFile_Vtbl {
+    pub base__: super::super::System::Com::IPersistFile_Vtbl,
+    pub Reserved1: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IAVIStream, IAVIStream_Vtbl, 0x00020021_0000_0000_c000_000000000046);
+impl core::ops::Deref for IAVIStream {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IAVIStream, windows_core::IUnknown);
+impl IAVIStream {
+    pub unsafe fn Create<P0, P1>(&self, lparam1: P0, lparam2: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::LPARAM>,
+        P1: windows_core::Param<super::super::Foundation::LPARAM>,
+    {
+        (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), lparam1.param().abi(), lparam2.param().abi()).ok()
+    }
+    pub unsafe fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Info)(windows_core::Interface::as_raw(self), psi, lsize).ok()
+    }
+    pub unsafe fn FindSample(&self, lpos: i32, lflags: i32) -> i32 {
+        (windows_core::Interface::vtable(self).FindSample)(windows_core::Interface::as_raw(self), lpos, lflags)
+    }
+    pub unsafe fn ReadFormat(&self, lpos: i32, lpformat: Option<*mut core::ffi::c_void>, lpcbformat: *mut i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ReadFormat)(windows_core::Interface::as_raw(self), lpos, core::mem::transmute(lpformat.unwrap_or(core::ptr::null_mut())), lpcbformat).ok()
+    }
+    pub unsafe fn SetFormat(&self, lpos: i32, lpformat: *const core::ffi::c_void, cbformat: i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), lpos, lpformat, cbformat).ok()
+    }
+    pub unsafe fn Read(&self, lstart: i32, lsamples: i32, lpbuffer: Option<*mut core::ffi::c_void>, cbbuffer: i32, plbytes: Option<*mut i32>, plsamples: Option<*mut i32>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), lstart, lsamples, core::mem::transmute(lpbuffer.unwrap_or(core::ptr::null_mut())), cbbuffer, core::mem::transmute(plbytes.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plsamples.unwrap_or(core::ptr::null_mut()))).ok()
+    }
+    pub unsafe fn Write(&self, lstart: i32, lsamples: i32, lpbuffer: *const core::ffi::c_void, cbbuffer: i32, dwflags: u32, plsampwritten: Option<*mut i32>, plbyteswritten: Option<*mut i32>) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), lstart, lsamples, lpbuffer, cbbuffer, dwflags, core::mem::transmute(plsampwritten.unwrap_or(core::ptr::null_mut())), core::mem::transmute(plbyteswritten.unwrap_or(core::ptr::null_mut()))).ok()
+    }
+    pub unsafe fn Delete(&self, lstart: i32, lsamples: i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), lstart, lsamples).ok()
+    }
+    pub unsafe fn ReadData(&self, fcc: u32, lp: Option<*mut core::ffi::c_void>, lpcb: *mut i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).ReadData)(windows_core::Interface::as_raw(self), fcc, core::mem::transmute(lp.unwrap_or(core::ptr::null_mut())), lpcb).ok()
+    }
+    pub unsafe fn WriteData(&self, fcc: u32, lp: *const core::ffi::c_void, cb: i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).WriteData)(windows_core::Interface::as_raw(self), fcc, lp, cb).ok()
+    }
+    pub unsafe fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetInfo)(windows_core::Interface::as_raw(self), lpinfo, cbinfo).ok()
+    }
+}
+#[repr(C)]
+pub struct IAVIStream_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::LPARAM, super::super::Foundation::LPARAM) -> windows_core::HRESULT,
+    pub Info: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AVISTREAMINFOW, i32) -> windows_core::HRESULT,
+    pub FindSample: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> i32,
+    pub ReadFormat: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void, i32, *mut i32, *mut i32) -> windows_core::HRESULT,
+    pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *const core::ffi::c_void, i32, u32, *mut i32, *mut i32) -> windows_core::HRESULT,
+    pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
+    pub ReadData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub WriteData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub SetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const AVISTREAMINFOW, i32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IAVIStreaming, IAVIStreaming_Vtbl, 0x00020022_0000_0000_c000_000000000046);
+impl core::ops::Deref for IAVIStreaming {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IAVIStreaming, windows_core::IUnknown);
+impl IAVIStreaming {
+    pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Begin)(windows_core::Interface::as_raw(self), lstart, lend, lrate).ok()
+    }
+    pub unsafe fn End(&self) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).End)(windows_core::Interface::as_raw(self)).ok()
+    }
+}
+#[repr(C)]
+pub struct IAVIStreaming_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Begin: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32) -> windows_core::HRESULT,
+    pub End: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IGetFrame, IGetFrame_Vtbl, 0x00020023_0000_0000_c000_000000000046);
+impl core::ops::Deref for IGetFrame {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IGetFrame, windows_core::IUnknown);
+impl IGetFrame {
+    pub unsafe fn GetFrame(&self, lpos: i32) -> *mut core::ffi::c_void {
+        (windows_core::Interface::vtable(self).GetFrame)(windows_core::Interface::as_raw(self), lpos)
+    }
+    pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Begin)(windows_core::Interface::as_raw(self), lstart, lend, lrate).ok()
+    }
+    pub unsafe fn End(&self) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).End)(windows_core::Interface::as_raw(self)).ok()
+    }
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub unsafe fn SetFormat(&self, lpbi: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, lpbits: Option<*const core::ffi::c_void>, x: i32, y: i32, dx: i32, dy: i32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), lpbi, core::mem::transmute(lpbits.unwrap_or(core::ptr::null())), x, y, dx, dy).ok()
+    }
+}
+#[repr(C)]
+pub struct IGetFrame_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetFrame: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> *mut core::ffi::c_void,
+    pub Begin: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32) -> windows_core::HRESULT,
+    pub End: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::Graphics::Gdi::BITMAPINFOHEADER, *const core::ffi::c_void, i32, i32, i32, i32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    SetFormat: usize,
+}
 pub const ACMDM_BASE: u32 = 24576u32;
 pub const ACM_MPEG_COPYRIGHT: u32 = 2u32;
 pub const ACM_MPEG_DUALCHANNEL: u32 = 4u32;
@@ -1306,8 +2764,8 @@ pub const MCI_WAVE_STATUS_LEVEL: i32 = 16391i32;
 pub const MCI_WAVE_STATUS_SAMPLESPERSEC: i32 = 16387i32;
 pub const MCI_WHERE: u32 = 2115u32;
 pub const MCI_WINDOW: u32 = 2113u32;
-pub const MCMADM_E_REGKEY_NOT_FOUND: windows_core::HRESULT = 0xC00D006A_u32 as _;
-pub const MCMADM_I_NO_EVENTS: windows_core::HRESULT = 0x400D0069_u32 as _;
+pub const MCMADM_E_REGKEY_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D006A_u32 as _);
+pub const MCMADM_I_NO_EVENTS: windows_core::HRESULT = windows_core::HRESULT(0x400D0069_u32 as _);
 pub const MIDIMAPPER_S: u32 = 1227u32;
 pub const MIDI_IO_COOKED: i32 = 2i32;
 pub const MIDI_IO_PACKED: i32 = 0i32;
@@ -2936,1211 +4394,1211 @@ pub const MXDM_INIT_EX: u32 = 104u32;
 pub const MXDM_OPEN: u32 = 3u32;
 pub const MXDM_SETCONTROLDETAILS: u32 = 8u32;
 pub const MXDM_USER: u32 = 16384u32;
-pub const NS_DRM_E_MIGRATION_IMAGE_ALREADY_EXISTS: windows_core::HRESULT = 0xC00D278E_u32 as _;
-pub const NS_DRM_E_MIGRATION_SOURCE_MACHINE_IN_USE: windows_core::HRESULT = 0xC00D278C_u32 as _;
-pub const NS_DRM_E_MIGRATION_TARGET_MACHINE_LESS_THAN_LH: windows_core::HRESULT = 0xC00D278D_u32 as _;
-pub const NS_DRM_E_MIGRATION_UPGRADE_WITH_DIFF_SID: windows_core::HRESULT = 0xC00D278B_u32 as _;
-pub const NS_E_8BIT_WAVE_UNSUPPORTED: windows_core::HRESULT = 0xC00D0BCE_u32 as _;
-pub const NS_E_ACTIVE_SG_DEVICE_CONTROL_DISCONNECTED: windows_core::HRESULT = 0xC00D1BA6_u32 as _;
-pub const NS_E_ACTIVE_SG_DEVICE_DISCONNECTED: windows_core::HRESULT = 0xC00D1BA5_u32 as _;
-pub const NS_E_ADVANCEDEDIT_TOO_MANY_PICTURES: windows_core::HRESULT = 0xC00D136A_u32 as _;
-pub const NS_E_ALLOCATE_FILE_FAIL: windows_core::HRESULT = 0xC00D0061_u32 as _;
-pub const NS_E_ALL_PROTOCOLS_DISABLED: windows_core::HRESULT = 0xC00D2EEB_u32 as _;
-pub const NS_E_ALREADY_CONNECTED: windows_core::HRESULT = 0xC00D0010_u32 as _;
-pub const NS_E_ANALOG_VIDEO_PROTECTION_LEVEL_UNSUPPORTED: windows_core::HRESULT = 0xC00D2907_u32 as _;
-pub const NS_E_ARCHIVE_ABORT_DUE_TO_BCAST: windows_core::HRESULT = 0xC00D158E_u32 as _;
-pub const NS_E_ARCHIVE_FILENAME_NOTSET: windows_core::HRESULT = 0xC00D1B79_u32 as _;
-pub const NS_E_ARCHIVE_GAP_DETECTED: windows_core::HRESULT = 0xC00D158F_u32 as _;
-pub const NS_E_ARCHIVE_REACH_QUOTA: windows_core::HRESULT = 0xC00D158D_u32 as _;
-pub const NS_E_ARCHIVE_SAME_AS_INPUT: windows_core::HRESULT = 0xC00D1B84_u32 as _;
-pub const NS_E_ASSERT: windows_core::HRESULT = 0xC00D00CB_u32 as _;
-pub const NS_E_ASX_INVALIDFORMAT: windows_core::HRESULT = 0xC00D1069_u32 as _;
-pub const NS_E_ASX_INVALIDVERSION: windows_core::HRESULT = 0xC00D106A_u32 as _;
-pub const NS_E_ASX_INVALID_REPEAT_BLOCK: windows_core::HRESULT = 0xC00D106B_u32 as _;
-pub const NS_E_ASX_NOTHING_TO_WRITE: windows_core::HRESULT = 0xC00D106C_u32 as _;
-pub const NS_E_ATTRIBUTE_NOT_ALLOWED: windows_core::HRESULT = 0xC00D0BD7_u32 as _;
-pub const NS_E_ATTRIBUTE_READ_ONLY: windows_core::HRESULT = 0xC00D0BD6_u32 as _;
-pub const NS_E_AUDIENCE_CONTENTTYPE_MISMATCH: windows_core::HRESULT = 0xC00D1B99_u32 as _;
-pub const NS_E_AUDIENCE__LANGUAGE_CONTENTTYPE_MISMATCH: windows_core::HRESULT = 0xC00D1BE3_u32 as _;
-pub const NS_E_AUDIODEVICE_BADFORMAT: windows_core::HRESULT = 0xC00D1B63_u32 as _;
-pub const NS_E_AUDIODEVICE_BUSY: windows_core::HRESULT = 0xC00D1B61_u32 as _;
-pub const NS_E_AUDIODEVICE_UNEXPECTED: windows_core::HRESULT = 0xC00D1B62_u32 as _;
-pub const NS_E_AUDIO_BITRATE_STEPDOWN: windows_core::HRESULT = 0xC00D1BB9_u32 as _;
-pub const NS_E_AUDIO_CODEC_ERROR: windows_core::HRESULT = 0xC00D0BC3_u32 as _;
-pub const NS_E_AUDIO_CODEC_NOT_INSTALLED: windows_core::HRESULT = 0xC00D0BC2_u32 as _;
-pub const NS_E_AUTHORIZATION_FILE_NOT_FOUND: windows_core::HRESULT = 0xC00D1590_u32 as _;
-pub const NS_E_BACKUP_RESTORE_BAD_DATA: windows_core::HRESULT = 0xC00D2745_u32 as _;
-pub const NS_E_BACKUP_RESTORE_BAD_REQUEST_ID: windows_core::HRESULT = 0xC00D272E_u32 as _;
-pub const NS_E_BACKUP_RESTORE_FAILURE: windows_core::HRESULT = 0xC00D272D_u32 as _;
-pub const NS_E_BACKUP_RESTORE_TOO_MANY_RESETS: windows_core::HRESULT = 0xC00D2766_u32 as _;
-pub const NS_E_BAD_ADAPTER_ADDRESS: windows_core::HRESULT = 0xC00D0039_u32 as _;
-pub const NS_E_BAD_ADAPTER_NAME: windows_core::HRESULT = 0xC00D00CC_u32 as _;
-pub const NS_E_BAD_BLOCK0_VERSION: windows_core::HRESULT = 0xC00D0063_u32 as _;
-pub const NS_E_BAD_CONTENTEDL: windows_core::HRESULT = 0xC00D1BAA_u32 as _;
-pub const NS_E_BAD_CONTROL_DATA: windows_core::HRESULT = 0xC00D0032_u32 as _;
-pub const NS_E_BAD_CUB_UID: windows_core::HRESULT = 0xC00D0192_u32 as _;
-pub const NS_E_BAD_DELIVERY_MODE: windows_core::HRESULT = 0xC00D003A_u32 as _;
-pub const NS_E_BAD_DISK_UID: windows_core::HRESULT = 0xC00D0064_u32 as _;
-pub const NS_E_BAD_FSMAJOR_VERSION: windows_core::HRESULT = 0xC00D0065_u32 as _;
-pub const NS_E_BAD_MARKIN: windows_core::HRESULT = 0xC00D1B58_u32 as _;
-pub const NS_E_BAD_MARKOUT: windows_core::HRESULT = 0xC00D1B59_u32 as _;
-pub const NS_E_BAD_MULTICAST_ADDRESS: windows_core::HRESULT = 0xC00D0038_u32 as _;
-pub const NS_E_BAD_REQUEST: windows_core::HRESULT = 0xC00D2EE3_u32 as _;
-pub const NS_E_BAD_STAMPNUMBER: windows_core::HRESULT = 0xC00D0066_u32 as _;
-pub const NS_E_BAD_SYNTAX_IN_SERVER_RESPONSE: windows_core::HRESULT = 0xC00D2EFE_u32 as _;
-pub const NS_E_BKGDOWNLOAD_CALLFUNCENDED: windows_core::HRESULT = 0xC00D1267_u32 as _;
-pub const NS_E_BKGDOWNLOAD_CALLFUNCFAILED: windows_core::HRESULT = 0xC00D1265_u32 as _;
-pub const NS_E_BKGDOWNLOAD_CALLFUNCTIMEOUT: windows_core::HRESULT = 0xC00D1266_u32 as _;
-pub const NS_E_BKGDOWNLOAD_CANCELCOMPLETEDJOB: windows_core::HRESULT = 0xC00D125F_u32 as _;
-pub const NS_E_BKGDOWNLOAD_COMPLETECANCELLEDJOB: windows_core::HRESULT = 0xC00D125E_u32 as _;
-pub const NS_E_BKGDOWNLOAD_FAILEDINITIALIZE: windows_core::HRESULT = 0xC00D1269_u32 as _;
-pub const NS_E_BKGDOWNLOAD_FAILED_TO_CREATE_TEMPFILE: windows_core::HRESULT = 0xC00D1262_u32 as _;
-pub const NS_E_BKGDOWNLOAD_INVALIDJOBSIGNATURE: windows_core::HRESULT = 0xC00D1261_u32 as _;
-pub const NS_E_BKGDOWNLOAD_INVALID_FILE_NAME: windows_core::HRESULT = 0xC00D126B_u32 as _;
-pub const NS_E_BKGDOWNLOAD_NOJOBPOINTER: windows_core::HRESULT = 0xC00D1260_u32 as _;
-pub const NS_E_BKGDOWNLOAD_PLUGIN_FAILEDINITIALIZE: windows_core::HRESULT = 0xC00D1263_u32 as _;
-pub const NS_E_BKGDOWNLOAD_PLUGIN_FAILEDTOMOVEFILE: windows_core::HRESULT = 0xC00D1264_u32 as _;
-pub const NS_E_BKGDOWNLOAD_WMDUNPACKFAILED: windows_core::HRESULT = 0xC00D1268_u32 as _;
-pub const NS_E_BKGDOWNLOAD_WRONG_NO_FILES: windows_core::HRESULT = 0xC00D125D_u32 as _;
-pub const NS_E_BUSY: windows_core::HRESULT = 0xC00D0025_u32 as _;
-pub const NS_E_CACHE_ARCHIVE_CONFLICT: windows_core::HRESULT = 0xC00D13EC_u32 as _;
-pub const NS_E_CACHE_CANNOT_BE_CACHED: windows_core::HRESULT = 0xC00D13F0_u32 as _;
-pub const NS_E_CACHE_NOT_BROADCAST: windows_core::HRESULT = 0xC00D13EF_u32 as _;
-pub const NS_E_CACHE_NOT_MODIFIED: windows_core::HRESULT = 0xC00D13F1_u32 as _;
-pub const NS_E_CACHE_ORIGIN_SERVER_NOT_FOUND: windows_core::HRESULT = 0xC00D13ED_u32 as _;
-pub const NS_E_CACHE_ORIGIN_SERVER_TIMEOUT: windows_core::HRESULT = 0xC00D13EE_u32 as _;
-pub const NS_E_CANNOTCONNECT: windows_core::HRESULT = 0xC00D0006_u32 as _;
-pub const NS_E_CANNOTCONNECTEVENTS: windows_core::HRESULT = 0xC00D006F_u32 as _;
-pub const NS_E_CANNOTDESTROYTITLE: windows_core::HRESULT = 0xC00D0007_u32 as _;
-pub const NS_E_CANNOTOFFLINEDISK: windows_core::HRESULT = 0xC00D0009_u32 as _;
-pub const NS_E_CANNOTONLINEDISK: windows_core::HRESULT = 0xC00D000A_u32 as _;
-pub const NS_E_CANNOTRENAMETITLE: windows_core::HRESULT = 0xC00D0008_u32 as _;
-pub const NS_E_CANNOT_BUY_OR_DOWNLOAD_CONTENT: windows_core::HRESULT = 0xC00D1358_u32 as _;
-pub const NS_E_CANNOT_BUY_OR_DOWNLOAD_FROM_MULTIPLE_SERVICES: windows_core::HRESULT = 0xC00D1357_u32 as _;
-pub const NS_E_CANNOT_CONNECT_TO_PROXY: windows_core::HRESULT = 0xC00D2EEE_u32 as _;
-pub const NS_E_CANNOT_DELETE_ACTIVE_SOURCEGROUP: windows_core::HRESULT = 0xC00D1B60_u32 as _;
-pub const NS_E_CANNOT_GENERATE_BROADCAST_INFO_FOR_QUALITYVBR: windows_core::HRESULT = 0xC00D1BDF_u32 as _;
-pub const NS_E_CANNOT_PAUSE_LIVEBROADCAST: windows_core::HRESULT = 0xC00D1B8E_u32 as _;
-pub const NS_E_CANNOT_READ_PLAYLIST_FROM_MEDIASERVER: windows_core::HRESULT = 0xC00D2EF2_u32 as _;
-pub const NS_E_CANNOT_REMOVE_PLUGIN: windows_core::HRESULT = 0xC00D1451_u32 as _;
-pub const NS_E_CANNOT_REMOVE_PUBLISHING_POINT: windows_core::HRESULT = 0xC00D1450_u32 as _;
-pub const NS_E_CANNOT_SYNC_DRM_TO_NON_JANUS_DEVICE: windows_core::HRESULT = 0xC00D1246_u32 as _;
-pub const NS_E_CANNOT_SYNC_PREVIOUS_SYNC_RUNNING: windows_core::HRESULT = 0xC00D1247_u32 as _;
-pub const NS_E_CANT_READ_DIGITAL: windows_core::HRESULT = 0xC00D0FA1_u32 as _;
-pub const NS_E_CCLINK_DOWN: windows_core::HRESULT = 0xC00D0023_u32 as _;
-pub const NS_E_CD_COPYTO_CD: windows_core::HRESULT = 0xC00D0FAE_u32 as _;
-pub const NS_E_CD_DRIVER_PROBLEM: windows_core::HRESULT = 0xC00D0FB2_u32 as _;
-pub const NS_E_CD_EMPTY_TRACK_QUEUE: windows_core::HRESULT = 0xC00D11F9_u32 as _;
-pub const NS_E_CD_ISRC_INVALID: windows_core::HRESULT = 0xC00D11FB_u32 as _;
-pub const NS_E_CD_MEDIA_CATALOG_NUMBER_INVALID: windows_core::HRESULT = 0xC00D11FC_u32 as _;
-pub const NS_E_CD_NO_BUFFERS_READ: windows_core::HRESULT = 0xC00D11F8_u32 as _;
-pub const NS_E_CD_NO_READER: windows_core::HRESULT = 0xC00D11FA_u32 as _;
-pub const NS_E_CD_QUEUEING_DISABLED: windows_core::HRESULT = 0xC00D11FF_u32 as _;
-pub const NS_E_CD_READ_ERROR: windows_core::HRESULT = 0xC00D0FAC_u32 as _;
-pub const NS_E_CD_READ_ERROR_NO_CORRECTION: windows_core::HRESULT = 0xC00D0FAB_u32 as _;
-pub const NS_E_CD_REFRESH: windows_core::HRESULT = 0xC00D0FB1_u32 as _;
-pub const NS_E_CD_SLOW_COPY: windows_core::HRESULT = 0xC00D0FAD_u32 as _;
-pub const NS_E_CD_SPEEDDETECT_NOT_ENOUGH_READS: windows_core::HRESULT = 0xC00D11FE_u32 as _;
-pub const NS_E_CHANGING_PROXYBYPASS: windows_core::HRESULT = 0xC00D10C3_u32 as _;
-pub const NS_E_CHANGING_PROXY_EXCEPTIONLIST: windows_core::HRESULT = 0xC00D10C2_u32 as _;
-pub const NS_E_CHANGING_PROXY_NAME: windows_core::HRESULT = 0xC00D10C0_u32 as _;
-pub const NS_E_CHANGING_PROXY_PORT: windows_core::HRESULT = 0xC00D10C1_u32 as _;
-pub const NS_E_CHANGING_PROXY_PROTOCOL_NOT_FOUND: windows_core::HRESULT = 0xC00D10C4_u32 as _;
-pub const NS_E_CLOSED_ON_SUSPEND: windows_core::HRESULT = 0xC00D2EF1_u32 as _;
-pub const NS_E_CODEC_DMO_ERROR: windows_core::HRESULT = 0xC00D0BDA_u32 as _;
-pub const NS_E_CODEC_UNAVAILABLE: windows_core::HRESULT = 0xC00D1B83_u32 as _;
-pub const NS_E_COMPRESSED_DIGITAL_AUDIO_PROTECTION_LEVEL_UNSUPPORTED: windows_core::HRESULT = 0xC00D2908_u32 as _;
-pub const NS_E_COMPRESSED_DIGITAL_VIDEO_PROTECTION_LEVEL_UNSUPPORTED: windows_core::HRESULT = 0xC00D2905_u32 as _;
-pub const NS_E_CONNECTION_FAILURE: windows_core::HRESULT = 0xC00D0029_u32 as _;
-pub const NS_E_CONNECT_TIMEOUT: windows_core::HRESULT = 0xC00D2F06_u32 as _;
-pub const NS_E_CONTENT_PARTNER_STILL_INITIALIZING: windows_core::HRESULT = 0xC00D1362_u32 as _;
-pub const NS_E_CORECD_NOTAMEDIACD: windows_core::HRESULT = 0xC00D10C7_u32 as _;
-pub const NS_E_CRITICAL_ERROR: windows_core::HRESULT = 0xC00D151C_u32 as _;
-pub const NS_E_CUB_FAIL: windows_core::HRESULT = 0xC00D0053_u32 as _;
-pub const NS_E_CUB_FAIL_LINK: windows_core::HRESULT = 0xC00D0190_u32 as _;
-pub const NS_E_CURLHELPER_NOTADIRECTORY: windows_core::HRESULT = 0xC00D132D_u32 as _;
-pub const NS_E_CURLHELPER_NOTAFILE: windows_core::HRESULT = 0xC00D132E_u32 as _;
-pub const NS_E_CURLHELPER_NOTRELATIVE: windows_core::HRESULT = 0xC00D1330_u32 as _;
-pub const NS_E_CURL_CANTDECODE: windows_core::HRESULT = 0xC00D132F_u32 as _;
-pub const NS_E_CURL_CANTWALK: windows_core::HRESULT = 0xC00D132B_u32 as _;
-pub const NS_E_CURL_INVALIDBUFFERSIZE: windows_core::HRESULT = 0xC00D1331_u32 as _;
-pub const NS_E_CURL_INVALIDCHAR: windows_core::HRESULT = 0xC00D1325_u32 as _;
-pub const NS_E_CURL_INVALIDHOSTNAME: windows_core::HRESULT = 0xC00D1326_u32 as _;
-pub const NS_E_CURL_INVALIDPATH: windows_core::HRESULT = 0xC00D1327_u32 as _;
-pub const NS_E_CURL_INVALIDPORT: windows_core::HRESULT = 0xC00D132C_u32 as _;
-pub const NS_E_CURL_INVALIDSCHEME: windows_core::HRESULT = 0xC00D1328_u32 as _;
-pub const NS_E_CURL_INVALIDURL: windows_core::HRESULT = 0xC00D1329_u32 as _;
-pub const NS_E_CURL_NOTSAFE: windows_core::HRESULT = 0xC00D1324_u32 as _;
-pub const NS_E_DAMAGED_FILE: windows_core::HRESULT = 0xC00D0FCB_u32 as _;
-pub const NS_E_DATAPATH_NO_SINK: windows_core::HRESULT = 0xC00D1518_u32 as _;
-pub const NS_E_DATA_SOURCE_ENUMERATION_NOT_SUPPORTED: windows_core::HRESULT = 0xC00D1580_u32 as _;
-pub const NS_E_DATA_UNIT_EXTENSION_TOO_LARGE: windows_core::HRESULT = 0xC00D0BD9_u32 as _;
-pub const NS_E_DDRAW_GENERIC: windows_core::HRESULT = 0xC00D10BD_u32 as _;
-pub const NS_E_DEVCONTROL_FAILED_SEEK: windows_core::HRESULT = 0xC00D1B94_u32 as _;
-pub const NS_E_DEVICECONTROL_UNSTABLE: windows_core::HRESULT = 0xC00D1BE1_u32 as _;
-pub const NS_E_DEVICE_DISCONNECTED: windows_core::HRESULT = 0xC00D0FA2_u32 as _;
-pub const NS_E_DEVICE_IS_NOT_READY: windows_core::HRESULT = 0xC00D1177_u32 as _;
-pub const NS_E_DEVICE_NOT_READY: windows_core::HRESULT = 0xC00D0FCA_u32 as _;
-pub const NS_E_DEVICE_NOT_SUPPORT_FORMAT: windows_core::HRESULT = 0xC00D0FA3_u32 as _;
-pub const NS_E_DEVICE_NOT_WMDRM_DEVICE: windows_core::HRESULT = 0xC00D277B_u32 as _;
-pub const NS_E_DISK_FAIL: windows_core::HRESULT = 0xC00D0055_u32 as _;
-pub const NS_E_DISK_READ: windows_core::HRESULT = 0xC00D0017_u32 as _;
-pub const NS_E_DISK_WRITE: windows_core::HRESULT = 0xC00D0016_u32 as _;
-pub const NS_E_DISPLAY_MODE_CHANGE_FAILED: windows_core::HRESULT = 0xC00D10BE_u32 as _;
-pub const NS_E_DRMPROFILE_NOTFOUND: windows_core::HRESULT = 0xC00D1BD5_u32 as _;
-pub const NS_E_DRM_ACQUIRING_LICENSE: windows_core::HRESULT = 0xC00D272B_u32 as _;
-pub const NS_E_DRM_ACTION_NOT_QUERIED: windows_core::HRESULT = 0xC00D272A_u32 as _;
-pub const NS_E_DRM_ALREADY_INDIVIDUALIZED: windows_core::HRESULT = 0xC00D2729_u32 as _;
-pub const NS_E_DRM_APPCERT_REVOKED: windows_core::HRESULT = 0xC00D2752_u32 as _;
-pub const NS_E_DRM_ATTRIBUTE_TOO_LONG: windows_core::HRESULT = 0xC00D28B2_u32 as _;
-pub const NS_E_DRM_BACKUPRESTORE_BUSY: windows_core::HRESULT = 0xC00D2744_u32 as _;
-pub const NS_E_DRM_BACKUP_CORRUPT: windows_core::HRESULT = 0xC00D2743_u32 as _;
-pub const NS_E_DRM_BACKUP_EXISTS: windows_core::HRESULT = 0xC00D2742_u32 as _;
-pub const NS_E_DRM_BAD_REQUEST: windows_core::HRESULT = 0xC00D28B0_u32 as _;
-pub const NS_E_DRM_BB_UNABLE_TO_INITIALIZE: windows_core::HRESULT = 0xC00D2780_u32 as _;
-pub const NS_E_DRM_BUFFER_TOO_SMALL: windows_core::HRESULT = 0xC00D275C_u32 as _;
-pub const NS_E_DRM_BUSY: windows_core::HRESULT = 0xC00D2841_u32 as _;
-pub const NS_E_DRM_CACHED_CONTENT_ERROR: windows_core::HRESULT = 0xC00D274B_u32 as _;
-pub const NS_E_DRM_CERTIFICATE_REVOKED: windows_core::HRESULT = 0xC00D28A1_u32 as _;
-pub const NS_E_DRM_CERTIFICATE_SECURITY_LEVEL_INADEQUATE: windows_core::HRESULT = 0xC00D28AE_u32 as _;
-pub const NS_E_DRM_CHAIN_TOO_LONG: windows_core::HRESULT = 0xC00D284C_u32 as _;
-pub const NS_E_DRM_CHECKPOINT_CORRUPT: windows_core::HRESULT = 0xC00D2797_u32 as _;
-pub const NS_E_DRM_CHECKPOINT_FAILED: windows_core::HRESULT = 0xC00D277F_u32 as _;
-pub const NS_E_DRM_CHECKPOINT_MISMATCH: windows_core::HRESULT = 0xC00D2796_u32 as _;
-pub const NS_E_DRM_CLIENT_CODE_EXPIRED: windows_core::HRESULT = 0xC00D2847_u32 as _;
-pub const NS_E_DRM_DATASTORE_CORRUPT: windows_core::HRESULT = 0xC00D2783_u32 as _;
-pub const NS_E_DRM_DEBUGGING_NOT_ALLOWED: windows_core::HRESULT = 0xC00D2767_u32 as _;
-pub const NS_E_DRM_DECRYPT_ERROR: windows_core::HRESULT = 0xC00D2723_u32 as _;
-pub const NS_E_DRM_DEVICE_ACTIVATION_CANCELED: windows_core::HRESULT = 0xC00D2765_u32 as _;
-pub const NS_E_DRM_DEVICE_ALREADY_REGISTERED: windows_core::HRESULT = 0xC00D28AB_u32 as _;
-pub const NS_E_DRM_DEVICE_LIMIT_REACHED: windows_core::HRESULT = 0xC00D28A3_u32 as _;
-pub const NS_E_DRM_DEVICE_NOT_OPEN: windows_core::HRESULT = 0xC00D28AA_u32 as _;
-pub const NS_E_DRM_DEVICE_NOT_REGISTERED: windows_core::HRESULT = 0xC00D27E2_u32 as _;
-pub const NS_E_DRM_DRIVER_AUTH_FAILURE: windows_core::HRESULT = 0xC00D274D_u32 as _;
-pub const NS_E_DRM_DRIVER_DIGIOUT_FAILURE: windows_core::HRESULT = 0xC00D2750_u32 as _;
-pub const NS_E_DRM_DRMV2CLT_REVOKED: windows_core::HRESULT = 0xC00D28B6_u32 as _;
-pub const NS_E_DRM_ENCRYPT_ERROR: windows_core::HRESULT = 0xC00D2722_u32 as _;
-pub const NS_E_DRM_ENUM_LICENSE_FAILED: windows_core::HRESULT = 0xC00D271B_u32 as _;
-pub const NS_E_DRM_ERROR_BAD_NET_RESP: windows_core::HRESULT = 0xC00D275E_u32 as _;
-pub const NS_E_DRM_EXPIRED_LICENSEBLOB: windows_core::HRESULT = 0xC00D28B3_u32 as _;
-pub const NS_E_DRM_GET_CONTENTSTRING_ERROR: windows_core::HRESULT = 0xC00D273D_u32 as _;
-pub const NS_E_DRM_GET_LICENSESTRING_ERROR: windows_core::HRESULT = 0xC00D273C_u32 as _;
-pub const NS_E_DRM_GET_LICENSE_ERROR: windows_core::HRESULT = 0xC00D2739_u32 as _;
-pub const NS_E_DRM_HARDWAREID_MISMATCH: windows_core::HRESULT = 0xC00D278F_u32 as _;
-pub const NS_E_DRM_HARDWARE_INCONSISTENT: windows_core::HRESULT = 0xC00D2754_u32 as _;
-pub const NS_E_DRM_INCLUSION_LIST_REQUIRED: windows_core::HRESULT = 0xC00D28B5_u32 as _;
-pub const NS_E_DRM_INDIVIDUALIZATION_INCOMPLETE: windows_core::HRESULT = 0xC00D274C_u32 as _;
-pub const NS_E_DRM_INDIVIDUALIZE_ERROR: windows_core::HRESULT = 0xC00D2736_u32 as _;
-pub const NS_E_DRM_INDIVIDUALIZING: windows_core::HRESULT = 0xC00D272C_u32 as _;
-pub const NS_E_DRM_INDIV_FRAUD: windows_core::HRESULT = 0xC00D2843_u32 as _;
-pub const NS_E_DRM_INDIV_NO_CABS: windows_core::HRESULT = 0xC00D2844_u32 as _;
-pub const NS_E_DRM_INDIV_SERVICE_UNAVAILABLE: windows_core::HRESULT = 0xC00D2845_u32 as _;
-pub const NS_E_DRM_INVALID_APPCERT: windows_core::HRESULT = 0xC00D277C_u32 as _;
-pub const NS_E_DRM_INVALID_APPDATA: windows_core::HRESULT = 0xC00D2740_u32 as _;
-pub const NS_E_DRM_INVALID_APPDATA_VERSION: windows_core::HRESULT = 0xC00D2741_u32 as _;
-pub const NS_E_DRM_INVALID_APPLICATION: windows_core::HRESULT = 0xC00D2711_u32 as _;
-pub const NS_E_DRM_INVALID_CERTIFICATE: windows_core::HRESULT = 0xC00D28A0_u32 as _;
-pub const NS_E_DRM_INVALID_CONTENT: windows_core::HRESULT = 0xC00D2716_u32 as _;
-pub const NS_E_DRM_INVALID_CRL: windows_core::HRESULT = 0xC00D28B1_u32 as _;
-pub const NS_E_DRM_INVALID_DATA: windows_core::HRESULT = 0xC00D2761_u32 as _;
-pub const NS_E_DRM_INVALID_KID: windows_core::HRESULT = 0xC00D2849_u32 as _;
-pub const NS_E_DRM_INVALID_LICENSE: windows_core::HRESULT = 0xC00D2718_u32 as _;
-pub const NS_E_DRM_INVALID_LICENSEBLOB: windows_core::HRESULT = 0xC00D28B4_u32 as _;
-pub const NS_E_DRM_INVALID_LICENSE_ACQUIRED: windows_core::HRESULT = 0xC00D271F_u32 as _;
-pub const NS_E_DRM_INVALID_LICENSE_REQUEST: windows_core::HRESULT = 0xC00D271C_u32 as _;
-pub const NS_E_DRM_INVALID_MACHINE: windows_core::HRESULT = 0xC00D2719_u32 as _;
-pub const NS_E_DRM_INVALID_MIGRATION_IMAGE: windows_core::HRESULT = 0xC00D2788_u32 as _;
-pub const NS_E_DRM_INVALID_PROPERTY: windows_core::HRESULT = 0xC00D2749_u32 as _;
-pub const NS_E_DRM_INVALID_PROXIMITY_RESPONSE: windows_core::HRESULT = 0xC00D28A8_u32 as _;
-pub const NS_E_DRM_INVALID_SECURESTORE_PASSWORD: windows_core::HRESULT = 0xC00D2751_u32 as _;
-pub const NS_E_DRM_INVALID_SESSION: windows_core::HRESULT = 0xC00D28A9_u32 as _;
-pub const NS_E_DRM_KEY_ERROR: windows_core::HRESULT = 0xC00D2721_u32 as _;
-pub const NS_E_DRM_LICENSE_APPSECLOW: windows_core::HRESULT = 0xC00D27DA_u32 as _;
-pub const NS_E_DRM_LICENSE_APP_NOTALLOWED: windows_core::HRESULT = 0xC00D27DD_u32 as _;
-pub const NS_E_DRM_LICENSE_CERT_EXPIRED: windows_core::HRESULT = 0xC00D27DF_u32 as _;
-pub const NS_E_DRM_LICENSE_CLOSE_ERROR: windows_core::HRESULT = 0xC00D2738_u32 as _;
-pub const NS_E_DRM_LICENSE_CONTENT_REVOKED: windows_core::HRESULT = 0xC00D27E1_u32 as _;
-pub const NS_E_DRM_LICENSE_DELETION_ERROR: windows_core::HRESULT = 0xC00D284E_u32 as _;
-pub const NS_E_DRM_LICENSE_EXPIRED: windows_core::HRESULT = 0xC00D27D8_u32 as _;
-pub const NS_E_DRM_LICENSE_INITIALIZATION_ERROR: windows_core::HRESULT = 0xC00D284A_u32 as _;
-pub const NS_E_DRM_LICENSE_INVALID_XML: windows_core::HRESULT = 0xC00D2725_u32 as _;
-pub const NS_E_DRM_LICENSE_NOSAP: windows_core::HRESULT = 0xC00D280A_u32 as _;
-pub const NS_E_DRM_LICENSE_NOSVP: windows_core::HRESULT = 0xC00D280B_u32 as _;
-pub const NS_E_DRM_LICENSE_NOTACQUIRED: windows_core::HRESULT = 0xC00D2759_u32 as _;
-pub const NS_E_DRM_LICENSE_NOTENABLED: windows_core::HRESULT = 0xC00D27D9_u32 as _;
-pub const NS_E_DRM_LICENSE_NOTRUSTEDCODEC: windows_core::HRESULT = 0xC00D280D_u32 as _;
-pub const NS_E_DRM_LICENSE_NOWDM: windows_core::HRESULT = 0xC00D280C_u32 as _;
-pub const NS_E_DRM_LICENSE_OPEN_ERROR: windows_core::HRESULT = 0xC00D2737_u32 as _;
-pub const NS_E_DRM_LICENSE_SECLOW: windows_core::HRESULT = 0xC00D27E0_u32 as _;
-pub const NS_E_DRM_LICENSE_SERVER_INFO_MISSING: windows_core::HRESULT = 0xC00D2840_u32 as _;
-pub const NS_E_DRM_LICENSE_STORE_ERROR: windows_core::HRESULT = 0xC00D2712_u32 as _;
-pub const NS_E_DRM_LICENSE_STORE_SAVE_ERROR: windows_core::HRESULT = 0xC00D2714_u32 as _;
-pub const NS_E_DRM_LICENSE_UNAVAILABLE: windows_core::HRESULT = 0xC00D28A2_u32 as _;
-pub const NS_E_DRM_LICENSE_UNUSABLE: windows_core::HRESULT = 0xC00D2748_u32 as _;
-pub const NS_E_DRM_LIC_NEEDS_DEVICE_CLOCK_SET: windows_core::HRESULT = 0xC00D2779_u32 as _;
-pub const NS_E_DRM_MALFORMED_CONTENT_HEADER: windows_core::HRESULT = 0xC00D279C_u32 as _;
-pub const NS_E_DRM_MIGRATION_IMPORTER_NOT_AVAILABLE: windows_core::HRESULT = 0xC00D278A_u32 as _;
-pub const NS_E_DRM_MIGRATION_INVALID_LEGACYV2_DATA: windows_core::HRESULT = 0xC00D2791_u32 as _;
-pub const NS_E_DRM_MIGRATION_INVALID_LEGACYV2_SST_PASSWORD: windows_core::HRESULT = 0xC00D2793_u32 as _;
-pub const NS_E_DRM_MIGRATION_LICENSE_ALREADY_EXISTS: windows_core::HRESULT = 0xC00D2792_u32 as _;
-pub const NS_E_DRM_MIGRATION_NOT_SUPPORTED: windows_core::HRESULT = 0xC00D2794_u32 as _;
-pub const NS_E_DRM_MIGRATION_OBJECT_IN_USE: windows_core::HRESULT = 0xC00D279B_u32 as _;
-pub const NS_E_DRM_MIGRATION_OPERATION_CANCELLED: windows_core::HRESULT = 0xC00D279A_u32 as _;
-pub const NS_E_DRM_MIGRATION_TARGET_NOT_ONLINE: windows_core::HRESULT = 0xC00D2787_u32 as _;
-pub const NS_E_DRM_MIGRATION_TARGET_STATES_CORRUPTED: windows_core::HRESULT = 0xC00D2789_u32 as _;
-pub const NS_E_DRM_MONITOR_ERROR: windows_core::HRESULT = 0xC00D273E_u32 as _;
-pub const NS_E_DRM_MUST_APPROVE: windows_core::HRESULT = 0xC00D28A6_u32 as _;
-pub const NS_E_DRM_MUST_REGISTER: windows_core::HRESULT = 0xC00D28A5_u32 as _;
-pub const NS_E_DRM_MUST_REVALIDATE: windows_core::HRESULT = 0xC00D28A7_u32 as _;
-pub const NS_E_DRM_NEEDS_INDIVIDUALIZATION: windows_core::HRESULT = 0xC00D2728_u32 as _;
-pub const NS_E_DRM_NEEDS_UPGRADE_TEMPFILE: windows_core::HRESULT = 0xC00D283D_u32 as _;
-pub const NS_E_DRM_NEED_UPGRADE_MSSAP: windows_core::HRESULT = 0xC00D274E_u32 as _;
-pub const NS_E_DRM_NEED_UPGRADE_PD: windows_core::HRESULT = 0xC00D283E_u32 as _;
-pub const NS_E_DRM_NOT_CONFIGURED: windows_core::HRESULT = 0xC00D2764_u32 as _;
-pub const NS_E_DRM_NO_RIGHTS: windows_core::HRESULT = 0xC00D2720_u32 as _;
-pub const NS_E_DRM_NO_UPLINK_LICENSE: windows_core::HRESULT = 0xC00D2848_u32 as _;
-pub const NS_E_DRM_OPERATION_CANCELED: windows_core::HRESULT = 0xC00D2768_u32 as _;
-pub const NS_E_DRM_PARAMETERS_MISMATCHED: windows_core::HRESULT = 0xC00D272F_u32 as _;
-pub const NS_E_DRM_PASSWORD_TOO_LONG: windows_core::HRESULT = 0xC00D1B93_u32 as _;
-pub const NS_E_DRM_PD_TOO_MANY_DEVICES: windows_core::HRESULT = 0xC00D2842_u32 as _;
-pub const NS_E_DRM_POLICY_DISABLE_ONLINE: windows_core::HRESULT = 0xC00D2762_u32 as _;
-pub const NS_E_DRM_POLICY_METERING_DISABLED: windows_core::HRESULT = 0xC00D2776_u32 as _;
-pub const NS_E_DRM_PROFILE_NOT_SET: windows_core::HRESULT = 0xC00D1B8F_u32 as _;
-pub const NS_E_DRM_PROTOCOL_FORCEFUL_TERMINATION_ON_CHALLENGE: windows_core::HRESULT = 0xC00D277E_u32 as _;
-pub const NS_E_DRM_PROTOCOL_FORCEFUL_TERMINATION_ON_PETITION: windows_core::HRESULT = 0xC00D277D_u32 as _;
-pub const NS_E_DRM_QUERY_ERROR: windows_core::HRESULT = 0xC00D273A_u32 as _;
-pub const NS_E_DRM_REOPEN_CONTENT: windows_core::HRESULT = 0xC00D274F_u32 as _;
-pub const NS_E_DRM_REPORT_ERROR: windows_core::HRESULT = 0xC00D273B_u32 as _;
-pub const NS_E_DRM_RESTORE_FRAUD: windows_core::HRESULT = 0xC00D2753_u32 as _;
-pub const NS_E_DRM_RESTORE_SERVICE_UNAVAILABLE: windows_core::HRESULT = 0xC00D2846_u32 as _;
-pub const NS_E_DRM_RESTRICTIONS_NOT_RETRIEVED: windows_core::HRESULT = 0xC00D2769_u32 as _;
-pub const NS_E_DRM_RIV_TOO_SMALL: windows_core::HRESULT = 0xC00D28B7_u32 as _;
-pub const NS_E_DRM_SDK_VERSIONMISMATCH: windows_core::HRESULT = 0xC00D2778_u32 as _;
-pub const NS_E_DRM_SDMI_NOMORECOPIES: windows_core::HRESULT = 0xC00D2756_u32 as _;
-pub const NS_E_DRM_SDMI_TRIGGER: windows_core::HRESULT = 0xC00D2755_u32 as _;
-pub const NS_E_DRM_SECURE_STORE_ERROR: windows_core::HRESULT = 0xC00D2713_u32 as _;
-pub const NS_E_DRM_SECURE_STORE_NOT_FOUND: windows_core::HRESULT = 0xC00D274A_u32 as _;
-pub const NS_E_DRM_SECURE_STORE_UNLOCK_ERROR: windows_core::HRESULT = 0xC00D2715_u32 as _;
-pub const NS_E_DRM_SECURITY_COMPONENT_SIGNATURE_INVALID: windows_core::HRESULT = 0xC00D2760_u32 as _;
-pub const NS_E_DRM_SIGNATURE_FAILURE: windows_core::HRESULT = 0xC00D283F_u32 as _;
-pub const NS_E_DRM_SOURCEID_NOT_SUPPORTED: windows_core::HRESULT = 0xC00D280E_u32 as _;
-pub const NS_E_DRM_STORE_NEEDINDI: windows_core::HRESULT = 0xC00D27DB_u32 as _;
-pub const NS_E_DRM_STORE_NOTALLOWED: windows_core::HRESULT = 0xC00D27DC_u32 as _;
-pub const NS_E_DRM_STORE_NOTALLSTORED: windows_core::HRESULT = 0xC00D275F_u32 as _;
-pub const NS_E_DRM_STUBLIB_REQUIRED: windows_core::HRESULT = 0xC00D2785_u32 as _;
-pub const NS_E_DRM_TRACK_EXCEEDED_PLAYLIST_RESTICTION: windows_core::HRESULT = 0xC00D2770_u32 as _;
-pub const NS_E_DRM_TRACK_EXCEEDED_TRACKBURN_RESTRICTION: windows_core::HRESULT = 0xC00D2771_u32 as _;
-pub const NS_E_DRM_TRANSFER_CHAINED_LICENSES_UNSUPPORTED: windows_core::HRESULT = 0xC00D2777_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_ACQUIRE_LICENSE: windows_core::HRESULT = 0xC00D271E_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_AUTHENTICATION_OBJECT: windows_core::HRESULT = 0xC00D2763_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_BACKUP_OBJECT: windows_core::HRESULT = 0xC00D2735_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_CERTIFICATE_OBJECT: windows_core::HRESULT = 0xC00D2786_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_CODING_OBJECT: windows_core::HRESULT = 0xC00D275A_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_DECRYPT_OBJECT: windows_core::HRESULT = 0xC00D2733_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_DEVICE_REGISTRATION_OBJECT: windows_core::HRESULT = 0xC00D276C_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_ENCRYPT_OBJECT: windows_core::HRESULT = 0xC00D2732_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_HEADER_OBJECT: windows_core::HRESULT = 0xC00D2757_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_INDI_OBJECT: windows_core::HRESULT = 0xC00D2731_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_INMEMORYSTORE_OBJECT: windows_core::HRESULT = 0xC00D2784_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_KEYS_OBJECT: windows_core::HRESULT = 0xC00D2758_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_LICENSE_OBJECT: windows_core::HRESULT = 0xC00D2730_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_METERING_OBJECT: windows_core::HRESULT = 0xC00D276D_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_MIGRATION_IMPORTER_OBJECT: windows_core::HRESULT = 0xC00D2795_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_PLAYLIST_BURN_OBJECT: windows_core::HRESULT = 0xC00D276B_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_PLAYLIST_OBJECT: windows_core::HRESULT = 0xC00D276A_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_PROPERTIES_OBJECT: windows_core::HRESULT = 0xC00D2734_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_CREATE_STATE_DATA_OBJECT: windows_core::HRESULT = 0xC00D275B_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_GET_DEVICE_CERT: windows_core::HRESULT = 0xC00D2772_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_GET_SECURE_CLOCK: windows_core::HRESULT = 0xC00D2773_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_GET_SECURE_CLOCK_FROM_SERVER: windows_core::HRESULT = 0xC00D2775_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_INITIALIZE: windows_core::HRESULT = 0xC00D271D_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_LOAD_HARDWARE_ID: windows_core::HRESULT = 0xC00D2781_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_OPEN_DATA_STORE: windows_core::HRESULT = 0xC00D2782_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_OPEN_LICENSE: windows_core::HRESULT = 0xC00D2717_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_OPEN_PORT: windows_core::HRESULT = 0xC00D28AF_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_SET_PARAMETER: windows_core::HRESULT = 0xC00D273F_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_SET_SECURE_CLOCK: windows_core::HRESULT = 0xC00D2774_u32 as _;
-pub const NS_E_DRM_UNABLE_TO_VERIFY_PROXIMITY: windows_core::HRESULT = 0xC00D28A4_u32 as _;
-pub const NS_E_DRM_UNSUPPORTED_ACTION: windows_core::HRESULT = 0xC00D28AD_u32 as _;
-pub const NS_E_DRM_UNSUPPORTED_ALGORITHM: windows_core::HRESULT = 0xC00D284D_u32 as _;
-pub const NS_E_DRM_UNSUPPORTED_PROPERTY: windows_core::HRESULT = 0xC00D275D_u32 as _;
-pub const NS_E_DRM_UNSUPPORTED_PROTOCOL_VERSION: windows_core::HRESULT = 0xC00D28AC_u32 as _;
-pub const NS_E_DUPLICATE_ADDRESS: windows_core::HRESULT = 0xC00D0037_u32 as _;
-pub const NS_E_DUPLICATE_DRMPROFILE: windows_core::HRESULT = 0xC00D1B90_u32 as _;
-pub const NS_E_DUPLICATE_NAME: windows_core::HRESULT = 0xC00D0036_u32 as _;
-pub const NS_E_DUPLICATE_PACKET: windows_core::HRESULT = 0xC00D0BD3_u32 as _;
-pub const NS_E_DVD_AUTHORING_PROBLEM: windows_core::HRESULT = 0xC00D1164_u32 as _;
-pub const NS_E_DVD_CANNOT_COPY_PROTECTED: windows_core::HRESULT = 0xC00D1172_u32 as _;
-pub const NS_E_DVD_CANNOT_JUMP: windows_core::HRESULT = 0xC00D116F_u32 as _;
-pub const NS_E_DVD_COMPATIBLE_VIDEO_CARD: windows_core::HRESULT = 0xC00D1166_u32 as _;
-pub const NS_E_DVD_COPY_PROTECT: windows_core::HRESULT = 0xC00D1163_u32 as _;
-pub const NS_E_DVD_DEVICE_CONTENTION: windows_core::HRESULT = 0xC00D1170_u32 as _;
-pub const NS_E_DVD_DISC_COPY_PROTECT_OUTPUT_FAILED: windows_core::HRESULT = 0xC00D1161_u32 as _;
-pub const NS_E_DVD_DISC_COPY_PROTECT_OUTPUT_NS: windows_core::HRESULT = 0xC00D1160_u32 as _;
-pub const NS_E_DVD_DISC_DECODER_REGION: windows_core::HRESULT = 0xC00D1169_u32 as _;
-pub const NS_E_DVD_GRAPH_BUILDING: windows_core::HRESULT = 0xC00D116C_u32 as _;
-pub const NS_E_DVD_INVALID_DISC_REGION: windows_core::HRESULT = 0xC00D1165_u32 as _;
-pub const NS_E_DVD_INVALID_TITLE_CHAPTER: windows_core::HRESULT = 0xC00D1174_u32 as _;
-pub const NS_E_DVD_MACROVISION: windows_core::HRESULT = 0xC00D1167_u32 as _;
-pub const NS_E_DVD_NO_AUDIO_STREAM: windows_core::HRESULT = 0xC00D116B_u32 as _;
-pub const NS_E_DVD_NO_DECODER: windows_core::HRESULT = 0xC00D116D_u32 as _;
-pub const NS_E_DVD_NO_SUBPICTURE_STREAM: windows_core::HRESULT = 0xC00D1162_u32 as _;
-pub const NS_E_DVD_NO_VIDEO_MEMORY: windows_core::HRESULT = 0xC00D1171_u32 as _;
-pub const NS_E_DVD_NO_VIDEO_STREAM: windows_core::HRESULT = 0xC00D116A_u32 as _;
-pub const NS_E_DVD_PARENTAL: windows_core::HRESULT = 0xC00D116E_u32 as _;
-pub const NS_E_DVD_REQUIRED_PROPERTY_NOT_SET: windows_core::HRESULT = 0xC00D1173_u32 as _;
-pub const NS_E_DVD_SYSTEM_DECODER_REGION: windows_core::HRESULT = 0xC00D1168_u32 as _;
-pub const NS_E_EDL_REQUIRED_FOR_DEVICE_MULTIPASS: windows_core::HRESULT = 0xC00D1BE7_u32 as _;
-pub const NS_E_EMPTY_PLAYLIST: windows_core::HRESULT = 0xC00D14B5_u32 as _;
-pub const NS_E_EMPTY_PROGRAM_NAME: windows_core::HRESULT = 0xC00D00D6_u32 as _;
-pub const NS_E_ENACTPLAN_GIVEUP: windows_core::HRESULT = 0xC00D0068_u32 as _;
-pub const NS_E_END_OF_PLAYLIST: windows_core::HRESULT = 0xC00D32C8_u32 as _;
-pub const NS_E_END_OF_TAPE: windows_core::HRESULT = 0xC00D1BAE_u32 as _;
-pub const NS_E_ERROR_FROM_PROXY: windows_core::HRESULT = 0xC00D2EE4_u32 as _;
-pub const NS_E_EXCEED_MAX_DRM_PROFILE_LIMIT: windows_core::HRESULT = 0xC00D1BE0_u32 as _;
-pub const NS_E_EXPECT_MONO_WAV_INPUT: windows_core::HRESULT = 0xC00D1BA1_u32 as _;
-pub const NS_E_FAILED_DOWNLOAD_ABORT_BURN: windows_core::HRESULT = 0xC00D10DC_u32 as _;
-pub const NS_E_FAIL_LAUNCH_ROXIO_PLUGIN: windows_core::HRESULT = 0xC00D1180_u32 as _;
-pub const NS_E_FEATURE_DISABLED_BY_GROUP_POLICY: windows_core::HRESULT = 0xC00D0BDC_u32 as _;
-pub const NS_E_FEATURE_DISABLED_IN_SKU: windows_core::HRESULT = 0xC00D0BDD_u32 as _;
-pub const NS_E_FEATURE_REQUIRES_ENTERPRISE_SERVER: windows_core::HRESULT = 0xC00D1583_u32 as _;
-pub const NS_E_FILE_ALLOCATION_FAILED: windows_core::HRESULT = 0xC00D001E_u32 as _;
-pub const NS_E_FILE_BANDWIDTH_LIMIT: windows_core::HRESULT = 0xC00D0030_u32 as _;
-pub const NS_E_FILE_EXISTS: windows_core::HRESULT = 0xC00D001B_u32 as _;
-pub const NS_E_FILE_FAILED_CHECKS: windows_core::HRESULT = 0xC00D0FCD_u32 as _;
-pub const NS_E_FILE_INIT_FAILED: windows_core::HRESULT = 0xC00D001F_u32 as _;
-pub const NS_E_FILE_NOT_FOUND: windows_core::HRESULT = 0xC00D001A_u32 as _;
-pub const NS_E_FILE_OPEN_FAILED: windows_core::HRESULT = 0xC00D001D_u32 as _;
-pub const NS_E_FILE_PLAY_FAILED: windows_core::HRESULT = 0xC00D0020_u32 as _;
-pub const NS_E_FILE_READ: windows_core::HRESULT = 0xC00D0019_u32 as _;
-pub const NS_E_FILE_WRITE: windows_core::HRESULT = 0xC00D0018_u32 as _;
-pub const NS_E_FIREWALL: windows_core::HRESULT = 0xC00D2EF9_u32 as _;
-pub const NS_E_FLASH_PLAYBACK_NOT_ALLOWED: windows_core::HRESULT = 0xC00D10CF_u32 as _;
-pub const NS_E_GLITCH_MODE: windows_core::HRESULT = 0xC00D0195_u32 as _;
-pub const NS_E_GRAPH_NOAUDIOLANGUAGE: windows_core::HRESULT = 0xC00D10C5_u32 as _;
-pub const NS_E_GRAPH_NOAUDIOLANGUAGESELECTED: windows_core::HRESULT = 0xC00D10C6_u32 as _;
-pub const NS_E_HDS_KEY_MISMATCH: windows_core::HRESULT = 0xC00D2799_u32 as _;
-pub const NS_E_HEADER_MISMATCH: windows_core::HRESULT = 0xC00D151F_u32 as _;
-pub const NS_E_HTTP_DISABLED: windows_core::HRESULT = 0xC00D00D3_u32 as _;
-pub const NS_E_HTTP_TEXT_DATACONTAINER_INVALID_SERVER_RESPONSE: windows_core::HRESULT = 0xC00D158C_u32 as _;
-pub const NS_E_HTTP_TEXT_DATACONTAINER_SIZE_LIMIT_EXCEEDED: windows_core::HRESULT = 0xC00D1589_u32 as _;
-pub const NS_E_ICMQUERYFORMAT: windows_core::HRESULT = 0xC00D1B6C_u32 as _;
-pub const NS_E_IE_DISALLOWS_ACTIVEX_CONTROLS: windows_core::HRESULT = 0xC00D10CE_u32 as _;
-pub const NS_E_IMAGE_DOWNLOAD_FAILED: windows_core::HRESULT = 0xC00D128E_u32 as _;
-pub const NS_E_IMAPI_LOSSOFSTREAMING: windows_core::HRESULT = 0xC00D117E_u32 as _;
-pub const NS_E_IMAPI_MEDIUM_INVALIDTYPE: windows_core::HRESULT = 0xC00D1182_u32 as _;
-pub const NS_E_INCOMPATIBLE_FORMAT: windows_core::HRESULT = 0xC00D0041_u32 as _;
-pub const NS_E_INCOMPATIBLE_PUSH_SERVER: windows_core::HRESULT = 0xC00D2F0C_u32 as _;
-pub const NS_E_INCOMPATIBLE_SERVER: windows_core::HRESULT = 0xC00D2EE8_u32 as _;
-pub const NS_E_INCOMPATIBLE_VERSION: windows_core::HRESULT = 0xC00D0BC7_u32 as _;
-pub const NS_E_INCOMPLETE_PLAYLIST: windows_core::HRESULT = 0xC00D1242_u32 as _;
-pub const NS_E_INCORRECTCLIPSETTINGS: windows_core::HRESULT = 0xC00D1B7C_u32 as _;
-pub const NS_E_INDUCED: windows_core::HRESULT = 0xC00D0022_u32 as _;
-pub const NS_E_INPUTSOURCE_PROBLEM: windows_core::HRESULT = 0xC00D1B8A_u32 as _;
-pub const NS_E_INPUT_DOESNOT_SUPPORT_SMPTE: windows_core::HRESULT = 0xC00D1BA8_u32 as _;
-pub const NS_E_INPUT_WAVFORMAT_MISMATCH: windows_core::HRESULT = 0xC00D1BA2_u32 as _;
-pub const NS_E_INSUFFICIENT_BANDWIDTH: windows_core::HRESULT = 0xC00D002C_u32 as _;
-pub const NS_E_INSUFFICIENT_DATA: windows_core::HRESULT = 0xC00D00CA_u32 as _;
-pub const NS_E_INTERFACE_NOT_REGISTERED_IN_GIT: windows_core::HRESULT = 0xC00D126A_u32 as _;
-pub const NS_E_INTERLACEMODE_MISMATCH: windows_core::HRESULT = 0xC00D1BAB_u32 as _;
-pub const NS_E_INTERLACE_REQUIRE_SAMESIZE: windows_core::HRESULT = 0xC00D1B95_u32 as _;
-pub const NS_E_INTERNAL: windows_core::HRESULT = 0xC00D0024_u32 as _;
-pub const NS_E_INTERNAL_SERVER_ERROR: windows_core::HRESULT = 0xC00D2EE2_u32 as _;
-pub const NS_E_INVALIDCALL_WHILE_ARCHIVAL_RUNNING: windows_core::HRESULT = 0xC00D1B74_u32 as _;
-pub const NS_E_INVALIDCALL_WHILE_ENCODER_RUNNING: windows_core::HRESULT = 0xC00D1B66_u32 as _;
-pub const NS_E_INVALIDCALL_WHILE_ENCODER_STOPPED: windows_core::HRESULT = 0xC00D1B7F_u32 as _;
-pub const NS_E_INVALIDINPUTFPS: windows_core::HRESULT = 0xC00D1B81_u32 as _;
-pub const NS_E_INVALIDPACKETSIZE: windows_core::HRESULT = 0xC00D1B75_u32 as _;
-pub const NS_E_INVALIDPROFILE: windows_core::HRESULT = 0xC00D0BC6_u32 as _;
-pub const NS_E_INVALID_ARCHIVE: windows_core::HRESULT = 0xC00D003D_u32 as _;
-pub const NS_E_INVALID_AUDIO_BUFFERMAX: windows_core::HRESULT = 0xC00D1BBC_u32 as _;
-pub const NS_E_INVALID_AUDIO_PEAKRATE: windows_core::HRESULT = 0xC00D1BBA_u32 as _;
-pub const NS_E_INVALID_AUDIO_PEAKRATE_2: windows_core::HRESULT = 0xC00D1BBB_u32 as _;
-pub const NS_E_INVALID_BLACKHOLE_ADDRESS: windows_core::HRESULT = 0xC00D0040_u32 as _;
-pub const NS_E_INVALID_CHANNEL: windows_core::HRESULT = 0xC00D003B_u32 as _;
-pub const NS_E_INVALID_CLIENT: windows_core::HRESULT = 0xC00D003F_u32 as _;
-pub const NS_E_INVALID_DATA: windows_core::HRESULT = 0xC00D002F_u32 as _;
-pub const NS_E_INVALID_DEVICE: windows_core::HRESULT = 0xC00D1B91_u32 as _;
-pub const NS_E_INVALID_DRMV2CLT_STUBLIB: windows_core::HRESULT = 0xC00D2790_u32 as _;
-pub const NS_E_INVALID_EDL: windows_core::HRESULT = 0xC00D0BD8_u32 as _;
-pub const NS_E_INVALID_FILE_BITRATE: windows_core::HRESULT = 0xC00D1BD1_u32 as _;
-pub const NS_E_INVALID_FOLDDOWN_COEFFICIENTS: windows_core::HRESULT = 0xC00D1BD4_u32 as _;
-pub const NS_E_INVALID_INDEX: windows_core::HRESULT = 0xC00D0011_u32 as _;
-pub const NS_E_INVALID_INDEX2: windows_core::HRESULT = 0xC00D00D9_u32 as _;
-pub const NS_E_INVALID_INPUT_AUDIENCE_INDEX: windows_core::HRESULT = 0xC00D1B9E_u32 as _;
-pub const NS_E_INVALID_INPUT_FORMAT: windows_core::HRESULT = 0xC00D0BB8_u32 as _;
-pub const NS_E_INVALID_INPUT_LANGUAGE: windows_core::HRESULT = 0xC00D1B9F_u32 as _;
-pub const NS_E_INVALID_INPUT_STREAM: windows_core::HRESULT = 0xC00D1BA0_u32 as _;
-pub const NS_E_INVALID_INTERLACEMODE: windows_core::HRESULT = 0xC00D1BDB_u32 as _;
-pub const NS_E_INVALID_INTERLACE_COMPAT: windows_core::HRESULT = 0xC00D1BDC_u32 as _;
-pub const NS_E_INVALID_KEY: windows_core::HRESULT = 0xC00D0042_u32 as _;
-pub const NS_E_INVALID_LOG_URL: windows_core::HRESULT = 0xC00D1585_u32 as _;
-pub const NS_E_INVALID_MTU_RANGE: windows_core::HRESULT = 0xC00D1586_u32 as _;
-pub const NS_E_INVALID_NAME: windows_core::HRESULT = 0xC00D001C_u32 as _;
-pub const NS_E_INVALID_NONSQUAREPIXEL_COMPAT: windows_core::HRESULT = 0xC00D1BDD_u32 as _;
-pub const NS_E_INVALID_NUM_PASSES: windows_core::HRESULT = 0xC00D0BD5_u32 as _;
-pub const NS_E_INVALID_OPERATING_SYSTEM_VERSION: windows_core::HRESULT = 0xC00D1459_u32 as _;
-pub const NS_E_INVALID_OUTPUT_FORMAT: windows_core::HRESULT = 0xC00D0BBB_u32 as _;
-pub const NS_E_INVALID_PIXEL_ASPECT_RATIO: windows_core::HRESULT = 0xC00D1BE2_u32 as _;
-pub const NS_E_INVALID_PLAY_STATISTICS: windows_core::HRESULT = 0xC00D1587_u32 as _;
-pub const NS_E_INVALID_PLUGIN_LOAD_TYPE_CONFIGURATION: windows_core::HRESULT = 0xC00D1454_u32 as _;
-pub const NS_E_INVALID_PORT: windows_core::HRESULT = 0xC00D0043_u32 as _;
-pub const NS_E_INVALID_PROFILE_CONTENTTYPE: windows_core::HRESULT = 0xC00D1BE4_u32 as _;
-pub const NS_E_INVALID_PUBLISHING_POINT_NAME: windows_core::HRESULT = 0xC00D1455_u32 as _;
-pub const NS_E_INVALID_PUSH_PUBLISHING_POINT: windows_core::HRESULT = 0xC00D151B_u32 as _;
-pub const NS_E_INVALID_PUSH_PUBLISHING_POINT_START_REQUEST: windows_core::HRESULT = 0xC00D145B_u32 as _;
-pub const NS_E_INVALID_PUSH_TEMPLATE: windows_core::HRESULT = 0xC00D151A_u32 as _;
-pub const NS_E_INVALID_QUERY_OPERATOR: windows_core::HRESULT = 0xC00D32CF_u32 as _;
-pub const NS_E_INVALID_QUERY_PROPERTY: windows_core::HRESULT = 0xC00D32D0_u32 as _;
-pub const NS_E_INVALID_REDIRECT: windows_core::HRESULT = 0xC00D2EEA_u32 as _;
-pub const NS_E_INVALID_REQUEST: windows_core::HRESULT = 0xC00D002B_u32 as _;
-pub const NS_E_INVALID_SAMPLING_RATE: windows_core::HRESULT = 0xC00D0BD0_u32 as _;
-pub const NS_E_INVALID_SCRIPT_BITRATE: windows_core::HRESULT = 0xC00D1BCF_u32 as _;
-pub const NS_E_INVALID_SOURCE_WITH_DEVICE_CONTROL: windows_core::HRESULT = 0xC00D1BDE_u32 as _;
-pub const NS_E_INVALID_STREAM: windows_core::HRESULT = 0xC00D003C_u32 as _;
-pub const NS_E_INVALID_TIMECODE: windows_core::HRESULT = 0xC00D1BD6_u32 as _;
-pub const NS_E_INVALID_TTL: windows_core::HRESULT = 0xC00D0044_u32 as _;
-pub const NS_E_INVALID_VBR_COMPAT: windows_core::HRESULT = 0xC00D1BB2_u32 as _;
-pub const NS_E_INVALID_VBR_WITH_UNCOMP: windows_core::HRESULT = 0xC00D1BB4_u32 as _;
-pub const NS_E_INVALID_VIDEO_BITRATE: windows_core::HRESULT = 0xC00D1BBF_u32 as _;
-pub const NS_E_INVALID_VIDEO_BUFFER: windows_core::HRESULT = 0xC00D1BC9_u32 as _;
-pub const NS_E_INVALID_VIDEO_BUFFERMAX: windows_core::HRESULT = 0xC00D1BCA_u32 as _;
-pub const NS_E_INVALID_VIDEO_BUFFERMAX_2: windows_core::HRESULT = 0xC00D1BCB_u32 as _;
-pub const NS_E_INVALID_VIDEO_CQUALITY: windows_core::HRESULT = 0xC00D1BC8_u32 as _;
-pub const NS_E_INVALID_VIDEO_FPS: windows_core::HRESULT = 0xC00D1BC5_u32 as _;
-pub const NS_E_INVALID_VIDEO_HEIGHT: windows_core::HRESULT = 0xC00D1BC4_u32 as _;
-pub const NS_E_INVALID_VIDEO_HEIGHT_ALIGN: windows_core::HRESULT = 0xC00D1BCD_u32 as _;
-pub const NS_E_INVALID_VIDEO_IQUALITY: windows_core::HRESULT = 0xC00D1BC7_u32 as _;
-pub const NS_E_INVALID_VIDEO_KEYFRAME: windows_core::HRESULT = 0xC00D1BC6_u32 as _;
-pub const NS_E_INVALID_VIDEO_PEAKRATE: windows_core::HRESULT = 0xC00D1BC1_u32 as _;
-pub const NS_E_INVALID_VIDEO_PEAKRATE_2: windows_core::HRESULT = 0xC00D1BC2_u32 as _;
-pub const NS_E_INVALID_VIDEO_WIDTH: windows_core::HRESULT = 0xC00D1BC3_u32 as _;
-pub const NS_E_INVALID_VIDEO_WIDTH_ALIGN: windows_core::HRESULT = 0xC00D1BCC_u32 as _;
-pub const NS_E_INVALID_VIDEO_WIDTH_FOR_INTERLACED_ENCODING: windows_core::HRESULT = 0xC00D1BE8_u32 as _;
-pub const NS_E_LANGUAGE_MISMATCH: windows_core::HRESULT = 0xC00D1B9C_u32 as _;
-pub const NS_E_LATE_OPERATION: windows_core::HRESULT = 0xC00D002E_u32 as _;
-pub const NS_E_LATE_PACKET: windows_core::HRESULT = 0xC00D0BD2_u32 as _;
-pub const NS_E_LICENSE_EXPIRED: windows_core::HRESULT = 0xC00D00D4_u32 as _;
-pub const NS_E_LICENSE_HEADER_MISSING_URL: windows_core::HRESULT = 0xC00D277A_u32 as _;
-pub const NS_E_LICENSE_INCORRECT_RIGHTS: windows_core::HRESULT = 0xC00D0BC1_u32 as _;
-pub const NS_E_LICENSE_OUTOFDATE: windows_core::HRESULT = 0xC00D0BC0_u32 as _;
-pub const NS_E_LICENSE_REQUIRED: windows_core::HRESULT = 0xC00D0BBE_u32 as _;
-pub const NS_E_LOGFILEPERIOD: windows_core::HRESULT = 0xC00D0048_u32 as _;
-pub const NS_E_LOG_FILE_SIZE: windows_core::HRESULT = 0xC00D004A_u32 as _;
-pub const NS_E_LOG_NEED_TO_BE_SKIPPED: windows_core::HRESULT = 0xC00D1588_u32 as _;
-pub const NS_E_MARKIN_UNSUPPORTED: windows_core::HRESULT = 0xC00D1BE9_u32 as _;
-pub const NS_E_MAX_BITRATE: windows_core::HRESULT = 0xC00D0047_u32 as _;
-pub const NS_E_MAX_CLIENTS: windows_core::HRESULT = 0xC00D0049_u32 as _;
-pub const NS_E_MAX_FILERATE: windows_core::HRESULT = 0xC00D004B_u32 as _;
-pub const NS_E_MAX_FUNNELS_ALERT: windows_core::HRESULT = 0xC00D0060_u32 as _;
-pub const NS_E_MAX_PACKET_SIZE_TOO_SMALL: windows_core::HRESULT = 0xC00D0BD1_u32 as _;
-pub const NS_E_MEDIACD_READ_ERROR: windows_core::HRESULT = 0xC00D10CD_u32 as _;
-pub const NS_E_MEDIA_LIBRARY_FAILED: windows_core::HRESULT = 0xC00D0FCE_u32 as _;
-pub const NS_E_MEDIA_PARSER_INVALID_FORMAT: windows_core::HRESULT = 0xC00D1581_u32 as _;
-pub const NS_E_MEMSTORAGE_BAD_DATA: windows_core::HRESULT = 0xC00D117B_u32 as _;
-pub const NS_E_METADATA_CACHE_DATA_NOT_AVAILABLE: windows_core::HRESULT = 0xC00D32DB_u32 as _;
-pub const NS_E_METADATA_CANNOT_RETRIEVE_FROM_OFFLINE_CACHE: windows_core::HRESULT = 0xC00D32DE_u32 as _;
-pub const NS_E_METADATA_CANNOT_SET_LOCALE: windows_core::HRESULT = 0xC00D32D7_u32 as _;
-pub const NS_E_METADATA_FORMAT_NOT_SUPPORTED: windows_core::HRESULT = 0xC00D32D5_u32 as _;
-pub const NS_E_METADATA_IDENTIFIER_NOT_AVAILABLE: windows_core::HRESULT = 0xC00D32DD_u32 as _;
-pub const NS_E_METADATA_INVALID_DOCUMENT_TYPE: windows_core::HRESULT = 0xC00D32DC_u32 as _;
-pub const NS_E_METADATA_LANGUAGE_NOT_SUPORTED: windows_core::HRESULT = 0xC00D32D8_u32 as _;
-pub const NS_E_METADATA_NOT_AVAILABLE: windows_core::HRESULT = 0xC00D32DA_u32 as _;
-pub const NS_E_METADATA_NO_EDITING_CAPABILITY: windows_core::HRESULT = 0xC00D32D6_u32 as _;
-pub const NS_E_METADATA_NO_RFC1766_NAME_FOR_LOCALE: windows_core::HRESULT = 0xC00D32D9_u32 as _;
-pub const NS_E_MISMATCHED_MEDIACONTENT: windows_core::HRESULT = 0xC00D1B5F_u32 as _;
-pub const NS_E_MISSING_AUDIENCE: windows_core::HRESULT = 0xC00D1B98_u32 as _;
-pub const NS_E_MISSING_CHANNEL: windows_core::HRESULT = 0xC00D00D7_u32 as _;
-pub const NS_E_MISSING_SOURCE_INDEX: windows_core::HRESULT = 0xC00D1B9A_u32 as _;
-pub const NS_E_MIXER_INVALID_CONTROL: windows_core::HRESULT = 0xC00D0FA6_u32 as _;
-pub const NS_E_MIXER_INVALID_LINE: windows_core::HRESULT = 0xC00D0FA5_u32 as _;
-pub const NS_E_MIXER_INVALID_VALUE: windows_core::HRESULT = 0xC00D0FA7_u32 as _;
-pub const NS_E_MIXER_NODRIVER: windows_core::HRESULT = 0xC00D0FAF_u32 as _;
-pub const NS_E_MIXER_UNKNOWN_MMRESULT: windows_core::HRESULT = 0xC00D0FA8_u32 as _;
-pub const NS_E_MLS_SMARTPLAYLIST_FILTER_NOT_REGISTERED: windows_core::HRESULT = 0xC00D1075_u32 as _;
-pub const NS_E_MMSAUTOSERVER_CANTFINDWALKER: windows_core::HRESULT = 0xC00D0046_u32 as _;
-pub const NS_E_MMS_NOT_SUPPORTED: windows_core::HRESULT = 0xC00D2EFA_u32 as _;
-pub const NS_E_MONITOR_GIVEUP: windows_core::HRESULT = 0xC00D00C8_u32 as _;
-pub const NS_E_MP3_FORMAT_NOT_FOUND: windows_core::HRESULT = 0xC00D0FAA_u32 as _;
-pub const NS_E_MPDB_GENERIC: windows_core::HRESULT = 0xC00D0FCC_u32 as _;
-pub const NS_E_MSAUDIO_NOT_INSTALLED: windows_core::HRESULT = 0xC00D0BB9_u32 as _;
-pub const NS_E_MSBD_NO_LONGER_SUPPORTED: windows_core::HRESULT = 0xC00D2EEC_u32 as _;
-pub const NS_E_MULTICAST_DISABLED: windows_core::HRESULT = 0xC00D2EE9_u32 as _;
-pub const NS_E_MULTICAST_PLUGIN_NOT_ENABLED: windows_core::HRESULT = 0xC00D1458_u32 as _;
-pub const NS_E_MULTIPLE_AUDIO_CODECS: windows_core::HRESULT = 0xC00D1BB7_u32 as _;
-pub const NS_E_MULTIPLE_AUDIO_FORMATS: windows_core::HRESULT = 0xC00D1BB8_u32 as _;
-pub const NS_E_MULTIPLE_FILE_BITRATES: windows_core::HRESULT = 0xC00D1BD0_u32 as _;
-pub const NS_E_MULTIPLE_SCRIPT_BITRATES: windows_core::HRESULT = 0xC00D1BCE_u32 as _;
-pub const NS_E_MULTIPLE_VBR_AUDIENCES: windows_core::HRESULT = 0xC00D1BB5_u32 as _;
-pub const NS_E_MULTIPLE_VIDEO_CODECS: windows_core::HRESULT = 0xC00D1BBD_u32 as _;
-pub const NS_E_MULTIPLE_VIDEO_SIZES: windows_core::HRESULT = 0xC00D1BBE_u32 as _;
-pub const NS_E_NAMESPACE_BAD_NAME: windows_core::HRESULT = 0xC00D1396_u32 as _;
-pub const NS_E_NAMESPACE_BUFFER_TOO_SMALL: windows_core::HRESULT = 0xC00D138E_u32 as _;
-pub const NS_E_NAMESPACE_CALLBACK_NOT_FOUND: windows_core::HRESULT = 0xC00D1391_u32 as _;
-pub const NS_E_NAMESPACE_DUPLICATE_CALLBACK: windows_core::HRESULT = 0xC00D1390_u32 as _;
-pub const NS_E_NAMESPACE_DUPLICATE_NAME: windows_core::HRESULT = 0xC00D1393_u32 as _;
-pub const NS_E_NAMESPACE_EMPTY_NAME: windows_core::HRESULT = 0xC00D1394_u32 as _;
-pub const NS_E_NAMESPACE_INDEX_TOO_LARGE: windows_core::HRESULT = 0xC00D1395_u32 as _;
-pub const NS_E_NAMESPACE_NAME_TOO_LONG: windows_core::HRESULT = 0xC00D1392_u32 as _;
-pub const NS_E_NAMESPACE_NODE_CONFLICT: windows_core::HRESULT = 0xC00D138C_u32 as _;
-pub const NS_E_NAMESPACE_NODE_NOT_FOUND: windows_core::HRESULT = 0xC00D138D_u32 as _;
-pub const NS_E_NAMESPACE_TOO_MANY_CALLBACKS: windows_core::HRESULT = 0xC00D138F_u32 as _;
-pub const NS_E_NAMESPACE_WRONG_PERSIST: windows_core::HRESULT = 0xC00D138A_u32 as _;
-pub const NS_E_NAMESPACE_WRONG_SECURITY: windows_core::HRESULT = 0xC00D1397_u32 as _;
-pub const NS_E_NAMESPACE_WRONG_TYPE: windows_core::HRESULT = 0xC00D138B_u32 as _;
-pub const NS_E_NEED_CORE_REFERENCE: windows_core::HRESULT = 0xC00D10CC_u32 as _;
-pub const NS_E_NEED_TO_ASK_USER: windows_core::HRESULT = 0xC00D0FDA_u32 as _;
-pub const NS_E_NETWORK_BUSY: windows_core::HRESULT = 0xC00D000E_u32 as _;
-pub const NS_E_NETWORK_RESOURCE_FAILURE: windows_core::HRESULT = 0xC00D0028_u32 as _;
-pub const NS_E_NETWORK_SERVICE_FAILURE: windows_core::HRESULT = 0xC00D0027_u32 as _;
-pub const NS_E_NETWORK_SINK_WRITE: windows_core::HRESULT = 0xC00D2EF8_u32 as _;
-pub const NS_E_NET_READ: windows_core::HRESULT = 0xC00D0015_u32 as _;
-pub const NS_E_NET_WRITE: windows_core::HRESULT = 0xC00D0014_u32 as _;
-pub const NS_E_NOCONNECTION: windows_core::HRESULT = 0xC00D0005_u32 as _;
-pub const NS_E_NOFUNNEL: windows_core::HRESULT = 0xC00D000C_u32 as _;
-pub const NS_E_NOMATCHING_ELEMENT: windows_core::HRESULT = 0xC00D1B5E_u32 as _;
-pub const NS_E_NOMATCHING_MEDIASOURCE: windows_core::HRESULT = 0xC00D1B5A_u32 as _;
-pub const NS_E_NONSQUAREPIXELMODE_MISMATCH: windows_core::HRESULT = 0xC00D1BAC_u32 as _;
-pub const NS_E_NOREGISTEREDWALKER: windows_core::HRESULT = 0xC00D000B_u32 as _;
-pub const NS_E_NOSOURCEGROUPS: windows_core::HRESULT = 0xC00D1B80_u32 as _;
-pub const NS_E_NOSTATSAVAILABLE: windows_core::HRESULT = 0xC00D1B7D_u32 as _;
-pub const NS_E_NOTARCHIVING: windows_core::HRESULT = 0xC00D1B7E_u32 as _;
-pub const NS_E_NOTHING_TO_DO: windows_core::HRESULT = 0xC00D07F1_u32 as _;
-pub const NS_E_NOTITLES: windows_core::HRESULT = 0xC00D003E_u32 as _;
-pub const NS_E_NOT_CONFIGURED: windows_core::HRESULT = 0xC00D0BBC_u32 as _;
-pub const NS_E_NOT_CONNECTED: windows_core::HRESULT = 0xC00D0BCB_u32 as _;
-pub const NS_E_NOT_CONTENT_PARTNER_TRACK: windows_core::HRESULT = 0xC00D135A_u32 as _;
-pub const NS_E_NOT_LICENSED: windows_core::HRESULT = 0xC00D00CD_u32 as _;
-pub const NS_E_NOT_REBUILDING: windows_core::HRESULT = 0xC00D002D_u32 as _;
-pub const NS_E_NO_ACTIVE_SOURCEGROUP: windows_core::HRESULT = 0xC00D1B72_u32 as _;
-pub const NS_E_NO_AUDIENCES: windows_core::HRESULT = 0xC00D1BB0_u32 as _;
-pub const NS_E_NO_AUDIODATA: windows_core::HRESULT = 0xC00D1B89_u32 as _;
-pub const NS_E_NO_AUDIO_COMPAT: windows_core::HRESULT = 0xC00D1BB1_u32 as _;
-pub const NS_E_NO_AUDIO_TIMECOMPRESSION: windows_core::HRESULT = 0xC00D1BD7_u32 as _;
-pub const NS_E_NO_CD: windows_core::HRESULT = 0xC00D0FA0_u32 as _;
-pub const NS_E_NO_CD_BURNER: windows_core::HRESULT = 0xC00D1176_u32 as _;
-pub const NS_E_NO_CHANNELS: windows_core::HRESULT = 0xC00D00D8_u32 as _;
-pub const NS_E_NO_DATAVIEW_SUPPORT: windows_core::HRESULT = 0xC00D1B82_u32 as _;
-pub const NS_E_NO_DEVICE: windows_core::HRESULT = 0xC00D0071_u32 as _;
-pub const NS_E_NO_ERROR_STRING_FOUND: windows_core::HRESULT = 0xC00D0FD0_u32 as _;
-pub const NS_E_NO_EXISTING_PACKETIZER: windows_core::HRESULT = 0xC00D2EFD_u32 as _;
-pub const NS_E_NO_FORMATS: windows_core::HRESULT = 0xC00D006B_u32 as _;
-pub const NS_E_NO_FRAMES_SUBMITTED_TO_ANALYZER: windows_core::HRESULT = 0xC00D1BA7_u32 as _;
-pub const NS_E_NO_LOCALPLAY: windows_core::HRESULT = 0xC00D000D_u32 as _;
-pub const NS_E_NO_MBR_WITH_TIMECODE: windows_core::HRESULT = 0xC00D1BDA_u32 as _;
-pub const NS_E_NO_MEDIAFORMAT_IN_SOURCE: windows_core::HRESULT = 0xC00D1B6F_u32 as _;
-pub const NS_E_NO_MEDIA_IN_AUDIENCE: windows_core::HRESULT = 0xC00D1BAF_u32 as _;
-pub const NS_E_NO_MEDIA_PROTOCOL: windows_core::HRESULT = 0xC00D019B_u32 as _;
-pub const NS_E_NO_MORE_SAMPLES: windows_core::HRESULT = 0xC00D0BCF_u32 as _;
-pub const NS_E_NO_MULTICAST: windows_core::HRESULT = 0xC00D07F2_u32 as _;
-pub const NS_E_NO_MULTIPASS_FOR_LIVEDEVICE: windows_core::HRESULT = 0xC00D1B97_u32 as _;
-pub const NS_E_NO_NEW_CONNECTIONS: windows_core::HRESULT = 0xC00D151D_u32 as _;
-pub const NS_E_NO_PAL_INVERSE_TELECINE: windows_core::HRESULT = 0xC00D1BA4_u32 as _;
-pub const NS_E_NO_PDA: windows_core::HRESULT = 0xC00D1179_u32 as _;
-pub const NS_E_NO_PROFILE_IN_SOURCEGROUP: windows_core::HRESULT = 0xC00D1B67_u32 as _;
-pub const NS_E_NO_PROFILE_NAME: windows_core::HRESULT = 0xC00D1BB3_u32 as _;
-pub const NS_E_NO_REALTIME_PREPROCESS: windows_core::HRESULT = 0xC00D1B8C_u32 as _;
-pub const NS_E_NO_REALTIME_TIMECOMPRESSION: windows_core::HRESULT = 0xC00D1B86_u32 as _;
-pub const NS_E_NO_REFERENCES: windows_core::HRESULT = 0xC00D006C_u32 as _;
-pub const NS_E_NO_REPEAT_PREPROCESS: windows_core::HRESULT = 0xC00D1B8D_u32 as _;
-pub const NS_E_NO_SCRIPT_ENGINE: windows_core::HRESULT = 0xC00D157C_u32 as _;
-pub const NS_E_NO_SCRIPT_STREAM: windows_core::HRESULT = 0xC00D1B73_u32 as _;
-pub const NS_E_NO_SERVER_CONTACT: windows_core::HRESULT = 0xC00D00CE_u32 as _;
-pub const NS_E_NO_SMPTE_WITH_MULTIPLE_SOURCEGROUPS: windows_core::HRESULT = 0xC00D1BA9_u32 as _;
-pub const NS_E_NO_SPECIFIED_DEVICE: windows_core::HRESULT = 0xC00D0072_u32 as _;
-pub const NS_E_NO_STREAM: windows_core::HRESULT = 0xC00D0033_u32 as _;
-pub const NS_E_NO_TWOPASS_TIMECOMPRESSION: windows_core::HRESULT = 0xC00D1BD8_u32 as _;
-pub const NS_E_NO_VALID_OUTPUT_STREAM: windows_core::HRESULT = 0xC00D1B70_u32 as _;
-pub const NS_E_NO_VALID_SOURCE_PLUGIN: windows_core::HRESULT = 0xC00D1B71_u32 as _;
-pub const NS_E_NUM_LANGUAGE_MISMATCH: windows_core::HRESULT = 0xC00D1B9B_u32 as _;
-pub const NS_E_OFFLINE_MODE: windows_core::HRESULT = 0xC00D0BCA_u32 as _;
-pub const NS_E_OPEN_CONTAINING_FOLDER_FAILED: windows_core::HRESULT = 0xC00D1363_u32 as _;
-pub const NS_E_OPEN_FILE_LIMIT: windows_core::HRESULT = 0xC00D0031_u32 as _;
-pub const NS_E_OUTPUT_PROTECTION_LEVEL_UNSUPPORTED: windows_core::HRESULT = 0xC00D2904_u32 as _;
-pub const NS_E_OUTPUT_PROTECTION_SCHEME_UNSUPPORTED: windows_core::HRESULT = 0xC00D290A_u32 as _;
-pub const NS_E_PACKETSINK_UNKNOWN_FEC_STREAM: windows_core::HRESULT = 0xC00D2F0A_u32 as _;
-pub const NS_E_PAGING_ERROR: windows_core::HRESULT = 0xC00D0062_u32 as _;
-pub const NS_E_PARTIALLY_REBUILT_DISK: windows_core::HRESULT = 0xC00D0067_u32 as _;
-pub const NS_E_PDA_CANNOT_CREATE_ADDITIONAL_SYNC_RELATIONSHIP: windows_core::HRESULT = 0xC00D1185_u32 as _;
-pub const NS_E_PDA_CANNOT_SYNC_FROM_INTERNET: windows_core::HRESULT = 0xC00D1234_u32 as _;
-pub const NS_E_PDA_CANNOT_SYNC_FROM_LOCATION: windows_core::HRESULT = 0xC00D1193_u32 as _;
-pub const NS_E_PDA_CANNOT_SYNC_INVALID_PLAYLIST: windows_core::HRESULT = 0xC00D1235_u32 as _;
-pub const NS_E_PDA_CANNOT_TRANSCODE: windows_core::HRESULT = 0xC00D1189_u32 as _;
-pub const NS_E_PDA_CANNOT_TRANSCODE_TO_AUDIO: windows_core::HRESULT = 0xC00D123D_u32 as _;
-pub const NS_E_PDA_CANNOT_TRANSCODE_TO_IMAGE: windows_core::HRESULT = 0xC00D123F_u32 as _;
-pub const NS_E_PDA_CANNOT_TRANSCODE_TO_VIDEO: windows_core::HRESULT = 0xC00D123E_u32 as _;
-pub const NS_E_PDA_CEWMDM_DRM_ERROR: windows_core::HRESULT = 0xC00D1241_u32 as _;
-pub const NS_E_PDA_DELETE_FAILED: windows_core::HRESULT = 0xC00D1238_u32 as _;
-pub const NS_E_PDA_DEVICESUPPORTDISABLED: windows_core::HRESULT = 0xC00D1190_u32 as _;
-pub const NS_E_PDA_DEVICE_FULL: windows_core::HRESULT = 0xC00D117F_u32 as _;
-pub const NS_E_PDA_DEVICE_FULL_IN_SESSION: windows_core::HRESULT = 0xC00D1181_u32 as _;
-pub const NS_E_PDA_DEVICE_NOT_RESPONDING: windows_core::HRESULT = 0xC00D123A_u32 as _;
-pub const NS_E_PDA_ENCODER_NOT_RESPONDING: windows_core::HRESULT = 0xC00D1192_u32 as _;
-pub const NS_E_PDA_FAILED_TO_BURN: windows_core::HRESULT = 0xC00D10DA_u32 as _;
-pub const NS_E_PDA_FAILED_TO_ENCRYPT_TRANSCODED_FILE: windows_core::HRESULT = 0xC00D123C_u32 as _;
-pub const NS_E_PDA_FAILED_TO_RETRIEVE_FILE: windows_core::HRESULT = 0xC00D1239_u32 as _;
-pub const NS_E_PDA_FAILED_TO_SYNCHRONIZE_FILE: windows_core::HRESULT = 0xC00D1236_u32 as _;
-pub const NS_E_PDA_FAILED_TO_TRANSCODE_PHOTO: windows_core::HRESULT = 0xC00D123B_u32 as _;
-pub const NS_E_PDA_FAIL_READ_WAVE_FILE: windows_core::HRESULT = 0xC00D117D_u32 as _;
-pub const NS_E_PDA_FAIL_SELECT_DEVICE: windows_core::HRESULT = 0xC00D117C_u32 as _;
-pub const NS_E_PDA_INITIALIZINGDEVICES: windows_core::HRESULT = 0xC00D118D_u32 as _;
-pub const NS_E_PDA_MANUALDEVICE: windows_core::HRESULT = 0xC00D1183_u32 as _;
-pub const NS_E_PDA_NO_LONGER_AVAILABLE: windows_core::HRESULT = 0xC00D1191_u32 as _;
-pub const NS_E_PDA_NO_TRANSCODE_OF_DRM: windows_core::HRESULT = 0xC00D1186_u32 as _;
-pub const NS_E_PDA_OBSOLETE_SP: windows_core::HRESULT = 0xC00D118E_u32 as _;
-pub const NS_E_PDA_PARTNERSHIPNOTEXIST: windows_core::HRESULT = 0xC00D1184_u32 as _;
-pub const NS_E_PDA_RETRIEVED_FILE_FILENAME_TOO_LONG: windows_core::HRESULT = 0xC00D1240_u32 as _;
-pub const NS_E_PDA_SYNC_FAILED: windows_core::HRESULT = 0xC00D1237_u32 as _;
-pub const NS_E_PDA_SYNC_LOGIN_ERROR: windows_core::HRESULT = 0xC00D1244_u32 as _;
-pub const NS_E_PDA_SYNC_RUNNING: windows_core::HRESULT = 0xC00D1243_u32 as _;
-pub const NS_E_PDA_TITLE_COLLISION: windows_core::HRESULT = 0xC00D118F_u32 as _;
-pub const NS_E_PDA_TOO_MANY_FILES_IN_DIRECTORY: windows_core::HRESULT = 0xC00D118A_u32 as _;
-pub const NS_E_PDA_TOO_MANY_FILE_COLLISIONS: windows_core::HRESULT = 0xC00D1188_u32 as _;
-pub const NS_E_PDA_TRANSCODECACHEFULL: windows_core::HRESULT = 0xC00D1187_u32 as _;
-pub const NS_E_PDA_TRANSCODE_CODEC_NOT_FOUND: windows_core::HRESULT = 0xC00D1245_u32 as _;
-pub const NS_E_PDA_TRANSCODE_NOT_PERMITTED: windows_core::HRESULT = 0xC00D118C_u32 as _;
-pub const NS_E_PDA_UNSPECIFIED_ERROR: windows_core::HRESULT = 0xC00D117A_u32 as _;
-pub const NS_E_PDA_UNSUPPORTED_FORMAT: windows_core::HRESULT = 0xC00D1178_u32 as _;
-pub const NS_E_PLAYLIST_CONTAINS_ERRORS: windows_core::HRESULT = 0xC00D10BF_u32 as _;
-pub const NS_E_PLAYLIST_END_RECEDING: windows_core::HRESULT = 0xC00D14BD_u32 as _;
-pub const NS_E_PLAYLIST_ENTRY_ALREADY_PLAYING: windows_core::HRESULT = 0xC00D14B4_u32 as _;
-pub const NS_E_PLAYLIST_ENTRY_HAS_CHANGED: windows_core::HRESULT = 0xC00D2EF5_u32 as _;
-pub const NS_E_PLAYLIST_ENTRY_NOT_IN_PLAYLIST: windows_core::HRESULT = 0xC00D14B8_u32 as _;
-pub const NS_E_PLAYLIST_ENTRY_SEEK: windows_core::HRESULT = 0xC00D14B9_u32 as _;
-pub const NS_E_PLAYLIST_PARSE_FAILURE: windows_core::HRESULT = 0xC00D14B6_u32 as _;
-pub const NS_E_PLAYLIST_PLUGIN_NOT_FOUND: windows_core::HRESULT = 0xC00D157F_u32 as _;
-pub const NS_E_PLAYLIST_RECURSIVE_PLAYLISTS: windows_core::HRESULT = 0xC00D14BA_u32 as _;
-pub const NS_E_PLAYLIST_SHUTDOWN: windows_core::HRESULT = 0xC00D14BC_u32 as _;
-pub const NS_E_PLAYLIST_TOO_MANY_NESTED_PLAYLISTS: windows_core::HRESULT = 0xC00D14BB_u32 as _;
-pub const NS_E_PLAYLIST_UNSUPPORTED_ENTRY: windows_core::HRESULT = 0xC00D14B7_u32 as _;
-pub const NS_E_PLUGIN_CLSID_INVALID: windows_core::HRESULT = 0xC00D1B76_u32 as _;
-pub const NS_E_PLUGIN_ERROR_REPORTED: windows_core::HRESULT = 0xC00D157D_u32 as _;
-pub const NS_E_PLUGIN_NOTSHUTDOWN: windows_core::HRESULT = 0xC00D0FD6_u32 as _;
-pub const NS_E_PORT_IN_USE: windows_core::HRESULT = 0xC00D158A_u32 as _;
-pub const NS_E_PORT_IN_USE_HTTP: windows_core::HRESULT = 0xC00D158B_u32 as _;
-pub const NS_E_PROCESSINGSHOWSYNCWIZARD: windows_core::HRESULT = 0xC00D118B_u32 as _;
-pub const NS_E_PROFILE_MISMATCH: windows_core::HRESULT = 0xC00D1B7B_u32 as _;
-pub const NS_E_PROPERTY_NOT_FOUND: windows_core::HRESULT = 0xC00D32CA_u32 as _;
-pub const NS_E_PROPERTY_NOT_SUPPORTED: windows_core::HRESULT = 0xC00D32D2_u32 as _;
-pub const NS_E_PROPERTY_READ_ONLY: windows_core::HRESULT = 0xC00D32CC_u32 as _;
-pub const NS_E_PROTECTED_CONTENT: windows_core::HRESULT = 0xC00D0BBD_u32 as _;
-pub const NS_E_PROTOCOL_MISMATCH: windows_core::HRESULT = 0xC00D0012_u32 as _;
-pub const NS_E_PROXY_ACCESSDENIED: windows_core::HRESULT = 0xC00D2EF6_u32 as _;
-pub const NS_E_PROXY_CONNECT_TIMEOUT: windows_core::HRESULT = 0xC00D2F07_u32 as _;
-pub const NS_E_PROXY_DNS_TIMEOUT: windows_core::HRESULT = 0xC00D2EF0_u32 as _;
-pub const NS_E_PROXY_NOT_FOUND: windows_core::HRESULT = 0xC00D2EED_u32 as _;
-pub const NS_E_PROXY_SOURCE_ACCESSDENIED: windows_core::HRESULT = 0xC00D2EF7_u32 as _;
-pub const NS_E_PROXY_TIMEOUT: windows_core::HRESULT = 0xC00D2EE5_u32 as _;
-pub const NS_E_PUBLISHING_POINT_INVALID_REQUEST_WHILE_STARTED: windows_core::HRESULT = 0xC00D1457_u32 as _;
-pub const NS_E_PUBLISHING_POINT_REMOVED: windows_core::HRESULT = 0xC00D145A_u32 as _;
-pub const NS_E_PUBLISHING_POINT_STOPPED: windows_core::HRESULT = 0xC00D145E_u32 as _;
-pub const NS_E_PUSH_CANNOTCONNECT: windows_core::HRESULT = 0xC00D2F0B_u32 as _;
-pub const NS_E_PUSH_DUPLICATE_PUBLISHING_POINT_NAME: windows_core::HRESULT = 0xC00D1520_u32 as _;
-pub const NS_E_REBOOT_RECOMMENDED: windows_core::HRESULT = 0xC00D2AFA_u32 as _;
-pub const NS_E_REBOOT_REQUIRED: windows_core::HRESULT = 0xC00D2AFB_u32 as _;
-pub const NS_E_RECORDQ_DISK_FULL: windows_core::HRESULT = 0xC00D1BA3_u32 as _;
-pub const NS_E_REDBOOK_ENABLED_WHILE_COPYING: windows_core::HRESULT = 0xC00D0FB0_u32 as _;
-pub const NS_E_REDIRECT: windows_core::HRESULT = 0xC00D1388_u32 as _;
-pub const NS_E_REDIRECT_TO_PROXY: windows_core::HRESULT = 0xC00D2EE1_u32 as _;
-pub const NS_E_REFUSED_BY_SERVER: windows_core::HRESULT = 0xC00D2EE7_u32 as _;
-pub const NS_E_REG_FLUSH_FAILURE: windows_core::HRESULT = 0xC00D2798_u32 as _;
-pub const NS_E_REMIRRORED_DISK: windows_core::HRESULT = 0xC00D00C9_u32 as _;
-pub const NS_E_REQUIRE_STREAMING_CLIENT: windows_core::HRESULT = 0xC00D2EF4_u32 as _;
-pub const NS_E_RESET_SOCKET_CONNECTION: windows_core::HRESULT = 0xC00D2F00_u32 as _;
-pub const NS_E_RESOURCE_GONE: windows_core::HRESULT = 0xC00D2EFC_u32 as _;
-pub const NS_E_SAME_AS_INPUT_COMBINATION: windows_core::HRESULT = 0xC00D1BD2_u32 as _;
-pub const NS_E_SCHEMA_CLASSIFY_FAILURE: windows_core::HRESULT = 0xC00D32D4_u32 as _;
-pub const NS_E_SCRIPT_DEBUGGER_NOT_INSTALLED: windows_core::HRESULT = 0xC00D1582_u32 as _;
-pub const NS_E_SDK_BUFFERTOOSMALL: windows_core::HRESULT = 0xC00D0BD4_u32 as _;
-pub const NS_E_SERVER_ACCESSDENIED: windows_core::HRESULT = 0xC00D2EFB_u32 as _;
-pub const NS_E_SERVER_DNS_TIMEOUT: windows_core::HRESULT = 0xC00D2EEF_u32 as _;
-pub const NS_E_SERVER_NOT_FOUND: windows_core::HRESULT = 0xC00D0035_u32 as _;
-pub const NS_E_SERVER_UNAVAILABLE: windows_core::HRESULT = 0xC00D2EE6_u32 as _;
-pub const NS_E_SESSION_INVALID: windows_core::HRESULT = 0xC00D2F08_u32 as _;
-pub const NS_E_SESSION_NOT_FOUND: windows_core::HRESULT = 0xC00D2EF3_u32 as _;
-pub const NS_E_SETUP_BLOCKED: windows_core::HRESULT = 0xC00D2B00_u32 as _;
-pub const NS_E_SETUP_DRM_MIGRATION_FAILED: windows_core::HRESULT = 0xC00D2AFD_u32 as _;
-pub const NS_E_SETUP_DRM_MIGRATION_FAILED_AND_IGNORABLE_FAILURE: windows_core::HRESULT = 0xC00D2AFF_u32 as _;
-pub const NS_E_SETUP_IGNORABLE_FAILURE: windows_core::HRESULT = 0xC00D2AFE_u32 as _;
-pub const NS_E_SETUP_INCOMPLETE: windows_core::HRESULT = 0xC00D2AFC_u32 as _;
-pub const NS_E_SET_DISK_UID_FAILED: windows_core::HRESULT = 0xC00D0021_u32 as _;
-pub const NS_E_SHARING_STATE_OUT_OF_SYNC: windows_core::HRESULT = 0xC00D0FF4_u32 as _;
-pub const NS_E_SHARING_VIOLATION: windows_core::HRESULT = 0xC00D0FCF_u32 as _;
-pub const NS_E_SHUTDOWN: windows_core::HRESULT = 0xC00D002A_u32 as _;
-pub const NS_E_SLOW_READ_DIGITAL: windows_core::HRESULT = 0xC00D0FA4_u32 as _;
-pub const NS_E_SLOW_READ_DIGITAL_WITH_ERRORCORRECTION: windows_core::HRESULT = 0xC00D11FD_u32 as _;
-pub const NS_E_SMPTEMODE_MISMATCH: windows_core::HRESULT = 0xC00D1BAD_u32 as _;
-pub const NS_E_SOURCEGROUP_NOTPREPARED: windows_core::HRESULT = 0xC00D1B7A_u32 as _;
-pub const NS_E_SOURCE_CANNOT_LOOP: windows_core::HRESULT = 0xC00D1BD3_u32 as _;
-pub const NS_E_SOURCE_NOTSPECIFIED: windows_core::HRESULT = 0xC00D1B85_u32 as _;
-pub const NS_E_SOURCE_PLUGIN_NOT_FOUND: windows_core::HRESULT = 0xC00D157E_u32 as _;
-pub const NS_E_SPEECHEDL_ON_NON_MIXEDMODE: windows_core::HRESULT = 0xC00D1B92_u32 as _;
-pub const NS_E_STALE_PRESENTATION: windows_core::HRESULT = 0xC00D1389_u32 as _;
-pub const NS_E_STREAM_END: windows_core::HRESULT = 0xC00D0034_u32 as _;
-pub const NS_E_STRIDE_REFUSED: windows_core::HRESULT = 0xC00D0045_u32 as _;
-pub const NS_E_SUBSCRIPTIONSERVICE_DOWNLOAD_TIMEOUT: windows_core::HRESULT = 0xC00D1360_u32 as _;
-pub const NS_E_SUBSCRIPTIONSERVICE_LOGIN_FAILED: windows_core::HRESULT = 0xC00D135F_u32 as _;
-pub const NS_E_SUBSCRIPTIONSERVICE_PLAYBACK_DISALLOWED: windows_core::HRESULT = 0xC00D1356_u32 as _;
-pub const NS_E_SYNCWIZ_CANNOT_CHANGE_SETTINGS: windows_core::HRESULT = 0xC00D11EF_u32 as _;
-pub const NS_E_SYNCWIZ_DEVICE_FULL: windows_core::HRESULT = 0xC00D11EE_u32 as _;
-pub const NS_E_TABLE_KEY_NOT_FOUND: windows_core::HRESULT = 0xC00D32CD_u32 as _;
-pub const NS_E_TAMPERED_CONTENT: windows_core::HRESULT = 0xC00D0BBF_u32 as _;
-pub const NS_E_TCP_DISABLED: windows_core::HRESULT = 0xC00D00D2_u32 as _;
-pub const NS_E_TIGER_FAIL: windows_core::HRESULT = 0xC00D0050_u32 as _;
-pub const NS_E_TIMECODE_REQUIRES_VIDEOSTREAM: windows_core::HRESULT = 0xC00D1BD9_u32 as _;
-pub const NS_E_TIMEOUT: windows_core::HRESULT = 0xC00D0013_u32 as _;
-pub const NS_E_TITLE_BITRATE: windows_core::HRESULT = 0xC00D00D5_u32 as _;
-pub const NS_E_TITLE_SIZE_EXCEEDED: windows_core::HRESULT = 0xC00D00D0_u32 as _;
-pub const NS_E_TOO_MANY_AUDIO: windows_core::HRESULT = 0xC00D1B5C_u32 as _;
-pub const NS_E_TOO_MANY_DEVICECONTROL: windows_core::HRESULT = 0xC00D1B96_u32 as _;
-pub const NS_E_TOO_MANY_HOPS: windows_core::HRESULT = 0xC00D2F02_u32 as _;
-pub const NS_E_TOO_MANY_MULTICAST_SINKS: windows_core::HRESULT = 0xC00D1456_u32 as _;
-pub const NS_E_TOO_MANY_SESS: windows_core::HRESULT = 0xC00D000F_u32 as _;
-pub const NS_E_TOO_MANY_TITLES: windows_core::HRESULT = 0xC00D00CF_u32 as _;
-pub const NS_E_TOO_MANY_VIDEO: windows_core::HRESULT = 0xC00D1B5D_u32 as _;
-pub const NS_E_TOO_MUCH_DATA: windows_core::HRESULT = 0xC00D0BCC_u32 as _;
-pub const NS_E_TOO_MUCH_DATA_FROM_SERVER: windows_core::HRESULT = 0xC00D2F05_u32 as _;
-pub const NS_E_TRACK_DOWNLOAD_REQUIRES_ALBUM_PURCHASE: windows_core::HRESULT = 0xC00D135B_u32 as _;
-pub const NS_E_TRACK_DOWNLOAD_REQUIRES_PURCHASE: windows_core::HRESULT = 0xC00D135C_u32 as _;
-pub const NS_E_TRACK_PURCHASE_MAXIMUM_EXCEEDED: windows_core::HRESULT = 0xC00D135D_u32 as _;
-pub const NS_E_TRANSCODE_DELETECACHEERROR: windows_core::HRESULT = 0xC00D11F0_u32 as _;
-pub const NS_E_TRANSFORM_PLUGIN_INVALID: windows_core::HRESULT = 0xC00D1BE6_u32 as _;
-pub const NS_E_TRANSFORM_PLUGIN_NOT_FOUND: windows_core::HRESULT = 0xC00D1BE5_u32 as _;
-pub const NS_E_UDP_DISABLED: windows_core::HRESULT = 0xC00D00D1_u32 as _;
-pub const NS_E_UNABLE_TO_CREATE_RIP_LOCATION: windows_core::HRESULT = 0xC00D10D0_u32 as _;
-pub const NS_E_UNCOMPRESSED_DIGITAL_AUDIO_PROTECTION_LEVEL_UNSUPPORTED: windows_core::HRESULT = 0xC00D2909_u32 as _;
-pub const NS_E_UNCOMPRESSED_DIGITAL_VIDEO_PROTECTION_LEVEL_UNSUPPORTED: windows_core::HRESULT = 0xC00D2906_u32 as _;
-pub const NS_E_UNCOMP_COMP_COMBINATION: windows_core::HRESULT = 0xC00D1BB6_u32 as _;
-pub const NS_E_UNEXPECTED_DISPLAY_SETTINGS: windows_core::HRESULT = 0xC00D1B88_u32 as _;
-pub const NS_E_UNEXPECTED_MSAUDIO_ERROR: windows_core::HRESULT = 0xC00D0BBA_u32 as _;
-pub const NS_E_UNKNOWN_PROTOCOL: windows_core::HRESULT = 0xC00D2EE0_u32 as _;
-pub const NS_E_UNRECOGNIZED_STREAM_TYPE: windows_core::HRESULT = 0xC00D0026_u32 as _;
-pub const NS_E_UNSUPPORTED_ARCHIVEOPERATION: windows_core::HRESULT = 0xC00D1B78_u32 as _;
-pub const NS_E_UNSUPPORTED_ARCHIVETYPE: windows_core::HRESULT = 0xC00D1B77_u32 as _;
-pub const NS_E_UNSUPPORTED_ENCODER_DEVICE: windows_core::HRESULT = 0xC00D1B87_u32 as _;
-pub const NS_E_UNSUPPORTED_LANGUAGE: windows_core::HRESULT = 0xC00D145C_u32 as _;
-pub const NS_E_UNSUPPORTED_LOAD_TYPE: windows_core::HRESULT = 0xC00D1453_u32 as _;
-pub const NS_E_UNSUPPORTED_PROPERTY: windows_core::HRESULT = 0xC00D0BCD_u32 as _;
-pub const NS_E_UNSUPPORTED_SOURCETYPE: windows_core::HRESULT = 0xC00D1B5B_u32 as _;
-pub const NS_E_URLLIST_INVALIDFORMAT: windows_core::HRESULT = 0xC00D106D_u32 as _;
-pub const NS_E_USER_STOP: windows_core::HRESULT = 0xC00D0FA9_u32 as _;
-pub const NS_E_USE_FILE_SOURCE: windows_core::HRESULT = 0xC00D32C9_u32 as _;
-pub const NS_E_VBRMODE_MISMATCH: windows_core::HRESULT = 0xC00D1B9D_u32 as _;
-pub const NS_E_VIDCAPCREATEWINDOW: windows_core::HRESULT = 0xC00D1B6D_u32 as _;
-pub const NS_E_VIDCAPDRVINUSE: windows_core::HRESULT = 0xC00D1B6E_u32 as _;
-pub const NS_E_VIDCAPSTARTFAILED: windows_core::HRESULT = 0xC00D1B69_u32 as _;
-pub const NS_E_VIDEODEVICE_BUSY: windows_core::HRESULT = 0xC00D1B64_u32 as _;
-pub const NS_E_VIDEODEVICE_UNEXPECTED: windows_core::HRESULT = 0xC00D1B65_u32 as _;
-pub const NS_E_VIDEODRIVER_UNSTABLE: windows_core::HRESULT = 0xC00D1B68_u32 as _;
-pub const NS_E_VIDEO_BITRATE_STEPDOWN: windows_core::HRESULT = 0xC00D1BC0_u32 as _;
-pub const NS_E_VIDEO_CODEC_ERROR: windows_core::HRESULT = 0xC00D0BC5_u32 as _;
-pub const NS_E_VIDEO_CODEC_NOT_INSTALLED: windows_core::HRESULT = 0xC00D0BC4_u32 as _;
-pub const NS_E_VIDSOURCECOMPRESSION: windows_core::HRESULT = 0xC00D1B6A_u32 as _;
-pub const NS_E_VIDSOURCESIZE: windows_core::HRESULT = 0xC00D1B6B_u32 as _;
-pub const NS_E_WALKER_SERVER: windows_core::HRESULT = 0xC00D004D_u32 as _;
-pub const NS_E_WALKER_UNKNOWN: windows_core::HRESULT = 0xC00D004C_u32 as _;
-pub const NS_E_WALKER_USAGE: windows_core::HRESULT = 0xC00D004E_u32 as _;
-pub const NS_E_WAVE_OPEN: windows_core::HRESULT = 0xC00D006D_u32 as _;
-pub const NS_E_WINSOCK_ERROR_STRING: windows_core::HRESULT = 0xC00D1129_u32 as _;
-pub const NS_E_WIZARD_RUNNING: windows_core::HRESULT = 0xC00D1584_u32 as _;
-pub const NS_E_WMDM_REVOKED: windows_core::HRESULT = 0xC00D10BC_u32 as _;
-pub const NS_E_WMDRM_DEPRECATED: windows_core::HRESULT = 0xC00D0BDE_u32 as _;
-pub const NS_E_WME_VERSION_MISMATCH: windows_core::HRESULT = 0xC00D1B8B_u32 as _;
-pub const NS_E_WMG_CANNOTQUEUE: windows_core::HRESULT = 0xC00D104C_u32 as _;
-pub const NS_E_WMG_COPP_SECURITY_INVALID: windows_core::HRESULT = 0xC00D1052_u32 as _;
-pub const NS_E_WMG_COPP_UNSUPPORTED: windows_core::HRESULT = 0xC00D1053_u32 as _;
-pub const NS_E_WMG_FILETRANSFERNOTALLOWED: windows_core::HRESULT = 0xC00D1058_u32 as _;
-pub const NS_E_WMG_INVALIDSTATE: windows_core::HRESULT = 0xC00D1054_u32 as _;
-pub const NS_E_WMG_INVALID_COPP_CERTIFICATE: windows_core::HRESULT = 0xC00D1051_u32 as _;
-pub const NS_E_WMG_LICENSE_TAMPERED: windows_core::HRESULT = 0xC00D1064_u32 as _;
-pub const NS_E_WMG_NOSDKINTERFACE: windows_core::HRESULT = 0xC00D1056_u32 as _;
-pub const NS_E_WMG_NOTALLOUTPUTSRENDERED: windows_core::HRESULT = 0xC00D1057_u32 as _;
-pub const NS_E_WMG_PLUGINUNAVAILABLE: windows_core::HRESULT = 0xC00D104B_u32 as _;
-pub const NS_E_WMG_PREROLLLICENSEACQUISITIONNOTALLOWED: windows_core::HRESULT = 0xC00D104D_u32 as _;
-pub const NS_E_WMG_RATEUNAVAILABLE: windows_core::HRESULT = 0xC00D104A_u32 as _;
-pub const NS_E_WMG_SINKALREADYEXISTS: windows_core::HRESULT = 0xC00D1055_u32 as _;
-pub const NS_E_WMG_UNEXPECTEDPREROLLSTATUS: windows_core::HRESULT = 0xC00D104E_u32 as _;
-pub const NS_E_WMPBR_BACKUPCANCEL: windows_core::HRESULT = 0xC00D1131_u32 as _;
-pub const NS_E_WMPBR_BACKUPRESTOREFAILED: windows_core::HRESULT = 0xC00D1138_u32 as _;
-pub const NS_E_WMPBR_DRIVE_INVALID: windows_core::HRESULT = 0xC00D1137_u32 as _;
-pub const NS_E_WMPBR_ERRORWITHURL: windows_core::HRESULT = 0xC00D1133_u32 as _;
-pub const NS_E_WMPBR_NAMECOLLISION: windows_core::HRESULT = 0xC00D1134_u32 as _;
-pub const NS_E_WMPBR_NOLISTENER: windows_core::HRESULT = 0xC00D1130_u32 as _;
-pub const NS_E_WMPBR_RESTORECANCEL: windows_core::HRESULT = 0xC00D1132_u32 as _;
-pub const NS_E_WMPCORE_BUFFERTOOSMALL: windows_core::HRESULT = 0xC00D107F_u32 as _;
-pub const NS_E_WMPCORE_BUSY: windows_core::HRESULT = 0xC00D10B7_u32 as _;
-pub const NS_E_WMPCORE_COCREATEFAILEDFORGITOBJECT: windows_core::HRESULT = 0xC00D107D_u32 as _;
-pub const NS_E_WMPCORE_CODEC_DOWNLOAD_NOT_ALLOWED: windows_core::HRESULT = 0xC00D109C_u32 as _;
-pub const NS_E_WMPCORE_CODEC_NOT_FOUND: windows_core::HRESULT = 0xC00D109B_u32 as _;
-pub const NS_E_WMPCORE_CODEC_NOT_TRUSTED: windows_core::HRESULT = 0xC00D109A_u32 as _;
-pub const NS_E_WMPCORE_CURRENT_MEDIA_NOT_ACTIVE: windows_core::HRESULT = 0xC00D10A9_u32 as _;
-pub const NS_E_WMPCORE_DEVICE_DRIVERS_MISSING: windows_core::HRESULT = 0xC00D10DD_u32 as _;
-pub const NS_E_WMPCORE_ERRORMANAGERNOTAVAILABLE: windows_core::HRESULT = 0xC00D108D_u32 as _;
-pub const NS_E_WMPCORE_ERRORSINKNOTREGISTERED: windows_core::HRESULT = 0xC00D108C_u32 as _;
-pub const NS_E_WMPCORE_ERROR_DOWNLOADING_PLAYLIST: windows_core::HRESULT = 0xC00D109D_u32 as _;
-pub const NS_E_WMPCORE_FAILEDTOGETMARSHALLEDEVENTHANDLERINTERFACE: windows_core::HRESULT = 0xC00D107E_u32 as _;
-pub const NS_E_WMPCORE_FAILED_TO_BUILD_PLAYLIST: windows_core::HRESULT = 0xC00D109E_u32 as _;
-pub const NS_E_WMPCORE_FILE_NOT_FOUND: windows_core::HRESULT = 0xC00D10BA_u32 as _;
-pub const NS_E_WMPCORE_GRAPH_NOT_IN_LIST: windows_core::HRESULT = 0xC00D108A_u32 as _;
-pub const NS_E_WMPCORE_INVALIDPLAYLISTMODE: windows_core::HRESULT = 0xC00D1081_u32 as _;
-pub const NS_E_WMPCORE_INVALID_PLAYLIST_URL: windows_core::HRESULT = 0xC00D10AF_u32 as _;
-pub const NS_E_WMPCORE_ITEMNOTINPLAYLIST: windows_core::HRESULT = 0xC00D1086_u32 as _;
-pub const NS_E_WMPCORE_LIST_ENTRY_NO_REF: windows_core::HRESULT = 0xC00D1098_u32 as _;
-pub const NS_E_WMPCORE_MEDIA_ALTERNATE_REF_EMPTY: windows_core::HRESULT = 0xC00D10A4_u32 as _;
-pub const NS_E_WMPCORE_MEDIA_CHILD_PLAYLIST_UNAVAILABLE: windows_core::HRESULT = 0xC00D10B8_u32 as _;
-pub const NS_E_WMPCORE_MEDIA_ERROR_RESUME_FAILED: windows_core::HRESULT = 0xC00D108F_u32 as _;
-pub const NS_E_WMPCORE_MEDIA_NO_CHILD_PLAYLIST: windows_core::HRESULT = 0xC00D10B9_u32 as _;
-pub const NS_E_WMPCORE_MEDIA_UNAVAILABLE: windows_core::HRESULT = 0xC00D10B3_u32 as _;
-pub const NS_E_WMPCORE_MEDIA_URL_TOO_LONG: windows_core::HRESULT = 0xC00D10C8_u32 as _;
-pub const NS_E_WMPCORE_MISMATCHED_RUNTIME: windows_core::HRESULT = 0xC00D10B0_u32 as _;
-pub const NS_E_WMPCORE_MISNAMED_FILE: windows_core::HRESULT = 0xC00D1099_u32 as _;
-pub const NS_E_WMPCORE_NOBROWSER: windows_core::HRESULT = 0xC00D1088_u32 as _;
-pub const NS_E_WMPCORE_NOSOURCEURLSTRING: windows_core::HRESULT = 0xC00D107C_u32 as _;
-pub const NS_E_WMPCORE_NO_PLAYABLE_MEDIA_IN_PLAYLIST: windows_core::HRESULT = 0xC00D10B5_u32 as _;
-pub const NS_E_WMPCORE_NO_REF_IN_ENTRY: windows_core::HRESULT = 0xC00D1090_u32 as _;
-pub const NS_E_WMPCORE_PLAYLISTEMPTY: windows_core::HRESULT = 0xC00D1087_u32 as _;
-pub const NS_E_WMPCORE_PLAYLIST_EMPTY_NESTED_PLAYLIST_SKIPPED_ITEMS: windows_core::HRESULT = 0xC00D10B6_u32 as _;
-pub const NS_E_WMPCORE_PLAYLIST_EMPTY_OR_SINGLE_MEDIA: windows_core::HRESULT = 0xC00D108B_u32 as _;
-pub const NS_E_WMPCORE_PLAYLIST_EVENT_ATTRIBUTE_ABSENT: windows_core::HRESULT = 0xC00D10A6_u32 as _;
-pub const NS_E_WMPCORE_PLAYLIST_EVENT_EMPTY: windows_core::HRESULT = 0xC00D10A7_u32 as _;
-pub const NS_E_WMPCORE_PLAYLIST_IMPORT_FAILED_NO_ITEMS: windows_core::HRESULT = 0xC00D10B1_u32 as _;
-pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_EXHAUSTED: windows_core::HRESULT = 0xC00D10A0_u32 as _;
-pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_INIT_FAILED: windows_core::HRESULT = 0xC00D10A3_u32 as _;
-pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_MORPH_FAILED: windows_core::HRESULT = 0xC00D10A2_u32 as _;
-pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_NAME_NOT_FOUND: windows_core::HRESULT = 0xC00D10A1_u32 as _;
-pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_NONE: windows_core::HRESULT = 0xC00D109F_u32 as _;
-pub const NS_E_WMPCORE_PLAYLIST_NO_EVENT_NAME: windows_core::HRESULT = 0xC00D10A5_u32 as _;
-pub const NS_E_WMPCORE_PLAYLIST_REPEAT_EMPTY: windows_core::HRESULT = 0xC00D10AC_u32 as _;
-pub const NS_E_WMPCORE_PLAYLIST_REPEAT_END_MEDIA_NONE: windows_core::HRESULT = 0xC00D10AE_u32 as _;
-pub const NS_E_WMPCORE_PLAYLIST_REPEAT_START_MEDIA_NONE: windows_core::HRESULT = 0xC00D10AD_u32 as _;
-pub const NS_E_WMPCORE_PLAYLIST_STACK_EMPTY: windows_core::HRESULT = 0xC00D10A8_u32 as _;
-pub const NS_E_WMPCORE_SOME_CODECS_MISSING: windows_core::HRESULT = 0xC00D10D1_u32 as _;
-pub const NS_E_WMPCORE_TEMP_FILE_NOT_FOUND: windows_core::HRESULT = 0xC00D10BB_u32 as _;
-pub const NS_E_WMPCORE_UNAVAILABLE: windows_core::HRESULT = 0xC00D1080_u32 as _;
-pub const NS_E_WMPCORE_UNRECOGNIZED_MEDIA_URL: windows_core::HRESULT = 0xC00D1089_u32 as _;
-pub const NS_E_WMPCORE_USER_CANCEL: windows_core::HRESULT = 0xC00D10AB_u32 as _;
-pub const NS_E_WMPCORE_VIDEO_TRANSFORM_FILTER_INSERTION: windows_core::HRESULT = 0xC00D10B2_u32 as _;
-pub const NS_E_WMPCORE_WEBHELPFAILED: windows_core::HRESULT = 0xC00D108E_u32 as _;
-pub const NS_E_WMPCORE_WMX_ENTRYREF_NO_REF: windows_core::HRESULT = 0xC00D10B4_u32 as _;
-pub const NS_E_WMPCORE_WMX_LIST_ATTRIBUTE_NAME_EMPTY: windows_core::HRESULT = 0xC00D1091_u32 as _;
-pub const NS_E_WMPCORE_WMX_LIST_ATTRIBUTE_NAME_ILLEGAL: windows_core::HRESULT = 0xC00D1092_u32 as _;
-pub const NS_E_WMPCORE_WMX_LIST_ATTRIBUTE_VALUE_EMPTY: windows_core::HRESULT = 0xC00D1093_u32 as _;
-pub const NS_E_WMPCORE_WMX_LIST_ATTRIBUTE_VALUE_ILLEGAL: windows_core::HRESULT = 0xC00D1094_u32 as _;
-pub const NS_E_WMPCORE_WMX_LIST_ITEM_ATTRIBUTE_NAME_EMPTY: windows_core::HRESULT = 0xC00D1095_u32 as _;
-pub const NS_E_WMPCORE_WMX_LIST_ITEM_ATTRIBUTE_NAME_ILLEGAL: windows_core::HRESULT = 0xC00D1096_u32 as _;
-pub const NS_E_WMPCORE_WMX_LIST_ITEM_ATTRIBUTE_VALUE_EMPTY: windows_core::HRESULT = 0xC00D1097_u32 as _;
-pub const NS_E_WMPFLASH_CANT_FIND_COM_SERVER: windows_core::HRESULT = 0xC00D10C9_u32 as _;
-pub const NS_E_WMPFLASH_INCOMPATIBLEVERSION: windows_core::HRESULT = 0xC00D10CA_u32 as _;
-pub const NS_E_WMPIM_DIALUPFAILED: windows_core::HRESULT = 0xC00D1128_u32 as _;
-pub const NS_E_WMPIM_USERCANCELED: windows_core::HRESULT = 0xC00D1127_u32 as _;
-pub const NS_E_WMPIM_USEROFFLINE: windows_core::HRESULT = 0xC00D1126_u32 as _;
-pub const NS_E_WMPOCXGRAPH_IE_DISALLOWS_ACTIVEX_CONTROLS: windows_core::HRESULT = 0xC00D10CB_u32 as _;
-pub const NS_E_WMPOCX_ERRORMANAGERNOTAVAILABLE: windows_core::HRESULT = 0xC00D0FD5_u32 as _;
-pub const NS_E_WMPOCX_NOT_RUNNING_REMOTELY: windows_core::HRESULT = 0xC00D0FD3_u32 as _;
-pub const NS_E_WMPOCX_NO_ACTIVE_CORE: windows_core::HRESULT = 0xC00D0FD2_u32 as _;
-pub const NS_E_WMPOCX_NO_REMOTE_CORE: windows_core::HRESULT = 0xC00D0FD1_u32 as _;
-pub const NS_E_WMPOCX_NO_REMOTE_WINDOW: windows_core::HRESULT = 0xC00D0FD4_u32 as _;
-pub const NS_E_WMPOCX_PLAYER_NOT_DOCKED: windows_core::HRESULT = 0xC00D0FDB_u32 as _;
-pub const NS_E_WMPOCX_REMOTE_PLAYER_ALREADY_RUNNING: windows_core::HRESULT = 0xC00D0FFA_u32 as _;
-pub const NS_E_WMPOCX_UNABLE_TO_LOAD_SKIN: windows_core::HRESULT = 0xC00D0FEB_u32 as _;
-pub const NS_E_WMPXML_ATTRIBUTENOTFOUND: windows_core::HRESULT = 0xC00D0FB7_u32 as _;
-pub const NS_E_WMPXML_EMPTYDOC: windows_core::HRESULT = 0xC00D0FB9_u32 as _;
-pub const NS_E_WMPXML_ENDOFDATA: windows_core::HRESULT = 0xC00D0FB5_u32 as _;
-pub const NS_E_WMPXML_NOERROR: windows_core::HRESULT = 0xC00D0FB4_u32 as _;
-pub const NS_E_WMPXML_PARSEERROR: windows_core::HRESULT = 0xC00D0FB6_u32 as _;
-pub const NS_E_WMPXML_PINOTFOUND: windows_core::HRESULT = 0xC00D0FB8_u32 as _;
-pub const NS_E_WMPZIP_CORRUPT: windows_core::HRESULT = 0xC00D1019_u32 as _;
-pub const NS_E_WMPZIP_FILENOTFOUND: windows_core::HRESULT = 0xC00D101A_u32 as _;
-pub const NS_E_WMPZIP_NOTAZIPFILE: windows_core::HRESULT = 0xC00D1018_u32 as _;
-pub const NS_E_WMP_ACCESS_DENIED: windows_core::HRESULT = 0xC00D11D2_u32 as _;
-pub const NS_E_WMP_ADDTOLIBRARY_FAILED: windows_core::HRESULT = 0xC00D0FC7_u32 as _;
-pub const NS_E_WMP_ALREADY_IN_USE: windows_core::HRESULT = 0xC00D119E_u32 as _;
-pub const NS_E_WMP_AUDIO_CODEC_NOT_INSTALLED: windows_core::HRESULT = 0xC00D11C7_u32 as _;
-pub const NS_E_WMP_AUDIO_DEVICE_LOST: windows_core::HRESULT = 0xC00D11E5_u32 as _;
-pub const NS_E_WMP_AUDIO_HW_PROBLEM: windows_core::HRESULT = 0xC00D11BA_u32 as _;
-pub const NS_E_WMP_AUTOPLAY_INVALID_STATE: windows_core::HRESULT = 0xC00D12FC_u32 as _;
-pub const NS_E_WMP_BAD_DRIVER: windows_core::HRESULT = 0xC00D11D1_u32 as _;
-pub const NS_E_WMP_BMP_BITMAP_NOT_CREATED: windows_core::HRESULT = 0xC00D1030_u32 as _;
-pub const NS_E_WMP_BMP_COMPRESSION_UNSUPPORTED: windows_core::HRESULT = 0xC00D1031_u32 as _;
-pub const NS_E_WMP_BMP_INVALID_BITMASK: windows_core::HRESULT = 0xC00D102E_u32 as _;
-pub const NS_E_WMP_BMP_INVALID_FORMAT: windows_core::HRESULT = 0xC00D1032_u32 as _;
-pub const NS_E_WMP_BMP_TOPDOWN_DIB_UNSUPPORTED: windows_core::HRESULT = 0xC00D102F_u32 as _;
-pub const NS_E_WMP_BSTR_TOO_LONG: windows_core::HRESULT = 0xC00D12F2_u32 as _;
-pub const NS_E_WMP_BURN_DISC_OVERFLOW: windows_core::HRESULT = 0xC00D11D9_u32 as _;
-pub const NS_E_WMP_CANNOT_BURN_NON_LOCAL_FILE: windows_core::HRESULT = 0xC00D10D6_u32 as _;
-pub const NS_E_WMP_CANNOT_FIND_FILE: windows_core::HRESULT = 0xC00D1197_u32 as _;
-pub const NS_E_WMP_CANNOT_FIND_FOLDER: windows_core::HRESULT = 0xC00D0FD7_u32 as _;
-pub const NS_E_WMP_CANT_PLAY_PROTECTED: windows_core::HRESULT = 0xC00D0FF3_u32 as _;
-pub const NS_E_WMP_CD_ANOTHER_USER: windows_core::HRESULT = 0xC00D11CF_u32 as _;
-pub const NS_E_WMP_CD_STASH_NO_SPACE: windows_core::HRESULT = 0xC00D11D5_u32 as _;
-pub const NS_E_WMP_CODEC_NEEDED_WITH_4CC: windows_core::HRESULT = 0xC00D11A1_u32 as _;
-pub const NS_E_WMP_CODEC_NEEDED_WITH_FORMATTAG: windows_core::HRESULT = 0xC00D11A2_u32 as _;
-pub const NS_E_WMP_COMPONENT_REVOKED: windows_core::HRESULT = 0xC00D1306_u32 as _;
-pub const NS_E_WMP_CONNECT_TIMEOUT: windows_core::HRESULT = 0xC00D11C1_u32 as _;
-pub const NS_E_WMP_CONVERT_FILE_CORRUPT: windows_core::HRESULT = 0xC00D115B_u32 as _;
-pub const NS_E_WMP_CONVERT_FILE_FAILED: windows_core::HRESULT = 0xC00D1158_u32 as _;
-pub const NS_E_WMP_CONVERT_NO_RIGHTS_ERRORURL: windows_core::HRESULT = 0xC00D1159_u32 as _;
-pub const NS_E_WMP_CONVERT_NO_RIGHTS_NOERRORURL: windows_core::HRESULT = 0xC00D115A_u32 as _;
-pub const NS_E_WMP_CONVERT_PLUGIN_UNAVAILABLE_ERRORURL: windows_core::HRESULT = 0xC00D115C_u32 as _;
-pub const NS_E_WMP_CONVERT_PLUGIN_UNAVAILABLE_NOERRORURL: windows_core::HRESULT = 0xC00D115D_u32 as _;
-pub const NS_E_WMP_CONVERT_PLUGIN_UNKNOWN_FILE_OWNER: windows_core::HRESULT = 0xC00D115E_u32 as _;
-pub const NS_E_WMP_CS_JPGPOSITIONIMAGE: windows_core::HRESULT = 0xC00D100E_u32 as _;
-pub const NS_E_WMP_CS_NOTEVENLYDIVISIBLE: windows_core::HRESULT = 0xC00D100F_u32 as _;
-pub const NS_E_WMP_DAI_SONGTOOSHORT: windows_core::HRESULT = 0xC00D1049_u32 as _;
-pub const NS_E_WMP_DRM_ACQUIRING_LICENSE: windows_core::HRESULT = 0xC00D1202_u32 as _;
-pub const NS_E_WMP_DRM_CANNOT_RESTORE: windows_core::HRESULT = 0xC00D11D8_u32 as _;
-pub const NS_E_WMP_DRM_COMPONENT_FAILURE: windows_core::HRESULT = 0xC00D11E2_u32 as _;
-pub const NS_E_WMP_DRM_CORRUPT_BACKUP: windows_core::HRESULT = 0xC00D11B4_u32 as _;
-pub const NS_E_WMP_DRM_DRIVER_AUTH_FAILURE: windows_core::HRESULT = 0xC00D11CA_u32 as _;
-pub const NS_E_WMP_DRM_GENERIC_LICENSE_FAILURE: windows_core::HRESULT = 0xC00D11DA_u32 as _;
-pub const NS_E_WMP_DRM_INDIV_FAILED: windows_core::HRESULT = 0xC00D11DD_u32 as _;
-pub const NS_E_WMP_DRM_INVALID_SIG: windows_core::HRESULT = 0xC00D11D7_u32 as _;
-pub const NS_E_WMP_DRM_LICENSE_CONTENT_REVOKED: windows_core::HRESULT = 0xC00D1207_u32 as _;
-pub const NS_E_WMP_DRM_LICENSE_EXPIRED: windows_core::HRESULT = 0xC00D1203_u32 as _;
-pub const NS_E_WMP_DRM_LICENSE_NOSAP: windows_core::HRESULT = 0xC00D1208_u32 as _;
-pub const NS_E_WMP_DRM_LICENSE_NOTACQUIRED: windows_core::HRESULT = 0xC00D1204_u32 as _;
-pub const NS_E_WMP_DRM_LICENSE_NOTENABLED: windows_core::HRESULT = 0xC00D1205_u32 as _;
-pub const NS_E_WMP_DRM_LICENSE_SERVER_UNAVAILABLE: windows_core::HRESULT = 0xC00D11B5_u32 as _;
-pub const NS_E_WMP_DRM_LICENSE_UNUSABLE: windows_core::HRESULT = 0xC00D1206_u32 as _;
-pub const NS_E_WMP_DRM_NEEDS_AUTHORIZATION: windows_core::HRESULT = 0xC00D11D0_u32 as _;
-pub const NS_E_WMP_DRM_NEW_HARDWARE: windows_core::HRESULT = 0xC00D11D6_u32 as _;
-pub const NS_E_WMP_DRM_NOT_ACQUIRING: windows_core::HRESULT = 0xC00D12C1_u32 as _;
-pub const NS_E_WMP_DRM_NO_DEVICE_CERT: windows_core::HRESULT = 0xC00D11E3_u32 as _;
-pub const NS_E_WMP_DRM_NO_RIGHTS: windows_core::HRESULT = 0xC00D11DC_u32 as _;
-pub const NS_E_WMP_DRM_NO_SECURE_CLOCK: windows_core::HRESULT = 0xC00D11DB_u32 as _;
-pub const NS_E_WMP_DRM_UNABLE_TO_ACQUIRE_LICENSE: windows_core::HRESULT = 0xC00D1209_u32 as _;
-pub const NS_E_WMP_DSHOW_UNSUPPORTED_FORMAT: windows_core::HRESULT = 0xC00D119A_u32 as _;
-pub const NS_E_WMP_ERASE_FAILED: windows_core::HRESULT = 0xC00D10D4_u32 as _;
-pub const NS_E_WMP_EXTERNAL_NOTREADY: windows_core::HRESULT = 0xC00D0FDC_u32 as _;
-pub const NS_E_WMP_FAILED_TO_OPEN_IMAGE: windows_core::HRESULT = 0xC00D1044_u32 as _;
-pub const NS_E_WMP_FAILED_TO_OPEN_WMD: windows_core::HRESULT = 0xC00D0FF2_u32 as _;
-pub const NS_E_WMP_FAILED_TO_RIP_TRACK: windows_core::HRESULT = 0xC00D10D3_u32 as _;
-pub const NS_E_WMP_FAILED_TO_SAVE_FILE: windows_core::HRESULT = 0xC00D0FEF_u32 as _;
-pub const NS_E_WMP_FAILED_TO_SAVE_PLAYLIST: windows_core::HRESULT = 0xC00D0FF1_u32 as _;
-pub const NS_E_WMP_FILESCANALREADYSTARTED: windows_core::HRESULT = 0xC00D0FBE_u32 as _;
-pub const NS_E_WMP_FILE_DOES_NOT_FIT_ON_CD: windows_core::HRESULT = 0xC00D10D8_u32 as _;
-pub const NS_E_WMP_FILE_NO_DURATION: windows_core::HRESULT = 0xC00D10D9_u32 as _;
-pub const NS_E_WMP_FILE_OPEN_FAILED: windows_core::HRESULT = 0xC00D11B1_u32 as _;
-pub const NS_E_WMP_FILE_TYPE_CANNOT_BURN_TO_AUDIO_CD: windows_core::HRESULT = 0xC00D10D7_u32 as _;
-pub const NS_E_WMP_FORMAT_FAILED: windows_core::HRESULT = 0xC00D10D5_u32 as _;
-pub const NS_E_WMP_GIF_BAD_VERSION_NUMBER: windows_core::HRESULT = 0xC00D1026_u32 as _;
-pub const NS_E_WMP_GIF_INVALID_FORMAT: windows_core::HRESULT = 0xC00D1025_u32 as _;
-pub const NS_E_WMP_GIF_NO_IMAGE_IN_FILE: windows_core::HRESULT = 0xC00D1027_u32 as _;
-pub const NS_E_WMP_GIF_UNEXPECTED_ENDOFFILE: windows_core::HRESULT = 0xC00D1024_u32 as _;
-pub const NS_E_WMP_GOFULLSCREEN_FAILED: windows_core::HRESULT = 0xC00D11BF_u32 as _;
-pub const NS_E_WMP_HME_INVALIDOBJECTID: windows_core::HRESULT = 0xC00D0FBF_u32 as _;
-pub const NS_E_WMP_HME_NOTSEARCHABLEFORITEMS: windows_core::HRESULT = 0xC00D0FC1_u32 as _;
-pub const NS_E_WMP_HME_STALEREQUEST: windows_core::HRESULT = 0xC00D0FC2_u32 as _;
-pub const NS_E_WMP_HWND_NOTFOUND: windows_core::HRESULT = 0xC00D125C_u32 as _;
-pub const NS_E_WMP_IMAGE_FILETYPE_UNSUPPORTED: windows_core::HRESULT = 0xC00D1022_u32 as _;
-pub const NS_E_WMP_IMAGE_INVALID_FORMAT: windows_core::HRESULT = 0xC00D1023_u32 as _;
-pub const NS_E_WMP_IMAPI2_ERASE_DEVICE_BUSY: windows_core::HRESULT = 0xC00D11E1_u32 as _;
-pub const NS_E_WMP_IMAPI2_ERASE_FAIL: windows_core::HRESULT = 0xC00D11E0_u32 as _;
-pub const NS_E_WMP_IMAPI_DEVICE_BUSY: windows_core::HRESULT = 0xC00D11AE_u32 as _;
-pub const NS_E_WMP_IMAPI_DEVICE_INVALIDTYPE: windows_core::HRESULT = 0xC00D11C9_u32 as _;
-pub const NS_E_WMP_IMAPI_DEVICE_NOTPRESENT: windows_core::HRESULT = 0xC00D11AD_u32 as _;
-pub const NS_E_WMP_IMAPI_FAILURE: windows_core::HRESULT = 0xC00D119F_u32 as _;
-pub const NS_E_WMP_IMAPI_GENERIC: windows_core::HRESULT = 0xC00D11AB_u32 as _;
-pub const NS_E_WMP_IMAPI_LOSS_OF_STREAMING: windows_core::HRESULT = 0xC00D11AF_u32 as _;
-pub const NS_E_WMP_IMAPI_MEDIA_INCOMPATIBLE: windows_core::HRESULT = 0xC00D11E6_u32 as _;
-pub const NS_E_WMP_INVALID_ASX: windows_core::HRESULT = 0xC00D119D_u32 as _;
-pub const NS_E_WMP_INVALID_KEY: windows_core::HRESULT = 0xC00D11CE_u32 as _;
-pub const NS_E_WMP_INVALID_LIBRARY_ADD: windows_core::HRESULT = 0xC00D11BC_u32 as _;
-pub const NS_E_WMP_INVALID_MAX_VAL: windows_core::HRESULT = 0xC00D1009_u32 as _;
-pub const NS_E_WMP_INVALID_MIN_VAL: windows_core::HRESULT = 0xC00D100A_u32 as _;
-pub const NS_E_WMP_INVALID_PROTOCOL: windows_core::HRESULT = 0xC00D11BB_u32 as _;
-pub const NS_E_WMP_INVALID_REQUEST: windows_core::HRESULT = 0xC00D11D4_u32 as _;
-pub const NS_E_WMP_INVALID_SKIN: windows_core::HRESULT = 0xC00D0FEC_u32 as _;
-pub const NS_E_WMP_JPGTRANSPARENCY: windows_core::HRESULT = 0xC00D1005_u32 as _;
-pub const NS_E_WMP_JPG_BAD_DCTSIZE: windows_core::HRESULT = 0xC00D1035_u32 as _;
-pub const NS_E_WMP_JPG_BAD_PRECISION: windows_core::HRESULT = 0xC00D1037_u32 as _;
-pub const NS_E_WMP_JPG_BAD_VERSION_NUMBER: windows_core::HRESULT = 0xC00D1036_u32 as _;
-pub const NS_E_WMP_JPG_CCIR601_NOTIMPL: windows_core::HRESULT = 0xC00D1038_u32 as _;
-pub const NS_E_WMP_JPG_FRACT_SAMPLE_NOTIMPL: windows_core::HRESULT = 0xC00D103B_u32 as _;
-pub const NS_E_WMP_JPG_IMAGE_TOO_BIG: windows_core::HRESULT = 0xC00D103C_u32 as _;
-pub const NS_E_WMP_JPG_INVALID_FORMAT: windows_core::HRESULT = 0xC00D1034_u32 as _;
-pub const NS_E_WMP_JPG_JERR_ARITHCODING_NOTIMPL: windows_core::HRESULT = 0xC00D1033_u32 as _;
-pub const NS_E_WMP_JPG_NO_IMAGE_IN_FILE: windows_core::HRESULT = 0xC00D1039_u32 as _;
-pub const NS_E_WMP_JPG_READ_ERROR: windows_core::HRESULT = 0xC00D103A_u32 as _;
-pub const NS_E_WMP_JPG_SOF_UNSUPPORTED: windows_core::HRESULT = 0xC00D103E_u32 as _;
-pub const NS_E_WMP_JPG_UNEXPECTED_ENDOFFILE: windows_core::HRESULT = 0xC00D103D_u32 as _;
-pub const NS_E_WMP_JPG_UNKNOWN_MARKER: windows_core::HRESULT = 0xC00D103F_u32 as _;
-pub const NS_E_WMP_LICENSE_REQUIRED: windows_core::HRESULT = 0xC00D120A_u32 as _;
-pub const NS_E_WMP_LICENSE_RESTRICTS: windows_core::HRESULT = 0xC00D11D3_u32 as _;
-pub const NS_E_WMP_LOCKEDINSKINMODE: windows_core::HRESULT = 0xC00D0FEE_u32 as _;
-pub const NS_E_WMP_LOGON_FAILURE: windows_core::HRESULT = 0xC00D1196_u32 as _;
-pub const NS_E_WMP_MF_CODE_EXPIRED: windows_core::HRESULT = 0xC00D0FC0_u32 as _;
-pub const NS_E_WMP_MLS_STALE_DATA: windows_core::HRESULT = 0xC00D0FDD_u32 as _;
-pub const NS_E_WMP_MMS_NOT_SUPPORTED: windows_core::HRESULT = 0xC00D11BD_u32 as _;
-pub const NS_E_WMP_MSSAP_NOT_AVAILABLE: windows_core::HRESULT = 0xC00D11A3_u32 as _;
-pub const NS_E_WMP_MULTICAST_DISABLED: windows_core::HRESULT = 0xC00D11C2_u32 as _;
-pub const NS_E_WMP_MULTIPLE_ERROR_IN_PLAYLIST: windows_core::HRESULT = 0xC00D11DF_u32 as _;
-pub const NS_E_WMP_NEED_UPGRADE: windows_core::HRESULT = 0xC00D11B9_u32 as _;
-pub const NS_E_WMP_NETWORK_ERROR: windows_core::HRESULT = 0xC00D11C0_u32 as _;
-pub const NS_E_WMP_NETWORK_FIREWALL: windows_core::HRESULT = 0xC00D11B6_u32 as _;
-pub const NS_E_WMP_NETWORK_RESOURCE_FAILURE: windows_core::HRESULT = 0xC00D11CB_u32 as _;
-pub const NS_E_WMP_NONMEDIA_FILES: windows_core::HRESULT = 0xC00D119C_u32 as _;
-pub const NS_E_WMP_NO_DISK_SPACE: windows_core::HRESULT = 0xC00D1195_u32 as _;
-pub const NS_E_WMP_NO_PROTOCOLS_SELECTED: windows_core::HRESULT = 0xC00D11BE_u32 as _;
-pub const NS_E_WMP_NO_REMOVABLE_MEDIA: windows_core::HRESULT = 0xC00D11B7_u32 as _;
-pub const NS_E_WMP_OUTOFMEMORY: windows_core::HRESULT = 0xC00D11C6_u32 as _;
-pub const NS_E_WMP_PATH_ALREADY_IN_LIBRARY: windows_core::HRESULT = 0xC00D0FBA_u32 as _;
-pub const NS_E_WMP_PLAYLIST_EXISTS: windows_core::HRESULT = 0xC00D119B_u32 as _;
-pub const NS_E_WMP_PLUGINDLL_NOTFOUND: windows_core::HRESULT = 0xC00D0FD9_u32 as _;
-pub const NS_E_WMP_PNG_INVALIDFORMAT: windows_core::HRESULT = 0xC00D1028_u32 as _;
-pub const NS_E_WMP_PNG_UNSUPPORTED_BAD_CRC: windows_core::HRESULT = 0xC00D102D_u32 as _;
-pub const NS_E_WMP_PNG_UNSUPPORTED_BITDEPTH: windows_core::HRESULT = 0xC00D1029_u32 as _;
-pub const NS_E_WMP_PNG_UNSUPPORTED_COMPRESSION: windows_core::HRESULT = 0xC00D102A_u32 as _;
-pub const NS_E_WMP_PNG_UNSUPPORTED_FILTER: windows_core::HRESULT = 0xC00D102B_u32 as _;
-pub const NS_E_WMP_PNG_UNSUPPORTED_INTERLACE: windows_core::HRESULT = 0xC00D102C_u32 as _;
-pub const NS_E_WMP_POLICY_VALUE_NOT_CONFIGURED: windows_core::HRESULT = 0xC00D122A_u32 as _;
-pub const NS_E_WMP_PROTECTED_CONTENT: windows_core::HRESULT = 0xC00D120B_u32 as _;
-pub const NS_E_WMP_PROTOCOL_PROBLEM: windows_core::HRESULT = 0xC00D1194_u32 as _;
-pub const NS_E_WMP_PROXY_CONNECT_TIMEOUT: windows_core::HRESULT = 0xC00D11B8_u32 as _;
-pub const NS_E_WMP_PROXY_NOT_FOUND: windows_core::HRESULT = 0xC00D11C4_u32 as _;
-pub const NS_E_WMP_RBC_JPGMAPPINGIMAGE: windows_core::HRESULT = 0xC00D1004_u32 as _;
-pub const NS_E_WMP_RECORDING_NOT_ALLOWED: windows_core::HRESULT = 0xC00D0FC9_u32 as _;
-pub const NS_E_WMP_RIP_FAILED: windows_core::HRESULT = 0xC00D10D2_u32 as _;
-pub const NS_E_WMP_SAVEAS_READONLY: windows_core::HRESULT = 0xC00D0FF0_u32 as _;
-pub const NS_E_WMP_SENDMAILFAILED: windows_core::HRESULT = 0xC00D0FED_u32 as _;
-pub const NS_E_WMP_SERVER_DNS_TIMEOUT: windows_core::HRESULT = 0xC00D11C3_u32 as _;
-pub const NS_E_WMP_SERVER_INACCESSIBLE: windows_core::HRESULT = 0xC00D1198_u32 as _;
-pub const NS_E_WMP_SERVER_NONEWCONNECTIONS: windows_core::HRESULT = 0xC00D11DE_u32 as _;
-pub const NS_E_WMP_SERVER_NOT_RESPONDING: windows_core::HRESULT = 0xC00D11B3_u32 as _;
-pub const NS_E_WMP_SERVER_SECURITY_ERROR: windows_core::HRESULT = 0xC00D11E4_u32 as _;
-pub const NS_E_WMP_SERVER_UNAVAILABLE: windows_core::HRESULT = 0xC00D11B0_u32 as _;
-pub const NS_E_WMP_STREAMING_RECORDING_NOT_ALLOWED: windows_core::HRESULT = 0xC00D0FD8_u32 as _;
-pub const NS_E_WMP_TAMPERED_CONTENT: windows_core::HRESULT = 0xC00D11C5_u32 as _;
-pub const NS_E_WMP_UDRM_NOUSERLIST: windows_core::HRESULT = 0xC00D12C0_u32 as _;
-pub const NS_E_WMP_UI_NOSKININZIP: windows_core::HRESULT = 0xC00D0FE7_u32 as _;
-pub const NS_E_WMP_UI_NOTATHEMEFILE: windows_core::HRESULT = 0xC00D0FE0_u32 as _;
-pub const NS_E_WMP_UI_OBJECTNOTFOUND: windows_core::HRESULT = 0xC00D0FE5_u32 as _;
-pub const NS_E_WMP_UI_PASSTHROUGH: windows_core::HRESULT = 0xC00D0FE4_u32 as _;
-pub const NS_E_WMP_UI_SECONDHANDLER: windows_core::HRESULT = 0xC00D0FE6_u32 as _;
-pub const NS_E_WMP_UI_SUBCONTROLSNOTSUPPORTED: windows_core::HRESULT = 0xC00D0FDE_u32 as _;
-pub const NS_E_WMP_UI_SUBELEMENTNOTFOUND: windows_core::HRESULT = 0xC00D0FE1_u32 as _;
-pub const NS_E_WMP_UI_VERSIONMISMATCH: windows_core::HRESULT = 0xC00D0FDF_u32 as _;
-pub const NS_E_WMP_UI_VERSIONPARSE: windows_core::HRESULT = 0xC00D0FE2_u32 as _;
-pub const NS_E_WMP_UI_VIEWIDNOTFOUND: windows_core::HRESULT = 0xC00D0FE3_u32 as _;
-pub const NS_E_WMP_UNKNOWN_ERROR: windows_core::HRESULT = 0xC00D11CD_u32 as _;
-pub const NS_E_WMP_UNSUPPORTED_FORMAT: windows_core::HRESULT = 0xC00D1199_u32 as _;
-pub const NS_E_WMP_UPGRADE_APPLICATION: windows_core::HRESULT = 0xC00D11CC_u32 as _;
-pub const NS_E_WMP_URLDOWNLOADFAILED: windows_core::HRESULT = 0xC00D0FEA_u32 as _;
-pub const NS_E_WMP_VERIFY_ONLINE: windows_core::HRESULT = 0xC00D11B2_u32 as _;
-pub const NS_E_WMP_VIDEO_CODEC_NOT_INSTALLED: windows_core::HRESULT = 0xC00D11C8_u32 as _;
-pub const NS_E_WMP_WINDOWSAPIFAILURE: windows_core::HRESULT = 0xC00D0FC8_u32 as _;
-pub const NS_E_WMP_WMDM_BUSY: windows_core::HRESULT = 0xC00D11A8_u32 as _;
-pub const NS_E_WMP_WMDM_FAILURE: windows_core::HRESULT = 0xC00D11A0_u32 as _;
-pub const NS_E_WMP_WMDM_INCORRECT_RIGHTS: windows_core::HRESULT = 0xC00D11AA_u32 as _;
-pub const NS_E_WMP_WMDM_INTERFACEDEAD: windows_core::HRESULT = 0xC00D11A4_u32 as _;
-pub const NS_E_WMP_WMDM_LICENSE_EXPIRED: windows_core::HRESULT = 0xC00D11A7_u32 as _;
-pub const NS_E_WMP_WMDM_LICENSE_NOTEXIST: windows_core::HRESULT = 0xC00D11A6_u32 as _;
-pub const NS_E_WMP_WMDM_NORIGHTS: windows_core::HRESULT = 0xC00D11A9_u32 as _;
-pub const NS_E_WMP_WMDM_NOTCERTIFIED: windows_core::HRESULT = 0xC00D11A5_u32 as _;
-pub const NS_E_WMR_CANNOT_RENDER_BINARY_STREAM: windows_core::HRESULT = 0xC00D1063_u32 as _;
-pub const NS_E_WMR_NOCALLBACKAVAILABLE: windows_core::HRESULT = 0xC00D105E_u32 as _;
-pub const NS_E_WMR_NOSOURCEFILTER: windows_core::HRESULT = 0xC00D105C_u32 as _;
-pub const NS_E_WMR_PINNOTFOUND: windows_core::HRESULT = 0xC00D105A_u32 as _;
-pub const NS_E_WMR_PINTYPENOMATCH: windows_core::HRESULT = 0xC00D105D_u32 as _;
-pub const NS_E_WMR_SAMPLEPROPERTYNOTSET: windows_core::HRESULT = 0xC00D1062_u32 as _;
-pub const NS_E_WMR_UNSUPPORTEDSTREAM: windows_core::HRESULT = 0xC00D1059_u32 as _;
-pub const NS_E_WMR_WAITINGONFORMATSWITCH: windows_core::HRESULT = 0xC00D105B_u32 as _;
-pub const NS_E_WMR_WILLNOT_RENDER_BINARY_STREAM: windows_core::HRESULT = 0xC00D1065_u32 as _;
-pub const NS_E_WMX_ATTRIBUTE_ALREADY_EXISTS: windows_core::HRESULT = 0xC00D106F_u32 as _;
-pub const NS_E_WMX_ATTRIBUTE_DOES_NOT_EXIST: windows_core::HRESULT = 0xC00D106E_u32 as _;
-pub const NS_E_WMX_ATTRIBUTE_UNRETRIEVABLE: windows_core::HRESULT = 0xC00D1070_u32 as _;
-pub const NS_E_WMX_INVALID_FORMAT_OVER_NESTING: windows_core::HRESULT = 0xC00D1076_u32 as _;
-pub const NS_E_WMX_ITEM_DOES_NOT_EXIST: windows_core::HRESULT = 0xC00D1071_u32 as _;
-pub const NS_E_WMX_ITEM_TYPE_ILLEGAL: windows_core::HRESULT = 0xC00D1072_u32 as _;
-pub const NS_E_WMX_ITEM_UNSETTABLE: windows_core::HRESULT = 0xC00D1073_u32 as _;
-pub const NS_E_WMX_PLAYLIST_EMPTY: windows_core::HRESULT = 0xC00D1074_u32 as _;
-pub const NS_E_WMX_UNRECOGNIZED_PLAYLIST_FORMAT: windows_core::HRESULT = 0xC00D1068_u32 as _;
-pub const NS_E_WONT_DO_DIGITAL: windows_core::HRESULT = 0xC00D0FB3_u32 as _;
-pub const NS_E_WRONG_OS_VERSION: windows_core::HRESULT = 0xC00D145D_u32 as _;
-pub const NS_E_WRONG_PUBLISHING_POINT_TYPE: windows_core::HRESULT = 0xC00D1452_u32 as _;
-pub const NS_E_WSX_INVALID_VERSION: windows_core::HRESULT = 0xC00D151E_u32 as _;
-pub const NS_I_CATATONIC_AUTO_UNFAIL: windows_core::HRESULT = 0x800D019A_u32 as _;
-pub const NS_I_CATATONIC_FAILURE: windows_core::HRESULT = 0x800D0199_u32 as _;
-pub const NS_I_CUB_RUNNING: windows_core::HRESULT = 0x400D0052_u32 as _;
-pub const NS_I_CUB_START: windows_core::HRESULT = 0x400D0051_u32 as _;
-pub const NS_I_CUB_UNFAIL_LINK: windows_core::HRESULT = 0x400D0191_u32 as _;
-pub const NS_I_DISK_REBUILD_ABORTED: windows_core::HRESULT = 0x400D0058_u32 as _;
-pub const NS_I_DISK_REBUILD_FINISHED: windows_core::HRESULT = 0x400D0057_u32 as _;
-pub const NS_I_DISK_REBUILD_STARTED: windows_core::HRESULT = 0x400D0056_u32 as _;
-pub const NS_I_DISK_START: windows_core::HRESULT = 0x400D0054_u32 as _;
-pub const NS_I_DISK_STOP: windows_core::HRESULT = 0x400D0198_u32 as _;
-pub const NS_I_EXISTING_PACKETIZER: windows_core::HRESULT = 0x400D2F03_u32 as _;
-pub const NS_I_KILL_CONNECTION: windows_core::HRESULT = 0x400D005E_u32 as _;
-pub const NS_I_KILL_USERSESSION: windows_core::HRESULT = 0x400D005D_u32 as _;
-pub const NS_I_LIMIT_BANDWIDTH: windows_core::HRESULT = 0x400D0070_u32 as _;
-pub const NS_I_LIMIT_FUNNELS: windows_core::HRESULT = 0x400D0059_u32 as _;
-pub const NS_I_LOGGING_FAILED: windows_core::HRESULT = 0x400D006E_u32 as _;
-pub const NS_I_MANUAL_PROXY: windows_core::HRESULT = 0x400D2F04_u32 as _;
-pub const NS_I_NOLOG_STOP: windows_core::HRESULT = 0x400D2F01_u32 as _;
-pub const NS_I_PLAYLIST_CHANGE_RECEDING: windows_core::HRESULT = 0x400D14BE_u32 as _;
-pub const NS_I_REBUILD_DISK: windows_core::HRESULT = 0x400D005F_u32 as _;
-pub const NS_I_RECONNECTED: windows_core::HRESULT = 0x400D2EFF_u32 as _;
-pub const NS_I_RESTRIPE_CUB_OUT: windows_core::HRESULT = 0x400D0197_u32 as _;
-pub const NS_I_RESTRIPE_DISK_OUT: windows_core::HRESULT = 0x400D0196_u32 as _;
-pub const NS_I_RESTRIPE_DONE: windows_core::HRESULT = 0x400D0194_u32 as _;
-pub const NS_I_RESTRIPE_START: windows_core::HRESULT = 0x400D0193_u32 as _;
-pub const NS_I_START_DISK: windows_core::HRESULT = 0x400D005A_u32 as _;
-pub const NS_I_STOP_CUB: windows_core::HRESULT = 0x400D005C_u32 as _;
-pub const NS_I_STOP_DISK: windows_core::HRESULT = 0x400D005B_u32 as _;
-pub const NS_I_TIGER_START: windows_core::HRESULT = 0x400D004F_u32 as _;
-pub const NS_S_CALLABORTED: windows_core::HRESULT = 0xD0001_u32 as _;
-pub const NS_S_CALLPENDING: windows_core::HRESULT = 0xD0000_u32 as _;
-pub const NS_S_CHANGENOTICE: windows_core::HRESULT = 0xD2F0D_u32 as _;
-pub const NS_S_DEGRADING_QUALITY: windows_core::HRESULT = 0xD0BC9_u32 as _;
-pub const NS_S_DRM_ACQUIRE_CANCELLED: windows_core::HRESULT = 0xD2747_u32 as _;
-pub const NS_S_DRM_BURNABLE_TRACK: windows_core::HRESULT = 0xD276E_u32 as _;
-pub const NS_S_DRM_BURNABLE_TRACK_WITH_PLAYLIST_RESTRICTION: windows_core::HRESULT = 0xD276F_u32 as _;
-pub const NS_S_DRM_INDIVIDUALIZED: windows_core::HRESULT = 0xD2727_u32 as _;
-pub const NS_S_DRM_LICENSE_ACQUIRED: windows_core::HRESULT = 0xD2726_u32 as _;
-pub const NS_S_DRM_MONITOR_CANCELLED: windows_core::HRESULT = 0xD2746_u32 as _;
-pub const NS_S_DRM_NEEDS_INDIVIDUALIZATION: windows_core::HRESULT = 0xD27DE_u32 as _;
-pub const NS_S_EOSRECEDING: windows_core::HRESULT = 0xD2F09_u32 as _;
-pub const NS_S_NAVIGATION_COMPLETE_WITH_ERRORS: windows_core::HRESULT = 0xD135E_u32 as _;
-pub const NS_S_NEED_TO_BUY_BURN_RIGHTS: windows_core::HRESULT = 0xD10DB_u32 as _;
-pub const NS_S_OPERATION_PENDING: windows_core::HRESULT = 0xD114E_u32 as _;
-pub const NS_S_PUBLISHING_POINT_STARTED_WITH_FAILED_SINKS: windows_core::HRESULT = 0xD1519_u32 as _;
-pub const NS_S_REBOOT_RECOMMENDED: windows_core::HRESULT = 0xD2AF8_u32 as _;
-pub const NS_S_REBOOT_REQUIRED: windows_core::HRESULT = 0xD2AF9_u32 as _;
-pub const NS_S_REBUFFERING: windows_core::HRESULT = 0xD0BC8_u32 as _;
-pub const NS_S_STREAM_TRUNCATED: windows_core::HRESULT = 0xD0002_u32 as _;
-pub const NS_S_TRACK_ALREADY_DOWNLOADED: windows_core::HRESULT = 0xD1361_u32 as _;
-pub const NS_S_TRACK_BUY_REQUIRES_ALBUM_PURCHASE: windows_core::HRESULT = 0xD1359_u32 as _;
-pub const NS_S_TRANSCRYPTOR_EOF: windows_core::HRESULT = 0xD0BDB_u32 as _;
-pub const NS_S_WMG_ADVISE_DROP_FRAME: windows_core::HRESULT = 0xD1066_u32 as _;
-pub const NS_S_WMG_ADVISE_DROP_TO_KEYFRAME: windows_core::HRESULT = 0xD1067_u32 as _;
-pub const NS_S_WMG_FORCE_DROP_FRAME: windows_core::HRESULT = 0xD104F_u32 as _;
-pub const NS_S_WMPBR_PARTIALSUCCESS: windows_core::HRESULT = 0xD1136_u32 as _;
-pub const NS_S_WMPBR_SUCCESS: windows_core::HRESULT = 0xD1135_u32 as _;
-pub const NS_S_WMPCORE_COMMAND_NOT_AVAILABLE: windows_core::HRESULT = 0xD1105_u32 as _;
-pub const NS_S_WMPCORE_MEDIA_CHILD_PLAYLIST_OPEN_PENDING: windows_core::HRESULT = 0xD1109_u32 as _;
-pub const NS_S_WMPCORE_MEDIA_VALIDATION_PENDING: windows_core::HRESULT = 0xD1103_u32 as _;
-pub const NS_S_WMPCORE_MORE_NODES_AVAIABLE: windows_core::HRESULT = 0xD110A_u32 as _;
-pub const NS_S_WMPCORE_PLAYLISTCLEARABORT: windows_core::HRESULT = 0xD10FE_u32 as _;
-pub const NS_S_WMPCORE_PLAYLISTREMOVEITEMABORT: windows_core::HRESULT = 0xD10FF_u32 as _;
-pub const NS_S_WMPCORE_PLAYLIST_COLLAPSED_TO_SINGLE_MEDIA: windows_core::HRESULT = 0xD1108_u32 as _;
-pub const NS_S_WMPCORE_PLAYLIST_CREATION_PENDING: windows_core::HRESULT = 0xD1102_u32 as _;
-pub const NS_S_WMPCORE_PLAYLIST_IMPORT_MISSING_ITEMS: windows_core::HRESULT = 0xD1107_u32 as _;
-pub const NS_S_WMPCORE_PLAYLIST_NAME_AUTO_GENERATED: windows_core::HRESULT = 0xD1106_u32 as _;
-pub const NS_S_WMPCORE_PLAYLIST_REPEAT_SECONDARY_SEGMENTS_IGNORED: windows_core::HRESULT = 0xD1104_u32 as _;
-pub const NS_S_WMPEFFECT_OPAQUE: windows_core::HRESULT = 0xD1145_u32 as _;
-pub const NS_S_WMPEFFECT_TRANSPARENT: windows_core::HRESULT = 0xD1144_u32 as _;
-pub const NS_S_WMP_EXCEPTION: windows_core::HRESULT = 0xD0FE9_u32 as _;
-pub const NS_S_WMP_LOADED_BMP_IMAGE: windows_core::HRESULT = 0xD1042_u32 as _;
-pub const NS_S_WMP_LOADED_GIF_IMAGE: windows_core::HRESULT = 0xD1040_u32 as _;
-pub const NS_S_WMP_LOADED_JPG_IMAGE: windows_core::HRESULT = 0xD1043_u32 as _;
-pub const NS_S_WMP_LOADED_PNG_IMAGE: windows_core::HRESULT = 0xD1041_u32 as _;
-pub const NS_S_WMP_UI_VERSIONMISMATCH: windows_core::HRESULT = 0xD0FE8_u32 as _;
-pub const NS_S_WMR_ALREADYRENDERED: windows_core::HRESULT = 0xD105F_u32 as _;
-pub const NS_S_WMR_PINTYPEFULLMATCH: windows_core::HRESULT = 0xD1061_u32 as _;
-pub const NS_S_WMR_PINTYPEPARTIALMATCH: windows_core::HRESULT = 0xD1060_u32 as _;
-pub const NS_W_FILE_BANDWIDTH_LIMIT: windows_core::HRESULT = 0x800D0004_u32 as _;
-pub const NS_W_SERVER_BANDWIDTH_LIMIT: windows_core::HRESULT = 0x800D0003_u32 as _;
-pub const NS_W_UNKNOWN_EVENT: windows_core::HRESULT = 0x800D0060_u32 as _;
+pub const NS_DRM_E_MIGRATION_IMAGE_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D278E_u32 as _);
+pub const NS_DRM_E_MIGRATION_SOURCE_MACHINE_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0xC00D278C_u32 as _);
+pub const NS_DRM_E_MIGRATION_TARGET_MACHINE_LESS_THAN_LH: windows_core::HRESULT = windows_core::HRESULT(0xC00D278D_u32 as _);
+pub const NS_DRM_E_MIGRATION_UPGRADE_WITH_DIFF_SID: windows_core::HRESULT = windows_core::HRESULT(0xC00D278B_u32 as _);
+pub const NS_E_8BIT_WAVE_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BCE_u32 as _);
+pub const NS_E_ACTIVE_SG_DEVICE_CONTROL_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BA6_u32 as _);
+pub const NS_E_ACTIVE_SG_DEVICE_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BA5_u32 as _);
+pub const NS_E_ADVANCEDEDIT_TOO_MANY_PICTURES: windows_core::HRESULT = windows_core::HRESULT(0xC00D136A_u32 as _);
+pub const NS_E_ALLOCATE_FILE_FAIL: windows_core::HRESULT = windows_core::HRESULT(0xC00D0061_u32 as _);
+pub const NS_E_ALL_PROTOCOLS_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EEB_u32 as _);
+pub const NS_E_ALREADY_CONNECTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0010_u32 as _);
+pub const NS_E_ANALOG_VIDEO_PROTECTION_LEVEL_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2907_u32 as _);
+pub const NS_E_ARCHIVE_ABORT_DUE_TO_BCAST: windows_core::HRESULT = windows_core::HRESULT(0xC00D158E_u32 as _);
+pub const NS_E_ARCHIVE_FILENAME_NOTSET: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B79_u32 as _);
+pub const NS_E_ARCHIVE_GAP_DETECTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D158F_u32 as _);
+pub const NS_E_ARCHIVE_REACH_QUOTA: windows_core::HRESULT = windows_core::HRESULT(0xC00D158D_u32 as _);
+pub const NS_E_ARCHIVE_SAME_AS_INPUT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B84_u32 as _);
+pub const NS_E_ASSERT: windows_core::HRESULT = windows_core::HRESULT(0xC00D00CB_u32 as _);
+pub const NS_E_ASX_INVALIDFORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1069_u32 as _);
+pub const NS_E_ASX_INVALIDVERSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D106A_u32 as _);
+pub const NS_E_ASX_INVALID_REPEAT_BLOCK: windows_core::HRESULT = windows_core::HRESULT(0xC00D106B_u32 as _);
+pub const NS_E_ASX_NOTHING_TO_WRITE: windows_core::HRESULT = windows_core::HRESULT(0xC00D106C_u32 as _);
+pub const NS_E_ATTRIBUTE_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BD7_u32 as _);
+pub const NS_E_ATTRIBUTE_READ_ONLY: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BD6_u32 as _);
+pub const NS_E_AUDIENCE_CONTENTTYPE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B99_u32 as _);
+pub const NS_E_AUDIENCE__LANGUAGE_CONTENTTYPE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BE3_u32 as _);
+pub const NS_E_AUDIODEVICE_BADFORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B63_u32 as _);
+pub const NS_E_AUDIODEVICE_BUSY: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B61_u32 as _);
+pub const NS_E_AUDIODEVICE_UNEXPECTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B62_u32 as _);
+pub const NS_E_AUDIO_BITRATE_STEPDOWN: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BB9_u32 as _);
+pub const NS_E_AUDIO_CODEC_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BC3_u32 as _);
+pub const NS_E_AUDIO_CODEC_NOT_INSTALLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BC2_u32 as _);
+pub const NS_E_AUTHORIZATION_FILE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D1590_u32 as _);
+pub const NS_E_BACKUP_RESTORE_BAD_DATA: windows_core::HRESULT = windows_core::HRESULT(0xC00D2745_u32 as _);
+pub const NS_E_BACKUP_RESTORE_BAD_REQUEST_ID: windows_core::HRESULT = windows_core::HRESULT(0xC00D272E_u32 as _);
+pub const NS_E_BACKUP_RESTORE_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D272D_u32 as _);
+pub const NS_E_BACKUP_RESTORE_TOO_MANY_RESETS: windows_core::HRESULT = windows_core::HRESULT(0xC00D2766_u32 as _);
+pub const NS_E_BAD_ADAPTER_ADDRESS: windows_core::HRESULT = windows_core::HRESULT(0xC00D0039_u32 as _);
+pub const NS_E_BAD_ADAPTER_NAME: windows_core::HRESULT = windows_core::HRESULT(0xC00D00CC_u32 as _);
+pub const NS_E_BAD_BLOCK0_VERSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D0063_u32 as _);
+pub const NS_E_BAD_CONTENTEDL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BAA_u32 as _);
+pub const NS_E_BAD_CONTROL_DATA: windows_core::HRESULT = windows_core::HRESULT(0xC00D0032_u32 as _);
+pub const NS_E_BAD_CUB_UID: windows_core::HRESULT = windows_core::HRESULT(0xC00D0192_u32 as _);
+pub const NS_E_BAD_DELIVERY_MODE: windows_core::HRESULT = windows_core::HRESULT(0xC00D003A_u32 as _);
+pub const NS_E_BAD_DISK_UID: windows_core::HRESULT = windows_core::HRESULT(0xC00D0064_u32 as _);
+pub const NS_E_BAD_FSMAJOR_VERSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D0065_u32 as _);
+pub const NS_E_BAD_MARKIN: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B58_u32 as _);
+pub const NS_E_BAD_MARKOUT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B59_u32 as _);
+pub const NS_E_BAD_MULTICAST_ADDRESS: windows_core::HRESULT = windows_core::HRESULT(0xC00D0038_u32 as _);
+pub const NS_E_BAD_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EE3_u32 as _);
+pub const NS_E_BAD_STAMPNUMBER: windows_core::HRESULT = windows_core::HRESULT(0xC00D0066_u32 as _);
+pub const NS_E_BAD_SYNTAX_IN_SERVER_RESPONSE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EFE_u32 as _);
+pub const NS_E_BKGDOWNLOAD_CALLFUNCENDED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1267_u32 as _);
+pub const NS_E_BKGDOWNLOAD_CALLFUNCFAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1265_u32 as _);
+pub const NS_E_BKGDOWNLOAD_CALLFUNCTIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1266_u32 as _);
+pub const NS_E_BKGDOWNLOAD_CANCELCOMPLETEDJOB: windows_core::HRESULT = windows_core::HRESULT(0xC00D125F_u32 as _);
+pub const NS_E_BKGDOWNLOAD_COMPLETECANCELLEDJOB: windows_core::HRESULT = windows_core::HRESULT(0xC00D125E_u32 as _);
+pub const NS_E_BKGDOWNLOAD_FAILEDINITIALIZE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1269_u32 as _);
+pub const NS_E_BKGDOWNLOAD_FAILED_TO_CREATE_TEMPFILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1262_u32 as _);
+pub const NS_E_BKGDOWNLOAD_INVALIDJOBSIGNATURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1261_u32 as _);
+pub const NS_E_BKGDOWNLOAD_INVALID_FILE_NAME: windows_core::HRESULT = windows_core::HRESULT(0xC00D126B_u32 as _);
+pub const NS_E_BKGDOWNLOAD_NOJOBPOINTER: windows_core::HRESULT = windows_core::HRESULT(0xC00D1260_u32 as _);
+pub const NS_E_BKGDOWNLOAD_PLUGIN_FAILEDINITIALIZE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1263_u32 as _);
+pub const NS_E_BKGDOWNLOAD_PLUGIN_FAILEDTOMOVEFILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1264_u32 as _);
+pub const NS_E_BKGDOWNLOAD_WMDUNPACKFAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1268_u32 as _);
+pub const NS_E_BKGDOWNLOAD_WRONG_NO_FILES: windows_core::HRESULT = windows_core::HRESULT(0xC00D125D_u32 as _);
+pub const NS_E_BUSY: windows_core::HRESULT = windows_core::HRESULT(0xC00D0025_u32 as _);
+pub const NS_E_CACHE_ARCHIVE_CONFLICT: windows_core::HRESULT = windows_core::HRESULT(0xC00D13EC_u32 as _);
+pub const NS_E_CACHE_CANNOT_BE_CACHED: windows_core::HRESULT = windows_core::HRESULT(0xC00D13F0_u32 as _);
+pub const NS_E_CACHE_NOT_BROADCAST: windows_core::HRESULT = windows_core::HRESULT(0xC00D13EF_u32 as _);
+pub const NS_E_CACHE_NOT_MODIFIED: windows_core::HRESULT = windows_core::HRESULT(0xC00D13F1_u32 as _);
+pub const NS_E_CACHE_ORIGIN_SERVER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D13ED_u32 as _);
+pub const NS_E_CACHE_ORIGIN_SERVER_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0xC00D13EE_u32 as _);
+pub const NS_E_CANNOTCONNECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D0006_u32 as _);
+pub const NS_E_CANNOTCONNECTEVENTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D006F_u32 as _);
+pub const NS_E_CANNOTDESTROYTITLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0007_u32 as _);
+pub const NS_E_CANNOTOFFLINEDISK: windows_core::HRESULT = windows_core::HRESULT(0xC00D0009_u32 as _);
+pub const NS_E_CANNOTONLINEDISK: windows_core::HRESULT = windows_core::HRESULT(0xC00D000A_u32 as _);
+pub const NS_E_CANNOTRENAMETITLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0008_u32 as _);
+pub const NS_E_CANNOT_BUY_OR_DOWNLOAD_CONTENT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1358_u32 as _);
+pub const NS_E_CANNOT_BUY_OR_DOWNLOAD_FROM_MULTIPLE_SERVICES: windows_core::HRESULT = windows_core::HRESULT(0xC00D1357_u32 as _);
+pub const NS_E_CANNOT_CONNECT_TO_PROXY: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EEE_u32 as _);
+pub const NS_E_CANNOT_DELETE_ACTIVE_SOURCEGROUP: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B60_u32 as _);
+pub const NS_E_CANNOT_GENERATE_BROADCAST_INFO_FOR_QUALITYVBR: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BDF_u32 as _);
+pub const NS_E_CANNOT_PAUSE_LIVEBROADCAST: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B8E_u32 as _);
+pub const NS_E_CANNOT_READ_PLAYLIST_FROM_MEDIASERVER: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EF2_u32 as _);
+pub const NS_E_CANNOT_REMOVE_PLUGIN: windows_core::HRESULT = windows_core::HRESULT(0xC00D1451_u32 as _);
+pub const NS_E_CANNOT_REMOVE_PUBLISHING_POINT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1450_u32 as _);
+pub const NS_E_CANNOT_SYNC_DRM_TO_NON_JANUS_DEVICE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1246_u32 as _);
+pub const NS_E_CANNOT_SYNC_PREVIOUS_SYNC_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0xC00D1247_u32 as _);
+pub const NS_E_CANT_READ_DIGITAL: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FA1_u32 as _);
+pub const NS_E_CCLINK_DOWN: windows_core::HRESULT = windows_core::HRESULT(0xC00D0023_u32 as _);
+pub const NS_E_CD_COPYTO_CD: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FAE_u32 as _);
+pub const NS_E_CD_DRIVER_PROBLEM: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FB2_u32 as _);
+pub const NS_E_CD_EMPTY_TRACK_QUEUE: windows_core::HRESULT = windows_core::HRESULT(0xC00D11F9_u32 as _);
+pub const NS_E_CD_ISRC_INVALID: windows_core::HRESULT = windows_core::HRESULT(0xC00D11FB_u32 as _);
+pub const NS_E_CD_MEDIA_CATALOG_NUMBER_INVALID: windows_core::HRESULT = windows_core::HRESULT(0xC00D11FC_u32 as _);
+pub const NS_E_CD_NO_BUFFERS_READ: windows_core::HRESULT = windows_core::HRESULT(0xC00D11F8_u32 as _);
+pub const NS_E_CD_NO_READER: windows_core::HRESULT = windows_core::HRESULT(0xC00D11FA_u32 as _);
+pub const NS_E_CD_QUEUEING_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D11FF_u32 as _);
+pub const NS_E_CD_READ_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FAC_u32 as _);
+pub const NS_E_CD_READ_ERROR_NO_CORRECTION: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FAB_u32 as _);
+pub const NS_E_CD_REFRESH: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FB1_u32 as _);
+pub const NS_E_CD_SLOW_COPY: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FAD_u32 as _);
+pub const NS_E_CD_SPEEDDETECT_NOT_ENOUGH_READS: windows_core::HRESULT = windows_core::HRESULT(0xC00D11FE_u32 as _);
+pub const NS_E_CHANGING_PROXYBYPASS: windows_core::HRESULT = windows_core::HRESULT(0xC00D10C3_u32 as _);
+pub const NS_E_CHANGING_PROXY_EXCEPTIONLIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D10C2_u32 as _);
+pub const NS_E_CHANGING_PROXY_NAME: windows_core::HRESULT = windows_core::HRESULT(0xC00D10C0_u32 as _);
+pub const NS_E_CHANGING_PROXY_PORT: windows_core::HRESULT = windows_core::HRESULT(0xC00D10C1_u32 as _);
+pub const NS_E_CHANGING_PROXY_PROTOCOL_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D10C4_u32 as _);
+pub const NS_E_CLOSED_ON_SUSPEND: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EF1_u32 as _);
+pub const NS_E_CODEC_DMO_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BDA_u32 as _);
+pub const NS_E_CODEC_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B83_u32 as _);
+pub const NS_E_COMPRESSED_DIGITAL_AUDIO_PROTECTION_LEVEL_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2908_u32 as _);
+pub const NS_E_COMPRESSED_DIGITAL_VIDEO_PROTECTION_LEVEL_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2905_u32 as _);
+pub const NS_E_CONNECTION_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0029_u32 as _);
+pub const NS_E_CONNECT_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2F06_u32 as _);
+pub const NS_E_CONTENT_PARTNER_STILL_INITIALIZING: windows_core::HRESULT = windows_core::HRESULT(0xC00D1362_u32 as _);
+pub const NS_E_CORECD_NOTAMEDIACD: windows_core::HRESULT = windows_core::HRESULT(0xC00D10C7_u32 as _);
+pub const NS_E_CRITICAL_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D151C_u32 as _);
+pub const NS_E_CUB_FAIL: windows_core::HRESULT = windows_core::HRESULT(0xC00D0053_u32 as _);
+pub const NS_E_CUB_FAIL_LINK: windows_core::HRESULT = windows_core::HRESULT(0xC00D0190_u32 as _);
+pub const NS_E_CURLHELPER_NOTADIRECTORY: windows_core::HRESULT = windows_core::HRESULT(0xC00D132D_u32 as _);
+pub const NS_E_CURLHELPER_NOTAFILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D132E_u32 as _);
+pub const NS_E_CURLHELPER_NOTRELATIVE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1330_u32 as _);
+pub const NS_E_CURL_CANTDECODE: windows_core::HRESULT = windows_core::HRESULT(0xC00D132F_u32 as _);
+pub const NS_E_CURL_CANTWALK: windows_core::HRESULT = windows_core::HRESULT(0xC00D132B_u32 as _);
+pub const NS_E_CURL_INVALIDBUFFERSIZE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1331_u32 as _);
+pub const NS_E_CURL_INVALIDCHAR: windows_core::HRESULT = windows_core::HRESULT(0xC00D1325_u32 as _);
+pub const NS_E_CURL_INVALIDHOSTNAME: windows_core::HRESULT = windows_core::HRESULT(0xC00D1326_u32 as _);
+pub const NS_E_CURL_INVALIDPATH: windows_core::HRESULT = windows_core::HRESULT(0xC00D1327_u32 as _);
+pub const NS_E_CURL_INVALIDPORT: windows_core::HRESULT = windows_core::HRESULT(0xC00D132C_u32 as _);
+pub const NS_E_CURL_INVALIDSCHEME: windows_core::HRESULT = windows_core::HRESULT(0xC00D1328_u32 as _);
+pub const NS_E_CURL_INVALIDURL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1329_u32 as _);
+pub const NS_E_CURL_NOTSAFE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1324_u32 as _);
+pub const NS_E_DAMAGED_FILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FCB_u32 as _);
+pub const NS_E_DATAPATH_NO_SINK: windows_core::HRESULT = windows_core::HRESULT(0xC00D1518_u32 as _);
+pub const NS_E_DATA_SOURCE_ENUMERATION_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1580_u32 as _);
+pub const NS_E_DATA_UNIT_EXTENSION_TOO_LARGE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BD9_u32 as _);
+pub const NS_E_DDRAW_GENERIC: windows_core::HRESULT = windows_core::HRESULT(0xC00D10BD_u32 as _);
+pub const NS_E_DEVCONTROL_FAILED_SEEK: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B94_u32 as _);
+pub const NS_E_DEVICECONTROL_UNSTABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BE1_u32 as _);
+pub const NS_E_DEVICE_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FA2_u32 as _);
+pub const NS_E_DEVICE_IS_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0xC00D1177_u32 as _);
+pub const NS_E_DEVICE_NOT_READY: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FCA_u32 as _);
+pub const NS_E_DEVICE_NOT_SUPPORT_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FA3_u32 as _);
+pub const NS_E_DEVICE_NOT_WMDRM_DEVICE: windows_core::HRESULT = windows_core::HRESULT(0xC00D277B_u32 as _);
+pub const NS_E_DISK_FAIL: windows_core::HRESULT = windows_core::HRESULT(0xC00D0055_u32 as _);
+pub const NS_E_DISK_READ: windows_core::HRESULT = windows_core::HRESULT(0xC00D0017_u32 as _);
+pub const NS_E_DISK_WRITE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0016_u32 as _);
+pub const NS_E_DISPLAY_MODE_CHANGE_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D10BE_u32 as _);
+pub const NS_E_DRMPROFILE_NOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BD5_u32 as _);
+pub const NS_E_DRM_ACQUIRING_LICENSE: windows_core::HRESULT = windows_core::HRESULT(0xC00D272B_u32 as _);
+pub const NS_E_DRM_ACTION_NOT_QUERIED: windows_core::HRESULT = windows_core::HRESULT(0xC00D272A_u32 as _);
+pub const NS_E_DRM_ALREADY_INDIVIDUALIZED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2729_u32 as _);
+pub const NS_E_DRM_APPCERT_REVOKED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2752_u32 as _);
+pub const NS_E_DRM_ATTRIBUTE_TOO_LONG: windows_core::HRESULT = windows_core::HRESULT(0xC00D28B2_u32 as _);
+pub const NS_E_DRM_BACKUPRESTORE_BUSY: windows_core::HRESULT = windows_core::HRESULT(0xC00D2744_u32 as _);
+pub const NS_E_DRM_BACKUP_CORRUPT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2743_u32 as _);
+pub const NS_E_DRM_BACKUP_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D2742_u32 as _);
+pub const NS_E_DRM_BAD_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0xC00D28B0_u32 as _);
+pub const NS_E_DRM_BB_UNABLE_TO_INITIALIZE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2780_u32 as _);
+pub const NS_E_DRM_BUFFER_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0xC00D275C_u32 as _);
+pub const NS_E_DRM_BUSY: windows_core::HRESULT = windows_core::HRESULT(0xC00D2841_u32 as _);
+pub const NS_E_DRM_CACHED_CONTENT_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D274B_u32 as _);
+pub const NS_E_DRM_CERTIFICATE_REVOKED: windows_core::HRESULT = windows_core::HRESULT(0xC00D28A1_u32 as _);
+pub const NS_E_DRM_CERTIFICATE_SECURITY_LEVEL_INADEQUATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D28AE_u32 as _);
+pub const NS_E_DRM_CHAIN_TOO_LONG: windows_core::HRESULT = windows_core::HRESULT(0xC00D284C_u32 as _);
+pub const NS_E_DRM_CHECKPOINT_CORRUPT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2797_u32 as _);
+pub const NS_E_DRM_CHECKPOINT_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D277F_u32 as _);
+pub const NS_E_DRM_CHECKPOINT_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D2796_u32 as _);
+pub const NS_E_DRM_CLIENT_CODE_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2847_u32 as _);
+pub const NS_E_DRM_DATASTORE_CORRUPT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2783_u32 as _);
+pub const NS_E_DRM_DEBUGGING_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2767_u32 as _);
+pub const NS_E_DRM_DECRYPT_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D2723_u32 as _);
+pub const NS_E_DRM_DEVICE_ACTIVATION_CANCELED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2765_u32 as _);
+pub const NS_E_DRM_DEVICE_ALREADY_REGISTERED: windows_core::HRESULT = windows_core::HRESULT(0xC00D28AB_u32 as _);
+pub const NS_E_DRM_DEVICE_LIMIT_REACHED: windows_core::HRESULT = windows_core::HRESULT(0xC00D28A3_u32 as _);
+pub const NS_E_DRM_DEVICE_NOT_OPEN: windows_core::HRESULT = windows_core::HRESULT(0xC00D28AA_u32 as _);
+pub const NS_E_DRM_DEVICE_NOT_REGISTERED: windows_core::HRESULT = windows_core::HRESULT(0xC00D27E2_u32 as _);
+pub const NS_E_DRM_DRIVER_AUTH_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D274D_u32 as _);
+pub const NS_E_DRM_DRIVER_DIGIOUT_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2750_u32 as _);
+pub const NS_E_DRM_DRMV2CLT_REVOKED: windows_core::HRESULT = windows_core::HRESULT(0xC00D28B6_u32 as _);
+pub const NS_E_DRM_ENCRYPT_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D2722_u32 as _);
+pub const NS_E_DRM_ENUM_LICENSE_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D271B_u32 as _);
+pub const NS_E_DRM_ERROR_BAD_NET_RESP: windows_core::HRESULT = windows_core::HRESULT(0xC00D275E_u32 as _);
+pub const NS_E_DRM_EXPIRED_LICENSEBLOB: windows_core::HRESULT = windows_core::HRESULT(0xC00D28B3_u32 as _);
+pub const NS_E_DRM_GET_CONTENTSTRING_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D273D_u32 as _);
+pub const NS_E_DRM_GET_LICENSESTRING_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D273C_u32 as _);
+pub const NS_E_DRM_GET_LICENSE_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D2739_u32 as _);
+pub const NS_E_DRM_HARDWAREID_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D278F_u32 as _);
+pub const NS_E_DRM_HARDWARE_INCONSISTENT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2754_u32 as _);
+pub const NS_E_DRM_INCLUSION_LIST_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0xC00D28B5_u32 as _);
+pub const NS_E_DRM_INDIVIDUALIZATION_INCOMPLETE: windows_core::HRESULT = windows_core::HRESULT(0xC00D274C_u32 as _);
+pub const NS_E_DRM_INDIVIDUALIZE_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D2736_u32 as _);
+pub const NS_E_DRM_INDIVIDUALIZING: windows_core::HRESULT = windows_core::HRESULT(0xC00D272C_u32 as _);
+pub const NS_E_DRM_INDIV_FRAUD: windows_core::HRESULT = windows_core::HRESULT(0xC00D2843_u32 as _);
+pub const NS_E_DRM_INDIV_NO_CABS: windows_core::HRESULT = windows_core::HRESULT(0xC00D2844_u32 as _);
+pub const NS_E_DRM_INDIV_SERVICE_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2845_u32 as _);
+pub const NS_E_DRM_INVALID_APPCERT: windows_core::HRESULT = windows_core::HRESULT(0xC00D277C_u32 as _);
+pub const NS_E_DRM_INVALID_APPDATA: windows_core::HRESULT = windows_core::HRESULT(0xC00D2740_u32 as _);
+pub const NS_E_DRM_INVALID_APPDATA_VERSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D2741_u32 as _);
+pub const NS_E_DRM_INVALID_APPLICATION: windows_core::HRESULT = windows_core::HRESULT(0xC00D2711_u32 as _);
+pub const NS_E_DRM_INVALID_CERTIFICATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D28A0_u32 as _);
+pub const NS_E_DRM_INVALID_CONTENT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2716_u32 as _);
+pub const NS_E_DRM_INVALID_CRL: windows_core::HRESULT = windows_core::HRESULT(0xC00D28B1_u32 as _);
+pub const NS_E_DRM_INVALID_DATA: windows_core::HRESULT = windows_core::HRESULT(0xC00D2761_u32 as _);
+pub const NS_E_DRM_INVALID_KID: windows_core::HRESULT = windows_core::HRESULT(0xC00D2849_u32 as _);
+pub const NS_E_DRM_INVALID_LICENSE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2718_u32 as _);
+pub const NS_E_DRM_INVALID_LICENSEBLOB: windows_core::HRESULT = windows_core::HRESULT(0xC00D28B4_u32 as _);
+pub const NS_E_DRM_INVALID_LICENSE_ACQUIRED: windows_core::HRESULT = windows_core::HRESULT(0xC00D271F_u32 as _);
+pub const NS_E_DRM_INVALID_LICENSE_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0xC00D271C_u32 as _);
+pub const NS_E_DRM_INVALID_MACHINE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2719_u32 as _);
+pub const NS_E_DRM_INVALID_MIGRATION_IMAGE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2788_u32 as _);
+pub const NS_E_DRM_INVALID_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0xC00D2749_u32 as _);
+pub const NS_E_DRM_INVALID_PROXIMITY_RESPONSE: windows_core::HRESULT = windows_core::HRESULT(0xC00D28A8_u32 as _);
+pub const NS_E_DRM_INVALID_SECURESTORE_PASSWORD: windows_core::HRESULT = windows_core::HRESULT(0xC00D2751_u32 as _);
+pub const NS_E_DRM_INVALID_SESSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D28A9_u32 as _);
+pub const NS_E_DRM_KEY_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D2721_u32 as _);
+pub const NS_E_DRM_LICENSE_APPSECLOW: windows_core::HRESULT = windows_core::HRESULT(0xC00D27DA_u32 as _);
+pub const NS_E_DRM_LICENSE_APP_NOTALLOWED: windows_core::HRESULT = windows_core::HRESULT(0xC00D27DD_u32 as _);
+pub const NS_E_DRM_LICENSE_CERT_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0xC00D27DF_u32 as _);
+pub const NS_E_DRM_LICENSE_CLOSE_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D2738_u32 as _);
+pub const NS_E_DRM_LICENSE_CONTENT_REVOKED: windows_core::HRESULT = windows_core::HRESULT(0xC00D27E1_u32 as _);
+pub const NS_E_DRM_LICENSE_DELETION_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D284E_u32 as _);
+pub const NS_E_DRM_LICENSE_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0xC00D27D8_u32 as _);
+pub const NS_E_DRM_LICENSE_INITIALIZATION_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D284A_u32 as _);
+pub const NS_E_DRM_LICENSE_INVALID_XML: windows_core::HRESULT = windows_core::HRESULT(0xC00D2725_u32 as _);
+pub const NS_E_DRM_LICENSE_NOSAP: windows_core::HRESULT = windows_core::HRESULT(0xC00D280A_u32 as _);
+pub const NS_E_DRM_LICENSE_NOSVP: windows_core::HRESULT = windows_core::HRESULT(0xC00D280B_u32 as _);
+pub const NS_E_DRM_LICENSE_NOTACQUIRED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2759_u32 as _);
+pub const NS_E_DRM_LICENSE_NOTENABLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D27D9_u32 as _);
+pub const NS_E_DRM_LICENSE_NOTRUSTEDCODEC: windows_core::HRESULT = windows_core::HRESULT(0xC00D280D_u32 as _);
+pub const NS_E_DRM_LICENSE_NOWDM: windows_core::HRESULT = windows_core::HRESULT(0xC00D280C_u32 as _);
+pub const NS_E_DRM_LICENSE_OPEN_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D2737_u32 as _);
+pub const NS_E_DRM_LICENSE_SECLOW: windows_core::HRESULT = windows_core::HRESULT(0xC00D27E0_u32 as _);
+pub const NS_E_DRM_LICENSE_SERVER_INFO_MISSING: windows_core::HRESULT = windows_core::HRESULT(0xC00D2840_u32 as _);
+pub const NS_E_DRM_LICENSE_STORE_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D2712_u32 as _);
+pub const NS_E_DRM_LICENSE_STORE_SAVE_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D2714_u32 as _);
+pub const NS_E_DRM_LICENSE_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D28A2_u32 as _);
+pub const NS_E_DRM_LICENSE_UNUSABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2748_u32 as _);
+pub const NS_E_DRM_LIC_NEEDS_DEVICE_CLOCK_SET: windows_core::HRESULT = windows_core::HRESULT(0xC00D2779_u32 as _);
+pub const NS_E_DRM_MALFORMED_CONTENT_HEADER: windows_core::HRESULT = windows_core::HRESULT(0xC00D279C_u32 as _);
+pub const NS_E_DRM_MIGRATION_IMPORTER_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D278A_u32 as _);
+pub const NS_E_DRM_MIGRATION_INVALID_LEGACYV2_DATA: windows_core::HRESULT = windows_core::HRESULT(0xC00D2791_u32 as _);
+pub const NS_E_DRM_MIGRATION_INVALID_LEGACYV2_SST_PASSWORD: windows_core::HRESULT = windows_core::HRESULT(0xC00D2793_u32 as _);
+pub const NS_E_DRM_MIGRATION_LICENSE_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D2792_u32 as _);
+pub const NS_E_DRM_MIGRATION_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2794_u32 as _);
+pub const NS_E_DRM_MIGRATION_OBJECT_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0xC00D279B_u32 as _);
+pub const NS_E_DRM_MIGRATION_OPERATION_CANCELLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D279A_u32 as _);
+pub const NS_E_DRM_MIGRATION_TARGET_NOT_ONLINE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2787_u32 as _);
+pub const NS_E_DRM_MIGRATION_TARGET_STATES_CORRUPTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2789_u32 as _);
+pub const NS_E_DRM_MONITOR_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D273E_u32 as _);
+pub const NS_E_DRM_MUST_APPROVE: windows_core::HRESULT = windows_core::HRESULT(0xC00D28A6_u32 as _);
+pub const NS_E_DRM_MUST_REGISTER: windows_core::HRESULT = windows_core::HRESULT(0xC00D28A5_u32 as _);
+pub const NS_E_DRM_MUST_REVALIDATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D28A7_u32 as _);
+pub const NS_E_DRM_NEEDS_INDIVIDUALIZATION: windows_core::HRESULT = windows_core::HRESULT(0xC00D2728_u32 as _);
+pub const NS_E_DRM_NEEDS_UPGRADE_TEMPFILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D283D_u32 as _);
+pub const NS_E_DRM_NEED_UPGRADE_MSSAP: windows_core::HRESULT = windows_core::HRESULT(0xC00D274E_u32 as _);
+pub const NS_E_DRM_NEED_UPGRADE_PD: windows_core::HRESULT = windows_core::HRESULT(0xC00D283E_u32 as _);
+pub const NS_E_DRM_NOT_CONFIGURED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2764_u32 as _);
+pub const NS_E_DRM_NO_RIGHTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D2720_u32 as _);
+pub const NS_E_DRM_NO_UPLINK_LICENSE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2848_u32 as _);
+pub const NS_E_DRM_OPERATION_CANCELED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2768_u32 as _);
+pub const NS_E_DRM_PARAMETERS_MISMATCHED: windows_core::HRESULT = windows_core::HRESULT(0xC00D272F_u32 as _);
+pub const NS_E_DRM_PASSWORD_TOO_LONG: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B93_u32 as _);
+pub const NS_E_DRM_PD_TOO_MANY_DEVICES: windows_core::HRESULT = windows_core::HRESULT(0xC00D2842_u32 as _);
+pub const NS_E_DRM_POLICY_DISABLE_ONLINE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2762_u32 as _);
+pub const NS_E_DRM_POLICY_METERING_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2776_u32 as _);
+pub const NS_E_DRM_PROFILE_NOT_SET: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B8F_u32 as _);
+pub const NS_E_DRM_PROTOCOL_FORCEFUL_TERMINATION_ON_CHALLENGE: windows_core::HRESULT = windows_core::HRESULT(0xC00D277E_u32 as _);
+pub const NS_E_DRM_PROTOCOL_FORCEFUL_TERMINATION_ON_PETITION: windows_core::HRESULT = windows_core::HRESULT(0xC00D277D_u32 as _);
+pub const NS_E_DRM_QUERY_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D273A_u32 as _);
+pub const NS_E_DRM_REOPEN_CONTENT: windows_core::HRESULT = windows_core::HRESULT(0xC00D274F_u32 as _);
+pub const NS_E_DRM_REPORT_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D273B_u32 as _);
+pub const NS_E_DRM_RESTORE_FRAUD: windows_core::HRESULT = windows_core::HRESULT(0xC00D2753_u32 as _);
+pub const NS_E_DRM_RESTORE_SERVICE_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2846_u32 as _);
+pub const NS_E_DRM_RESTRICTIONS_NOT_RETRIEVED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2769_u32 as _);
+pub const NS_E_DRM_RIV_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0xC00D28B7_u32 as _);
+pub const NS_E_DRM_SDK_VERSIONMISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D2778_u32 as _);
+pub const NS_E_DRM_SDMI_NOMORECOPIES: windows_core::HRESULT = windows_core::HRESULT(0xC00D2756_u32 as _);
+pub const NS_E_DRM_SDMI_TRIGGER: windows_core::HRESULT = windows_core::HRESULT(0xC00D2755_u32 as _);
+pub const NS_E_DRM_SECURE_STORE_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D2713_u32 as _);
+pub const NS_E_DRM_SECURE_STORE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D274A_u32 as _);
+pub const NS_E_DRM_SECURE_STORE_UNLOCK_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D2715_u32 as _);
+pub const NS_E_DRM_SECURITY_COMPONENT_SIGNATURE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0xC00D2760_u32 as _);
+pub const NS_E_DRM_SIGNATURE_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D283F_u32 as _);
+pub const NS_E_DRM_SOURCEID_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D280E_u32 as _);
+pub const NS_E_DRM_STORE_NEEDINDI: windows_core::HRESULT = windows_core::HRESULT(0xC00D27DB_u32 as _);
+pub const NS_E_DRM_STORE_NOTALLOWED: windows_core::HRESULT = windows_core::HRESULT(0xC00D27DC_u32 as _);
+pub const NS_E_DRM_STORE_NOTALLSTORED: windows_core::HRESULT = windows_core::HRESULT(0xC00D275F_u32 as _);
+pub const NS_E_DRM_STUBLIB_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2785_u32 as _);
+pub const NS_E_DRM_TRACK_EXCEEDED_PLAYLIST_RESTICTION: windows_core::HRESULT = windows_core::HRESULT(0xC00D2770_u32 as _);
+pub const NS_E_DRM_TRACK_EXCEEDED_TRACKBURN_RESTRICTION: windows_core::HRESULT = windows_core::HRESULT(0xC00D2771_u32 as _);
+pub const NS_E_DRM_TRANSFER_CHAINED_LICENSES_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2777_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_ACQUIRE_LICENSE: windows_core::HRESULT = windows_core::HRESULT(0xC00D271E_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_AUTHENTICATION_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2763_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_BACKUP_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2735_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_CERTIFICATE_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2786_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_CODING_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D275A_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_DECRYPT_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2733_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_DEVICE_REGISTRATION_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D276C_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_ENCRYPT_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2732_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_HEADER_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2757_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_INDI_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2731_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_INMEMORYSTORE_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2784_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_KEYS_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2758_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_LICENSE_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2730_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_METERING_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D276D_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_MIGRATION_IMPORTER_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2795_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_PLAYLIST_BURN_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D276B_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_PLAYLIST_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D276A_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_PROPERTIES_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2734_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_CREATE_STATE_DATA_OBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D275B_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_GET_DEVICE_CERT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2772_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_GET_SECURE_CLOCK: windows_core::HRESULT = windows_core::HRESULT(0xC00D2773_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_GET_SECURE_CLOCK_FROM_SERVER: windows_core::HRESULT = windows_core::HRESULT(0xC00D2775_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_INITIALIZE: windows_core::HRESULT = windows_core::HRESULT(0xC00D271D_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_LOAD_HARDWARE_ID: windows_core::HRESULT = windows_core::HRESULT(0xC00D2781_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_OPEN_DATA_STORE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2782_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_OPEN_LICENSE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2717_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_OPEN_PORT: windows_core::HRESULT = windows_core::HRESULT(0xC00D28AF_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_SET_PARAMETER: windows_core::HRESULT = windows_core::HRESULT(0xC00D273F_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_SET_SECURE_CLOCK: windows_core::HRESULT = windows_core::HRESULT(0xC00D2774_u32 as _);
+pub const NS_E_DRM_UNABLE_TO_VERIFY_PROXIMITY: windows_core::HRESULT = windows_core::HRESULT(0xC00D28A4_u32 as _);
+pub const NS_E_DRM_UNSUPPORTED_ACTION: windows_core::HRESULT = windows_core::HRESULT(0xC00D28AD_u32 as _);
+pub const NS_E_DRM_UNSUPPORTED_ALGORITHM: windows_core::HRESULT = windows_core::HRESULT(0xC00D284D_u32 as _);
+pub const NS_E_DRM_UNSUPPORTED_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0xC00D275D_u32 as _);
+pub const NS_E_DRM_UNSUPPORTED_PROTOCOL_VERSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D28AC_u32 as _);
+pub const NS_E_DUPLICATE_ADDRESS: windows_core::HRESULT = windows_core::HRESULT(0xC00D0037_u32 as _);
+pub const NS_E_DUPLICATE_DRMPROFILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B90_u32 as _);
+pub const NS_E_DUPLICATE_NAME: windows_core::HRESULT = windows_core::HRESULT(0xC00D0036_u32 as _);
+pub const NS_E_DUPLICATE_PACKET: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BD3_u32 as _);
+pub const NS_E_DVD_AUTHORING_PROBLEM: windows_core::HRESULT = windows_core::HRESULT(0xC00D1164_u32 as _);
+pub const NS_E_DVD_CANNOT_COPY_PROTECTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1172_u32 as _);
+pub const NS_E_DVD_CANNOT_JUMP: windows_core::HRESULT = windows_core::HRESULT(0xC00D116F_u32 as _);
+pub const NS_E_DVD_COMPATIBLE_VIDEO_CARD: windows_core::HRESULT = windows_core::HRESULT(0xC00D1166_u32 as _);
+pub const NS_E_DVD_COPY_PROTECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1163_u32 as _);
+pub const NS_E_DVD_DEVICE_CONTENTION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1170_u32 as _);
+pub const NS_E_DVD_DISC_COPY_PROTECT_OUTPUT_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1161_u32 as _);
+pub const NS_E_DVD_DISC_COPY_PROTECT_OUTPUT_NS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1160_u32 as _);
+pub const NS_E_DVD_DISC_DECODER_REGION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1169_u32 as _);
+pub const NS_E_DVD_GRAPH_BUILDING: windows_core::HRESULT = windows_core::HRESULT(0xC00D116C_u32 as _);
+pub const NS_E_DVD_INVALID_DISC_REGION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1165_u32 as _);
+pub const NS_E_DVD_INVALID_TITLE_CHAPTER: windows_core::HRESULT = windows_core::HRESULT(0xC00D1174_u32 as _);
+pub const NS_E_DVD_MACROVISION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1167_u32 as _);
+pub const NS_E_DVD_NO_AUDIO_STREAM: windows_core::HRESULT = windows_core::HRESULT(0xC00D116B_u32 as _);
+pub const NS_E_DVD_NO_DECODER: windows_core::HRESULT = windows_core::HRESULT(0xC00D116D_u32 as _);
+pub const NS_E_DVD_NO_SUBPICTURE_STREAM: windows_core::HRESULT = windows_core::HRESULT(0xC00D1162_u32 as _);
+pub const NS_E_DVD_NO_VIDEO_MEMORY: windows_core::HRESULT = windows_core::HRESULT(0xC00D1171_u32 as _);
+pub const NS_E_DVD_NO_VIDEO_STREAM: windows_core::HRESULT = windows_core::HRESULT(0xC00D116A_u32 as _);
+pub const NS_E_DVD_PARENTAL: windows_core::HRESULT = windows_core::HRESULT(0xC00D116E_u32 as _);
+pub const NS_E_DVD_REQUIRED_PROPERTY_NOT_SET: windows_core::HRESULT = windows_core::HRESULT(0xC00D1173_u32 as _);
+pub const NS_E_DVD_SYSTEM_DECODER_REGION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1168_u32 as _);
+pub const NS_E_EDL_REQUIRED_FOR_DEVICE_MULTIPASS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BE7_u32 as _);
+pub const NS_E_EMPTY_PLAYLIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D14B5_u32 as _);
+pub const NS_E_EMPTY_PROGRAM_NAME: windows_core::HRESULT = windows_core::HRESULT(0xC00D00D6_u32 as _);
+pub const NS_E_ENACTPLAN_GIVEUP: windows_core::HRESULT = windows_core::HRESULT(0xC00D0068_u32 as _);
+pub const NS_E_END_OF_PLAYLIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D32C8_u32 as _);
+pub const NS_E_END_OF_TAPE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BAE_u32 as _);
+pub const NS_E_ERROR_FROM_PROXY: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EE4_u32 as _);
+pub const NS_E_EXCEED_MAX_DRM_PROFILE_LIMIT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BE0_u32 as _);
+pub const NS_E_EXPECT_MONO_WAV_INPUT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BA1_u32 as _);
+pub const NS_E_FAILED_DOWNLOAD_ABORT_BURN: windows_core::HRESULT = windows_core::HRESULT(0xC00D10DC_u32 as _);
+pub const NS_E_FAIL_LAUNCH_ROXIO_PLUGIN: windows_core::HRESULT = windows_core::HRESULT(0xC00D1180_u32 as _);
+pub const NS_E_FEATURE_DISABLED_BY_GROUP_POLICY: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BDC_u32 as _);
+pub const NS_E_FEATURE_DISABLED_IN_SKU: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BDD_u32 as _);
+pub const NS_E_FEATURE_REQUIRES_ENTERPRISE_SERVER: windows_core::HRESULT = windows_core::HRESULT(0xC00D1583_u32 as _);
+pub const NS_E_FILE_ALLOCATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D001E_u32 as _);
+pub const NS_E_FILE_BANDWIDTH_LIMIT: windows_core::HRESULT = windows_core::HRESULT(0xC00D0030_u32 as _);
+pub const NS_E_FILE_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D001B_u32 as _);
+pub const NS_E_FILE_FAILED_CHECKS: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FCD_u32 as _);
+pub const NS_E_FILE_INIT_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D001F_u32 as _);
+pub const NS_E_FILE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D001A_u32 as _);
+pub const NS_E_FILE_OPEN_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D001D_u32 as _);
+pub const NS_E_FILE_PLAY_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0020_u32 as _);
+pub const NS_E_FILE_READ: windows_core::HRESULT = windows_core::HRESULT(0xC00D0019_u32 as _);
+pub const NS_E_FILE_WRITE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0018_u32 as _);
+pub const NS_E_FIREWALL: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EF9_u32 as _);
+pub const NS_E_FLASH_PLAYBACK_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0xC00D10CF_u32 as _);
+pub const NS_E_GLITCH_MODE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0195_u32 as _);
+pub const NS_E_GRAPH_NOAUDIOLANGUAGE: windows_core::HRESULT = windows_core::HRESULT(0xC00D10C5_u32 as _);
+pub const NS_E_GRAPH_NOAUDIOLANGUAGESELECTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D10C6_u32 as _);
+pub const NS_E_HDS_KEY_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D2799_u32 as _);
+pub const NS_E_HEADER_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D151F_u32 as _);
+pub const NS_E_HTTP_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D00D3_u32 as _);
+pub const NS_E_HTTP_TEXT_DATACONTAINER_INVALID_SERVER_RESPONSE: windows_core::HRESULT = windows_core::HRESULT(0xC00D158C_u32 as _);
+pub const NS_E_HTTP_TEXT_DATACONTAINER_SIZE_LIMIT_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1589_u32 as _);
+pub const NS_E_ICMQUERYFORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B6C_u32 as _);
+pub const NS_E_IE_DISALLOWS_ACTIVEX_CONTROLS: windows_core::HRESULT = windows_core::HRESULT(0xC00D10CE_u32 as _);
+pub const NS_E_IMAGE_DOWNLOAD_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D128E_u32 as _);
+pub const NS_E_IMAPI_LOSSOFSTREAMING: windows_core::HRESULT = windows_core::HRESULT(0xC00D117E_u32 as _);
+pub const NS_E_IMAPI_MEDIUM_INVALIDTYPE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1182_u32 as _);
+pub const NS_E_INCOMPATIBLE_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D0041_u32 as _);
+pub const NS_E_INCOMPATIBLE_PUSH_SERVER: windows_core::HRESULT = windows_core::HRESULT(0xC00D2F0C_u32 as _);
+pub const NS_E_INCOMPATIBLE_SERVER: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EE8_u32 as _);
+pub const NS_E_INCOMPATIBLE_VERSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BC7_u32 as _);
+pub const NS_E_INCOMPLETE_PLAYLIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D1242_u32 as _);
+pub const NS_E_INCORRECTCLIPSETTINGS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B7C_u32 as _);
+pub const NS_E_INDUCED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0022_u32 as _);
+pub const NS_E_INPUTSOURCE_PROBLEM: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B8A_u32 as _);
+pub const NS_E_INPUT_DOESNOT_SUPPORT_SMPTE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BA8_u32 as _);
+pub const NS_E_INPUT_WAVFORMAT_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BA2_u32 as _);
+pub const NS_E_INSUFFICIENT_BANDWIDTH: windows_core::HRESULT = windows_core::HRESULT(0xC00D002C_u32 as _);
+pub const NS_E_INSUFFICIENT_DATA: windows_core::HRESULT = windows_core::HRESULT(0xC00D00CA_u32 as _);
+pub const NS_E_INTERFACE_NOT_REGISTERED_IN_GIT: windows_core::HRESULT = windows_core::HRESULT(0xC00D126A_u32 as _);
+pub const NS_E_INTERLACEMODE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BAB_u32 as _);
+pub const NS_E_INTERLACE_REQUIRE_SAMESIZE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B95_u32 as _);
+pub const NS_E_INTERNAL: windows_core::HRESULT = windows_core::HRESULT(0xC00D0024_u32 as _);
+pub const NS_E_INTERNAL_SERVER_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EE2_u32 as _);
+pub const NS_E_INVALIDCALL_WHILE_ARCHIVAL_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B74_u32 as _);
+pub const NS_E_INVALIDCALL_WHILE_ENCODER_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B66_u32 as _);
+pub const NS_E_INVALIDCALL_WHILE_ENCODER_STOPPED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B7F_u32 as _);
+pub const NS_E_INVALIDINPUTFPS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B81_u32 as _);
+pub const NS_E_INVALIDPACKETSIZE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B75_u32 as _);
+pub const NS_E_INVALIDPROFILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BC6_u32 as _);
+pub const NS_E_INVALID_ARCHIVE: windows_core::HRESULT = windows_core::HRESULT(0xC00D003D_u32 as _);
+pub const NS_E_INVALID_AUDIO_BUFFERMAX: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BBC_u32 as _);
+pub const NS_E_INVALID_AUDIO_PEAKRATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BBA_u32 as _);
+pub const NS_E_INVALID_AUDIO_PEAKRATE_2: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BBB_u32 as _);
+pub const NS_E_INVALID_BLACKHOLE_ADDRESS: windows_core::HRESULT = windows_core::HRESULT(0xC00D0040_u32 as _);
+pub const NS_E_INVALID_CHANNEL: windows_core::HRESULT = windows_core::HRESULT(0xC00D003B_u32 as _);
+pub const NS_E_INVALID_CLIENT: windows_core::HRESULT = windows_core::HRESULT(0xC00D003F_u32 as _);
+pub const NS_E_INVALID_DATA: windows_core::HRESULT = windows_core::HRESULT(0xC00D002F_u32 as _);
+pub const NS_E_INVALID_DEVICE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B91_u32 as _);
+pub const NS_E_INVALID_DRMV2CLT_STUBLIB: windows_core::HRESULT = windows_core::HRESULT(0xC00D2790_u32 as _);
+pub const NS_E_INVALID_EDL: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BD8_u32 as _);
+pub const NS_E_INVALID_FILE_BITRATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BD1_u32 as _);
+pub const NS_E_INVALID_FOLDDOWN_COEFFICIENTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BD4_u32 as _);
+pub const NS_E_INVALID_INDEX: windows_core::HRESULT = windows_core::HRESULT(0xC00D0011_u32 as _);
+pub const NS_E_INVALID_INDEX2: windows_core::HRESULT = windows_core::HRESULT(0xC00D00D9_u32 as _);
+pub const NS_E_INVALID_INPUT_AUDIENCE_INDEX: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B9E_u32 as _);
+pub const NS_E_INVALID_INPUT_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BB8_u32 as _);
+pub const NS_E_INVALID_INPUT_LANGUAGE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B9F_u32 as _);
+pub const NS_E_INVALID_INPUT_STREAM: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BA0_u32 as _);
+pub const NS_E_INVALID_INTERLACEMODE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BDB_u32 as _);
+pub const NS_E_INVALID_INTERLACE_COMPAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BDC_u32 as _);
+pub const NS_E_INVALID_KEY: windows_core::HRESULT = windows_core::HRESULT(0xC00D0042_u32 as _);
+pub const NS_E_INVALID_LOG_URL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1585_u32 as _);
+pub const NS_E_INVALID_MTU_RANGE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1586_u32 as _);
+pub const NS_E_INVALID_NAME: windows_core::HRESULT = windows_core::HRESULT(0xC00D001C_u32 as _);
+pub const NS_E_INVALID_NONSQUAREPIXEL_COMPAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BDD_u32 as _);
+pub const NS_E_INVALID_NUM_PASSES: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BD5_u32 as _);
+pub const NS_E_INVALID_OPERATING_SYSTEM_VERSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1459_u32 as _);
+pub const NS_E_INVALID_OUTPUT_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BBB_u32 as _);
+pub const NS_E_INVALID_PIXEL_ASPECT_RATIO: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BE2_u32 as _);
+pub const NS_E_INVALID_PLAY_STATISTICS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1587_u32 as _);
+pub const NS_E_INVALID_PLUGIN_LOAD_TYPE_CONFIGURATION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1454_u32 as _);
+pub const NS_E_INVALID_PORT: windows_core::HRESULT = windows_core::HRESULT(0xC00D0043_u32 as _);
+pub const NS_E_INVALID_PROFILE_CONTENTTYPE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BE4_u32 as _);
+pub const NS_E_INVALID_PUBLISHING_POINT_NAME: windows_core::HRESULT = windows_core::HRESULT(0xC00D1455_u32 as _);
+pub const NS_E_INVALID_PUSH_PUBLISHING_POINT: windows_core::HRESULT = windows_core::HRESULT(0xC00D151B_u32 as _);
+pub const NS_E_INVALID_PUSH_PUBLISHING_POINT_START_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0xC00D145B_u32 as _);
+pub const NS_E_INVALID_PUSH_TEMPLATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D151A_u32 as _);
+pub const NS_E_INVALID_QUERY_OPERATOR: windows_core::HRESULT = windows_core::HRESULT(0xC00D32CF_u32 as _);
+pub const NS_E_INVALID_QUERY_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0xC00D32D0_u32 as _);
+pub const NS_E_INVALID_REDIRECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EEA_u32 as _);
+pub const NS_E_INVALID_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0xC00D002B_u32 as _);
+pub const NS_E_INVALID_SAMPLING_RATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BD0_u32 as _);
+pub const NS_E_INVALID_SCRIPT_BITRATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BCF_u32 as _);
+pub const NS_E_INVALID_SOURCE_WITH_DEVICE_CONTROL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BDE_u32 as _);
+pub const NS_E_INVALID_STREAM: windows_core::HRESULT = windows_core::HRESULT(0xC00D003C_u32 as _);
+pub const NS_E_INVALID_TIMECODE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BD6_u32 as _);
+pub const NS_E_INVALID_TTL: windows_core::HRESULT = windows_core::HRESULT(0xC00D0044_u32 as _);
+pub const NS_E_INVALID_VBR_COMPAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BB2_u32 as _);
+pub const NS_E_INVALID_VBR_WITH_UNCOMP: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BB4_u32 as _);
+pub const NS_E_INVALID_VIDEO_BITRATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BBF_u32 as _);
+pub const NS_E_INVALID_VIDEO_BUFFER: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BC9_u32 as _);
+pub const NS_E_INVALID_VIDEO_BUFFERMAX: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BCA_u32 as _);
+pub const NS_E_INVALID_VIDEO_BUFFERMAX_2: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BCB_u32 as _);
+pub const NS_E_INVALID_VIDEO_CQUALITY: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BC8_u32 as _);
+pub const NS_E_INVALID_VIDEO_FPS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BC5_u32 as _);
+pub const NS_E_INVALID_VIDEO_HEIGHT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BC4_u32 as _);
+pub const NS_E_INVALID_VIDEO_HEIGHT_ALIGN: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BCD_u32 as _);
+pub const NS_E_INVALID_VIDEO_IQUALITY: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BC7_u32 as _);
+pub const NS_E_INVALID_VIDEO_KEYFRAME: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BC6_u32 as _);
+pub const NS_E_INVALID_VIDEO_PEAKRATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BC1_u32 as _);
+pub const NS_E_INVALID_VIDEO_PEAKRATE_2: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BC2_u32 as _);
+pub const NS_E_INVALID_VIDEO_WIDTH: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BC3_u32 as _);
+pub const NS_E_INVALID_VIDEO_WIDTH_ALIGN: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BCC_u32 as _);
+pub const NS_E_INVALID_VIDEO_WIDTH_FOR_INTERLACED_ENCODING: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BE8_u32 as _);
+pub const NS_E_LANGUAGE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B9C_u32 as _);
+pub const NS_E_LATE_OPERATION: windows_core::HRESULT = windows_core::HRESULT(0xC00D002E_u32 as _);
+pub const NS_E_LATE_PACKET: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BD2_u32 as _);
+pub const NS_E_LICENSE_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0xC00D00D4_u32 as _);
+pub const NS_E_LICENSE_HEADER_MISSING_URL: windows_core::HRESULT = windows_core::HRESULT(0xC00D277A_u32 as _);
+pub const NS_E_LICENSE_INCORRECT_RIGHTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BC1_u32 as _);
+pub const NS_E_LICENSE_OUTOFDATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BC0_u32 as _);
+pub const NS_E_LICENSE_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BBE_u32 as _);
+pub const NS_E_LOGFILEPERIOD: windows_core::HRESULT = windows_core::HRESULT(0xC00D0048_u32 as _);
+pub const NS_E_LOG_FILE_SIZE: windows_core::HRESULT = windows_core::HRESULT(0xC00D004A_u32 as _);
+pub const NS_E_LOG_NEED_TO_BE_SKIPPED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1588_u32 as _);
+pub const NS_E_MARKIN_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BE9_u32 as _);
+pub const NS_E_MAX_BITRATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0047_u32 as _);
+pub const NS_E_MAX_CLIENTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D0049_u32 as _);
+pub const NS_E_MAX_FILERATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D004B_u32 as _);
+pub const NS_E_MAX_FUNNELS_ALERT: windows_core::HRESULT = windows_core::HRESULT(0xC00D0060_u32 as _);
+pub const NS_E_MAX_PACKET_SIZE_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BD1_u32 as _);
+pub const NS_E_MEDIACD_READ_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D10CD_u32 as _);
+pub const NS_E_MEDIA_LIBRARY_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FCE_u32 as _);
+pub const NS_E_MEDIA_PARSER_INVALID_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1581_u32 as _);
+pub const NS_E_MEMSTORAGE_BAD_DATA: windows_core::HRESULT = windows_core::HRESULT(0xC00D117B_u32 as _);
+pub const NS_E_METADATA_CACHE_DATA_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D32DB_u32 as _);
+pub const NS_E_METADATA_CANNOT_RETRIEVE_FROM_OFFLINE_CACHE: windows_core::HRESULT = windows_core::HRESULT(0xC00D32DE_u32 as _);
+pub const NS_E_METADATA_CANNOT_SET_LOCALE: windows_core::HRESULT = windows_core::HRESULT(0xC00D32D7_u32 as _);
+pub const NS_E_METADATA_FORMAT_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D32D5_u32 as _);
+pub const NS_E_METADATA_IDENTIFIER_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D32DD_u32 as _);
+pub const NS_E_METADATA_INVALID_DOCUMENT_TYPE: windows_core::HRESULT = windows_core::HRESULT(0xC00D32DC_u32 as _);
+pub const NS_E_METADATA_LANGUAGE_NOT_SUPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D32D8_u32 as _);
+pub const NS_E_METADATA_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D32DA_u32 as _);
+pub const NS_E_METADATA_NO_EDITING_CAPABILITY: windows_core::HRESULT = windows_core::HRESULT(0xC00D32D6_u32 as _);
+pub const NS_E_METADATA_NO_RFC1766_NAME_FOR_LOCALE: windows_core::HRESULT = windows_core::HRESULT(0xC00D32D9_u32 as _);
+pub const NS_E_MISMATCHED_MEDIACONTENT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B5F_u32 as _);
+pub const NS_E_MISSING_AUDIENCE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B98_u32 as _);
+pub const NS_E_MISSING_CHANNEL: windows_core::HRESULT = windows_core::HRESULT(0xC00D00D7_u32 as _);
+pub const NS_E_MISSING_SOURCE_INDEX: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B9A_u32 as _);
+pub const NS_E_MIXER_INVALID_CONTROL: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FA6_u32 as _);
+pub const NS_E_MIXER_INVALID_LINE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FA5_u32 as _);
+pub const NS_E_MIXER_INVALID_VALUE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FA7_u32 as _);
+pub const NS_E_MIXER_NODRIVER: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FAF_u32 as _);
+pub const NS_E_MIXER_UNKNOWN_MMRESULT: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FA8_u32 as _);
+pub const NS_E_MLS_SMARTPLAYLIST_FILTER_NOT_REGISTERED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1075_u32 as _);
+pub const NS_E_MMSAUTOSERVER_CANTFINDWALKER: windows_core::HRESULT = windows_core::HRESULT(0xC00D0046_u32 as _);
+pub const NS_E_MMS_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EFA_u32 as _);
+pub const NS_E_MONITOR_GIVEUP: windows_core::HRESULT = windows_core::HRESULT(0xC00D00C8_u32 as _);
+pub const NS_E_MP3_FORMAT_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FAA_u32 as _);
+pub const NS_E_MPDB_GENERIC: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FCC_u32 as _);
+pub const NS_E_MSAUDIO_NOT_INSTALLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BB9_u32 as _);
+pub const NS_E_MSBD_NO_LONGER_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EEC_u32 as _);
+pub const NS_E_MULTICAST_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EE9_u32 as _);
+pub const NS_E_MULTICAST_PLUGIN_NOT_ENABLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1458_u32 as _);
+pub const NS_E_MULTIPLE_AUDIO_CODECS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BB7_u32 as _);
+pub const NS_E_MULTIPLE_AUDIO_FORMATS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BB8_u32 as _);
+pub const NS_E_MULTIPLE_FILE_BITRATES: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BD0_u32 as _);
+pub const NS_E_MULTIPLE_SCRIPT_BITRATES: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BCE_u32 as _);
+pub const NS_E_MULTIPLE_VBR_AUDIENCES: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BB5_u32 as _);
+pub const NS_E_MULTIPLE_VIDEO_CODECS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BBD_u32 as _);
+pub const NS_E_MULTIPLE_VIDEO_SIZES: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BBE_u32 as _);
+pub const NS_E_NAMESPACE_BAD_NAME: windows_core::HRESULT = windows_core::HRESULT(0xC00D1396_u32 as _);
+pub const NS_E_NAMESPACE_BUFFER_TOO_SMALL: windows_core::HRESULT = windows_core::HRESULT(0xC00D138E_u32 as _);
+pub const NS_E_NAMESPACE_CALLBACK_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D1391_u32 as _);
+pub const NS_E_NAMESPACE_DUPLICATE_CALLBACK: windows_core::HRESULT = windows_core::HRESULT(0xC00D1390_u32 as _);
+pub const NS_E_NAMESPACE_DUPLICATE_NAME: windows_core::HRESULT = windows_core::HRESULT(0xC00D1393_u32 as _);
+pub const NS_E_NAMESPACE_EMPTY_NAME: windows_core::HRESULT = windows_core::HRESULT(0xC00D1394_u32 as _);
+pub const NS_E_NAMESPACE_INDEX_TOO_LARGE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1395_u32 as _);
+pub const NS_E_NAMESPACE_NAME_TOO_LONG: windows_core::HRESULT = windows_core::HRESULT(0xC00D1392_u32 as _);
+pub const NS_E_NAMESPACE_NODE_CONFLICT: windows_core::HRESULT = windows_core::HRESULT(0xC00D138C_u32 as _);
+pub const NS_E_NAMESPACE_NODE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D138D_u32 as _);
+pub const NS_E_NAMESPACE_TOO_MANY_CALLBACKS: windows_core::HRESULT = windows_core::HRESULT(0xC00D138F_u32 as _);
+pub const NS_E_NAMESPACE_WRONG_PERSIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D138A_u32 as _);
+pub const NS_E_NAMESPACE_WRONG_SECURITY: windows_core::HRESULT = windows_core::HRESULT(0xC00D1397_u32 as _);
+pub const NS_E_NAMESPACE_WRONG_TYPE: windows_core::HRESULT = windows_core::HRESULT(0xC00D138B_u32 as _);
+pub const NS_E_NEED_CORE_REFERENCE: windows_core::HRESULT = windows_core::HRESULT(0xC00D10CC_u32 as _);
+pub const NS_E_NEED_TO_ASK_USER: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FDA_u32 as _);
+pub const NS_E_NETWORK_BUSY: windows_core::HRESULT = windows_core::HRESULT(0xC00D000E_u32 as _);
+pub const NS_E_NETWORK_RESOURCE_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0028_u32 as _);
+pub const NS_E_NETWORK_SERVICE_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0027_u32 as _);
+pub const NS_E_NETWORK_SINK_WRITE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EF8_u32 as _);
+pub const NS_E_NET_READ: windows_core::HRESULT = windows_core::HRESULT(0xC00D0015_u32 as _);
+pub const NS_E_NET_WRITE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0014_u32 as _);
+pub const NS_E_NOCONNECTION: windows_core::HRESULT = windows_core::HRESULT(0xC00D0005_u32 as _);
+pub const NS_E_NOFUNNEL: windows_core::HRESULT = windows_core::HRESULT(0xC00D000C_u32 as _);
+pub const NS_E_NOMATCHING_ELEMENT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B5E_u32 as _);
+pub const NS_E_NOMATCHING_MEDIASOURCE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B5A_u32 as _);
+pub const NS_E_NONSQUAREPIXELMODE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BAC_u32 as _);
+pub const NS_E_NOREGISTEREDWALKER: windows_core::HRESULT = windows_core::HRESULT(0xC00D000B_u32 as _);
+pub const NS_E_NOSOURCEGROUPS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B80_u32 as _);
+pub const NS_E_NOSTATSAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B7D_u32 as _);
+pub const NS_E_NOTARCHIVING: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B7E_u32 as _);
+pub const NS_E_NOTHING_TO_DO: windows_core::HRESULT = windows_core::HRESULT(0xC00D07F1_u32 as _);
+pub const NS_E_NOTITLES: windows_core::HRESULT = windows_core::HRESULT(0xC00D003E_u32 as _);
+pub const NS_E_NOT_CONFIGURED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BBC_u32 as _);
+pub const NS_E_NOT_CONNECTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BCB_u32 as _);
+pub const NS_E_NOT_CONTENT_PARTNER_TRACK: windows_core::HRESULT = windows_core::HRESULT(0xC00D135A_u32 as _);
+pub const NS_E_NOT_LICENSED: windows_core::HRESULT = windows_core::HRESULT(0xC00D00CD_u32 as _);
+pub const NS_E_NOT_REBUILDING: windows_core::HRESULT = windows_core::HRESULT(0xC00D002D_u32 as _);
+pub const NS_E_NO_ACTIVE_SOURCEGROUP: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B72_u32 as _);
+pub const NS_E_NO_AUDIENCES: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BB0_u32 as _);
+pub const NS_E_NO_AUDIODATA: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B89_u32 as _);
+pub const NS_E_NO_AUDIO_COMPAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BB1_u32 as _);
+pub const NS_E_NO_AUDIO_TIMECOMPRESSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BD7_u32 as _);
+pub const NS_E_NO_CD: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FA0_u32 as _);
+pub const NS_E_NO_CD_BURNER: windows_core::HRESULT = windows_core::HRESULT(0xC00D1176_u32 as _);
+pub const NS_E_NO_CHANNELS: windows_core::HRESULT = windows_core::HRESULT(0xC00D00D8_u32 as _);
+pub const NS_E_NO_DATAVIEW_SUPPORT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B82_u32 as _);
+pub const NS_E_NO_DEVICE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0071_u32 as _);
+pub const NS_E_NO_ERROR_STRING_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FD0_u32 as _);
+pub const NS_E_NO_EXISTING_PACKETIZER: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EFD_u32 as _);
+pub const NS_E_NO_FORMATS: windows_core::HRESULT = windows_core::HRESULT(0xC00D006B_u32 as _);
+pub const NS_E_NO_FRAMES_SUBMITTED_TO_ANALYZER: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BA7_u32 as _);
+pub const NS_E_NO_LOCALPLAY: windows_core::HRESULT = windows_core::HRESULT(0xC00D000D_u32 as _);
+pub const NS_E_NO_MBR_WITH_TIMECODE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BDA_u32 as _);
+pub const NS_E_NO_MEDIAFORMAT_IN_SOURCE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B6F_u32 as _);
+pub const NS_E_NO_MEDIA_IN_AUDIENCE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BAF_u32 as _);
+pub const NS_E_NO_MEDIA_PROTOCOL: windows_core::HRESULT = windows_core::HRESULT(0xC00D019B_u32 as _);
+pub const NS_E_NO_MORE_SAMPLES: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BCF_u32 as _);
+pub const NS_E_NO_MULTICAST: windows_core::HRESULT = windows_core::HRESULT(0xC00D07F2_u32 as _);
+pub const NS_E_NO_MULTIPASS_FOR_LIVEDEVICE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B97_u32 as _);
+pub const NS_E_NO_NEW_CONNECTIONS: windows_core::HRESULT = windows_core::HRESULT(0xC00D151D_u32 as _);
+pub const NS_E_NO_PAL_INVERSE_TELECINE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BA4_u32 as _);
+pub const NS_E_NO_PDA: windows_core::HRESULT = windows_core::HRESULT(0xC00D1179_u32 as _);
+pub const NS_E_NO_PROFILE_IN_SOURCEGROUP: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B67_u32 as _);
+pub const NS_E_NO_PROFILE_NAME: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BB3_u32 as _);
+pub const NS_E_NO_REALTIME_PREPROCESS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B8C_u32 as _);
+pub const NS_E_NO_REALTIME_TIMECOMPRESSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B86_u32 as _);
+pub const NS_E_NO_REFERENCES: windows_core::HRESULT = windows_core::HRESULT(0xC00D006C_u32 as _);
+pub const NS_E_NO_REPEAT_PREPROCESS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B8D_u32 as _);
+pub const NS_E_NO_SCRIPT_ENGINE: windows_core::HRESULT = windows_core::HRESULT(0xC00D157C_u32 as _);
+pub const NS_E_NO_SCRIPT_STREAM: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B73_u32 as _);
+pub const NS_E_NO_SERVER_CONTACT: windows_core::HRESULT = windows_core::HRESULT(0xC00D00CE_u32 as _);
+pub const NS_E_NO_SMPTE_WITH_MULTIPLE_SOURCEGROUPS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BA9_u32 as _);
+pub const NS_E_NO_SPECIFIED_DEVICE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0072_u32 as _);
+pub const NS_E_NO_STREAM: windows_core::HRESULT = windows_core::HRESULT(0xC00D0033_u32 as _);
+pub const NS_E_NO_TWOPASS_TIMECOMPRESSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BD8_u32 as _);
+pub const NS_E_NO_VALID_OUTPUT_STREAM: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B70_u32 as _);
+pub const NS_E_NO_VALID_SOURCE_PLUGIN: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B71_u32 as _);
+pub const NS_E_NUM_LANGUAGE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B9B_u32 as _);
+pub const NS_E_OFFLINE_MODE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BCA_u32 as _);
+pub const NS_E_OPEN_CONTAINING_FOLDER_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1363_u32 as _);
+pub const NS_E_OPEN_FILE_LIMIT: windows_core::HRESULT = windows_core::HRESULT(0xC00D0031_u32 as _);
+pub const NS_E_OUTPUT_PROTECTION_LEVEL_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2904_u32 as _);
+pub const NS_E_OUTPUT_PROTECTION_SCHEME_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D290A_u32 as _);
+pub const NS_E_PACKETSINK_UNKNOWN_FEC_STREAM: windows_core::HRESULT = windows_core::HRESULT(0xC00D2F0A_u32 as _);
+pub const NS_E_PAGING_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D0062_u32 as _);
+pub const NS_E_PARTIALLY_REBUILT_DISK: windows_core::HRESULT = windows_core::HRESULT(0xC00D0067_u32 as _);
+pub const NS_E_PDA_CANNOT_CREATE_ADDITIONAL_SYNC_RELATIONSHIP: windows_core::HRESULT = windows_core::HRESULT(0xC00D1185_u32 as _);
+pub const NS_E_PDA_CANNOT_SYNC_FROM_INTERNET: windows_core::HRESULT = windows_core::HRESULT(0xC00D1234_u32 as _);
+pub const NS_E_PDA_CANNOT_SYNC_FROM_LOCATION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1193_u32 as _);
+pub const NS_E_PDA_CANNOT_SYNC_INVALID_PLAYLIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D1235_u32 as _);
+pub const NS_E_PDA_CANNOT_TRANSCODE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1189_u32 as _);
+pub const NS_E_PDA_CANNOT_TRANSCODE_TO_AUDIO: windows_core::HRESULT = windows_core::HRESULT(0xC00D123D_u32 as _);
+pub const NS_E_PDA_CANNOT_TRANSCODE_TO_IMAGE: windows_core::HRESULT = windows_core::HRESULT(0xC00D123F_u32 as _);
+pub const NS_E_PDA_CANNOT_TRANSCODE_TO_VIDEO: windows_core::HRESULT = windows_core::HRESULT(0xC00D123E_u32 as _);
+pub const NS_E_PDA_CEWMDM_DRM_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D1241_u32 as _);
+pub const NS_E_PDA_DELETE_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1238_u32 as _);
+pub const NS_E_PDA_DEVICESUPPORTDISABLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1190_u32 as _);
+pub const NS_E_PDA_DEVICE_FULL: windows_core::HRESULT = windows_core::HRESULT(0xC00D117F_u32 as _);
+pub const NS_E_PDA_DEVICE_FULL_IN_SESSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1181_u32 as _);
+pub const NS_E_PDA_DEVICE_NOT_RESPONDING: windows_core::HRESULT = windows_core::HRESULT(0xC00D123A_u32 as _);
+pub const NS_E_PDA_ENCODER_NOT_RESPONDING: windows_core::HRESULT = windows_core::HRESULT(0xC00D1192_u32 as _);
+pub const NS_E_PDA_FAILED_TO_BURN: windows_core::HRESULT = windows_core::HRESULT(0xC00D10DA_u32 as _);
+pub const NS_E_PDA_FAILED_TO_ENCRYPT_TRANSCODED_FILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D123C_u32 as _);
+pub const NS_E_PDA_FAILED_TO_RETRIEVE_FILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1239_u32 as _);
+pub const NS_E_PDA_FAILED_TO_SYNCHRONIZE_FILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1236_u32 as _);
+pub const NS_E_PDA_FAILED_TO_TRANSCODE_PHOTO: windows_core::HRESULT = windows_core::HRESULT(0xC00D123B_u32 as _);
+pub const NS_E_PDA_FAIL_READ_WAVE_FILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D117D_u32 as _);
+pub const NS_E_PDA_FAIL_SELECT_DEVICE: windows_core::HRESULT = windows_core::HRESULT(0xC00D117C_u32 as _);
+pub const NS_E_PDA_INITIALIZINGDEVICES: windows_core::HRESULT = windows_core::HRESULT(0xC00D118D_u32 as _);
+pub const NS_E_PDA_MANUALDEVICE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1183_u32 as _);
+pub const NS_E_PDA_NO_LONGER_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1191_u32 as _);
+pub const NS_E_PDA_NO_TRANSCODE_OF_DRM: windows_core::HRESULT = windows_core::HRESULT(0xC00D1186_u32 as _);
+pub const NS_E_PDA_OBSOLETE_SP: windows_core::HRESULT = windows_core::HRESULT(0xC00D118E_u32 as _);
+pub const NS_E_PDA_PARTNERSHIPNOTEXIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D1184_u32 as _);
+pub const NS_E_PDA_RETRIEVED_FILE_FILENAME_TOO_LONG: windows_core::HRESULT = windows_core::HRESULT(0xC00D1240_u32 as _);
+pub const NS_E_PDA_SYNC_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1237_u32 as _);
+pub const NS_E_PDA_SYNC_LOGIN_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D1244_u32 as _);
+pub const NS_E_PDA_SYNC_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0xC00D1243_u32 as _);
+pub const NS_E_PDA_TITLE_COLLISION: windows_core::HRESULT = windows_core::HRESULT(0xC00D118F_u32 as _);
+pub const NS_E_PDA_TOO_MANY_FILES_IN_DIRECTORY: windows_core::HRESULT = windows_core::HRESULT(0xC00D118A_u32 as _);
+pub const NS_E_PDA_TOO_MANY_FILE_COLLISIONS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1188_u32 as _);
+pub const NS_E_PDA_TRANSCODECACHEFULL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1187_u32 as _);
+pub const NS_E_PDA_TRANSCODE_CODEC_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D1245_u32 as _);
+pub const NS_E_PDA_TRANSCODE_NOT_PERMITTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D118C_u32 as _);
+pub const NS_E_PDA_UNSPECIFIED_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D117A_u32 as _);
+pub const NS_E_PDA_UNSUPPORTED_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1178_u32 as _);
+pub const NS_E_PLAYLIST_CONTAINS_ERRORS: windows_core::HRESULT = windows_core::HRESULT(0xC00D10BF_u32 as _);
+pub const NS_E_PLAYLIST_END_RECEDING: windows_core::HRESULT = windows_core::HRESULT(0xC00D14BD_u32 as _);
+pub const NS_E_PLAYLIST_ENTRY_ALREADY_PLAYING: windows_core::HRESULT = windows_core::HRESULT(0xC00D14B4_u32 as _);
+pub const NS_E_PLAYLIST_ENTRY_HAS_CHANGED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EF5_u32 as _);
+pub const NS_E_PLAYLIST_ENTRY_NOT_IN_PLAYLIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D14B8_u32 as _);
+pub const NS_E_PLAYLIST_ENTRY_SEEK: windows_core::HRESULT = windows_core::HRESULT(0xC00D14B9_u32 as _);
+pub const NS_E_PLAYLIST_PARSE_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D14B6_u32 as _);
+pub const NS_E_PLAYLIST_PLUGIN_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D157F_u32 as _);
+pub const NS_E_PLAYLIST_RECURSIVE_PLAYLISTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D14BA_u32 as _);
+pub const NS_E_PLAYLIST_SHUTDOWN: windows_core::HRESULT = windows_core::HRESULT(0xC00D14BC_u32 as _);
+pub const NS_E_PLAYLIST_TOO_MANY_NESTED_PLAYLISTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D14BB_u32 as _);
+pub const NS_E_PLAYLIST_UNSUPPORTED_ENTRY: windows_core::HRESULT = windows_core::HRESULT(0xC00D14B7_u32 as _);
+pub const NS_E_PLUGIN_CLSID_INVALID: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B76_u32 as _);
+pub const NS_E_PLUGIN_ERROR_REPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D157D_u32 as _);
+pub const NS_E_PLUGIN_NOTSHUTDOWN: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FD6_u32 as _);
+pub const NS_E_PORT_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0xC00D158A_u32 as _);
+pub const NS_E_PORT_IN_USE_HTTP: windows_core::HRESULT = windows_core::HRESULT(0xC00D158B_u32 as _);
+pub const NS_E_PROCESSINGSHOWSYNCWIZARD: windows_core::HRESULT = windows_core::HRESULT(0xC00D118B_u32 as _);
+pub const NS_E_PROFILE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B7B_u32 as _);
+pub const NS_E_PROPERTY_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D32CA_u32 as _);
+pub const NS_E_PROPERTY_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D32D2_u32 as _);
+pub const NS_E_PROPERTY_READ_ONLY: windows_core::HRESULT = windows_core::HRESULT(0xC00D32CC_u32 as _);
+pub const NS_E_PROTECTED_CONTENT: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BBD_u32 as _);
+pub const NS_E_PROTOCOL_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D0012_u32 as _);
+pub const NS_E_PROXY_ACCESSDENIED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EF6_u32 as _);
+pub const NS_E_PROXY_CONNECT_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2F07_u32 as _);
+pub const NS_E_PROXY_DNS_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EF0_u32 as _);
+pub const NS_E_PROXY_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EED_u32 as _);
+pub const NS_E_PROXY_SOURCE_ACCESSDENIED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EF7_u32 as _);
+pub const NS_E_PROXY_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EE5_u32 as _);
+pub const NS_E_PUBLISHING_POINT_INVALID_REQUEST_WHILE_STARTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1457_u32 as _);
+pub const NS_E_PUBLISHING_POINT_REMOVED: windows_core::HRESULT = windows_core::HRESULT(0xC00D145A_u32 as _);
+pub const NS_E_PUBLISHING_POINT_STOPPED: windows_core::HRESULT = windows_core::HRESULT(0xC00D145E_u32 as _);
+pub const NS_E_PUSH_CANNOTCONNECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2F0B_u32 as _);
+pub const NS_E_PUSH_DUPLICATE_PUBLISHING_POINT_NAME: windows_core::HRESULT = windows_core::HRESULT(0xC00D1520_u32 as _);
+pub const NS_E_REBOOT_RECOMMENDED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2AFA_u32 as _);
+pub const NS_E_REBOOT_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2AFB_u32 as _);
+pub const NS_E_RECORDQ_DISK_FULL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BA3_u32 as _);
+pub const NS_E_REDBOOK_ENABLED_WHILE_COPYING: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FB0_u32 as _);
+pub const NS_E_REDIRECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1388_u32 as _);
+pub const NS_E_REDIRECT_TO_PROXY: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EE1_u32 as _);
+pub const NS_E_REFUSED_BY_SERVER: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EE7_u32 as _);
+pub const NS_E_REG_FLUSH_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2798_u32 as _);
+pub const NS_E_REMIRRORED_DISK: windows_core::HRESULT = windows_core::HRESULT(0xC00D00C9_u32 as _);
+pub const NS_E_REQUIRE_STREAMING_CLIENT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EF4_u32 as _);
+pub const NS_E_RESET_SOCKET_CONNECTION: windows_core::HRESULT = windows_core::HRESULT(0xC00D2F00_u32 as _);
+pub const NS_E_RESOURCE_GONE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EFC_u32 as _);
+pub const NS_E_SAME_AS_INPUT_COMBINATION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BD2_u32 as _);
+pub const NS_E_SCHEMA_CLASSIFY_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D32D4_u32 as _);
+pub const NS_E_SCRIPT_DEBUGGER_NOT_INSTALLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1582_u32 as _);
+pub const NS_E_SDK_BUFFERTOOSMALL: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BD4_u32 as _);
+pub const NS_E_SERVER_ACCESSDENIED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EFB_u32 as _);
+pub const NS_E_SERVER_DNS_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EEF_u32 as _);
+pub const NS_E_SERVER_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D0035_u32 as _);
+pub const NS_E_SERVER_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EE6_u32 as _);
+pub const NS_E_SESSION_INVALID: windows_core::HRESULT = windows_core::HRESULT(0xC00D2F08_u32 as _);
+pub const NS_E_SESSION_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EF3_u32 as _);
+pub const NS_E_SETUP_BLOCKED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2B00_u32 as _);
+pub const NS_E_SETUP_DRM_MIGRATION_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2AFD_u32 as _);
+pub const NS_E_SETUP_DRM_MIGRATION_FAILED_AND_IGNORABLE_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2AFF_u32 as _);
+pub const NS_E_SETUP_IGNORABLE_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2AFE_u32 as _);
+pub const NS_E_SETUP_INCOMPLETE: windows_core::HRESULT = windows_core::HRESULT(0xC00D2AFC_u32 as _);
+pub const NS_E_SET_DISK_UID_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0021_u32 as _);
+pub const NS_E_SHARING_STATE_OUT_OF_SYNC: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FF4_u32 as _);
+pub const NS_E_SHARING_VIOLATION: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FCF_u32 as _);
+pub const NS_E_SHUTDOWN: windows_core::HRESULT = windows_core::HRESULT(0xC00D002A_u32 as _);
+pub const NS_E_SLOW_READ_DIGITAL: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FA4_u32 as _);
+pub const NS_E_SLOW_READ_DIGITAL_WITH_ERRORCORRECTION: windows_core::HRESULT = windows_core::HRESULT(0xC00D11FD_u32 as _);
+pub const NS_E_SMPTEMODE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BAD_u32 as _);
+pub const NS_E_SOURCEGROUP_NOTPREPARED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B7A_u32 as _);
+pub const NS_E_SOURCE_CANNOT_LOOP: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BD3_u32 as _);
+pub const NS_E_SOURCE_NOTSPECIFIED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B85_u32 as _);
+pub const NS_E_SOURCE_PLUGIN_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D157E_u32 as _);
+pub const NS_E_SPEECHEDL_ON_NON_MIXEDMODE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B92_u32 as _);
+pub const NS_E_STALE_PRESENTATION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1389_u32 as _);
+pub const NS_E_STREAM_END: windows_core::HRESULT = windows_core::HRESULT(0xC00D0034_u32 as _);
+pub const NS_E_STRIDE_REFUSED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0045_u32 as _);
+pub const NS_E_SUBSCRIPTIONSERVICE_DOWNLOAD_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1360_u32 as _);
+pub const NS_E_SUBSCRIPTIONSERVICE_LOGIN_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D135F_u32 as _);
+pub const NS_E_SUBSCRIPTIONSERVICE_PLAYBACK_DISALLOWED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1356_u32 as _);
+pub const NS_E_SYNCWIZ_CANNOT_CHANGE_SETTINGS: windows_core::HRESULT = windows_core::HRESULT(0xC00D11EF_u32 as _);
+pub const NS_E_SYNCWIZ_DEVICE_FULL: windows_core::HRESULT = windows_core::HRESULT(0xC00D11EE_u32 as _);
+pub const NS_E_TABLE_KEY_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D32CD_u32 as _);
+pub const NS_E_TAMPERED_CONTENT: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BBF_u32 as _);
+pub const NS_E_TCP_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D00D2_u32 as _);
+pub const NS_E_TIGER_FAIL: windows_core::HRESULT = windows_core::HRESULT(0xC00D0050_u32 as _);
+pub const NS_E_TIMECODE_REQUIRES_VIDEOSTREAM: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BD9_u32 as _);
+pub const NS_E_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0xC00D0013_u32 as _);
+pub const NS_E_TITLE_BITRATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D00D5_u32 as _);
+pub const NS_E_TITLE_SIZE_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0xC00D00D0_u32 as _);
+pub const NS_E_TOO_MANY_AUDIO: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B5C_u32 as _);
+pub const NS_E_TOO_MANY_DEVICECONTROL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B96_u32 as _);
+pub const NS_E_TOO_MANY_HOPS: windows_core::HRESULT = windows_core::HRESULT(0xC00D2F02_u32 as _);
+pub const NS_E_TOO_MANY_MULTICAST_SINKS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1456_u32 as _);
+pub const NS_E_TOO_MANY_SESS: windows_core::HRESULT = windows_core::HRESULT(0xC00D000F_u32 as _);
+pub const NS_E_TOO_MANY_TITLES: windows_core::HRESULT = windows_core::HRESULT(0xC00D00CF_u32 as _);
+pub const NS_E_TOO_MANY_VIDEO: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B5D_u32 as _);
+pub const NS_E_TOO_MUCH_DATA: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BCC_u32 as _);
+pub const NS_E_TOO_MUCH_DATA_FROM_SERVER: windows_core::HRESULT = windows_core::HRESULT(0xC00D2F05_u32 as _);
+pub const NS_E_TRACK_DOWNLOAD_REQUIRES_ALBUM_PURCHASE: windows_core::HRESULT = windows_core::HRESULT(0xC00D135B_u32 as _);
+pub const NS_E_TRACK_DOWNLOAD_REQUIRES_PURCHASE: windows_core::HRESULT = windows_core::HRESULT(0xC00D135C_u32 as _);
+pub const NS_E_TRACK_PURCHASE_MAXIMUM_EXCEEDED: windows_core::HRESULT = windows_core::HRESULT(0xC00D135D_u32 as _);
+pub const NS_E_TRANSCODE_DELETECACHEERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D11F0_u32 as _);
+pub const NS_E_TRANSFORM_PLUGIN_INVALID: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BE6_u32 as _);
+pub const NS_E_TRANSFORM_PLUGIN_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BE5_u32 as _);
+pub const NS_E_UDP_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D00D1_u32 as _);
+pub const NS_E_UNABLE_TO_CREATE_RIP_LOCATION: windows_core::HRESULT = windows_core::HRESULT(0xC00D10D0_u32 as _);
+pub const NS_E_UNCOMPRESSED_DIGITAL_AUDIO_PROTECTION_LEVEL_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2909_u32 as _);
+pub const NS_E_UNCOMPRESSED_DIGITAL_VIDEO_PROTECTION_LEVEL_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D2906_u32 as _);
+pub const NS_E_UNCOMP_COMP_COMBINATION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BB6_u32 as _);
+pub const NS_E_UNEXPECTED_DISPLAY_SETTINGS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B88_u32 as _);
+pub const NS_E_UNEXPECTED_MSAUDIO_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BBA_u32 as _);
+pub const NS_E_UNKNOWN_PROTOCOL: windows_core::HRESULT = windows_core::HRESULT(0xC00D2EE0_u32 as _);
+pub const NS_E_UNRECOGNIZED_STREAM_TYPE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0026_u32 as _);
+pub const NS_E_UNSUPPORTED_ARCHIVEOPERATION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B78_u32 as _);
+pub const NS_E_UNSUPPORTED_ARCHIVETYPE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B77_u32 as _);
+pub const NS_E_UNSUPPORTED_ENCODER_DEVICE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B87_u32 as _);
+pub const NS_E_UNSUPPORTED_LANGUAGE: windows_core::HRESULT = windows_core::HRESULT(0xC00D145C_u32 as _);
+pub const NS_E_UNSUPPORTED_LOAD_TYPE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1453_u32 as _);
+pub const NS_E_UNSUPPORTED_PROPERTY: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BCD_u32 as _);
+pub const NS_E_UNSUPPORTED_SOURCETYPE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B5B_u32 as _);
+pub const NS_E_URLLIST_INVALIDFORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D106D_u32 as _);
+pub const NS_E_USER_STOP: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FA9_u32 as _);
+pub const NS_E_USE_FILE_SOURCE: windows_core::HRESULT = windows_core::HRESULT(0xC00D32C9_u32 as _);
+pub const NS_E_VBRMODE_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B9D_u32 as _);
+pub const NS_E_VIDCAPCREATEWINDOW: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B6D_u32 as _);
+pub const NS_E_VIDCAPDRVINUSE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B6E_u32 as _);
+pub const NS_E_VIDCAPSTARTFAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B69_u32 as _);
+pub const NS_E_VIDEODEVICE_BUSY: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B64_u32 as _);
+pub const NS_E_VIDEODEVICE_UNEXPECTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B65_u32 as _);
+pub const NS_E_VIDEODRIVER_UNSTABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B68_u32 as _);
+pub const NS_E_VIDEO_BITRATE_STEPDOWN: windows_core::HRESULT = windows_core::HRESULT(0xC00D1BC0_u32 as _);
+pub const NS_E_VIDEO_CODEC_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BC5_u32 as _);
+pub const NS_E_VIDEO_CODEC_NOT_INSTALLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BC4_u32 as _);
+pub const NS_E_VIDSOURCECOMPRESSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B6A_u32 as _);
+pub const NS_E_VIDSOURCESIZE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B6B_u32 as _);
+pub const NS_E_WALKER_SERVER: windows_core::HRESULT = windows_core::HRESULT(0xC00D004D_u32 as _);
+pub const NS_E_WALKER_UNKNOWN: windows_core::HRESULT = windows_core::HRESULT(0xC00D004C_u32 as _);
+pub const NS_E_WALKER_USAGE: windows_core::HRESULT = windows_core::HRESULT(0xC00D004E_u32 as _);
+pub const NS_E_WAVE_OPEN: windows_core::HRESULT = windows_core::HRESULT(0xC00D006D_u32 as _);
+pub const NS_E_WINSOCK_ERROR_STRING: windows_core::HRESULT = windows_core::HRESULT(0xC00D1129_u32 as _);
+pub const NS_E_WIZARD_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0xC00D1584_u32 as _);
+pub const NS_E_WMDM_REVOKED: windows_core::HRESULT = windows_core::HRESULT(0xC00D10BC_u32 as _);
+pub const NS_E_WMDRM_DEPRECATED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0BDE_u32 as _);
+pub const NS_E_WME_VERSION_MISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D1B8B_u32 as _);
+pub const NS_E_WMG_CANNOTQUEUE: windows_core::HRESULT = windows_core::HRESULT(0xC00D104C_u32 as _);
+pub const NS_E_WMG_COPP_SECURITY_INVALID: windows_core::HRESULT = windows_core::HRESULT(0xC00D1052_u32 as _);
+pub const NS_E_WMG_COPP_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1053_u32 as _);
+pub const NS_E_WMG_FILETRANSFERNOTALLOWED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1058_u32 as _);
+pub const NS_E_WMG_INVALIDSTATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1054_u32 as _);
+pub const NS_E_WMG_INVALID_COPP_CERTIFICATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1051_u32 as _);
+pub const NS_E_WMG_LICENSE_TAMPERED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1064_u32 as _);
+pub const NS_E_WMG_NOSDKINTERFACE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1056_u32 as _);
+pub const NS_E_WMG_NOTALLOUTPUTSRENDERED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1057_u32 as _);
+pub const NS_E_WMG_PLUGINUNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D104B_u32 as _);
+pub const NS_E_WMG_PREROLLLICENSEACQUISITIONNOTALLOWED: windows_core::HRESULT = windows_core::HRESULT(0xC00D104D_u32 as _);
+pub const NS_E_WMG_RATEUNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D104A_u32 as _);
+pub const NS_E_WMG_SINKALREADYEXISTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D1055_u32 as _);
+pub const NS_E_WMG_UNEXPECTEDPREROLLSTATUS: windows_core::HRESULT = windows_core::HRESULT(0xC00D104E_u32 as _);
+pub const NS_E_WMPBR_BACKUPCANCEL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1131_u32 as _);
+pub const NS_E_WMPBR_BACKUPRESTOREFAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1138_u32 as _);
+pub const NS_E_WMPBR_DRIVE_INVALID: windows_core::HRESULT = windows_core::HRESULT(0xC00D1137_u32 as _);
+pub const NS_E_WMPBR_ERRORWITHURL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1133_u32 as _);
+pub const NS_E_WMPBR_NAMECOLLISION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1134_u32 as _);
+pub const NS_E_WMPBR_NOLISTENER: windows_core::HRESULT = windows_core::HRESULT(0xC00D1130_u32 as _);
+pub const NS_E_WMPBR_RESTORECANCEL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1132_u32 as _);
+pub const NS_E_WMPCORE_BUFFERTOOSMALL: windows_core::HRESULT = windows_core::HRESULT(0xC00D107F_u32 as _);
+pub const NS_E_WMPCORE_BUSY: windows_core::HRESULT = windows_core::HRESULT(0xC00D10B7_u32 as _);
+pub const NS_E_WMPCORE_COCREATEFAILEDFORGITOBJECT: windows_core::HRESULT = windows_core::HRESULT(0xC00D107D_u32 as _);
+pub const NS_E_WMPCORE_CODEC_DOWNLOAD_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0xC00D109C_u32 as _);
+pub const NS_E_WMPCORE_CODEC_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D109B_u32 as _);
+pub const NS_E_WMPCORE_CODEC_NOT_TRUSTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D109A_u32 as _);
+pub const NS_E_WMPCORE_CURRENT_MEDIA_NOT_ACTIVE: windows_core::HRESULT = windows_core::HRESULT(0xC00D10A9_u32 as _);
+pub const NS_E_WMPCORE_DEVICE_DRIVERS_MISSING: windows_core::HRESULT = windows_core::HRESULT(0xC00D10DD_u32 as _);
+pub const NS_E_WMPCORE_ERRORMANAGERNOTAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D108D_u32 as _);
+pub const NS_E_WMPCORE_ERRORSINKNOTREGISTERED: windows_core::HRESULT = windows_core::HRESULT(0xC00D108C_u32 as _);
+pub const NS_E_WMPCORE_ERROR_DOWNLOADING_PLAYLIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D109D_u32 as _);
+pub const NS_E_WMPCORE_FAILEDTOGETMARSHALLEDEVENTHANDLERINTERFACE: windows_core::HRESULT = windows_core::HRESULT(0xC00D107E_u32 as _);
+pub const NS_E_WMPCORE_FAILED_TO_BUILD_PLAYLIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D109E_u32 as _);
+pub const NS_E_WMPCORE_FILE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D10BA_u32 as _);
+pub const NS_E_WMPCORE_GRAPH_NOT_IN_LIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D108A_u32 as _);
+pub const NS_E_WMPCORE_INVALIDPLAYLISTMODE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1081_u32 as _);
+pub const NS_E_WMPCORE_INVALID_PLAYLIST_URL: windows_core::HRESULT = windows_core::HRESULT(0xC00D10AF_u32 as _);
+pub const NS_E_WMPCORE_ITEMNOTINPLAYLIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D1086_u32 as _);
+pub const NS_E_WMPCORE_LIST_ENTRY_NO_REF: windows_core::HRESULT = windows_core::HRESULT(0xC00D1098_u32 as _);
+pub const NS_E_WMPCORE_MEDIA_ALTERNATE_REF_EMPTY: windows_core::HRESULT = windows_core::HRESULT(0xC00D10A4_u32 as _);
+pub const NS_E_WMPCORE_MEDIA_CHILD_PLAYLIST_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D10B8_u32 as _);
+pub const NS_E_WMPCORE_MEDIA_ERROR_RESUME_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D108F_u32 as _);
+pub const NS_E_WMPCORE_MEDIA_NO_CHILD_PLAYLIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D10B9_u32 as _);
+pub const NS_E_WMPCORE_MEDIA_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D10B3_u32 as _);
+pub const NS_E_WMPCORE_MEDIA_URL_TOO_LONG: windows_core::HRESULT = windows_core::HRESULT(0xC00D10C8_u32 as _);
+pub const NS_E_WMPCORE_MISMATCHED_RUNTIME: windows_core::HRESULT = windows_core::HRESULT(0xC00D10B0_u32 as _);
+pub const NS_E_WMPCORE_MISNAMED_FILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1099_u32 as _);
+pub const NS_E_WMPCORE_NOBROWSER: windows_core::HRESULT = windows_core::HRESULT(0xC00D1088_u32 as _);
+pub const NS_E_WMPCORE_NOSOURCEURLSTRING: windows_core::HRESULT = windows_core::HRESULT(0xC00D107C_u32 as _);
+pub const NS_E_WMPCORE_NO_PLAYABLE_MEDIA_IN_PLAYLIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D10B5_u32 as _);
+pub const NS_E_WMPCORE_NO_REF_IN_ENTRY: windows_core::HRESULT = windows_core::HRESULT(0xC00D1090_u32 as _);
+pub const NS_E_WMPCORE_PLAYLISTEMPTY: windows_core::HRESULT = windows_core::HRESULT(0xC00D1087_u32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_EMPTY_NESTED_PLAYLIST_SKIPPED_ITEMS: windows_core::HRESULT = windows_core::HRESULT(0xC00D10B6_u32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_EMPTY_OR_SINGLE_MEDIA: windows_core::HRESULT = windows_core::HRESULT(0xC00D108B_u32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_EVENT_ATTRIBUTE_ABSENT: windows_core::HRESULT = windows_core::HRESULT(0xC00D10A6_u32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_EVENT_EMPTY: windows_core::HRESULT = windows_core::HRESULT(0xC00D10A7_u32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_IMPORT_FAILED_NO_ITEMS: windows_core::HRESULT = windows_core::HRESULT(0xC00D10B1_u32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_EXHAUSTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D10A0_u32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_INIT_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D10A3_u32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_MORPH_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D10A2_u32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_NAME_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D10A1_u32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_ITEM_ALTERNATE_NONE: windows_core::HRESULT = windows_core::HRESULT(0xC00D109F_u32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_NO_EVENT_NAME: windows_core::HRESULT = windows_core::HRESULT(0xC00D10A5_u32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_REPEAT_EMPTY: windows_core::HRESULT = windows_core::HRESULT(0xC00D10AC_u32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_REPEAT_END_MEDIA_NONE: windows_core::HRESULT = windows_core::HRESULT(0xC00D10AE_u32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_REPEAT_START_MEDIA_NONE: windows_core::HRESULT = windows_core::HRESULT(0xC00D10AD_u32 as _);
+pub const NS_E_WMPCORE_PLAYLIST_STACK_EMPTY: windows_core::HRESULT = windows_core::HRESULT(0xC00D10A8_u32 as _);
+pub const NS_E_WMPCORE_SOME_CODECS_MISSING: windows_core::HRESULT = windows_core::HRESULT(0xC00D10D1_u32 as _);
+pub const NS_E_WMPCORE_TEMP_FILE_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D10BB_u32 as _);
+pub const NS_E_WMPCORE_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1080_u32 as _);
+pub const NS_E_WMPCORE_UNRECOGNIZED_MEDIA_URL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1089_u32 as _);
+pub const NS_E_WMPCORE_USER_CANCEL: windows_core::HRESULT = windows_core::HRESULT(0xC00D10AB_u32 as _);
+pub const NS_E_WMPCORE_VIDEO_TRANSFORM_FILTER_INSERTION: windows_core::HRESULT = windows_core::HRESULT(0xC00D10B2_u32 as _);
+pub const NS_E_WMPCORE_WEBHELPFAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D108E_u32 as _);
+pub const NS_E_WMPCORE_WMX_ENTRYREF_NO_REF: windows_core::HRESULT = windows_core::HRESULT(0xC00D10B4_u32 as _);
+pub const NS_E_WMPCORE_WMX_LIST_ATTRIBUTE_NAME_EMPTY: windows_core::HRESULT = windows_core::HRESULT(0xC00D1091_u32 as _);
+pub const NS_E_WMPCORE_WMX_LIST_ATTRIBUTE_NAME_ILLEGAL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1092_u32 as _);
+pub const NS_E_WMPCORE_WMX_LIST_ATTRIBUTE_VALUE_EMPTY: windows_core::HRESULT = windows_core::HRESULT(0xC00D1093_u32 as _);
+pub const NS_E_WMPCORE_WMX_LIST_ATTRIBUTE_VALUE_ILLEGAL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1094_u32 as _);
+pub const NS_E_WMPCORE_WMX_LIST_ITEM_ATTRIBUTE_NAME_EMPTY: windows_core::HRESULT = windows_core::HRESULT(0xC00D1095_u32 as _);
+pub const NS_E_WMPCORE_WMX_LIST_ITEM_ATTRIBUTE_NAME_ILLEGAL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1096_u32 as _);
+pub const NS_E_WMPCORE_WMX_LIST_ITEM_ATTRIBUTE_VALUE_EMPTY: windows_core::HRESULT = windows_core::HRESULT(0xC00D1097_u32 as _);
+pub const NS_E_WMPFLASH_CANT_FIND_COM_SERVER: windows_core::HRESULT = windows_core::HRESULT(0xC00D10C9_u32 as _);
+pub const NS_E_WMPFLASH_INCOMPATIBLEVERSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D10CA_u32 as _);
+pub const NS_E_WMPIM_DIALUPFAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1128_u32 as _);
+pub const NS_E_WMPIM_USERCANCELED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1127_u32 as _);
+pub const NS_E_WMPIM_USEROFFLINE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1126_u32 as _);
+pub const NS_E_WMPOCXGRAPH_IE_DISALLOWS_ACTIVEX_CONTROLS: windows_core::HRESULT = windows_core::HRESULT(0xC00D10CB_u32 as _);
+pub const NS_E_WMPOCX_ERRORMANAGERNOTAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FD5_u32 as _);
+pub const NS_E_WMPOCX_NOT_RUNNING_REMOTELY: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FD3_u32 as _);
+pub const NS_E_WMPOCX_NO_ACTIVE_CORE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FD2_u32 as _);
+pub const NS_E_WMPOCX_NO_REMOTE_CORE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FD1_u32 as _);
+pub const NS_E_WMPOCX_NO_REMOTE_WINDOW: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FD4_u32 as _);
+pub const NS_E_WMPOCX_PLAYER_NOT_DOCKED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FDB_u32 as _);
+pub const NS_E_WMPOCX_REMOTE_PLAYER_ALREADY_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FFA_u32 as _);
+pub const NS_E_WMPOCX_UNABLE_TO_LOAD_SKIN: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FEB_u32 as _);
+pub const NS_E_WMPXML_ATTRIBUTENOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FB7_u32 as _);
+pub const NS_E_WMPXML_EMPTYDOC: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FB9_u32 as _);
+pub const NS_E_WMPXML_ENDOFDATA: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FB5_u32 as _);
+pub const NS_E_WMPXML_NOERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FB4_u32 as _);
+pub const NS_E_WMPXML_PARSEERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FB6_u32 as _);
+pub const NS_E_WMPXML_PINOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FB8_u32 as _);
+pub const NS_E_WMPZIP_CORRUPT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1019_u32 as _);
+pub const NS_E_WMPZIP_FILENOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D101A_u32 as _);
+pub const NS_E_WMPZIP_NOTAZIPFILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1018_u32 as _);
+pub const NS_E_WMP_ACCESS_DENIED: windows_core::HRESULT = windows_core::HRESULT(0xC00D11D2_u32 as _);
+pub const NS_E_WMP_ADDTOLIBRARY_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FC7_u32 as _);
+pub const NS_E_WMP_ALREADY_IN_USE: windows_core::HRESULT = windows_core::HRESULT(0xC00D119E_u32 as _);
+pub const NS_E_WMP_AUDIO_CODEC_NOT_INSTALLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D11C7_u32 as _);
+pub const NS_E_WMP_AUDIO_DEVICE_LOST: windows_core::HRESULT = windows_core::HRESULT(0xC00D11E5_u32 as _);
+pub const NS_E_WMP_AUDIO_HW_PROBLEM: windows_core::HRESULT = windows_core::HRESULT(0xC00D11BA_u32 as _);
+pub const NS_E_WMP_AUTOPLAY_INVALID_STATE: windows_core::HRESULT = windows_core::HRESULT(0xC00D12FC_u32 as _);
+pub const NS_E_WMP_BAD_DRIVER: windows_core::HRESULT = windows_core::HRESULT(0xC00D11D1_u32 as _);
+pub const NS_E_WMP_BMP_BITMAP_NOT_CREATED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1030_u32 as _);
+pub const NS_E_WMP_BMP_COMPRESSION_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1031_u32 as _);
+pub const NS_E_WMP_BMP_INVALID_BITMASK: windows_core::HRESULT = windows_core::HRESULT(0xC00D102E_u32 as _);
+pub const NS_E_WMP_BMP_INVALID_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1032_u32 as _);
+pub const NS_E_WMP_BMP_TOPDOWN_DIB_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D102F_u32 as _);
+pub const NS_E_WMP_BSTR_TOO_LONG: windows_core::HRESULT = windows_core::HRESULT(0xC00D12F2_u32 as _);
+pub const NS_E_WMP_BURN_DISC_OVERFLOW: windows_core::HRESULT = windows_core::HRESULT(0xC00D11D9_u32 as _);
+pub const NS_E_WMP_CANNOT_BURN_NON_LOCAL_FILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D10D6_u32 as _);
+pub const NS_E_WMP_CANNOT_FIND_FILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1197_u32 as _);
+pub const NS_E_WMP_CANNOT_FIND_FOLDER: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FD7_u32 as _);
+pub const NS_E_WMP_CANT_PLAY_PROTECTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FF3_u32 as _);
+pub const NS_E_WMP_CD_ANOTHER_USER: windows_core::HRESULT = windows_core::HRESULT(0xC00D11CF_u32 as _);
+pub const NS_E_WMP_CD_STASH_NO_SPACE: windows_core::HRESULT = windows_core::HRESULT(0xC00D11D5_u32 as _);
+pub const NS_E_WMP_CODEC_NEEDED_WITH_4CC: windows_core::HRESULT = windows_core::HRESULT(0xC00D11A1_u32 as _);
+pub const NS_E_WMP_CODEC_NEEDED_WITH_FORMATTAG: windows_core::HRESULT = windows_core::HRESULT(0xC00D11A2_u32 as _);
+pub const NS_E_WMP_COMPONENT_REVOKED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1306_u32 as _);
+pub const NS_E_WMP_CONNECT_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0xC00D11C1_u32 as _);
+pub const NS_E_WMP_CONVERT_FILE_CORRUPT: windows_core::HRESULT = windows_core::HRESULT(0xC00D115B_u32 as _);
+pub const NS_E_WMP_CONVERT_FILE_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1158_u32 as _);
+pub const NS_E_WMP_CONVERT_NO_RIGHTS_ERRORURL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1159_u32 as _);
+pub const NS_E_WMP_CONVERT_NO_RIGHTS_NOERRORURL: windows_core::HRESULT = windows_core::HRESULT(0xC00D115A_u32 as _);
+pub const NS_E_WMP_CONVERT_PLUGIN_UNAVAILABLE_ERRORURL: windows_core::HRESULT = windows_core::HRESULT(0xC00D115C_u32 as _);
+pub const NS_E_WMP_CONVERT_PLUGIN_UNAVAILABLE_NOERRORURL: windows_core::HRESULT = windows_core::HRESULT(0xC00D115D_u32 as _);
+pub const NS_E_WMP_CONVERT_PLUGIN_UNKNOWN_FILE_OWNER: windows_core::HRESULT = windows_core::HRESULT(0xC00D115E_u32 as _);
+pub const NS_E_WMP_CS_JPGPOSITIONIMAGE: windows_core::HRESULT = windows_core::HRESULT(0xC00D100E_u32 as _);
+pub const NS_E_WMP_CS_NOTEVENLYDIVISIBLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D100F_u32 as _);
+pub const NS_E_WMP_DAI_SONGTOOSHORT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1049_u32 as _);
+pub const NS_E_WMP_DRM_ACQUIRING_LICENSE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1202_u32 as _);
+pub const NS_E_WMP_DRM_CANNOT_RESTORE: windows_core::HRESULT = windows_core::HRESULT(0xC00D11D8_u32 as _);
+pub const NS_E_WMP_DRM_COMPONENT_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D11E2_u32 as _);
+pub const NS_E_WMP_DRM_CORRUPT_BACKUP: windows_core::HRESULT = windows_core::HRESULT(0xC00D11B4_u32 as _);
+pub const NS_E_WMP_DRM_DRIVER_AUTH_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D11CA_u32 as _);
+pub const NS_E_WMP_DRM_GENERIC_LICENSE_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D11DA_u32 as _);
+pub const NS_E_WMP_DRM_INDIV_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D11DD_u32 as _);
+pub const NS_E_WMP_DRM_INVALID_SIG: windows_core::HRESULT = windows_core::HRESULT(0xC00D11D7_u32 as _);
+pub const NS_E_WMP_DRM_LICENSE_CONTENT_REVOKED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1207_u32 as _);
+pub const NS_E_WMP_DRM_LICENSE_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1203_u32 as _);
+pub const NS_E_WMP_DRM_LICENSE_NOSAP: windows_core::HRESULT = windows_core::HRESULT(0xC00D1208_u32 as _);
+pub const NS_E_WMP_DRM_LICENSE_NOTACQUIRED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1204_u32 as _);
+pub const NS_E_WMP_DRM_LICENSE_NOTENABLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1205_u32 as _);
+pub const NS_E_WMP_DRM_LICENSE_SERVER_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D11B5_u32 as _);
+pub const NS_E_WMP_DRM_LICENSE_UNUSABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1206_u32 as _);
+pub const NS_E_WMP_DRM_NEEDS_AUTHORIZATION: windows_core::HRESULT = windows_core::HRESULT(0xC00D11D0_u32 as _);
+pub const NS_E_WMP_DRM_NEW_HARDWARE: windows_core::HRESULT = windows_core::HRESULT(0xC00D11D6_u32 as _);
+pub const NS_E_WMP_DRM_NOT_ACQUIRING: windows_core::HRESULT = windows_core::HRESULT(0xC00D12C1_u32 as _);
+pub const NS_E_WMP_DRM_NO_DEVICE_CERT: windows_core::HRESULT = windows_core::HRESULT(0xC00D11E3_u32 as _);
+pub const NS_E_WMP_DRM_NO_RIGHTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D11DC_u32 as _);
+pub const NS_E_WMP_DRM_NO_SECURE_CLOCK: windows_core::HRESULT = windows_core::HRESULT(0xC00D11DB_u32 as _);
+pub const NS_E_WMP_DRM_UNABLE_TO_ACQUIRE_LICENSE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1209_u32 as _);
+pub const NS_E_WMP_DSHOW_UNSUPPORTED_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D119A_u32 as _);
+pub const NS_E_WMP_ERASE_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D10D4_u32 as _);
+pub const NS_E_WMP_EXTERNAL_NOTREADY: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FDC_u32 as _);
+pub const NS_E_WMP_FAILED_TO_OPEN_IMAGE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1044_u32 as _);
+pub const NS_E_WMP_FAILED_TO_OPEN_WMD: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FF2_u32 as _);
+pub const NS_E_WMP_FAILED_TO_RIP_TRACK: windows_core::HRESULT = windows_core::HRESULT(0xC00D10D3_u32 as _);
+pub const NS_E_WMP_FAILED_TO_SAVE_FILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FEF_u32 as _);
+pub const NS_E_WMP_FAILED_TO_SAVE_PLAYLIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FF1_u32 as _);
+pub const NS_E_WMP_FILESCANALREADYSTARTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FBE_u32 as _);
+pub const NS_E_WMP_FILE_DOES_NOT_FIT_ON_CD: windows_core::HRESULT = windows_core::HRESULT(0xC00D10D8_u32 as _);
+pub const NS_E_WMP_FILE_NO_DURATION: windows_core::HRESULT = windows_core::HRESULT(0xC00D10D9_u32 as _);
+pub const NS_E_WMP_FILE_OPEN_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D11B1_u32 as _);
+pub const NS_E_WMP_FILE_TYPE_CANNOT_BURN_TO_AUDIO_CD: windows_core::HRESULT = windows_core::HRESULT(0xC00D10D7_u32 as _);
+pub const NS_E_WMP_FORMAT_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D10D5_u32 as _);
+pub const NS_E_WMP_GIF_BAD_VERSION_NUMBER: windows_core::HRESULT = windows_core::HRESULT(0xC00D1026_u32 as _);
+pub const NS_E_WMP_GIF_INVALID_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1025_u32 as _);
+pub const NS_E_WMP_GIF_NO_IMAGE_IN_FILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1027_u32 as _);
+pub const NS_E_WMP_GIF_UNEXPECTED_ENDOFFILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1024_u32 as _);
+pub const NS_E_WMP_GOFULLSCREEN_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D11BF_u32 as _);
+pub const NS_E_WMP_HME_INVALIDOBJECTID: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FBF_u32 as _);
+pub const NS_E_WMP_HME_NOTSEARCHABLEFORITEMS: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FC1_u32 as _);
+pub const NS_E_WMP_HME_STALEREQUEST: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FC2_u32 as _);
+pub const NS_E_WMP_HWND_NOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D125C_u32 as _);
+pub const NS_E_WMP_IMAGE_FILETYPE_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D1022_u32 as _);
+pub const NS_E_WMP_IMAGE_INVALID_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1023_u32 as _);
+pub const NS_E_WMP_IMAPI2_ERASE_DEVICE_BUSY: windows_core::HRESULT = windows_core::HRESULT(0xC00D11E1_u32 as _);
+pub const NS_E_WMP_IMAPI2_ERASE_FAIL: windows_core::HRESULT = windows_core::HRESULT(0xC00D11E0_u32 as _);
+pub const NS_E_WMP_IMAPI_DEVICE_BUSY: windows_core::HRESULT = windows_core::HRESULT(0xC00D11AE_u32 as _);
+pub const NS_E_WMP_IMAPI_DEVICE_INVALIDTYPE: windows_core::HRESULT = windows_core::HRESULT(0xC00D11C9_u32 as _);
+pub const NS_E_WMP_IMAPI_DEVICE_NOTPRESENT: windows_core::HRESULT = windows_core::HRESULT(0xC00D11AD_u32 as _);
+pub const NS_E_WMP_IMAPI_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D119F_u32 as _);
+pub const NS_E_WMP_IMAPI_GENERIC: windows_core::HRESULT = windows_core::HRESULT(0xC00D11AB_u32 as _);
+pub const NS_E_WMP_IMAPI_LOSS_OF_STREAMING: windows_core::HRESULT = windows_core::HRESULT(0xC00D11AF_u32 as _);
+pub const NS_E_WMP_IMAPI_MEDIA_INCOMPATIBLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D11E6_u32 as _);
+pub const NS_E_WMP_INVALID_ASX: windows_core::HRESULT = windows_core::HRESULT(0xC00D119D_u32 as _);
+pub const NS_E_WMP_INVALID_KEY: windows_core::HRESULT = windows_core::HRESULT(0xC00D11CE_u32 as _);
+pub const NS_E_WMP_INVALID_LIBRARY_ADD: windows_core::HRESULT = windows_core::HRESULT(0xC00D11BC_u32 as _);
+pub const NS_E_WMP_INVALID_MAX_VAL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1009_u32 as _);
+pub const NS_E_WMP_INVALID_MIN_VAL: windows_core::HRESULT = windows_core::HRESULT(0xC00D100A_u32 as _);
+pub const NS_E_WMP_INVALID_PROTOCOL: windows_core::HRESULT = windows_core::HRESULT(0xC00D11BB_u32 as _);
+pub const NS_E_WMP_INVALID_REQUEST: windows_core::HRESULT = windows_core::HRESULT(0xC00D11D4_u32 as _);
+pub const NS_E_WMP_INVALID_SKIN: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FEC_u32 as _);
+pub const NS_E_WMP_JPGTRANSPARENCY: windows_core::HRESULT = windows_core::HRESULT(0xC00D1005_u32 as _);
+pub const NS_E_WMP_JPG_BAD_DCTSIZE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1035_u32 as _);
+pub const NS_E_WMP_JPG_BAD_PRECISION: windows_core::HRESULT = windows_core::HRESULT(0xC00D1037_u32 as _);
+pub const NS_E_WMP_JPG_BAD_VERSION_NUMBER: windows_core::HRESULT = windows_core::HRESULT(0xC00D1036_u32 as _);
+pub const NS_E_WMP_JPG_CCIR601_NOTIMPL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1038_u32 as _);
+pub const NS_E_WMP_JPG_FRACT_SAMPLE_NOTIMPL: windows_core::HRESULT = windows_core::HRESULT(0xC00D103B_u32 as _);
+pub const NS_E_WMP_JPG_IMAGE_TOO_BIG: windows_core::HRESULT = windows_core::HRESULT(0xC00D103C_u32 as _);
+pub const NS_E_WMP_JPG_INVALID_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1034_u32 as _);
+pub const NS_E_WMP_JPG_JERR_ARITHCODING_NOTIMPL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1033_u32 as _);
+pub const NS_E_WMP_JPG_NO_IMAGE_IN_FILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1039_u32 as _);
+pub const NS_E_WMP_JPG_READ_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D103A_u32 as _);
+pub const NS_E_WMP_JPG_SOF_UNSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D103E_u32 as _);
+pub const NS_E_WMP_JPG_UNEXPECTED_ENDOFFILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D103D_u32 as _);
+pub const NS_E_WMP_JPG_UNKNOWN_MARKER: windows_core::HRESULT = windows_core::HRESULT(0xC00D103F_u32 as _);
+pub const NS_E_WMP_LICENSE_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0xC00D120A_u32 as _);
+pub const NS_E_WMP_LICENSE_RESTRICTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D11D3_u32 as _);
+pub const NS_E_WMP_LOCKEDINSKINMODE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FEE_u32 as _);
+pub const NS_E_WMP_LOGON_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1196_u32 as _);
+pub const NS_E_WMP_MF_CODE_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FC0_u32 as _);
+pub const NS_E_WMP_MLS_STALE_DATA: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FDD_u32 as _);
+pub const NS_E_WMP_MMS_NOT_SUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D11BD_u32 as _);
+pub const NS_E_WMP_MSSAP_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D11A3_u32 as _);
+pub const NS_E_WMP_MULTICAST_DISABLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D11C2_u32 as _);
+pub const NS_E_WMP_MULTIPLE_ERROR_IN_PLAYLIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D11DF_u32 as _);
+pub const NS_E_WMP_NEED_UPGRADE: windows_core::HRESULT = windows_core::HRESULT(0xC00D11B9_u32 as _);
+pub const NS_E_WMP_NETWORK_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D11C0_u32 as _);
+pub const NS_E_WMP_NETWORK_FIREWALL: windows_core::HRESULT = windows_core::HRESULT(0xC00D11B6_u32 as _);
+pub const NS_E_WMP_NETWORK_RESOURCE_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D11CB_u32 as _);
+pub const NS_E_WMP_NONMEDIA_FILES: windows_core::HRESULT = windows_core::HRESULT(0xC00D119C_u32 as _);
+pub const NS_E_WMP_NO_DISK_SPACE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1195_u32 as _);
+pub const NS_E_WMP_NO_PROTOCOLS_SELECTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D11BE_u32 as _);
+pub const NS_E_WMP_NO_REMOVABLE_MEDIA: windows_core::HRESULT = windows_core::HRESULT(0xC00D11B7_u32 as _);
+pub const NS_E_WMP_OUTOFMEMORY: windows_core::HRESULT = windows_core::HRESULT(0xC00D11C6_u32 as _);
+pub const NS_E_WMP_PATH_ALREADY_IN_LIBRARY: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FBA_u32 as _);
+pub const NS_E_WMP_PLAYLIST_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D119B_u32 as _);
+pub const NS_E_WMP_PLUGINDLL_NOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FD9_u32 as _);
+pub const NS_E_WMP_PNG_INVALIDFORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1028_u32 as _);
+pub const NS_E_WMP_PNG_UNSUPPORTED_BAD_CRC: windows_core::HRESULT = windows_core::HRESULT(0xC00D102D_u32 as _);
+pub const NS_E_WMP_PNG_UNSUPPORTED_BITDEPTH: windows_core::HRESULT = windows_core::HRESULT(0xC00D1029_u32 as _);
+pub const NS_E_WMP_PNG_UNSUPPORTED_COMPRESSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D102A_u32 as _);
+pub const NS_E_WMP_PNG_UNSUPPORTED_FILTER: windows_core::HRESULT = windows_core::HRESULT(0xC00D102B_u32 as _);
+pub const NS_E_WMP_PNG_UNSUPPORTED_INTERLACE: windows_core::HRESULT = windows_core::HRESULT(0xC00D102C_u32 as _);
+pub const NS_E_WMP_POLICY_VALUE_NOT_CONFIGURED: windows_core::HRESULT = windows_core::HRESULT(0xC00D122A_u32 as _);
+pub const NS_E_WMP_PROTECTED_CONTENT: windows_core::HRESULT = windows_core::HRESULT(0xC00D120B_u32 as _);
+pub const NS_E_WMP_PROTOCOL_PROBLEM: windows_core::HRESULT = windows_core::HRESULT(0xC00D1194_u32 as _);
+pub const NS_E_WMP_PROXY_CONNECT_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0xC00D11B8_u32 as _);
+pub const NS_E_WMP_PROXY_NOT_FOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D11C4_u32 as _);
+pub const NS_E_WMP_RBC_JPGMAPPINGIMAGE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1004_u32 as _);
+pub const NS_E_WMP_RECORDING_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FC9_u32 as _);
+pub const NS_E_WMP_RIP_FAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D10D2_u32 as _);
+pub const NS_E_WMP_SAVEAS_READONLY: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FF0_u32 as _);
+pub const NS_E_WMP_SENDMAILFAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FED_u32 as _);
+pub const NS_E_WMP_SERVER_DNS_TIMEOUT: windows_core::HRESULT = windows_core::HRESULT(0xC00D11C3_u32 as _);
+pub const NS_E_WMP_SERVER_INACCESSIBLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1198_u32 as _);
+pub const NS_E_WMP_SERVER_NONEWCONNECTIONS: windows_core::HRESULT = windows_core::HRESULT(0xC00D11DE_u32 as _);
+pub const NS_E_WMP_SERVER_NOT_RESPONDING: windows_core::HRESULT = windows_core::HRESULT(0xC00D11B3_u32 as _);
+pub const NS_E_WMP_SERVER_SECURITY_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D11E4_u32 as _);
+pub const NS_E_WMP_SERVER_UNAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D11B0_u32 as _);
+pub const NS_E_WMP_STREAMING_RECORDING_NOT_ALLOWED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FD8_u32 as _);
+pub const NS_E_WMP_TAMPERED_CONTENT: windows_core::HRESULT = windows_core::HRESULT(0xC00D11C5_u32 as _);
+pub const NS_E_WMP_UDRM_NOUSERLIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D12C0_u32 as _);
+pub const NS_E_WMP_UI_NOSKININZIP: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FE7_u32 as _);
+pub const NS_E_WMP_UI_NOTATHEMEFILE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FE0_u32 as _);
+pub const NS_E_WMP_UI_OBJECTNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FE5_u32 as _);
+pub const NS_E_WMP_UI_PASSTHROUGH: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FE4_u32 as _);
+pub const NS_E_WMP_UI_SECONDHANDLER: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FE6_u32 as _);
+pub const NS_E_WMP_UI_SUBCONTROLSNOTSUPPORTED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FDE_u32 as _);
+pub const NS_E_WMP_UI_SUBELEMENTNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FE1_u32 as _);
+pub const NS_E_WMP_UI_VERSIONMISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FDF_u32 as _);
+pub const NS_E_WMP_UI_VERSIONPARSE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FE2_u32 as _);
+pub const NS_E_WMP_UI_VIEWIDNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FE3_u32 as _);
+pub const NS_E_WMP_UNKNOWN_ERROR: windows_core::HRESULT = windows_core::HRESULT(0xC00D11CD_u32 as _);
+pub const NS_E_WMP_UNSUPPORTED_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1199_u32 as _);
+pub const NS_E_WMP_UPGRADE_APPLICATION: windows_core::HRESULT = windows_core::HRESULT(0xC00D11CC_u32 as _);
+pub const NS_E_WMP_URLDOWNLOADFAILED: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FEA_u32 as _);
+pub const NS_E_WMP_VERIFY_ONLINE: windows_core::HRESULT = windows_core::HRESULT(0xC00D11B2_u32 as _);
+pub const NS_E_WMP_VIDEO_CODEC_NOT_INSTALLED: windows_core::HRESULT = windows_core::HRESULT(0xC00D11C8_u32 as _);
+pub const NS_E_WMP_WINDOWSAPIFAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FC8_u32 as _);
+pub const NS_E_WMP_WMDM_BUSY: windows_core::HRESULT = windows_core::HRESULT(0xC00D11A8_u32 as _);
+pub const NS_E_WMP_WMDM_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0xC00D11A0_u32 as _);
+pub const NS_E_WMP_WMDM_INCORRECT_RIGHTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D11AA_u32 as _);
+pub const NS_E_WMP_WMDM_INTERFACEDEAD: windows_core::HRESULT = windows_core::HRESULT(0xC00D11A4_u32 as _);
+pub const NS_E_WMP_WMDM_LICENSE_EXPIRED: windows_core::HRESULT = windows_core::HRESULT(0xC00D11A7_u32 as _);
+pub const NS_E_WMP_WMDM_LICENSE_NOTEXIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D11A6_u32 as _);
+pub const NS_E_WMP_WMDM_NORIGHTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D11A9_u32 as _);
+pub const NS_E_WMP_WMDM_NOTCERTIFIED: windows_core::HRESULT = windows_core::HRESULT(0xC00D11A5_u32 as _);
+pub const NS_E_WMR_CANNOT_RENDER_BINARY_STREAM: windows_core::HRESULT = windows_core::HRESULT(0xC00D1063_u32 as _);
+pub const NS_E_WMR_NOCALLBACKAVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D105E_u32 as _);
+pub const NS_E_WMR_NOSOURCEFILTER: windows_core::HRESULT = windows_core::HRESULT(0xC00D105C_u32 as _);
+pub const NS_E_WMR_PINNOTFOUND: windows_core::HRESULT = windows_core::HRESULT(0xC00D105A_u32 as _);
+pub const NS_E_WMR_PINTYPENOMATCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D105D_u32 as _);
+pub const NS_E_WMR_SAMPLEPROPERTYNOTSET: windows_core::HRESULT = windows_core::HRESULT(0xC00D1062_u32 as _);
+pub const NS_E_WMR_UNSUPPORTEDSTREAM: windows_core::HRESULT = windows_core::HRESULT(0xC00D1059_u32 as _);
+pub const NS_E_WMR_WAITINGONFORMATSWITCH: windows_core::HRESULT = windows_core::HRESULT(0xC00D105B_u32 as _);
+pub const NS_E_WMR_WILLNOT_RENDER_BINARY_STREAM: windows_core::HRESULT = windows_core::HRESULT(0xC00D1065_u32 as _);
+pub const NS_E_WMX_ATTRIBUTE_ALREADY_EXISTS: windows_core::HRESULT = windows_core::HRESULT(0xC00D106F_u32 as _);
+pub const NS_E_WMX_ATTRIBUTE_DOES_NOT_EXIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D106E_u32 as _);
+pub const NS_E_WMX_ATTRIBUTE_UNRETRIEVABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1070_u32 as _);
+pub const NS_E_WMX_INVALID_FORMAT_OVER_NESTING: windows_core::HRESULT = windows_core::HRESULT(0xC00D1076_u32 as _);
+pub const NS_E_WMX_ITEM_DOES_NOT_EXIST: windows_core::HRESULT = windows_core::HRESULT(0xC00D1071_u32 as _);
+pub const NS_E_WMX_ITEM_TYPE_ILLEGAL: windows_core::HRESULT = windows_core::HRESULT(0xC00D1072_u32 as _);
+pub const NS_E_WMX_ITEM_UNSETTABLE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1073_u32 as _);
+pub const NS_E_WMX_PLAYLIST_EMPTY: windows_core::HRESULT = windows_core::HRESULT(0xC00D1074_u32 as _);
+pub const NS_E_WMX_UNRECOGNIZED_PLAYLIST_FORMAT: windows_core::HRESULT = windows_core::HRESULT(0xC00D1068_u32 as _);
+pub const NS_E_WONT_DO_DIGITAL: windows_core::HRESULT = windows_core::HRESULT(0xC00D0FB3_u32 as _);
+pub const NS_E_WRONG_OS_VERSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D145D_u32 as _);
+pub const NS_E_WRONG_PUBLISHING_POINT_TYPE: windows_core::HRESULT = windows_core::HRESULT(0xC00D1452_u32 as _);
+pub const NS_E_WSX_INVALID_VERSION: windows_core::HRESULT = windows_core::HRESULT(0xC00D151E_u32 as _);
+pub const NS_I_CATATONIC_AUTO_UNFAIL: windows_core::HRESULT = windows_core::HRESULT(0x800D019A_u32 as _);
+pub const NS_I_CATATONIC_FAILURE: windows_core::HRESULT = windows_core::HRESULT(0x800D0199_u32 as _);
+pub const NS_I_CUB_RUNNING: windows_core::HRESULT = windows_core::HRESULT(0x400D0052_u32 as _);
+pub const NS_I_CUB_START: windows_core::HRESULT = windows_core::HRESULT(0x400D0051_u32 as _);
+pub const NS_I_CUB_UNFAIL_LINK: windows_core::HRESULT = windows_core::HRESULT(0x400D0191_u32 as _);
+pub const NS_I_DISK_REBUILD_ABORTED: windows_core::HRESULT = windows_core::HRESULT(0x400D0058_u32 as _);
+pub const NS_I_DISK_REBUILD_FINISHED: windows_core::HRESULT = windows_core::HRESULT(0x400D0057_u32 as _);
+pub const NS_I_DISK_REBUILD_STARTED: windows_core::HRESULT = windows_core::HRESULT(0x400D0056_u32 as _);
+pub const NS_I_DISK_START: windows_core::HRESULT = windows_core::HRESULT(0x400D0054_u32 as _);
+pub const NS_I_DISK_STOP: windows_core::HRESULT = windows_core::HRESULT(0x400D0198_u32 as _);
+pub const NS_I_EXISTING_PACKETIZER: windows_core::HRESULT = windows_core::HRESULT(0x400D2F03_u32 as _);
+pub const NS_I_KILL_CONNECTION: windows_core::HRESULT = windows_core::HRESULT(0x400D005E_u32 as _);
+pub const NS_I_KILL_USERSESSION: windows_core::HRESULT = windows_core::HRESULT(0x400D005D_u32 as _);
+pub const NS_I_LIMIT_BANDWIDTH: windows_core::HRESULT = windows_core::HRESULT(0x400D0070_u32 as _);
+pub const NS_I_LIMIT_FUNNELS: windows_core::HRESULT = windows_core::HRESULT(0x400D0059_u32 as _);
+pub const NS_I_LOGGING_FAILED: windows_core::HRESULT = windows_core::HRESULT(0x400D006E_u32 as _);
+pub const NS_I_MANUAL_PROXY: windows_core::HRESULT = windows_core::HRESULT(0x400D2F04_u32 as _);
+pub const NS_I_NOLOG_STOP: windows_core::HRESULT = windows_core::HRESULT(0x400D2F01_u32 as _);
+pub const NS_I_PLAYLIST_CHANGE_RECEDING: windows_core::HRESULT = windows_core::HRESULT(0x400D14BE_u32 as _);
+pub const NS_I_REBUILD_DISK: windows_core::HRESULT = windows_core::HRESULT(0x400D005F_u32 as _);
+pub const NS_I_RECONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x400D2EFF_u32 as _);
+pub const NS_I_RESTRIPE_CUB_OUT: windows_core::HRESULT = windows_core::HRESULT(0x400D0197_u32 as _);
+pub const NS_I_RESTRIPE_DISK_OUT: windows_core::HRESULT = windows_core::HRESULT(0x400D0196_u32 as _);
+pub const NS_I_RESTRIPE_DONE: windows_core::HRESULT = windows_core::HRESULT(0x400D0194_u32 as _);
+pub const NS_I_RESTRIPE_START: windows_core::HRESULT = windows_core::HRESULT(0x400D0193_u32 as _);
+pub const NS_I_START_DISK: windows_core::HRESULT = windows_core::HRESULT(0x400D005A_u32 as _);
+pub const NS_I_STOP_CUB: windows_core::HRESULT = windows_core::HRESULT(0x400D005C_u32 as _);
+pub const NS_I_STOP_DISK: windows_core::HRESULT = windows_core::HRESULT(0x400D005B_u32 as _);
+pub const NS_I_TIGER_START: windows_core::HRESULT = windows_core::HRESULT(0x400D004F_u32 as _);
+pub const NS_S_CALLABORTED: windows_core::HRESULT = windows_core::HRESULT(0xD0001_u32 as _);
+pub const NS_S_CALLPENDING: windows_core::HRESULT = windows_core::HRESULT(0xD0000_u32 as _);
+pub const NS_S_CHANGENOTICE: windows_core::HRESULT = windows_core::HRESULT(0xD2F0D_u32 as _);
+pub const NS_S_DEGRADING_QUALITY: windows_core::HRESULT = windows_core::HRESULT(0xD0BC9_u32 as _);
+pub const NS_S_DRM_ACQUIRE_CANCELLED: windows_core::HRESULT = windows_core::HRESULT(0xD2747_u32 as _);
+pub const NS_S_DRM_BURNABLE_TRACK: windows_core::HRESULT = windows_core::HRESULT(0xD276E_u32 as _);
+pub const NS_S_DRM_BURNABLE_TRACK_WITH_PLAYLIST_RESTRICTION: windows_core::HRESULT = windows_core::HRESULT(0xD276F_u32 as _);
+pub const NS_S_DRM_INDIVIDUALIZED: windows_core::HRESULT = windows_core::HRESULT(0xD2727_u32 as _);
+pub const NS_S_DRM_LICENSE_ACQUIRED: windows_core::HRESULT = windows_core::HRESULT(0xD2726_u32 as _);
+pub const NS_S_DRM_MONITOR_CANCELLED: windows_core::HRESULT = windows_core::HRESULT(0xD2746_u32 as _);
+pub const NS_S_DRM_NEEDS_INDIVIDUALIZATION: windows_core::HRESULT = windows_core::HRESULT(0xD27DE_u32 as _);
+pub const NS_S_EOSRECEDING: windows_core::HRESULT = windows_core::HRESULT(0xD2F09_u32 as _);
+pub const NS_S_NAVIGATION_COMPLETE_WITH_ERRORS: windows_core::HRESULT = windows_core::HRESULT(0xD135E_u32 as _);
+pub const NS_S_NEED_TO_BUY_BURN_RIGHTS: windows_core::HRESULT = windows_core::HRESULT(0xD10DB_u32 as _);
+pub const NS_S_OPERATION_PENDING: windows_core::HRESULT = windows_core::HRESULT(0xD114E_u32 as _);
+pub const NS_S_PUBLISHING_POINT_STARTED_WITH_FAILED_SINKS: windows_core::HRESULT = windows_core::HRESULT(0xD1519_u32 as _);
+pub const NS_S_REBOOT_RECOMMENDED: windows_core::HRESULT = windows_core::HRESULT(0xD2AF8_u32 as _);
+pub const NS_S_REBOOT_REQUIRED: windows_core::HRESULT = windows_core::HRESULT(0xD2AF9_u32 as _);
+pub const NS_S_REBUFFERING: windows_core::HRESULT = windows_core::HRESULT(0xD0BC8_u32 as _);
+pub const NS_S_STREAM_TRUNCATED: windows_core::HRESULT = windows_core::HRESULT(0xD0002_u32 as _);
+pub const NS_S_TRACK_ALREADY_DOWNLOADED: windows_core::HRESULT = windows_core::HRESULT(0xD1361_u32 as _);
+pub const NS_S_TRACK_BUY_REQUIRES_ALBUM_PURCHASE: windows_core::HRESULT = windows_core::HRESULT(0xD1359_u32 as _);
+pub const NS_S_TRANSCRYPTOR_EOF: windows_core::HRESULT = windows_core::HRESULT(0xD0BDB_u32 as _);
+pub const NS_S_WMG_ADVISE_DROP_FRAME: windows_core::HRESULT = windows_core::HRESULT(0xD1066_u32 as _);
+pub const NS_S_WMG_ADVISE_DROP_TO_KEYFRAME: windows_core::HRESULT = windows_core::HRESULT(0xD1067_u32 as _);
+pub const NS_S_WMG_FORCE_DROP_FRAME: windows_core::HRESULT = windows_core::HRESULT(0xD104F_u32 as _);
+pub const NS_S_WMPBR_PARTIALSUCCESS: windows_core::HRESULT = windows_core::HRESULT(0xD1136_u32 as _);
+pub const NS_S_WMPBR_SUCCESS: windows_core::HRESULT = windows_core::HRESULT(0xD1135_u32 as _);
+pub const NS_S_WMPCORE_COMMAND_NOT_AVAILABLE: windows_core::HRESULT = windows_core::HRESULT(0xD1105_u32 as _);
+pub const NS_S_WMPCORE_MEDIA_CHILD_PLAYLIST_OPEN_PENDING: windows_core::HRESULT = windows_core::HRESULT(0xD1109_u32 as _);
+pub const NS_S_WMPCORE_MEDIA_VALIDATION_PENDING: windows_core::HRESULT = windows_core::HRESULT(0xD1103_u32 as _);
+pub const NS_S_WMPCORE_MORE_NODES_AVAIABLE: windows_core::HRESULT = windows_core::HRESULT(0xD110A_u32 as _);
+pub const NS_S_WMPCORE_PLAYLISTCLEARABORT: windows_core::HRESULT = windows_core::HRESULT(0xD10FE_u32 as _);
+pub const NS_S_WMPCORE_PLAYLISTREMOVEITEMABORT: windows_core::HRESULT = windows_core::HRESULT(0xD10FF_u32 as _);
+pub const NS_S_WMPCORE_PLAYLIST_COLLAPSED_TO_SINGLE_MEDIA: windows_core::HRESULT = windows_core::HRESULT(0xD1108_u32 as _);
+pub const NS_S_WMPCORE_PLAYLIST_CREATION_PENDING: windows_core::HRESULT = windows_core::HRESULT(0xD1102_u32 as _);
+pub const NS_S_WMPCORE_PLAYLIST_IMPORT_MISSING_ITEMS: windows_core::HRESULT = windows_core::HRESULT(0xD1107_u32 as _);
+pub const NS_S_WMPCORE_PLAYLIST_NAME_AUTO_GENERATED: windows_core::HRESULT = windows_core::HRESULT(0xD1106_u32 as _);
+pub const NS_S_WMPCORE_PLAYLIST_REPEAT_SECONDARY_SEGMENTS_IGNORED: windows_core::HRESULT = windows_core::HRESULT(0xD1104_u32 as _);
+pub const NS_S_WMPEFFECT_OPAQUE: windows_core::HRESULT = windows_core::HRESULT(0xD1145_u32 as _);
+pub const NS_S_WMPEFFECT_TRANSPARENT: windows_core::HRESULT = windows_core::HRESULT(0xD1144_u32 as _);
+pub const NS_S_WMP_EXCEPTION: windows_core::HRESULT = windows_core::HRESULT(0xD0FE9_u32 as _);
+pub const NS_S_WMP_LOADED_BMP_IMAGE: windows_core::HRESULT = windows_core::HRESULT(0xD1042_u32 as _);
+pub const NS_S_WMP_LOADED_GIF_IMAGE: windows_core::HRESULT = windows_core::HRESULT(0xD1040_u32 as _);
+pub const NS_S_WMP_LOADED_JPG_IMAGE: windows_core::HRESULT = windows_core::HRESULT(0xD1043_u32 as _);
+pub const NS_S_WMP_LOADED_PNG_IMAGE: windows_core::HRESULT = windows_core::HRESULT(0xD1041_u32 as _);
+pub const NS_S_WMP_UI_VERSIONMISMATCH: windows_core::HRESULT = windows_core::HRESULT(0xD0FE8_u32 as _);
+pub const NS_S_WMR_ALREADYRENDERED: windows_core::HRESULT = windows_core::HRESULT(0xD105F_u32 as _);
+pub const NS_S_WMR_PINTYPEFULLMATCH: windows_core::HRESULT = windows_core::HRESULT(0xD1061_u32 as _);
+pub const NS_S_WMR_PINTYPEPARTIALMATCH: windows_core::HRESULT = windows_core::HRESULT(0xD1060_u32 as _);
+pub const NS_W_FILE_BANDWIDTH_LIMIT: windows_core::HRESULT = windows_core::HRESULT(0x800D0004_u32 as _);
+pub const NS_W_SERVER_BANDWIDTH_LIMIT: windows_core::HRESULT = windows_core::HRESULT(0x800D0003_u32 as _);
+pub const NS_W_UNKNOWN_EVENT: windows_core::HRESULT = windows_core::HRESULT(0x800D0060_u32 as _);
 pub const PD_CAN_DRAW_DIB: u32 = 1u32;
 pub const PD_CAN_STRETCHDIB: u32 = 2u32;
 pub const PD_STRETCHDIB_1_1_OK: u32 = 4u32;
@@ -4647,25 +6105,29 @@ pub const WODM_SETVOLUME: u32 = 17u32;
 pub const WODM_UNPREPARE: u32 = 8u32;
 pub const WODM_WRITE: u32 = 9u32;
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct ADPCMCOEFSET {
     pub iCoef1: i16,
     pub iCoef2: i16,
+}
+impl windows_core::TypeKind for ADPCMCOEFSET {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ADPCMCOEFSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADPCMCOEFSET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct ADPCMEWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for ADPCMEWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for ADPCMEWAVEFORMAT {
@@ -4673,13 +6135,9 @@ impl Default for ADPCMEWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for ADPCMEWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
@@ -4687,20 +6145,24 @@ pub struct ADPCMWAVEFORMAT {
     pub aCoef: [ADPCMCOEFSET; 1],
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for ADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for ADPCMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for ADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct APTXWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for APTXWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for APTXWAVEFORMAT {
@@ -4708,15 +6170,15 @@ impl Default for APTXWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for APTXWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct AUDIOFILE_AF10WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for AUDIOFILE_AF10WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for AUDIOFILE_AF10WAVEFORMAT {
@@ -4724,15 +6186,15 @@ impl Default for AUDIOFILE_AF10WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for AUDIOFILE_AF10WAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct AUDIOFILE_AF36WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for AUDIOFILE_AF36WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for AUDIOFILE_AF36WAVEFORMAT {
@@ -4740,12 +6202,8 @@ impl Default for AUDIOFILE_AF36WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for AUDIOFILE_AF36WAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVICOMPRESSOPTIONS {
     pub fccType: u32,
     pub fccHandler: u32,
@@ -4759,16 +6217,16 @@ pub struct AVICOMPRESSOPTIONS {
     pub cbParms: u32,
     pub dwInterleaveEvery: u32,
 }
+impl windows_core::TypeKind for AVICOMPRESSOPTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for AVICOMPRESSOPTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVICOMPRESSOPTIONS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVIFILEINFOA {
     pub dwMaxBytesPerSec: u32,
     pub dwFlags: u32,
@@ -4783,16 +6241,16 @@ pub struct AVIFILEINFOA {
     pub dwEditCount: u32,
     pub szFileType: [i8; 64],
 }
+impl windows_core::TypeKind for AVIFILEINFOA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for AVIFILEINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVIFILEINFOA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVIFILEINFOW {
     pub dwMaxBytesPerSec: u32,
     pub dwFlags: u32,
@@ -4807,16 +6265,16 @@ pub struct AVIFILEINFOW {
     pub dwEditCount: u32,
     pub szFileType: [u16; 64],
 }
+impl windows_core::TypeKind for AVIFILEINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for AVIFILEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVIFILEINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVISTREAMINFOA {
     pub fccType: u32,
     pub fccHandler: u32,
@@ -4837,16 +6295,16 @@ pub struct AVISTREAMINFOA {
     pub dwFormatChangeCount: u32,
     pub szName: [i8; 64],
 }
+impl windows_core::TypeKind for AVISTREAMINFOA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for AVISTREAMINFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVISTREAMINFOA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVISTREAMINFOW {
     pub fccType: u32,
     pub fccHandler: u32,
@@ -4867,16 +6325,16 @@ pub struct AVISTREAMINFOW {
     pub dwFormatChangeCount: u32,
     pub szName: [u16; 64],
 }
+impl windows_core::TypeKind for AVISTREAMINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for AVISTREAMINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AVISTREAMINFOW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAPDRIVERCAPS {
     pub wDeviceIndex: u32,
     pub fHasOverlay: super::super::Foundation::BOOL,
@@ -4890,32 +6348,32 @@ pub struct CAPDRIVERCAPS {
     pub hVideoExtIn: super::super::Foundation::HANDLE,
     pub hVideoExtOut: super::super::Foundation::HANDLE,
 }
+impl windows_core::TypeKind for CAPDRIVERCAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CAPDRIVERCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAPDRIVERCAPS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAPINFOCHUNK {
     pub fccInfoID: u32,
     pub lpData: *mut core::ffi::c_void,
     pub cbData: i32,
+}
+impl windows_core::TypeKind for CAPINFOCHUNK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CAPINFOCHUNK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAPINFOCHUNK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAPSTATUS {
     pub uiImageWidth: u32,
     pub uiImageHeight: u32,
@@ -4937,17 +6395,17 @@ pub struct CAPSTATUS {
     pub wNumAudioAllocated: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for CAPSTATUS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for CAPSTATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CAPSTATUS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAPTUREPARMS {
     pub dwRequestMicroSecPerFrame: u32,
     pub fMakeUserHitOKToCapture: super::super::Foundation::BOOL,
@@ -4974,16 +6432,16 @@ pub struct CAPTUREPARMS {
     pub fDisableWriteCache: super::super::Foundation::BOOL,
     pub AVStreamMaster: u32,
 }
+impl windows_core::TypeKind for CAPTUREPARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CAPTUREPARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CAPTUREPARMS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHANNEL_CAPS {
     pub dwFlags: u32,
     pub dwSrcRectXMod: u32,
@@ -4995,17 +6453,17 @@ pub struct CHANNEL_CAPS {
     pub dwDstRectWidthMod: u32,
     pub dwDstRectHeightMod: u32,
 }
+impl windows_core::TypeKind for CHANNEL_CAPS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CHANNEL_CAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CHANNEL_CAPS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPVARS {
     pub cbSize: i32,
     pub dwFlags: u32,
@@ -5025,21 +6483,25 @@ pub struct COMPVARS {
     pub cbState: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for COMPVARS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for COMPVARS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for COMPVARS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct CONTRESCR10WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for CONTRESCR10WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for CONTRESCR10WAVEFORMAT {
@@ -5047,16 +6509,16 @@ impl Default for CONTRESCR10WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CONTRESCR10WAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct CONTRESVQLPCWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for CONTRESVQLPCWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for CONTRESVQLPCWAVEFORMAT {
@@ -5064,16 +6526,16 @@ impl Default for CONTRESVQLPCWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CONTRESVQLPCWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct CREATIVEADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for CREATIVEADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for CREATIVEADPCMWAVEFORMAT {
@@ -5081,16 +6543,16 @@ impl Default for CREATIVEADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CREATIVEADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct CREATIVEFASTSPEECH10WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for CREATIVEFASTSPEECH10WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for CREATIVEFASTSPEECH10WAVEFORMAT {
@@ -5098,16 +6560,16 @@ impl Default for CREATIVEFASTSPEECH10WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CREATIVEFASTSPEECH10WAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct CREATIVEFASTSPEECH8WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for CREATIVEFASTSPEECH8WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for CREATIVEFASTSPEECH8WAVEFORMAT {
@@ -5115,15 +6577,15 @@ impl Default for CREATIVEFASTSPEECH8WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CREATIVEFASTSPEECH8WAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct CSIMAADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for CSIMAADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for CSIMAADPCMWAVEFORMAT {
@@ -5131,15 +6593,15 @@ impl Default for CSIMAADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for CSIMAADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct DIALOGICOKIADPCMWAVEFORMAT {
     pub ewf: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for DIALOGICOKIADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for DIALOGICOKIADPCMWAVEFORMAT {
@@ -5147,16 +6609,16 @@ impl Default for DIALOGICOKIADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DIALOGICOKIADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct DIGIADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for DIGIADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for DIGIADPCMWAVEFORMAT {
@@ -5164,15 +6626,15 @@ impl Default for DIGIADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DIGIADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct DIGIFIXWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for DIGIFIXWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for DIGIFIXWAVEFORMAT {
@@ -5180,16 +6642,16 @@ impl Default for DIGIFIXWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DIGIFIXWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct DIGIREALWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for DIGIREALWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for DIGIREALWAVEFORMAT {
@@ -5197,15 +6659,15 @@ impl Default for DIGIREALWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DIGIREALWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct DIGISTDWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for DIGISTDWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for DIGISTDWAVEFORMAT {
@@ -5213,16 +6675,16 @@ impl Default for DIGISTDWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DIGISTDWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct DOLBYAC2WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub nAuxBitsCode: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for DOLBYAC2WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for DOLBYAC2WAVEFORMAT {
@@ -5230,12 +6692,8 @@ impl Default for DOLBYAC2WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DOLBYAC2WAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRAWDIBTIME {
     pub timeCount: i32,
     pub timeDraw: i32,
@@ -5245,17 +6703,17 @@ pub struct DRAWDIBTIME {
     pub timeBlt: i32,
     pub timeSetDIBits: i32,
 }
+impl windows_core::TypeKind for DRAWDIBTIME {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DRAWDIBTIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRAWDIBTIME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct DRMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wReserved: u16,
@@ -5263,66 +6721,70 @@ pub struct DRMWAVEFORMAT {
     pub wfxSecure: super::Audio::WAVEFORMATEX,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for DRMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for DRMWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DRMWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct DRVCONFIGINFO {
     pub dwDCISize: u32,
     pub lpszDCISectionName: windows_core::PCWSTR,
     pub lpszDCIAliasName: windows_core::PCWSTR,
+}
+impl windows_core::TypeKind for DRVCONFIGINFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DRVCONFIGINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRVCONFIGINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct DRVCONFIGINFOEX {
     pub dwDCISize: u32,
     pub lpszDCISectionName: windows_core::PCWSTR,
     pub lpszDCIAliasName: windows_core::PCWSTR,
     pub dnDevNode: u32,
 }
+impl windows_core::TypeKind for DRVCONFIGINFOEX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DRVCONFIGINFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRVCONFIGINFOEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct DRVM_IOCTL_DATA {
     pub dwSize: u32,
     pub dwCmd: u32,
+}
+impl windows_core::TypeKind for DRVM_IOCTL_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DRVM_IOCTL_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DRVM_IOCTL_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct DVIADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for DVIADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for DVIADPCMWAVEFORMAT {
@@ -5330,15 +6792,15 @@ impl Default for DVIADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for DVIADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct ECHOSC1WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for ECHOSC1WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for ECHOSC1WAVEFORMAT {
@@ -5346,16 +6808,16 @@ impl Default for ECHOSC1WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for ECHOSC1WAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct EXBMINFOHEADER {
     pub bmi: super::super::Graphics::Gdi::BITMAPINFOHEADER,
     pub biExtDataOffset: u32,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for EXBMINFOHEADER {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for EXBMINFOHEADER {
@@ -5363,16 +6825,16 @@ impl Default for EXBMINFOHEADER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for EXBMINFOHEADER {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct FMTOWNS_SND_WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for FMTOWNS_SND_WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for FMTOWNS_SND_WAVEFORMAT {
@@ -5380,16 +6842,16 @@ impl Default for FMTOWNS_SND_WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for FMTOWNS_SND_WAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct G721_ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub nAuxBlockSize: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for G721_ADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for G721_ADPCMWAVEFORMAT {
@@ -5397,17 +6859,17 @@ impl Default for G721_ADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for G721_ADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct G723_ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub cbExtraSize: u16,
     pub nAuxBlockSize: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for G723_ADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for G723_ADPCMWAVEFORMAT {
@@ -5415,16 +6877,16 @@ impl Default for G723_ADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for G723_ADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct GSM610WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for GSM610WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for GSM610WAVEFORMAT {
@@ -5432,13 +6894,81 @@ impl Default for GSM610WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for GSM610WAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HDRVR(pub *mut core::ffi::c_void);
+impl HDRVR {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl Default for HDRVR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HDRVR {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HIC(pub *mut core::ffi::c_void);
+impl HIC {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HIC {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = ICClose(*self);
+        }
+    }
+}
+impl Default for HIC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HIC {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HMMIO(pub *mut core::ffi::c_void);
+impl HMMIO {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl Default for HMMIO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HMMIO {
+    type TypeKind = windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HVIDEO(pub *mut core::ffi::c_void);
+impl HVIDEO {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl Default for HVIDEO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HVIDEO {
+    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICCOMPRESS {
     pub dwFlags: u32,
     pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -5454,18 +6984,18 @@ pub struct ICCOMPRESS {
     pub lpPrev: *mut core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICCOMPRESS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for ICCOMPRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICCOMPRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICCOMPRESSFRAMES {
     pub dwFlags: u32,
     pub lpbiOutput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -5485,18 +7015,18 @@ pub struct ICCOMPRESSFRAMES {
     pub PutData: isize,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICCOMPRESSFRAMES {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for ICCOMPRESSFRAMES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICCOMPRESSFRAMES {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICDECOMPRESS {
     pub dwFlags: u32,
     pub lpbiInput: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -5506,18 +7036,18 @@ pub struct ICDECOMPRESS {
     pub ckid: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICDECOMPRESS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for ICDECOMPRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICDECOMPRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICDECOMPRESSEX {
     pub dwFlags: u32,
     pub lpbiSrc: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -5534,17 +7064,17 @@ pub struct ICDECOMPRESSEX {
     pub dySrc: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICDECOMPRESSEX {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for ICDECOMPRESSEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICDECOMPRESSEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICDRAW {
     pub dwFlags: u32,
     pub lpFormat: *mut core::ffi::c_void,
@@ -5552,17 +7082,17 @@ pub struct ICDRAW {
     pub cbData: u32,
     pub lTime: i32,
 }
+impl windows_core::TypeKind for ICDRAW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ICDRAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ICDRAW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICDRAWBEGIN {
     pub dwFlags: u32,
     pub hpal: super::super::Graphics::Gdi::HPALETTE,
@@ -5581,18 +7111,18 @@ pub struct ICDRAWBEGIN {
     pub dwScale: u32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICDRAWBEGIN {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for ICDRAWBEGIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICDRAWBEGIN {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICDRAWSUGGEST {
     pub lpbiIn: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
     pub lpbiSuggest: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER,
@@ -5603,17 +7133,17 @@ pub struct ICDRAWSUGGEST {
     pub hicDecompressor: HIC,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICDRAWSUGGEST {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for ICDRAWSUGGEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICDRAWSUGGEST {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICINFO {
     pub dwSize: u32,
     pub fccType: u32,
@@ -5625,16 +7155,16 @@ pub struct ICINFO {
     pub szDescription: [u16; 128],
     pub szDriver: [u16; 128],
 }
+impl windows_core::TypeKind for ICINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ICINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ICINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICOPEN {
     pub dwSize: u32,
     pub fccType: u32,
@@ -5646,17 +7176,17 @@ pub struct ICOPEN {
     pub pV2Reserved: *mut core::ffi::c_void,
     pub dnDevNode: u32,
 }
+impl windows_core::TypeKind for ICOPEN {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ICOPEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ICOPEN {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICPALETTE {
     pub dwFlags: u32,
     pub iStart: i32,
@@ -5664,36 +7194,40 @@ pub struct ICPALETTE {
     pub lppe: *mut super::super::Graphics::Gdi::PALETTEENTRY,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for ICPALETTE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for ICPALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for ICPALETTE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICSETSTATUSPROC {
     pub dwFlags: u32,
     pub lParam: super::super::Foundation::LPARAM,
     pub Status: isize,
+}
+impl windows_core::TypeKind for ICSETSTATUSPROC {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ICSETSTATUSPROC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ICSETSTATUSPROC {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct IMAADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for IMAADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for IMAADPCMWAVEFORMAT {
@@ -5701,12 +7235,8 @@ impl Default for IMAADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for IMAADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct JOYCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
@@ -5736,16 +7266,16 @@ pub struct JOYCAPS2A {
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
+impl windows_core::TypeKind for JOYCAPS2A {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for JOYCAPS2A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOYCAPS2A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct JOYCAPS2W {
     pub wMid: u16,
     pub wPid: u16,
@@ -5775,16 +7305,16 @@ pub struct JOYCAPS2W {
     pub ProductGuid: windows_core::GUID,
     pub NameGuid: windows_core::GUID,
 }
+impl windows_core::TypeKind for JOYCAPS2W {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for JOYCAPS2W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOYCAPS2W {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct JOYCAPSA {
     pub wMid: u16,
     pub wPid: u16,
@@ -5811,16 +7341,16 @@ pub struct JOYCAPSA {
     pub szRegKey: [i8; 32],
     pub szOEMVxD: [i8; 260],
 }
+impl windows_core::TypeKind for JOYCAPSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for JOYCAPSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOYCAPSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct JOYCAPSW {
     pub wMid: u16,
     pub wPid: u16,
@@ -5847,32 +7377,32 @@ pub struct JOYCAPSW {
     pub szRegKey: [u16; 32],
     pub szOEMVxD: [u16; 260],
 }
+impl windows_core::TypeKind for JOYCAPSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for JOYCAPSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOYCAPSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct JOYINFO {
     pub wXpos: u32,
     pub wYpos: u32,
     pub wZpos: u32,
     pub wButtons: u32,
 }
+impl windows_core::TypeKind for JOYINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for JOYINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOYINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct JOYINFOEX {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -5888,16 +7418,16 @@ pub struct JOYINFOEX {
     pub dwReserved1: u32,
     pub dwReserved2: u32,
 }
+impl windows_core::TypeKind for JOYINFOEX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for JOYINFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JOYINFOEX {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct JPEGINFOHEADER {
     pub JPEGSize: u32,
     pub JPEGProcess: u32,
@@ -5906,17 +7436,17 @@ pub struct JPEGINFOHEADER {
     pub JPEGHSubSampling: u32,
     pub JPEGVSubSampling: u32,
 }
+impl windows_core::TypeKind for JPEGINFOHEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for JPEGINFOHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for JPEGINFOHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 pub const KSDATAFORMAT_SUBTYPE_IEEE_FLOAT: windows_core::GUID = windows_core::GUID::from_u128(0x00000003_0000_0010_8000_00aa00389b71);
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_OPEN_PARMSA {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -5926,16 +7456,16 @@ pub struct MCI_ANIM_OPEN_PARMSA {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
+impl windows_core::TypeKind for MCI_ANIM_OPEN_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_ANIM_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_ANIM_OPEN_PARMSA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_OPEN_PARMSW {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -5945,65 +7475,69 @@ pub struct MCI_ANIM_OPEN_PARMSW {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
+impl windows_core::TypeKind for MCI_ANIM_OPEN_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_ANIM_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_ANIM_OPEN_PARMSW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_PLAY_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
     pub dwTo: u32,
     pub dwSpeed: u32,
 }
+impl windows_core::TypeKind for MCI_ANIM_PLAY_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_ANIM_PLAY_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_ANIM_PLAY_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_RECT_PARMS {
     pub dwCallback: usize,
     pub rc: super::super::Foundation::RECT,
+}
+impl windows_core::TypeKind for MCI_ANIM_RECT_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_ANIM_RECT_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_ANIM_RECT_PARMS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_STEP_PARMS {
     pub dwCallback: usize,
     pub dwFrames: u32,
+}
+impl windows_core::TypeKind for MCI_ANIM_STEP_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_ANIM_STEP_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_ANIM_STEP_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_UPDATE_PARMS {
     pub dwCallback: usize,
     pub rc: super::super::Foundation::RECT,
     pub hDC: super::super::Graphics::Gdi::HDC,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for MCI_ANIM_UPDATE_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for MCI_ANIM_UPDATE_PARMS {
@@ -6011,89 +7545,85 @@ impl Default for MCI_ANIM_UPDATE_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for MCI_ANIM_UPDATE_PARMS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_WINDOW_PARMSA {
     pub dwCallback: usize,
     pub hWnd: super::super::Foundation::HWND,
     pub nCmdShow: u32,
     pub lpstrText: windows_core::PCSTR,
 }
+impl windows_core::TypeKind for MCI_ANIM_WINDOW_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_ANIM_WINDOW_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_ANIM_WINDOW_PARMSA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_ANIM_WINDOW_PARMSW {
     pub dwCallback: usize,
     pub hWnd: super::super::Foundation::HWND,
     pub nCmdShow: u32,
     pub lpstrText: windows_core::PCWSTR,
 }
+impl windows_core::TypeKind for MCI_ANIM_WINDOW_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_ANIM_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_ANIM_WINDOW_PARMSW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_BREAK_PARMS {
     pub dwCallback: usize,
     pub nVirtKey: i32,
     pub hwndBreak: super::super::Foundation::HWND,
+}
+impl windows_core::TypeKind for MCI_BREAK_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_BREAK_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_BREAK_PARMS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_CAPTURE_PARMSA {
     pub dwCallback: usize,
     pub lpstrFileName: windows_core::PSTR,
     pub rc: super::super::Foundation::RECT,
+}
+impl windows_core::TypeKind for MCI_DGV_CAPTURE_PARMSA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_DGV_CAPTURE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_CAPTURE_PARMSA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_CAPTURE_PARMSW {
     pub dwCallback: usize,
     pub lpstrFileName: windows_core::PWSTR,
     pub rc: super::super::Foundation::RECT,
+}
+impl windows_core::TypeKind for MCI_DGV_CAPTURE_PARMSW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_DGV_CAPTURE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_CAPTURE_PARMSW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_COPY_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
@@ -6102,30 +7632,30 @@ pub struct MCI_DGV_COPY_PARMS {
     pub dwAudioStream: u32,
     pub dwVideoStream: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_COPY_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_COPY_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_COPY_PARMS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_CUE_PARMS {
     pub dwCallback: usize,
     pub dwTo: u32,
+}
+impl windows_core::TypeKind for MCI_DGV_CUE_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_DGV_CUE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_CUE_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_CUT_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
@@ -6134,16 +7664,16 @@ pub struct MCI_DGV_CUT_PARMS {
     pub dwAudioStream: u32,
     pub dwVideoStream: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_CUT_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_CUT_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_CUT_PARMS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_DELETE_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
@@ -6152,48 +7682,48 @@ pub struct MCI_DGV_DELETE_PARMS {
     pub dwAudioStream: u32,
     pub dwVideoStream: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_DELETE_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_DELETE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_DELETE_PARMS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_INFO_PARMSA {
     pub dwCallback: usize,
     pub lpstrReturn: windows_core::PSTR,
     pub dwRetSize: u32,
     pub dwItem: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_INFO_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_INFO_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_INFO_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_INFO_PARMSW {
     pub dwCallback: usize,
     pub lpstrReturn: windows_core::PWSTR,
     pub dwRetSize: u32,
     pub dwItem: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_INFO_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_INFO_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_INFO_PARMSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_LIST_PARMSA {
     pub dwCallback: usize,
     pub lpstrReturn: windows_core::PSTR,
@@ -6202,16 +7732,16 @@ pub struct MCI_DGV_LIST_PARMSA {
     pub dwItem: u32,
     pub lpstrAlgorithm: windows_core::PSTR,
 }
+impl windows_core::TypeKind for MCI_DGV_LIST_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_LIST_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_LIST_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_LIST_PARMSW {
     pub dwCallback: usize,
     pub lpstrReturn: windows_core::PWSTR,
@@ -6220,31 +7750,31 @@ pub struct MCI_DGV_LIST_PARMSW {
     pub dwItem: u32,
     pub lpstrAlgorithm: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for MCI_DGV_LIST_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_LIST_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_LIST_PARMSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_MONITOR_PARMS {
     pub dwCallback: usize,
     pub dwSource: u32,
     pub dwMethod: u32,
+}
+impl windows_core::TypeKind for MCI_DGV_MONITOR_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_DGV_MONITOR_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_MONITOR_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_OPEN_PARMSA {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -6254,16 +7784,16 @@ pub struct MCI_DGV_OPEN_PARMSA {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
+impl windows_core::TypeKind for MCI_DGV_OPEN_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_OPEN_PARMSA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_OPEN_PARMSW {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -6273,16 +7803,16 @@ pub struct MCI_DGV_OPEN_PARMSW {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
+impl windows_core::TypeKind for MCI_DGV_OPEN_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_OPEN_PARMSW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_PASTE_PARMS {
     pub dwCallback: usize,
     pub dwTo: u32,
@@ -6290,16 +7820,16 @@ pub struct MCI_DGV_PASTE_PARMS {
     pub dwAudioStream: u32,
     pub dwVideoStream: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_PASTE_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_PASTE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_PASTE_PARMS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_QUALITY_PARMSA {
     pub dwCallback: usize,
     pub dwItem: u32,
@@ -6307,16 +7837,16 @@ pub struct MCI_DGV_QUALITY_PARMSA {
     pub lpstrAlgorithm: u32,
     pub dwHandle: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_QUALITY_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_QUALITY_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_QUALITY_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_QUALITY_PARMSW {
     pub dwCallback: usize,
     pub dwItem: u32,
@@ -6324,16 +7854,16 @@ pub struct MCI_DGV_QUALITY_PARMSW {
     pub lpstrAlgorithm: u32,
     pub dwHandle: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_QUALITY_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_QUALITY_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_QUALITY_PARMSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_RECORD_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
@@ -6342,120 +7872,120 @@ pub struct MCI_DGV_RECORD_PARMS {
     pub dwAudioStream: u32,
     pub dwVideoStream: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_RECORD_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_RECORD_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_RECORD_PARMS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_RECT_PARMS {
     pub dwCallback: usize,
     pub rc: super::super::Foundation::RECT,
+}
+impl windows_core::TypeKind for MCI_DGV_RECT_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_DGV_RECT_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_RECT_PARMS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_RESERVE_PARMSA {
     pub dwCallback: usize,
     pub lpstrPath: windows_core::PSTR,
     pub dwSize: u32,
+}
+impl windows_core::TypeKind for MCI_DGV_RESERVE_PARMSA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_DGV_RESERVE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_RESERVE_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_RESERVE_PARMSW {
     pub dwCallback: usize,
     pub lpstrPath: windows_core::PWSTR,
     pub dwSize: u32,
+}
+impl windows_core::TypeKind for MCI_DGV_RESERVE_PARMSW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_DGV_RESERVE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_RESERVE_PARMSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_RESTORE_PARMSA {
     pub dwCallback: usize,
     pub lpstrFileName: windows_core::PSTR,
     pub rc: super::super::Foundation::RECT,
+}
+impl windows_core::TypeKind for MCI_DGV_RESTORE_PARMSA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_DGV_RESTORE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_RESTORE_PARMSA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_RESTORE_PARMSW {
     pub dwCallback: usize,
     pub lpstrFileName: windows_core::PWSTR,
     pub rc: super::super::Foundation::RECT,
+}
+impl windows_core::TypeKind for MCI_DGV_RESTORE_PARMSW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_DGV_RESTORE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_RESTORE_PARMSW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_SAVE_PARMSA {
     pub dwCallback: usize,
     pub lpstrFileName: windows_core::PSTR,
     pub rc: super::super::Foundation::RECT,
+}
+impl windows_core::TypeKind for MCI_DGV_SAVE_PARMSA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_DGV_SAVE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_SAVE_PARMSA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_SAVE_PARMSW {
     pub dwCallback: usize,
     pub lpstrFileName: windows_core::PWSTR,
     pub rc: super::super::Foundation::RECT,
+}
+impl windows_core::TypeKind for MCI_DGV_SAVE_PARMSW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_DGV_SAVE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_SAVE_PARMSW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_SETAUDIO_PARMSA {
     pub dwCallback: usize,
     pub dwItem: u32,
@@ -6464,16 +7994,16 @@ pub struct MCI_DGV_SETAUDIO_PARMSA {
     pub lpstrAlgorithm: windows_core::PSTR,
     pub lpstrQuality: windows_core::PSTR,
 }
+impl windows_core::TypeKind for MCI_DGV_SETAUDIO_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_SETAUDIO_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_SETAUDIO_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_SETAUDIO_PARMSW {
     pub dwCallback: usize,
     pub dwItem: u32,
@@ -6482,16 +8012,16 @@ pub struct MCI_DGV_SETAUDIO_PARMSW {
     pub lpstrAlgorithm: windows_core::PWSTR,
     pub lpstrQuality: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for MCI_DGV_SETAUDIO_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_SETAUDIO_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_SETAUDIO_PARMSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_SETVIDEO_PARMSA {
     pub dwCallback: usize,
     pub dwItem: u32,
@@ -6501,16 +8031,16 @@ pub struct MCI_DGV_SETVIDEO_PARMSA {
     pub lpstrQuality: windows_core::PSTR,
     pub dwSourceNumber: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_SETVIDEO_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_SETVIDEO_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_SETVIDEO_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_SETVIDEO_PARMSW {
     pub dwCallback: usize,
     pub dwItem: u32,
@@ -6520,16 +8050,16 @@ pub struct MCI_DGV_SETVIDEO_PARMSW {
     pub lpstrQuality: windows_core::PWSTR,
     pub dwSourceNumber: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_SETVIDEO_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_SETVIDEO_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_SETVIDEO_PARMSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_SET_PARMS {
     pub dwCallback: usize,
     pub dwTimeFormat: u32,
@@ -6537,32 +8067,32 @@ pub struct MCI_DGV_SET_PARMS {
     pub dwFileFormat: u32,
     pub dwSpeed: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_SET_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_SET_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_SET_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_SIGNAL_PARMS {
     pub dwCallback: usize,
     pub dwPosition: u32,
     pub dwPeriod: u32,
     pub dwUserParm: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_SIGNAL_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_SIGNAL_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_SIGNAL_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_STATUS_PARMSA {
     pub dwCallback: usize,
     pub dwReturn: usize,
@@ -6571,16 +8101,16 @@ pub struct MCI_DGV_STATUS_PARMSA {
     pub lpstrDrive: windows_core::PSTR,
     pub dwReference: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_STATUS_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_STATUS_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_STATUS_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_STATUS_PARMSW {
     pub dwCallback: usize,
     pub dwReturn: usize,
@@ -6589,35 +8119,39 @@ pub struct MCI_DGV_STATUS_PARMSW {
     pub lpstrDrive: windows_core::PWSTR,
     pub dwReference: u32,
 }
+impl windows_core::TypeKind for MCI_DGV_STATUS_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_STATUS_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_STATUS_PARMSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_STEP_PARMS {
     pub dwCallback: usize,
     pub dwFrames: u32,
+}
+impl windows_core::TypeKind for MCI_DGV_STEP_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_DGV_STEP_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_STEP_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_UPDATE_PARMS {
     pub dwCallback: usize,
     pub rc: super::super::Foundation::RECT,
     pub hDC: super::super::Graphics::Gdi::HDC,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for MCI_DGV_UPDATE_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for MCI_DGV_UPDATE_PARMS {
@@ -6625,146 +8159,142 @@ impl Default for MCI_DGV_UPDATE_PARMS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for MCI_DGV_UPDATE_PARMS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_WINDOW_PARMSA {
     pub dwCallback: usize,
     pub hWnd: super::super::Foundation::HWND,
     pub nCmdShow: u32,
     pub lpstrText: windows_core::PSTR,
 }
+impl windows_core::TypeKind for MCI_DGV_WINDOW_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_WINDOW_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_WINDOW_PARMSA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_DGV_WINDOW_PARMSW {
     pub dwCallback: usize,
     pub hWnd: super::super::Foundation::HWND,
     pub nCmdShow: u32,
     pub lpstrText: windows_core::PWSTR,
 }
+impl windows_core::TypeKind for MCI_DGV_WINDOW_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_DGV_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_DGV_WINDOW_PARMSW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_GENERIC_PARMS {
     pub dwCallback: usize,
+}
+impl windows_core::TypeKind for MCI_GENERIC_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_GENERIC_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_GENERIC_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_GETDEVCAPS_PARMS {
     pub dwCallback: usize,
     pub dwReturn: u32,
     pub dwItem: u32,
+}
+impl windows_core::TypeKind for MCI_GETDEVCAPS_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_GETDEVCAPS_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_GETDEVCAPS_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_INFO_PARMSA {
     pub dwCallback: usize,
     pub lpstrReturn: windows_core::PSTR,
     pub dwRetSize: u32,
+}
+impl windows_core::TypeKind for MCI_INFO_PARMSA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_INFO_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_INFO_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_INFO_PARMSW {
     pub dwCallback: usize,
     pub lpstrReturn: windows_core::PWSTR,
     pub dwRetSize: u32,
+}
+impl windows_core::TypeKind for MCI_INFO_PARMSW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_INFO_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_INFO_PARMSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_LOAD_PARMSA {
     pub dwCallback: usize,
     pub lpfilename: windows_core::PCSTR,
+}
+impl windows_core::TypeKind for MCI_LOAD_PARMSA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_LOAD_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_LOAD_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_LOAD_PARMSW {
     pub dwCallback: usize,
     pub lpfilename: windows_core::PCWSTR,
+}
+impl windows_core::TypeKind for MCI_LOAD_PARMSW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_LOAD_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_LOAD_PARMSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_OPEN_DRIVER_PARMS {
     pub wDeviceID: u32,
     pub lpstrParams: windows_core::PCWSTR,
     pub wCustomCommandTable: u32,
     pub wType: u32,
 }
+impl windows_core::TypeKind for MCI_OPEN_DRIVER_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OPEN_DRIVER_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OPEN_DRIVER_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_OPEN_PARMSA {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -6772,16 +8302,16 @@ pub struct MCI_OPEN_PARMSA {
     pub lpstrElementName: windows_core::PCSTR,
     pub lpstrAlias: windows_core::PCSTR,
 }
+impl windows_core::TypeKind for MCI_OPEN_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OPEN_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_OPEN_PARMSW {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -6789,46 +8319,46 @@ pub struct MCI_OPEN_PARMSW {
     pub lpstrElementName: windows_core::PCWSTR,
     pub lpstrAlias: windows_core::PCWSTR,
 }
+impl windows_core::TypeKind for MCI_OPEN_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OPEN_PARMSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_LOAD_PARMSA {
     pub dwCallback: usize,
     pub lpfilename: windows_core::PCSTR,
     pub rc: super::super::Foundation::RECT,
+}
+impl windows_core::TypeKind for MCI_OVLY_LOAD_PARMSA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_OVLY_LOAD_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OVLY_LOAD_PARMSA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_LOAD_PARMSW {
     pub dwCallback: usize,
     pub lpfilename: windows_core::PCWSTR,
     pub rc: super::super::Foundation::RECT,
+}
+impl windows_core::TypeKind for MCI_OVLY_LOAD_PARMSW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_OVLY_LOAD_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OVLY_LOAD_PARMSW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_OPEN_PARMSA {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -6838,16 +8368,16 @@ pub struct MCI_OVLY_OPEN_PARMSA {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
+impl windows_core::TypeKind for MCI_OVLY_OPEN_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OVLY_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OVLY_OPEN_PARMSA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_OPEN_PARMSW {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -6857,164 +8387,164 @@ pub struct MCI_OVLY_OPEN_PARMSW {
     pub dwStyle: u32,
     pub hWndParent: super::super::Foundation::HWND,
 }
+impl windows_core::TypeKind for MCI_OVLY_OPEN_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OVLY_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OVLY_OPEN_PARMSW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_RECT_PARMS {
     pub dwCallback: usize,
     pub rc: super::super::Foundation::RECT,
+}
+impl windows_core::TypeKind for MCI_OVLY_RECT_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_OVLY_RECT_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OVLY_RECT_PARMS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_SAVE_PARMSA {
     pub dwCallback: usize,
     pub lpfilename: windows_core::PCSTR,
     pub rc: super::super::Foundation::RECT,
+}
+impl windows_core::TypeKind for MCI_OVLY_SAVE_PARMSA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_OVLY_SAVE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OVLY_SAVE_PARMSA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_SAVE_PARMSW {
     pub dwCallback: usize,
     pub lpfilename: windows_core::PCWSTR,
     pub rc: super::super::Foundation::RECT,
+}
+impl windows_core::TypeKind for MCI_OVLY_SAVE_PARMSW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_OVLY_SAVE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OVLY_SAVE_PARMSW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_WINDOW_PARMSA {
     pub dwCallback: usize,
     pub hWnd: super::super::Foundation::HWND,
     pub nCmdShow: u32,
     pub lpstrText: windows_core::PCSTR,
 }
+impl windows_core::TypeKind for MCI_OVLY_WINDOW_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OVLY_WINDOW_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OVLY_WINDOW_PARMSA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_OVLY_WINDOW_PARMSW {
     pub dwCallback: usize,
     pub hWnd: super::super::Foundation::HWND,
     pub nCmdShow: u32,
     pub lpstrText: windows_core::PCWSTR,
 }
+impl windows_core::TypeKind for MCI_OVLY_WINDOW_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_OVLY_WINDOW_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_OVLY_WINDOW_PARMSW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_PLAY_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
     pub dwTo: u32,
+}
+impl windows_core::TypeKind for MCI_PLAY_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_PLAY_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_PLAY_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_RECORD_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
     pub dwTo: u32,
+}
+impl windows_core::TypeKind for MCI_RECORD_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_RECORD_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_RECORD_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_SAVE_PARMSA {
     pub dwCallback: usize,
     pub lpfilename: windows_core::PCSTR,
+}
+impl windows_core::TypeKind for MCI_SAVE_PARMSA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_SAVE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_SAVE_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_SAVE_PARMSW {
     pub dwCallback: usize,
     pub lpfilename: windows_core::PCWSTR,
+}
+impl windows_core::TypeKind for MCI_SAVE_PARMSW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_SAVE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_SAVE_PARMSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_SEEK_PARMS {
     pub dwCallback: usize,
     pub dwTo: u32,
+}
+impl windows_core::TypeKind for MCI_SEEK_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_SEEK_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_SEEK_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_SEQ_SET_PARMS {
     pub dwCallback: usize,
     pub dwTimeFormat: u32,
@@ -7025,47 +8555,47 @@ pub struct MCI_SEQ_SET_PARMS {
     pub dwMaster: u32,
     pub dwOffset: u32,
 }
+impl windows_core::TypeKind for MCI_SEQ_SET_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_SEQ_SET_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_SEQ_SET_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_SET_PARMS {
     pub dwCallback: usize,
     pub dwTimeFormat: u32,
     pub dwAudio: u32,
+}
+impl windows_core::TypeKind for MCI_SET_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_SET_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_SET_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_STATUS_PARMS {
     pub dwCallback: usize,
     pub dwReturn: usize,
     pub dwItem: u32,
     pub dwTrack: u32,
 }
+impl windows_core::TypeKind for MCI_STATUS_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_STATUS_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_STATUS_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_SYSINFO_PARMSA {
     pub dwCallback: usize,
     pub lpstrReturn: windows_core::PSTR,
@@ -7073,16 +8603,16 @@ pub struct MCI_SYSINFO_PARMSA {
     pub dwNumber: u32,
     pub wDeviceType: u32,
 }
+impl windows_core::TypeKind for MCI_SYSINFO_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_SYSINFO_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_SYSINFO_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_SYSINFO_PARMSW {
     pub dwCallback: usize,
     pub lpstrReturn: windows_core::PWSTR,
@@ -7090,89 +8620,89 @@ pub struct MCI_SYSINFO_PARMSW {
     pub dwNumber: u32,
     pub wDeviceType: u32,
 }
+impl windows_core::TypeKind for MCI_SYSINFO_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_SYSINFO_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_SYSINFO_PARMSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_VD_ESCAPE_PARMSA {
     pub dwCallback: usize,
     pub lpstrCommand: windows_core::PCSTR,
+}
+impl windows_core::TypeKind for MCI_VD_ESCAPE_PARMSA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_VD_ESCAPE_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_VD_ESCAPE_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_VD_ESCAPE_PARMSW {
     pub dwCallback: usize,
     pub lpstrCommand: windows_core::PCWSTR,
+}
+impl windows_core::TypeKind for MCI_VD_ESCAPE_PARMSW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_VD_ESCAPE_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_VD_ESCAPE_PARMSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_VD_PLAY_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
     pub dwTo: u32,
     pub dwSpeed: u32,
 }
+impl windows_core::TypeKind for MCI_VD_PLAY_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_VD_PLAY_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_VD_PLAY_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_VD_STEP_PARMS {
     pub dwCallback: usize,
     pub dwFrames: u32,
+}
+impl windows_core::TypeKind for MCI_VD_STEP_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_VD_STEP_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_VD_STEP_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_WAVE_DELETE_PARMS {
     pub dwCallback: usize,
     pub dwFrom: u32,
     pub dwTo: u32,
+}
+impl windows_core::TypeKind for MCI_WAVE_DELETE_PARMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MCI_WAVE_DELETE_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_WAVE_DELETE_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_WAVE_OPEN_PARMSA {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -7181,16 +8711,16 @@ pub struct MCI_WAVE_OPEN_PARMSA {
     pub lpstrAlias: windows_core::PCSTR,
     pub dwBufferSeconds: u32,
 }
+impl windows_core::TypeKind for MCI_WAVE_OPEN_PARMSA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_WAVE_OPEN_PARMSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_WAVE_OPEN_PARMSA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_WAVE_OPEN_PARMSW {
     pub dwCallback: usize,
     pub wDeviceID: u32,
@@ -7199,16 +8729,16 @@ pub struct MCI_WAVE_OPEN_PARMSW {
     pub lpstrAlias: windows_core::PCWSTR,
     pub dwBufferSeconds: u32,
 }
+impl windows_core::TypeKind for MCI_WAVE_OPEN_PARMSW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_WAVE_OPEN_PARMSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_WAVE_OPEN_PARMSW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MCI_WAVE_SET_PARMS {
     pub dwCallback: usize,
     pub dwTimeFormat: u32,
@@ -7226,20 +8756,24 @@ pub struct MCI_WAVE_SET_PARMS {
     pub wBitsPerSample: u16,
     pub wReserved5: u16,
 }
+impl windows_core::TypeKind for MCI_WAVE_SET_PARMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MCI_WAVE_SET_PARMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MCI_WAVE_SET_PARMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MEDIASPACEADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for MEDIASPACEADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for MEDIASPACEADPCMWAVEFORMAT {
@@ -7247,27 +8781,23 @@ impl Default for MEDIASPACEADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for MEDIASPACEADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MIDIOPENSTRMID {
     pub dwStreamID: u32,
     pub uDeviceID: u32,
+}
+impl windows_core::TypeKind for MIDIOPENSTRMID {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIDIOPENSTRMID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MIDIOPENSTRMID {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MIXEROPENDESC {
     pub hmx: super::Audio::HMIXER,
     pub pReserved0: *mut core::ffi::c_void,
@@ -7276,17 +8806,17 @@ pub struct MIXEROPENDESC {
     pub dnDevNode: usize,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for MIXEROPENDESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for MIXEROPENDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for MIXEROPENDESC {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MMCKINFO {
     pub ckid: u32,
     pub cksize: u32,
@@ -7294,16 +8824,16 @@ pub struct MMCKINFO {
     pub dwDataOffset: u32,
     pub dwFlags: u32,
 }
+impl windows_core::TypeKind for MMCKINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MMCKINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MMCKINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MMIOINFO {
     pub dwFlags: u32,
     pub fccIOProc: u32,
@@ -7322,21 +8852,25 @@ pub struct MMIOINFO {
     pub dwReserved2: u32,
     pub hmmio: HMMIO,
 }
+impl windows_core::TypeKind for MMIOINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MMIOINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MMIOINFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MSAUDIO1WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
     pub wEncodeOptions: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for MSAUDIO1WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for MSAUDIO1WAVEFORMAT {
@@ -7344,16 +8878,16 @@ impl Default for MSAUDIO1WAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for MSAUDIO1WAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct NMS_VBXADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for NMS_VBXADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for NMS_VBXADPCMWAVEFORMAT {
@@ -7361,15 +8895,15 @@ impl Default for NMS_VBXADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for NMS_VBXADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct OLIADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for OLIADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for OLIADPCMWAVEFORMAT {
@@ -7377,15 +8911,15 @@ impl Default for OLIADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for OLIADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct OLICELPWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for OLICELPWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for OLICELPWAVEFORMAT {
@@ -7393,15 +8927,15 @@ impl Default for OLICELPWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for OLICELPWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct OLIGSMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for OLIGSMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for OLIGSMWAVEFORMAT {
@@ -7409,15 +8943,15 @@ impl Default for OLIGSMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for OLIGSMWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct OLIOPRWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for OLIOPRWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for OLIOPRWAVEFORMAT {
@@ -7425,15 +8959,15 @@ impl Default for OLIOPRWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for OLIOPRWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct OLISBCWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for OLISBCWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for OLISBCWAVEFORMAT {
@@ -7441,16 +8975,16 @@ impl Default for OLISBCWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for OLISBCWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SIERRAADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for SIERRAADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for SIERRAADPCMWAVEFORMAT {
@@ -7458,16 +8992,16 @@ impl Default for SIERRAADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for SIERRAADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct SONARCWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wCompType: u16,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for SONARCWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for SONARCWAVEFORMAT {
@@ -7475,12 +9009,8 @@ impl Default for SONARCWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for SONARCWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct TIMEREVENT {
     pub wDelay: u16,
     pub wResolution: u16,
@@ -7489,17 +9019,17 @@ pub struct TIMEREVENT {
     pub wFlags: u16,
     pub wReserved1: u16,
 }
+impl windows_core::TypeKind for TIMEREVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for TIMEREVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TIMEREVENT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct TRUESPEECHWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wRevision: u16,
@@ -7507,17 +9037,17 @@ pub struct TRUESPEECHWAVEFORMAT {
     pub abReserved: [u8; 28],
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for TRUESPEECHWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for TRUESPEECHWAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for TRUESPEECHWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIDEOHDR {
     pub lpData: *mut u8,
     pub dwBufferLength: u32,
@@ -7527,17 +9057,17 @@ pub struct VIDEOHDR {
     pub dwFlags: u32,
     pub dwReserved: [usize; 4],
 }
+impl windows_core::TypeKind for VIDEOHDR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for VIDEOHDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for VIDEOHDR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WAVEOPENDESC {
     pub hWave: super::Audio::HWAVE,
     pub lpFormat: *mut super::Audio::WAVEFORMAT,
@@ -7547,18 +9077,18 @@ pub struct WAVEOPENDESC {
     pub dnDevNode: usize,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for WAVEOPENDESC {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for WAVEOPENDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for WAVEOPENDESC {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WMAUDIO2WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub dwSamplesPerBlock: u32,
@@ -7566,18 +9096,18 @@ pub struct WMAUDIO2WAVEFORMAT {
     pub dwSuperBlockAlign: u32,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for WMAUDIO2WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for WMAUDIO2WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for WMAUDIO2WAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WMAUDIO3WAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
     pub wValidBitsPerSample: u16,
@@ -7588,20 +9118,24 @@ pub struct WMAUDIO3WAVEFORMAT {
     pub wReserved3: u16,
 }
 #[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for WMAUDIO3WAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Media_Audio")]
 impl Default for WMAUDIO3WAVEFORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for WMAUDIO3WAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Audio")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct YAMAHA_ADPCMWAVEFORMAT {
     pub wfx: super::Audio::WAVEFORMATEX,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::TypeKind for YAMAHA_ADPCMWAVEFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl Default for YAMAHA_ADPCMWAVEFORMAT {
@@ -7609,12 +9143,8 @@ impl Default for YAMAHA_ADPCMWAVEFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Media_Audio")]
-impl windows_core::TypeKind for YAMAHA_ADPCMWAVEFORMAT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct s_RIFFWAVE_inst {
     pub bUnshiftedNote: u8,
     pub chFineTune: i8,
@@ -7624,13 +9154,13 @@ pub struct s_RIFFWAVE_inst {
     pub bLowVelocity: u8,
     pub bHighVelocity: u8,
 }
+impl windows_core::TypeKind for s_RIFFWAVE_inst {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for s_RIFFWAVE_inst {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for s_RIFFWAVE_inst {
-    type TypeKind = windows_core::CopyType;
 }
 pub type AVISAVECALLBACK = Option<unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL>;
 pub type CAPCONTROLCALLBACK = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, nstate: i32) -> super::super::Foundation::LRESULT>;
@@ -7651,3 +9181,5 @@ pub type LPTASKCALLBACK = Option<unsafe extern "system" fn(dwinst: usize)>;
 #[cfg(feature = "Win32_UI_Controls")]
 pub type VFWWDMExtensionProc = Option<unsafe extern "system" fn(pfndeviceiocontrol: *mut core::ffi::c_void, pfnaddpropertypage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: super::super::Foundation::LPARAM) -> u32>;
 pub type YIELDPROC = Option<unsafe extern "system" fn(mciid: u32, dwyielddata: u32) -> u32>;
+#[cfg(feature = "implement")]
+core::include!("impl.rs");

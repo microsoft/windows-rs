@@ -158,7 +158,7 @@ impl windows_core::RuntimeType for MdmAlert {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMdmAlert>();
 }
 unsafe impl windows_core::Interface for MdmAlert {
-    type Vtable = <IMdmAlert as windows_core::Interface>::Vtable;
+    type Vtable = IMdmAlert_Vtbl;
     const IID: windows_core::GUID = <IMdmAlert as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MdmAlert {
@@ -232,19 +232,46 @@ impl windows_core::RuntimeType for MdmSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMdmSession>();
 }
 unsafe impl windows_core::Interface for MdmSession {
-    type Vtable = <IMdmSession as windows_core::Interface>::Vtable;
+    type Vtable = IMdmSession_Vtbl;
     const IID: windows_core::GUID = <IMdmSession as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MdmSession {
     const NAME: &'static str = "Windows.Management.MdmSession";
 }
 pub struct MdmSessionManager;
-impl MdmSessionManager {}
+impl MdmSessionManager {
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SessionIds() -> windows_core::Result<super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
+        Self::IMdmSessionManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SessionIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn TryCreateSession() -> windows_core::Result<MdmSession> {
+        Self::IMdmSessionManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryCreateSession)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn DeleteSessionById(sessionid: &windows_core::HSTRING) -> windows_core::Result<()> {
+        Self::IMdmSessionManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).DeleteSessionById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sessionid)).ok() })
+    }
+    pub fn GetSessionById(sessionid: &windows_core::HSTRING) -> windows_core::Result<MdmSession> {
+        Self::IMdmSessionManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetSessionById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sessionid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IMdmSessionManagerStatics<R, F: FnOnce(&IMdmSessionManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MdmSessionManager, IMdmSessionManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeName for MdmSessionManager {
     const NAME: &'static str = "Windows.Management.MdmSessionManager";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MdmAlertDataType(pub i32);
 impl MdmAlertDataType {
     pub const String: Self = Self(0i32);
@@ -255,11 +282,16 @@ impl MdmAlertDataType {
 impl windows_core::TypeKind for MdmAlertDataType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MdmAlertDataType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MdmAlertDataType").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for MdmAlertDataType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertDataType;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MdmAlertMark(pub i32);
 impl MdmAlertMark {
     pub const None: Self = Self(0i32);
@@ -271,11 +303,16 @@ impl MdmAlertMark {
 impl windows_core::TypeKind for MdmAlertMark {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MdmAlertMark {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MdmAlertMark").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for MdmAlertMark {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmAlertMark;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MdmSessionState(pub i32);
 impl MdmSessionState {
     pub const NotStarted: Self = Self(0i32);
@@ -288,6 +325,11 @@ impl MdmSessionState {
 }
 impl windows_core::TypeKind for MdmSessionState {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for MdmSessionState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MdmSessionState").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for MdmSessionState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmSessionState;i4)");

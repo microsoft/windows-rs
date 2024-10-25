@@ -30,20 +30,20 @@ pub struct HolographicKeyboard(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicKeyboard, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicKeyboard {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn SetPlacementOverride<P0>(&self, coordinateSystem: P0, topCenterPosition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<()>
+    pub fn SetPlacementOverride<P0>(&self, coordinatesystem: P0, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverride)(windows_core::Interface::as_raw(this), coordinateSystem.param().abi(), topCenterPosition, orientation).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverride)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, orientation).ok() }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn SetPlacementOverrideWithMaxSize<P0>(&self, coordinateSystem: P0, topCenterPosition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxSize: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()>
+    pub fn SetPlacementOverrideWithMaxSize<P0>(&self, coordinatesystem: P0, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxsize: super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(windows_core::Interface::as_raw(this), coordinateSystem.param().abi(), topCenterPosition, orientation, maxSize).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, orientation, maxsize).ok() }
     }
     pub fn ResetPlacementOverride(&self) -> windows_core::Result<()> {
         let this = self;
@@ -64,9 +64,11 @@ impl windows_core::RuntimeType for HolographicKeyboard {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicKeyboard>();
 }
 unsafe impl windows_core::Interface for HolographicKeyboard {
-    type Vtable = <IHolographicKeyboard as windows_core::Interface>::Vtable;
+    type Vtable = IHolographicKeyboard_Vtbl;
     const IID: windows_core::GUID = <IHolographicKeyboard as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HolographicKeyboard {
     const NAME: &'static str = "Windows.ApplicationModel.Holographic.HolographicKeyboard";
 }
+unsafe impl Send for HolographicKeyboard {}
+unsafe impl Sync for HolographicKeyboard {}

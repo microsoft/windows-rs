@@ -45,9 +45,11 @@ impl windows_core::RuntimeType for VibrationDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVibrationDevice>();
 }
 unsafe impl windows_core::Interface for VibrationDevice {
-    type Vtable = <IVibrationDevice as windows_core::Interface>::Vtable;
+    type Vtable = IVibrationDevice_Vtbl;
     const IID: windows_core::GUID = <IVibrationDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Phone.Devices.Notification.VibrationDevice";
 }
+unsafe impl Send for VibrationDevice {}
+unsafe impl Sync for VibrationDevice {}

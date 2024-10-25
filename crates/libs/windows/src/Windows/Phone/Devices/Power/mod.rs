@@ -38,14 +38,14 @@ impl Battery {
             (windows_core::Interface::vtable(this).RemainingDischargeTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn RemainingChargePercentChanged<P0>(&self, changeHandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn RemainingChargePercentChanged<P0>(&self, changehandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemainingChargePercentChanged)(windows_core::Interface::as_raw(this), changeHandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RemainingChargePercentChanged)(windows_core::Interface::as_raw(this), changehandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveRemainingChargePercentChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -67,9 +67,11 @@ impl windows_core::RuntimeType for Battery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBattery>();
 }
 unsafe impl windows_core::Interface for Battery {
-    type Vtable = <IBattery as windows_core::Interface>::Vtable;
+    type Vtable = IBattery_Vtbl;
     const IID: windows_core::GUID = <IBattery as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Battery {
     const NAME: &'static str = "Windows.Phone.Devices.Power.Battery";
 }
+unsafe impl Send for Battery {}
+unsafe impl Sync for Battery {}

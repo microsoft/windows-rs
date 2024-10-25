@@ -88,7 +88,106 @@ pub struct IVibrationDeviceStatics_Vtbl {
     FindAllAsync: usize,
 }
 pub struct KnownSimpleHapticsControllerWaveforms;
-impl KnownSimpleHapticsControllerWaveforms {}
+impl KnownSimpleHapticsControllerWaveforms {
+    pub fn Click() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Click)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn BuzzContinuous() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BuzzContinuous)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn RumbleContinuous() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RumbleContinuous)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn Press() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Press)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn Release() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Release)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn BrushContinuous() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BrushContinuous)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn ChiselMarkerContinuous() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ChiselMarkerContinuous)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn EraserContinuous() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EraserContinuous)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn Error() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Error)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn GalaxyPenContinuous() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GalaxyPenContinuous)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn Hover() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Hover)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn InkContinuous() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InkContinuous)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn MarkerContinuous() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MarkerContinuous)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn PencilContinuous() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PencilContinuous)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn Success() -> windows_core::Result<u16> {
+        Self::IKnownSimpleHapticsControllerWaveformsStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Success)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    fn IKnownSimpleHapticsControllerWaveformsStatics<R, F: FnOnce(&IKnownSimpleHapticsControllerWaveformsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<KnownSimpleHapticsControllerWaveforms, IKnownSimpleHapticsControllerWaveformsStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IKnownSimpleHapticsControllerWaveformsStatics2<R, F: FnOnce(&IKnownSimpleHapticsControllerWaveformsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<KnownSimpleHapticsControllerWaveforms, IKnownSimpleHapticsControllerWaveformsStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeName for KnownSimpleHapticsControllerWaveforms {
     const NAME: &'static str = "Windows.Devices.Haptics.KnownSimpleHapticsControllerWaveforms";
 }
@@ -158,31 +257,33 @@ impl SimpleHapticsController {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SendHapticFeedbackWithIntensity)(windows_core::Interface::as_raw(this), feedback.param().abi(), intensity).ok() }
     }
-    pub fn SendHapticFeedbackForDuration<P0>(&self, feedback: P0, intensity: f64, playDuration: super::super::Foundation::TimeSpan) -> windows_core::Result<()>
+    pub fn SendHapticFeedbackForDuration<P0>(&self, feedback: P0, intensity: f64, playduration: super::super::Foundation::TimeSpan) -> windows_core::Result<()>
     where
         P0: windows_core::Param<SimpleHapticsControllerFeedback>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendHapticFeedbackForDuration)(windows_core::Interface::as_raw(this), feedback.param().abi(), intensity, playDuration).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendHapticFeedbackForDuration)(windows_core::Interface::as_raw(this), feedback.param().abi(), intensity, playduration).ok() }
     }
-    pub fn SendHapticFeedbackForPlayCount<P0>(&self, feedback: P0, intensity: f64, playCount: i32, replayPauseInterval: super::super::Foundation::TimeSpan) -> windows_core::Result<()>
+    pub fn SendHapticFeedbackForPlayCount<P0>(&self, feedback: P0, intensity: f64, playcount: i32, replaypauseinterval: super::super::Foundation::TimeSpan) -> windows_core::Result<()>
     where
         P0: windows_core::Param<SimpleHapticsControllerFeedback>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendHapticFeedbackForPlayCount)(windows_core::Interface::as_raw(this), feedback.param().abi(), intensity, playCount, replayPauseInterval).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendHapticFeedbackForPlayCount)(windows_core::Interface::as_raw(this), feedback.param().abi(), intensity, playcount, replaypauseinterval).ok() }
     }
 }
 impl windows_core::RuntimeType for SimpleHapticsController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISimpleHapticsController>();
 }
 unsafe impl windows_core::Interface for SimpleHapticsController {
-    type Vtable = <ISimpleHapticsController as windows_core::Interface>::Vtable;
+    type Vtable = ISimpleHapticsController_Vtbl;
     const IID: windows_core::GUID = <ISimpleHapticsController as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SimpleHapticsController {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsController";
 }
+unsafe impl Send for SimpleHapticsController {}
+unsafe impl Sync for SimpleHapticsController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SimpleHapticsControllerFeedback(windows_core::IUnknown);
@@ -207,12 +308,14 @@ impl windows_core::RuntimeType for SimpleHapticsControllerFeedback {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISimpleHapticsControllerFeedback>();
 }
 unsafe impl windows_core::Interface for SimpleHapticsControllerFeedback {
-    type Vtable = <ISimpleHapticsControllerFeedback as windows_core::Interface>::Vtable;
+    type Vtable = ISimpleHapticsControllerFeedback_Vtbl;
     const IID: windows_core::GUID = <ISimpleHapticsControllerFeedback as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SimpleHapticsControllerFeedback {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsControllerFeedback";
 }
+unsafe impl Send for SimpleHapticsControllerFeedback {}
+unsafe impl Sync for SimpleHapticsControllerFeedback {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VibrationDevice(windows_core::IUnknown);
@@ -244,10 +347,10 @@ impl VibrationDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceId: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>> {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>> {
@@ -272,14 +375,16 @@ impl windows_core::RuntimeType for VibrationDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVibrationDevice>();
 }
 unsafe impl windows_core::Interface for VibrationDevice {
-    type Vtable = <IVibrationDevice as windows_core::Interface>::Vtable;
+    type Vtable = IVibrationDevice_Vtbl;
     const IID: windows_core::GUID = <IVibrationDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Devices.Haptics.VibrationDevice";
 }
+unsafe impl Send for VibrationDevice {}
+unsafe impl Sync for VibrationDevice {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct VibrationAccessStatus(pub i32);
 impl VibrationAccessStatus {
     pub const Allowed: Self = Self(0i32);
@@ -289,6 +394,11 @@ impl VibrationAccessStatus {
 }
 impl windows_core::TypeKind for VibrationAccessStatus {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for VibrationAccessStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("VibrationAccessStatus").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for VibrationAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Haptics.VibrationAccessStatus;i4)");

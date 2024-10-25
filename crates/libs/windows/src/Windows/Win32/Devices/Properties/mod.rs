@@ -197,98 +197,119 @@ pub const DEVPKEY_DrvPkg_Model: DEVPROPKEY = DEVPROPKEY { fmtid: windows_core::G
 pub const DEVPKEY_DrvPkg_VendorWebSite: DEVPROPKEY = DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132), pid: 3 };
 pub const DEVPKEY_NAME: DEVPROPKEY = DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xb725f130_47ef_101a_a5f1_02608c9eebac), pid: 10 };
 pub const DEVPROPID_FIRST_USABLE: u32 = 2u32;
-pub const DEVPROP_FALSE: DEVPROP_BOOLEAN = 0u8;
+pub const DEVPROP_FALSE: DEVPROP_BOOLEAN = DEVPROP_BOOLEAN(0u8);
 pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
 pub const DEVPROP_MASK_TYPEMOD: u32 = 61440u32;
-pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = 0i32;
-pub const DEVPROP_STORE_USER: DEVPROPSTORE = 1i32;
-pub const DEVPROP_TRUE: DEVPROP_BOOLEAN = 255u8;
-pub const DEVPROP_TYPEMOD_ARRAY: DEVPROPTYPE = 4096u32;
-pub const DEVPROP_TYPEMOD_LIST: DEVPROPTYPE = 8192u32;
-pub const DEVPROP_TYPE_BINARY: DEVPROPTYPE = 4099u32;
-pub const DEVPROP_TYPE_BOOLEAN: DEVPROPTYPE = 17u32;
-pub const DEVPROP_TYPE_BYTE: DEVPROPTYPE = 3u32;
-pub const DEVPROP_TYPE_CURRENCY: DEVPROPTYPE = 14u32;
-pub const DEVPROP_TYPE_DATE: DEVPROPTYPE = 15u32;
-pub const DEVPROP_TYPE_DECIMAL: DEVPROPTYPE = 12u32;
-pub const DEVPROP_TYPE_DEVPROPKEY: DEVPROPTYPE = 21u32;
-pub const DEVPROP_TYPE_DEVPROPTYPE: DEVPROPTYPE = 22u32;
-pub const DEVPROP_TYPE_DOUBLE: DEVPROPTYPE = 11u32;
-pub const DEVPROP_TYPE_EMPTY: DEVPROPTYPE = 0u32;
-pub const DEVPROP_TYPE_ERROR: DEVPROPTYPE = 23u32;
-pub const DEVPROP_TYPE_FILETIME: DEVPROPTYPE = 16u32;
-pub const DEVPROP_TYPE_FLOAT: DEVPROPTYPE = 10u32;
-pub const DEVPROP_TYPE_GUID: DEVPROPTYPE = 13u32;
-pub const DEVPROP_TYPE_INT16: DEVPROPTYPE = 4u32;
-pub const DEVPROP_TYPE_INT32: DEVPROPTYPE = 6u32;
-pub const DEVPROP_TYPE_INT64: DEVPROPTYPE = 8u32;
-pub const DEVPROP_TYPE_NTSTATUS: DEVPROPTYPE = 24u32;
-pub const DEVPROP_TYPE_NULL: DEVPROPTYPE = 1u32;
-pub const DEVPROP_TYPE_SBYTE: DEVPROPTYPE = 2u32;
-pub const DEVPROP_TYPE_SECURITY_DESCRIPTOR: DEVPROPTYPE = 19u32;
-pub const DEVPROP_TYPE_SECURITY_DESCRIPTOR_STRING: DEVPROPTYPE = 20u32;
-pub const DEVPROP_TYPE_STRING: DEVPROPTYPE = 18u32;
-pub const DEVPROP_TYPE_STRING_INDIRECT: DEVPROPTYPE = 25u32;
-pub const DEVPROP_TYPE_STRING_LIST: DEVPROPTYPE = 8210u32;
-pub const DEVPROP_TYPE_UINT16: DEVPROPTYPE = 5u32;
-pub const DEVPROP_TYPE_UINT32: DEVPROPTYPE = 7u32;
-pub const DEVPROP_TYPE_UINT64: DEVPROPTYPE = 9u32;
+pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = DEVPROPSTORE(0i32);
+pub const DEVPROP_STORE_USER: DEVPROPSTORE = DEVPROPSTORE(1i32);
+pub const DEVPROP_TRUE: DEVPROP_BOOLEAN = DEVPROP_BOOLEAN(255u8);
+pub const DEVPROP_TYPEMOD_ARRAY: DEVPROPTYPE = DEVPROPTYPE(4096u32);
+pub const DEVPROP_TYPEMOD_LIST: DEVPROPTYPE = DEVPROPTYPE(8192u32);
+pub const DEVPROP_TYPE_BINARY: DEVPROPTYPE = DEVPROPTYPE(4099u32);
+pub const DEVPROP_TYPE_BOOLEAN: DEVPROPTYPE = DEVPROPTYPE(17u32);
+pub const DEVPROP_TYPE_BYTE: DEVPROPTYPE = DEVPROPTYPE(3u32);
+pub const DEVPROP_TYPE_CURRENCY: DEVPROPTYPE = DEVPROPTYPE(14u32);
+pub const DEVPROP_TYPE_DATE: DEVPROPTYPE = DEVPROPTYPE(15u32);
+pub const DEVPROP_TYPE_DECIMAL: DEVPROPTYPE = DEVPROPTYPE(12u32);
+pub const DEVPROP_TYPE_DEVPROPKEY: DEVPROPTYPE = DEVPROPTYPE(21u32);
+pub const DEVPROP_TYPE_DEVPROPTYPE: DEVPROPTYPE = DEVPROPTYPE(22u32);
+pub const DEVPROP_TYPE_DOUBLE: DEVPROPTYPE = DEVPROPTYPE(11u32);
+pub const DEVPROP_TYPE_EMPTY: DEVPROPTYPE = DEVPROPTYPE(0u32);
+pub const DEVPROP_TYPE_ERROR: DEVPROPTYPE = DEVPROPTYPE(23u32);
+pub const DEVPROP_TYPE_FILETIME: DEVPROPTYPE = DEVPROPTYPE(16u32);
+pub const DEVPROP_TYPE_FLOAT: DEVPROPTYPE = DEVPROPTYPE(10u32);
+pub const DEVPROP_TYPE_GUID: DEVPROPTYPE = DEVPROPTYPE(13u32);
+pub const DEVPROP_TYPE_INT16: DEVPROPTYPE = DEVPROPTYPE(4u32);
+pub const DEVPROP_TYPE_INT32: DEVPROPTYPE = DEVPROPTYPE(6u32);
+pub const DEVPROP_TYPE_INT64: DEVPROPTYPE = DEVPROPTYPE(8u32);
+pub const DEVPROP_TYPE_NTSTATUS: DEVPROPTYPE = DEVPROPTYPE(24u32);
+pub const DEVPROP_TYPE_NULL: DEVPROPTYPE = DEVPROPTYPE(1u32);
+pub const DEVPROP_TYPE_SBYTE: DEVPROPTYPE = DEVPROPTYPE(2u32);
+pub const DEVPROP_TYPE_SECURITY_DESCRIPTOR: DEVPROPTYPE = DEVPROPTYPE(19u32);
+pub const DEVPROP_TYPE_SECURITY_DESCRIPTOR_STRING: DEVPROPTYPE = DEVPROPTYPE(20u32);
+pub const DEVPROP_TYPE_STRING: DEVPROPTYPE = DEVPROPTYPE(18u32);
+pub const DEVPROP_TYPE_STRING_INDIRECT: DEVPROPTYPE = DEVPROPTYPE(25u32);
+pub const DEVPROP_TYPE_STRING_LIST: DEVPROPTYPE = DEVPROPTYPE(8210u32);
+pub const DEVPROP_TYPE_UINT16: DEVPROPTYPE = DEVPROPTYPE(5u32);
+pub const DEVPROP_TYPE_UINT32: DEVPROPTYPE = DEVPROPTYPE(7u32);
+pub const DEVPROP_TYPE_UINT64: DEVPROPTYPE = DEVPROPTYPE(9u32);
 pub const MAX_DEVPROP_TYPE: u32 = 25u32;
 pub const MAX_DEVPROP_TYPEMOD: u32 = 8192u32;
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DEVPROPSTORE(pub i32);
 impl windows_core::TypeKind for DEVPROPSTORE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DEVPROPSTORE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DEVPROPSTORE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DEVPROPTYPE(pub u32);
 impl windows_core::TypeKind for DEVPROPTYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DEVPROPTYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DEVPROPTYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVPROPCOMPKEY {
     pub Key: DEVPROPKEY,
     pub Store: DEVPROPSTORE,
     pub LocaleName: windows_core::PCWSTR,
+}
+impl windows_core::TypeKind for DEVPROPCOMPKEY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEVPROPCOMPKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVPROPCOMPKEY {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVPROPERTY {
     pub CompKey: DEVPROPCOMPKEY,
     pub Type: DEVPROPTYPE,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for DEVPROPERTY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DEVPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVPROPERTY {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVPROPKEY {
     pub fmtid: windows_core::GUID,
     pub pid: u32,
+}
+impl windows_core::TypeKind for DEVPROPKEY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DEVPROPKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DEVPROPKEY {
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct DEVPROP_BOOLEAN(pub u8);
+impl Default for DEVPROP_BOOLEAN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for DEVPROP_BOOLEAN {
     type TypeKind = windows_core::CopyType;
 }

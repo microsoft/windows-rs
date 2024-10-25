@@ -29,17 +29,67 @@ pub struct IWorkplaceSettingsStatics_Vtbl {
     pub IsMicrosoftAccountOptional: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 pub struct MdmPolicy;
-impl MdmPolicy {}
+impl MdmPolicy {
+    pub fn IsBrowserAllowed() -> windows_core::Result<bool> {
+        Self::IMdmAllowPolicyStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsBrowserAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn IsCameraAllowed() -> windows_core::Result<bool> {
+        Self::IMdmAllowPolicyStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsCameraAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn IsMicrosoftAccountAllowed() -> windows_core::Result<bool> {
+        Self::IMdmAllowPolicyStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsMicrosoftAccountAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn IsStoreAllowed() -> windows_core::Result<bool> {
+        Self::IMdmAllowPolicyStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsStoreAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn GetMessagingSyncPolicy() -> windows_core::Result<MessagingSyncPolicy> {
+        Self::IMdmPolicyStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetMessagingSyncPolicy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    fn IMdmAllowPolicyStatics<R, F: FnOnce(&IMdmAllowPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MdmPolicy, IMdmAllowPolicyStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IMdmPolicyStatics2<R, F: FnOnce(&IMdmPolicyStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<MdmPolicy, IMdmPolicyStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeName for MdmPolicy {
     const NAME: &'static str = "Windows.Management.Workplace.MdmPolicy";
 }
 pub struct WorkplaceSettings;
-impl WorkplaceSettings {}
+impl WorkplaceSettings {
+    pub fn IsMicrosoftAccountOptional() -> windows_core::Result<bool> {
+        Self::IWorkplaceSettingsStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsMicrosoftAccountOptional)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    fn IWorkplaceSettingsStatics<R, F: FnOnce(&IWorkplaceSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WorkplaceSettings, IWorkplaceSettingsStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeName for WorkplaceSettings {
     const NAME: &'static str = "Windows.Management.Workplace.WorkplaceSettings";
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MessagingSyncPolicy(pub i32);
 impl MessagingSyncPolicy {
     pub const Disallowed: Self = Self(0i32);
@@ -48,6 +98,11 @@ impl MessagingSyncPolicy {
 }
 impl windows_core::TypeKind for MessagingSyncPolicy {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for MessagingSyncPolicy {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MessagingSyncPolicy").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for MessagingSyncPolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Workplace.MessagingSyncPolicy;i4)");

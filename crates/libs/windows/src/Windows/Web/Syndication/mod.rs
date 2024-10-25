@@ -46,10 +46,13 @@ pub struct ISyndicationCategoryFactory_Vtbl {
     pub CreateSyndicationCategoryEx: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyndicationClient, ISyndicationClient_Vtbl, 0x9e18a9b7_7249_4b45_b229_7df895a5a1f5);
-windows_core::imp::interface_hierarchy!(ISyndicationClient, windows_core::IUnknown, windows_core::IInspectable);
-impl windows_core::RuntimeType for ISyndicationClient {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for ISyndicationClient {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
+windows_core::imp::interface_hierarchy!(ISyndicationClient, windows_core::IUnknown, windows_core::IInspectable);
 impl ISyndicationClient {
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
@@ -130,6 +133,9 @@ impl ISyndicationClient {
             (windows_core::Interface::vtable(this).RetrieveFeedAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for ISyndicationClient {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct ISyndicationClient_Vtbl {
@@ -377,10 +383,13 @@ pub struct ISyndicationLinkFactory_Vtbl {
     pub CreateSyndicationLinkEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyndicationNode, ISyndicationNode_Vtbl, 0x753cef78_51f8_45c0_a9f5_f1719dec3fb2);
-windows_core::imp::interface_hierarchy!(ISyndicationNode, windows_core::IUnknown, windows_core::IInspectable);
-impl windows_core::RuntimeType for ISyndicationNode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for ISyndicationNode {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
+windows_core::imp::interface_hierarchy!(ISyndicationNode, windows_core::IUnknown, windows_core::IInspectable);
 impl ISyndicationNode {
     pub fn NodeName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -465,6 +474,9 @@ impl ISyndicationNode {
         }
     }
 }
+impl windows_core::RuntimeType for ISyndicationNode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISyndicationNode_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -525,11 +537,14 @@ pub struct ISyndicationPersonFactory_Vtbl {
     pub CreateSyndicationPersonEx: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISyndicationText, ISyndicationText_Vtbl, 0xb9cc5e80_313a_4091_a2a6_243e0ee923f9);
+impl core::ops::Deref for ISyndicationText {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(ISyndicationText, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ISyndicationText, ISyndicationNode);
-impl windows_core::RuntimeType for ISyndicationText {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl ISyndicationText {
     pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -652,6 +667,9 @@ impl ISyndicationText {
         }
     }
 }
+impl windows_core::RuntimeType for ISyndicationText {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct ISyndicationText_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -723,10 +741,10 @@ impl SyndicationAttribute {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CreateSyndicationAttribute(attributeName: &windows_core::HSTRING, attributeNamespace: &windows_core::HSTRING, attributeValue: &windows_core::HSTRING) -> windows_core::Result<SyndicationAttribute> {
+    pub fn CreateSyndicationAttribute(attributename: &windows_core::HSTRING, attributenamespace: &windows_core::HSTRING, attributevalue: &windows_core::HSTRING) -> windows_core::Result<SyndicationAttribute> {
         Self::ISyndicationAttributeFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSyndicationAttribute)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(attributeName), core::mem::transmute_copy(attributeNamespace), core::mem::transmute_copy(attributeValue), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateSyndicationAttribute)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(attributename), core::mem::transmute_copy(attributenamespace), core::mem::transmute_copy(attributevalue), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ISyndicationAttributeFactory<R, F: FnOnce(&ISyndicationAttributeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -738,16 +756,19 @@ impl windows_core::RuntimeType for SyndicationAttribute {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationAttribute>();
 }
 unsafe impl windows_core::Interface for SyndicationAttribute {
-    type Vtable = <ISyndicationAttribute as windows_core::Interface>::Vtable;
+    type Vtable = ISyndicationAttribute_Vtbl;
     const IID: windows_core::GUID = <ISyndicationAttribute as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SyndicationAttribute {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationAttribute";
 }
+unsafe impl Send for SyndicationAttribute {}
+unsafe impl Sync for SyndicationAttribute {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationCategory(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationCategory, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SyndicationCategory, ISyndicationNode);
 impl SyndicationCategory {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -892,16 +913,18 @@ impl windows_core::RuntimeType for SyndicationCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationCategory>();
 }
 unsafe impl windows_core::Interface for SyndicationCategory {
-    type Vtable = <ISyndicationCategory as windows_core::Interface>::Vtable;
+    type Vtable = ISyndicationCategory_Vtbl;
     const IID: windows_core::GUID = <ISyndicationCategory as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SyndicationCategory {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationCategory";
 }
+unsafe impl Send for SyndicationCategory {}
+unsafe impl Sync for SyndicationCategory {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationClient(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SyndicationClient, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(SyndicationClient, windows_core::IUnknown, windows_core::IInspectable, ISyndicationClient);
 impl SyndicationClient {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -990,13 +1013,13 @@ impl SyndicationClient {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateSyndicationClient<P0>(serverCredential: P0) -> windows_core::Result<SyndicationClient>
+    pub fn CreateSyndicationClient<P0>(servercredential: P0) -> windows_core::Result<SyndicationClient>
     where
         P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
         Self::ISyndicationClientFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSyndicationClient)(windows_core::Interface::as_raw(this), serverCredential.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateSyndicationClient)(windows_core::Interface::as_raw(this), servercredential.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ISyndicationClientFactory<R, F: FnOnce(&ISyndicationClientFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1008,16 +1031,19 @@ impl windows_core::RuntimeType for SyndicationClient {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationClient>();
 }
 unsafe impl windows_core::Interface for SyndicationClient {
-    type Vtable = <ISyndicationClient as windows_core::Interface>::Vtable;
+    type Vtable = ISyndicationClient_Vtbl;
     const IID: windows_core::GUID = <ISyndicationClient as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SyndicationClient {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationClient";
 }
+unsafe impl Send for SyndicationClient {}
+unsafe impl Sync for SyndicationClient {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationContent, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SyndicationContent, ISyndicationNode, ISyndicationText);
 impl SyndicationContent {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1046,13 +1072,13 @@ impl SyndicationContent {
             (windows_core::Interface::vtable(this).CreateSyndicationContent)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateSyndicationContentWithSourceUri<P0>(sourceUri: P0) -> windows_core::Result<SyndicationContent>
+    pub fn CreateSyndicationContentWithSourceUri<P0>(sourceuri: P0) -> windows_core::Result<SyndicationContent>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::ISyndicationContentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSyndicationContentWithSourceUri)(windows_core::Interface::as_raw(this), sourceUri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateSyndicationContentWithSourceUri)(windows_core::Interface::as_raw(this), sourceuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn NodeName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1184,14 +1210,27 @@ impl windows_core::RuntimeType for SyndicationContent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationContent>();
 }
 unsafe impl windows_core::Interface for SyndicationContent {
-    type Vtable = <ISyndicationContent as windows_core::Interface>::Vtable;
+    type Vtable = ISyndicationContent_Vtbl;
     const IID: windows_core::GUID = <ISyndicationContent as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SyndicationContent {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationContent";
 }
+unsafe impl Send for SyndicationContent {}
+unsafe impl Sync for SyndicationContent {}
 pub struct SyndicationError;
-impl SyndicationError {}
+impl SyndicationError {
+    pub fn GetStatus(hresult: i32) -> windows_core::Result<SyndicationErrorStatus> {
+        Self::ISyndicationErrorStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetStatus)(windows_core::Interface::as_raw(this), hresult, &mut result__).map(|| result__)
+        })
+    }
+    fn ISyndicationErrorStatics<R, F: FnOnce(&ISyndicationErrorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<SyndicationError, ISyndicationErrorStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeName for SyndicationError {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationError";
 }
@@ -1199,6 +1238,7 @@ impl windows_core::RuntimeName for SyndicationError {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationFeed(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationFeed, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SyndicationFeed, ISyndicationNode);
 impl SyndicationFeed {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1393,16 +1433,16 @@ impl SyndicationFeed {
         unsafe { (windows_core::Interface::vtable(this).Load)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(feed)).ok() }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn LoadFromXml<P0>(&self, feedDocument: P0) -> windows_core::Result<()>
+    pub fn LoadFromXml<P0>(&self, feeddocument: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).LoadFromXml)(windows_core::Interface::as_raw(this), feedDocument.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).LoadFromXml)(windows_core::Interface::as_raw(this), feeddocument.param().abi()).ok() }
     }
-    pub fn CreateSyndicationFeed<P2>(title: &windows_core::HSTRING, subtitle: &windows_core::HSTRING, uri: P2) -> windows_core::Result<SyndicationFeed>
+    pub fn CreateSyndicationFeed<P0>(title: &windows_core::HSTRING, subtitle: &windows_core::HSTRING, uri: P0) -> windows_core::Result<SyndicationFeed>
     where
-        P2: windows_core::Param<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::ISyndicationFeedFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1500,16 +1540,19 @@ impl windows_core::RuntimeType for SyndicationFeed {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationFeed>();
 }
 unsafe impl windows_core::Interface for SyndicationFeed {
-    type Vtable = <ISyndicationFeed as windows_core::Interface>::Vtable;
+    type Vtable = ISyndicationFeed_Vtbl;
     const IID: windows_core::GUID = <ISyndicationFeed as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SyndicationFeed {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationFeed";
 }
+unsafe impl Send for SyndicationFeed {}
+unsafe impl Sync for SyndicationFeed {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationGenerator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationGenerator, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SyndicationGenerator, ISyndicationNode);
 impl SyndicationGenerator {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1651,16 +1694,19 @@ impl windows_core::RuntimeType for SyndicationGenerator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationGenerator>();
 }
 unsafe impl windows_core::Interface for SyndicationGenerator {
-    type Vtable = <ISyndicationGenerator as windows_core::Interface>::Vtable;
+    type Vtable = ISyndicationGenerator_Vtbl;
     const IID: windows_core::GUID = <ISyndicationGenerator as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SyndicationGenerator {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationGenerator";
 }
+unsafe impl Send for SyndicationGenerator {}
+unsafe impl Sync for SyndicationGenerator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationItem, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SyndicationItem, ISyndicationNode);
 impl SyndicationItem {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1851,17 +1897,17 @@ impl SyndicationItem {
         unsafe { (windows_core::Interface::vtable(this).Load)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(item)).ok() }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn LoadFromXml<P0>(&self, itemDocument: P0) -> windows_core::Result<()>
+    pub fn LoadFromXml<P0>(&self, itemdocument: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).LoadFromXml)(windows_core::Interface::as_raw(this), itemDocument.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).LoadFromXml)(windows_core::Interface::as_raw(this), itemdocument.param().abi()).ok() }
     }
-    pub fn CreateSyndicationItem<P1, P2>(title: &windows_core::HSTRING, content: P1, uri: P2) -> windows_core::Result<SyndicationItem>
+    pub fn CreateSyndicationItem<P0, P1>(title: &windows_core::HSTRING, content: P0, uri: P1) -> windows_core::Result<SyndicationItem>
     where
-        P1: windows_core::Param<SyndicationContent>,
-        P2: windows_core::Param<super::super::Foundation::Uri>,
+        P0: windows_core::Param<SyndicationContent>,
+        P1: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::ISyndicationItemFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1959,16 +2005,19 @@ impl windows_core::RuntimeType for SyndicationItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationItem>();
 }
 unsafe impl windows_core::Interface for SyndicationItem {
-    type Vtable = <ISyndicationItem as windows_core::Interface>::Vtable;
+    type Vtable = ISyndicationItem_Vtbl;
     const IID: windows_core::GUID = <ISyndicationItem as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SyndicationItem {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationItem";
 }
+unsafe impl Send for SyndicationItem {}
+unsafe impl Sync for SyndicationItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationLink(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationLink, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SyndicationLink, ISyndicationNode);
 impl SyndicationLink {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2055,13 +2104,13 @@ impl SyndicationLink {
             (windows_core::Interface::vtable(this).CreateSyndicationLink)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateSyndicationLinkEx<P0>(uri: P0, relationship: &windows_core::HSTRING, title: &windows_core::HSTRING, mediaType: &windows_core::HSTRING, length: u32) -> windows_core::Result<SyndicationLink>
+    pub fn CreateSyndicationLinkEx<P0>(uri: P0, relationship: &windows_core::HSTRING, title: &windows_core::HSTRING, mediatype: &windows_core::HSTRING, length: u32) -> windows_core::Result<SyndicationLink>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::ISyndicationLinkFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSyndicationLinkEx)(windows_core::Interface::as_raw(this), uri.param().abi(), core::mem::transmute_copy(relationship), core::mem::transmute_copy(title), core::mem::transmute_copy(mediaType), length, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateSyndicationLinkEx)(windows_core::Interface::as_raw(this), uri.param().abi(), core::mem::transmute_copy(relationship), core::mem::transmute_copy(title), core::mem::transmute_copy(mediatype), length, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn NodeName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2155,16 +2204,18 @@ impl windows_core::RuntimeType for SyndicationLink {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationLink>();
 }
 unsafe impl windows_core::Interface for SyndicationLink {
-    type Vtable = <ISyndicationLink as windows_core::Interface>::Vtable;
+    type Vtable = ISyndicationLink_Vtbl;
     const IID: windows_core::GUID = <ISyndicationLink as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SyndicationLink {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationLink";
 }
+unsafe impl Send for SyndicationLink {}
+unsafe impl Sync for SyndicationLink {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationNode(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SyndicationNode, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(SyndicationNode, windows_core::IUnknown, windows_core::IInspectable, ISyndicationNode);
 impl SyndicationNode {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2255,10 +2306,10 @@ impl SyndicationNode {
             (windows_core::Interface::vtable(this).GetXmlDocument)(windows_core::Interface::as_raw(this), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateSyndicationNode(nodeName: &windows_core::HSTRING, nodeNamespace: &windows_core::HSTRING, nodeValue: &windows_core::HSTRING) -> windows_core::Result<SyndicationNode> {
+    pub fn CreateSyndicationNode(nodename: &windows_core::HSTRING, nodenamespace: &windows_core::HSTRING, nodevalue: &windows_core::HSTRING) -> windows_core::Result<SyndicationNode> {
         Self::ISyndicationNodeFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateSyndicationNode)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(nodeName), core::mem::transmute_copy(nodeNamespace), core::mem::transmute_copy(nodeValue), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateSyndicationNode)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(nodename), core::mem::transmute_copy(nodenamespace), core::mem::transmute_copy(nodevalue), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ISyndicationNodeFactory<R, F: FnOnce(&ISyndicationNodeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2270,16 +2321,19 @@ impl windows_core::RuntimeType for SyndicationNode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationNode>();
 }
 unsafe impl windows_core::Interface for SyndicationNode {
-    type Vtable = <ISyndicationNode as windows_core::Interface>::Vtable;
+    type Vtable = ISyndicationNode_Vtbl;
     const IID: windows_core::GUID = <ISyndicationNode as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SyndicationNode {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationNode";
 }
+unsafe impl Send for SyndicationNode {}
+unsafe impl Sync for SyndicationNode {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationPerson(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SyndicationPerson, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SyndicationPerson, ISyndicationNode);
 impl SyndicationPerson {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2412,9 +2466,9 @@ impl SyndicationPerson {
             (windows_core::Interface::vtable(this).CreateSyndicationPerson)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateSyndicationPersonEx<P2>(name: &windows_core::HSTRING, email: &windows_core::HSTRING, uri: P2) -> windows_core::Result<SyndicationPerson>
+    pub fn CreateSyndicationPersonEx<P0>(name: &windows_core::HSTRING, email: &windows_core::HSTRING, uri: P0) -> windows_core::Result<SyndicationPerson>
     where
-        P2: windows_core::Param<super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         Self::ISyndicationPersonFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2430,16 +2484,19 @@ impl windows_core::RuntimeType for SyndicationPerson {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationPerson>();
 }
 unsafe impl windows_core::Interface for SyndicationPerson {
-    type Vtable = <ISyndicationPerson as windows_core::Interface>::Vtable;
+    type Vtable = ISyndicationPerson_Vtbl;
     const IID: windows_core::GUID = <ISyndicationPerson as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SyndicationPerson {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationPerson";
 }
+unsafe impl Send for SyndicationPerson {}
+unsafe impl Sync for SyndicationPerson {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationText(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SyndicationText, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(SyndicationText, windows_core::IUnknown, windows_core::IInspectable, ISyndicationText);
+windows_core::imp::required_hierarchy!(SyndicationText, ISyndicationNode);
 impl SyndicationText {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2589,14 +2646,16 @@ impl windows_core::RuntimeType for SyndicationText {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationText>();
 }
 unsafe impl windows_core::Interface for SyndicationText {
-    type Vtable = <ISyndicationText as windows_core::Interface>::Vtable;
+    type Vtable = ISyndicationText_Vtbl;
     const IID: windows_core::GUID = <ISyndicationText as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SyndicationText {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationText";
 }
+unsafe impl Send for SyndicationText {}
+unsafe impl Sync for SyndicationText {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SyndicationErrorStatus(pub i32);
 impl SyndicationErrorStatus {
     pub const Unknown: Self = Self(0i32);
@@ -2609,11 +2668,16 @@ impl SyndicationErrorStatus {
 impl windows_core::TypeKind for SyndicationErrorStatus {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SyndicationErrorStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SyndicationErrorStatus").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for SyndicationErrorStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationErrorStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SyndicationFormat(pub i32);
 impl SyndicationFormat {
     pub const Atom10: Self = Self(0i32);
@@ -2626,11 +2690,16 @@ impl SyndicationFormat {
 impl windows_core::TypeKind for SyndicationFormat {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SyndicationFormat {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SyndicationFormat").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for SyndicationFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SyndicationTextType(pub i32);
 impl SyndicationTextType {
     pub const Text: Self = Self(0i32);
@@ -2640,11 +2709,16 @@ impl SyndicationTextType {
 impl windows_core::TypeKind for SyndicationTextType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SyndicationTextType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SyndicationTextType").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for SyndicationTextType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationTextType;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RetrievalProgress {
     pub BytesRetrieved: u32,
     pub TotalBytesToRetrieve: u32,
@@ -2655,8 +2729,13 @@ impl windows_core::TypeKind for RetrievalProgress {
 impl windows_core::RuntimeType for RetrievalProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Web.Syndication.RetrievalProgress;u4;u4)");
 }
+impl Default for RetrievalProgress {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TransferProgress {
     pub BytesSent: u32,
     pub TotalBytesToSend: u32,
@@ -2669,3 +2748,10 @@ impl windows_core::TypeKind for TransferProgress {
 impl windows_core::RuntimeType for TransferProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Web.Syndication.TransferProgress;u4;u4;u4;u4)");
 }
+impl Default for TransferProgress {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "implement")]
+core::include!("impl.rs");

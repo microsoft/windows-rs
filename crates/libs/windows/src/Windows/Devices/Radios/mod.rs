@@ -49,9 +49,9 @@ impl Radio {
             (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveStateChanged(&self, eventCookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveStateChanged(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveStateChanged)(windows_core::Interface::as_raw(this), eventCookie).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveStateChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
     pub fn State(&self) -> windows_core::Result<RadioState> {
         let this = self;
@@ -87,10 +87,10 @@ impl Radio {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceId: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Radio>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Radio>> {
         Self::IRadioStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn RequestAccessAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<RadioAccessStatus>> {
@@ -108,14 +108,16 @@ impl windows_core::RuntimeType for Radio {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadio>();
 }
 unsafe impl windows_core::Interface for Radio {
-    type Vtable = <IRadio as windows_core::Interface>::Vtable;
+    type Vtable = IRadio_Vtbl;
     const IID: windows_core::GUID = <IRadio as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Radio {
     const NAME: &'static str = "Windows.Devices.Radios.Radio";
 }
+unsafe impl Send for Radio {}
+unsafe impl Sync for Radio {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RadioAccessStatus(pub i32);
 impl RadioAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -126,11 +128,16 @@ impl RadioAccessStatus {
 impl windows_core::TypeKind for RadioAccessStatus {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for RadioAccessStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RadioAccessStatus").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for RadioAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioAccessStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RadioKind(pub i32);
 impl RadioKind {
     pub const Other: Self = Self(0i32);
@@ -142,11 +149,16 @@ impl RadioKind {
 impl windows_core::TypeKind for RadioKind {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for RadioKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RadioKind").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for RadioKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RadioState(pub i32);
 impl RadioState {
     pub const Unknown: Self = Self(0i32);
@@ -156,6 +168,11 @@ impl RadioState {
 }
 impl windows_core::TypeKind for RadioState {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for RadioState {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RadioState").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for RadioState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioState;i4)");

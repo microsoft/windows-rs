@@ -147,10 +147,13 @@ pub struct IWebAccountProviderAddAccountOperation_Vtbl {
     pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountProviderBaseReportOperation, IWebAccountProviderBaseReportOperation_Vtbl, 0xbba4acbb_993b_4d57_bbe4_1421e3668b4c);
-windows_core::imp::interface_hierarchy!(IWebAccountProviderBaseReportOperation, windows_core::IUnknown, windows_core::IInspectable);
-impl windows_core::RuntimeType for IWebAccountProviderBaseReportOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IWebAccountProviderBaseReportOperation {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
+windows_core::imp::interface_hierarchy!(IWebAccountProviderBaseReportOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebAccountProviderBaseReportOperation {
     pub fn ReportCompleted(&self) -> windows_core::Result<()> {
         let this = self;
@@ -164,6 +167,9 @@ impl IWebAccountProviderBaseReportOperation {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportError)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
+}
+impl windows_core::RuntimeType for IWebAccountProviderBaseReportOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IWebAccountProviderBaseReportOperation_Vtbl {
@@ -200,10 +206,13 @@ pub struct IWebAccountProviderManageAccountOperation_Vtbl {
     pub ReportCompleted: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountProviderOperation, IWebAccountProviderOperation_Vtbl, 0x6d5d2426_10b1_419a_a44e_f9c5161574e6);
-windows_core::imp::interface_hierarchy!(IWebAccountProviderOperation, windows_core::IUnknown, windows_core::IInspectable);
-impl windows_core::RuntimeType for IWebAccountProviderOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IWebAccountProviderOperation {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
+windows_core::imp::interface_hierarchy!(IWebAccountProviderOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebAccountProviderOperation {
     pub fn Kind(&self) -> windows_core::Result<WebAccountProviderOperationKind> {
         let this = self;
@@ -212,6 +221,9 @@ impl IWebAccountProviderOperation {
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for IWebAccountProviderOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IWebAccountProviderOperation_Vtbl {
@@ -249,11 +261,14 @@ pub struct IWebAccountProviderSignOutAccountOperation_Vtbl {
     pub ClientId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountProviderSilentReportOperation, IWebAccountProviderSilentReportOperation_Vtbl, 0xe0b545f8_3b0f_44da_924c_7b18baaa62a9);
+impl core::ops::Deref for IWebAccountProviderSilentReportOperation {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWebAccountProviderSilentReportOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IWebAccountProviderSilentReportOperation, IWebAccountProviderBaseReportOperation);
-impl windows_core::RuntimeType for IWebAccountProviderSilentReportOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IWebAccountProviderSilentReportOperation {
     pub fn ReportUserInteractionRequired(&self) -> windows_core::Result<()> {
         let this = self;
@@ -280,6 +295,9 @@ impl IWebAccountProviderSilentReportOperation {
         unsafe { (windows_core::Interface::vtable(this).ReportError)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for IWebAccountProviderSilentReportOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebAccountProviderSilentReportOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -290,10 +308,13 @@ pub struct IWebAccountProviderSilentReportOperation_Vtbl {
     ReportUserInteractionRequiredWithError: usize,
 }
 windows_core::imp::define_interface!(IWebAccountProviderTokenObjects, IWebAccountProviderTokenObjects_Vtbl, 0x408f284b_1328_42db_89a4_0bce7a717d8e);
-windows_core::imp::interface_hierarchy!(IWebAccountProviderTokenObjects, windows_core::IUnknown, windows_core::IInspectable);
-impl windows_core::RuntimeType for IWebAccountProviderTokenObjects {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IWebAccountProviderTokenObjects {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
+windows_core::imp::interface_hierarchy!(IWebAccountProviderTokenObjects, windows_core::IUnknown, windows_core::IInspectable);
 impl IWebAccountProviderTokenObjects {
     pub fn Operation(&self) -> windows_core::Result<IWebAccountProviderOperation> {
         let this = self;
@@ -303,17 +324,23 @@ impl IWebAccountProviderTokenObjects {
         }
     }
 }
+impl windows_core::RuntimeType for IWebAccountProviderTokenObjects {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebAccountProviderTokenObjects_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Operation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountProviderTokenObjects2, IWebAccountProviderTokenObjects2_Vtbl, 0x1020b893_5ca5_4fff_95fb_b820273fc395);
+impl core::ops::Deref for IWebAccountProviderTokenObjects2 {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWebAccountProviderTokenObjects2, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IWebAccountProviderTokenObjects2, IWebAccountProviderTokenObjects);
-impl windows_core::RuntimeType for IWebAccountProviderTokenObjects2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IWebAccountProviderTokenObjects2 {
     #[cfg(feature = "System")]
     pub fn User(&self) -> windows_core::Result<super::super::super::super::System::User> {
@@ -331,6 +358,9 @@ impl IWebAccountProviderTokenObjects2 {
         }
     }
 }
+impl windows_core::RuntimeType for IWebAccountProviderTokenObjects2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebAccountProviderTokenObjects2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -340,11 +370,14 @@ pub struct IWebAccountProviderTokenObjects2_Vtbl {
     User: usize,
 }
 windows_core::imp::define_interface!(IWebAccountProviderTokenOperation, IWebAccountProviderTokenOperation_Vtbl, 0x95c613be_2034_4c38_9434_d26c14b2b4b2);
+impl core::ops::Deref for IWebAccountProviderTokenOperation {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWebAccountProviderTokenOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IWebAccountProviderTokenOperation, IWebAccountProviderOperation);
-impl windows_core::RuntimeType for IWebAccountProviderTokenOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IWebAccountProviderTokenOperation {
     pub fn ProviderRequest(&self) -> windows_core::Result<WebProviderTokenRequest> {
         let this = self;
@@ -380,6 +413,9 @@ impl IWebAccountProviderTokenOperation {
         }
     }
 }
+impl windows_core::RuntimeType for IWebAccountProviderTokenOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 #[repr(C)]
 pub struct IWebAccountProviderTokenOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -392,11 +428,14 @@ pub struct IWebAccountProviderTokenOperation_Vtbl {
     pub CacheExpirationTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::super::Foundation::DateTime) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebAccountProviderUIReportOperation, IWebAccountProviderUIReportOperation_Vtbl, 0x28ff92d3_8f80_42fb_944f_b2107bbd42e6);
+impl core::ops::Deref for IWebAccountProviderUIReportOperation {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IWebAccountProviderUIReportOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IWebAccountProviderUIReportOperation, IWebAccountProviderBaseReportOperation);
-impl windows_core::RuntimeType for IWebAccountProviderUIReportOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IWebAccountProviderUIReportOperation {
     pub fn ReportUserCanceled(&self) -> windows_core::Result<()> {
         let this = self;
@@ -414,6 +453,9 @@ impl IWebAccountProviderUIReportOperation {
         let this = &windows_core::Interface::cast::<IWebAccountProviderBaseReportOperation>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReportError)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
+}
+impl windows_core::RuntimeType for IWebAccountProviderUIReportOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IWebAccountProviderUIReportOperation_Vtbl {
@@ -535,22 +577,22 @@ impl WebAccountClientView {
             (windows_core::Interface::vtable(this).AccountPairwiseId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create<P1>(viewType: WebAccountClientViewType, applicationCallbackUri: P1) -> windows_core::Result<WebAccountClientView>
+    pub fn Create<P0>(viewtype: WebAccountClientViewType, applicationcallbackuri: P0) -> windows_core::Result<WebAccountClientView>
     where
-        P1: windows_core::Param<super::super::super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::super::super::Foundation::Uri>,
     {
         Self::IWebAccountClientViewFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), viewType, applicationCallbackUri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), viewtype, applicationcallbackuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithPairwiseId<P1>(viewType: WebAccountClientViewType, applicationCallbackUri: P1, accountPairwiseId: &windows_core::HSTRING) -> windows_core::Result<WebAccountClientView>
+    pub fn CreateWithPairwiseId<P0>(viewtype: WebAccountClientViewType, applicationcallbackuri: P0, accountpairwiseid: &windows_core::HSTRING) -> windows_core::Result<WebAccountClientView>
     where
-        P1: windows_core::Param<super::super::super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::super::super::Foundation::Uri>,
     {
         Self::IWebAccountClientViewFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithPairwiseId)(windows_core::Interface::as_raw(this), viewType, applicationCallbackUri.param().abi(), core::mem::transmute_copy(accountPairwiseId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithPairwiseId)(windows_core::Interface::as_raw(this), viewtype, applicationcallbackuri.param().abi(), core::mem::transmute_copy(accountpairwiseid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IWebAccountClientViewFactory<R, F: FnOnce(&IWebAccountClientViewFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -562,14 +604,278 @@ impl windows_core::RuntimeType for WebAccountClientView {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountClientView>();
 }
 unsafe impl windows_core::Interface for WebAccountClientView {
-    type Vtable = <IWebAccountClientView as windows_core::Interface>::Vtable;
+    type Vtable = IWebAccountClientView_Vtbl;
     const IID: windows_core::GUID = <IWebAccountClientView as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebAccountClientView {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountClientView";
 }
+unsafe impl Send for WebAccountClientView {}
+unsafe impl Sync for WebAccountClientView {}
 pub struct WebAccountManager;
-impl WebAccountManager {}
+impl WebAccountManager {
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
+    pub fn UpdateWebAccountPropertiesAsync<P0, P1>(webaccount: P0, webaccountusername: &windows_core::HSTRING, additionalproperties: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::super::Credentials::WebAccount>,
+        P1: windows_core::Param<super::super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>,
+    {
+        Self::IWebAccountManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UpdateWebAccountPropertiesAsync)(windows_core::Interface::as_raw(this), webaccount.param().abi(), core::mem::transmute_copy(webaccountusername), additionalproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
+    pub fn AddWebAccountAsync<P0>(webaccountid: &windows_core::HSTRING, webaccountusername: &windows_core::HSTRING, props: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
+    where
+        P0: windows_core::Param<super::super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>,
+    {
+        Self::IWebAccountManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AddWebAccountAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(webaccountid), core::mem::transmute_copy(webaccountusername), props.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Security_Credentials")]
+    pub fn DeleteWebAccountAsync<P0>(webaccount: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::super::Credentials::WebAccount>,
+    {
+        Self::IWebAccountManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeleteWebAccountAsync)(windows_core::Interface::as_raw(this), webaccount.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
+    pub fn FindAllProviderWebAccountsAsync() -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>>> {
+        Self::IWebAccountManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FindAllProviderWebAccountsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http"))]
+    pub fn PushCookiesAsync<P0, P1>(uri: P0, cookies: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::super::super::Foundation::Uri>,
+        P1: windows_core::Param<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Web::Http::HttpCookie>>,
+    {
+        Self::IWebAccountManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PushCookiesAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), cookies.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Security_Credentials")]
+    pub fn SetViewAsync<P0, P1>(webaccount: P0, view: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::super::Credentials::WebAccount>,
+        P1: windows_core::Param<WebAccountClientView>,
+    {
+        Self::IWebAccountManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetViewAsync)(windows_core::Interface::as_raw(this), webaccount.param().abi(), view.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Security_Credentials")]
+    pub fn ClearViewAsync<P0, P1>(webaccount: P0, applicationcallbackuri: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::super::Credentials::WebAccount>,
+        P1: windows_core::Param<super::super::super::super::Foundation::Uri>,
+    {
+        Self::IWebAccountManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ClearViewAsync)(windows_core::Interface::as_raw(this), webaccount.param().abi(), applicationcallbackuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
+    pub fn GetViewsAsync<P0>(webaccount: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<WebAccountClientView>>>
+    where
+        P0: windows_core::Param<super::super::super::Credentials::WebAccount>,
+    {
+        Self::IWebAccountManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetViewsAsync)(windows_core::Interface::as_raw(this), webaccount.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Security_Credentials", feature = "Storage_Streams"))]
+    pub fn SetWebAccountPictureAsync<P0, P1>(webaccount: P0, webaccountpicture: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::super::Credentials::WebAccount>,
+        P1: windows_core::Param<super::super::super::super::Storage::Streams::IRandomAccessStream>,
+    {
+        Self::IWebAccountManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetWebAccountPictureAsync)(windows_core::Interface::as_raw(this), webaccount.param().abi(), webaccountpicture.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Security_Credentials")]
+    pub fn ClearWebAccountPictureAsync<P0>(webaccount: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::super::Credentials::WebAccount>,
+    {
+        Self::IWebAccountManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ClearWebAccountPictureAsync)(windows_core::Interface::as_raw(this), webaccount.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn PullCookiesAsync(uristring: &windows_core::HSTRING, callerpfn: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction> {
+        Self::IWebAccountManagerStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PullCookiesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(uristring), core::mem::transmute_copy(callerpfn), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System"))]
+    pub fn FindAllProviderWebAccountsForUserAsync<P0>(user: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>>>
+    where
+        P0: windows_core::Param<super::super::super::super::System::User>,
+    {
+        Self::IWebAccountManagerStatics3(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FindAllProviderWebAccountsForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System"))]
+    pub fn AddWebAccountForUserAsync<P0, P1>(user: P0, webaccountid: &windows_core::HSTRING, webaccountusername: &windows_core::HSTRING, props: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
+    where
+        P0: windows_core::Param<super::super::super::super::System::User>,
+        P1: windows_core::Param<super::super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>,
+    {
+        Self::IWebAccountManagerStatics3(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AddWebAccountForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(webaccountid), core::mem::transmute_copy(webaccountusername), props.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System"))]
+    pub fn AddWebAccountWithScopeForUserAsync<P0, P1>(user: P0, webaccountid: &windows_core::HSTRING, webaccountusername: &windows_core::HSTRING, props: P1, scope: WebAccountScope) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
+    where
+        P0: windows_core::Param<super::super::super::super::System::User>,
+        P1: windows_core::Param<super::super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>,
+    {
+        Self::IWebAccountManagerStatics3(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AddWebAccountWithScopeForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(webaccountid), core::mem::transmute_copy(webaccountusername), props.param().abi(), scope, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System"))]
+    pub fn AddWebAccountWithScopeAndMapForUserAsync<P0, P1>(user: P0, webaccountid: &windows_core::HSTRING, webaccountusername: &windows_core::HSTRING, props: P1, scope: WebAccountScope, peruserwebaccountid: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
+    where
+        P0: windows_core::Param<super::super::super::super::System::User>,
+        P1: windows_core::Param<super::super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>,
+    {
+        Self::IWebAccountManagerStatics3(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AddWebAccountWithScopeAndMapForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(webaccountid), core::mem::transmute_copy(webaccountusername), props.param().abi(), scope, core::mem::transmute_copy(peruserwebaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn InvalidateAppCacheForAllAccountsAsync() -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction> {
+        Self::IWebAccountManagerStatics4(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InvalidateAppCacheForAllAccountsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Security_Credentials")]
+    pub fn InvalidateAppCacheForAccountAsync<P0>(webaccount: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::super::Credentials::WebAccount>,
+    {
+        Self::IWebAccountManagerStatics4(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InvalidateAppCacheForAccountAsync)(windows_core::Interface::as_raw(this), webaccount.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
+    pub fn AddWebAccountWithScopeAndMapAsync<P0>(webaccountid: &windows_core::HSTRING, webaccountusername: &windows_core::HSTRING, props: P0, scope: WebAccountScope, peruserwebaccountid: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
+    where
+        P0: windows_core::Param<super::super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>,
+    {
+        Self::IWebAccountMapManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AddWebAccountWithScopeAndMapAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(webaccountid), core::mem::transmute_copy(webaccountusername), props.param().abi(), scope, core::mem::transmute_copy(peruserwebaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Security_Credentials")]
+    pub fn SetPerAppToPerUserAccountAsync<P0>(perappaccount: P0, peruserwebaccountid: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::super::Credentials::WebAccount>,
+    {
+        Self::IWebAccountMapManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetPerAppToPerUserAccountAsync)(windows_core::Interface::as_raw(this), perappaccount.param().abi(), core::mem::transmute_copy(peruserwebaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Security_Credentials")]
+    pub fn GetPerUserFromPerAppAccountAsync<P0>(perappaccount: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
+    where
+        P0: windows_core::Param<super::super::super::Credentials::WebAccount>,
+    {
+        Self::IWebAccountMapManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetPerUserFromPerAppAccountAsync)(windows_core::Interface::as_raw(this), perappaccount.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Security_Credentials")]
+    pub fn ClearPerUserFromPerAppAccountAsync<P0>(perappaccount: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::super::Credentials::WebAccount>,
+    {
+        Self::IWebAccountMapManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ClearPerUserFromPerAppAccountAsync)(windows_core::Interface::as_raw(this), perappaccount.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
+    pub fn AddWebAccountWithScopeAsync<P0>(webaccountid: &windows_core::HSTRING, webaccountusername: &windows_core::HSTRING, props: P0, scope: WebAccountScope) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
+    where
+        P0: windows_core::Param<super::super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>,
+    {
+        Self::IWebAccountScopeManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AddWebAccountWithScopeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(webaccountid), core::mem::transmute_copy(webaccountusername), props.param().abi(), scope, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Security_Credentials")]
+    pub fn SetScopeAsync<P0>(webaccount: P0, scope: WebAccountScope) -> windows_core::Result<super::super::super::super::Foundation::IAsyncAction>
+    where
+        P0: windows_core::Param<super::super::super::Credentials::WebAccount>,
+    {
+        Self::IWebAccountScopeManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetScopeAsync)(windows_core::Interface::as_raw(this), webaccount.param().abi(), scope, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Security_Credentials")]
+    pub fn GetScope<P0>(webaccount: P0) -> windows_core::Result<WebAccountScope>
+    where
+        P0: windows_core::Param<super::super::super::Credentials::WebAccount>,
+    {
+        Self::IWebAccountScopeManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetScope)(windows_core::Interface::as_raw(this), webaccount.param().abi(), &mut result__).map(|| result__)
+        })
+    }
+    fn IWebAccountManagerStatics<R, F: FnOnce(&IWebAccountManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WebAccountManager, IWebAccountManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IWebAccountManagerStatics2<R, F: FnOnce(&IWebAccountManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WebAccountManager, IWebAccountManagerStatics2> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IWebAccountManagerStatics3<R, F: FnOnce(&IWebAccountManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WebAccountManager, IWebAccountManagerStatics3> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IWebAccountManagerStatics4<R, F: FnOnce(&IWebAccountManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WebAccountManager, IWebAccountManagerStatics4> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IWebAccountMapManagerStatics<R, F: FnOnce(&IWebAccountMapManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WebAccountManager, IWebAccountMapManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IWebAccountScopeManagerStatics<R, F: FnOnce(&IWebAccountScopeManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WebAccountManager, IWebAccountScopeManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeName for WebAccountManager {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountManager";
 }
@@ -577,6 +883,7 @@ impl windows_core::RuntimeName for WebAccountManager {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderAddAccountOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProviderAddAccountOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(WebAccountProviderAddAccountOperation, IWebAccountProviderOperation);
 impl WebAccountProviderAddAccountOperation {
     pub fn ReportCompleted(&self) -> windows_core::Result<()> {
         let this = self;
@@ -594,16 +901,19 @@ impl windows_core::RuntimeType for WebAccountProviderAddAccountOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountProviderAddAccountOperation>();
 }
 unsafe impl windows_core::Interface for WebAccountProviderAddAccountOperation {
-    type Vtable = <IWebAccountProviderAddAccountOperation as windows_core::Interface>::Vtable;
+    type Vtable = IWebAccountProviderAddAccountOperation_Vtbl;
     const IID: windows_core::GUID = <IWebAccountProviderAddAccountOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebAccountProviderAddAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderAddAccountOperation";
 }
+unsafe impl Send for WebAccountProviderAddAccountOperation {}
+unsafe impl Sync for WebAccountProviderAddAccountOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderDeleteAccountOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProviderDeleteAccountOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(WebAccountProviderDeleteAccountOperation, IWebAccountProviderBaseReportOperation, IWebAccountProviderOperation);
 impl WebAccountProviderDeleteAccountOperation {
     pub fn ReportCompleted(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IWebAccountProviderBaseReportOperation>(self)?;
@@ -637,16 +947,19 @@ impl windows_core::RuntimeType for WebAccountProviderDeleteAccountOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountProviderDeleteAccountOperation>();
 }
 unsafe impl windows_core::Interface for WebAccountProviderDeleteAccountOperation {
-    type Vtable = <IWebAccountProviderDeleteAccountOperation as windows_core::Interface>::Vtable;
+    type Vtable = IWebAccountProviderDeleteAccountOperation_Vtbl;
     const IID: windows_core::GUID = <IWebAccountProviderDeleteAccountOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebAccountProviderDeleteAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderDeleteAccountOperation";
 }
+unsafe impl Send for WebAccountProviderDeleteAccountOperation {}
+unsafe impl Sync for WebAccountProviderDeleteAccountOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderGetTokenSilentOperation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WebAccountProviderGetTokenSilentOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebAccountProviderGetTokenSilentOperation, windows_core::IUnknown, windows_core::IInspectable, IWebAccountProviderTokenOperation);
+windows_core::imp::required_hierarchy!(WebAccountProviderGetTokenSilentOperation, IWebAccountProviderBaseReportOperation, IWebAccountProviderOperation, IWebAccountProviderSilentReportOperation);
 impl WebAccountProviderGetTokenSilentOperation {
     pub fn ReportCompleted(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IWebAccountProviderBaseReportOperation>(self)?;
@@ -710,16 +1023,19 @@ impl windows_core::RuntimeType for WebAccountProviderGetTokenSilentOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountProviderTokenOperation>();
 }
 unsafe impl windows_core::Interface for WebAccountProviderGetTokenSilentOperation {
-    type Vtable = <IWebAccountProviderTokenOperation as windows_core::Interface>::Vtable;
+    type Vtable = IWebAccountProviderTokenOperation_Vtbl;
     const IID: windows_core::GUID = <IWebAccountProviderTokenOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebAccountProviderGetTokenSilentOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderGetTokenSilentOperation";
 }
+unsafe impl Send for WebAccountProviderGetTokenSilentOperation {}
+unsafe impl Sync for WebAccountProviderGetTokenSilentOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderManageAccountOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProviderManageAccountOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(WebAccountProviderManageAccountOperation, IWebAccountProviderOperation);
 impl WebAccountProviderManageAccountOperation {
     #[cfg(feature = "Security_Credentials")]
     pub fn WebAccount(&self) -> windows_core::Result<super::super::super::Credentials::WebAccount> {
@@ -745,16 +1061,19 @@ impl windows_core::RuntimeType for WebAccountProviderManageAccountOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountProviderManageAccountOperation>();
 }
 unsafe impl windows_core::Interface for WebAccountProviderManageAccountOperation {
-    type Vtable = <IWebAccountProviderManageAccountOperation as windows_core::Interface>::Vtable;
+    type Vtable = IWebAccountProviderManageAccountOperation_Vtbl;
     const IID: windows_core::GUID = <IWebAccountProviderManageAccountOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebAccountProviderManageAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderManageAccountOperation";
 }
+unsafe impl Send for WebAccountProviderManageAccountOperation {}
+unsafe impl Sync for WebAccountProviderManageAccountOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderRequestTokenOperation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WebAccountProviderRequestTokenOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebAccountProviderRequestTokenOperation, windows_core::IUnknown, windows_core::IInspectable, IWebAccountProviderTokenOperation);
+windows_core::imp::required_hierarchy!(WebAccountProviderRequestTokenOperation, IWebAccountProviderBaseReportOperation, IWebAccountProviderOperation, IWebAccountProviderUIReportOperation);
 impl WebAccountProviderRequestTokenOperation {
     pub fn ReportCompleted(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IWebAccountProviderBaseReportOperation>(self)?;
@@ -810,16 +1129,19 @@ impl windows_core::RuntimeType for WebAccountProviderRequestTokenOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountProviderTokenOperation>();
 }
 unsafe impl windows_core::Interface for WebAccountProviderRequestTokenOperation {
-    type Vtable = <IWebAccountProviderTokenOperation as windows_core::Interface>::Vtable;
+    type Vtable = IWebAccountProviderTokenOperation_Vtbl;
     const IID: windows_core::GUID = <IWebAccountProviderTokenOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebAccountProviderRequestTokenOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderRequestTokenOperation";
 }
+unsafe impl Send for WebAccountProviderRequestTokenOperation {}
+unsafe impl Sync for WebAccountProviderRequestTokenOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderRetrieveCookiesOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProviderRetrieveCookiesOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(WebAccountProviderRetrieveCookiesOperation, IWebAccountProviderBaseReportOperation, IWebAccountProviderOperation);
 impl WebAccountProviderRetrieveCookiesOperation {
     pub fn ReportCompleted(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IWebAccountProviderBaseReportOperation>(self)?;
@@ -881,16 +1203,19 @@ impl windows_core::RuntimeType for WebAccountProviderRetrieveCookiesOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountProviderRetrieveCookiesOperation>();
 }
 unsafe impl windows_core::Interface for WebAccountProviderRetrieveCookiesOperation {
-    type Vtable = <IWebAccountProviderRetrieveCookiesOperation as windows_core::Interface>::Vtable;
+    type Vtable = IWebAccountProviderRetrieveCookiesOperation_Vtbl;
     const IID: windows_core::GUID = <IWebAccountProviderRetrieveCookiesOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebAccountProviderRetrieveCookiesOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderRetrieveCookiesOperation";
 }
+unsafe impl Send for WebAccountProviderRetrieveCookiesOperation {}
+unsafe impl Sync for WebAccountProviderRetrieveCookiesOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderSignOutAccountOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebAccountProviderSignOutAccountOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(WebAccountProviderSignOutAccountOperation, IWebAccountProviderBaseReportOperation, IWebAccountProviderOperation);
 impl WebAccountProviderSignOutAccountOperation {
     pub fn ReportCompleted(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IWebAccountProviderBaseReportOperation>(self)?;
@@ -938,19 +1263,22 @@ impl windows_core::RuntimeType for WebAccountProviderSignOutAccountOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountProviderSignOutAccountOperation>();
 }
 unsafe impl windows_core::Interface for WebAccountProviderSignOutAccountOperation {
-    type Vtable = <IWebAccountProviderSignOutAccountOperation as windows_core::Interface>::Vtable;
+    type Vtable = IWebAccountProviderSignOutAccountOperation_Vtbl;
     const IID: windows_core::GUID = <IWebAccountProviderSignOutAccountOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebAccountProviderSignOutAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderSignOutAccountOperation";
 }
+unsafe impl Send for WebAccountProviderSignOutAccountOperation {}
+unsafe impl Sync for WebAccountProviderSignOutAccountOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderTriggerDetails(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(WebAccountProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(WebAccountProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable, IWebAccountProviderTokenObjects);
+windows_core::imp::required_hierarchy!(WebAccountProviderTriggerDetails, IWebAccountProviderTokenObjects2);
 impl WebAccountProviderTriggerDetails {
     pub fn Operation(&self) -> windows_core::Result<IWebAccountProviderOperation> {
-        let this = &windows_core::Interface::cast::<IWebAccountProviderTokenObjects>(self)?;
+        let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -969,12 +1297,14 @@ impl windows_core::RuntimeType for WebAccountProviderTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountProviderTokenObjects>();
 }
 unsafe impl windows_core::Interface for WebAccountProviderTriggerDetails {
-    type Vtable = <IWebAccountProviderTokenObjects as windows_core::Interface>::Vtable;
+    type Vtable = IWebAccountProviderTokenObjects_Vtbl;
     const IID: windows_core::GUID = <IWebAccountProviderTokenObjects as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebAccountProviderTriggerDetails {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderTriggerDetails";
 }
+unsafe impl Send for WebAccountProviderTriggerDetails {}
+unsafe impl Sync for WebAccountProviderTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebProviderTokenRequest(windows_core::IUnknown);
@@ -1011,25 +1341,25 @@ impl WebProviderTokenRequest {
         }
     }
     #[cfg(feature = "Security_Cryptography_Core")]
-    pub fn GetApplicationTokenBindingKeyAsync<P1>(&self, keyType: super::TokenBindingKeyType, target: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Cryptography::Core::CryptographicKey>>
+    pub fn GetApplicationTokenBindingKeyAsync<P0>(&self, keytype: super::TokenBindingKeyType, target: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Cryptography::Core::CryptographicKey>>
     where
-        P1: windows_core::Param<super::super::super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetApplicationTokenBindingKeyAsync)(windows_core::Interface::as_raw(this), keyType, target.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetApplicationTokenBindingKeyAsync)(windows_core::Interface::as_raw(this), keytype, target.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetApplicationTokenBindingKeyIdAsync<P1>(&self, keyType: super::TokenBindingKeyType, target: P1) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Storage::Streams::IBuffer>>
+    pub fn GetApplicationTokenBindingKeyIdAsync<P0>(&self, keytype: super::TokenBindingKeyType, target: P0) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Storage::Streams::IBuffer>>
     where
-        P1: windows_core::Param<super::super::super::super::Foundation::Uri>,
+        P0: windows_core::Param<super::super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IWebProviderTokenRequest2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetApplicationTokenBindingKeyIdAsync)(windows_core::Interface::as_raw(this), keyType, target.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetApplicationTokenBindingKeyIdAsync)(windows_core::Interface::as_raw(this), keytype, target.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ApplicationPackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -1046,11 +1376,11 @@ impl WebProviderTokenRequest {
             (windows_core::Interface::vtable(this).ApplicationProcessName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CheckApplicationForCapabilityAsync(&self, capabilityName: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn CheckApplicationForCapabilityAsync(&self, capabilityname: &windows_core::HSTRING) -> windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IWebProviderTokenRequest3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CheckApplicationForCapabilityAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(capabilityName), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CheckApplicationForCapabilityAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(capabilityname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1058,12 +1388,14 @@ impl windows_core::RuntimeType for WebProviderTokenRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebProviderTokenRequest>();
 }
 unsafe impl windows_core::Interface for WebProviderTokenRequest {
-    type Vtable = <IWebProviderTokenRequest as windows_core::Interface>::Vtable;
+    type Vtable = IWebProviderTokenRequest_Vtbl;
     const IID: windows_core::GUID = <IWebProviderTokenRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebProviderTokenRequest {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebProviderTokenRequest";
 }
+unsafe impl Send for WebProviderTokenRequest {}
+unsafe impl Sync for WebProviderTokenRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebProviderTokenResponse(windows_core::IUnknown);
@@ -1078,13 +1410,13 @@ impl WebProviderTokenResponse {
         }
     }
     #[cfg(feature = "Security_Authentication_Web_Core")]
-    pub fn Create<P0>(webTokenResponse: P0) -> windows_core::Result<WebProviderTokenResponse>
+    pub fn Create<P0>(webtokenresponse: P0) -> windows_core::Result<WebProviderTokenResponse>
     where
         P0: windows_core::Param<super::Core::WebTokenResponse>,
     {
         Self::IWebProviderTokenResponseFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), webTokenResponse.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), webtokenresponse.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IWebProviderTokenResponseFactory<R, F: FnOnce(&IWebProviderTokenResponseFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1096,14 +1428,16 @@ impl windows_core::RuntimeType for WebProviderTokenResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebProviderTokenResponse>();
 }
 unsafe impl windows_core::Interface for WebProviderTokenResponse {
-    type Vtable = <IWebProviderTokenResponse as windows_core::Interface>::Vtable;
+    type Vtable = IWebProviderTokenResponse_Vtbl;
     const IID: windows_core::GUID = <IWebProviderTokenResponse as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebProviderTokenResponse {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse";
 }
+unsafe impl Send for WebProviderTokenResponse {}
+unsafe impl Sync for WebProviderTokenResponse {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WebAccountClientViewType(pub i32);
 impl WebAccountClientViewType {
     pub const IdOnly: Self = Self(0i32);
@@ -1112,11 +1446,16 @@ impl WebAccountClientViewType {
 impl windows_core::TypeKind for WebAccountClientViewType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WebAccountClientViewType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WebAccountClientViewType").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for WebAccountClientViewType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountClientViewType;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WebAccountProviderOperationKind(pub i32);
 impl WebAccountProviderOperationKind {
     pub const RequestToken: Self = Self(0i32);
@@ -1130,11 +1469,16 @@ impl WebAccountProviderOperationKind {
 impl windows_core::TypeKind for WebAccountProviderOperationKind {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WebAccountProviderOperationKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WebAccountProviderOperationKind").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for WebAccountProviderOperationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountProviderOperationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WebAccountScope(pub i32);
 impl WebAccountScope {
     pub const PerUser: Self = Self(0i32);
@@ -1143,11 +1487,16 @@ impl WebAccountScope {
 impl windows_core::TypeKind for WebAccountScope {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WebAccountScope {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WebAccountScope").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for WebAccountScope {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountScope;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WebAccountSelectionOptions(pub u32);
 impl WebAccountSelectionOptions {
     pub const Default: Self = Self(0u32);
@@ -1156,6 +1505,46 @@ impl WebAccountSelectionOptions {
 impl windows_core::TypeKind for WebAccountSelectionOptions {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WebAccountSelectionOptions {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WebAccountSelectionOptions").field(&self.0).finish()
+    }
+}
+impl WebAccountSelectionOptions {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for WebAccountSelectionOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for WebAccountSelectionOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for WebAccountSelectionOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for WebAccountSelectionOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for WebAccountSelectionOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 impl windows_core::RuntimeType for WebAccountSelectionOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountSelectionOptions;u4)");
 }
+#[cfg(feature = "implement")]
+core::include!("impl.rs");

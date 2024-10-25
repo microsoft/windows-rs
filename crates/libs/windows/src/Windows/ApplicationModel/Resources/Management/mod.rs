@@ -119,11 +119,11 @@ impl IndexedResourceCandidate {
             (windows_core::Interface::vtable(this).ValueAsString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetQualifierValue(&self, qualifierName: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetQualifierValue(&self, qualifiername: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetQualifierValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(qualifierName), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetQualifierValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(qualifiername), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -131,12 +131,14 @@ impl windows_core::RuntimeType for IndexedResourceCandidate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIndexedResourceCandidate>();
 }
 unsafe impl windows_core::Interface for IndexedResourceCandidate {
-    type Vtable = <IIndexedResourceCandidate as windows_core::Interface>::Vtable;
+    type Vtable = IIndexedResourceCandidate_Vtbl;
     const IID: windows_core::GUID = <IIndexedResourceCandidate as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IndexedResourceCandidate {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IndexedResourceCandidate";
 }
+unsafe impl Send for IndexedResourceCandidate {}
+unsafe impl Sync for IndexedResourceCandidate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IndexedResourceQualifier(windows_core::IUnknown);
@@ -161,12 +163,14 @@ impl windows_core::RuntimeType for IndexedResourceQualifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIndexedResourceQualifier>();
 }
 unsafe impl windows_core::Interface for IndexedResourceQualifier {
-    type Vtable = <IIndexedResourceQualifier as windows_core::Interface>::Vtable;
+    type Vtable = IIndexedResourceQualifier_Vtbl;
     const IID: windows_core::GUID = <IIndexedResourceQualifier as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IndexedResourceQualifier {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.IndexedResourceQualifier";
 }
+unsafe impl Send for IndexedResourceQualifier {}
+unsafe impl Sync for IndexedResourceQualifier {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -176,14 +180,14 @@ windows_core::imp::interface_hierarchy!(ResourceIndexer, windows_core::IUnknown,
 #[cfg(feature = "deprecated")]
 impl ResourceIndexer {
     #[cfg(feature = "deprecated")]
-    pub fn IndexFilePath<P0>(&self, filePath: P0) -> windows_core::Result<IndexedResourceCandidate>
+    pub fn IndexFilePath<P0>(&self, filepath: P0) -> windows_core::Result<IndexedResourceCandidate>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndexFilePath)(windows_core::Interface::as_raw(this), filePath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).IndexFilePath)(windows_core::Interface::as_raw(this), filepath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -198,30 +202,32 @@ impl ResourceIndexer {
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn CreateResourceIndexer<P0>(projectRoot: P0) -> windows_core::Result<ResourceIndexer>
+    pub fn CreateResourceIndexer<P0>(projectroot: P0) -> windows_core::Result<ResourceIndexer>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         Self::IResourceIndexerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateResourceIndexer)(windows_core::Interface::as_raw(this), projectRoot.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateResourceIndexer)(windows_core::Interface::as_raw(this), projectroot.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "deprecated")]
-    pub fn CreateResourceIndexerWithExtension<P0, P1>(projectRoot: P0, extensionDllPath: P1) -> windows_core::Result<ResourceIndexer>
+    pub fn CreateResourceIndexerWithExtension<P0, P1>(projectroot: P0, extensiondllpath: P1) -> windows_core::Result<ResourceIndexer>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
         P1: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         Self::IResourceIndexerFactory2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateResourceIndexerWithExtension)(windows_core::Interface::as_raw(this), projectRoot.param().abi(), extensionDllPath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateResourceIndexerWithExtension)(windows_core::Interface::as_raw(this), projectroot.param().abi(), extensiondllpath.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
+    #[cfg(feature = "deprecated")]
     fn IResourceIndexerFactory<R, F: FnOnce(&IResourceIndexerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceIndexer, IResourceIndexerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+    #[cfg(feature = "deprecated")]
     fn IResourceIndexerFactory2<R, F: FnOnce(&IResourceIndexerFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceIndexer, IResourceIndexerFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -233,15 +239,19 @@ impl windows_core::RuntimeType for ResourceIndexer {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for ResourceIndexer {
-    type Vtable = <IResourceIndexer as windows_core::Interface>::Vtable;
+    type Vtable = IResourceIndexer_Vtbl;
     const IID: windows_core::GUID = <IResourceIndexer as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for ResourceIndexer {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Management.ResourceIndexer";
 }
+#[cfg(feature = "deprecated")]
+unsafe impl Send for ResourceIndexer {}
+#[cfg(feature = "deprecated")]
+unsafe impl Sync for ResourceIndexer {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IndexedResourceType(pub i32);
 impl IndexedResourceType {
     pub const String: Self = Self(0i32);
@@ -250,6 +260,11 @@ impl IndexedResourceType {
 }
 impl windows_core::TypeKind for IndexedResourceType {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for IndexedResourceType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IndexedResourceType").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for IndexedResourceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Management.IndexedResourceType;i4)");

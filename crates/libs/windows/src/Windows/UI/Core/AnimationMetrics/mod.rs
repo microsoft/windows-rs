@@ -34,10 +34,13 @@ pub struct IOpacityAnimation_Vtbl {
     pub FinalOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPropertyAnimation, IPropertyAnimation_Vtbl, 0x3a01b4da_4d8c_411e_b615_1ade683a9903);
-windows_core::imp::interface_hierarchy!(IPropertyAnimation, windows_core::IUnknown, windows_core::IInspectable);
-impl windows_core::RuntimeType for IPropertyAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IPropertyAnimation {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
+windows_core::imp::interface_hierarchy!(IPropertyAnimation, windows_core::IUnknown, windows_core::IInspectable);
 impl IPropertyAnimation {
     pub fn Type(&self) -> windows_core::Result<PropertyAnimationType> {
         let this = self;
@@ -74,6 +77,9 @@ impl IPropertyAnimation {
             (windows_core::Interface::vtable(this).Control2)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for IPropertyAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IPropertyAnimation_Vtbl {
@@ -153,16 +159,19 @@ impl windows_core::RuntimeType for AnimationDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAnimationDescription>();
 }
 unsafe impl windows_core::Interface for AnimationDescription {
-    type Vtable = <IAnimationDescription as windows_core::Interface>::Vtable;
+    type Vtable = IAnimationDescription_Vtbl;
     const IID: windows_core::GUID = <IAnimationDescription as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AnimationDescription {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.AnimationDescription";
 }
+unsafe impl Send for AnimationDescription {}
+unsafe impl Sync for AnimationDescription {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OpacityAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OpacityAnimation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(OpacityAnimation, IPropertyAnimation);
 impl OpacityAnimation {
     pub fn InitialOpacity(&self) -> windows_core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
@@ -218,16 +227,18 @@ impl windows_core::RuntimeType for OpacityAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOpacityAnimation>();
 }
 unsafe impl windows_core::Interface for OpacityAnimation {
-    type Vtable = <IOpacityAnimation as windows_core::Interface>::Vtable;
+    type Vtable = IOpacityAnimation_Vtbl;
     const IID: windows_core::GUID = <IOpacityAnimation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for OpacityAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.OpacityAnimation";
 }
+unsafe impl Send for OpacityAnimation {}
+unsafe impl Sync for OpacityAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PropertyAnimation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(PropertyAnimation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(PropertyAnimation, windows_core::IUnknown, windows_core::IInspectable, IPropertyAnimation);
 impl PropertyAnimation {
     pub fn Type(&self) -> windows_core::Result<PropertyAnimationType> {
         let this = self;
@@ -269,16 +280,19 @@ impl windows_core::RuntimeType for PropertyAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPropertyAnimation>();
 }
 unsafe impl windows_core::Interface for PropertyAnimation {
-    type Vtable = <IPropertyAnimation as windows_core::Interface>::Vtable;
+    type Vtable = IPropertyAnimation_Vtbl;
     const IID: windows_core::GUID = <IPropertyAnimation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PropertyAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.PropertyAnimation";
 }
+unsafe impl Send for PropertyAnimation {}
+unsafe impl Sync for PropertyAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScaleAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ScaleAnimation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ScaleAnimation, IPropertyAnimation);
 impl ScaleAnimation {
     pub fn Type(&self) -> windows_core::Result<PropertyAnimationType> {
         let this = &windows_core::Interface::cast::<IPropertyAnimation>(self)?;
@@ -355,16 +369,18 @@ impl windows_core::RuntimeType for ScaleAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScaleAnimation>();
 }
 unsafe impl windows_core::Interface for ScaleAnimation {
-    type Vtable = <IScaleAnimation as windows_core::Interface>::Vtable;
+    type Vtable = IScaleAnimation_Vtbl;
     const IID: windows_core::GUID = <IScaleAnimation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ScaleAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.ScaleAnimation";
 }
+unsafe impl Send for ScaleAnimation {}
+unsafe impl Sync for ScaleAnimation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TranslationAnimation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(TranslationAnimation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(TranslationAnimation, windows_core::IUnknown, windows_core::IInspectable, IPropertyAnimation);
 impl TranslationAnimation {
     pub fn Type(&self) -> windows_core::Result<PropertyAnimationType> {
         let this = self;
@@ -406,14 +422,16 @@ impl windows_core::RuntimeType for TranslationAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPropertyAnimation>();
 }
 unsafe impl windows_core::Interface for TranslationAnimation {
-    type Vtable = <IPropertyAnimation as windows_core::Interface>::Vtable;
+    type Vtable = IPropertyAnimation_Vtbl;
     const IID: windows_core::GUID = <IPropertyAnimation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TranslationAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.TranslationAnimation";
 }
+unsafe impl Send for TranslationAnimation {}
+unsafe impl Sync for TranslationAnimation {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct AnimationEffect(pub i32);
 impl AnimationEffect {
     pub const Expand: Self = Self(0i32);
@@ -456,11 +474,16 @@ impl AnimationEffect {
 impl windows_core::TypeKind for AnimationEffect {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for AnimationEffect {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("AnimationEffect").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for AnimationEffect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffect;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct AnimationEffectTarget(pub i32);
 impl AnimationEffectTarget {
     pub const Primary: Self = Self(0i32);
@@ -487,11 +510,16 @@ impl AnimationEffectTarget {
 impl windows_core::TypeKind for AnimationEffectTarget {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for AnimationEffectTarget {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("AnimationEffectTarget").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for AnimationEffectTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffectTarget;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PropertyAnimationType(pub i32);
 impl PropertyAnimationType {
     pub const Scale: Self = Self(0i32);
@@ -501,6 +529,13 @@ impl PropertyAnimationType {
 impl windows_core::TypeKind for PropertyAnimationType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PropertyAnimationType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PropertyAnimationType").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PropertyAnimationType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.PropertyAnimationType;i4)");
 }
+#[cfg(feature = "implement")]
+core::include!("impl.rs");

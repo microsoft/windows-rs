@@ -310,9 +310,9 @@ pub struct IPrintWorkflowPdlSourceContent_Vtbl {
     pub GetInputStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     GetInputStream: usize,
-    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage")]
     pub GetContentFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage"))]
     GetContentFileAsync: usize,
 }
 windows_core::imp::define_interface!(IPrintWorkflowPdlTargetStream, IPrintWorkflowPdlTargetStream_Vtbl, 0xa742dfe5_1ee3_52a9_9f9f_2e2043180fd1);
@@ -456,13 +456,10 @@ pub struct IPrintWorkflowTriggerDetails_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PrintWorkflowSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::define_interface!(IPrintWorkflowUIActivatedEventArgs, IPrintWorkflowUIActivatedEventArgs_Vtbl, 0xbc8a844d_09eb_5746_72a6_8dc8b5edbe9b);
-#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for IPrintWorkflowUIActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(C)]
 pub struct IPrintWorkflowUIActivatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -493,9 +490,9 @@ pub struct IPrintWorkflowVirtualPrinterDataAvailableEventArgs_Vtbl {
     #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
     GetJobPrintTicket: usize,
     pub GetPdlConverter: unsafe extern "system" fn(*mut core::ffi::c_void, PrintWorkflowPdlConversionType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage")]
     pub GetTargetFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Storage", feature = "Storage_Streams")))]
+    #[cfg(not(feature = "Storage"))]
     GetTargetFileAsync: usize,
     pub CompleteJob: unsafe extern "system" fn(*mut core::ffi::c_void, PrintWorkflowSubmittedStatus) -> windows_core::HRESULT,
 }
@@ -558,28 +555,28 @@ pub struct IPrintWorkflowXpsDataAvailableEventArgs_Vtbl {
 pub struct PrintWorkflowBackgroundSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowBackgroundSession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowBackgroundSession {
-    pub fn SetupRequested<P0>(&self, setupEventHandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn SetupRequested<P0>(&self, setupeventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowBackgroundSetupRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetupRequested)(windows_core::Interface::as_raw(this), setupEventHandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SetupRequested)(windows_core::Interface::as_raw(this), setupeventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSetupRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSetupRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Submitted<P0>(&self, submittedEventHandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn Submitted<P0>(&self, submittedeventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowSubmittedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Submitted)(windows_core::Interface::as_raw(this), submittedEventHandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Submitted)(windows_core::Interface::as_raw(this), submittedeventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSubmitted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -602,12 +599,14 @@ impl windows_core::RuntimeType for PrintWorkflowBackgroundSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowBackgroundSession>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowBackgroundSession {
-    type Vtable = <IPrintWorkflowBackgroundSession as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowBackgroundSession_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowBackgroundSession as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowBackgroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSession";
 }
+unsafe impl Send for PrintWorkflowBackgroundSession {}
+unsafe impl Sync for PrintWorkflowBackgroundSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowBackgroundSetupRequestedEventArgs(windows_core::IUnknown);
@@ -644,12 +643,14 @@ impl windows_core::RuntimeType for PrintWorkflowBackgroundSetupRequestedEventArg
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowBackgroundSetupRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowBackgroundSetupRequestedEventArgs {
-    type Vtable = <IPrintWorkflowBackgroundSetupRequestedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowBackgroundSetupRequestedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowBackgroundSetupRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowBackgroundSetupRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSetupRequestedEventArgs";
 }
+unsafe impl Send for PrintWorkflowBackgroundSetupRequestedEventArgs {}
+unsafe impl Sync for PrintWorkflowBackgroundSetupRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowConfiguration(windows_core::IUnknown);
@@ -685,39 +686,41 @@ impl windows_core::RuntimeType for PrintWorkflowConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowConfiguration>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowConfiguration {
-    type Vtable = <IPrintWorkflowConfiguration as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowConfiguration_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowConfiguration as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowConfiguration {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowConfiguration";
 }
+unsafe impl Send for PrintWorkflowConfiguration {}
+unsafe impl Sync for PrintWorkflowConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowForegroundSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowForegroundSession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowForegroundSession {
-    pub fn SetupRequested<P0>(&self, setupEventHandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn SetupRequested<P0>(&self, setupeventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowForegroundSetupRequestedEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetupRequested)(windows_core::Interface::as_raw(this), setupEventHandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).SetupRequested)(windows_core::Interface::as_raw(this), setupeventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveSetupRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSetupRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn XpsDataAvailable<P0>(&self, xpsDataAvailableEventHandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    pub fn XpsDataAvailable<P0>(&self, xpsdataavailableeventhandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowXpsDataAvailableEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).XpsDataAvailable)(windows_core::Interface::as_raw(this), xpsDataAvailableEventHandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).XpsDataAvailable)(windows_core::Interface::as_raw(this), xpsdataavailableeventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveXpsDataAvailable(&self, token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -740,12 +743,14 @@ impl windows_core::RuntimeType for PrintWorkflowForegroundSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowForegroundSession>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowForegroundSession {
-    type Vtable = <IPrintWorkflowForegroundSession as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowForegroundSession_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowForegroundSession as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowForegroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSession";
 }
+unsafe impl Send for PrintWorkflowForegroundSession {}
+unsafe impl Sync for PrintWorkflowForegroundSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowForegroundSetupRequestedEventArgs(windows_core::IUnknown);
@@ -778,19 +783,20 @@ impl windows_core::RuntimeType for PrintWorkflowForegroundSetupRequestedEventArg
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowForegroundSetupRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowForegroundSetupRequestedEventArgs {
-    type Vtable = <IPrintWorkflowForegroundSetupRequestedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowForegroundSetupRequestedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowForegroundSetupRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowForegroundSetupRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSetupRequestedEventArgs";
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Send for PrintWorkflowForegroundSetupRequestedEventArgs {}
+unsafe impl Sync for PrintWorkflowForegroundSetupRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(PrintWorkflowJobActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 impl PrintWorkflowJobActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> windows_core::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
@@ -816,7 +822,7 @@ impl PrintWorkflowJobActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "System")]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> windows_core::Result<super::super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -832,19 +838,18 @@ impl PrintWorkflowJobActivatedEventArgs {
         }
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for PrintWorkflowJobActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobActivatedEventArgs>();
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for PrintWorkflowJobActivatedEventArgs {
-    type Vtable = <IPrintWorkflowJobActivatedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowJobActivatedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowJobActivatedEventArgs as windows_core::Interface>::IID;
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeName for PrintWorkflowJobActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobActivatedEventArgs";
 }
+unsafe impl Send for PrintWorkflowJobActivatedEventArgs {}
+unsafe impl Sync for PrintWorkflowJobActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobBackgroundSession(windows_core::IUnknown);
@@ -908,12 +913,14 @@ impl windows_core::RuntimeType for PrintWorkflowJobBackgroundSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobBackgroundSession>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowJobBackgroundSession {
-    type Vtable = <IPrintWorkflowJobBackgroundSession as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowJobBackgroundSession_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowJobBackgroundSession as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowJobBackgroundSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobBackgroundSession";
 }
+unsafe impl Send for PrintWorkflowJobBackgroundSession {}
+unsafe impl Sync for PrintWorkflowJobBackgroundSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobIssueDetectedEventArgs(windows_core::IUnknown);
@@ -977,12 +984,14 @@ impl windows_core::RuntimeType for PrintWorkflowJobIssueDetectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobIssueDetectedEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowJobIssueDetectedEventArgs {
-    type Vtable = <IPrintWorkflowJobIssueDetectedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowJobIssueDetectedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowJobIssueDetectedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowJobIssueDetectedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobIssueDetectedEventArgs";
 }
+unsafe impl Send for PrintWorkflowJobIssueDetectedEventArgs {}
+unsafe impl Sync for PrintWorkflowJobIssueDetectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobNotificationEventArgs(windows_core::IUnknown);
@@ -1014,12 +1023,14 @@ impl windows_core::RuntimeType for PrintWorkflowJobNotificationEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobNotificationEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowJobNotificationEventArgs {
-    type Vtable = <IPrintWorkflowJobNotificationEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowJobNotificationEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowJobNotificationEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowJobNotificationEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobNotificationEventArgs";
 }
+unsafe impl Send for PrintWorkflowJobNotificationEventArgs {}
+unsafe impl Sync for PrintWorkflowJobNotificationEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobStartingEventArgs(windows_core::IUnknown);
@@ -1078,12 +1089,14 @@ impl windows_core::RuntimeType for PrintWorkflowJobStartingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobStartingEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowJobStartingEventArgs {
-    type Vtable = <IPrintWorkflowJobStartingEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowJobStartingEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowJobStartingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowJobStartingEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobStartingEventArgs";
 }
+unsafe impl Send for PrintWorkflowJobStartingEventArgs {}
+unsafe impl Sync for PrintWorkflowJobStartingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobTriggerDetails(windows_core::IUnknown);
@@ -1101,12 +1114,14 @@ impl windows_core::RuntimeType for PrintWorkflowJobTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobTriggerDetails>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowJobTriggerDetails {
-    type Vtable = <IPrintWorkflowJobTriggerDetails as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowJobTriggerDetails_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowJobTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowJobTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobTriggerDetails";
 }
+unsafe impl Send for PrintWorkflowJobTriggerDetails {}
+unsafe impl Sync for PrintWorkflowJobTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobUISession(windows_core::IUnknown);
@@ -1170,25 +1185,27 @@ impl windows_core::RuntimeType for PrintWorkflowJobUISession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobUISession>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowJobUISession {
-    type Vtable = <IPrintWorkflowJobUISession as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowJobUISession_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowJobUISession as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowJobUISession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowJobUISession";
 }
+unsafe impl Send for PrintWorkflowJobUISession {}
+unsafe impl Sync for PrintWorkflowJobUISession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowObjectModelSourceFileContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowObjectModelSourceFileContent, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowObjectModelSourceFileContent {
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateInstance<P0>(xpsStream: P0) -> windows_core::Result<PrintWorkflowObjectModelSourceFileContent>
+    pub fn CreateInstance<P0>(xpsstream: P0) -> windows_core::Result<PrintWorkflowObjectModelSourceFileContent>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
     {
         Self::IPrintWorkflowObjectModelSourceFileContentFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), xpsStream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), xpsstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IPrintWorkflowObjectModelSourceFileContentFactory<R, F: FnOnce(&IPrintWorkflowObjectModelSourceFileContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1200,12 +1217,14 @@ impl windows_core::RuntimeType for PrintWorkflowObjectModelSourceFileContent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowObjectModelSourceFileContent>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowObjectModelSourceFileContent {
-    type Vtable = <IPrintWorkflowObjectModelSourceFileContent as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowObjectModelSourceFileContent_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowObjectModelSourceFileContent as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowObjectModelSourceFileContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelSourceFileContent";
 }
+unsafe impl Send for PrintWorkflowObjectModelSourceFileContent {}
+unsafe impl Sync for PrintWorkflowObjectModelSourceFileContent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowObjectModelTargetPackage(windows_core::IUnknown);
@@ -1215,19 +1234,21 @@ impl windows_core::RuntimeType for PrintWorkflowObjectModelTargetPackage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowObjectModelTargetPackage>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowObjectModelTargetPackage {
-    type Vtable = <IPrintWorkflowObjectModelTargetPackage as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowObjectModelTargetPackage_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowObjectModelTargetPackage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowObjectModelTargetPackage {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelTargetPackage";
 }
+unsafe impl Send for PrintWorkflowObjectModelTargetPackage {}
+unsafe impl Sync for PrintWorkflowObjectModelTargetPackage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlConverter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlConverter, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowPdlConverter {
     #[cfg(all(feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
-    pub fn ConvertPdlAsync<P0, P1, P2>(&self, printTicket: P0, inputStream: P1, outputStream: P2) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ConvertPdlAsync<P0, P1, P2>(&self, printticket: P0, inputstream: P1, outputstream: P2) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
@@ -1236,11 +1257,11 @@ impl PrintWorkflowPdlConverter {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConvertPdlAsync)(windows_core::Interface::as_raw(this), printTicket.param().abi(), inputStream.param().abi(), outputStream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConvertPdlAsync)(windows_core::Interface::as_raw(this), printticket.param().abi(), inputstream.param().abi(), outputstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
-    pub fn ConvertPdlAsync2<P0, P1, P2>(&self, printTicket: P0, inputStream: P1, outputStream: P2, hostBasedProcessingOperations: PdlConversionHostBasedProcessingOperations) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ConvertPdlAsync2<P0, P1, P2>(&self, printticket: P0, inputstream: P1, outputstream: P2, hostbasedprocessingoperations: PdlConversionHostBasedProcessingOperations) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
@@ -1249,7 +1270,7 @@ impl PrintWorkflowPdlConverter {
         let this = &windows_core::Interface::cast::<IPrintWorkflowPdlConverter2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConvertPdlAsync)(windows_core::Interface::as_raw(this), printTicket.param().abi(), inputStream.param().abi(), outputStream.param().abi(), hostBasedProcessingOperations, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConvertPdlAsync)(windows_core::Interface::as_raw(this), printticket.param().abi(), inputstream.param().abi(), outputstream.param().abi(), hostbasedprocessingoperations, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1257,12 +1278,14 @@ impl windows_core::RuntimeType for PrintWorkflowPdlConverter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPdlConverter>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowPdlConverter {
-    type Vtable = <IPrintWorkflowPdlConverter as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowPdlConverter_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowPdlConverter as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowPdlConverter {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConverter";
 }
+unsafe impl Send for PrintWorkflowPdlConverter {}
+unsafe impl Sync for PrintWorkflowPdlConverter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlDataAvailableEventArgs(windows_core::IUnknown);
@@ -1301,12 +1324,14 @@ impl windows_core::RuntimeType for PrintWorkflowPdlDataAvailableEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPdlDataAvailableEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowPdlDataAvailableEventArgs {
-    type Vtable = <IPrintWorkflowPdlDataAvailableEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowPdlDataAvailableEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowPdlDataAvailableEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowPdlDataAvailableEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlDataAvailableEventArgs";
 }
+unsafe impl Send for PrintWorkflowPdlDataAvailableEventArgs {}
+unsafe impl Sync for PrintWorkflowPdlDataAvailableEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlModificationRequestedEventArgs(windows_core::IUnknown);
@@ -1340,40 +1365,40 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
             (windows_core::Interface::vtable(this).UILauncher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateJobOnPrinter(&self, targetContentType: &windows_core::HSTRING) -> windows_core::Result<PrintWorkflowPdlTargetStream> {
+    pub fn CreateJobOnPrinter(&self, targetcontenttype: &windows_core::HSTRING) -> windows_core::Result<PrintWorkflowPdlTargetStream> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateJobOnPrinter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(targetContentType), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateJobOnPrinter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(targetcontenttype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
-    pub fn CreateJobOnPrinterWithAttributes<P0>(&self, jobAttributes: P0, targetContentType: &windows_core::HSTRING) -> windows_core::Result<PrintWorkflowPdlTargetStream>
+    pub fn CreateJobOnPrinterWithAttributes<P0>(&self, jobattributes: P0, targetcontenttype: &windows_core::HSTRING) -> windows_core::Result<PrintWorkflowPdlTargetStream>
     where
         P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributes)(windows_core::Interface::as_raw(this), jobAttributes.param().abi(), core::mem::transmute_copy(targetContentType), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributes)(windows_core::Interface::as_raw(this), jobattributes.param().abi(), core::mem::transmute_copy(targetcontenttype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateJobOnPrinterWithAttributesBuffer<P0>(&self, jobAttributesBuffer: P0, targetContentType: &windows_core::HSTRING) -> windows_core::Result<PrintWorkflowPdlTargetStream>
+    pub fn CreateJobOnPrinterWithAttributesBuffer<P0>(&self, jobattributesbuffer: P0, targetcontenttype: &windows_core::HSTRING) -> windows_core::Result<PrintWorkflowPdlTargetStream>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributesBuffer)(windows_core::Interface::as_raw(this), jobAttributesBuffer.param().abi(), core::mem::transmute_copy(targetContentType), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributesBuffer)(windows_core::Interface::as_raw(this), jobattributesbuffer.param().abi(), core::mem::transmute_copy(targetcontenttype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPdlConverter(&self, conversionType: PrintWorkflowPdlConversionType) -> windows_core::Result<PrintWorkflowPdlConverter> {
+    pub fn GetPdlConverter(&self, conversiontype: PrintWorkflowPdlConversionType) -> windows_core::Result<PrintWorkflowPdlConverter> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPdlConverter)(windows_core::Interface::as_raw(this), conversionType, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPdlConverter)(windows_core::Interface::as_raw(this), conversiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
@@ -1384,27 +1409,27 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
         }
     }
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
-    pub fn CreateJobOnPrinterWithAttributes2<P0, P2>(&self, jobAttributes: P0, targetContentType: &windows_core::HSTRING, operationAttributes: P2, jobAttributesMergePolicy: PrintWorkflowAttributesMergePolicy, operationAttributesMergePolicy: PrintWorkflowAttributesMergePolicy) -> windows_core::Result<PrintWorkflowPdlTargetStream>
+    pub fn CreateJobOnPrinterWithAttributes2<P0, P1>(&self, jobattributes: P0, targetcontenttype: &windows_core::HSTRING, operationattributes: P1, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> windows_core::Result<PrintWorkflowPdlTargetStream>
     where
         P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
-        P2: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
+        P1: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
     {
         let this = &windows_core::Interface::cast::<IPrintWorkflowPdlModificationRequestedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributes)(windows_core::Interface::as_raw(this), jobAttributes.param().abi(), core::mem::transmute_copy(targetContentType), operationAttributes.param().abi(), jobAttributesMergePolicy, operationAttributesMergePolicy, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributes)(windows_core::Interface::as_raw(this), jobattributes.param().abi(), core::mem::transmute_copy(targetcontenttype), operationattributes.param().abi(), jobattributesmergepolicy, operationattributesmergepolicy, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateJobOnPrinterWithAttributesBuffer2<P0, P2>(&self, jobAttributesBuffer: P0, targetContentType: &windows_core::HSTRING, operationAttributesBuffer: P2, jobAttributesMergePolicy: PrintWorkflowAttributesMergePolicy, operationAttributesMergePolicy: PrintWorkflowAttributesMergePolicy) -> windows_core::Result<PrintWorkflowPdlTargetStream>
+    pub fn CreateJobOnPrinterWithAttributesBuffer2<P0, P1>(&self, jobattributesbuffer: P0, targetcontenttype: &windows_core::HSTRING, operationattributesbuffer: P1, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> windows_core::Result<PrintWorkflowPdlTargetStream>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
-        P2: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = &windows_core::Interface::cast::<IPrintWorkflowPdlModificationRequestedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributesBuffer)(windows_core::Interface::as_raw(this), jobAttributesBuffer.param().abi(), core::mem::transmute_copy(targetContentType), operationAttributesBuffer.param().abi(), jobAttributesMergePolicy, operationAttributesMergePolicy, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributesBuffer)(windows_core::Interface::as_raw(this), jobattributesbuffer.param().abi(), core::mem::transmute_copy(targetcontenttype), operationattributesbuffer.param().abi(), jobattributesmergepolicy, operationattributesmergepolicy, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1412,12 +1437,14 @@ impl windows_core::RuntimeType for PrintWorkflowPdlModificationRequestedEventArg
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPdlModificationRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowPdlModificationRequestedEventArgs {
-    type Vtable = <IPrintWorkflowPdlModificationRequestedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowPdlModificationRequestedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowPdlModificationRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowPdlModificationRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlModificationRequestedEventArgs";
 }
+unsafe impl Send for PrintWorkflowPdlModificationRequestedEventArgs {}
+unsafe impl Sync for PrintWorkflowPdlModificationRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlSourceContent(windows_core::IUnknown);
@@ -1438,7 +1465,7 @@ impl PrintWorkflowPdlSourceContent {
             (windows_core::Interface::vtable(this).GetInputStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage")]
     pub fn GetContentFileAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
@@ -1451,12 +1478,14 @@ impl windows_core::RuntimeType for PrintWorkflowPdlSourceContent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPdlSourceContent>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowPdlSourceContent {
-    type Vtable = <IPrintWorkflowPdlSourceContent as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowPdlSourceContent_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowPdlSourceContent as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowPdlSourceContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlSourceContent";
 }
+unsafe impl Send for PrintWorkflowPdlSourceContent {}
+unsafe impl Sync for PrintWorkflowPdlSourceContent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlTargetStream(windows_core::IUnknown);
@@ -1479,12 +1508,14 @@ impl windows_core::RuntimeType for PrintWorkflowPdlTargetStream {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPdlTargetStream>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowPdlTargetStream {
-    type Vtable = <IPrintWorkflowPdlTargetStream as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowPdlTargetStream_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowPdlTargetStream as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowPdlTargetStream {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlTargetStream";
 }
+unsafe impl Send for PrintWorkflowPdlTargetStream {}
+unsafe impl Sync for PrintWorkflowPdlTargetStream {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPrinterJob(windows_core::IUnknown);
@@ -1521,58 +1552,58 @@ impl PrintWorkflowPrinterJob {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn GetJobAttributesAsBuffer<P0>(&self, attributeNames: P0) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer>
+    pub fn GetJobAttributesAsBuffer<P0>(&self, attributenames: P0) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer>
     where
         P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetJobAttributesAsBuffer)(windows_core::Interface::as_raw(this), attributeNames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetJobAttributesAsBuffer)(windows_core::Interface::as_raw(this), attributenames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
-    pub fn GetJobAttributes<P0>(&self, attributeNames: P0) -> windows_core::Result<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
+    pub fn GetJobAttributes<P0>(&self, attributenames: P0) -> windows_core::Result<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
     where
         P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetJobAttributes)(windows_core::Interface::as_raw(this), attributeNames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetJobAttributes)(windows_core::Interface::as_raw(this), attributenames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Devices_Printers", feature = "Storage_Streams"))]
-    pub fn SetJobAttributesFromBuffer<P0>(&self, jobAttributesBuffer: P0) -> windows_core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
+    pub fn SetJobAttributesFromBuffer<P0>(&self, jobattributesbuffer: P0) -> windows_core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetJobAttributesFromBuffer)(windows_core::Interface::as_raw(this), jobAttributesBuffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetJobAttributesFromBuffer)(windows_core::Interface::as_raw(this), jobattributesbuffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
-    pub fn SetJobAttributes<P0>(&self, jobAttributes: P0) -> windows_core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
+    pub fn SetJobAttributes<P0>(&self, jobattributes: P0) -> windows_core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
     where
         P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetJobAttributes)(windows_core::Interface::as_raw(this), jobAttributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetJobAttributes)(windows_core::Interface::as_raw(this), jobattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections", feature = "Graphics_Printing_PrintTicket"))]
-    pub fn ConvertPrintTicketToJobAttributes<P0>(&self, printTicket: P0, targetPdlFormat: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
+    pub fn ConvertPrintTicketToJobAttributes<P0>(&self, printticket: P0, targetpdlformat: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::Collections::IMap<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
     where
         P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
     {
         let this = &windows_core::Interface::cast::<IPrintWorkflowPrinterJob2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConvertPrintTicketToJobAttributes)(windows_core::Interface::as_raw(this), printTicket.param().abi(), core::mem::transmute_copy(targetPdlFormat), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ConvertPrintTicketToJobAttributes)(windows_core::Interface::as_raw(this), printticket.param().abi(), core::mem::transmute_copy(targetpdlformat), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1580,12 +1611,14 @@ impl windows_core::RuntimeType for PrintWorkflowPrinterJob {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPrinterJob>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowPrinterJob {
-    type Vtable = <IPrintWorkflowPrinterJob as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowPrinterJob_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowPrinterJob as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowPrinterJob {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJob";
 }
+unsafe impl Send for PrintWorkflowPrinterJob {}
+unsafe impl Sync for PrintWorkflowPrinterJob {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowSourceContent(windows_core::IUnknown);
@@ -1618,12 +1651,14 @@ impl windows_core::RuntimeType for PrintWorkflowSourceContent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowSourceContent>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowSourceContent {
-    type Vtable = <IPrintWorkflowSourceContent as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowSourceContent_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowSourceContent as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowSourceContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSourceContent";
 }
+unsafe impl Send for PrintWorkflowSourceContent {}
+unsafe impl Sync for PrintWorkflowSourceContent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowSpoolStreamContent(windows_core::IUnknown);
@@ -1642,12 +1677,14 @@ impl windows_core::RuntimeType for PrintWorkflowSpoolStreamContent {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowSpoolStreamContent>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowSpoolStreamContent {
-    type Vtable = <IPrintWorkflowSpoolStreamContent as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowSpoolStreamContent_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowSpoolStreamContent as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowSpoolStreamContent {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSpoolStreamContent";
 }
+unsafe impl Send for PrintWorkflowSpoolStreamContent {}
+unsafe impl Sync for PrintWorkflowSpoolStreamContent {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowStreamTarget(windows_core::IUnknown);
@@ -1666,12 +1703,14 @@ impl windows_core::RuntimeType for PrintWorkflowStreamTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowStreamTarget>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowStreamTarget {
-    type Vtable = <IPrintWorkflowStreamTarget as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowStreamTarget_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowStreamTarget as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowStreamTarget {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowStreamTarget";
 }
+unsafe impl Send for PrintWorkflowStreamTarget {}
+unsafe impl Sync for PrintWorkflowStreamTarget {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowSubmittedEventArgs(windows_core::IUnknown);
@@ -1685,14 +1724,14 @@ impl PrintWorkflowSubmittedEventArgs {
         }
     }
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn GetTarget<P0>(&self, jobPrintTicket: P0) -> windows_core::Result<PrintWorkflowTarget>
+    pub fn GetTarget<P0>(&self, jobprintticket: P0) -> windows_core::Result<PrintWorkflowTarget>
     where
         P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetTarget)(windows_core::Interface::as_raw(this), jobPrintTicket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetTarget)(windows_core::Interface::as_raw(this), jobprintticket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
@@ -1707,12 +1746,14 @@ impl windows_core::RuntimeType for PrintWorkflowSubmittedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowSubmittedEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowSubmittedEventArgs {
-    type Vtable = <IPrintWorkflowSubmittedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowSubmittedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowSubmittedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowSubmittedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedEventArgs";
 }
+unsafe impl Send for PrintWorkflowSubmittedEventArgs {}
+unsafe impl Sync for PrintWorkflowSubmittedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowSubmittedOperation(windows_core::IUnknown);
@@ -1741,12 +1782,14 @@ impl windows_core::RuntimeType for PrintWorkflowSubmittedOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowSubmittedOperation>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowSubmittedOperation {
-    type Vtable = <IPrintWorkflowSubmittedOperation as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowSubmittedOperation_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowSubmittedOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowSubmittedOperation {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedOperation";
 }
+unsafe impl Send for PrintWorkflowSubmittedOperation {}
+unsafe impl Sync for PrintWorkflowSubmittedOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowTarget(windows_core::IUnknown);
@@ -1771,12 +1814,14 @@ impl windows_core::RuntimeType for PrintWorkflowTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowTarget>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowTarget {
-    type Vtable = <IPrintWorkflowTarget as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowTarget_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowTarget as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowTarget {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowTarget";
 }
+unsafe impl Send for PrintWorkflowTarget {}
+unsafe impl Sync for PrintWorkflowTarget {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowTriggerDetails(windows_core::IUnknown);
@@ -1794,19 +1839,20 @@ impl windows_core::RuntimeType for PrintWorkflowTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowTriggerDetails>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowTriggerDetails {
-    type Vtable = <IPrintWorkflowTriggerDetails as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowTriggerDetails_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowTriggerDetails";
 }
-#[cfg(feature = "ApplicationModel_Activation")]
+unsafe impl Send for PrintWorkflowTriggerDetails {}
+unsafe impl Sync for PrintWorkflowTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowUIActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(PrintWorkflowUIActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(PrintWorkflowUIActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 impl PrintWorkflowUIActivatedEventArgs {
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> windows_core::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
@@ -1832,7 +1878,7 @@ impl PrintWorkflowUIActivatedEventArgs {
             (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "System")]
+    #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> windows_core::Result<super::super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
@@ -1848,19 +1894,18 @@ impl PrintWorkflowUIActivatedEventArgs {
         }
     }
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for PrintWorkflowUIActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowUIActivatedEventArgs>();
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for PrintWorkflowUIActivatedEventArgs {
-    type Vtable = <IPrintWorkflowUIActivatedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowUIActivatedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowUIActivatedEventArgs as windows_core::Interface>::IID;
 }
-#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeName for PrintWorkflowUIActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowUIActivatedEventArgs";
 }
+unsafe impl Send for PrintWorkflowUIActivatedEventArgs {}
+unsafe impl Sync for PrintWorkflowUIActivatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowUILauncher(windows_core::IUnknown);
@@ -1885,12 +1930,14 @@ impl windows_core::RuntimeType for PrintWorkflowUILauncher {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowUILauncher>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowUILauncher {
-    type Vtable = <IPrintWorkflowUILauncher as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowUILauncher_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowUILauncher as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowUILauncher {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowUILauncher";
 }
+unsafe impl Send for PrintWorkflowUILauncher {}
+unsafe impl Sync for PrintWorkflowUILauncher {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowVirtualPrinterDataAvailableEventArgs(windows_core::IUnknown);
@@ -1925,14 +1972,14 @@ impl PrintWorkflowVirtualPrinterDataAvailableEventArgs {
             (windows_core::Interface::vtable(this).GetJobPrintTicket)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPdlConverter(&self, conversionType: PrintWorkflowPdlConversionType) -> windows_core::Result<PrintWorkflowPdlConverter> {
+    pub fn GetPdlConverter(&self, conversiontype: PrintWorkflowPdlConversionType) -> windows_core::Result<PrintWorkflowPdlConverter> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPdlConverter)(windows_core::Interface::as_raw(this), conversionType, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPdlConverter)(windows_core::Interface::as_raw(this), conversiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
+    #[cfg(feature = "Storage")]
     pub fn GetTargetFileAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
@@ -1949,12 +1996,14 @@ impl windows_core::RuntimeType for PrintWorkflowVirtualPrinterDataAvailableEvent
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowVirtualPrinterDataAvailableEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowVirtualPrinterDataAvailableEventArgs {
-    type Vtable = <IPrintWorkflowVirtualPrinterDataAvailableEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowVirtualPrinterDataAvailableEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowVirtualPrinterDataAvailableEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowVirtualPrinterDataAvailableEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowVirtualPrinterDataAvailableEventArgs";
 }
+unsafe impl Send for PrintWorkflowVirtualPrinterDataAvailableEventArgs {}
+unsafe impl Sync for PrintWorkflowVirtualPrinterDataAvailableEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowVirtualPrinterSession(windows_core::IUnknown);
@@ -1998,12 +2047,14 @@ impl windows_core::RuntimeType for PrintWorkflowVirtualPrinterSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowVirtualPrinterSession>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowVirtualPrinterSession {
-    type Vtable = <IPrintWorkflowVirtualPrinterSession as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowVirtualPrinterSession_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowVirtualPrinterSession as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowVirtualPrinterSession {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowVirtualPrinterSession";
 }
+unsafe impl Send for PrintWorkflowVirtualPrinterSession {}
+unsafe impl Sync for PrintWorkflowVirtualPrinterSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowVirtualPrinterTriggerDetails(windows_core::IUnknown);
@@ -2021,12 +2072,14 @@ impl windows_core::RuntimeType for PrintWorkflowVirtualPrinterTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowVirtualPrinterTriggerDetails>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowVirtualPrinterTriggerDetails {
-    type Vtable = <IPrintWorkflowVirtualPrinterTriggerDetails as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowVirtualPrinterTriggerDetails_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowVirtualPrinterTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowVirtualPrinterTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowVirtualPrinterTriggerDetails";
 }
+unsafe impl Send for PrintWorkflowVirtualPrinterTriggerDetails {}
+unsafe impl Sync for PrintWorkflowVirtualPrinterTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowVirtualPrinterUIEventArgs(windows_core::IUnknown);
@@ -2074,12 +2127,14 @@ impl windows_core::RuntimeType for PrintWorkflowVirtualPrinterUIEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowVirtualPrinterUIEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowVirtualPrinterUIEventArgs {
-    type Vtable = <IPrintWorkflowVirtualPrinterUIEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowVirtualPrinterUIEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowVirtualPrinterUIEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowVirtualPrinterUIEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowVirtualPrinterUIEventArgs";
 }
+unsafe impl Send for PrintWorkflowVirtualPrinterUIEventArgs {}
+unsafe impl Sync for PrintWorkflowVirtualPrinterUIEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowXpsDataAvailableEventArgs(windows_core::IUnknown);
@@ -2104,14 +2159,16 @@ impl windows_core::RuntimeType for PrintWorkflowXpsDataAvailableEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowXpsDataAvailableEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowXpsDataAvailableEventArgs {
-    type Vtable = <IPrintWorkflowXpsDataAvailableEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IPrintWorkflowXpsDataAvailableEventArgs_Vtbl;
     const IID: windows_core::GUID = <IPrintWorkflowXpsDataAvailableEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintWorkflowXpsDataAvailableEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.Workflow.PrintWorkflowXpsDataAvailableEventArgs";
 }
+unsafe impl Send for PrintWorkflowXpsDataAvailableEventArgs {}
+unsafe impl Sync for PrintWorkflowXpsDataAvailableEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PdlConversionHostBasedProcessingOperations(pub u32);
 impl PdlConversionHostBasedProcessingOperations {
     pub const None: Self = Self(0u32);
@@ -2124,11 +2181,49 @@ impl PdlConversionHostBasedProcessingOperations {
 impl windows_core::TypeKind for PdlConversionHostBasedProcessingOperations {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PdlConversionHostBasedProcessingOperations {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PdlConversionHostBasedProcessingOperations").field(&self.0).finish()
+    }
+}
+impl PdlConversionHostBasedProcessingOperations {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for PdlConversionHostBasedProcessingOperations {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for PdlConversionHostBasedProcessingOperations {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for PdlConversionHostBasedProcessingOperations {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for PdlConversionHostBasedProcessingOperations {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for PdlConversionHostBasedProcessingOperations {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 impl windows_core::RuntimeType for PdlConversionHostBasedProcessingOperations {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PdlConversionHostBasedProcessingOperations;u4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PrintWorkflowAttributesMergePolicy(pub i32);
 impl PrintWorkflowAttributesMergePolicy {
     pub const MergePreferPrintTicketOnConflict: Self = Self(0i32);
@@ -2138,11 +2233,16 @@ impl PrintWorkflowAttributesMergePolicy {
 impl windows_core::TypeKind for PrintWorkflowAttributesMergePolicy {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PrintWorkflowAttributesMergePolicy {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PrintWorkflowAttributesMergePolicy").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PrintWorkflowAttributesMergePolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowAttributesMergePolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PrintWorkflowJobAbortReason(pub i32);
 impl PrintWorkflowJobAbortReason {
     pub const JobFailed: Self = Self(0i32);
@@ -2151,11 +2251,16 @@ impl PrintWorkflowJobAbortReason {
 impl windows_core::TypeKind for PrintWorkflowJobAbortReason {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PrintWorkflowJobAbortReason {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PrintWorkflowJobAbortReason").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PrintWorkflowJobAbortReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowJobAbortReason;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PrintWorkflowJobIssueKind(pub i32);
 impl PrintWorkflowJobIssueKind {
     pub const Other: Self = Self(0i32);
@@ -2173,11 +2278,16 @@ impl PrintWorkflowJobIssueKind {
 impl windows_core::TypeKind for PrintWorkflowJobIssueKind {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PrintWorkflowJobIssueKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PrintWorkflowJobIssueKind").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PrintWorkflowJobIssueKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowJobIssueKind;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PrintWorkflowPdlConversionType(pub i32);
 impl PrintWorkflowPdlConversionType {
     pub const XpsToPdf: Self = Self(0i32);
@@ -2188,11 +2298,16 @@ impl PrintWorkflowPdlConversionType {
 impl windows_core::TypeKind for PrintWorkflowPdlConversionType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PrintWorkflowPdlConversionType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PrintWorkflowPdlConversionType").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PrintWorkflowPdlConversionType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConversionType;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PrintWorkflowPrinterJobStatus(pub i32);
 impl PrintWorkflowPrinterJobStatus {
     pub const Error: Self = Self(0i32);
@@ -2203,11 +2318,16 @@ impl PrintWorkflowPrinterJobStatus {
 impl windows_core::TypeKind for PrintWorkflowPrinterJobStatus {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PrintWorkflowPrinterJobStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PrintWorkflowPrinterJobStatus").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PrintWorkflowPrinterJobStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJobStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PrintWorkflowSessionStatus(pub i32);
 impl PrintWorkflowSessionStatus {
     pub const Started: Self = Self(0i32);
@@ -2219,11 +2339,16 @@ impl PrintWorkflowSessionStatus {
 impl windows_core::TypeKind for PrintWorkflowSessionStatus {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PrintWorkflowSessionStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PrintWorkflowSessionStatus").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PrintWorkflowSessionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSessionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PrintWorkflowSubmittedStatus(pub i32);
 impl PrintWorkflowSubmittedStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -2233,11 +2358,16 @@ impl PrintWorkflowSubmittedStatus {
 impl windows_core::TypeKind for PrintWorkflowSubmittedStatus {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PrintWorkflowSubmittedStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PrintWorkflowSubmittedStatus").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for PrintWorkflowSubmittedStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PrintWorkflowUICompletionStatus(pub i32);
 impl PrintWorkflowUICompletionStatus {
     pub const Completed: Self = Self(0i32);
@@ -2247,6 +2377,11 @@ impl PrintWorkflowUICompletionStatus {
 }
 impl windows_core::TypeKind for PrintWorkflowUICompletionStatus {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for PrintWorkflowUICompletionStatus {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PrintWorkflowUICompletionStatus").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for PrintWorkflowUICompletionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowUICompletionStatus;i4)");

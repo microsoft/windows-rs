@@ -18,7 +18,18 @@ pub struct IInstalledClassicAppInfo_Vtbl {
     pub DisplayVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 pub struct ClassicAppManager;
-impl ClassicAppManager {}
+impl ClassicAppManager {
+    pub fn FindInstalledApp(appuninstallkey: &windows_core::HSTRING) -> windows_core::Result<InstalledClassicAppInfo> {
+        Self::IClassicAppManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FindInstalledApp)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appuninstallkey), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IClassicAppManagerStatics<R, F: FnOnce(&IClassicAppManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<ClassicAppManager, IClassicAppManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeName for ClassicAppManager {
     const NAME: &'static str = "Windows.Management.Deployment.Preview.ClassicAppManager";
 }
@@ -46,9 +57,11 @@ impl windows_core::RuntimeType for InstalledClassicAppInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInstalledClassicAppInfo>();
 }
 unsafe impl windows_core::Interface for InstalledClassicAppInfo {
-    type Vtable = <IInstalledClassicAppInfo as windows_core::Interface>::Vtable;
+    type Vtable = IInstalledClassicAppInfo_Vtbl;
     const IID: windows_core::GUID = <IInstalledClassicAppInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for InstalledClassicAppInfo {
     const NAME: &'static str = "Windows.Management.Deployment.Preview.InstalledClassicAppInfo";
 }
+unsafe impl Send for InstalledClassicAppInfo {}
+unsafe impl Sync for InstalledClassicAppInfo {}

@@ -57,10 +57,13 @@ pub mod WiFi;
 #[cfg(feature = "Devices_WiFiDirect")]
 pub mod WiFiDirect;
 windows_core::imp::define_interface!(ILowLevelDevicesAggregateProvider, ILowLevelDevicesAggregateProvider_Vtbl, 0xa73e561c_aac1_4ec7_a852_479f7060d01f);
-windows_core::imp::interface_hierarchy!(ILowLevelDevicesAggregateProvider, windows_core::IUnknown, windows_core::IInspectable);
-impl windows_core::RuntimeType for ILowLevelDevicesAggregateProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for ILowLevelDevicesAggregateProvider {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
+windows_core::imp::interface_hierarchy!(ILowLevelDevicesAggregateProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl ILowLevelDevicesAggregateProvider {
     #[cfg(feature = "Devices_Adc_Provider")]
     pub fn AdcControllerProvider(&self) -> windows_core::Result<Adc::Provider::IAdcControllerProvider> {
@@ -102,6 +105,9 @@ impl ILowLevelDevicesAggregateProvider {
             (windows_core::Interface::vtable(this).SpiControllerProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for ILowLevelDevicesAggregateProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct ILowLevelDevicesAggregateProvider_Vtbl {
@@ -160,7 +166,7 @@ pub struct ILowLevelDevicesControllerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LowLevelDevicesAggregateProvider(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LowLevelDevicesAggregateProvider, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(LowLevelDevicesAggregateProvider, windows_core::IUnknown, windows_core::IInspectable, ILowLevelDevicesAggregateProvider);
 impl LowLevelDevicesAggregateProvider {
     #[cfg(feature = "Devices_Adc_Provider")]
     pub fn AdcControllerProvider(&self) -> windows_core::Result<Adc::Provider::IAdcControllerProvider> {
@@ -225,12 +231,14 @@ impl windows_core::RuntimeType for LowLevelDevicesAggregateProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILowLevelDevicesAggregateProvider>();
 }
 unsafe impl windows_core::Interface for LowLevelDevicesAggregateProvider {
-    type Vtable = <ILowLevelDevicesAggregateProvider as windows_core::Interface>::Vtable;
+    type Vtable = ILowLevelDevicesAggregateProvider_Vtbl;
     const IID: windows_core::GUID = <ILowLevelDevicesAggregateProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LowLevelDevicesAggregateProvider {
     const NAME: &'static str = "Windows.Devices.LowLevelDevicesAggregateProvider";
 }
+unsafe impl Send for LowLevelDevicesAggregateProvider {}
+unsafe impl Sync for LowLevelDevicesAggregateProvider {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LowLevelDevicesController(windows_core::IUnknown);
@@ -257,9 +265,13 @@ impl windows_core::RuntimeType for LowLevelDevicesController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILowLevelDevicesController>();
 }
 unsafe impl windows_core::Interface for LowLevelDevicesController {
-    type Vtable = <ILowLevelDevicesController as windows_core::Interface>::Vtable;
+    type Vtable = ILowLevelDevicesController_Vtbl;
     const IID: windows_core::GUID = <ILowLevelDevicesController as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LowLevelDevicesController {
     const NAME: &'static str = "Windows.Devices.LowLevelDevicesController";
 }
+unsafe impl Send for LowLevelDevicesController {}
+unsafe impl Sync for LowLevelDevicesController {}
+#[cfg(feature = "implement")]
+core::include!("impl.rs");

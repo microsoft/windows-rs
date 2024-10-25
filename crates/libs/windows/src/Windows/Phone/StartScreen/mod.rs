@@ -47,19 +47,25 @@ pub struct IDualSimTileStatics_Vtbl {
     CreateToastNotifierForSim2: usize,
 }
 windows_core::imp::define_interface!(IToastNotificationManagerStatics3, IToastNotificationManagerStatics3_Vtbl, 0x2717f54b_50df_4455_8e6e_41e0fc8e13ce);
-windows_core::imp::interface_hierarchy!(IToastNotificationManagerStatics3, windows_core::IUnknown, windows_core::IInspectable);
-impl windows_core::RuntimeType for IToastNotificationManagerStatics3 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IToastNotificationManagerStatics3 {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
+windows_core::imp::interface_hierarchy!(IToastNotificationManagerStatics3, windows_core::IUnknown, windows_core::IInspectable);
 impl IToastNotificationManagerStatics3 {
     #[cfg(feature = "UI_Notifications")]
-    pub fn CreateToastNotifierForSecondaryTile(&self, tileId: &windows_core::HSTRING) -> windows_core::Result<super::super::UI::Notifications::ToastNotifier> {
+    pub fn CreateToastNotifierForSecondaryTile(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<super::super::UI::Notifications::ToastNotifier> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateToastNotifierForSecondaryTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateToastNotifierForSecondaryTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for IToastNotificationManagerStatics3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IToastNotificationManagerStatics3_Vtbl {
@@ -183,9 +189,11 @@ impl windows_core::RuntimeType for DualSimTile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDualSimTile>();
 }
 unsafe impl windows_core::Interface for DualSimTile {
-    type Vtable = <IDualSimTile as windows_core::Interface>::Vtable;
+    type Vtable = IDualSimTile_Vtbl;
     const IID: windows_core::GUID = <IDualSimTile as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DualSimTile {
     const NAME: &'static str = "Windows.Phone.StartScreen.DualSimTile";
 }
+#[cfg(feature = "implement")]
+core::include!("impl.rs");

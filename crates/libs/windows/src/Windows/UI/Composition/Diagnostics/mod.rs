@@ -47,12 +47,12 @@ impl CompositionDebugHeatMaps {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ShowMemoryUsage)(windows_core::Interface::as_raw(this), subtree.param().abi()).ok() }
     }
-    pub fn ShowOverdraw<P0>(&self, subtree: P0, contentKinds: CompositionDebugOverdrawContentKinds) -> windows_core::Result<()>
+    pub fn ShowOverdraw<P0>(&self, subtree: P0, contentkinds: CompositionDebugOverdrawContentKinds) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Visual>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ShowOverdraw)(windows_core::Interface::as_raw(this), subtree.param().abi(), contentKinds).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ShowOverdraw)(windows_core::Interface::as_raw(this), subtree.param().abi(), contentkinds).ok() }
     }
     pub fn ShowRedraw<P0>(&self, subtree: P0) -> windows_core::Result<()>
     where
@@ -66,12 +66,14 @@ impl windows_core::RuntimeType for CompositionDebugHeatMaps {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionDebugHeatMaps>();
 }
 unsafe impl windows_core::Interface for CompositionDebugHeatMaps {
-    type Vtable = <ICompositionDebugHeatMaps as windows_core::Interface>::Vtable;
+    type Vtable = ICompositionDebugHeatMaps_Vtbl;
     const IID: windows_core::GUID = <ICompositionDebugHeatMaps as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CompositionDebugHeatMaps {
     const NAME: &'static str = "Windows.UI.Composition.Diagnostics.CompositionDebugHeatMaps";
 }
+unsafe impl Send for CompositionDebugHeatMaps {}
+unsafe impl Sync for CompositionDebugHeatMaps {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionDebugSettings(windows_core::IUnknown);
@@ -102,14 +104,16 @@ impl windows_core::RuntimeType for CompositionDebugSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionDebugSettings>();
 }
 unsafe impl windows_core::Interface for CompositionDebugSettings {
-    type Vtable = <ICompositionDebugSettings as windows_core::Interface>::Vtable;
+    type Vtable = ICompositionDebugSettings_Vtbl;
     const IID: windows_core::GUID = <ICompositionDebugSettings as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CompositionDebugSettings {
     const NAME: &'static str = "Windows.UI.Composition.Diagnostics.CompositionDebugSettings";
 }
+unsafe impl Send for CompositionDebugSettings {}
+unsafe impl Sync for CompositionDebugSettings {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CompositionDebugOverdrawContentKinds(pub u32);
 impl CompositionDebugOverdrawContentKinds {
     pub const None: Self = Self(0u32);
@@ -124,6 +128,44 @@ impl CompositionDebugOverdrawContentKinds {
 }
 impl windows_core::TypeKind for CompositionDebugOverdrawContentKinds {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for CompositionDebugOverdrawContentKinds {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CompositionDebugOverdrawContentKinds").field(&self.0).finish()
+    }
+}
+impl CompositionDebugOverdrawContentKinds {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CompositionDebugOverdrawContentKinds {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CompositionDebugOverdrawContentKinds {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CompositionDebugOverdrawContentKinds {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CompositionDebugOverdrawContentKinds {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CompositionDebugOverdrawContentKinds {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
 }
 impl windows_core::RuntimeType for CompositionDebugOverdrawContentKinds {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Diagnostics.CompositionDebugOverdrawContentKinds;u4)");

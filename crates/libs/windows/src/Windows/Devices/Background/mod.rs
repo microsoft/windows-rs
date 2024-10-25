@@ -50,12 +50,14 @@ impl windows_core::RuntimeType for DeviceServicingDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceServicingDetails>();
 }
 unsafe impl windows_core::Interface for DeviceServicingDetails {
-    type Vtable = <IDeviceServicingDetails as windows_core::Interface>::Vtable;
+    type Vtable = IDeviceServicingDetails_Vtbl;
     const IID: windows_core::GUID = <IDeviceServicingDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DeviceServicingDetails {
     const NAME: &'static str = "Windows.Devices.Background.DeviceServicingDetails";
 }
+unsafe impl Send for DeviceServicingDetails {}
+unsafe impl Sync for DeviceServicingDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceUseDetails(windows_core::IUnknown);
@@ -80,9 +82,11 @@ impl windows_core::RuntimeType for DeviceUseDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceUseDetails>();
 }
 unsafe impl windows_core::Interface for DeviceUseDetails {
-    type Vtable = <IDeviceUseDetails as windows_core::Interface>::Vtable;
+    type Vtable = IDeviceUseDetails_Vtbl;
     const IID: windows_core::GUID = <IDeviceUseDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DeviceUseDetails {
     const NAME: &'static str = "Windows.Devices.Background.DeviceUseDetails";
 }
+unsafe impl Send for DeviceUseDetails {}
+unsafe impl Sync for DeviceUseDetails {}

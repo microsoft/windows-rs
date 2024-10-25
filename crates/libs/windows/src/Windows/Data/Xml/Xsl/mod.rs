@@ -40,25 +40,25 @@ pub struct XsltProcessor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(XsltProcessor, windows_core::IUnknown, windows_core::IInspectable);
 impl XsltProcessor {
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn TransformToString<P0>(&self, inputNode: P0) -> windows_core::Result<windows_core::HSTRING>
+    pub fn TransformToString<P0>(&self, inputnode: P0) -> windows_core::Result<windows_core::HSTRING>
     where
         P0: windows_core::Param<super::Dom::IXmlNode>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransformToString)(windows_core::Interface::as_raw(this), inputNode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TransformToString)(windows_core::Interface::as_raw(this), inputnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn TransformToDocument<P0>(&self, inputNode: P0) -> windows_core::Result<super::Dom::XmlDocument>
+    pub fn TransformToDocument<P0>(&self, inputnode: P0) -> windows_core::Result<super::Dom::XmlDocument>
     where
         P0: windows_core::Param<super::Dom::IXmlNode>,
     {
         let this = &windows_core::Interface::cast::<IXsltProcessor2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TransformToDocument)(windows_core::Interface::as_raw(this), inputNode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TransformToDocument)(windows_core::Interface::as_raw(this), inputnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
@@ -80,9 +80,11 @@ impl windows_core::RuntimeType for XsltProcessor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXsltProcessor>();
 }
 unsafe impl windows_core::Interface for XsltProcessor {
-    type Vtable = <IXsltProcessor as windows_core::Interface>::Vtable;
+    type Vtable = IXsltProcessor_Vtbl;
     const IID: windows_core::GUID = <IXsltProcessor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for XsltProcessor {
     const NAME: &'static str = "Windows.Data.Xml.Xsl.XsltProcessor";
 }
+unsafe impl Send for XsltProcessor {}
+unsafe impl Sync for XsltProcessor {}

@@ -20,11 +20,11 @@ pub struct IWindowManagementPreviewStatics_Vtbl {
 pub struct WindowManagementPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowManagementPreview, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowManagementPreview {
-    pub fn SetPreferredMinSize<P0>(window: P0, preferredFrameMinSize: super::super::super::Foundation::Size) -> windows_core::Result<()>
+    pub fn SetPreferredMinSize<P0>(window: P0, preferredframeminsize: super::super::super::Foundation::Size) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::AppWindow>,
     {
-        Self::IWindowManagementPreviewStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetPreferredMinSize)(windows_core::Interface::as_raw(this), window.param().abi(), preferredFrameMinSize).ok() })
+        Self::IWindowManagementPreviewStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetPreferredMinSize)(windows_core::Interface::as_raw(this), window.param().abi(), preferredframeminsize).ok() })
     }
     fn IWindowManagementPreviewStatics<R, F: FnOnce(&IWindowManagementPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowManagementPreview, IWindowManagementPreviewStatics> = windows_core::imp::FactoryCache::new();
@@ -35,9 +35,11 @@ impl windows_core::RuntimeType for WindowManagementPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowManagementPreview>();
 }
 unsafe impl windows_core::Interface for WindowManagementPreview {
-    type Vtable = <IWindowManagementPreview as windows_core::Interface>::Vtable;
+    type Vtable = IWindowManagementPreview_Vtbl;
     const IID: windows_core::GUID = <IWindowManagementPreview as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WindowManagementPreview {
     const NAME: &'static str = "Windows.UI.WindowManagement.Preview.WindowManagementPreview";
 }
+unsafe impl Send for WindowManagementPreview {}
+unsafe impl Sync for WindowManagementPreview {}

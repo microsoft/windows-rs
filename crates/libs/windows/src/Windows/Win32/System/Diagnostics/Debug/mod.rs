@@ -2,89 +2,2967 @@
 pub mod ActiveScript;
 #[cfg(feature = "Win32_System_Diagnostics_Debug_Extensions")]
 pub mod Extensions;
-pub const ABNORMAL_RESET_DETECTED: BUGCHECK_ERROR = 327u32;
-pub const ACPI_BIOS_ERROR: BUGCHECK_ERROR = 165u32;
-pub const ACPI_BIOS_FATAL_ERROR: BUGCHECK_ERROR = 224u32;
-pub const ACPI_DRIVER_INTERNAL: BUGCHECK_ERROR = 163u32;
-pub const ACPI_FIRMWARE_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 464u32;
-pub const ACTIVE_EX_WORKER_THREAD_TERMINATION: BUGCHECK_ERROR = 233u32;
-pub const AGP_GART_CORRUPTION: BUGCHECK_ERROR = 261u32;
-pub const AGP_ILLEGALLY_REPROGRAMMED: BUGCHECK_ERROR = 262u32;
-pub const AGP_INTERNAL: BUGCHECK_ERROR = 277u32;
-pub const AGP_INVALID_ACCESS: BUGCHECK_ERROR = 260u32;
-pub const APC_INDEX_MISMATCH: BUGCHECK_ERROR = 1u32;
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn AddVectoredContinueHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void {
+    windows_targets::link!("kernel32.dll" "system" fn AddVectoredContinueHandler(first : u32, handler : PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void);
+    AddVectoredContinueHandler(first, handler)
+}
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn AddVectoredExceptionHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void {
+    windows_targets::link!("kernel32.dll" "system" fn AddVectoredExceptionHandler(first : u32, handler : PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void);
+    AddVectoredExceptionHandler(first, handler)
+}
+#[inline]
+pub unsafe fn Beep(dwfreq: u32, dwduration: u32) -> windows_core::Result<()> {
+    windows_targets::link!("kernel32.dll" "system" fn Beep(dwfreq : u32, dwduration : u32) -> super::super::super::Foundation:: BOOL);
+    Beep(dwfreq, dwduration).ok()
+}
+#[inline]
+pub unsafe fn BindImage<P0, P1, P2>(imagename: P0, dllpath: P1, symbolpath: P2) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn BindImage(imagename : windows_core::PCSTR, dllpath : windows_core::PCSTR, symbolpath : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
+    BindImage(imagename.param().abi(), dllpath.param().abi(), symbolpath.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn BindImageEx<P0, P1, P2>(flags: u32, imagename: P0, dllpath: P1, symbolpath: P2, statusroutine: PIMAGEHLP_STATUS_ROUTINE) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn BindImageEx(flags : u32, imagename : windows_core::PCSTR, dllpath : windows_core::PCSTR, symbolpath : windows_core::PCSTR, statusroutine : PIMAGEHLP_STATUS_ROUTINE) -> super::super::super::Foundation:: BOOL);
+    BindImageEx(flags, imagename.param().abi(), dllpath.param().abi(), symbolpath.param().abi(), statusroutine).ok()
+}
+#[inline]
+pub unsafe fn CheckRemoteDebuggerPresent<P0>(hprocess: P0, pbdebuggerpresent: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn CheckRemoteDebuggerPresent(hprocess : super::super::super::Foundation:: HANDLE, pbdebuggerpresent : *mut super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
+    CheckRemoteDebuggerPresent(hprocess.param().abi(), pbdebuggerpresent).ok()
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_SystemInformation")]
+#[inline]
+pub unsafe fn CheckSumMappedFile(baseaddress: *const core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS64 {
+    windows_targets::link!("imagehlp.dll" "system" fn CheckSumMappedFile(baseaddress : *const core::ffi::c_void, filelength : u32, headersum : *mut u32, checksum : *mut u32) -> *mut IMAGE_NT_HEADERS64);
+    CheckSumMappedFile(baseaddress, filelength, headersum, checksum)
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_SystemInformation")]
+#[inline]
+pub unsafe fn CheckSumMappedFile(baseaddress: *const core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS32 {
+    windows_targets::link!("imagehlp.dll" "system" fn CheckSumMappedFile(baseaddress : *const core::ffi::c_void, filelength : u32, headersum : *mut u32, checksum : *mut u32) -> *mut IMAGE_NT_HEADERS32);
+    CheckSumMappedFile(baseaddress, filelength, headersum, checksum)
+}
+#[inline]
+pub unsafe fn CloseThreadWaitChainSession(wcthandle: *const core::ffi::c_void) {
+    windows_targets::link!("advapi32.dll" "system" fn CloseThreadWaitChainSession(wcthandle : *const core::ffi::c_void));
+    CloseThreadWaitChainSession(wcthandle)
+}
+#[inline]
+pub unsafe fn ContinueDebugEvent<P0>(dwprocessid: u32, dwthreadid: u32, dwcontinuestatus: P0) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::NTSTATUS>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn ContinueDebugEvent(dwprocessid : u32, dwthreadid : u32, dwcontinuestatus : super::super::super::Foundation:: NTSTATUS) -> super::super::super::Foundation:: BOOL);
+    ContinueDebugEvent(dwprocessid, dwthreadid, dwcontinuestatus.param().abi()).ok()
+}
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn CopyContext(destination: *mut CONTEXT, contextflags: CONTEXT_FLAGS, source: *const CONTEXT) -> windows_core::Result<()> {
+    windows_targets::link!("kernel32.dll" "system" fn CopyContext(destination : *mut CONTEXT, contextflags : CONTEXT_FLAGS, source : *const CONTEXT) -> super::super::super::Foundation:: BOOL);
+    CopyContext(destination, contextflags, source).ok()
+}
+#[inline]
+pub unsafe fn DbgHelpCreateUserDump<P0>(filename: P0, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: Option<*const core::ffi::c_void>) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn DbgHelpCreateUserDump(filename : windows_core::PCSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    DbgHelpCreateUserDump(filename.param().abi(), callback, core::mem::transmute(userdata.unwrap_or(core::ptr::null())))
+}
+#[inline]
+pub unsafe fn DbgHelpCreateUserDumpW<P0>(filename: P0, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: Option<*const core::ffi::c_void>) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn DbgHelpCreateUserDumpW(filename : windows_core::PCWSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    DbgHelpCreateUserDumpW(filename.param().abi(), callback, core::mem::transmute(userdata.unwrap_or(core::ptr::null())))
+}
+#[inline]
+pub unsafe fn DebugActiveProcess(dwprocessid: u32) -> windows_core::Result<()> {
+    windows_targets::link!("kernel32.dll" "system" fn DebugActiveProcess(dwprocessid : u32) -> super::super::super::Foundation:: BOOL);
+    DebugActiveProcess(dwprocessid).ok()
+}
+#[inline]
+pub unsafe fn DebugActiveProcessStop(dwprocessid: u32) -> windows_core::Result<()> {
+    windows_targets::link!("kernel32.dll" "system" fn DebugActiveProcessStop(dwprocessid : u32) -> super::super::super::Foundation:: BOOL);
+    DebugActiveProcessStop(dwprocessid).ok()
+}
+#[inline]
+pub unsafe fn DebugBreak() {
+    windows_targets::link!("kernel32.dll" "system" fn DebugBreak());
+    DebugBreak()
+}
+#[inline]
+pub unsafe fn DebugBreakProcess<P0>(process: P0) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn DebugBreakProcess(process : super::super::super::Foundation:: HANDLE) -> super::super::super::Foundation:: BOOL);
+    DebugBreakProcess(process.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn DebugSetProcessKillOnExit<P0>(killonexit: P0) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::BOOL>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn DebugSetProcessKillOnExit(killonexit : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
+    DebugSetProcessKillOnExit(killonexit.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn DecodePointer(ptr: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
+    windows_targets::link!("kernel32.dll" "system" fn DecodePointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+    DecodePointer(core::mem::transmute(ptr.unwrap_or(core::ptr::null())))
+}
+#[inline]
+pub unsafe fn DecodeRemotePointer<P0>(processhandle: P0, ptr: Option<*const core::ffi::c_void>, decodedptr: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("api-ms-win-core-util-l1-1-1.dll" "system" fn DecodeRemotePointer(processhandle : super::super::super::Foundation:: HANDLE, ptr : *const core::ffi::c_void, decodedptr : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    DecodeRemotePointer(processhandle.param().abi(), core::mem::transmute(ptr.unwrap_or(core::ptr::null())), decodedptr).ok()
+}
+#[inline]
+pub unsafe fn DecodeSystemPointer(ptr: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
+    windows_targets::link!("kernel32.dll" "system" fn DecodeSystemPointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+    DecodeSystemPointer(core::mem::transmute(ptr.unwrap_or(core::ptr::null())))
+}
+#[inline]
+pub unsafe fn EncodePointer(ptr: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
+    windows_targets::link!("kernel32.dll" "system" fn EncodePointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+    EncodePointer(core::mem::transmute(ptr.unwrap_or(core::ptr::null())))
+}
+#[inline]
+pub unsafe fn EncodeRemotePointer<P0>(processhandle: P0, ptr: Option<*const core::ffi::c_void>, encodedptr: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("api-ms-win-core-util-l1-1-1.dll" "system" fn EncodeRemotePointer(processhandle : super::super::super::Foundation:: HANDLE, ptr : *const core::ffi::c_void, encodedptr : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    EncodeRemotePointer(processhandle.param().abi(), core::mem::transmute(ptr.unwrap_or(core::ptr::null())), encodedptr).ok()
+}
+#[inline]
+pub unsafe fn EncodeSystemPointer(ptr: Option<*const core::ffi::c_void>) -> *mut core::ffi::c_void {
+    windows_targets::link!("kernel32.dll" "system" fn EncodeSystemPointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+    EncodeSystemPointer(core::mem::transmute(ptr.unwrap_or(core::ptr::null())))
+}
+#[inline]
+pub unsafe fn EnumDirTree<P0, P1, P2>(hprocess: P0, rootpath: P1, inputpathname: P2, outputpathbuffer: windows_core::PSTR, cb: PENUMDIRTREE_CALLBACK, data: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn EnumDirTree(hprocess : super::super::super::Foundation:: HANDLE, rootpath : windows_core::PCSTR, inputpathname : windows_core::PCSTR, outputpathbuffer : windows_core::PSTR, cb : PENUMDIRTREE_CALLBACK, data : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    EnumDirTree(hprocess.param().abi(), rootpath.param().abi(), inputpathname.param().abi(), core::mem::transmute(outputpathbuffer), cb, core::mem::transmute(data.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn EnumDirTreeW<P0, P1, P2>(hprocess: P0, rootpath: P1, inputpathname: P2, outputpathbuffer: windows_core::PWSTR, cb: PENUMDIRTREE_CALLBACKW, data: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn EnumDirTreeW(hprocess : super::super::super::Foundation:: HANDLE, rootpath : windows_core::PCWSTR, inputpathname : windows_core::PCWSTR, outputpathbuffer : windows_core::PWSTR, cb : PENUMDIRTREE_CALLBACKW, data : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    EnumDirTreeW(hprocess.param().abi(), rootpath.param().abi(), inputpathname.param().abi(), core::mem::transmute(outputpathbuffer), cb, core::mem::transmute(data.unwrap_or(core::ptr::null()))).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn EnumerateLoadedModules<P0>(hprocess: P0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModules(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    EnumerateLoadedModules(hprocess.param().abi(), enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn EnumerateLoadedModules64<P0>(hprocess: P0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModules64(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    EnumerateLoadedModules64(hprocess.param().abi(), enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn EnumerateLoadedModulesEx<P0>(hprocess: P0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesEx(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    EnumerateLoadedModulesEx(hprocess.param().abi(), enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn EnumerateLoadedModulesExW<P0>(hprocess: P0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesExW(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    EnumerateLoadedModulesExW(hprocess.param().abi(), enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn EnumerateLoadedModulesW64<P0>(hprocess: P0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesW64(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    EnumerateLoadedModulesW64(hprocess.param().abi(), enumloadedmodulescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn FatalAppExitA<P0>(uaction: u32, lpmessagetext: P0)
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn FatalAppExitA(uaction : u32, lpmessagetext : windows_core::PCSTR));
+    FatalAppExitA(uaction, lpmessagetext.param().abi())
+}
+#[inline]
+pub unsafe fn FatalAppExitW<P0>(uaction: u32, lpmessagetext: P0)
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn FatalAppExitW(uaction : u32, lpmessagetext : windows_core::PCWSTR));
+    FatalAppExitW(uaction, lpmessagetext.param().abi())
+}
+#[inline]
+pub unsafe fn FatalExit(exitcode: i32) -> ! {
+    windows_targets::link!("kernel32.dll" "system" fn FatalExit(exitcode : i32) -> !);
+    FatalExit(exitcode)
+}
+#[inline]
+pub unsafe fn FindDebugInfoFile<P0, P1>(filename: P0, symbolpath: P1, debugfilepath: windows_core::PSTR) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn FindDebugInfoFile(filename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, debugfilepath : windows_core::PSTR) -> super::super::super::Foundation:: HANDLE);
+    let result__ = FindDebugInfoFile(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath));
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+}
+#[inline]
+pub unsafe fn FindDebugInfoFileEx<P0, P1>(filename: P0, symbolpath: P1, debugfilepath: windows_core::PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn FindDebugInfoFileEx(filename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, debugfilepath : windows_core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
+    let result__ = FindDebugInfoFileEx(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), callback, core::mem::transmute(callerdata.unwrap_or(core::ptr::null())));
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+}
+#[inline]
+pub unsafe fn FindDebugInfoFileExW<P0, P1>(filename: P0, symbolpath: P1, debugfilepath: windows_core::PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn FindDebugInfoFileExW(filename : windows_core::PCWSTR, symbolpath : windows_core::PCWSTR, debugfilepath : windows_core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
+    let result__ = FindDebugInfoFileExW(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), callback, core::mem::transmute(callerdata.unwrap_or(core::ptr::null())));
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+}
+#[inline]
+pub unsafe fn FindExecutableImage<P0, P1>(filename: P0, symbolpath: P1, imagefilepath: windows_core::PSTR) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn FindExecutableImage(filename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, imagefilepath : windows_core::PSTR) -> super::super::super::Foundation:: HANDLE);
+    let result__ = FindExecutableImage(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath));
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+}
+#[inline]
+pub unsafe fn FindExecutableImageEx<P0, P1>(filename: P0, symbolpath: P1, imagefilepath: windows_core::PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn FindExecutableImageEx(filename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, imagefilepath : windows_core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
+    let result__ = FindExecutableImageEx(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath), callback, core::mem::transmute(callerdata.unwrap_or(core::ptr::null())));
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+}
+#[inline]
+pub unsafe fn FindExecutableImageExW<P0, P1>(filename: P0, symbolpath: P1, imagefilepath: windows_core::PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: *const core::ffi::c_void) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn FindExecutableImageExW(filename : windows_core::PCWSTR, symbolpath : windows_core::PCWSTR, imagefilepath : windows_core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
+    let result__ = FindExecutableImageExW(filename.param().abi(), symbolpath.param().abi(), core::mem::transmute(imagefilepath), callback, callerdata);
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+}
+#[inline]
+pub unsafe fn FindFileInPath<P0, P1, P2>(hprocess: P0, searchpatha: P1, filename: P2, id: *const core::ffi::c_void, two: u32, three: u32, flags: u32, filepath: windows_core::PSTR) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn FindFileInPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCSTR, filename : windows_core::PCSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : u32, filepath : windows_core::PSTR) -> super::super::super::Foundation:: BOOL);
+    FindFileInPath(hprocess.param().abi(), searchpatha.param().abi(), filename.param().abi(), id, two, three, flags, core::mem::transmute(filepath))
+}
+#[inline]
+pub unsafe fn FindFileInSearchPath<P0, P1, P2>(hprocess: P0, searchpatha: P1, filename: P2, one: u32, two: u32, three: u32, filepath: windows_core::PSTR) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn FindFileInSearchPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCSTR, filename : windows_core::PCSTR, one : u32, two : u32, three : u32, filepath : windows_core::PSTR) -> super::super::super::Foundation:: BOOL);
+    FindFileInSearchPath(hprocess.param().abi(), searchpatha.param().abi(), filename.param().abi(), one, two, three, core::mem::transmute(filepath))
+}
+#[inline]
+pub unsafe fn FlushInstructionCache<P0>(hprocess: P0, lpbaseaddress: Option<*const core::ffi::c_void>, dwsize: usize) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn FlushInstructionCache(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const core::ffi::c_void, dwsize : usize) -> super::super::super::Foundation:: BOOL);
+    FlushInstructionCache(hprocess.param().abi(), core::mem::transmute(lpbaseaddress.unwrap_or(core::ptr::null())), dwsize).ok()
+}
+#[inline]
+pub unsafe fn FormatMessageA(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: Option<*const core::ffi::c_void>, dwmessageid: u32, dwlanguageid: u32, lpbuffer: windows_core::PSTR, nsize: u32, arguments: Option<*const *const i8>) -> u32 {
+    windows_targets::link!("kernel32.dll" "system" fn FormatMessageA(dwflags : FORMAT_MESSAGE_OPTIONS, lpsource : *const core::ffi::c_void, dwmessageid : u32, dwlanguageid : u32, lpbuffer : windows_core::PSTR, nsize : u32, arguments : *const *const i8) -> u32);
+    FormatMessageA(dwflags, core::mem::transmute(lpsource.unwrap_or(core::ptr::null())), dwmessageid, dwlanguageid, core::mem::transmute(lpbuffer), nsize, core::mem::transmute(arguments.unwrap_or(core::ptr::null())))
+}
+#[inline]
+pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: Option<*const core::ffi::c_void>, dwmessageid: u32, dwlanguageid: u32, lpbuffer: windows_core::PWSTR, nsize: u32, arguments: Option<*const *const i8>) -> u32 {
+    windows_targets::link!("kernel32.dll" "system" fn FormatMessageW(dwflags : FORMAT_MESSAGE_OPTIONS, lpsource : *const core::ffi::c_void, dwmessageid : u32, dwlanguageid : u32, lpbuffer : windows_core::PWSTR, nsize : u32, arguments : *const *const i8) -> u32);
+    FormatMessageW(dwflags, core::mem::transmute(lpsource.unwrap_or(core::ptr::null())), dwmessageid, dwlanguageid, core::mem::transmute(lpbuffer), nsize, core::mem::transmute(arguments.unwrap_or(core::ptr::null())))
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn GetEnabledXStateFeatures() -> u64 {
+    windows_targets::link!("kernel32.dll" "system" fn GetEnabledXStateFeatures() -> u64);
+    GetEnabledXStateFeatures()
+}
+#[inline]
+pub unsafe fn GetErrorMode() -> u32 {
+    windows_targets::link!("kernel32.dll" "system" fn GetErrorMode() -> u32);
+    GetErrorMode()
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+#[inline]
+pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imageconfiginformation: *mut IMAGE_LOAD_CONFIG_DIRECTORY64) -> windows_core::Result<()> {
+    windows_targets::link!("imagehlp.dll" "system" fn GetImageConfigInformation(loadedimage : *const LOADED_IMAGE, imageconfiginformation : *mut IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation:: BOOL);
+    GetImageConfigInformation(loadedimage, imageconfiginformation).ok()
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+#[inline]
+pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imageconfiginformation: *mut IMAGE_LOAD_CONFIG_DIRECTORY32) -> windows_core::Result<()> {
+    windows_targets::link!("imagehlp.dll" "system" fn GetImageConfigInformation(loadedimage : *const LOADED_IMAGE, imageconfiginformation : *mut IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation:: BOOL);
+    GetImageConfigInformation(loadedimage, imageconfiginformation).ok()
+}
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+#[inline]
+pub unsafe fn GetImageUnusedHeaderBytes(loadedimage: *const LOADED_IMAGE, sizeunusedheaderbytes: *mut u32) -> u32 {
+    windows_targets::link!("imagehlp.dll" "system" fn GetImageUnusedHeaderBytes(loadedimage : *const LOADED_IMAGE, sizeunusedheaderbytes : *mut u32) -> u32);
+    GetImageUnusedHeaderBytes(loadedimage, sizeunusedheaderbytes)
+}
+#[inline]
+pub unsafe fn GetSymLoadError() -> u32 {
+    windows_targets::link!("dbghelp.dll" "system" fn GetSymLoadError() -> u32);
+    GetSymLoadError()
+}
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn GetThreadContext<P0>(hthread: P0, lpcontext: *mut CONTEXT) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn GetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *mut CONTEXT) -> super::super::super::Foundation:: BOOL);
+    GetThreadContext(hthread.param().abi(), lpcontext).ok()
+}
+#[inline]
+pub unsafe fn GetThreadErrorMode() -> u32 {
+    windows_targets::link!("kernel32.dll" "system" fn GetThreadErrorMode() -> u32);
+    GetThreadErrorMode()
+}
+#[inline]
+pub unsafe fn GetThreadSelectorEntry<P0>(hthread: P0, dwselector: u32, lpselectorentry: *mut LDT_ENTRY) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn GetThreadSelectorEntry(hthread : super::super::super::Foundation:: HANDLE, dwselector : u32, lpselectorentry : *mut LDT_ENTRY) -> super::super::super::Foundation:: BOOL);
+    GetThreadSelectorEntry(hthread.param().abi(), dwselector, lpselectorentry).ok()
+}
+#[inline]
+pub unsafe fn GetThreadWaitChain(wcthandle: *const core::ffi::c_void, context: usize, flags: WAIT_CHAIN_THREAD_OPTIONS, threadid: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
+    windows_targets::link!("advapi32.dll" "system" fn GetThreadWaitChain(wcthandle : *const core::ffi::c_void, context : usize, flags : WAIT_CHAIN_THREAD_OPTIONS, threadid : u32, nodecount : *mut u32, nodeinfoarray : *mut WAITCHAIN_NODE_INFO, iscycle : *mut super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
+    GetThreadWaitChain(wcthandle, context, flags, threadid, nodecount, nodeinfoarray, iscycle).ok()
+}
+#[inline]
+pub unsafe fn GetTimestampForLoadedLibrary<P0>(module: P0) -> u32
+where
+    P0: windows_core::Param<super::super::super::Foundation::HMODULE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn GetTimestampForLoadedLibrary(module : super::super::super::Foundation:: HMODULE) -> u32);
+    GetTimestampForLoadedLibrary(module.param().abi())
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn GetXStateFeaturesMask(context: *const CONTEXT, featuremask: *mut u64) -> super::super::super::Foundation::BOOL {
+    windows_targets::link!("kernel32.dll" "system" fn GetXStateFeaturesMask(context : *const CONTEXT, featuremask : *mut u64) -> super::super::super::Foundation:: BOOL);
+    GetXStateFeaturesMask(context, featuremask)
+}
+#[cfg(feature = "Win32_Security_WinTrust")]
+#[inline]
+pub unsafe fn ImageAddCertificate<P0>(filehandle: P0, certificate: *const super::super::super::Security::WinTrust::WIN_CERTIFICATE, index: *mut u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn ImageAddCertificate(filehandle : super::super::super::Foundation:: HANDLE, certificate : *const super::super::super::Security::WinTrust:: WIN_CERTIFICATE, index : *mut u32) -> super::super::super::Foundation:: BOOL);
+    ImageAddCertificate(filehandle.param().abi(), certificate, index).ok()
+}
+#[inline]
+pub unsafe fn ImageDirectoryEntryToData<P0>(base: *const core::ffi::c_void, mappedasimage: P0, directoryentry: IMAGE_DIRECTORY_ENTRY, size: *mut u32) -> *mut core::ffi::c_void
+where
+    P0: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToData(base : *const core::ffi::c_void, mappedasimage : super::super::super::Foundation:: BOOLEAN, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32) -> *mut core::ffi::c_void);
+    ImageDirectoryEntryToData(base, mappedasimage.param().abi(), directoryentry, size)
+}
+#[inline]
+pub unsafe fn ImageDirectoryEntryToDataEx<P0>(base: *const core::ffi::c_void, mappedasimage: P0, directoryentry: IMAGE_DIRECTORY_ENTRY, size: *mut u32, foundheader: Option<*mut *mut IMAGE_SECTION_HEADER>) -> *mut core::ffi::c_void
+where
+    P0: windows_core::Param<super::super::super::Foundation::BOOLEAN>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToDataEx(base : *const core::ffi::c_void, mappedasimage : super::super::super::Foundation:: BOOLEAN, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32, foundheader : *mut *mut IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
+    ImageDirectoryEntryToDataEx(base, mappedasimage.param().abi(), directoryentry, size, core::mem::transmute(foundheader.unwrap_or(core::ptr::null_mut())))
+}
+#[inline]
+pub unsafe fn ImageEnumerateCertificates<P0>(filehandle: P0, typefilter: u16, certificatecount: *mut u32, indices: Option<&mut [u32]>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn ImageEnumerateCertificates(filehandle : super::super::super::Foundation:: HANDLE, typefilter : u16, certificatecount : *mut u32, indices : *mut u32, indexcount : u32) -> super::super::super::Foundation:: BOOL);
+    ImageEnumerateCertificates(filehandle.param().abi(), typefilter, certificatecount, core::mem::transmute(indices.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), indices.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
+}
+#[cfg(feature = "Win32_Security_WinTrust")]
+#[inline]
+pub unsafe fn ImageGetCertificateData<P0>(filehandle: P0, certificateindex: u32, certificate: *mut super::super::super::Security::WinTrust::WIN_CERTIFICATE, requiredlength: *mut u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn ImageGetCertificateData(filehandle : super::super::super::Foundation:: HANDLE, certificateindex : u32, certificate : *mut super::super::super::Security::WinTrust:: WIN_CERTIFICATE, requiredlength : *mut u32) -> super::super::super::Foundation:: BOOL);
+    ImageGetCertificateData(filehandle.param().abi(), certificateindex, certificate, requiredlength).ok()
+}
+#[cfg(feature = "Win32_Security_WinTrust")]
+#[inline]
+pub unsafe fn ImageGetCertificateHeader<P0>(filehandle: P0, certificateindex: u32, certificateheader: *mut super::super::super::Security::WinTrust::WIN_CERTIFICATE) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn ImageGetCertificateHeader(filehandle : super::super::super::Foundation:: HANDLE, certificateindex : u32, certificateheader : *mut super::super::super::Security::WinTrust:: WIN_CERTIFICATE) -> super::super::super::Foundation:: BOOL);
+    ImageGetCertificateHeader(filehandle.param().abi(), certificateindex, certificateheader).ok()
+}
+#[inline]
+pub unsafe fn ImageGetDigestStream<P0>(filehandle: P0, digestlevel: u32, digestfunction: DIGEST_FUNCTION, digesthandle: *const core::ffi::c_void) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn ImageGetDigestStream(filehandle : super::super::super::Foundation:: HANDLE, digestlevel : u32, digestfunction : DIGEST_FUNCTION, digesthandle : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    ImageGetDigestStream(filehandle.param().abi(), digestlevel, digestfunction, digesthandle).ok()
+}
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+#[inline]
+pub unsafe fn ImageLoad<P0, P1>(dllname: P0, dllpath: P1) -> *mut LOADED_IMAGE
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn ImageLoad(dllname : windows_core::PCSTR, dllpath : windows_core::PCSTR) -> *mut LOADED_IMAGE);
+    ImageLoad(dllname.param().abi(), dllpath.param().abi())
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_SystemInformation")]
+#[inline]
+pub unsafe fn ImageNtHeader(base: *const core::ffi::c_void) -> *mut IMAGE_NT_HEADERS64 {
+    windows_targets::link!("dbghelp.dll" "system" fn ImageNtHeader(base : *const core::ffi::c_void) -> *mut IMAGE_NT_HEADERS64);
+    ImageNtHeader(base)
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_SystemInformation")]
+#[inline]
+pub unsafe fn ImageNtHeader(base: *const core::ffi::c_void) -> *mut IMAGE_NT_HEADERS32 {
+    windows_targets::link!("dbghelp.dll" "system" fn ImageNtHeader(base : *const core::ffi::c_void) -> *mut IMAGE_NT_HEADERS32);
+    ImageNtHeader(base)
+}
+#[inline]
+pub unsafe fn ImageRemoveCertificate<P0>(filehandle: P0, index: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn ImageRemoveCertificate(filehandle : super::super::super::Foundation:: HANDLE, index : u32) -> super::super::super::Foundation:: BOOL);
+    ImageRemoveCertificate(filehandle.param().abi(), index).ok()
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_SystemInformation")]
+#[inline]
+pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS64, base: *const core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER {
+    windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToSection(ntheaders : *const IMAGE_NT_HEADERS64, base : *const core::ffi::c_void, rva : u32) -> *mut IMAGE_SECTION_HEADER);
+    ImageRvaToSection(ntheaders, base, rva)
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_SystemInformation")]
+#[inline]
+pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS32, base: *const core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER {
+    windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToSection(ntheaders : *const IMAGE_NT_HEADERS32, base : *const core::ffi::c_void, rva : u32) -> *mut IMAGE_SECTION_HEADER);
+    ImageRvaToSection(ntheaders, base, rva)
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_SystemInformation")]
+#[inline]
+pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS64, base: *const core::ffi::c_void, rva: u32, lastrvasection: Option<*const *const IMAGE_SECTION_HEADER>) -> *mut core::ffi::c_void {
+    windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToVa(ntheaders : *const IMAGE_NT_HEADERS64, base : *const core::ffi::c_void, rva : u32, lastrvasection : *const *const IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
+    ImageRvaToVa(ntheaders, base, rva, core::mem::transmute(lastrvasection.unwrap_or(core::ptr::null())))
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_SystemInformation")]
+#[inline]
+pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS32, base: *const core::ffi::c_void, rva: u32, lastrvasection: Option<*const *const IMAGE_SECTION_HEADER>) -> *mut core::ffi::c_void {
+    windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToVa(ntheaders : *const IMAGE_NT_HEADERS32, base : *const core::ffi::c_void, rva : u32, lastrvasection : *const *const IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
+    ImageRvaToVa(ntheaders, base, rva, core::mem::transmute(lastrvasection.unwrap_or(core::ptr::null())))
+}
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+#[inline]
+pub unsafe fn ImageUnload(loadedimage: *mut LOADED_IMAGE) -> windows_core::Result<()> {
+    windows_targets::link!("imagehlp.dll" "system" fn ImageUnload(loadedimage : *mut LOADED_IMAGE) -> super::super::super::Foundation:: BOOL);
+    ImageUnload(loadedimage).ok()
+}
+#[inline]
+pub unsafe fn ImagehlpApiVersion() -> *mut API_VERSION {
+    windows_targets::link!("dbghelp.dll" "system" fn ImagehlpApiVersion() -> *mut API_VERSION);
+    ImagehlpApiVersion()
+}
+#[inline]
+pub unsafe fn ImagehlpApiVersionEx(appversion: *const API_VERSION) -> *mut API_VERSION {
+    windows_targets::link!("dbghelp.dll" "system" fn ImagehlpApiVersionEx(appversion : *const API_VERSION) -> *mut API_VERSION);
+    ImagehlpApiVersionEx(appversion)
+}
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn InitializeContext(buffer: Option<*mut core::ffi::c_void>, contextflags: CONTEXT_FLAGS, context: *mut *mut CONTEXT, contextlength: *mut u32) -> windows_core::Result<()> {
+    windows_targets::link!("kernel32.dll" "system" fn InitializeContext(buffer : *mut core::ffi::c_void, contextflags : CONTEXT_FLAGS, context : *mut *mut CONTEXT, contextlength : *mut u32) -> super::super::super::Foundation:: BOOL);
+    InitializeContext(core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), contextflags, context, contextlength).ok()
+}
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn InitializeContext2(buffer: Option<*mut core::ffi::c_void>, contextflags: CONTEXT_FLAGS, context: *mut *mut CONTEXT, contextlength: *mut u32, xstatecompactionmask: u64) -> windows_core::Result<()> {
+    windows_targets::link!("kernel32.dll" "system" fn InitializeContext2(buffer : *mut core::ffi::c_void, contextflags : CONTEXT_FLAGS, context : *mut *mut CONTEXT, contextlength : *mut u32, xstatecompactionmask : u64) -> super::super::super::Foundation:: BOOL);
+    InitializeContext2(core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), contextflags, context, contextlength, xstatecompactionmask).ok()
+}
+#[inline]
+pub unsafe fn IsDebuggerPresent() -> super::super::super::Foundation::BOOL {
+    windows_targets::link!("kernel32.dll" "system" fn IsDebuggerPresent() -> super::super::super::Foundation:: BOOL);
+    IsDebuggerPresent()
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn LocateXStateFeature(context: *const CONTEXT, featureid: u32, length: Option<*mut u32>) -> *mut core::ffi::c_void {
+    windows_targets::link!("kernel32.dll" "system" fn LocateXStateFeature(context : *const CONTEXT, featureid : u32, length : *mut u32) -> *mut core::ffi::c_void);
+    LocateXStateFeature(context, featureid, core::mem::transmute(length.unwrap_or(core::ptr::null_mut())))
+}
+#[inline]
+pub unsafe fn MakeSureDirectoryPathExists<P0>(dirpath: P0) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn MakeSureDirectoryPathExists(dirpath : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
+    MakeSureDirectoryPathExists(dirpath.param().abi()).ok()
+}
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+#[inline]
+pub unsafe fn MapAndLoad<P0, P1, P2, P3>(imagename: P0, dllpath: P1, loadedimage: *mut LOADED_IMAGE, dotdll: P2, readonly: P3) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<super::super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::super::Foundation::BOOL>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn MapAndLoad(imagename : windows_core::PCSTR, dllpath : windows_core::PCSTR, loadedimage : *mut LOADED_IMAGE, dotdll : super::super::super::Foundation:: BOOL, readonly : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
+    MapAndLoad(imagename.param().abi(), dllpath.param().abi(), loadedimage, dotdll.param().abi(), readonly.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn MapFileAndCheckSumA<P0>(filename: P0, headersum: *mut u32, checksum: *mut u32) -> u32
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn MapFileAndCheckSumA(filename : windows_core::PCSTR, headersum : *mut u32, checksum : *mut u32) -> u32);
+    MapFileAndCheckSumA(filename.param().abi(), headersum, checksum)
+}
+#[inline]
+pub unsafe fn MapFileAndCheckSumW<P0>(filename: P0, headersum: *mut u32, checksum: *mut u32) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn MapFileAndCheckSumW(filename : windows_core::PCWSTR, headersum : *mut u32, checksum : *mut u32) -> u32);
+    MapFileAndCheckSumW(filename.param().abi(), headersum, checksum)
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[inline]
+pub unsafe fn MessageBeep(utype: super::super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE) -> windows_core::Result<()> {
+    windows_targets::link!("user32.dll" "system" fn MessageBeep(utype : super::super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE) -> super::super::super::Foundation:: BOOL);
+    MessageBeep(utype).ok()
+}
+#[inline]
+pub unsafe fn MiniDumpReadDumpStream(baseofdump: *const core::ffi::c_void, streamnumber: u32, dir: *mut *mut MINIDUMP_DIRECTORY, streampointer: *mut *mut core::ffi::c_void, streamsize: Option<*mut u32>) -> super::super::super::Foundation::BOOL {
+    windows_targets::link!("dbghelp.dll" "system" fn MiniDumpReadDumpStream(baseofdump : *const core::ffi::c_void, streamnumber : u32, dir : *mut *mut MINIDUMP_DIRECTORY, streampointer : *mut *mut core::ffi::c_void, streamsize : *mut u32) -> super::super::super::Foundation:: BOOL);
+    MiniDumpReadDumpStream(baseofdump, streamnumber, dir, streampointer, core::mem::transmute(streamsize.unwrap_or(core::ptr::null_mut())))
+}
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+#[inline]
+pub unsafe fn MiniDumpWriteDump<P0, P1>(hprocess: P0, processid: u32, hfile: P1, dumptype: MINIDUMP_TYPE, exceptionparam: Option<*const MINIDUMP_EXCEPTION_INFORMATION>, userstreamparam: Option<*const MINIDUMP_USER_STREAM_INFORMATION>, callbackparam: Option<*const MINIDUMP_CALLBACK_INFORMATION>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn MiniDumpWriteDump(hprocess : super::super::super::Foundation:: HANDLE, processid : u32, hfile : super::super::super::Foundation:: HANDLE, dumptype : MINIDUMP_TYPE, exceptionparam : *const MINIDUMP_EXCEPTION_INFORMATION, userstreamparam : *const MINIDUMP_USER_STREAM_INFORMATION, callbackparam : *const MINIDUMP_CALLBACK_INFORMATION) -> super::super::super::Foundation:: BOOL);
+    MiniDumpWriteDump(hprocess.param().abi(), processid, hfile.param().abi(), dumptype, core::mem::transmute(exceptionparam.unwrap_or(core::ptr::null())), core::mem::transmute(userstreamparam.unwrap_or(core::ptr::null())), core::mem::transmute(callbackparam.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: PWAITCHAINCALLBACK) -> *mut core::ffi::c_void {
+    windows_targets::link!("advapi32.dll" "system" fn OpenThreadWaitChainSession(flags : OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback : PWAITCHAINCALLBACK) -> *mut core::ffi::c_void);
+    OpenThreadWaitChainSession(flags, callback)
+}
+#[inline]
+pub unsafe fn OutputDebugStringA<P0>(lpoutputstring: P0)
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn OutputDebugStringA(lpoutputstring : windows_core::PCSTR));
+    OutputDebugStringA(lpoutputstring.param().abi())
+}
+#[inline]
+pub unsafe fn OutputDebugStringW<P0>(lpoutputstring: P0)
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn OutputDebugStringW(lpoutputstring : windows_core::PCWSTR));
+    OutputDebugStringW(lpoutputstring.param().abi())
+}
+#[inline]
+pub unsafe fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, lparguments: Option<&[usize]>) {
+    windows_targets::link!("kernel32.dll" "system" fn RaiseException(dwexceptioncode : u32, dwexceptionflags : u32, nnumberofarguments : u32, lparguments : *const usize));
+    RaiseException(dwexceptioncode, dwexceptionflags, lparguments.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lparguments.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
+}
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn RaiseFailFastException(pexceptionrecord: Option<*const EXCEPTION_RECORD>, pcontextrecord: Option<*const CONTEXT>, dwflags: u32) {
+    windows_targets::link!("kernel32.dll" "system" fn RaiseFailFastException(pexceptionrecord : *const EXCEPTION_RECORD, pcontextrecord : *const CONTEXT, dwflags : u32));
+    RaiseFailFastException(core::mem::transmute(pexceptionrecord.unwrap_or(core::ptr::null())), core::mem::transmute(pcontextrecord.unwrap_or(core::ptr::null())), dwflags)
+}
+#[inline]
+pub unsafe fn RangeMapAddPeImageSections<P0>(rmaphandle: *const core::ffi::c_void, imagename: P0, mappedimage: *const core::ffi::c_void, mappingbytes: u32, imagebase: u64, usertag: u64, mappingflags: u32) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn RangeMapAddPeImageSections(rmaphandle : *const core::ffi::c_void, imagename : windows_core::PCWSTR, mappedimage : *const core::ffi::c_void, mappingbytes : u32, imagebase : u64, usertag : u64, mappingflags : u32) -> super::super::super::Foundation:: BOOL);
+    RangeMapAddPeImageSections(rmaphandle, imagename.param().abi(), mappedimage, mappingbytes, imagebase, usertag, mappingflags)
+}
+#[inline]
+pub unsafe fn RangeMapCreate() -> *mut core::ffi::c_void {
+    windows_targets::link!("dbghelp.dll" "system" fn RangeMapCreate() -> *mut core::ffi::c_void);
+    RangeMapCreate()
+}
+#[inline]
+pub unsafe fn RangeMapFree(rmaphandle: Option<*const core::ffi::c_void>) {
+    windows_targets::link!("dbghelp.dll" "system" fn RangeMapFree(rmaphandle : *const core::ffi::c_void));
+    RangeMapFree(core::mem::transmute(rmaphandle.unwrap_or(core::ptr::null())))
+}
+#[inline]
+pub unsafe fn RangeMapRead(rmaphandle: *const core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, requestbytes: u32, flags: u32, donebytes: Option<*mut u32>) -> super::super::super::Foundation::BOOL {
+    windows_targets::link!("dbghelp.dll" "system" fn RangeMapRead(rmaphandle : *const core::ffi::c_void, offset : u64, buffer : *mut core::ffi::c_void, requestbytes : u32, flags : u32, donebytes : *mut u32) -> super::super::super::Foundation:: BOOL);
+    RangeMapRead(rmaphandle, offset, buffer, requestbytes, flags, core::mem::transmute(donebytes.unwrap_or(core::ptr::null_mut())))
+}
+#[inline]
+pub unsafe fn RangeMapRemove(rmaphandle: *const core::ffi::c_void, usertag: u64) -> super::super::super::Foundation::BOOL {
+    windows_targets::link!("dbghelp.dll" "system" fn RangeMapRemove(rmaphandle : *const core::ffi::c_void, usertag : u64) -> super::super::super::Foundation:: BOOL);
+    RangeMapRemove(rmaphandle, usertag)
+}
+#[inline]
+pub unsafe fn RangeMapWrite(rmaphandle: *const core::ffi::c_void, offset: u64, buffer: *const core::ffi::c_void, requestbytes: u32, flags: u32, donebytes: Option<*mut u32>) -> super::super::super::Foundation::BOOL {
+    windows_targets::link!("dbghelp.dll" "system" fn RangeMapWrite(rmaphandle : *const core::ffi::c_void, offset : u64, buffer : *const core::ffi::c_void, requestbytes : u32, flags : u32, donebytes : *mut u32) -> super::super::super::Foundation:: BOOL);
+    RangeMapWrite(rmaphandle, offset, buffer, requestbytes, flags, core::mem::transmute(donebytes.unwrap_or(core::ptr::null_mut())))
+}
+#[inline]
+pub unsafe fn ReBaseImage<P0, P1, P2, P3, P4>(currentimagename: P0, symbolpath: P1, frebase: P2, frebasesysfileok: P3, fgoingdown: P4, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut usize, newimagesize: *mut u32, newimagebase: *mut usize, timestamp: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<super::super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::super::Foundation::BOOL>,
+    P4: windows_core::Param<super::super::super::Foundation::BOOL>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn ReBaseImage(currentimagename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, frebase : super::super::super::Foundation:: BOOL, frebasesysfileok : super::super::super::Foundation:: BOOL, fgoingdown : super::super::super::Foundation:: BOOL, checkimagesize : u32, oldimagesize : *mut u32, oldimagebase : *mut usize, newimagesize : *mut u32, newimagebase : *mut usize, timestamp : u32) -> super::super::super::Foundation:: BOOL);
+    ReBaseImage(currentimagename.param().abi(), symbolpath.param().abi(), frebase.param().abi(), frebasesysfileok.param().abi(), fgoingdown.param().abi(), checkimagesize, oldimagesize, oldimagebase, newimagesize, newimagebase, timestamp).ok()
+}
+#[inline]
+pub unsafe fn ReBaseImage64<P0, P1, P2, P3, P4>(currentimagename: P0, symbolpath: P1, frebase: P2, frebasesysfileok: P3, fgoingdown: P4, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut u64, newimagesize: *mut u32, newimagebase: *mut u64, timestamp: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<super::super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::super::Foundation::BOOL>,
+    P4: windows_core::Param<super::super::super::Foundation::BOOL>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn ReBaseImage64(currentimagename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, frebase : super::super::super::Foundation:: BOOL, frebasesysfileok : super::super::super::Foundation:: BOOL, fgoingdown : super::super::super::Foundation:: BOOL, checkimagesize : u32, oldimagesize : *mut u32, oldimagebase : *mut u64, newimagesize : *mut u32, newimagebase : *mut u64, timestamp : u32) -> super::super::super::Foundation:: BOOL);
+    ReBaseImage64(currentimagename.param().abi(), symbolpath.param().abi(), frebase.param().abi(), frebasesysfileok.param().abi(), fgoingdown.param().abi(), checkimagesize, oldimagesize, oldimagebase, newimagesize, newimagebase, timestamp).ok()
+}
+#[inline]
+pub unsafe fn ReadProcessMemory<P0>(hprocess: P0, lpbaseaddress: *const core::ffi::c_void, lpbuffer: *mut core::ffi::c_void, nsize: usize, lpnumberofbytesread: Option<*mut usize>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn ReadProcessMemory(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *mut core::ffi::c_void, nsize : usize, lpnumberofbytesread : *mut usize) -> super::super::super::Foundation:: BOOL);
+    ReadProcessMemory(hprocess.param().abi(), lpbaseaddress, lpbuffer, nsize, core::mem::transmute(lpnumberofbytesread.unwrap_or(core::ptr::null_mut()))).ok()
+}
+#[inline]
+pub unsafe fn RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, activationstatecallback: PCOGETACTIVATIONSTATE) {
+    windows_targets::link!("advapi32.dll" "system" fn RegisterWaitChainCOMCallback(callstatecallback : PCOGETCALLSTATE, activationstatecallback : PCOGETACTIVATIONSTATE));
+    RegisterWaitChainCOMCallback(callstatecallback, activationstatecallback)
+}
+#[inline]
+pub unsafe fn RemoveInvalidModuleList<P0>(hprocess: P0)
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn RemoveInvalidModuleList(hprocess : super::super::super::Foundation:: HANDLE));
+    RemoveInvalidModuleList(hprocess.param().abi())
+}
+#[inline]
+pub unsafe fn RemoveVectoredContinueHandler(handle: *const core::ffi::c_void) -> u32 {
+    windows_targets::link!("kernel32.dll" "system" fn RemoveVectoredContinueHandler(handle : *const core::ffi::c_void) -> u32);
+    RemoveVectoredContinueHandler(handle)
+}
+#[inline]
+pub unsafe fn RemoveVectoredExceptionHandler(handle: *const core::ffi::c_void) -> u32 {
+    windows_targets::link!("kernel32.dll" "system" fn RemoveVectoredExceptionHandler(handle : *const core::ffi::c_void) -> u32);
+    RemoveVectoredExceptionHandler(handle)
+}
+#[inline]
+pub unsafe fn ReportSymbolLoadSummary<P0, P1>(hprocess: P0, ploadmodule: P1, psymboldata: *const DBGHELP_DATA_REPORT_STRUCT) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn ReportSymbolLoadSummary(hprocess : super::super::super::Foundation:: HANDLE, ploadmodule : windows_core::PCWSTR, psymboldata : *const DBGHELP_DATA_REPORT_STRUCT) -> super::super::super::Foundation:: BOOL);
+    ReportSymbolLoadSummary(hprocess.param().abi(), ploadmodule.param().abi(), psymboldata)
+}
+#[cfg(target_arch = "aarch64")]
+#[inline]
+pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY], baseaddress: usize) -> super::super::super::Foundation::BOOLEAN {
+    windows_targets::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : usize) -> super::super::super::Foundation:: BOOLEAN);
+    RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress)
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn RtlAddFunctionTable(functiontable: &[IMAGE_RUNTIME_FUNCTION_ENTRY], baseaddress: u64) -> super::super::super::Foundation::BOOLEAN {
+    windows_targets::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : u64) -> super::super::super::Foundation:: BOOLEAN);
+    RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress)
+}
+#[cfg(target_arch = "aarch64")]
+#[inline]
+pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut core::ffi::c_void, functiontable: &[IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
+    windows_targets::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
+    RtlAddGrowableFunctionTable(dynamictable, core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend)
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut core::ffi::c_void, functiontable: &[IMAGE_RUNTIME_FUNCTION_ENTRY], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
+    windows_targets::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
+    RtlAddGrowableFunctionTable(dynamictable, core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend)
+}
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn RtlCaptureContext(contextrecord: *mut CONTEXT) {
+    windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : *mut CONTEXT));
+    RtlCaptureContext(contextrecord)
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn RtlCaptureContext2(contextrecord: *mut CONTEXT) {
+    windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext2(contextrecord : *mut CONTEXT));
+    RtlCaptureContext2(contextrecord)
+}
+#[inline]
+pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, backtrace: &mut [*mut core::ffi::c_void], backtracehash: Option<*mut u32>) -> u16 {
+    windows_targets::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : u32, framestocapture : u32, backtrace : *mut *mut core::ffi::c_void, backtracehash : *mut u32) -> u16);
+    RtlCaptureStackBackTrace(framestoskip, backtrace.len().try_into().unwrap(), core::mem::transmute(backtrace.as_ptr()), core::mem::transmute(backtracehash.unwrap_or(core::ptr::null_mut())))
+}
+#[cfg(target_arch = "aarch64")]
+#[inline]
+pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN {
+    windows_targets::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation:: BOOLEAN);
+    RtlDeleteFunctionTable(functiontable)
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN {
+    windows_targets::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation:: BOOLEAN);
+    RtlDeleteFunctionTable(functiontable)
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn RtlDeleteGrowableFunctionTable(dynamictable: *const core::ffi::c_void) {
+    windows_targets::link!("ntdll.dll" "system" fn RtlDeleteGrowableFunctionTable(dynamictable : *const core::ffi::c_void));
+    RtlDeleteGrowableFunctionTable(dynamictable)
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut core::ffi::c_void, newentrycount: u32) {
+    windows_targets::link!("ntdll.dll" "system" fn RtlGrowFunctionTable(dynamictable : *mut core::ffi::c_void, newentrycount : u32));
+    RtlGrowFunctionTable(dynamictable, newentrycount)
+}
+#[cfg(target_arch = "aarch64")]
+#[inline]
+pub unsafe fn RtlInstallFunctionTableCallback<P0>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<*const core::ffi::c_void>, outofprocesscallbackdll: P0) -> super::super::super::Foundation::BOOLEAN
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOLEAN);
+    RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, callback, core::mem::transmute(context.unwrap_or(core::ptr::null())), outofprocesscallbackdll.param().abi())
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn RtlInstallFunctionTableCallback<P0>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: Option<*const core::ffi::c_void>, outofprocesscallbackdll: P0) -> super::super::super::Foundation::BOOLEAN
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOLEAN);
+    RtlInstallFunctionTableCallback(tableidentifier, baseaddress, length, callback, core::mem::transmute(context.unwrap_or(core::ptr::null())), outofprocesscallbackdll.param().abi())
+}
+#[cfg(target_arch = "aarch64")]
+#[inline]
+pub unsafe fn RtlLookupFunctionEntry(controlpc: usize, imagebase: *mut usize, historytable: Option<*mut UNWIND_HISTORY_TABLE>) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
+    windows_targets::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : usize, imagebase : *mut usize, historytable : *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY);
+    RtlLookupFunctionEntry(controlpc, imagebase, core::mem::transmute(historytable.unwrap_or(core::ptr::null_mut())))
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn RtlLookupFunctionEntry(controlpc: u64, imagebase: *mut u64, historytable: Option<*mut UNWIND_HISTORY_TABLE>) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY {
+    windows_targets::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : u64, imagebase : *mut u64, historytable : *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY);
+    RtlLookupFunctionEntry(controlpc, imagebase, core::mem::transmute(historytable.unwrap_or(core::ptr::null_mut())))
+}
+#[inline]
+pub unsafe fn RtlPcToFileHeader(pcvalue: *const core::ffi::c_void, baseofimage: *mut *mut core::ffi::c_void) -> *mut core::ffi::c_void {
+    windows_targets::link!("kernel32.dll" "system" fn RtlPcToFileHeader(pcvalue : *const core::ffi::c_void, baseofimage : *mut *mut core::ffi::c_void) -> *mut core::ffi::c_void);
+    RtlPcToFileHeader(pcvalue, baseofimage)
+}
+#[inline]
+pub unsafe fn RtlRaiseException(exceptionrecord: *const EXCEPTION_RECORD) {
+    windows_targets::link!("kernel32.dll" "system" fn RtlRaiseException(exceptionrecord : *const EXCEPTION_RECORD));
+    RtlRaiseException(exceptionrecord)
+}
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn RtlRestoreContext(contextrecord: *const CONTEXT, exceptionrecord: Option<*const EXCEPTION_RECORD>) {
+    windows_targets::link!("kernel32.dll" "cdecl" fn RtlRestoreContext(contextrecord : *const CONTEXT, exceptionrecord : *const EXCEPTION_RECORD));
+    RtlRestoreContext(contextrecord, core::mem::transmute(exceptionrecord.unwrap_or(core::ptr::null())))
+}
+#[inline]
+pub unsafe fn RtlUnwind(targetframe: Option<*const core::ffi::c_void>, targetip: Option<*const core::ffi::c_void>, exceptionrecord: Option<*const EXCEPTION_RECORD>, returnvalue: *const core::ffi::c_void) {
+    windows_targets::link!("kernel32.dll" "system" fn RtlUnwind(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const core::ffi::c_void));
+    RtlUnwind(core::mem::transmute(targetframe.unwrap_or(core::ptr::null())), core::mem::transmute(targetip.unwrap_or(core::ptr::null())), core::mem::transmute(exceptionrecord.unwrap_or(core::ptr::null())), returnvalue)
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn RtlUnwindEx(targetframe: Option<*const core::ffi::c_void>, targetip: Option<*const core::ffi::c_void>, exceptionrecord: Option<*const EXCEPTION_RECORD>, returnvalue: *const core::ffi::c_void, contextrecord: *const CONTEXT, historytable: Option<*const UNWIND_HISTORY_TABLE>) {
+    windows_targets::link!("kernel32.dll" "system" fn RtlUnwindEx(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const core::ffi::c_void, contextrecord : *const CONTEXT, historytable : *const UNWIND_HISTORY_TABLE));
+    RtlUnwindEx(core::mem::transmute(targetframe.unwrap_or(core::ptr::null())), core::mem::transmute(targetip.unwrap_or(core::ptr::null())), core::mem::transmute(exceptionrecord.unwrap_or(core::ptr::null())), returnvalue, contextrecord, core::mem::transmute(historytable.unwrap_or(core::ptr::null())))
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut core::ffi::c_void, establisherframe: *mut usize, contextpointers: Option<*mut KNONVOLATILE_CONTEXT_POINTERS>) -> super::super::Kernel::EXCEPTION_ROUTINE {
+    windows_targets::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase : usize, controlpc : usize, functionentry : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut usize, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel:: EXCEPTION_ROUTINE);
+    RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, contextrecord, handlerdata, establisherframe, core::mem::transmute(contextpointers.unwrap_or(core::ptr::null_mut())))
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut core::ffi::c_void, establisherframe: *mut u64, contextpointers: Option<*mut KNONVOLATILE_CONTEXT_POINTERS>) -> super::super::Kernel::EXCEPTION_ROUTINE {
+    windows_targets::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase : u64, controlpc : u64, functionentry : *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut u64, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel:: EXCEPTION_ROUTINE);
+    RtlVirtualUnwind(handlertype, imagebase, controlpc, functionentry, contextrecord, handlerdata, establisherframe, core::mem::transmute(contextpointers.unwrap_or(core::ptr::null_mut())))
+}
+#[inline]
+pub unsafe fn SearchTreeForFile<P0, P1>(rootpath: P0, inputpathname: P1, outputpathbuffer: windows_core::PSTR) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SearchTreeForFile(rootpath : windows_core::PCSTR, inputpathname : windows_core::PCSTR, outputpathbuffer : windows_core::PSTR) -> super::super::super::Foundation:: BOOL);
+    SearchTreeForFile(rootpath.param().abi(), inputpathname.param().abi(), core::mem::transmute(outputpathbuffer)).ok()
+}
+#[inline]
+pub unsafe fn SearchTreeForFileW<P0, P1>(rootpath: P0, inputpathname: P1, outputpathbuffer: windows_core::PWSTR) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SearchTreeForFileW(rootpath : windows_core::PCWSTR, inputpathname : windows_core::PCWSTR, outputpathbuffer : windows_core::PWSTR) -> super::super::super::Foundation:: BOOL);
+    SearchTreeForFileW(rootpath.param().abi(), inputpathname.param().abi(), core::mem::transmute(outputpathbuffer)).ok()
+}
+#[inline]
+pub unsafe fn SetCheckUserInterruptShared(lpstartaddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE) {
+    windows_targets::link!("dbghelp.dll" "system" fn SetCheckUserInterruptShared(lpstartaddress : LPCALL_BACK_USER_INTERRUPT_ROUTINE));
+    SetCheckUserInterruptShared(lpstartaddress)
+}
+#[inline]
+pub unsafe fn SetErrorMode(umode: THREAD_ERROR_MODE) -> THREAD_ERROR_MODE {
+    windows_targets::link!("kernel32.dll" "system" fn SetErrorMode(umode : THREAD_ERROR_MODE) -> THREAD_ERROR_MODE);
+    SetErrorMode(umode)
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+#[inline]
+pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imageconfiginformation: *const IMAGE_LOAD_CONFIG_DIRECTORY64) -> windows_core::Result<()> {
+    windows_targets::link!("imagehlp.dll" "system" fn SetImageConfigInformation(loadedimage : *mut LOADED_IMAGE, imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation:: BOOL);
+    SetImageConfigInformation(loadedimage, imageconfiginformation).ok()
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+#[inline]
+pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imageconfiginformation: *const IMAGE_LOAD_CONFIG_DIRECTORY32) -> windows_core::Result<()> {
+    windows_targets::link!("imagehlp.dll" "system" fn SetImageConfigInformation(loadedimage : *mut LOADED_IMAGE, imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation:: BOOL);
+    SetImageConfigInformation(loadedimage, imageconfiginformation).ok()
+}
+#[inline]
+pub unsafe fn SetSymLoadError(error: u32) {
+    windows_targets::link!("dbghelp.dll" "system" fn SetSymLoadError(error : u32));
+    SetSymLoadError(error)
+}
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn SetThreadContext<P0>(hthread: P0, lpcontext: *const CONTEXT) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *const CONTEXT) -> super::super::super::Foundation:: BOOL);
+    SetThreadContext(hthread.param().abi(), lpcontext).ok()
+}
+#[inline]
+pub unsafe fn SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: Option<*mut THREAD_ERROR_MODE>) -> windows_core::Result<()> {
+    windows_targets::link!("kernel32.dll" "system" fn SetThreadErrorMode(dwnewmode : THREAD_ERROR_MODE, lpoldmode : *mut THREAD_ERROR_MODE) -> super::super::super::Foundation:: BOOL);
+    SetThreadErrorMode(dwnewmode, core::mem::transmute(lpoldmode.unwrap_or(core::ptr::null_mut()))).ok()
+}
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER {
+    windows_targets::link!("kernel32.dll" "system" fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter : LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER);
+    SetUnhandledExceptionFilter(lptoplevelexceptionfilter)
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn SetXStateFeaturesMask(context: *mut CONTEXT, featuremask: u64) -> super::super::super::Foundation::BOOL {
+    windows_targets::link!("kernel32.dll" "system" fn SetXStateFeaturesMask(context : *mut CONTEXT, featuremask : u64) -> super::super::super::Foundation:: BOOL);
+    SetXStateFeaturesMask(context, featuremask)
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn StackWalk<P0, P1>(machinetype: u32, hprocess: P0, hthread: P1, stackframe: *mut STACKFRAME, contextrecord: *mut core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE, translateaddress: PTRANSLATE_ADDRESS_ROUTINE) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn StackWalk(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE, translateaddress : PTRANSLATE_ADDRESS_ROUTINE) -> super::super::super::Foundation:: BOOL);
+    StackWalk(machinetype, hprocess.param().abi(), hthread.param().abi(), stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress)
+}
+#[inline]
+pub unsafe fn StackWalk2<P0, P1>(machinetype: u32, hprocess: P0, hthread: P1, stackframe: *mut STACKFRAME_EX, contextrecord: *mut core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue: PGET_TARGET_ATTRIBUTE_VALUE64, flags: u32) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn StackWalk2(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME_EX, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue : PGET_TARGET_ATTRIBUTE_VALUE64, flags : u32) -> super::super::super::Foundation:: BOOL);
+    StackWalk2(machinetype, hprocess.param().abi(), hthread.param().abi(), stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress, gettargetattributevalue, flags)
+}
+#[inline]
+pub unsafe fn StackWalk64<P0, P1>(machinetype: u32, hprocess: P0, hthread: P1, stackframe: *mut STACKFRAME64, contextrecord: *mut core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn StackWalk64(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME64, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64) -> super::super::super::Foundation:: BOOL);
+    StackWalk64(machinetype, hprocess.param().abi(), hthread.param().abi(), stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress)
+}
+#[inline]
+pub unsafe fn StackWalkEx<P0, P1>(machinetype: u32, hprocess: P0, hthread: P1, stackframe: *mut STACKFRAME_EX, contextrecord: *mut core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, flags: u32) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn StackWalkEx(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME_EX, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, flags : u32) -> super::super::super::Foundation:: BOOL);
+    StackWalkEx(machinetype, hprocess.param().abi(), hthread.param().abi(), stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress, flags)
+}
+#[inline]
+pub unsafe fn SymAddSourceStream<P0, P1>(hprocess: P0, base: u64, streamfile: P1, buffer: Option<&[u8]>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymAddSourceStream(hprocess : super::super::super::Foundation:: HANDLE, base : u64, streamfile : windows_core::PCSTR, buffer : *const u8, size : usize) -> super::super::super::Foundation:: BOOL);
+    SymAddSourceStream(hprocess.param().abi(), base, streamfile.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
+}
+#[inline]
+pub unsafe fn SymAddSourceStreamA<P0, P1>(hprocess: P0, base: u64, streamfile: P1, buffer: Option<&[u8]>) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymAddSourceStreamA(hprocess : super::super::super::Foundation:: HANDLE, base : u64, streamfile : windows_core::PCSTR, buffer : *const u8, size : usize) -> super::super::super::Foundation:: BOOL);
+    SymAddSourceStreamA(hprocess.param().abi(), base, streamfile.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
+}
+#[inline]
+pub unsafe fn SymAddSourceStreamW<P0, P1>(hprocess: P0, base: u64, filespec: P1, buffer: Option<&[u8]>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymAddSourceStreamW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCWSTR, buffer : *const u8, size : usize) -> super::super::super::Foundation:: BOOL);
+    SymAddSourceStreamW(hprocess.param().abi(), base, filespec.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok()
+}
+#[inline]
+pub unsafe fn SymAddSymbol<P0, P1>(hprocess: P0, baseofdll: u64, name: P1, address: u64, size: u32, flags: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymAddSymbol(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCSTR, address : u64, size : u32, flags : u32) -> super::super::super::Foundation:: BOOL);
+    SymAddSymbol(hprocess.param().abi(), baseofdll, name.param().abi(), address, size, flags).ok()
+}
+#[inline]
+pub unsafe fn SymAddSymbolW<P0, P1>(hprocess: P0, baseofdll: u64, name: P1, address: u64, size: u32, flags: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymAddSymbolW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCWSTR, address : u64, size : u32, flags : u32) -> super::super::super::Foundation:: BOOL);
+    SymAddSymbolW(hprocess.param().abi(), baseofdll, name.param().abi(), address, size, flags).ok()
+}
+#[inline]
+pub unsafe fn SymAddrIncludeInlineTrace<P0>(hprocess: P0, address: u64) -> u32
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymAddrIncludeInlineTrace(hprocess : super::super::super::Foundation:: HANDLE, address : u64) -> u32);
+    SymAddrIncludeInlineTrace(hprocess.param().abi(), address)
+}
+#[inline]
+pub unsafe fn SymCleanup<P0>(hprocess: P0) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymCleanup(hprocess : super::super::super::Foundation:: HANDLE) -> super::super::super::Foundation:: BOOL);
+    SymCleanup(hprocess.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn SymCompareInlineTrace<P0>(hprocess: P0, address1: u64, inlinecontext1: u32, retaddress1: u64, address2: u64, retaddress2: u64) -> u32
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymCompareInlineTrace(hprocess : super::super::super::Foundation:: HANDLE, address1 : u64, inlinecontext1 : u32, retaddress1 : u64, address2 : u64, retaddress2 : u64) -> u32);
+    SymCompareInlineTrace(hprocess.param().abi(), address1, inlinecontext1, retaddress1, address2, retaddress2)
+}
+#[inline]
+pub unsafe fn SymDeleteSymbol<P0, P1>(hprocess: P0, baseofdll: u64, name: P1, address: u64, flags: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymDeleteSymbol(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCSTR, address : u64, flags : u32) -> super::super::super::Foundation:: BOOL);
+    SymDeleteSymbol(hprocess.param().abi(), baseofdll, name.param().abi(), address, flags).ok()
+}
+#[inline]
+pub unsafe fn SymDeleteSymbolW<P0, P1>(hprocess: P0, baseofdll: u64, name: P1, address: u64, flags: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymDeleteSymbolW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCWSTR, address : u64, flags : u32) -> super::super::super::Foundation:: BOOL);
+    SymDeleteSymbolW(hprocess.param().abi(), baseofdll, name.param().abi(), address, flags).ok()
+}
+#[inline]
+pub unsafe fn SymEnumLines<P0, P1, P2>(hprocess: P0, base: u64, obj: P1, file: P2, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumLines(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_core::PCSTR, file : windows_core::PCSTR, enumlinescallback : PSYM_ENUMLINES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumLines(hprocess.param().abi(), base, obj.param().abi(), file.param().abi(), enumlinescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumLinesW<P0, P1, P2>(hprocess: P0, base: u64, obj: P1, file: P2, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumLinesW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_core::PCWSTR, file : windows_core::PCWSTR, enumlinescallback : PSYM_ENUMLINES_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumLinesW(hprocess.param().abi(), base, obj.param().abi(), file.param().abi(), enumlinescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumProcesses(enumprocessescallback: PSYM_ENUMPROCESSES_CALLBACK, usercontext: *const core::ffi::c_void) -> windows_core::Result<()> {
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumProcesses(enumprocessescallback : PSYM_ENUMPROCESSES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumProcesses(enumprocessescallback, usercontext).ok()
+}
+#[inline]
+pub unsafe fn SymEnumSourceFileTokens<P0>(hprocess: P0, base: u64, callback: PENUMSOURCEFILETOKENSCALLBACK) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceFileTokens(hprocess : super::super::super::Foundation:: HANDLE, base : u64, callback : PENUMSOURCEFILETOKENSCALLBACK) -> super::super::super::Foundation:: BOOL);
+    SymEnumSourceFileTokens(hprocess.param().abi(), base, callback).ok()
+}
+#[inline]
+pub unsafe fn SymEnumSourceFiles<P0, P1>(hprocess: P0, modbase: u64, mask: P1, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceFiles(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, mask : windows_core::PCSTR, cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumSourceFiles(hprocess.param().abi(), modbase, mask.param().abi(), cbsrcfiles, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumSourceFilesW<P0, P1>(hprocess: P0, modbase: u64, mask: P1, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceFilesW(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, mask : windows_core::PCWSTR, cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumSourceFilesW(hprocess.param().abi(), modbase, mask.param().abi(), cbsrcfiles, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumSourceLines<P0, P1, P2>(hprocess: P0, base: u64, obj: P1, file: P2, line: u32, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceLines(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_core::PCSTR, file : windows_core::PCSTR, line : u32, flags : u32, enumlinescallback : PSYM_ENUMLINES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumSourceLines(hprocess.param().abi(), base, obj.param().abi(), file.param().abi(), line, flags, enumlinescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumSourceLinesW<P0, P1, P2>(hprocess: P0, base: u64, obj: P1, file: P2, line: u32, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceLinesW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_core::PCWSTR, file : windows_core::PCWSTR, line : u32, flags : u32, enumlinescallback : PSYM_ENUMLINES_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumSourceLinesW(hprocess.param().abi(), base, obj.param().abi(), file.param().abi(), line, flags, enumlinescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumSym<P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSym(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumSym(hprocess.param().abi(), baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null())))
+}
+#[inline]
+pub unsafe fn SymEnumSymbols<P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbols(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumSymbols(hprocess.param().abi(), baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumSymbolsEx<P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>, options: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsEx(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void, options : u32) -> super::super::super::Foundation:: BOOL);
+    SymEnumSymbolsEx(hprocess.param().abi(), baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null())), options).ok()
+}
+#[inline]
+pub unsafe fn SymEnumSymbolsExW<P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>, options: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsExW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void, options : u32) -> super::super::super::Foundation:: BOOL);
+    SymEnumSymbolsExW(hprocess.param().abi(), baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null())), options).ok()
+}
+#[inline]
+pub unsafe fn SymEnumSymbolsForAddr<P0>(hprocess: P0, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsForAddr(hprocess : super::super::super::Foundation:: HANDLE, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumSymbolsForAddr(hprocess.param().abi(), address, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumSymbolsForAddrW<P0>(hprocess: P0, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsForAddrW(hprocess : super::super::super::Foundation:: HANDLE, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumSymbolsForAddrW(hprocess.param().abi(), address, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumSymbolsW<P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumSymbolsW(hprocess.param().abi(), baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumTypes<P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumTypes(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumTypes(hprocess.param().abi(), baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumTypesByName<P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumTypesByName(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumTypesByName(hprocess.param().abi(), baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumTypesByNameW<P0, P1>(hprocess: P0, baseofdll: u64, mask: P1, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumTypesByNameW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumTypesByNameW(hprocess.param().abi(), baseofdll, mask.param().abi(), enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumTypesW<P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumTypesW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumTypesW(hprocess.param().abi(), baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymEnumerateModules<P0>(hprocess: P0, enummodulescallback: PSYM_ENUMMODULES_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateModules(hprocess : super::super::super::Foundation:: HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumerateModules(hprocess.param().abi(), enummodulescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumerateModules64<P0>(hprocess: P0, enummodulescallback: PSYM_ENUMMODULES_CALLBACK64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateModules64(hprocess : super::super::super::Foundation:: HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumerateModules64(hprocess.param().abi(), enummodulescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumerateModulesW64<P0>(hprocess: P0, enummodulescallback: PSYM_ENUMMODULES_CALLBACKW64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateModulesW64(hprocess : super::super::super::Foundation:: HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumerateModulesW64(hprocess.param().abi(), enummodulescallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymEnumerateSymbols<P0>(hprocess: P0, baseofdll: u32, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateSymbols(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u32, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumerateSymbols(hprocess.param().abi(), baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumerateSymbols64<P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateSymbols64(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumerateSymbols64(hprocess.param().abi(), baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymEnumerateSymbolsW<P0>(hprocess: P0, baseofdll: u32, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateSymbolsW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u32, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumerateSymbolsW(hprocess.param().abi(), baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymEnumerateSymbolsW64<P0>(hprocess: P0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateSymbolsW64(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymEnumerateSymbolsW64(hprocess.param().abi(), baseofdll, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymFindDebugInfoFile<P0, P1>(hprocess: P0, filename: P1, debugfilepath: windows_core::PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFindDebugInfoFile(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_core::PCSTR, debugfilepath : windows_core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
+    let result__ = SymFindDebugInfoFile(hprocess.param().abi(), filename.param().abi(), core::mem::transmute(debugfilepath), callback, core::mem::transmute(callerdata.unwrap_or(core::ptr::null())));
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+}
+#[inline]
+pub unsafe fn SymFindDebugInfoFileW<P0, P1>(hprocess: P0, filename: P1, debugfilepath: windows_core::PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: Option<*const core::ffi::c_void>) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFindDebugInfoFileW(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_core::PCWSTR, debugfilepath : windows_core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
+    let result__ = SymFindDebugInfoFileW(hprocess.param().abi(), filename.param().abi(), core::mem::transmute(debugfilepath), callback, core::mem::transmute(callerdata.unwrap_or(core::ptr::null())));
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+}
+#[inline]
+pub unsafe fn SymFindExecutableImage<P0, P1>(hprocess: P0, filename: P1, imagefilepath: windows_core::PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: *const core::ffi::c_void) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFindExecutableImage(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_core::PCSTR, imagefilepath : windows_core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
+    let result__ = SymFindExecutableImage(hprocess.param().abi(), filename.param().abi(), core::mem::transmute(imagefilepath), callback, callerdata);
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+}
+#[inline]
+pub unsafe fn SymFindExecutableImageW<P0, P1>(hprocess: P0, filename: P1, imagefilepath: windows_core::PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: *const core::ffi::c_void) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFindExecutableImageW(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_core::PCWSTR, imagefilepath : windows_core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
+    let result__ = SymFindExecutableImageW(hprocess.param().abi(), filename.param().abi(), core::mem::transmute(imagefilepath), callback, callerdata);
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+}
+#[inline]
+pub unsafe fn SymFindFileInPath<P0, P1, P2>(hprocess: P0, searchpatha: P1, filename: P2, id: Option<*const core::ffi::c_void>, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: windows_core::PSTR, callback: PFINDFILEINPATHCALLBACK, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFindFileInPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCSTR, filename : windows_core::PCSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : SYM_FIND_ID_OPTION, foundfile : windows_core::PSTR, callback : PFINDFILEINPATHCALLBACK, context : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymFindFileInPath(hprocess.param().abi(), searchpatha.param().abi(), filename.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null())), two, three, flags, core::mem::transmute(foundfile), callback, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymFindFileInPathW<P0, P1, P2>(hprocess: P0, searchpatha: P1, filename: P2, id: Option<*const core::ffi::c_void>, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: windows_core::PWSTR, callback: PFINDFILEINPATHCALLBACKW, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFindFileInPathW(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCWSTR, filename : windows_core::PCWSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : SYM_FIND_ID_OPTION, foundfile : windows_core::PWSTR, callback : PFINDFILEINPATHCALLBACKW, context : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymFindFileInPathW(hprocess.param().abi(), searchpatha.param().abi(), filename.param().abi(), core::mem::transmute(id.unwrap_or(core::ptr::null())), two, three, flags, core::mem::transmute(foundfile), callback, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymFromAddr<P0>(hprocess: P0, address: u64, displacement: Option<*mut u64>, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFromAddr(hprocess : super::super::super::Foundation:: HANDLE, address : u64, displacement : *mut u64, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
+    SymFromAddr(hprocess.param().abi(), address, core::mem::transmute(displacement.unwrap_or(core::ptr::null_mut())), symbol).ok()
+}
+#[inline]
+pub unsafe fn SymFromAddrW<P0>(hprocess: P0, address: u64, displacement: Option<*mut u64>, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFromAddrW(hprocess : super::super::super::Foundation:: HANDLE, address : u64, displacement : *mut u64, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
+    SymFromAddrW(hprocess.param().abi(), address, core::mem::transmute(displacement.unwrap_or(core::ptr::null_mut())), symbol).ok()
+}
+#[inline]
+pub unsafe fn SymFromIndex<P0>(hprocess: P0, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFromIndex(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
+    SymFromIndex(hprocess.param().abi(), baseofdll, index, symbol).ok()
+}
+#[inline]
+pub unsafe fn SymFromIndexW<P0>(hprocess: P0, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFromIndexW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
+    SymFromIndexW(hprocess.param().abi(), baseofdll, index, symbol).ok()
+}
+#[inline]
+pub unsafe fn SymFromInlineContext<P0>(hprocess: P0, address: u64, inlinecontext: u32, displacement: Option<*mut u64>, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFromInlineContext(hprocess : super::super::super::Foundation:: HANDLE, address : u64, inlinecontext : u32, displacement : *mut u64, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
+    SymFromInlineContext(hprocess.param().abi(), address, inlinecontext, core::mem::transmute(displacement.unwrap_or(core::ptr::null_mut())), symbol).ok()
+}
+#[inline]
+pub unsafe fn SymFromInlineContextW<P0>(hprocess: P0, address: u64, inlinecontext: u32, displacement: Option<*mut u64>, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFromInlineContextW(hprocess : super::super::super::Foundation:: HANDLE, address : u64, inlinecontext : u32, displacement : *mut u64, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
+    SymFromInlineContextW(hprocess.param().abi(), address, inlinecontext, core::mem::transmute(displacement.unwrap_or(core::ptr::null_mut())), symbol).ok()
+}
+#[inline]
+pub unsafe fn SymFromName<P0, P1>(hprocess: P0, name: P1, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFromName(hprocess : super::super::super::Foundation:: HANDLE, name : windows_core::PCSTR, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
+    SymFromName(hprocess.param().abi(), name.param().abi(), symbol).ok()
+}
+#[inline]
+pub unsafe fn SymFromNameW<P0, P1>(hprocess: P0, name: P1, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFromNameW(hprocess : super::super::super::Foundation:: HANDLE, name : windows_core::PCWSTR, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
+    SymFromNameW(hprocess.param().abi(), name.param().abi(), symbol).ok()
+}
+#[inline]
+pub unsafe fn SymFromToken<P0>(hprocess: P0, base: u64, token: u32, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFromToken(hprocess : super::super::super::Foundation:: HANDLE, base : u64, token : u32, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
+    SymFromToken(hprocess.param().abi(), base, token, symbol).ok()
+}
+#[inline]
+pub unsafe fn SymFromTokenW<P0>(hprocess: P0, base: u64, token: u32, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFromTokenW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, token : u32, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
+    SymFromTokenW(hprocess.param().abi(), base, token, symbol).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymFunctionTableAccess<P0>(hprocess: P0, addrbase: u32) -> *mut core::ffi::c_void
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFunctionTableAccess(hprocess : super::super::super::Foundation:: HANDLE, addrbase : u32) -> *mut core::ffi::c_void);
+    SymFunctionTableAccess(hprocess.param().abi(), addrbase)
+}
+#[inline]
+pub unsafe fn SymFunctionTableAccess64<P0>(hprocess: P0, addrbase: u64) -> *mut core::ffi::c_void
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFunctionTableAccess64(hprocess : super::super::super::Foundation:: HANDLE, addrbase : u64) -> *mut core::ffi::c_void);
+    SymFunctionTableAccess64(hprocess.param().abi(), addrbase)
+}
+#[inline]
+pub unsafe fn SymFunctionTableAccess64AccessRoutines<P0>(hprocess: P0, addrbase: u64, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64) -> *mut core::ffi::c_void
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymFunctionTableAccess64AccessRoutines(hprocess : super::super::super::Foundation:: HANDLE, addrbase : u64, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64) -> *mut core::ffi::c_void);
+    SymFunctionTableAccess64AccessRoutines(hprocess.param().abi(), addrbase, readmemoryroutine, getmodulebaseroutine)
+}
+#[inline]
+pub unsafe fn SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS) -> super::super::super::Foundation::BOOL {
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetExtendedOption(option : IMAGEHLP_EXTENDED_OPTIONS) -> super::super::super::Foundation:: BOOL);
+    SymGetExtendedOption(option)
+}
+#[inline]
+pub unsafe fn SymGetFileLineOffsets64<P0, P1, P2>(hprocess: P0, modulename: P1, filename: P2, buffer: &mut [u64]) -> u32
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetFileLineOffsets64(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_core::PCSTR, filename : windows_core::PCSTR, buffer : *mut u64, bufferlines : u32) -> u32);
+    SymGetFileLineOffsets64(hprocess.param().abi(), modulename.param().abi(), filename.param().abi(), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap())
+}
+#[inline]
+pub unsafe fn SymGetHomeDirectory(r#type: IMAGEHLP_HD_TYPE, dir: &mut [u8]) -> windows_core::PSTR {
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetHomeDirectory(r#type : u32, dir : windows_core::PSTR, size : usize) -> windows_core::PSTR);
+    SymGetHomeDirectory(r#type.0 as _, core::mem::transmute(dir.as_ptr()), dir.len().try_into().unwrap())
+}
+#[inline]
+pub unsafe fn SymGetHomeDirectoryW(r#type: IMAGEHLP_HD_TYPE, dir: &mut [u16]) -> windows_core::PWSTR {
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetHomeDirectoryW(r#type : u32, dir : windows_core::PWSTR, size : usize) -> windows_core::PWSTR);
+    SymGetHomeDirectoryW(r#type.0 as _, core::mem::transmute(dir.as_ptr()), dir.len().try_into().unwrap())
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymGetLineFromAddr<P0>(hprocess: P0, dwaddr: u32, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINE) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromAddr(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, pdwdisplacement : *mut u32, line : *mut IMAGEHLP_LINE) -> super::super::super::Foundation:: BOOL);
+    SymGetLineFromAddr(hprocess.param().abi(), dwaddr, pdwdisplacement, line).ok()
+}
+#[inline]
+pub unsafe fn SymGetLineFromAddr64<P0>(hprocess: P0, qwaddr: u64, pdwdisplacement: *mut u32, line64: *mut IMAGEHLP_LINE64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromAddr64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, pdwdisplacement : *mut u32, line64 : *mut IMAGEHLP_LINE64) -> super::super::super::Foundation:: BOOL);
+    SymGetLineFromAddr64(hprocess.param().abi(), qwaddr, pdwdisplacement, line64).ok()
+}
+#[inline]
+pub unsafe fn SymGetLineFromAddrW64<P0>(hprocess: P0, dwaddr: u64, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINEW64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromAddrW64(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u64, pdwdisplacement : *mut u32, line : *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation:: BOOL);
+    SymGetLineFromAddrW64(hprocess.param().abi(), dwaddr, pdwdisplacement, line).ok()
+}
+#[inline]
+pub unsafe fn SymGetLineFromInlineContext<P0>(hprocess: P0, qwaddr: u64, inlinecontext: u32, qwmodulebaseaddress: u64, pdwdisplacement: *mut u32, line64: *mut IMAGEHLP_LINE64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromInlineContext(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, inlinecontext : u32, qwmodulebaseaddress : u64, pdwdisplacement : *mut u32, line64 : *mut IMAGEHLP_LINE64) -> super::super::super::Foundation:: BOOL);
+    SymGetLineFromInlineContext(hprocess.param().abi(), qwaddr, inlinecontext, qwmodulebaseaddress, pdwdisplacement, line64).ok()
+}
+#[inline]
+pub unsafe fn SymGetLineFromInlineContextW<P0>(hprocess: P0, dwaddr: u64, inlinecontext: u32, qwmodulebaseaddress: u64, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINEW64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromInlineContextW(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u64, inlinecontext : u32, qwmodulebaseaddress : u64, pdwdisplacement : *mut u32, line : *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation:: BOOL);
+    SymGetLineFromInlineContextW(hprocess.param().abi(), dwaddr, inlinecontext, qwmodulebaseaddress, pdwdisplacement, line).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymGetLineFromName<P0, P1, P2>(hprocess: P0, modulename: P1, filename: P2, dwlinenumber: u32, pldisplacement: *mut i32, line: *mut IMAGEHLP_LINE) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromName(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_core::PCSTR, filename : windows_core::PCSTR, dwlinenumber : u32, pldisplacement : *mut i32, line : *mut IMAGEHLP_LINE) -> super::super::super::Foundation:: BOOL);
+    SymGetLineFromName(hprocess.param().abi(), modulename.param().abi(), filename.param().abi(), dwlinenumber, pldisplacement, line).ok()
+}
+#[inline]
+pub unsafe fn SymGetLineFromName64<P0, P1, P2>(hprocess: P0, modulename: P1, filename: P2, dwlinenumber: u32, pldisplacement: *mut i32, line: *mut IMAGEHLP_LINE64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromName64(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_core::PCSTR, filename : windows_core::PCSTR, dwlinenumber : u32, pldisplacement : *mut i32, line : *mut IMAGEHLP_LINE64) -> super::super::super::Foundation:: BOOL);
+    SymGetLineFromName64(hprocess.param().abi(), modulename.param().abi(), filename.param().abi(), dwlinenumber, pldisplacement, line).ok()
+}
+#[inline]
+pub unsafe fn SymGetLineFromNameW64<P0, P1, P2>(hprocess: P0, modulename: P1, filename: P2, dwlinenumber: u32, pldisplacement: *mut i32, line: *mut IMAGEHLP_LINEW64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromNameW64(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_core::PCWSTR, filename : windows_core::PCWSTR, dwlinenumber : u32, pldisplacement : *mut i32, line : *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation:: BOOL);
+    SymGetLineFromNameW64(hprocess.param().abi(), modulename.param().abi(), filename.param().abi(), dwlinenumber, pldisplacement, line).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymGetLineNext<P0>(hprocess: P0, line: *mut IMAGEHLP_LINE) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetLineNext(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE) -> super::super::super::Foundation:: BOOL);
+    SymGetLineNext(hprocess.param().abi(), line).ok()
+}
+#[inline]
+pub unsafe fn SymGetLineNext64<P0>(hprocess: P0, line: *mut IMAGEHLP_LINE64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetLineNext64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE64) -> super::super::super::Foundation:: BOOL);
+    SymGetLineNext64(hprocess.param().abi(), line).ok()
+}
+#[inline]
+pub unsafe fn SymGetLineNextW64<P0>(hprocess: P0, line: *mut IMAGEHLP_LINEW64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetLineNextW64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation:: BOOL);
+    SymGetLineNextW64(hprocess.param().abi(), line).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymGetLinePrev<P0>(hprocess: P0, line: *mut IMAGEHLP_LINE) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetLinePrev(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE) -> super::super::super::Foundation:: BOOL);
+    SymGetLinePrev(hprocess.param().abi(), line).ok()
+}
+#[inline]
+pub unsafe fn SymGetLinePrev64<P0>(hprocess: P0, line: *mut IMAGEHLP_LINE64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetLinePrev64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE64) -> super::super::super::Foundation:: BOOL);
+    SymGetLinePrev64(hprocess.param().abi(), line).ok()
+}
+#[inline]
+pub unsafe fn SymGetLinePrevW64<P0>(hprocess: P0, line: *mut IMAGEHLP_LINEW64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetLinePrevW64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation:: BOOL);
+    SymGetLinePrevW64(hprocess.param().abi(), line).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymGetModuleBase<P0>(hprocess: P0, dwaddr: u32) -> u32
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleBase(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32) -> u32);
+    SymGetModuleBase(hprocess.param().abi(), dwaddr)
+}
+#[inline]
+pub unsafe fn SymGetModuleBase64<P0>(hprocess: P0, qwaddr: u64) -> u64
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleBase64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64) -> u64);
+    SymGetModuleBase64(hprocess.param().abi(), qwaddr)
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymGetModuleInfo<P0>(hprocess: P0, dwaddr: u32, moduleinfo: *mut IMAGEHLP_MODULE) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleInfo(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, moduleinfo : *mut IMAGEHLP_MODULE) -> super::super::super::Foundation:: BOOL);
+    SymGetModuleInfo(hprocess.param().abi(), dwaddr, moduleinfo).ok()
+}
+#[inline]
+pub unsafe fn SymGetModuleInfo64<P0>(hprocess: P0, qwaddr: u64, moduleinfo: *mut IMAGEHLP_MODULE64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleInfo64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, moduleinfo : *mut IMAGEHLP_MODULE64) -> super::super::super::Foundation:: BOOL);
+    SymGetModuleInfo64(hprocess.param().abi(), qwaddr, moduleinfo).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymGetModuleInfoW<P0>(hprocess: P0, dwaddr: u32, moduleinfo: *mut IMAGEHLP_MODULEW) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleInfoW(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, moduleinfo : *mut IMAGEHLP_MODULEW) -> super::super::super::Foundation:: BOOL);
+    SymGetModuleInfoW(hprocess.param().abi(), dwaddr, moduleinfo).ok()
+}
+#[inline]
+pub unsafe fn SymGetModuleInfoW64<P0>(hprocess: P0, qwaddr: u64, moduleinfo: *mut IMAGEHLP_MODULEW64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleInfoW64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, moduleinfo : *mut IMAGEHLP_MODULEW64) -> super::super::super::Foundation:: BOOL);
+    SymGetModuleInfoW64(hprocess.param().abi(), qwaddr, moduleinfo).ok()
+}
+#[inline]
+pub unsafe fn SymGetOmaps<P0>(hprocess: P0, baseofdll: u64, omapto: *mut *mut OMAP, comapto: *mut u64, omapfrom: *mut *mut OMAP, comapfrom: *mut u64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetOmaps(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, omapto : *mut *mut OMAP, comapto : *mut u64, omapfrom : *mut *mut OMAP, comapfrom : *mut u64) -> super::super::super::Foundation:: BOOL);
+    SymGetOmaps(hprocess.param().abi(), baseofdll, omapto, comapto, omapfrom, comapfrom).ok()
+}
+#[inline]
+pub unsafe fn SymGetOptions() -> u32 {
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetOptions() -> u32);
+    SymGetOptions()
+}
+#[inline]
+pub unsafe fn SymGetScope<P0>(hprocess: P0, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetScope(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
+    SymGetScope(hprocess.param().abi(), baseofdll, index, symbol).ok()
+}
+#[inline]
+pub unsafe fn SymGetScopeW<P0>(hprocess: P0, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetScopeW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
+    SymGetScopeW(hprocess.param().abi(), baseofdll, index, symbol).ok()
+}
+#[inline]
+pub unsafe fn SymGetSearchPath<P0>(hprocess: P0, searchpatha: &mut [u8]) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSearchPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PSTR, searchpathlength : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSearchPath(hprocess.param().abi(), core::mem::transmute(searchpatha.as_ptr()), searchpatha.len().try_into().unwrap()).ok()
+}
+#[inline]
+pub unsafe fn SymGetSearchPathW<P0>(hprocess: P0, searchpatha: &mut [u16]) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSearchPathW(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PWSTR, searchpathlength : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSearchPathW(hprocess.param().abi(), core::mem::transmute(searchpatha.as_ptr()), searchpatha.len().try_into().unwrap()).ok()
+}
+#[inline]
+pub unsafe fn SymGetSourceFile<P0, P1, P2>(hprocess: P0, base: u64, params: P1, filespec: P2, filepath: &mut [u8]) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFile(hprocess : super::super::super::Foundation:: HANDLE, base : u64, params : windows_core::PCSTR, filespec : windows_core::PCSTR, filepath : windows_core::PSTR, size : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFile(hprocess.param().abi(), base, params.param().abi(), filespec.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok()
+}
+#[inline]
+pub unsafe fn SymGetSourceFileChecksum<P0, P1>(hprocess: P0, base: u64, filespec: P1, pchecksumtype: *mut u32, pchecksum: &mut [u8], pactualbyteswritten: *mut u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksum(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCSTR, pchecksumtype : *mut u32, pchecksum : *mut u8, checksumsize : u32, pactualbyteswritten : *mut u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileChecksum(hprocess.param().abi(), base, filespec.param().abi(), pchecksumtype, core::mem::transmute(pchecksum.as_ptr()), pchecksum.len().try_into().unwrap(), pactualbyteswritten).ok()
+}
+#[inline]
+pub unsafe fn SymGetSourceFileChecksumW<P0, P1>(hprocess: P0, base: u64, filespec: P1, pchecksumtype: *mut u32, pchecksum: &mut [u8], pactualbyteswritten: *mut u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksumW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCWSTR, pchecksumtype : *mut u32, pchecksum : *mut u8, checksumsize : u32, pactualbyteswritten : *mut u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileChecksumW(hprocess.param().abi(), base, filespec.param().abi(), pchecksumtype, core::mem::transmute(pchecksum.as_ptr()), pchecksum.len().try_into().unwrap(), pactualbyteswritten).ok()
+}
+#[inline]
+pub unsafe fn SymGetSourceFileFromToken<P0, P1>(hprocess: P0, token: *const core::ffi::c_void, params: P1, filepath: &mut [u8]) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromToken(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_core::PCSTR, filepath : windows_core::PSTR, size : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileFromToken(hprocess.param().abi(), token, params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok()
+}
+#[inline]
+pub unsafe fn SymGetSourceFileFromTokenByTokenName<P0, P1, P2>(hprocess: P0, token: *const core::ffi::c_void, tokenname: P1, params: P2, filepath: &mut [u8]) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenName(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, tokenname : windows_core::PCSTR, params : windows_core::PCSTR, filepath : windows_core::PSTR, size : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileFromTokenByTokenName(hprocess.param().abi(), token, tokenname.param().abi(), params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap())
+}
+#[inline]
+pub unsafe fn SymGetSourceFileFromTokenByTokenNameW<P0, P1, P2>(hprocess: P0, token: *const core::ffi::c_void, tokenname: P1, params: P2, filepath: &mut [u16]) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenNameW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, tokenname : windows_core::PCWSTR, params : windows_core::PCWSTR, filepath : windows_core::PWSTR, size : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileFromTokenByTokenNameW(hprocess.param().abi(), token, tokenname.param().abi(), params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap())
+}
+#[inline]
+pub unsafe fn SymGetSourceFileFromTokenW<P0, P1>(hprocess: P0, token: *const core::ffi::c_void, params: P1, filepath: &mut [u16]) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_core::PCWSTR, filepath : windows_core::PWSTR, size : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileFromTokenW(hprocess.param().abi(), token, params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok()
+}
+#[inline]
+pub unsafe fn SymGetSourceFileToken<P0, P1>(hprocess: P0, base: u64, filespec: P1, token: *mut *mut core::ffi::c_void, size: *mut u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileToken(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileToken(hprocess.param().abi(), base, filespec.param().abi(), token, size).ok()
+}
+#[inline]
+pub unsafe fn SymGetSourceFileTokenByTokenName<P0, P1, P2, P3>(hprocess: P0, base: u64, filespec: P1, tokenname: P2, tokenparameters: P3, token: *mut *mut core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenByTokenName(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCSTR, tokenname : windows_core::PCSTR, tokenparameters : windows_core::PCSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileTokenByTokenName(hprocess.param().abi(), base, filespec.param().abi(), tokenname.param().abi(), tokenparameters.param().abi(), token, size)
+}
+#[inline]
+pub unsafe fn SymGetSourceFileTokenByTokenNameW<P0, P1, P2, P3>(hprocess: P0, base: u64, filespec: P1, tokenname: P2, tokenparameters: P3, token: *mut *mut core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenByTokenNameW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCWSTR, tokenname : windows_core::PCWSTR, tokenparameters : windows_core::PCWSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileTokenByTokenNameW(hprocess.param().abi(), base, filespec.param().abi(), tokenname.param().abi(), tokenparameters.param().abi(), token, size)
+}
+#[inline]
+pub unsafe fn SymGetSourceFileTokenW<P0, P1>(hprocess: P0, base: u64, filespec: P1, token: *mut *mut core::ffi::c_void, size: *mut u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_core::PCWSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileTokenW(hprocess.param().abi(), base, filespec.param().abi(), token, size).ok()
+}
+#[inline]
+pub unsafe fn SymGetSourceFileW<P0, P1, P2>(hprocess: P0, base: u64, params: P1, filespec: P2, filepath: &mut [u16]) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, params : windows_core::PCWSTR, filespec : windows_core::PCWSTR, filepath : windows_core::PWSTR, size : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceFileW(hprocess.param().abi(), base, params.param().abi(), filespec.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()).ok()
+}
+#[inline]
+pub unsafe fn SymGetSourceVarFromToken<P0, P1, P2>(hprocess: P0, token: *const core::ffi::c_void, params: P1, varname: P2, value: &mut [u8]) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceVarFromToken(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_core::PCSTR, varname : windows_core::PCSTR, value : windows_core::PSTR, size : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceVarFromToken(hprocess.param().abi(), token, params.param().abi(), varname.param().abi(), core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()).ok()
+}
+#[inline]
+pub unsafe fn SymGetSourceVarFromTokenW<P0, P1, P2>(hprocess: P0, token: *const core::ffi::c_void, params: P1, varname: P2, value: &mut [u16]) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceVarFromTokenW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_core::PCWSTR, varname : windows_core::PCWSTR, value : windows_core::PWSTR, size : u32) -> super::super::super::Foundation:: BOOL);
+    SymGetSourceVarFromTokenW(hprocess.param().abi(), token, params.param().abi(), varname.param().abi(), core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymGetSymFromAddr<P0>(hprocess: P0, dwaddr: u32, pdwdisplacement: Option<*mut u32>, symbol: *mut IMAGEHLP_SYMBOL) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSymFromAddr(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, pdwdisplacement : *mut u32, symbol : *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation:: BOOL);
+    SymGetSymFromAddr(hprocess.param().abi(), dwaddr, core::mem::transmute(pdwdisplacement.unwrap_or(core::ptr::null_mut())), symbol).ok()
+}
+#[inline]
+pub unsafe fn SymGetSymFromAddr64<P0>(hprocess: P0, qwaddr: u64, pdwdisplacement: Option<*mut u64>, symbol: *mut IMAGEHLP_SYMBOL64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSymFromAddr64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, pdwdisplacement : *mut u64, symbol : *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation:: BOOL);
+    SymGetSymFromAddr64(hprocess.param().abi(), qwaddr, core::mem::transmute(pdwdisplacement.unwrap_or(core::ptr::null_mut())), symbol).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymGetSymFromName<P0, P1>(hprocess: P0, name: P1, symbol: *mut IMAGEHLP_SYMBOL) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSymFromName(hprocess : super::super::super::Foundation:: HANDLE, name : windows_core::PCSTR, symbol : *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation:: BOOL);
+    SymGetSymFromName(hprocess.param().abi(), name.param().abi(), symbol).ok()
+}
+#[inline]
+pub unsafe fn SymGetSymFromName64<P0, P1>(hprocess: P0, name: P1, symbol: *mut IMAGEHLP_SYMBOL64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSymFromName64(hprocess : super::super::super::Foundation:: HANDLE, name : windows_core::PCSTR, symbol : *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation:: BOOL);
+    SymGetSymFromName64(hprocess.param().abi(), name.param().abi(), symbol).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymGetSymNext<P0>(hprocess: P0, symbol: *mut IMAGEHLP_SYMBOL) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSymNext(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation:: BOOL);
+    SymGetSymNext(hprocess.param().abi(), symbol).ok()
+}
+#[inline]
+pub unsafe fn SymGetSymNext64<P0>(hprocess: P0, symbol: *mut IMAGEHLP_SYMBOL64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSymNext64(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation:: BOOL);
+    SymGetSymNext64(hprocess.param().abi(), symbol).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymGetSymPrev<P0>(hprocess: P0, symbol: *mut IMAGEHLP_SYMBOL) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSymPrev(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation:: BOOL);
+    SymGetSymPrev(hprocess.param().abi(), symbol).ok()
+}
+#[inline]
+pub unsafe fn SymGetSymPrev64<P0>(hprocess: P0, symbol: *mut IMAGEHLP_SYMBOL64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSymPrev64(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation:: BOOL);
+    SymGetSymPrev64(hprocess.param().abi(), symbol).ok()
+}
+#[inline]
+pub unsafe fn SymGetSymbolFile<P0, P1, P2>(hprocess: P0, sympath: P1, imagefile: P2, r#type: IMAGEHLP_SF_TYPE, symbolfile: &mut [u8], dbgfile: &mut [u8]) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSymbolFile(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_core::PCSTR, imagefile : windows_core::PCSTR, r#type : u32, symbolfile : windows_core::PSTR, csymbolfile : usize, dbgfile : windows_core::PSTR, cdbgfile : usize) -> super::super::super::Foundation:: BOOL);
+    SymGetSymbolFile(hprocess.param().abi(), sympath.param().abi(), imagefile.param().abi(), r#type.0 as _, core::mem::transmute(symbolfile.as_ptr()), symbolfile.len().try_into().unwrap(), core::mem::transmute(dbgfile.as_ptr()), dbgfile.len().try_into().unwrap()).ok()
+}
+#[inline]
+pub unsafe fn SymGetSymbolFileW<P0, P1, P2>(hprocess: P0, sympath: P1, imagefile: P2, r#type: IMAGEHLP_SF_TYPE, symbolfile: &mut [u16], dbgfile: &mut [u16]) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetSymbolFileW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_core::PCWSTR, imagefile : windows_core::PCWSTR, r#type : u32, symbolfile : windows_core::PWSTR, csymbolfile : usize, dbgfile : windows_core::PWSTR, cdbgfile : usize) -> super::super::super::Foundation:: BOOL);
+    SymGetSymbolFileW(hprocess.param().abi(), sympath.param().abi(), imagefile.param().abi(), r#type.0 as _, core::mem::transmute(symbolfile.as_ptr()), symbolfile.len().try_into().unwrap(), core::mem::transmute(dbgfile.as_ptr()), dbgfile.len().try_into().unwrap()).ok()
+}
+#[inline]
+pub unsafe fn SymGetTypeFromName<P0, P1>(hprocess: P0, baseofdll: u64, name: P1, symbol: *mut SYMBOL_INFO) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetTypeFromName(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCSTR, symbol : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
+    SymGetTypeFromName(hprocess.param().abi(), baseofdll, name.param().abi(), symbol).ok()
+}
+#[inline]
+pub unsafe fn SymGetTypeFromNameW<P0, P1>(hprocess: P0, baseofdll: u64, name: P1, symbol: *mut SYMBOL_INFOW) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetTypeFromNameW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_core::PCWSTR, symbol : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
+    SymGetTypeFromNameW(hprocess.param().abi(), baseofdll, name.param().abi(), symbol).ok()
+}
+#[inline]
+pub unsafe fn SymGetTypeInfo<P0>(hprocess: P0, modbase: u64, typeid: u32, gettype: IMAGEHLP_SYMBOL_TYPE_INFO, pinfo: *mut core::ffi::c_void) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetTypeInfo(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, typeid : u32, gettype : IMAGEHLP_SYMBOL_TYPE_INFO, pinfo : *mut core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymGetTypeInfo(hprocess.param().abi(), modbase, typeid, gettype, pinfo).ok()
+}
+#[inline]
+pub unsafe fn SymGetTypeInfoEx<P0>(hprocess: P0, modbase: u64, params: *mut IMAGEHLP_GET_TYPE_INFO_PARAMS) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetTypeInfoEx(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, params : *mut IMAGEHLP_GET_TYPE_INFO_PARAMS) -> super::super::super::Foundation:: BOOL);
+    SymGetTypeInfoEx(hprocess.param().abi(), modbase, params).ok()
+}
+#[inline]
+pub unsafe fn SymGetUnwindInfo<P0>(hprocess: P0, address: u64, buffer: Option<*mut core::ffi::c_void>, size: *mut u32) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymGetUnwindInfo(hprocess : super::super::super::Foundation:: HANDLE, address : u64, buffer : *mut core::ffi::c_void, size : *mut u32) -> super::super::super::Foundation:: BOOL);
+    SymGetUnwindInfo(hprocess.param().abi(), address, core::mem::transmute(buffer.unwrap_or(core::ptr::null_mut())), size)
+}
+#[inline]
+pub unsafe fn SymInitialize<P0, P1, P2>(hprocess: P0, usersearchpath: P1, finvadeprocess: P2) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<super::super::super::Foundation::BOOL>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymInitialize(hprocess : super::super::super::Foundation:: HANDLE, usersearchpath : windows_core::PCSTR, finvadeprocess : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
+    SymInitialize(hprocess.param().abi(), usersearchpath.param().abi(), finvadeprocess.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn SymInitializeW<P0, P1, P2>(hprocess: P0, usersearchpath: P1, finvadeprocess: P2) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<super::super::super::Foundation::BOOL>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymInitializeW(hprocess : super::super::super::Foundation:: HANDLE, usersearchpath : windows_core::PCWSTR, finvadeprocess : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
+    SymInitializeW(hprocess.param().abi(), usersearchpath.param().abi(), finvadeprocess.param().abi()).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymLoadModule<P0, P1, P2, P3>(hprocess: P0, hfile: P1, imagename: P2, modulename: P3, baseofdll: u32, sizeofdll: u32) -> u32
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymLoadModule(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_core::PCSTR, modulename : windows_core::PCSTR, baseofdll : u32, sizeofdll : u32) -> u32);
+    SymLoadModule(hprocess.param().abi(), hfile.param().abi(), imagename.param().abi(), modulename.param().abi(), baseofdll, sizeofdll)
+}
+#[inline]
+pub unsafe fn SymLoadModule64<P0, P1, P2, P3>(hprocess: P0, hfile: P1, imagename: P2, modulename: P3, baseofdll: u64, sizeofdll: u32) -> u64
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymLoadModule64(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_core::PCSTR, modulename : windows_core::PCSTR, baseofdll : u64, sizeofdll : u32) -> u64);
+    SymLoadModule64(hprocess.param().abi(), hfile.param().abi(), imagename.param().abi(), modulename.param().abi(), baseofdll, sizeofdll)
+}
+#[inline]
+pub unsafe fn SymLoadModuleEx<P0, P1, P2, P3>(hprocess: P0, hfile: P1, imagename: P2, modulename: P3, baseofdll: u64, dllsize: u32, data: Option<*const MODLOAD_DATA>, flags: SYM_LOAD_FLAGS) -> u64
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymLoadModuleEx(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_core::PCSTR, modulename : windows_core::PCSTR, baseofdll : u64, dllsize : u32, data : *const MODLOAD_DATA, flags : SYM_LOAD_FLAGS) -> u64);
+    SymLoadModuleEx(hprocess.param().abi(), hfile.param().abi(), imagename.param().abi(), modulename.param().abi(), baseofdll, dllsize, core::mem::transmute(data.unwrap_or(core::ptr::null())), flags)
+}
+#[inline]
+pub unsafe fn SymLoadModuleExW<P0, P1, P2, P3>(hprocess: P0, hfile: P1, imagename: P2, modulename: P3, baseofdll: u64, dllsize: u32, data: Option<*const MODLOAD_DATA>, flags: SYM_LOAD_FLAGS) -> u64
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymLoadModuleExW(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_core::PCWSTR, modulename : windows_core::PCWSTR, baseofdll : u64, dllsize : u32, data : *const MODLOAD_DATA, flags : SYM_LOAD_FLAGS) -> u64);
+    SymLoadModuleExW(hprocess.param().abi(), hfile.param().abi(), imagename.param().abi(), modulename.param().abi(), baseofdll, dllsize, core::mem::transmute(data.unwrap_or(core::ptr::null())), flags)
+}
+#[inline]
+pub unsafe fn SymMatchFileName<P0, P1>(filename: P0, r#match: P1, filenamestop: Option<*mut windows_core::PSTR>, matchstop: Option<*mut windows_core::PSTR>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymMatchFileName(filename : windows_core::PCSTR, r#match : windows_core::PCSTR, filenamestop : *mut windows_core::PSTR, matchstop : *mut windows_core::PSTR) -> super::super::super::Foundation:: BOOL);
+    SymMatchFileName(filename.param().abi(), r#match.param().abi(), core::mem::transmute(filenamestop.unwrap_or(core::ptr::null_mut())), core::mem::transmute(matchstop.unwrap_or(core::ptr::null_mut()))).ok()
+}
+#[inline]
+pub unsafe fn SymMatchFileNameW<P0, P1>(filename: P0, r#match: P1, filenamestop: Option<*mut windows_core::PWSTR>, matchstop: Option<*mut windows_core::PWSTR>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymMatchFileNameW(filename : windows_core::PCWSTR, r#match : windows_core::PCWSTR, filenamestop : *mut windows_core::PWSTR, matchstop : *mut windows_core::PWSTR) -> super::super::super::Foundation:: BOOL);
+    SymMatchFileNameW(filename.param().abi(), r#match.param().abi(), core::mem::transmute(filenamestop.unwrap_or(core::ptr::null_mut())), core::mem::transmute(matchstop.unwrap_or(core::ptr::null_mut()))).ok()
+}
+#[inline]
+pub unsafe fn SymMatchString<P0, P1, P2>(string: P0, expression: P1, fcase: P2) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<super::super::super::Foundation::BOOL>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymMatchString(string : windows_core::PCSTR, expression : windows_core::PCSTR, fcase : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
+    SymMatchString(string.param().abi(), expression.param().abi(), fcase.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn SymMatchStringA<P0, P1, P2>(string: P0, expression: P1, fcase: P2) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<super::super::super::Foundation::BOOL>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymMatchStringA(string : windows_core::PCSTR, expression : windows_core::PCSTR, fcase : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
+    SymMatchStringA(string.param().abi(), expression.param().abi(), fcase.param().abi())
+}
+#[inline]
+pub unsafe fn SymMatchStringW<P0, P1, P2>(string: P0, expression: P1, fcase: P2) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<super::super::super::Foundation::BOOL>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymMatchStringW(string : windows_core::PCWSTR, expression : windows_core::PCWSTR, fcase : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
+    SymMatchStringW(string.param().abi(), expression.param().abi(), fcase.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn SymNext<P0>(hprocess: P0, si: *mut SYMBOL_INFO) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymNext(hprocess : super::super::super::Foundation:: HANDLE, si : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
+    SymNext(hprocess.param().abi(), si).ok()
+}
+#[inline]
+pub unsafe fn SymNextW<P0>(hprocess: P0, siw: *mut SYMBOL_INFOW) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymNextW(hprocess : super::super::super::Foundation:: HANDLE, siw : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
+    SymNextW(hprocess.param().abi(), siw).ok()
+}
+#[inline]
+pub unsafe fn SymPrev<P0>(hprocess: P0, si: *mut SYMBOL_INFO) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymPrev(hprocess : super::super::super::Foundation:: HANDLE, si : *mut SYMBOL_INFO) -> super::super::super::Foundation:: BOOL);
+    SymPrev(hprocess.param().abi(), si).ok()
+}
+#[inline]
+pub unsafe fn SymPrevW<P0>(hprocess: P0, siw: *mut SYMBOL_INFOW) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymPrevW(hprocess : super::super::super::Foundation:: HANDLE, siw : *mut SYMBOL_INFOW) -> super::super::super::Foundation:: BOOL);
+    SymPrevW(hprocess.param().abi(), siw).ok()
+}
+#[inline]
+pub unsafe fn SymQueryInlineTrace<P0>(hprocess: P0, startaddress: u64, startcontext: u32, startretaddress: u64, curaddress: u64, curcontext: *mut u32, curframeindex: *mut u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymQueryInlineTrace(hprocess : super::super::super::Foundation:: HANDLE, startaddress : u64, startcontext : u32, startretaddress : u64, curaddress : u64, curcontext : *mut u32, curframeindex : *mut u32) -> super::super::super::Foundation:: BOOL);
+    SymQueryInlineTrace(hprocess.param().abi(), startaddress, startcontext, startretaddress, curaddress, curcontext, curframeindex).ok()
+}
+#[inline]
+pub unsafe fn SymRefreshModuleList<P0>(hprocess: P0) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymRefreshModuleList(hprocess : super::super::super::Foundation:: HANDLE) -> super::super::super::Foundation:: BOOL);
+    SymRefreshModuleList(hprocess.param().abi()).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymRegisterCallback<P0>(hprocess: P0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymRegisterCallback(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymRegisterCallback(hprocess.param().abi(), callbackfunction, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymRegisterCallback64<P0>(hprocess: P0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: u64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymRegisterCallback64(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK64, usercontext : u64) -> super::super::super::Foundation:: BOOL);
+    SymRegisterCallback64(hprocess.param().abi(), callbackfunction, usercontext).ok()
+}
+#[inline]
+pub unsafe fn SymRegisterCallbackW64<P0>(hprocess: P0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: u64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymRegisterCallbackW64(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK64, usercontext : u64) -> super::super::super::Foundation:: BOOL);
+    SymRegisterCallbackW64(hprocess.param().abi(), callbackfunction, usercontext).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymRegisterFunctionEntryCallback<P0>(hprocess: P0, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK, usercontext: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymRegisterFunctionEntryCallback(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK, usercontext : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymRegisterFunctionEntryCallback(hprocess.param().abi(), callbackfunction, core::mem::transmute(usercontext.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymRegisterFunctionEntryCallback64<P0>(hprocess: P0, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK64, usercontext: u64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymRegisterFunctionEntryCallback64(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK64, usercontext : u64) -> super::super::super::Foundation:: BOOL);
+    SymRegisterFunctionEntryCallback64(hprocess.param().abi(), callbackfunction, usercontext).ok()
+}
+#[inline]
+pub unsafe fn SymSearch<P0, P1>(hprocess: P0, baseofdll: u64, index: u32, symtag: u32, mask: P1, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: Option<*const core::ffi::c_void>, options: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSearch(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symtag : u32, mask : windows_core::PCSTR, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void, options : u32) -> super::super::super::Foundation:: BOOL);
+    SymSearch(hprocess.param().abi(), baseofdll, index, symtag, mask.param().abi(), address, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null())), options).ok()
+}
+#[inline]
+pub unsafe fn SymSearchW<P0, P1>(hprocess: P0, baseofdll: u64, index: u32, symtag: u32, mask: P1, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: Option<*const core::ffi::c_void>, options: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSearchW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symtag : u32, mask : windows_core::PCWSTR, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void, options : u32) -> super::super::super::Foundation:: BOOL);
+    SymSearchW(hprocess.param().abi(), baseofdll, index, symtag, mask.param().abi(), address, enumsymbolscallback, core::mem::transmute(usercontext.unwrap_or(core::ptr::null())), options).ok()
+}
+#[inline]
+pub unsafe fn SymSetContext<P0>(hprocess: P0, stackframe: *const IMAGEHLP_STACK_FRAME, context: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSetContext(hprocess : super::super::super::Foundation:: HANDLE, stackframe : *const IMAGEHLP_STACK_FRAME, context : *const core::ffi::c_void) -> super::super::super::Foundation:: BOOL);
+    SymSetContext(hprocess.param().abi(), stackframe, core::mem::transmute(context.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn SymSetExtendedOption<P0>(option: IMAGEHLP_EXTENDED_OPTIONS, value: P0) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<super::super::super::Foundation::BOOL>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSetExtendedOption(option : IMAGEHLP_EXTENDED_OPTIONS, value : super::super::super::Foundation:: BOOL) -> super::super::super::Foundation:: BOOL);
+    SymSetExtendedOption(option, value.param().abi())
+}
+#[inline]
+pub unsafe fn SymSetHomeDirectory<P0, P1>(hprocess: P0, dir: P1) -> windows_core::PSTR
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSetHomeDirectory(hprocess : super::super::super::Foundation:: HANDLE, dir : windows_core::PCSTR) -> windows_core::PSTR);
+    SymSetHomeDirectory(hprocess.param().abi(), dir.param().abi())
+}
+#[inline]
+pub unsafe fn SymSetHomeDirectoryW<P0, P1>(hprocess: P0, dir: P1) -> windows_core::PWSTR
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSetHomeDirectoryW(hprocess : super::super::super::Foundation:: HANDLE, dir : windows_core::PCWSTR) -> windows_core::PWSTR);
+    SymSetHomeDirectoryW(hprocess.param().abi(), dir.param().abi())
+}
+#[inline]
+pub unsafe fn SymSetOptions(symoptions: u32) -> u32 {
+    windows_targets::link!("dbghelp.dll" "system" fn SymSetOptions(symoptions : u32) -> u32);
+    SymSetOptions(symoptions)
+}
+#[inline]
+pub unsafe fn SymSetParentWindow<P0>(hwnd: P0) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HWND>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSetParentWindow(hwnd : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: BOOL);
+    SymSetParentWindow(hwnd.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn SymSetScopeFromAddr<P0>(hprocess: P0, address: u64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSetScopeFromAddr(hprocess : super::super::super::Foundation:: HANDLE, address : u64) -> super::super::super::Foundation:: BOOL);
+    SymSetScopeFromAddr(hprocess.param().abi(), address).ok()
+}
+#[inline]
+pub unsafe fn SymSetScopeFromIndex<P0>(hprocess: P0, baseofdll: u64, index: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSetScopeFromIndex(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32) -> super::super::super::Foundation:: BOOL);
+    SymSetScopeFromIndex(hprocess.param().abi(), baseofdll, index).ok()
+}
+#[inline]
+pub unsafe fn SymSetScopeFromInlineContext<P0>(hprocess: P0, address: u64, inlinecontext: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSetScopeFromInlineContext(hprocess : super::super::super::Foundation:: HANDLE, address : u64, inlinecontext : u32) -> super::super::super::Foundation:: BOOL);
+    SymSetScopeFromInlineContext(hprocess.param().abi(), address, inlinecontext).ok()
+}
+#[inline]
+pub unsafe fn SymSetSearchPath<P0, P1>(hprocess: P0, searchpatha: P1) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSetSearchPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
+    SymSetSearchPath(hprocess.param().abi(), searchpatha.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn SymSetSearchPathW<P0, P1>(hprocess: P0, searchpatha: P1) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSetSearchPathW(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
+    SymSetSearchPathW(hprocess.param().abi(), searchpatha.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn SymSrvDeltaName<P0, P1, P2, P3, P4>(hprocess: P0, sympath: P1, r#type: P2, file1: P3, file2: P4) -> windows_core::PCSTR
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+    P4: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSrvDeltaName(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_core::PCSTR, r#type : windows_core::PCSTR, file1 : windows_core::PCSTR, file2 : windows_core::PCSTR) -> windows_core::PCSTR);
+    SymSrvDeltaName(hprocess.param().abi(), sympath.param().abi(), r#type.param().abi(), file1.param().abi(), file2.param().abi())
+}
+#[inline]
+pub unsafe fn SymSrvDeltaNameW<P0, P1, P2, P3, P4>(hprocess: P0, sympath: P1, r#type: P2, file1: P3, file2: P4) -> windows_core::PCWSTR
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSrvDeltaNameW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_core::PCWSTR, r#type : windows_core::PCWSTR, file1 : windows_core::PCWSTR, file2 : windows_core::PCWSTR) -> windows_core::PCWSTR);
+    SymSrvDeltaNameW(hprocess.param().abi(), sympath.param().abi(), r#type.param().abi(), file1.param().abi(), file2.param().abi())
+}
+#[inline]
+pub unsafe fn SymSrvGetFileIndexInfo<P0>(file: P0, info: *mut SYMSRV_INDEX_INFO, flags: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexInfo(file : windows_core::PCSTR, info : *mut SYMSRV_INDEX_INFO, flags : u32) -> super::super::super::Foundation:: BOOL);
+    SymSrvGetFileIndexInfo(file.param().abi(), info, flags).ok()
+}
+#[inline]
+pub unsafe fn SymSrvGetFileIndexInfoW<P0>(file: P0, info: *mut SYMSRV_INDEX_INFOW, flags: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexInfoW(file : windows_core::PCWSTR, info : *mut SYMSRV_INDEX_INFOW, flags : u32) -> super::super::super::Foundation:: BOOL);
+    SymSrvGetFileIndexInfoW(file.param().abi(), info, flags).ok()
+}
+#[inline]
+pub unsafe fn SymSrvGetFileIndexString<P0, P1, P2>(hprocess: P0, srvpath: P1, file: P2, index: &mut [u8], flags: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexString(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_core::PCSTR, file : windows_core::PCSTR, index : windows_core::PSTR, size : usize, flags : u32) -> super::super::super::Foundation:: BOOL);
+    SymSrvGetFileIndexString(hprocess.param().abi(), srvpath.param().abi(), file.param().abi(), core::mem::transmute(index.as_ptr()), index.len().try_into().unwrap(), flags).ok()
+}
+#[inline]
+pub unsafe fn SymSrvGetFileIndexStringW<P0, P1, P2>(hprocess: P0, srvpath: P1, file: P2, index: &mut [u16], flags: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexStringW(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_core::PCWSTR, file : windows_core::PCWSTR, index : windows_core::PWSTR, size : usize, flags : u32) -> super::super::super::Foundation:: BOOL);
+    SymSrvGetFileIndexStringW(hprocess.param().abi(), srvpath.param().abi(), file.param().abi(), core::mem::transmute(index.as_ptr()), index.len().try_into().unwrap(), flags).ok()
+}
+#[inline]
+pub unsafe fn SymSrvGetFileIndexes<P0>(file: P0, id: *mut windows_core::GUID, val1: *mut u32, val2: Option<*mut u32>, flags: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexes(file : windows_core::PCSTR, id : *mut windows_core::GUID, val1 : *mut u32, val2 : *mut u32, flags : u32) -> super::super::super::Foundation:: BOOL);
+    SymSrvGetFileIndexes(file.param().abi(), id, val1, core::mem::transmute(val2.unwrap_or(core::ptr::null_mut())), flags).ok()
+}
+#[inline]
+pub unsafe fn SymSrvGetFileIndexesW<P0>(file: P0, id: *mut windows_core::GUID, val1: *mut u32, val2: Option<*mut u32>, flags: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexesW(file : windows_core::PCWSTR, id : *mut windows_core::GUID, val1 : *mut u32, val2 : *mut u32, flags : u32) -> super::super::super::Foundation:: BOOL);
+    SymSrvGetFileIndexesW(file.param().abi(), id, val1, core::mem::transmute(val2.unwrap_or(core::ptr::null_mut())), flags).ok()
+}
+#[inline]
+pub unsafe fn SymSrvGetSupplement<P0, P1, P2, P3>(hprocess: P0, sympath: P1, node: P2, file: P3) -> windows_core::PCSTR
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetSupplement(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_core::PCSTR, node : windows_core::PCSTR, file : windows_core::PCSTR) -> windows_core::PCSTR);
+    SymSrvGetSupplement(hprocess.param().abi(), sympath.param().abi(), node.param().abi(), file.param().abi())
+}
+#[inline]
+pub unsafe fn SymSrvGetSupplementW<P0, P1, P2, P3>(hprocess: P0, sympath: P1, node: P2, file: P3) -> windows_core::PCWSTR
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetSupplementW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_core::PCWSTR, node : windows_core::PCWSTR, file : windows_core::PCWSTR) -> windows_core::PCWSTR);
+    SymSrvGetSupplementW(hprocess.param().abi(), sympath.param().abi(), node.param().abi(), file.param().abi())
+}
+#[inline]
+pub unsafe fn SymSrvIsStore<P0, P1>(hprocess: P0, path: P1) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSrvIsStore(hprocess : super::super::super::Foundation:: HANDLE, path : windows_core::PCSTR) -> super::super::super::Foundation:: BOOL);
+    SymSrvIsStore(hprocess.param().abi(), path.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn SymSrvIsStoreW<P0, P1>(hprocess: P0, path: P1) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSrvIsStoreW(hprocess : super::super::super::Foundation:: HANDLE, path : windows_core::PCWSTR) -> super::super::super::Foundation:: BOOL);
+    SymSrvIsStoreW(hprocess.param().abi(), path.param().abi()).ok()
+}
+#[inline]
+pub unsafe fn SymSrvStoreFile<P0, P1, P2>(hprocess: P0, srvpath: P1, file: P2, flags: SYM_SRV_STORE_FILE_FLAGS) -> windows_core::PCSTR
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSrvStoreFile(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_core::PCSTR, file : windows_core::PCSTR, flags : SYM_SRV_STORE_FILE_FLAGS) -> windows_core::PCSTR);
+    SymSrvStoreFile(hprocess.param().abi(), srvpath.param().abi(), file.param().abi(), flags)
+}
+#[inline]
+pub unsafe fn SymSrvStoreFileW<P0, P1, P2>(hprocess: P0, srvpath: P1, file: P2, flags: SYM_SRV_STORE_FILE_FLAGS) -> windows_core::PCWSTR
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSrvStoreFileW(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_core::PCWSTR, file : windows_core::PCWSTR, flags : SYM_SRV_STORE_FILE_FLAGS) -> windows_core::PCWSTR);
+    SymSrvStoreFileW(hprocess.param().abi(), srvpath.param().abi(), file.param().abi(), flags)
+}
+#[inline]
+pub unsafe fn SymSrvStoreSupplement<P0, P1, P2, P3>(hprocess: P0, srvpath: P1, node: P2, file: P3, flags: u32) -> windows_core::PCSTR
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSrvStoreSupplement(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_core::PCSTR, node : windows_core::PCSTR, file : windows_core::PCSTR, flags : u32) -> windows_core::PCSTR);
+    SymSrvStoreSupplement(hprocess.param().abi(), srvpath.param().abi(), node.param().abi(), file.param().abi(), flags)
+}
+#[inline]
+pub unsafe fn SymSrvStoreSupplementW<P0, P1, P2, P3>(hprocess: P0, sympath: P1, node: P2, file: P3, flags: u32) -> windows_core::PCWSTR
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymSrvStoreSupplementW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_core::PCWSTR, node : windows_core::PCWSTR, file : windows_core::PCWSTR, flags : u32) -> windows_core::PCWSTR);
+    SymSrvStoreSupplementW(hprocess.param().abi(), sympath.param().abi(), node.param().abi(), file.param().abi(), flags)
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymUnDName(sym: *const IMAGEHLP_SYMBOL, undecname: &mut [u8]) -> windows_core::Result<()> {
+    windows_targets::link!("dbghelp.dll" "system" fn SymUnDName(sym : *const IMAGEHLP_SYMBOL, undecname : windows_core::PSTR, undecnamelength : u32) -> super::super::super::Foundation:: BOOL);
+    SymUnDName(sym, core::mem::transmute(undecname.as_ptr()), undecname.len().try_into().unwrap()).ok()
+}
+#[inline]
+pub unsafe fn SymUnDName64(sym: *const IMAGEHLP_SYMBOL64, undecname: &mut [u8]) -> windows_core::Result<()> {
+    windows_targets::link!("dbghelp.dll" "system" fn SymUnDName64(sym : *const IMAGEHLP_SYMBOL64, undecname : windows_core::PSTR, undecnamelength : u32) -> super::super::super::Foundation:: BOOL);
+    SymUnDName64(sym, core::mem::transmute(undecname.as_ptr()), undecname.len().try_into().unwrap()).ok()
+}
+#[cfg(target_arch = "x86")]
+#[inline]
+pub unsafe fn SymUnloadModule<P0>(hprocess: P0, baseofdll: u32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymUnloadModule(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u32) -> super::super::super::Foundation:: BOOL);
+    SymUnloadModule(hprocess.param().abi(), baseofdll).ok()
+}
+#[inline]
+pub unsafe fn SymUnloadModule64<P0>(hprocess: P0, baseofdll: u64) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn SymUnloadModule64(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64) -> super::super::super::Foundation:: BOOL);
+    SymUnloadModule64(hprocess.param().abi(), baseofdll).ok()
+}
+#[inline]
+pub unsafe fn TerminateProcessOnMemoryExhaustion(failedallocationsize: usize) {
+    windows_targets::link!("api-ms-win-core-errorhandling-l1-1-3.dll" "system" fn TerminateProcessOnMemoryExhaustion(failedallocationsize : usize));
+    TerminateProcessOnMemoryExhaustion(failedallocationsize)
+}
+#[inline]
+pub unsafe fn TouchFileTimes<P0>(filehandle: P0, psystemtime: Option<*const super::super::super::Foundation::SYSTEMTIME>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn TouchFileTimes(filehandle : super::super::super::Foundation:: HANDLE, psystemtime : *const super::super::super::Foundation:: SYSTEMTIME) -> super::super::super::Foundation:: BOOL);
+    TouchFileTimes(filehandle.param().abi(), core::mem::transmute(psystemtime.unwrap_or(core::ptr::null()))).ok()
+}
+#[inline]
+pub unsafe fn UnDecorateSymbolName<P0>(name: P0, outputstring: &mut [u8], flags: u32) -> u32
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn UnDecorateSymbolName(name : windows_core::PCSTR, outputstring : windows_core::PSTR, maxstringlength : u32, flags : u32) -> u32);
+    UnDecorateSymbolName(name.param().abi(), core::mem::transmute(outputstring.as_ptr()), outputstring.len().try_into().unwrap(), flags)
+}
+#[inline]
+pub unsafe fn UnDecorateSymbolNameW<P0>(name: P0, outputstring: &mut [u16], flags: u32) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_targets::link!("dbghelp.dll" "system" fn UnDecorateSymbolNameW(name : windows_core::PCWSTR, outputstring : windows_core::PWSTR, maxstringlength : u32, flags : u32) -> u32);
+    UnDecorateSymbolNameW(name.param().abi(), core::mem::transmute(outputstring.as_ptr()), outputstring.len().try_into().unwrap(), flags)
+}
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+#[inline]
+pub unsafe fn UnMapAndLoad(loadedimage: *mut LOADED_IMAGE) -> windows_core::Result<()> {
+    windows_targets::link!("imagehlp.dll" "system" fn UnMapAndLoad(loadedimage : *mut LOADED_IMAGE) -> super::super::super::Foundation:: BOOL);
+    UnMapAndLoad(loadedimage).ok()
+}
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn UnhandledExceptionFilter(exceptioninfo: *const EXCEPTION_POINTERS) -> i32 {
+    windows_targets::link!("kernel32.dll" "system" fn UnhandledExceptionFilter(exceptioninfo : *const EXCEPTION_POINTERS) -> i32);
+    UnhandledExceptionFilter(exceptioninfo)
+}
+#[cfg(feature = "Win32_System_SystemInformation")]
+#[inline]
+pub unsafe fn UpdateDebugInfoFile<P0, P1>(imagefilename: P0, symbolpath: P1, debugfilepath: windows_core::PSTR, ntheaders: *const IMAGE_NT_HEADERS32) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn UpdateDebugInfoFile(imagefilename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, debugfilepath : windows_core::PSTR, ntheaders : *const IMAGE_NT_HEADERS32) -> super::super::super::Foundation:: BOOL);
+    UpdateDebugInfoFile(imagefilename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), ntheaders).ok()
+}
+#[cfg(feature = "Win32_System_SystemInformation")]
+#[inline]
+pub unsafe fn UpdateDebugInfoFileEx<P0, P1>(imagefilename: P0, symbolpath: P1, debugfilepath: windows_core::PSTR, ntheaders: *const IMAGE_NT_HEADERS32, oldchecksum: u32) -> super::super::super::Foundation::BOOL
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_targets::link!("imagehlp.dll" "system" fn UpdateDebugInfoFileEx(imagefilename : windows_core::PCSTR, symbolpath : windows_core::PCSTR, debugfilepath : windows_core::PSTR, ntheaders : *const IMAGE_NT_HEADERS32, oldchecksum : u32) -> super::super::super::Foundation:: BOOL);
+    UpdateDebugInfoFileEx(imagefilename.param().abi(), symbolpath.param().abi(), core::mem::transmute(debugfilepath), ntheaders, oldchecksum)
+}
+#[cfg(feature = "Win32_System_Threading")]
+#[inline]
+pub unsafe fn WaitForDebugEvent(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> windows_core::Result<()> {
+    windows_targets::link!("kernel32.dll" "system" fn WaitForDebugEvent(lpdebugevent : *mut DEBUG_EVENT, dwmilliseconds : u32) -> super::super::super::Foundation:: BOOL);
+    WaitForDebugEvent(lpdebugevent, dwmilliseconds).ok()
+}
+#[cfg(feature = "Win32_System_Threading")]
+#[inline]
+pub unsafe fn WaitForDebugEventEx(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> windows_core::Result<()> {
+    windows_targets::link!("kernel32.dll" "system" fn WaitForDebugEventEx(lpdebugevent : *mut DEBUG_EVENT, dwmilliseconds : u32) -> super::super::super::Foundation:: BOOL);
+    WaitForDebugEventEx(lpdebugevent, dwmilliseconds).ok()
+}
+#[inline]
+pub unsafe fn Wow64GetThreadContext<P0>(hthread: P0, lpcontext: *mut WOW64_CONTEXT) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn Wow64GetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *mut WOW64_CONTEXT) -> super::super::super::Foundation:: BOOL);
+    Wow64GetThreadContext(hthread.param().abi(), lpcontext).ok()
+}
+#[inline]
+pub unsafe fn Wow64GetThreadSelectorEntry<P0>(hthread: P0, dwselector: u32, lpselectorentry: *mut WOW64_LDT_ENTRY) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn Wow64GetThreadSelectorEntry(hthread : super::super::super::Foundation:: HANDLE, dwselector : u32, lpselectorentry : *mut WOW64_LDT_ENTRY) -> super::super::super::Foundation:: BOOL);
+    Wow64GetThreadSelectorEntry(hthread.param().abi(), dwselector, lpselectorentry).ok()
+}
+#[inline]
+pub unsafe fn Wow64SetThreadContext<P0>(hthread: P0, lpcontext: *const WOW64_CONTEXT) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn Wow64SetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *const WOW64_CONTEXT) -> super::super::super::Foundation:: BOOL);
+    Wow64SetThreadContext(hthread.param().abi(), lpcontext).ok()
+}
+#[inline]
+pub unsafe fn WriteProcessMemory<P0>(hprocess: P0, lpbaseaddress: *const core::ffi::c_void, lpbuffer: *const core::ffi::c_void, nsize: usize, lpnumberofbyteswritten: Option<*mut usize>) -> windows_core::Result<()>
+where
+    P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
+{
+    windows_targets::link!("kernel32.dll" "system" fn WriteProcessMemory(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *const core::ffi::c_void, nsize : usize, lpnumberofbyteswritten : *mut usize) -> super::super::super::Foundation:: BOOL);
+    WriteProcessMemory(hprocess.param().abi(), lpbaseaddress, lpbuffer, nsize, core::mem::transmute(lpnumberofbyteswritten.unwrap_or(core::ptr::null_mut()))).ok()
+}
+windows_core::imp::define_interface!(IDebugExtendedProperty, IDebugExtendedProperty_Vtbl, 0x51973c52_cb0c_11d0_b5c9_00a0244a0e7a);
+impl core::ops::Deref for IDebugExtendedProperty {
+    type Target = IDebugProperty;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IDebugExtendedProperty, windows_core::IUnknown, IDebugProperty);
+impl IDebugExtendedProperty {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetExtendedPropertyInfo(&self, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetExtendedPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, pextendedpropertyinfo).ok()
+    }
+    pub unsafe fn EnumExtendedMembers(&self, dwfieldspec: u32, nradix: u32) -> windows_core::Result<IEnumDebugExtendedPropertyInfo> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).EnumExtendedMembers)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
+}
+#[repr(C)]
+pub struct IDebugExtendedProperty_Vtbl {
+    pub base__: IDebugProperty_Vtbl,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetExtendedPropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut ExtendedDebugPropertyInfo) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetExtendedPropertyInfo: usize,
+    pub EnumExtendedMembers: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IDebugProperty, IDebugProperty_Vtbl, 0x51973c50_cb0c_11d0_b5c9_00a0244a0e7a);
+impl core::ops::Deref for IDebugProperty {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IDebugProperty, windows_core::IUnknown);
+impl IDebugProperty {
+    pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, ppropertyinfo).ok()
+    }
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const windows_core::GUID, rgvar: *mut super::super::Variant::VARIANT) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetExtendedInfo)(windows_core::Interface::as_raw(self), cinfos, rgguidextendedinfo, core::mem::transmute(rgvar)).ok()
+    }
+    pub unsafe fn SetValueAsString<P0>(&self, pszvalue: P0, nradix: u32) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
+        (windows_core::Interface::vtable(self).SetValueAsString)(windows_core::Interface::as_raw(self), pszvalue.param().abi(), nradix).ok()
+    }
+    pub unsafe fn EnumMembers(&self, dwfieldspec: u32, nradix: u32, refiid: *const windows_core::GUID) -> windows_core::Result<IEnumDebugPropertyInfo> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).EnumMembers)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, refiid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
+    pub unsafe fn GetParent(&self) -> windows_core::Result<IDebugProperty> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
+}
+#[repr(C)]
+pub struct IDebugProperty_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetPropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut DebugPropertyInfo) -> windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetExtendedInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut core::mem::MaybeUninit<super::super::Variant::VARIANT>) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    GetExtendedInfo: usize,
+    pub SetValueAsString: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
+    pub EnumMembers: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IDebugPropertyEnumType_All, IDebugPropertyEnumType_All_Vtbl, 0x51973c55_cb0c_11d0_b5c9_00a0244a0e7a);
+impl core::ops::Deref for IDebugPropertyEnumType_All {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_All, windows_core::IUnknown);
+impl IDebugPropertyEnumType_All {
+    pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
+}
+#[repr(C)]
+pub struct IDebugPropertyEnumType_All_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IDebugPropertyEnumType_Arguments, IDebugPropertyEnumType_Arguments_Vtbl, 0x51973c57_cb0c_11d0_b5c9_00a0244a0e7a);
+impl core::ops::Deref for IDebugPropertyEnumType_Arguments {
+    type Target = IDebugPropertyEnumType_All;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_Arguments, windows_core::IUnknown, IDebugPropertyEnumType_All);
+impl IDebugPropertyEnumType_Arguments {}
+#[repr(C)]
+pub struct IDebugPropertyEnumType_Arguments_Vtbl {
+    pub base__: IDebugPropertyEnumType_All_Vtbl,
+}
+windows_core::imp::define_interface!(IDebugPropertyEnumType_Locals, IDebugPropertyEnumType_Locals_Vtbl, 0x51973c56_cb0c_11d0_b5c9_00a0244a0e7a);
+impl core::ops::Deref for IDebugPropertyEnumType_Locals {
+    type Target = IDebugPropertyEnumType_All;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_Locals, windows_core::IUnknown, IDebugPropertyEnumType_All);
+impl IDebugPropertyEnumType_Locals {}
+#[repr(C)]
+pub struct IDebugPropertyEnumType_Locals_Vtbl {
+    pub base__: IDebugPropertyEnumType_All_Vtbl,
+}
+windows_core::imp::define_interface!(IDebugPropertyEnumType_LocalsPlusArgs, IDebugPropertyEnumType_LocalsPlusArgs_Vtbl, 0x51973c58_cb0c_11d0_b5c9_00a0244a0e7a);
+impl core::ops::Deref for IDebugPropertyEnumType_LocalsPlusArgs {
+    type Target = IDebugPropertyEnumType_All;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_LocalsPlusArgs, windows_core::IUnknown, IDebugPropertyEnumType_All);
+impl IDebugPropertyEnumType_LocalsPlusArgs {}
+#[repr(C)]
+pub struct IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
+    pub base__: IDebugPropertyEnumType_All_Vtbl,
+}
+windows_core::imp::define_interface!(IDebugPropertyEnumType_Registers, IDebugPropertyEnumType_Registers_Vtbl, 0x51973c59_cb0c_11d0_b5c9_00a0244a0e7a);
+impl core::ops::Deref for IDebugPropertyEnumType_Registers {
+    type Target = IDebugPropertyEnumType_All;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_Registers, windows_core::IUnknown, IDebugPropertyEnumType_All);
+impl IDebugPropertyEnumType_Registers {}
+#[repr(C)]
+pub struct IDebugPropertyEnumType_Registers_Vtbl {
+    pub base__: IDebugPropertyEnumType_All_Vtbl,
+}
+windows_core::imp::define_interface!(IEnumDebugExtendedPropertyInfo, IEnumDebugExtendedPropertyInfo_Vtbl, 0x51973c53_cb0c_11d0_b5c9_00a0244a0e7a);
+impl core::ops::Deref for IEnumDebugExtendedPropertyInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IEnumDebugExtendedPropertyInfo, windows_core::IUnknown);
+impl IEnumDebugExtendedPropertyInfo {
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Next(&self, rgextendedpropertyinfo: &mut [ExtendedDebugPropertyInfo], pceltfetched: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgextendedpropertyinfo.len().try_into().unwrap(), core::mem::transmute(rgextendedpropertyinfo.as_ptr()), pceltfetched).ok()
+    }
+    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
+    }
+    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDebugExtendedPropertyInfo> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
+    pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    }
+}
+#[repr(C)]
+pub struct IEnumDebugExtendedPropertyInfo_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut ExtendedDebugPropertyInfo, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
+    Next: usize,
+    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IEnumDebugPropertyInfo, IEnumDebugPropertyInfo_Vtbl, 0x51973c51_cb0c_11d0_b5c9_00a0244a0e7a);
+impl core::ops::Deref for IEnumDebugPropertyInfo {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IEnumDebugPropertyInfo, windows_core::IUnknown);
+impl IEnumDebugPropertyInfo {
+    pub unsafe fn Next(&self, pi: &mut [DebugPropertyInfo], pceltsfetched: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), pi.len().try_into().unwrap(), core::mem::transmute(pi.as_ptr()), pceltsfetched).ok()
+    }
+    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok()
+    }
+    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDebugPropertyInfo> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
+    pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+    }
+}
+#[repr(C)]
+pub struct IEnumDebugPropertyInfo_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DebugPropertyInfo, *mut u32) -> windows_core::HRESULT,
+    pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IObjectSafety, IObjectSafety_Vtbl, 0xcb5bdc81_93c1_11cf_8f20_00805f2cd064);
+impl core::ops::Deref for IObjectSafety {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IObjectSafety, windows_core::IUnknown);
+impl IObjectSafety {
+    pub unsafe fn GetInterfaceSafetyOptions(&self, riid: *const windows_core::GUID, pdwsupportedoptions: *mut u32, pdwenabledoptions: *mut u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetInterfaceSafetyOptions)(windows_core::Interface::as_raw(self), riid, pdwsupportedoptions, pdwenabledoptions).ok()
+    }
+    pub unsafe fn SetInterfaceSafetyOptions(&self, riid: *const windows_core::GUID, dwoptionsetmask: u32, dwenabledoptions: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetInterfaceSafetyOptions)(windows_core::Interface::as_raw(self), riid, dwoptionsetmask, dwenabledoptions).ok()
+    }
+}
+#[repr(C)]
+pub struct IObjectSafety_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetInterfaceSafetyOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut u32, *mut u32) -> windows_core::HRESULT,
+    pub SetInterfaceSafetyOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPerPropertyBrowsing2, IPerPropertyBrowsing2_Vtbl, 0x51973c54_cb0c_11d0_b5c9_00a0244a0e7a);
+impl core::ops::Deref for IPerPropertyBrowsing2 {
+    type Target = windows_core::IUnknown;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IPerPropertyBrowsing2, windows_core::IUnknown);
+impl IPerPropertyBrowsing2 {
+    pub unsafe fn GetDisplayString(&self, dispid: i32) -> windows_core::Result<windows_core::BSTR> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).GetDisplayString)(windows_core::Interface::as_raw(self), dispid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
+    pub unsafe fn MapPropertyToPage(&self, dispid: i32) -> windows_core::Result<windows_core::GUID> {
+        let mut result__ = core::mem::zeroed();
+        (windows_core::Interface::vtable(self).MapPropertyToPage)(windows_core::Interface::as_raw(self), dispid, &mut result__).map(|| result__)
+    }
+    #[cfg(feature = "Win32_System_Ole")]
+    pub unsafe fn GetPredefinedStrings(&self, dispid: i32, pcastrings: *mut super::super::Ole::CALPOLESTR, pcacookies: *mut super::super::Ole::CADWORD) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).GetPredefinedStrings)(windows_core::Interface::as_raw(self), dispid, pcastrings, pcacookies).ok()
+    }
+    pub unsafe fn SetPredefinedValue(&self, dispid: i32, dwcookie: u32) -> windows_core::Result<()> {
+        (windows_core::Interface::vtable(self).SetPredefinedValue)(windows_core::Interface::as_raw(self), dispid, dwcookie).ok()
+    }
+}
+#[repr(C)]
+pub struct IPerPropertyBrowsing2_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub GetDisplayString: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub MapPropertyToPage: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut windows_core::GUID) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_System_Ole")]
+    pub GetPredefinedStrings: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::super::Ole::CALPOLESTR, *mut super::super::Ole::CADWORD) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Ole"))]
+    GetPredefinedStrings: usize,
+    pub SetPredefinedValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32) -> windows_core::HRESULT,
+}
+pub const ABNORMAL_RESET_DETECTED: BUGCHECK_ERROR = BUGCHECK_ERROR(327u32);
+pub const ACPI_BIOS_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(165u32);
+pub const ACPI_BIOS_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(224u32);
+pub const ACPI_DRIVER_INTERNAL: BUGCHECK_ERROR = BUGCHECK_ERROR(163u32);
+pub const ACPI_FIRMWARE_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(464u32);
+pub const ACTIVE_EX_WORKER_THREAD_TERMINATION: BUGCHECK_ERROR = BUGCHECK_ERROR(233u32);
+pub const AGP_GART_CORRUPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(261u32);
+pub const AGP_ILLEGALLY_REPROGRAMMED: BUGCHECK_ERROR = BUGCHECK_ERROR(262u32);
+pub const AGP_INTERNAL: BUGCHECK_ERROR = BUGCHECK_ERROR(277u32);
+pub const AGP_INVALID_ACCESS: BUGCHECK_ERROR = BUGCHECK_ERROR(260u32);
+pub const APC_INDEX_MISMATCH: BUGCHECK_ERROR = BUGCHECK_ERROR(1u32);
 pub const API_VERSION_NUMBER: u32 = 12u32;
-pub const APP_TAGGING_INITIALIZATION_FAILED: BUGCHECK_ERROR = 266u32;
-pub const ASSIGN_DRIVE_LETTERS_FAILED: BUGCHECK_ERROR = 114u32;
-pub const ATDISK_DRIVER_INTERNAL: BUGCHECK_ERROR = 66u32;
-pub const ATTEMPTED_EXECUTE_OF_NOEXECUTE_MEMORY: BUGCHECK_ERROR = 252u32;
-pub const ATTEMPTED_SWITCH_FROM_DPC: BUGCHECK_ERROR = 184u32;
-pub const ATTEMPTED_WRITE_TO_CM_PROTECTED_STORAGE: BUGCHECK_ERROR = 284u32;
-pub const ATTEMPTED_WRITE_TO_READONLY_MEMORY: BUGCHECK_ERROR = 190u32;
-pub const AUDIT_FAILURE: BUGCHECK_ERROR = 134u32;
-pub const AZURE_DEVICE_FW_DUMP: BUGCHECK_ERROR = 482u32;
-pub const AddrMode1616: ADDRESS_MODE = 0i32;
-pub const AddrMode1632: ADDRESS_MODE = 1i32;
-pub const AddrModeFlat: ADDRESS_MODE = 3i32;
-pub const AddrModeReal: ADDRESS_MODE = 2i32;
-pub const BAD_EXHANDLE: BUGCHECK_ERROR = 167u32;
-pub const BAD_OBJECT_HEADER: BUGCHECK_ERROR = 393u32;
-pub const BAD_POOL_CALLER: BUGCHECK_ERROR = 194u32;
-pub const BAD_POOL_HEADER: BUGCHECK_ERROR = 25u32;
-pub const BAD_SYSTEM_CONFIG_INFO: BUGCHECK_ERROR = 116u32;
-pub const BC_BLUETOOTH_VERIFIER_FAULT: BUGCHECK_ERROR = 3070u32;
-pub const BC_BTHMINI_VERIFIER_FAULT: BUGCHECK_ERROR = 3071u32;
-pub const BGI_DETECTED_VIOLATION: BUGCHECK_ERROR = 177u32;
+pub const APP_TAGGING_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(266u32);
+pub const ASSIGN_DRIVE_LETTERS_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(114u32);
+pub const ATDISK_DRIVER_INTERNAL: BUGCHECK_ERROR = BUGCHECK_ERROR(66u32);
+pub const ATTEMPTED_EXECUTE_OF_NOEXECUTE_MEMORY: BUGCHECK_ERROR = BUGCHECK_ERROR(252u32);
+pub const ATTEMPTED_SWITCH_FROM_DPC: BUGCHECK_ERROR = BUGCHECK_ERROR(184u32);
+pub const ATTEMPTED_WRITE_TO_CM_PROTECTED_STORAGE: BUGCHECK_ERROR = BUGCHECK_ERROR(284u32);
+pub const ATTEMPTED_WRITE_TO_READONLY_MEMORY: BUGCHECK_ERROR = BUGCHECK_ERROR(190u32);
+pub const AUDIT_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(134u32);
+pub const AZURE_DEVICE_FW_DUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(482u32);
+pub const AddrMode1616: ADDRESS_MODE = ADDRESS_MODE(0i32);
+pub const AddrMode1632: ADDRESS_MODE = ADDRESS_MODE(1i32);
+pub const AddrModeFlat: ADDRESS_MODE = ADDRESS_MODE(3i32);
+pub const AddrModeReal: ADDRESS_MODE = ADDRESS_MODE(2i32);
+pub const BAD_EXHANDLE: BUGCHECK_ERROR = BUGCHECK_ERROR(167u32);
+pub const BAD_OBJECT_HEADER: BUGCHECK_ERROR = BUGCHECK_ERROR(393u32);
+pub const BAD_POOL_CALLER: BUGCHECK_ERROR = BUGCHECK_ERROR(194u32);
+pub const BAD_POOL_HEADER: BUGCHECK_ERROR = BUGCHECK_ERROR(25u32);
+pub const BAD_SYSTEM_CONFIG_INFO: BUGCHECK_ERROR = BUGCHECK_ERROR(116u32);
+pub const BC_BLUETOOTH_VERIFIER_FAULT: BUGCHECK_ERROR = BUGCHECK_ERROR(3070u32);
+pub const BC_BTHMINI_VERIFIER_FAULT: BUGCHECK_ERROR = BUGCHECK_ERROR(3071u32);
+pub const BGI_DETECTED_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(177u32);
 pub const BIND_ALL_IMAGES: u32 = 4u32;
 pub const BIND_CACHE_IMPORT_DLLS: u32 = 8u32;
 pub const BIND_NO_BOUND_IMPORTS: u32 = 1u32;
 pub const BIND_NO_UPDATE: u32 = 2u32;
 pub const BIND_REPORT_64BIT_VA: u32 = 16u32;
-pub const BITLOCKER_FATAL_ERROR: BUGCHECK_ERROR = 288u32;
-pub const BLUETOOTH_ERROR_RECOVERY_LIVEDUMP: BUGCHECK_ERROR = 422u32;
-pub const BOOTING_IN_SAFEMODE_DSREPAIR: BUGCHECK_ERROR = 170u32;
-pub const BOOTING_IN_SAFEMODE_MINIMAL: BUGCHECK_ERROR = 168u32;
-pub const BOOTING_IN_SAFEMODE_NETWORK: BUGCHECK_ERROR = 169u32;
-pub const BOOTLOG_ENABLED: BUGCHECK_ERROR = 183u32;
-pub const BOOTLOG_LOADED: BUGCHECK_ERROR = 181u32;
-pub const BOOTLOG_NOT_LOADED: BUGCHECK_ERROR = 182u32;
-pub const BOOTPROC_INITIALIZATION_FAILED: BUGCHECK_ERROR = 110u32;
-pub const BOUND_IMAGE_UNSUPPORTED: BUGCHECK_ERROR = 151u32;
-pub const BREAKAWAY_CABLE_TRANSITION: BUGCHECK_ERROR = 483u32;
-pub const BUGCHECK_CONTEXT_MODIFIER: BUGCHECK_ERROR = 2147483648u32;
-pub const BUGCODE_ID_DRIVER: BUGCHECK_ERROR = 210u32;
-pub const BUGCODE_MBBADAPTER_DRIVER: BUGCHECK_ERROR = 477u32;
-pub const BUGCODE_NDIS_DRIVER: BUGCHECK_ERROR = 124u32;
-pub const BUGCODE_NDIS_DRIVER_LIVE_DUMP: BUGCHECK_ERROR = 350u32;
-pub const BUGCODE_NETADAPTER_DRIVER: BUGCHECK_ERROR = 414u32;
-pub const BUGCODE_USB3_DRIVER: BUGCHECK_ERROR = 324u32;
-pub const BUGCODE_USB_DRIVER: BUGCHECK_ERROR = 254u32;
-pub const BUGCODE_WIFIADAPTER_DRIVER: BUGCHECK_ERROR = 478u32;
-pub const BindExpandFileHeaders: IMAGEHLP_STATUS_REASON = 10i32;
-pub const BindForwarder: IMAGEHLP_STATUS_REASON = 7i32;
-pub const BindForwarder32: IMAGEHLP_STATUS_REASON = 16i32;
-pub const BindForwarder64: IMAGEHLP_STATUS_REASON = 17i32;
-pub const BindForwarderNOT: IMAGEHLP_STATUS_REASON = 8i32;
-pub const BindForwarderNOT32: IMAGEHLP_STATUS_REASON = 18i32;
-pub const BindForwarderNOT64: IMAGEHLP_STATUS_REASON = 19i32;
-pub const BindImageComplete: IMAGEHLP_STATUS_REASON = 11i32;
-pub const BindImageModified: IMAGEHLP_STATUS_REASON = 9i32;
-pub const BindImportModule: IMAGEHLP_STATUS_REASON = 5i32;
-pub const BindImportModuleFailed: IMAGEHLP_STATUS_REASON = 3i32;
-pub const BindImportProcedure: IMAGEHLP_STATUS_REASON = 6i32;
-pub const BindImportProcedure32: IMAGEHLP_STATUS_REASON = 14i32;
-pub const BindImportProcedure64: IMAGEHLP_STATUS_REASON = 15i32;
-pub const BindImportProcedureFailed: IMAGEHLP_STATUS_REASON = 4i32;
-pub const BindMismatchedSymbols: IMAGEHLP_STATUS_REASON = 12i32;
-pub const BindNoRoomInImage: IMAGEHLP_STATUS_REASON = 2i32;
-pub const BindOutOfMemory: IMAGEHLP_STATUS_REASON = 0i32;
-pub const BindRvaToVaFailed: IMAGEHLP_STATUS_REASON = 1i32;
-pub const BindSymbolsNotUpdated: IMAGEHLP_STATUS_REASON = 13i32;
-pub const CACHE_INITIALIZATION_FAILED: BUGCHECK_ERROR = 102u32;
-pub const CACHE_MANAGER: BUGCHECK_ERROR = 52u32;
-pub const CALL_HAS_NOT_RETURNED_WATCHDOG_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 419u32;
-pub const CANCEL_STATE_IN_COMPLETED_IRP: BUGCHECK_ERROR = 72u32;
-pub const CANNOT_WRITE_CONFIGURATION: BUGCHECK_ERROR = 117u32;
+pub const BITLOCKER_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(288u32);
+pub const BLUETOOTH_ERROR_RECOVERY_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(422u32);
+pub const BOOTING_IN_SAFEMODE_DSREPAIR: BUGCHECK_ERROR = BUGCHECK_ERROR(170u32);
+pub const BOOTING_IN_SAFEMODE_MINIMAL: BUGCHECK_ERROR = BUGCHECK_ERROR(168u32);
+pub const BOOTING_IN_SAFEMODE_NETWORK: BUGCHECK_ERROR = BUGCHECK_ERROR(169u32);
+pub const BOOTLOG_ENABLED: BUGCHECK_ERROR = BUGCHECK_ERROR(183u32);
+pub const BOOTLOG_LOADED: BUGCHECK_ERROR = BUGCHECK_ERROR(181u32);
+pub const BOOTLOG_NOT_LOADED: BUGCHECK_ERROR = BUGCHECK_ERROR(182u32);
+pub const BOOTPROC_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(110u32);
+pub const BOUND_IMAGE_UNSUPPORTED: BUGCHECK_ERROR = BUGCHECK_ERROR(151u32);
+pub const BREAKAWAY_CABLE_TRANSITION: BUGCHECK_ERROR = BUGCHECK_ERROR(483u32);
+pub const BUGCHECK_CONTEXT_MODIFIER: BUGCHECK_ERROR = BUGCHECK_ERROR(2147483648u32);
+pub const BUGCODE_ID_DRIVER: BUGCHECK_ERROR = BUGCHECK_ERROR(210u32);
+pub const BUGCODE_MBBADAPTER_DRIVER: BUGCHECK_ERROR = BUGCHECK_ERROR(477u32);
+pub const BUGCODE_NDIS_DRIVER: BUGCHECK_ERROR = BUGCHECK_ERROR(124u32);
+pub const BUGCODE_NDIS_DRIVER_LIVE_DUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(350u32);
+pub const BUGCODE_NETADAPTER_DRIVER: BUGCHECK_ERROR = BUGCHECK_ERROR(414u32);
+pub const BUGCODE_USB3_DRIVER: BUGCHECK_ERROR = BUGCHECK_ERROR(324u32);
+pub const BUGCODE_USB_DRIVER: BUGCHECK_ERROR = BUGCHECK_ERROR(254u32);
+pub const BUGCODE_WIFIADAPTER_DRIVER: BUGCHECK_ERROR = BUGCHECK_ERROR(478u32);
+pub const BindExpandFileHeaders: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(10i32);
+pub const BindForwarder: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(7i32);
+pub const BindForwarder32: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(16i32);
+pub const BindForwarder64: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(17i32);
+pub const BindForwarderNOT: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(8i32);
+pub const BindForwarderNOT32: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(18i32);
+pub const BindForwarderNOT64: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(19i32);
+pub const BindImageComplete: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(11i32);
+pub const BindImageModified: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(9i32);
+pub const BindImportModule: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(5i32);
+pub const BindImportModuleFailed: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(3i32);
+pub const BindImportProcedure: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(6i32);
+pub const BindImportProcedure32: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(14i32);
+pub const BindImportProcedure64: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(15i32);
+pub const BindImportProcedureFailed: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(4i32);
+pub const BindMismatchedSymbols: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(12i32);
+pub const BindNoRoomInImage: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(2i32);
+pub const BindOutOfMemory: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(0i32);
+pub const BindRvaToVaFailed: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(1i32);
+pub const BindSymbolsNotUpdated: IMAGEHLP_STATUS_REASON = IMAGEHLP_STATUS_REASON(13i32);
+pub const CACHE_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(102u32);
+pub const CACHE_MANAGER: BUGCHECK_ERROR = BUGCHECK_ERROR(52u32);
+pub const CALL_HAS_NOT_RETURNED_WATCHDOG_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(419u32);
+pub const CANCEL_STATE_IN_COMPLETED_IRP: BUGCHECK_ERROR = BUGCHECK_ERROR(72u32);
+pub const CANNOT_WRITE_CONFIGURATION: BUGCHECK_ERROR = BUGCHECK_ERROR(117u32);
 pub const CBA_CHECK_ARM_MACHINE_THUMB_TYPE_OVERRIDE: u32 = 2147483648u32;
 pub const CBA_CHECK_ENGOPT_DISALLOW_NETWORK_PATHS: u32 = 1879048192u32;
 pub const CBA_DEBUG_INFO: u32 = 268435456u32;
@@ -104,7 +2982,7 @@ pub const CBA_SRCSRV_INFO: u32 = 536870912u32;
 pub const CBA_SYMBOLS_UNLOADED: u32 = 4u32;
 pub const CBA_UPDATE_STATUS_BAR: u32 = 1342177280u32;
 pub const CBA_XML_LOG: u32 = 2415919104u32;
-pub const CDFS_FILE_SYSTEM: BUGCHECK_ERROR = 38u32;
+pub const CDFS_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(38u32);
 pub const CERT_PE_IMAGE_DIGEST_ALL_IMPORT_INFO: u32 = 4u32;
 pub const CERT_PE_IMAGE_DIGEST_DEBUG_INFO: u32 = 1u32;
 pub const CERT_PE_IMAGE_DIGEST_NON_PE_INFO: u32 = 8u32;
@@ -115,150 +2993,150 @@ pub const CHECKSUM_MAP_FAILURE: u32 = 2u32;
 pub const CHECKSUM_OPEN_FAILURE: u32 = 1u32;
 pub const CHECKSUM_SUCCESS: u32 = 0u32;
 pub const CHECKSUM_UNICODE_FAILURE: u32 = 4u32;
-pub const CHIPSET_DETECTED_ERROR: BUGCHECK_ERROR = 185u32;
-pub const CID_HANDLE_CREATION: BUGCHECK_ERROR = 22u32;
-pub const CID_HANDLE_DELETION: BUGCHECK_ERROR = 23u32;
-pub const CLOCK_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 257u32;
-pub const CLUSTER_CLUSPORT_STATUS_IO_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 377u32;
-pub const CLUSTER_CSVFS_LIVEDUMP: BUGCHECK_ERROR = 392u32;
-pub const CLUSTER_CSV_CLUSSVC_DISCONNECT_WATCHDOG: BUGCHECK_ERROR = 368u32;
-pub const CLUSTER_CSV_CLUSTER_WATCHDOG_LIVEDUMP: BUGCHECK_ERROR = 363u32;
-pub const CLUSTER_CSV_SNAPSHOT_DEVICE_INFO_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 359u32;
-pub const CLUSTER_CSV_STATE_TRANSITION_INTERVAL_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 367u32;
-pub const CLUSTER_CSV_STATE_TRANSITION_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 360u32;
-pub const CLUSTER_CSV_STATUS_IO_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 357u32;
-pub const CLUSTER_CSV_VOLUME_ARRIVAL_LIVEDUMP: BUGCHECK_ERROR = 361u32;
-pub const CLUSTER_CSV_VOLUME_REMOVAL_LIVEDUMP: BUGCHECK_ERROR = 362u32;
-pub const CLUSTER_RESOURCE_CALL_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 358u32;
-pub const CLUSTER_SVHDX_LIVEDUMP: BUGCHECK_ERROR = 413u32;
-pub const CNSS_FILE_SYSTEM_FILTER: BUGCHECK_ERROR = 164u32;
-pub const CONFIG_INITIALIZATION_FAILED: BUGCHECK_ERROR = 103u32;
-pub const CONFIG_LIST_FAILED: BUGCHECK_ERROR = 115u32;
-pub const CONNECTED_STANDBY_WATCHDOG_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 351u32;
-pub const CONTEXT_ALL_AMD64: CONTEXT_FLAGS = 1048607u32;
-pub const CONTEXT_ALL_ARM: CONTEXT_FLAGS = 2097167u32;
-pub const CONTEXT_ALL_ARM64: CONTEXT_FLAGS = 4194335u32;
-pub const CONTEXT_ALL_X86: CONTEXT_FLAGS = 65599u32;
-pub const CONTEXT_AMD64: CONTEXT_FLAGS = 1048576u32;
-pub const CONTEXT_ARM: CONTEXT_FLAGS = 2097152u32;
-pub const CONTEXT_ARM64: CONTEXT_FLAGS = 4194304u32;
-pub const CONTEXT_CONTROL_AMD64: CONTEXT_FLAGS = 1048577u32;
-pub const CONTEXT_CONTROL_ARM: CONTEXT_FLAGS = 2097153u32;
-pub const CONTEXT_CONTROL_ARM64: CONTEXT_FLAGS = 4194305u32;
-pub const CONTEXT_CONTROL_X86: CONTEXT_FLAGS = 65537u32;
-pub const CONTEXT_DEBUG_REGISTERS_AMD64: CONTEXT_FLAGS = 1048592u32;
-pub const CONTEXT_DEBUG_REGISTERS_ARM: CONTEXT_FLAGS = 2097160u32;
-pub const CONTEXT_DEBUG_REGISTERS_ARM64: CONTEXT_FLAGS = 4194312u32;
-pub const CONTEXT_DEBUG_REGISTERS_X86: CONTEXT_FLAGS = 65552u32;
-pub const CONTEXT_EXCEPTION_ACTIVE_AMD64: CONTEXT_FLAGS = 134217728u32;
-pub const CONTEXT_EXCEPTION_ACTIVE_ARM: CONTEXT_FLAGS = 134217728u32;
-pub const CONTEXT_EXCEPTION_ACTIVE_ARM64: CONTEXT_FLAGS = 134217728u32;
-pub const CONTEXT_EXCEPTION_ACTIVE_X86: CONTEXT_FLAGS = 134217728u32;
-pub const CONTEXT_EXCEPTION_REPORTING_AMD64: CONTEXT_FLAGS = 2147483648u32;
-pub const CONTEXT_EXCEPTION_REPORTING_ARM: CONTEXT_FLAGS = 2147483648u32;
-pub const CONTEXT_EXCEPTION_REPORTING_ARM64: CONTEXT_FLAGS = 2147483648u32;
-pub const CONTEXT_EXCEPTION_REPORTING_X86: CONTEXT_FLAGS = 2147483648u32;
-pub const CONTEXT_EXCEPTION_REQUEST_AMD64: CONTEXT_FLAGS = 1073741824u32;
-pub const CONTEXT_EXCEPTION_REQUEST_ARM: CONTEXT_FLAGS = 1073741824u32;
-pub const CONTEXT_EXCEPTION_REQUEST_ARM64: CONTEXT_FLAGS = 1073741824u32;
-pub const CONTEXT_EXCEPTION_REQUEST_X86: CONTEXT_FLAGS = 1073741824u32;
-pub const CONTEXT_EXTENDED_REGISTERS_X86: CONTEXT_FLAGS = 65568u32;
-pub const CONTEXT_FLOATING_POINT_AMD64: CONTEXT_FLAGS = 1048584u32;
-pub const CONTEXT_FLOATING_POINT_ARM: CONTEXT_FLAGS = 2097156u32;
-pub const CONTEXT_FLOATING_POINT_ARM64: CONTEXT_FLAGS = 4194308u32;
-pub const CONTEXT_FLOATING_POINT_X86: CONTEXT_FLAGS = 65544u32;
-pub const CONTEXT_FULL_AMD64: CONTEXT_FLAGS = 1048587u32;
-pub const CONTEXT_FULL_ARM: CONTEXT_FLAGS = 2097159u32;
-pub const CONTEXT_FULL_ARM64: CONTEXT_FLAGS = 4194311u32;
-pub const CONTEXT_FULL_X86: CONTEXT_FLAGS = 65543u32;
-pub const CONTEXT_INTEGER_AMD64: CONTEXT_FLAGS = 1048578u32;
-pub const CONTEXT_INTEGER_ARM: CONTEXT_FLAGS = 2097154u32;
-pub const CONTEXT_INTEGER_ARM64: CONTEXT_FLAGS = 4194306u32;
-pub const CONTEXT_INTEGER_X86: CONTEXT_FLAGS = 65538u32;
-pub const CONTEXT_KERNEL_CET_AMD64: CONTEXT_FLAGS = 1048704u32;
-pub const CONTEXT_KERNEL_DEBUGGER_AMD64: CONTEXT_FLAGS = 67108864u32;
-pub const CONTEXT_RET_TO_GUEST_ARM64: CONTEXT_FLAGS = 1073741824u32;
-pub const CONTEXT_SEGMENTS_AMD64: CONTEXT_FLAGS = 1048580u32;
-pub const CONTEXT_SEGMENTS_X86: CONTEXT_FLAGS = 65540u32;
-pub const CONTEXT_SERVICE_ACTIVE_AMD64: CONTEXT_FLAGS = 268435456u32;
-pub const CONTEXT_SERVICE_ACTIVE_ARM: CONTEXT_FLAGS = 268435456u32;
-pub const CONTEXT_SERVICE_ACTIVE_ARM64: CONTEXT_FLAGS = 268435456u32;
-pub const CONTEXT_SERVICE_ACTIVE_X86: CONTEXT_FLAGS = 268435456u32;
-pub const CONTEXT_UNWOUND_TO_CALL_AMD64: CONTEXT_FLAGS = 536870912u32;
-pub const CONTEXT_UNWOUND_TO_CALL_ARM: CONTEXT_FLAGS = 536870912u32;
-pub const CONTEXT_UNWOUND_TO_CALL_ARM64: CONTEXT_FLAGS = 536870912u32;
-pub const CONTEXT_X18_ARM64: CONTEXT_FLAGS = 4194320u32;
-pub const CONTEXT_X86: CONTEXT_FLAGS = 65536u32;
-pub const CONTEXT_XSTATE_AMD64: CONTEXT_FLAGS = 1048640u32;
-pub const CONTEXT_XSTATE_X86: CONTEXT_FLAGS = 65600u32;
-pub const COREMSGCALL_INTERNAL_ERROR: BUGCHECK_ERROR = 371u32;
-pub const COREMSG_INTERNAL_ERROR: BUGCHECK_ERROR = 372u32;
-pub const CORRUPT_ACCESS_TOKEN: BUGCHECK_ERROR = 40u32;
-pub const CRASHDUMP_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 486u32;
-pub const CREATE_DELETE_LOCK_NOT_LOCKED: BUGCHECK_ERROR = 20u32;
-pub const CREATE_PROCESS_DEBUG_EVENT: DEBUG_EVENT_CODE = 3u32;
-pub const CREATE_THREAD_DEBUG_EVENT: DEBUG_EVENT_CODE = 2u32;
-pub const CRITICAL_INITIALIZATION_FAILURE: BUGCHECK_ERROR = 317u32;
-pub const CRITICAL_OBJECT_TERMINATION: BUGCHECK_ERROR = 244u32;
-pub const CRITICAL_PROCESS_DIED: BUGCHECK_ERROR = 239u32;
-pub const CRITICAL_SERVICE_FAILED: BUGCHECK_ERROR = 90u32;
-pub const CRITICAL_STRUCTURE_CORRUPTION: BUGCHECK_ERROR = 265u32;
-pub const CRYPTO_LIBRARY_INTERNAL_ERROR: BUGCHECK_ERROR = 369u32;
-pub const CRYPTO_SELF_TEST_FAILURE: BUGCHECK_ERROR = 291u32;
-pub const CancelCallback: MINIDUMP_CALLBACK_TYPE = 6i32;
-pub const CommentStreamA: MINIDUMP_STREAM_TYPE = 10i32;
-pub const CommentStreamW: MINIDUMP_STREAM_TYPE = 11i32;
-pub const DAM_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 491u32;
-pub const DATA_BUS_ERROR: BUGCHECK_ERROR = 46u32;
-pub const DATA_COHERENCY_EXCEPTION: BUGCHECK_ERROR = 85u32;
-pub const DBGPROP_ATTRIB_ACCESS_FINAL: DBGPROP_ATTRIB_FLAGS = 32768i32;
-pub const DBGPROP_ATTRIB_ACCESS_PRIVATE: DBGPROP_ATTRIB_FLAGS = 8192i32;
-pub const DBGPROP_ATTRIB_ACCESS_PROTECTED: DBGPROP_ATTRIB_FLAGS = 16384i32;
-pub const DBGPROP_ATTRIB_ACCESS_PUBLIC: DBGPROP_ATTRIB_FLAGS = 4096i32;
-pub const DBGPROP_ATTRIB_FRAME_INCATCHBLOCK: DBGPROP_ATTRIB_FLAGS = 33554432i32;
-pub const DBGPROP_ATTRIB_FRAME_INFINALLYBLOCK: DBGPROP_ATTRIB_FLAGS = 67108864i32;
-pub const DBGPROP_ATTRIB_FRAME_INTRYBLOCK: DBGPROP_ATTRIB_FLAGS = 16777216i32;
-pub const DBGPROP_ATTRIB_HAS_EXTENDED_ATTRIBS: DBGPROP_ATTRIB_FLAGS = 8388608i32;
-pub const DBGPROP_ATTRIB_NO_ATTRIB: DBGPROP_ATTRIB_FLAGS = 0i32;
-pub const DBGPROP_ATTRIB_STORAGE_FIELD: DBGPROP_ATTRIB_FLAGS = 262144i32;
-pub const DBGPROP_ATTRIB_STORAGE_GLOBAL: DBGPROP_ATTRIB_FLAGS = 65536i32;
-pub const DBGPROP_ATTRIB_STORAGE_STATIC: DBGPROP_ATTRIB_FLAGS = 131072i32;
-pub const DBGPROP_ATTRIB_STORAGE_VIRTUAL: DBGPROP_ATTRIB_FLAGS = 524288i32;
-pub const DBGPROP_ATTRIB_TYPE_IS_CONSTANT: DBGPROP_ATTRIB_FLAGS = 1048576i32;
-pub const DBGPROP_ATTRIB_TYPE_IS_SYNCHRONIZED: DBGPROP_ATTRIB_FLAGS = 2097152i32;
-pub const DBGPROP_ATTRIB_TYPE_IS_VOLATILE: DBGPROP_ATTRIB_FLAGS = 4194304i32;
-pub const DBGPROP_ATTRIB_VALUE_IS_EVENT: DBGPROP_ATTRIB_FLAGS = 512i32;
-pub const DBGPROP_ATTRIB_VALUE_IS_EXPANDABLE: DBGPROP_ATTRIB_FLAGS = 16i32;
-pub const DBGPROP_ATTRIB_VALUE_IS_FAKE: DBGPROP_ATTRIB_FLAGS = 32i32;
-pub const DBGPROP_ATTRIB_VALUE_IS_INVALID: DBGPROP_ATTRIB_FLAGS = 8i32;
-pub const DBGPROP_ATTRIB_VALUE_IS_METHOD: DBGPROP_ATTRIB_FLAGS = 256i32;
-pub const DBGPROP_ATTRIB_VALUE_IS_RAW_STRING: DBGPROP_ATTRIB_FLAGS = 1024i32;
-pub const DBGPROP_ATTRIB_VALUE_IS_RETURN_VALUE: DBGPROP_ATTRIB_FLAGS = 134217728i32;
-pub const DBGPROP_ATTRIB_VALUE_PENDING_MUTATION: DBGPROP_ATTRIB_FLAGS = 268435456i32;
-pub const DBGPROP_ATTRIB_VALUE_READONLY: DBGPROP_ATTRIB_FLAGS = 2048i32;
-pub const DBGPROP_INFO_ATTRIBUTES: DBGPROP_INFO = 8i32;
-pub const DBGPROP_INFO_AUTOEXPAND: DBGPROP_INFO = 134217728i32;
-pub const DBGPROP_INFO_BEAUTIFY: DBGPROP_INFO = 33554432i32;
-pub const DBGPROP_INFO_CALLTOSTRING: DBGPROP_INFO = 67108864i32;
-pub const DBGPROP_INFO_DEBUGPROP: DBGPROP_INFO = 16i32;
-pub const DBGPROP_INFO_FULLNAME: DBGPROP_INFO = 32i32;
-pub const DBGPROP_INFO_NAME: DBGPROP_INFO = 1i32;
-pub const DBGPROP_INFO_TYPE: DBGPROP_INFO = 2i32;
-pub const DBGPROP_INFO_VALUE: DBGPROP_INFO = 4i32;
-pub const DBHHEADER_CVMISC: MODLOAD_DATA_TYPE = 2u32;
-pub const DBHHEADER_DEBUGDIRS: MODLOAD_DATA_TYPE = 1u32;
+pub const CHIPSET_DETECTED_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(185u32);
+pub const CID_HANDLE_CREATION: BUGCHECK_ERROR = BUGCHECK_ERROR(22u32);
+pub const CID_HANDLE_DELETION: BUGCHECK_ERROR = BUGCHECK_ERROR(23u32);
+pub const CLOCK_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(257u32);
+pub const CLUSTER_CLUSPORT_STATUS_IO_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(377u32);
+pub const CLUSTER_CSVFS_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(392u32);
+pub const CLUSTER_CSV_CLUSSVC_DISCONNECT_WATCHDOG: BUGCHECK_ERROR = BUGCHECK_ERROR(368u32);
+pub const CLUSTER_CSV_CLUSTER_WATCHDOG_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(363u32);
+pub const CLUSTER_CSV_SNAPSHOT_DEVICE_INFO_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(359u32);
+pub const CLUSTER_CSV_STATE_TRANSITION_INTERVAL_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(367u32);
+pub const CLUSTER_CSV_STATE_TRANSITION_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(360u32);
+pub const CLUSTER_CSV_STATUS_IO_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(357u32);
+pub const CLUSTER_CSV_VOLUME_ARRIVAL_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(361u32);
+pub const CLUSTER_CSV_VOLUME_REMOVAL_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(362u32);
+pub const CLUSTER_RESOURCE_CALL_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(358u32);
+pub const CLUSTER_SVHDX_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(413u32);
+pub const CNSS_FILE_SYSTEM_FILTER: BUGCHECK_ERROR = BUGCHECK_ERROR(164u32);
+pub const CONFIG_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(103u32);
+pub const CONFIG_LIST_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(115u32);
+pub const CONNECTED_STANDBY_WATCHDOG_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(351u32);
+pub const CONTEXT_ALL_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048607u32);
+pub const CONTEXT_ALL_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2097167u32);
+pub const CONTEXT_ALL_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(4194335u32);
+pub const CONTEXT_ALL_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65599u32);
+pub const CONTEXT_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048576u32);
+pub const CONTEXT_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2097152u32);
+pub const CONTEXT_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(4194304u32);
+pub const CONTEXT_CONTROL_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048577u32);
+pub const CONTEXT_CONTROL_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2097153u32);
+pub const CONTEXT_CONTROL_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(4194305u32);
+pub const CONTEXT_CONTROL_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65537u32);
+pub const CONTEXT_DEBUG_REGISTERS_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048592u32);
+pub const CONTEXT_DEBUG_REGISTERS_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2097160u32);
+pub const CONTEXT_DEBUG_REGISTERS_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(4194312u32);
+pub const CONTEXT_DEBUG_REGISTERS_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65552u32);
+pub const CONTEXT_EXCEPTION_ACTIVE_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(134217728u32);
+pub const CONTEXT_EXCEPTION_ACTIVE_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(134217728u32);
+pub const CONTEXT_EXCEPTION_ACTIVE_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(134217728u32);
+pub const CONTEXT_EXCEPTION_ACTIVE_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(134217728u32);
+pub const CONTEXT_EXCEPTION_REPORTING_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(2147483648u32);
+pub const CONTEXT_EXCEPTION_REPORTING_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2147483648u32);
+pub const CONTEXT_EXCEPTION_REPORTING_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(2147483648u32);
+pub const CONTEXT_EXCEPTION_REPORTING_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(2147483648u32);
+pub const CONTEXT_EXCEPTION_REQUEST_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1073741824u32);
+pub const CONTEXT_EXCEPTION_REQUEST_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(1073741824u32);
+pub const CONTEXT_EXCEPTION_REQUEST_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(1073741824u32);
+pub const CONTEXT_EXCEPTION_REQUEST_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(1073741824u32);
+pub const CONTEXT_EXTENDED_REGISTERS_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65568u32);
+pub const CONTEXT_FLOATING_POINT_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048584u32);
+pub const CONTEXT_FLOATING_POINT_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2097156u32);
+pub const CONTEXT_FLOATING_POINT_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(4194308u32);
+pub const CONTEXT_FLOATING_POINT_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65544u32);
+pub const CONTEXT_FULL_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048587u32);
+pub const CONTEXT_FULL_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2097159u32);
+pub const CONTEXT_FULL_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(4194311u32);
+pub const CONTEXT_FULL_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65543u32);
+pub const CONTEXT_INTEGER_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048578u32);
+pub const CONTEXT_INTEGER_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(2097154u32);
+pub const CONTEXT_INTEGER_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(4194306u32);
+pub const CONTEXT_INTEGER_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65538u32);
+pub const CONTEXT_KERNEL_CET_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048704u32);
+pub const CONTEXT_KERNEL_DEBUGGER_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(67108864u32);
+pub const CONTEXT_RET_TO_GUEST_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(1073741824u32);
+pub const CONTEXT_SEGMENTS_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048580u32);
+pub const CONTEXT_SEGMENTS_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65540u32);
+pub const CONTEXT_SERVICE_ACTIVE_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(268435456u32);
+pub const CONTEXT_SERVICE_ACTIVE_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(268435456u32);
+pub const CONTEXT_SERVICE_ACTIVE_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(268435456u32);
+pub const CONTEXT_SERVICE_ACTIVE_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(268435456u32);
+pub const CONTEXT_UNWOUND_TO_CALL_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(536870912u32);
+pub const CONTEXT_UNWOUND_TO_CALL_ARM: CONTEXT_FLAGS = CONTEXT_FLAGS(536870912u32);
+pub const CONTEXT_UNWOUND_TO_CALL_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(536870912u32);
+pub const CONTEXT_X18_ARM64: CONTEXT_FLAGS = CONTEXT_FLAGS(4194320u32);
+pub const CONTEXT_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65536u32);
+pub const CONTEXT_XSTATE_AMD64: CONTEXT_FLAGS = CONTEXT_FLAGS(1048640u32);
+pub const CONTEXT_XSTATE_X86: CONTEXT_FLAGS = CONTEXT_FLAGS(65600u32);
+pub const COREMSGCALL_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(371u32);
+pub const COREMSG_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(372u32);
+pub const CORRUPT_ACCESS_TOKEN: BUGCHECK_ERROR = BUGCHECK_ERROR(40u32);
+pub const CRASHDUMP_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(486u32);
+pub const CREATE_DELETE_LOCK_NOT_LOCKED: BUGCHECK_ERROR = BUGCHECK_ERROR(20u32);
+pub const CREATE_PROCESS_DEBUG_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(3u32);
+pub const CREATE_THREAD_DEBUG_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(2u32);
+pub const CRITICAL_INITIALIZATION_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(317u32);
+pub const CRITICAL_OBJECT_TERMINATION: BUGCHECK_ERROR = BUGCHECK_ERROR(244u32);
+pub const CRITICAL_PROCESS_DIED: BUGCHECK_ERROR = BUGCHECK_ERROR(239u32);
+pub const CRITICAL_SERVICE_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(90u32);
+pub const CRITICAL_STRUCTURE_CORRUPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(265u32);
+pub const CRYPTO_LIBRARY_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(369u32);
+pub const CRYPTO_SELF_TEST_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(291u32);
+pub const CancelCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(6i32);
+pub const CommentStreamA: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(10i32);
+pub const CommentStreamW: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(11i32);
+pub const DAM_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(491u32);
+pub const DATA_BUS_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(46u32);
+pub const DATA_COHERENCY_EXCEPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(85u32);
+pub const DBGPROP_ATTRIB_ACCESS_FINAL: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(32768i32);
+pub const DBGPROP_ATTRIB_ACCESS_PRIVATE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(8192i32);
+pub const DBGPROP_ATTRIB_ACCESS_PROTECTED: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(16384i32);
+pub const DBGPROP_ATTRIB_ACCESS_PUBLIC: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(4096i32);
+pub const DBGPROP_ATTRIB_FRAME_INCATCHBLOCK: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(33554432i32);
+pub const DBGPROP_ATTRIB_FRAME_INFINALLYBLOCK: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(67108864i32);
+pub const DBGPROP_ATTRIB_FRAME_INTRYBLOCK: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(16777216i32);
+pub const DBGPROP_ATTRIB_HAS_EXTENDED_ATTRIBS: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(8388608i32);
+pub const DBGPROP_ATTRIB_NO_ATTRIB: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(0i32);
+pub const DBGPROP_ATTRIB_STORAGE_FIELD: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(262144i32);
+pub const DBGPROP_ATTRIB_STORAGE_GLOBAL: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(65536i32);
+pub const DBGPROP_ATTRIB_STORAGE_STATIC: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(131072i32);
+pub const DBGPROP_ATTRIB_STORAGE_VIRTUAL: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(524288i32);
+pub const DBGPROP_ATTRIB_TYPE_IS_CONSTANT: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(1048576i32);
+pub const DBGPROP_ATTRIB_TYPE_IS_SYNCHRONIZED: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(2097152i32);
+pub const DBGPROP_ATTRIB_TYPE_IS_VOLATILE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(4194304i32);
+pub const DBGPROP_ATTRIB_VALUE_IS_EVENT: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(512i32);
+pub const DBGPROP_ATTRIB_VALUE_IS_EXPANDABLE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(16i32);
+pub const DBGPROP_ATTRIB_VALUE_IS_FAKE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(32i32);
+pub const DBGPROP_ATTRIB_VALUE_IS_INVALID: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(8i32);
+pub const DBGPROP_ATTRIB_VALUE_IS_METHOD: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(256i32);
+pub const DBGPROP_ATTRIB_VALUE_IS_RAW_STRING: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(1024i32);
+pub const DBGPROP_ATTRIB_VALUE_IS_RETURN_VALUE: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(134217728i32);
+pub const DBGPROP_ATTRIB_VALUE_PENDING_MUTATION: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(268435456i32);
+pub const DBGPROP_ATTRIB_VALUE_READONLY: DBGPROP_ATTRIB_FLAGS = DBGPROP_ATTRIB_FLAGS(2048i32);
+pub const DBGPROP_INFO_ATTRIBUTES: DBGPROP_INFO = DBGPROP_INFO(8i32);
+pub const DBGPROP_INFO_AUTOEXPAND: DBGPROP_INFO = DBGPROP_INFO(134217728i32);
+pub const DBGPROP_INFO_BEAUTIFY: DBGPROP_INFO = DBGPROP_INFO(33554432i32);
+pub const DBGPROP_INFO_CALLTOSTRING: DBGPROP_INFO = DBGPROP_INFO(67108864i32);
+pub const DBGPROP_INFO_DEBUGPROP: DBGPROP_INFO = DBGPROP_INFO(16i32);
+pub const DBGPROP_INFO_FULLNAME: DBGPROP_INFO = DBGPROP_INFO(32i32);
+pub const DBGPROP_INFO_NAME: DBGPROP_INFO = DBGPROP_INFO(1i32);
+pub const DBGPROP_INFO_TYPE: DBGPROP_INFO = DBGPROP_INFO(2i32);
+pub const DBGPROP_INFO_VALUE: DBGPROP_INFO = DBGPROP_INFO(4i32);
+pub const DBHHEADER_CVMISC: MODLOAD_DATA_TYPE = MODLOAD_DATA_TYPE(2u32);
+pub const DBHHEADER_DEBUGDIRS: MODLOAD_DATA_TYPE = MODLOAD_DATA_TYPE(1u32);
 pub const DBHHEADER_PDBGUID: u32 = 3u32;
-pub const DEREF_UNKNOWN_LOGON_SESSION: BUGCHECK_ERROR = 70u32;
-pub const DEVICE_DIAGNOSTIC_LOG_LIVEDUMP: BUGCHECK_ERROR = 481u32;
-pub const DEVICE_QUEUE_NOT_BUSY: BUGCHECK_ERROR = 2u32;
-pub const DEVICE_REFERENCE_COUNT_NOT_ZERO: BUGCHECK_ERROR = 54u32;
-pub const DFSC_FILE_SYSTEM: BUGCHECK_ERROR = 267u32;
-pub const DFS_FILE_SYSTEM: BUGCHECK_ERROR = 130u32;
-pub const DIRECTED_FX_TRANSITION_LIVEDUMP: BUGCHECK_ERROR = 425u32;
-pub const DIRTY_MAPPED_PAGES_CONGESTION: BUGCHECK_ERROR = 235u32;
-pub const DIRTY_NOWRITE_PAGES_CONGESTION: BUGCHECK_ERROR = 253u32;
-pub const DISORDERLY_SHUTDOWN: BUGCHECK_ERROR = 243u32;
-pub const DMA_COMMON_BUFFER_VECTOR_ERROR: BUGCHECK_ERROR = 476u32;
+pub const DEREF_UNKNOWN_LOGON_SESSION: BUGCHECK_ERROR = BUGCHECK_ERROR(70u32);
+pub const DEVICE_DIAGNOSTIC_LOG_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(481u32);
+pub const DEVICE_QUEUE_NOT_BUSY: BUGCHECK_ERROR = BUGCHECK_ERROR(2u32);
+pub const DEVICE_REFERENCE_COUNT_NOT_ZERO: BUGCHECK_ERROR = BUGCHECK_ERROR(54u32);
+pub const DFSC_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(267u32);
+pub const DFS_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(130u32);
+pub const DIRECTED_FX_TRANSITION_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(425u32);
+pub const DIRTY_MAPPED_PAGES_CONGESTION: BUGCHECK_ERROR = BUGCHECK_ERROR(235u32);
+pub const DIRTY_NOWRITE_PAGES_CONGESTION: BUGCHECK_ERROR = BUGCHECK_ERROR(253u32);
+pub const DISORDERLY_SHUTDOWN: BUGCHECK_ERROR = BUGCHECK_ERROR(243u32);
+pub const DMA_COMMON_BUFFER_VECTOR_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(476u32);
 pub const DMP_CONTEXT_RECORD_SIZE_32: u32 = 1200u32;
 pub const DMP_CONTEXT_RECORD_SIZE_64: u32 = 3000u32;
 pub const DMP_HEADER_COMMENT_SIZE: u32 = 128u32;
@@ -268,57 +3146,57 @@ pub const DMP_RESERVED_0_SIZE_32: u32 = 1760u32;
 pub const DMP_RESERVED_0_SIZE_64: u32 = 4008u32;
 pub const DMP_RESERVED_2_SIZE_32: u32 = 16u32;
 pub const DMP_RESERVED_3_SIZE_32: u32 = 56u32;
-pub const DPC_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 258u32;
-pub const DPC_WATCHDOG_VIOLATION: BUGCHECK_ERROR = 307u32;
-pub const DRIPS_SW_HW_DIVERGENCE_LIVEDUMP: BUGCHECK_ERROR = 420u32;
-pub const DRIVER_CAUGHT_MODIFYING_FREED_POOL: BUGCHECK_ERROR = 198u32;
-pub const DRIVER_CORRUPTED_EXPOOL: BUGCHECK_ERROR = 197u32;
-pub const DRIVER_CORRUPTED_MMPOOL: BUGCHECK_ERROR = 208u32;
-pub const DRIVER_CORRUPTED_SYSPTES: BUGCHECK_ERROR = 219u32;
-pub const DRIVER_INVALID_CRUNTIME_PARAMETER: BUGCHECK_ERROR = 272u32;
-pub const DRIVER_INVALID_STACK_ACCESS: BUGCHECK_ERROR = 220u32;
-pub const DRIVER_IRQL_NOT_LESS_OR_EQUAL: BUGCHECK_ERROR = 209u32;
-pub const DRIVER_LEFT_LOCKED_PAGES_IN_PROCESS: BUGCHECK_ERROR = 203u32;
-pub const DRIVER_OVERRAN_STACK_BUFFER: BUGCHECK_ERROR = 247u32;
-pub const DRIVER_PAGE_FAULT_BEYOND_END_OF_ALLOCATION: BUGCHECK_ERROR = 214u32;
-pub const DRIVER_PAGE_FAULT_BEYOND_END_OF_ALLOCATION_M: BUGCHECK_ERROR = 268435670u32;
-pub const DRIVER_PAGE_FAULT_IN_FREED_SPECIAL_POOL: BUGCHECK_ERROR = 213u32;
-pub const DRIVER_PNP_WATCHDOG: BUGCHECK_ERROR = 469u32;
-pub const DRIVER_PORTION_MUST_BE_NONPAGED: BUGCHECK_ERROR = 211u32;
-pub const DRIVER_POWER_STATE_FAILURE: BUGCHECK_ERROR = 159u32;
-pub const DRIVER_RETURNED_HOLDING_CANCEL_LOCK: BUGCHECK_ERROR = 283u32;
-pub const DRIVER_RETURNED_STATUS_REPARSE_FOR_VOLUME_OPEN: BUGCHECK_ERROR = 249u32;
-pub const DRIVER_UNLOADED_WITHOUT_CANCELLING_PENDING_OPERATIONS: BUGCHECK_ERROR = 206u32;
-pub const DRIVER_UNMAPPING_INVALID_VIEW: BUGCHECK_ERROR = 215u32;
-pub const DRIVER_USED_EXCESSIVE_PTES: BUGCHECK_ERROR = 216u32;
-pub const DRIVER_VERIFIER_DETECTED_VIOLATION: BUGCHECK_ERROR = 196u32;
-pub const DRIVER_VERIFIER_DETECTED_VIOLATION_LIVEDUMP: BUGCHECK_ERROR = 452u32;
-pub const DRIVER_VERIFIER_DMA_VIOLATION: BUGCHECK_ERROR = 230u32;
-pub const DRIVER_VERIFIER_IOMANAGER_VIOLATION: BUGCHECK_ERROR = 201u32;
-pub const DRIVER_VERIFIER_TRACKING_LIVE_DUMP: BUGCHECK_ERROR = 485u32;
-pub const DRIVER_VIOLATION: BUGCHECK_ERROR = 289u32;
-pub const DRIVE_EXTENDER: BUGCHECK_ERROR = 308u32;
+pub const DPC_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(258u32);
+pub const DPC_WATCHDOG_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(307u32);
+pub const DRIPS_SW_HW_DIVERGENCE_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(420u32);
+pub const DRIVER_CAUGHT_MODIFYING_FREED_POOL: BUGCHECK_ERROR = BUGCHECK_ERROR(198u32);
+pub const DRIVER_CORRUPTED_EXPOOL: BUGCHECK_ERROR = BUGCHECK_ERROR(197u32);
+pub const DRIVER_CORRUPTED_MMPOOL: BUGCHECK_ERROR = BUGCHECK_ERROR(208u32);
+pub const DRIVER_CORRUPTED_SYSPTES: BUGCHECK_ERROR = BUGCHECK_ERROR(219u32);
+pub const DRIVER_INVALID_CRUNTIME_PARAMETER: BUGCHECK_ERROR = BUGCHECK_ERROR(272u32);
+pub const DRIVER_INVALID_STACK_ACCESS: BUGCHECK_ERROR = BUGCHECK_ERROR(220u32);
+pub const DRIVER_IRQL_NOT_LESS_OR_EQUAL: BUGCHECK_ERROR = BUGCHECK_ERROR(209u32);
+pub const DRIVER_LEFT_LOCKED_PAGES_IN_PROCESS: BUGCHECK_ERROR = BUGCHECK_ERROR(203u32);
+pub const DRIVER_OVERRAN_STACK_BUFFER: BUGCHECK_ERROR = BUGCHECK_ERROR(247u32);
+pub const DRIVER_PAGE_FAULT_BEYOND_END_OF_ALLOCATION: BUGCHECK_ERROR = BUGCHECK_ERROR(214u32);
+pub const DRIVER_PAGE_FAULT_BEYOND_END_OF_ALLOCATION_M: BUGCHECK_ERROR = BUGCHECK_ERROR(268435670u32);
+pub const DRIVER_PAGE_FAULT_IN_FREED_SPECIAL_POOL: BUGCHECK_ERROR = BUGCHECK_ERROR(213u32);
+pub const DRIVER_PNP_WATCHDOG: BUGCHECK_ERROR = BUGCHECK_ERROR(469u32);
+pub const DRIVER_PORTION_MUST_BE_NONPAGED: BUGCHECK_ERROR = BUGCHECK_ERROR(211u32);
+pub const DRIVER_POWER_STATE_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(159u32);
+pub const DRIVER_RETURNED_HOLDING_CANCEL_LOCK: BUGCHECK_ERROR = BUGCHECK_ERROR(283u32);
+pub const DRIVER_RETURNED_STATUS_REPARSE_FOR_VOLUME_OPEN: BUGCHECK_ERROR = BUGCHECK_ERROR(249u32);
+pub const DRIVER_UNLOADED_WITHOUT_CANCELLING_PENDING_OPERATIONS: BUGCHECK_ERROR = BUGCHECK_ERROR(206u32);
+pub const DRIVER_UNMAPPING_INVALID_VIEW: BUGCHECK_ERROR = BUGCHECK_ERROR(215u32);
+pub const DRIVER_USED_EXCESSIVE_PTES: BUGCHECK_ERROR = BUGCHECK_ERROR(216u32);
+pub const DRIVER_VERIFIER_DETECTED_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(196u32);
+pub const DRIVER_VERIFIER_DETECTED_VIOLATION_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(452u32);
+pub const DRIVER_VERIFIER_DMA_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(230u32);
+pub const DRIVER_VERIFIER_IOMANAGER_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(201u32);
+pub const DRIVER_VERIFIER_TRACKING_LIVE_DUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(485u32);
+pub const DRIVER_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(289u32);
+pub const DRIVE_EXTENDER: BUGCHECK_ERROR = BUGCHECK_ERROR(308u32);
 pub const DSLFLAG_MISMATCHED_DBG: u32 = 2u32;
 pub const DSLFLAG_MISMATCHED_PDB: u32 = 1u32;
 pub const DUMP_SUMMARY_VALID_CURRENT_USER_VA: u32 = 2u32;
 pub const DUMP_SUMMARY_VALID_KERNEL_VA: u32 = 1u32;
-pub const DUMP_TYPE_AUTOMATIC: DUMP_TYPE = 7i32;
-pub const DUMP_TYPE_BITMAP_FULL: DUMP_TYPE = 5i32;
-pub const DUMP_TYPE_BITMAP_KERNEL: DUMP_TYPE = 6i32;
-pub const DUMP_TYPE_FULL: DUMP_TYPE = 1i32;
-pub const DUMP_TYPE_HEADER: DUMP_TYPE = 3i32;
-pub const DUMP_TYPE_INVALID: DUMP_TYPE = -1i32;
-pub const DUMP_TYPE_SUMMARY: DUMP_TYPE = 2i32;
-pub const DUMP_TYPE_TRIAGE: DUMP_TYPE = 4i32;
-pub const DUMP_TYPE_UNKNOWN: DUMP_TYPE = 0i32;
-pub const DYNAMIC_ADD_PROCESSOR_MISMATCH: BUGCHECK_ERROR = 304u32;
-pub const EFS_FATAL_ERROR: BUGCHECK_ERROR = 471u32;
-pub const ELAM_DRIVER_DETECTED_FATAL_ERROR: BUGCHECK_ERROR = 376u32;
-pub const EMPTY_THREAD_REAPER_LIST: BUGCHECK_ERROR = 19u32;
-pub const EM_INITIALIZATION_ERROR: BUGCHECK_ERROR = 282u32;
-pub const END_OF_NT_EVALUATION_PERIOD: BUGCHECK_ERROR = 152u32;
-pub const ERESOURCE_INVALID_RELEASE: BUGCHECK_ERROR = 366u32;
-pub const ERRATA_WORKAROUND_UNSUCCESSFUL: BUGCHECK_ERROR = 318u32;
+pub const DUMP_TYPE_AUTOMATIC: DUMP_TYPE = DUMP_TYPE(7i32);
+pub const DUMP_TYPE_BITMAP_FULL: DUMP_TYPE = DUMP_TYPE(5i32);
+pub const DUMP_TYPE_BITMAP_KERNEL: DUMP_TYPE = DUMP_TYPE(6i32);
+pub const DUMP_TYPE_FULL: DUMP_TYPE = DUMP_TYPE(1i32);
+pub const DUMP_TYPE_HEADER: DUMP_TYPE = DUMP_TYPE(3i32);
+pub const DUMP_TYPE_INVALID: DUMP_TYPE = DUMP_TYPE(-1i32);
+pub const DUMP_TYPE_SUMMARY: DUMP_TYPE = DUMP_TYPE(2i32);
+pub const DUMP_TYPE_TRIAGE: DUMP_TYPE = DUMP_TYPE(4i32);
+pub const DUMP_TYPE_UNKNOWN: DUMP_TYPE = DUMP_TYPE(0i32);
+pub const DYNAMIC_ADD_PROCESSOR_MISMATCH: BUGCHECK_ERROR = BUGCHECK_ERROR(304u32);
+pub const EFS_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(471u32);
+pub const ELAM_DRIVER_DETECTED_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(376u32);
+pub const EMPTY_THREAD_REAPER_LIST: BUGCHECK_ERROR = BUGCHECK_ERROR(19u32);
+pub const EM_INITIALIZATION_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(282u32);
+pub const END_OF_NT_EVALUATION_PERIOD: BUGCHECK_ERROR = BUGCHECK_ERROR(152u32);
+pub const ERESOURCE_INVALID_RELEASE: BUGCHECK_ERROR = BUGCHECK_ERROR(366u32);
+pub const ERRATA_WORKAROUND_UNSUCCESSFUL: BUGCHECK_ERROR = BUGCHECK_ERROR(318u32);
 pub const ERROR_IMAGE_NOT_STRIPPED: u32 = 34816u32;
 pub const ERROR_NO_DBG_POINTER: u32 = 34817u32;
 pub const ERROR_NO_PDB_POINTER: u32 = 34818u32;
@@ -330,222 +3208,222 @@ pub const ESLFLAG_PREV: u32 = 4u32;
 pub const EVENT_SRCSPEW: u32 = 100u32;
 pub const EVENT_SRCSPEW_END: u32 = 199u32;
 pub const EVENT_SRCSPEW_START: u32 = 100u32;
-pub const EVENT_TRACING_FATAL_ERROR: BUGCHECK_ERROR = 285u32;
+pub const EVENT_TRACING_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(285u32);
 pub const EXCEPTION_CONTINUE_EXECUTION: i32 = -1i32;
 pub const EXCEPTION_CONTINUE_SEARCH: i32 = 0i32;
-pub const EXCEPTION_DEBUG_EVENT: DEBUG_EVENT_CODE = 1u32;
+pub const EXCEPTION_DEBUG_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(1u32);
 pub const EXCEPTION_EXECUTE_HANDLER: i32 = 1i32;
-pub const EXCEPTION_ON_INVALID_STACK: BUGCHECK_ERROR = 426u32;
-pub const EXCEPTION_SCOPE_INVALID: BUGCHECK_ERROR = 333u32;
-pub const EXFAT_FILE_SYSTEM: BUGCHECK_ERROR = 300u32;
-pub const EXIT_PROCESS_DEBUG_EVENT: DEBUG_EVENT_CODE = 5u32;
-pub const EXIT_THREAD_DEBUG_EVENT: DEBUG_EVENT_CODE = 4u32;
-pub const EXRESOURCE_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 460u32;
+pub const EXCEPTION_ON_INVALID_STACK: BUGCHECK_ERROR = BUGCHECK_ERROR(426u32);
+pub const EXCEPTION_SCOPE_INVALID: BUGCHECK_ERROR = BUGCHECK_ERROR(333u32);
+pub const EXFAT_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(300u32);
+pub const EXIT_PROCESS_DEBUG_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(5u32);
+pub const EXIT_THREAD_DEBUG_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(4u32);
+pub const EXRESOURCE_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(460u32);
 pub const EXT_OUTPUT_VER: u32 = 1u32;
-pub const EX_PROP_INFO_DEBUGEXTPROP: EX_PROP_INFO_FLAGS = 4096i32;
-pub const EX_PROP_INFO_ID: EX_PROP_INFO_FLAGS = 256i32;
-pub const EX_PROP_INFO_LOCKBYTES: EX_PROP_INFO_FLAGS = 2048i32;
-pub const EX_PROP_INFO_NTYPE: EX_PROP_INFO_FLAGS = 512i32;
-pub const EX_PROP_INFO_NVALUE: EX_PROP_INFO_FLAGS = 1024i32;
-pub const ExceptionStream: MINIDUMP_STREAM_TYPE = 6i32;
-pub const FACILITY_AAF: FACILITY_CODE = 18u32;
-pub const FACILITY_ACCELERATOR: FACILITY_CODE = 1536u32;
-pub const FACILITY_ACS: FACILITY_CODE = 20u32;
-pub const FACILITY_ACTION_QUEUE: FACILITY_CODE = 44u32;
-pub const FACILITY_AUDCLNT: FACILITY_CODE = 2185u32;
-pub const FACILITY_AUDIO: FACILITY_CODE = 102u32;
-pub const FACILITY_AUDIOSTREAMING: FACILITY_CODE = 1094u32;
-pub const FACILITY_BACKGROUNDCOPY: FACILITY_CODE = 32u32;
-pub const FACILITY_BCD: FACILITY_CODE = 57u32;
-pub const FACILITY_BLB: FACILITY_CODE = 120u32;
-pub const FACILITY_BLBUI: FACILITY_CODE = 128u32;
-pub const FACILITY_BLB_CLI: FACILITY_CODE = 121u32;
-pub const FACILITY_BLUETOOTH_ATT: FACILITY_CODE = 101u32;
-pub const FACILITY_CERT: FACILITY_CODE = 11u32;
-pub const FACILITY_CMI: FACILITY_CODE = 54u32;
-pub const FACILITY_COMPLUS: FACILITY_CODE = 17u32;
-pub const FACILITY_CONFIGURATION: FACILITY_CODE = 33u32;
-pub const FACILITY_CONTROL: FACILITY_CODE = 10u32;
-pub const FACILITY_DAF: FACILITY_CODE = 100u32;
-pub const FACILITY_DEBUGGERS: FACILITY_CODE = 176u32;
-pub const FACILITY_DEFRAG: FACILITY_CODE = 2304u32;
-pub const FACILITY_DELIVERY_OPTIMIZATION: FACILITY_CODE = 208u32;
-pub const FACILITY_DEPLOYMENT_SERVICES_BINLSVC: FACILITY_CODE = 261u32;
-pub const FACILITY_DEPLOYMENT_SERVICES_CONTENT_PROVIDER: FACILITY_CODE = 293u32;
-pub const FACILITY_DEPLOYMENT_SERVICES_DRIVER_PROVISIONING: FACILITY_CODE = 278u32;
-pub const FACILITY_DEPLOYMENT_SERVICES_IMAGING: FACILITY_CODE = 258u32;
-pub const FACILITY_DEPLOYMENT_SERVICES_MANAGEMENT: FACILITY_CODE = 259u32;
-pub const FACILITY_DEPLOYMENT_SERVICES_MULTICAST_CLIENT: FACILITY_CODE = 290u32;
-pub const FACILITY_DEPLOYMENT_SERVICES_MULTICAST_SERVER: FACILITY_CODE = 289u32;
-pub const FACILITY_DEPLOYMENT_SERVICES_PXE: FACILITY_CODE = 263u32;
-pub const FACILITY_DEPLOYMENT_SERVICES_SERVER: FACILITY_CODE = 257u32;
-pub const FACILITY_DEPLOYMENT_SERVICES_TFTP: FACILITY_CODE = 264u32;
-pub const FACILITY_DEPLOYMENT_SERVICES_TRANSPORT_MANAGEMENT: FACILITY_CODE = 272u32;
-pub const FACILITY_DEPLOYMENT_SERVICES_UTIL: FACILITY_CODE = 260u32;
-pub const FACILITY_DEVICE_UPDATE_AGENT: FACILITY_CODE = 135u32;
-pub const FACILITY_DIRECT2D: FACILITY_CODE = 2201u32;
-pub const FACILITY_DIRECT3D10: FACILITY_CODE = 2169u32;
-pub const FACILITY_DIRECT3D11: FACILITY_CODE = 2172u32;
-pub const FACILITY_DIRECT3D11_DEBUG: FACILITY_CODE = 2173u32;
-pub const FACILITY_DIRECT3D12: FACILITY_CODE = 2174u32;
-pub const FACILITY_DIRECT3D12_DEBUG: FACILITY_CODE = 2175u32;
-pub const FACILITY_DIRECTMUSIC: FACILITY_CODE = 2168u32;
-pub const FACILITY_DIRECTORYSERVICE: FACILITY_CODE = 37u32;
-pub const FACILITY_DISPATCH: FACILITY_CODE = 2u32;
-pub const FACILITY_DLS: FACILITY_CODE = 153u32;
-pub const FACILITY_DMSERVER: FACILITY_CODE = 256u32;
-pub const FACILITY_DPLAY: FACILITY_CODE = 21u32;
-pub const FACILITY_DRVSERVICING: FACILITY_CODE = 136u32;
-pub const FACILITY_DXCORE: FACILITY_CODE = 2176u32;
-pub const FACILITY_DXGI: FACILITY_CODE = 2170u32;
-pub const FACILITY_DXGI_DDI: FACILITY_CODE = 2171u32;
-pub const FACILITY_EAP: FACILITY_CODE = 66u32;
-pub const FACILITY_EAS: FACILITY_CODE = 85u32;
-pub const FACILITY_FVE: FACILITY_CODE = 49u32;
-pub const FACILITY_FWP: FACILITY_CODE = 50u32;
-pub const FACILITY_GAME: FACILITY_CODE = 2340u32;
-pub const FACILITY_GRAPHICS: FACILITY_CODE = 38u32;
-pub const FACILITY_HSP_SERVICES: FACILITY_CODE = 296u32;
-pub const FACILITY_HSP_SOFTWARE: FACILITY_CODE = 297u32;
-pub const FACILITY_HTTP: FACILITY_CODE = 25u32;
-pub const FACILITY_INPUT: FACILITY_CODE = 64u32;
-pub const FACILITY_INTERNET: FACILITY_CODE = 12u32;
-pub const FACILITY_IORING: FACILITY_CODE = 70u32;
-pub const FACILITY_ITF: FACILITY_CODE = 4u32;
-pub const FACILITY_JSCRIPT: FACILITY_CODE = 2306u32;
-pub const FACILITY_LEAP: FACILITY_CODE = 2184u32;
-pub const FACILITY_LINGUISTIC_SERVICES: FACILITY_CODE = 305u32;
-pub const FACILITY_MBN: FACILITY_CODE = 84u32;
-pub const FACILITY_MEDIASERVER: FACILITY_CODE = 13u32;
-pub const FACILITY_METADIRECTORY: FACILITY_CODE = 35u32;
-pub const FACILITY_MOBILE: FACILITY_CODE = 1793u32;
-pub const FACILITY_MSMQ: FACILITY_CODE = 14u32;
-pub const FACILITY_NAP: FACILITY_CODE = 39u32;
-pub const FACILITY_NDIS: FACILITY_CODE = 52u32;
-pub const FACILITY_NT_BIT: FACILITY_CODE = 268435456u32;
-pub const FACILITY_NULL: FACILITY_CODE = 0u32;
-pub const FACILITY_OCP_UPDATE_AGENT: FACILITY_CODE = 173u32;
-pub const FACILITY_ONLINE_ID: FACILITY_CODE = 134u32;
-pub const FACILITY_OPC: FACILITY_CODE = 81u32;
-pub const FACILITY_P2P: FACILITY_CODE = 99u32;
-pub const FACILITY_P2P_INT: FACILITY_CODE = 98u32;
-pub const FACILITY_PARSE: FACILITY_CODE = 113u32;
-pub const FACILITY_PIDGENX: FACILITY_CODE = 2561u32;
-pub const FACILITY_PIX: FACILITY_CODE = 2748u32;
-pub const FACILITY_PLA: FACILITY_CODE = 48u32;
-pub const FACILITY_POWERSHELL: FACILITY_CODE = 84u32;
-pub const FACILITY_PRESENTATION: FACILITY_CODE = 2177u32;
-pub const FACILITY_QUIC: FACILITY_CODE = 65u32;
-pub const FACILITY_RAS: FACILITY_CODE = 83u32;
-pub const FACILITY_RESTORE: FACILITY_CODE = 256u32;
-pub const FACILITY_RPC: FACILITY_CODE = 1u32;
-pub const FACILITY_SCARD: FACILITY_CODE = 16u32;
-pub const FACILITY_SCRIPT: FACILITY_CODE = 112u32;
-pub const FACILITY_SDIAG: FACILITY_CODE = 60u32;
-pub const FACILITY_SECURITY: FACILITY_CODE = 9u32;
-pub const FACILITY_SERVICE_FABRIC: FACILITY_CODE = 1968u32;
-pub const FACILITY_SETUPAPI: FACILITY_CODE = 15u32;
-pub const FACILITY_SHELL: FACILITY_CODE = 39u32;
-pub const FACILITY_SOS: FACILITY_CODE = 160u32;
-pub const FACILITY_SPP: FACILITY_CODE = 256u32;
-pub const FACILITY_SQLITE: FACILITY_CODE = 1967u32;
-pub const FACILITY_SSPI: FACILITY_CODE = 9u32;
-pub const FACILITY_STATEREPOSITORY: FACILITY_CODE = 103u32;
-pub const FACILITY_STATE_MANAGEMENT: FACILITY_CODE = 34u32;
-pub const FACILITY_STORAGE: FACILITY_CODE = 3u32;
-pub const FACILITY_SXS: FACILITY_CODE = 23u32;
-pub const FACILITY_SYNCENGINE: FACILITY_CODE = 2050u32;
-pub const FACILITY_TIERING: FACILITY_CODE = 131u32;
-pub const FACILITY_TPM_SERVICES: FACILITY_CODE = 40u32;
-pub const FACILITY_TPM_SOFTWARE: FACILITY_CODE = 41u32;
-pub const FACILITY_TTD: FACILITY_CODE = 1490u32;
-pub const FACILITY_UI: FACILITY_CODE = 42u32;
-pub const FACILITY_UMI: FACILITY_CODE = 22u32;
-pub const FACILITY_URT: FACILITY_CODE = 19u32;
-pub const FACILITY_USERMODE_COMMONLOG: FACILITY_CODE = 26u32;
-pub const FACILITY_USERMODE_FILTER_MANAGER: FACILITY_CODE = 31u32;
-pub const FACILITY_USERMODE_HNS: FACILITY_CODE = 59u32;
-pub const FACILITY_USERMODE_HYPERVISOR: FACILITY_CODE = 53u32;
-pub const FACILITY_USERMODE_LICENSING: FACILITY_CODE = 234u32;
-pub const FACILITY_USERMODE_SDBUS: FACILITY_CODE = 2305u32;
-pub const FACILITY_USERMODE_SPACES: FACILITY_CODE = 231u32;
-pub const FACILITY_USERMODE_VHD: FACILITY_CODE = 58u32;
-pub const FACILITY_USERMODE_VIRTUALIZATION: FACILITY_CODE = 55u32;
-pub const FACILITY_USERMODE_VOLMGR: FACILITY_CODE = 56u32;
-pub const FACILITY_USERMODE_VOLSNAP: FACILITY_CODE = 130u32;
-pub const FACILITY_USER_MODE_SECURITY_CORE: FACILITY_CODE = 232u32;
-pub const FACILITY_USN: FACILITY_CODE = 129u32;
-pub const FACILITY_UTC: FACILITY_CODE = 1989u32;
-pub const FACILITY_VISUALCPP: FACILITY_CODE = 109u32;
-pub const FACILITY_WEB: FACILITY_CODE = 885u32;
-pub const FACILITY_WEBSERVICES: FACILITY_CODE = 61u32;
-pub const FACILITY_WEB_SOCKET: FACILITY_CODE = 886u32;
-pub const FACILITY_WEP: FACILITY_CODE = 2049u32;
-pub const FACILITY_WER: FACILITY_CODE = 27u32;
-pub const FACILITY_WIA: FACILITY_CODE = 33u32;
-pub const FACILITY_WIN32: FACILITY_CODE = 7u32;
-pub const FACILITY_WINCODEC_DWRITE_DWM: FACILITY_CODE = 2200u32;
-pub const FACILITY_WINDOWS: FACILITY_CODE = 8u32;
-pub const FACILITY_WINDOWSUPDATE: FACILITY_CODE = 36u32;
-pub const FACILITY_WINDOWS_CE: FACILITY_CODE = 24u32;
-pub const FACILITY_WINDOWS_DEFENDER: FACILITY_CODE = 80u32;
-pub const FACILITY_WINDOWS_SETUP: FACILITY_CODE = 48u32;
-pub const FACILITY_WINDOWS_STORE: FACILITY_CODE = 63u32;
-pub const FACILITY_WINML: FACILITY_CODE = 2192u32;
-pub const FACILITY_WINPE: FACILITY_CODE = 61u32;
-pub const FACILITY_WINRM: FACILITY_CODE = 51u32;
-pub const FACILITY_WMAAECMA: FACILITY_CODE = 1996u32;
-pub const FACILITY_WPN: FACILITY_CODE = 62u32;
-pub const FACILITY_WSBAPP: FACILITY_CODE = 122u32;
-pub const FACILITY_WSB_ONLINE: FACILITY_CODE = 133u32;
-pub const FACILITY_XAML: FACILITY_CODE = 43u32;
-pub const FACILITY_XBOX: FACILITY_CODE = 2339u32;
-pub const FACILITY_XPS: FACILITY_CODE = 82u32;
-pub const FAST_ERESOURCE_PRECONDITION_VIOLATION: BUGCHECK_ERROR = 454u32;
-pub const FATAL_ABNORMAL_RESET_ERROR: BUGCHECK_ERROR = 332u32;
-pub const FATAL_UNHANDLED_HARD_ERROR: BUGCHECK_ERROR = 76u32;
-pub const FAT_FILE_SYSTEM: BUGCHECK_ERROR = 35u32;
-pub const FAULTY_HARDWARE_CORRUPTED_PAGE: BUGCHECK_ERROR = 299u32;
-pub const FILE_INITIALIZATION_FAILED: BUGCHECK_ERROR = 104u32;
-pub const FILE_SYSTEM: BUGCHECK_ERROR = 34u32;
+pub const EX_PROP_INFO_DEBUGEXTPROP: EX_PROP_INFO_FLAGS = EX_PROP_INFO_FLAGS(4096i32);
+pub const EX_PROP_INFO_ID: EX_PROP_INFO_FLAGS = EX_PROP_INFO_FLAGS(256i32);
+pub const EX_PROP_INFO_LOCKBYTES: EX_PROP_INFO_FLAGS = EX_PROP_INFO_FLAGS(2048i32);
+pub const EX_PROP_INFO_NTYPE: EX_PROP_INFO_FLAGS = EX_PROP_INFO_FLAGS(512i32);
+pub const EX_PROP_INFO_NVALUE: EX_PROP_INFO_FLAGS = EX_PROP_INFO_FLAGS(1024i32);
+pub const ExceptionStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(6i32);
+pub const FACILITY_AAF: FACILITY_CODE = FACILITY_CODE(18u32);
+pub const FACILITY_ACCELERATOR: FACILITY_CODE = FACILITY_CODE(1536u32);
+pub const FACILITY_ACS: FACILITY_CODE = FACILITY_CODE(20u32);
+pub const FACILITY_ACTION_QUEUE: FACILITY_CODE = FACILITY_CODE(44u32);
+pub const FACILITY_AUDCLNT: FACILITY_CODE = FACILITY_CODE(2185u32);
+pub const FACILITY_AUDIO: FACILITY_CODE = FACILITY_CODE(102u32);
+pub const FACILITY_AUDIOSTREAMING: FACILITY_CODE = FACILITY_CODE(1094u32);
+pub const FACILITY_BACKGROUNDCOPY: FACILITY_CODE = FACILITY_CODE(32u32);
+pub const FACILITY_BCD: FACILITY_CODE = FACILITY_CODE(57u32);
+pub const FACILITY_BLB: FACILITY_CODE = FACILITY_CODE(120u32);
+pub const FACILITY_BLBUI: FACILITY_CODE = FACILITY_CODE(128u32);
+pub const FACILITY_BLB_CLI: FACILITY_CODE = FACILITY_CODE(121u32);
+pub const FACILITY_BLUETOOTH_ATT: FACILITY_CODE = FACILITY_CODE(101u32);
+pub const FACILITY_CERT: FACILITY_CODE = FACILITY_CODE(11u32);
+pub const FACILITY_CMI: FACILITY_CODE = FACILITY_CODE(54u32);
+pub const FACILITY_COMPLUS: FACILITY_CODE = FACILITY_CODE(17u32);
+pub const FACILITY_CONFIGURATION: FACILITY_CODE = FACILITY_CODE(33u32);
+pub const FACILITY_CONTROL: FACILITY_CODE = FACILITY_CODE(10u32);
+pub const FACILITY_DAF: FACILITY_CODE = FACILITY_CODE(100u32);
+pub const FACILITY_DEBUGGERS: FACILITY_CODE = FACILITY_CODE(176u32);
+pub const FACILITY_DEFRAG: FACILITY_CODE = FACILITY_CODE(2304u32);
+pub const FACILITY_DELIVERY_OPTIMIZATION: FACILITY_CODE = FACILITY_CODE(208u32);
+pub const FACILITY_DEPLOYMENT_SERVICES_BINLSVC: FACILITY_CODE = FACILITY_CODE(261u32);
+pub const FACILITY_DEPLOYMENT_SERVICES_CONTENT_PROVIDER: FACILITY_CODE = FACILITY_CODE(293u32);
+pub const FACILITY_DEPLOYMENT_SERVICES_DRIVER_PROVISIONING: FACILITY_CODE = FACILITY_CODE(278u32);
+pub const FACILITY_DEPLOYMENT_SERVICES_IMAGING: FACILITY_CODE = FACILITY_CODE(258u32);
+pub const FACILITY_DEPLOYMENT_SERVICES_MANAGEMENT: FACILITY_CODE = FACILITY_CODE(259u32);
+pub const FACILITY_DEPLOYMENT_SERVICES_MULTICAST_CLIENT: FACILITY_CODE = FACILITY_CODE(290u32);
+pub const FACILITY_DEPLOYMENT_SERVICES_MULTICAST_SERVER: FACILITY_CODE = FACILITY_CODE(289u32);
+pub const FACILITY_DEPLOYMENT_SERVICES_PXE: FACILITY_CODE = FACILITY_CODE(263u32);
+pub const FACILITY_DEPLOYMENT_SERVICES_SERVER: FACILITY_CODE = FACILITY_CODE(257u32);
+pub const FACILITY_DEPLOYMENT_SERVICES_TFTP: FACILITY_CODE = FACILITY_CODE(264u32);
+pub const FACILITY_DEPLOYMENT_SERVICES_TRANSPORT_MANAGEMENT: FACILITY_CODE = FACILITY_CODE(272u32);
+pub const FACILITY_DEPLOYMENT_SERVICES_UTIL: FACILITY_CODE = FACILITY_CODE(260u32);
+pub const FACILITY_DEVICE_UPDATE_AGENT: FACILITY_CODE = FACILITY_CODE(135u32);
+pub const FACILITY_DIRECT2D: FACILITY_CODE = FACILITY_CODE(2201u32);
+pub const FACILITY_DIRECT3D10: FACILITY_CODE = FACILITY_CODE(2169u32);
+pub const FACILITY_DIRECT3D11: FACILITY_CODE = FACILITY_CODE(2172u32);
+pub const FACILITY_DIRECT3D11_DEBUG: FACILITY_CODE = FACILITY_CODE(2173u32);
+pub const FACILITY_DIRECT3D12: FACILITY_CODE = FACILITY_CODE(2174u32);
+pub const FACILITY_DIRECT3D12_DEBUG: FACILITY_CODE = FACILITY_CODE(2175u32);
+pub const FACILITY_DIRECTMUSIC: FACILITY_CODE = FACILITY_CODE(2168u32);
+pub const FACILITY_DIRECTORYSERVICE: FACILITY_CODE = FACILITY_CODE(37u32);
+pub const FACILITY_DISPATCH: FACILITY_CODE = FACILITY_CODE(2u32);
+pub const FACILITY_DLS: FACILITY_CODE = FACILITY_CODE(153u32);
+pub const FACILITY_DMSERVER: FACILITY_CODE = FACILITY_CODE(256u32);
+pub const FACILITY_DPLAY: FACILITY_CODE = FACILITY_CODE(21u32);
+pub const FACILITY_DRVSERVICING: FACILITY_CODE = FACILITY_CODE(136u32);
+pub const FACILITY_DXCORE: FACILITY_CODE = FACILITY_CODE(2176u32);
+pub const FACILITY_DXGI: FACILITY_CODE = FACILITY_CODE(2170u32);
+pub const FACILITY_DXGI_DDI: FACILITY_CODE = FACILITY_CODE(2171u32);
+pub const FACILITY_EAP: FACILITY_CODE = FACILITY_CODE(66u32);
+pub const FACILITY_EAS: FACILITY_CODE = FACILITY_CODE(85u32);
+pub const FACILITY_FVE: FACILITY_CODE = FACILITY_CODE(49u32);
+pub const FACILITY_FWP: FACILITY_CODE = FACILITY_CODE(50u32);
+pub const FACILITY_GAME: FACILITY_CODE = FACILITY_CODE(2340u32);
+pub const FACILITY_GRAPHICS: FACILITY_CODE = FACILITY_CODE(38u32);
+pub const FACILITY_HSP_SERVICES: FACILITY_CODE = FACILITY_CODE(296u32);
+pub const FACILITY_HSP_SOFTWARE: FACILITY_CODE = FACILITY_CODE(297u32);
+pub const FACILITY_HTTP: FACILITY_CODE = FACILITY_CODE(25u32);
+pub const FACILITY_INPUT: FACILITY_CODE = FACILITY_CODE(64u32);
+pub const FACILITY_INTERNET: FACILITY_CODE = FACILITY_CODE(12u32);
+pub const FACILITY_IORING: FACILITY_CODE = FACILITY_CODE(70u32);
+pub const FACILITY_ITF: FACILITY_CODE = FACILITY_CODE(4u32);
+pub const FACILITY_JSCRIPT: FACILITY_CODE = FACILITY_CODE(2306u32);
+pub const FACILITY_LEAP: FACILITY_CODE = FACILITY_CODE(2184u32);
+pub const FACILITY_LINGUISTIC_SERVICES: FACILITY_CODE = FACILITY_CODE(305u32);
+pub const FACILITY_MBN: FACILITY_CODE = FACILITY_CODE(84u32);
+pub const FACILITY_MEDIASERVER: FACILITY_CODE = FACILITY_CODE(13u32);
+pub const FACILITY_METADIRECTORY: FACILITY_CODE = FACILITY_CODE(35u32);
+pub const FACILITY_MOBILE: FACILITY_CODE = FACILITY_CODE(1793u32);
+pub const FACILITY_MSMQ: FACILITY_CODE = FACILITY_CODE(14u32);
+pub const FACILITY_NAP: FACILITY_CODE = FACILITY_CODE(39u32);
+pub const FACILITY_NDIS: FACILITY_CODE = FACILITY_CODE(52u32);
+pub const FACILITY_NT_BIT: FACILITY_CODE = FACILITY_CODE(268435456u32);
+pub const FACILITY_NULL: FACILITY_CODE = FACILITY_CODE(0u32);
+pub const FACILITY_OCP_UPDATE_AGENT: FACILITY_CODE = FACILITY_CODE(173u32);
+pub const FACILITY_ONLINE_ID: FACILITY_CODE = FACILITY_CODE(134u32);
+pub const FACILITY_OPC: FACILITY_CODE = FACILITY_CODE(81u32);
+pub const FACILITY_P2P: FACILITY_CODE = FACILITY_CODE(99u32);
+pub const FACILITY_P2P_INT: FACILITY_CODE = FACILITY_CODE(98u32);
+pub const FACILITY_PARSE: FACILITY_CODE = FACILITY_CODE(113u32);
+pub const FACILITY_PIDGENX: FACILITY_CODE = FACILITY_CODE(2561u32);
+pub const FACILITY_PIX: FACILITY_CODE = FACILITY_CODE(2748u32);
+pub const FACILITY_PLA: FACILITY_CODE = FACILITY_CODE(48u32);
+pub const FACILITY_POWERSHELL: FACILITY_CODE = FACILITY_CODE(84u32);
+pub const FACILITY_PRESENTATION: FACILITY_CODE = FACILITY_CODE(2177u32);
+pub const FACILITY_QUIC: FACILITY_CODE = FACILITY_CODE(65u32);
+pub const FACILITY_RAS: FACILITY_CODE = FACILITY_CODE(83u32);
+pub const FACILITY_RESTORE: FACILITY_CODE = FACILITY_CODE(256u32);
+pub const FACILITY_RPC: FACILITY_CODE = FACILITY_CODE(1u32);
+pub const FACILITY_SCARD: FACILITY_CODE = FACILITY_CODE(16u32);
+pub const FACILITY_SCRIPT: FACILITY_CODE = FACILITY_CODE(112u32);
+pub const FACILITY_SDIAG: FACILITY_CODE = FACILITY_CODE(60u32);
+pub const FACILITY_SECURITY: FACILITY_CODE = FACILITY_CODE(9u32);
+pub const FACILITY_SERVICE_FABRIC: FACILITY_CODE = FACILITY_CODE(1968u32);
+pub const FACILITY_SETUPAPI: FACILITY_CODE = FACILITY_CODE(15u32);
+pub const FACILITY_SHELL: FACILITY_CODE = FACILITY_CODE(39u32);
+pub const FACILITY_SOS: FACILITY_CODE = FACILITY_CODE(160u32);
+pub const FACILITY_SPP: FACILITY_CODE = FACILITY_CODE(256u32);
+pub const FACILITY_SQLITE: FACILITY_CODE = FACILITY_CODE(1967u32);
+pub const FACILITY_SSPI: FACILITY_CODE = FACILITY_CODE(9u32);
+pub const FACILITY_STATEREPOSITORY: FACILITY_CODE = FACILITY_CODE(103u32);
+pub const FACILITY_STATE_MANAGEMENT: FACILITY_CODE = FACILITY_CODE(34u32);
+pub const FACILITY_STORAGE: FACILITY_CODE = FACILITY_CODE(3u32);
+pub const FACILITY_SXS: FACILITY_CODE = FACILITY_CODE(23u32);
+pub const FACILITY_SYNCENGINE: FACILITY_CODE = FACILITY_CODE(2050u32);
+pub const FACILITY_TIERING: FACILITY_CODE = FACILITY_CODE(131u32);
+pub const FACILITY_TPM_SERVICES: FACILITY_CODE = FACILITY_CODE(40u32);
+pub const FACILITY_TPM_SOFTWARE: FACILITY_CODE = FACILITY_CODE(41u32);
+pub const FACILITY_TTD: FACILITY_CODE = FACILITY_CODE(1490u32);
+pub const FACILITY_UI: FACILITY_CODE = FACILITY_CODE(42u32);
+pub const FACILITY_UMI: FACILITY_CODE = FACILITY_CODE(22u32);
+pub const FACILITY_URT: FACILITY_CODE = FACILITY_CODE(19u32);
+pub const FACILITY_USERMODE_COMMONLOG: FACILITY_CODE = FACILITY_CODE(26u32);
+pub const FACILITY_USERMODE_FILTER_MANAGER: FACILITY_CODE = FACILITY_CODE(31u32);
+pub const FACILITY_USERMODE_HNS: FACILITY_CODE = FACILITY_CODE(59u32);
+pub const FACILITY_USERMODE_HYPERVISOR: FACILITY_CODE = FACILITY_CODE(53u32);
+pub const FACILITY_USERMODE_LICENSING: FACILITY_CODE = FACILITY_CODE(234u32);
+pub const FACILITY_USERMODE_SDBUS: FACILITY_CODE = FACILITY_CODE(2305u32);
+pub const FACILITY_USERMODE_SPACES: FACILITY_CODE = FACILITY_CODE(231u32);
+pub const FACILITY_USERMODE_VHD: FACILITY_CODE = FACILITY_CODE(58u32);
+pub const FACILITY_USERMODE_VIRTUALIZATION: FACILITY_CODE = FACILITY_CODE(55u32);
+pub const FACILITY_USERMODE_VOLMGR: FACILITY_CODE = FACILITY_CODE(56u32);
+pub const FACILITY_USERMODE_VOLSNAP: FACILITY_CODE = FACILITY_CODE(130u32);
+pub const FACILITY_USER_MODE_SECURITY_CORE: FACILITY_CODE = FACILITY_CODE(232u32);
+pub const FACILITY_USN: FACILITY_CODE = FACILITY_CODE(129u32);
+pub const FACILITY_UTC: FACILITY_CODE = FACILITY_CODE(1989u32);
+pub const FACILITY_VISUALCPP: FACILITY_CODE = FACILITY_CODE(109u32);
+pub const FACILITY_WEB: FACILITY_CODE = FACILITY_CODE(885u32);
+pub const FACILITY_WEBSERVICES: FACILITY_CODE = FACILITY_CODE(61u32);
+pub const FACILITY_WEB_SOCKET: FACILITY_CODE = FACILITY_CODE(886u32);
+pub const FACILITY_WEP: FACILITY_CODE = FACILITY_CODE(2049u32);
+pub const FACILITY_WER: FACILITY_CODE = FACILITY_CODE(27u32);
+pub const FACILITY_WIA: FACILITY_CODE = FACILITY_CODE(33u32);
+pub const FACILITY_WIN32: FACILITY_CODE = FACILITY_CODE(7u32);
+pub const FACILITY_WINCODEC_DWRITE_DWM: FACILITY_CODE = FACILITY_CODE(2200u32);
+pub const FACILITY_WINDOWS: FACILITY_CODE = FACILITY_CODE(8u32);
+pub const FACILITY_WINDOWSUPDATE: FACILITY_CODE = FACILITY_CODE(36u32);
+pub const FACILITY_WINDOWS_CE: FACILITY_CODE = FACILITY_CODE(24u32);
+pub const FACILITY_WINDOWS_DEFENDER: FACILITY_CODE = FACILITY_CODE(80u32);
+pub const FACILITY_WINDOWS_SETUP: FACILITY_CODE = FACILITY_CODE(48u32);
+pub const FACILITY_WINDOWS_STORE: FACILITY_CODE = FACILITY_CODE(63u32);
+pub const FACILITY_WINML: FACILITY_CODE = FACILITY_CODE(2192u32);
+pub const FACILITY_WINPE: FACILITY_CODE = FACILITY_CODE(61u32);
+pub const FACILITY_WINRM: FACILITY_CODE = FACILITY_CODE(51u32);
+pub const FACILITY_WMAAECMA: FACILITY_CODE = FACILITY_CODE(1996u32);
+pub const FACILITY_WPN: FACILITY_CODE = FACILITY_CODE(62u32);
+pub const FACILITY_WSBAPP: FACILITY_CODE = FACILITY_CODE(122u32);
+pub const FACILITY_WSB_ONLINE: FACILITY_CODE = FACILITY_CODE(133u32);
+pub const FACILITY_XAML: FACILITY_CODE = FACILITY_CODE(43u32);
+pub const FACILITY_XBOX: FACILITY_CODE = FACILITY_CODE(2339u32);
+pub const FACILITY_XPS: FACILITY_CODE = FACILITY_CODE(82u32);
+pub const FAST_ERESOURCE_PRECONDITION_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(454u32);
+pub const FATAL_ABNORMAL_RESET_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(332u32);
+pub const FATAL_UNHANDLED_HARD_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(76u32);
+pub const FAT_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(35u32);
+pub const FAULTY_HARDWARE_CORRUPTED_PAGE: BUGCHECK_ERROR = BUGCHECK_ERROR(299u32);
+pub const FILE_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(104u32);
+pub const FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(34u32);
 pub const FLAG_ENGINE_PRESENT: u32 = 4u32;
 pub const FLAG_ENGOPT_DISALLOW_NETWORK_PATHS: u32 = 8u32;
 pub const FLAG_OVERRIDE_ARM_MACHINE_TYPE: u32 = 16u32;
-pub const FLOPPY_INTERNAL_ERROR: BUGCHECK_ERROR = 55u32;
-pub const FLTMGR_FILE_SYSTEM: BUGCHECK_ERROR = 245u32;
-pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: FORMAT_MESSAGE_OPTIONS = 256u32;
-pub const FORMAT_MESSAGE_ARGUMENT_ARRAY: FORMAT_MESSAGE_OPTIONS = 8192u32;
-pub const FORMAT_MESSAGE_FROM_HMODULE: FORMAT_MESSAGE_OPTIONS = 2048u32;
-pub const FORMAT_MESSAGE_FROM_STRING: FORMAT_MESSAGE_OPTIONS = 1024u32;
-pub const FORMAT_MESSAGE_FROM_SYSTEM: FORMAT_MESSAGE_OPTIONS = 4096u32;
-pub const FORMAT_MESSAGE_IGNORE_INSERTS: FORMAT_MESSAGE_OPTIONS = 512u32;
-pub const FP_EMULATION_ERROR: BUGCHECK_ERROR = 166u32;
-pub const FSRTL_EXTRA_CREATE_PARAMETER_VIOLATION: BUGCHECK_ERROR = 268u32;
-pub const FunctionTableStream: MINIDUMP_STREAM_TYPE = 13i32;
-pub const GPIO_CONTROLLER_DRIVER_ERROR: BUGCHECK_ERROR = 312u32;
-pub const HAL1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 97u32;
-pub const HAL_BLOCKED_PROCESSOR_INTERNAL_ERROR: BUGCHECK_ERROR = 474u32;
-pub const HAL_ILLEGAL_IOMMU_PAGE_FAULT: BUGCHECK_ERROR = 345u32;
-pub const HAL_INITIALIZATION_FAILED: BUGCHECK_ERROR = 92u32;
-pub const HAL_IOMMU_INTERNAL_ERROR: BUGCHECK_ERROR = 473u32;
-pub const HAL_MEMORY_ALLOCATION: BUGCHECK_ERROR = 172u32;
-pub const HANDLE_ERROR_ON_CRITICAL_THREAD: BUGCHECK_ERROR = 493u32;
-pub const HANDLE_LIVE_DUMP: BUGCHECK_ERROR = 492u32;
-pub const HARDWARE_INTERRUPT_STORM: BUGCHECK_ERROR = 242u32;
-pub const HARDWARE_PROFILE_DOCKED_STRING: BUGCHECK_ERROR = 1073807362u32;
-pub const HARDWARE_PROFILE_UNDOCKED_STRING: BUGCHECK_ERROR = 1073807361u32;
-pub const HARDWARE_PROFILE_UNKNOWN_STRING: BUGCHECK_ERROR = 1073807363u32;
-pub const HARDWARE_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 463u32;
-pub const HTTP_DRIVER_CORRUPTED: BUGCHECK_ERROR = 250u32;
-pub const HYPERGUARD_INITIALIZATION_FAILURE: BUGCHECK_ERROR = 383u32;
-pub const HYPERGUARD_VIOLATION: BUGCHECK_ERROR = 396u32;
-pub const HYPERVISOR_ERROR: BUGCHECK_ERROR = 131073u32;
-pub const HandleDataStream: MINIDUMP_STREAM_TYPE = 12i32;
-pub const HandleOperationListStream: MINIDUMP_STREAM_TYPE = 18i32;
-pub const ILLEGAL_ATS_INITIALIZATION: BUGCHECK_ERROR = 489u32;
-pub const ILLEGAL_IOMMU_PAGE_FAULT: BUGCHECK_ERROR = 344u32;
-pub const IMAGEHLP_GET_TYPE_INFO_CHILDREN: IMAGEHLP_GET_TYPE_INFO_FLAGS = 2u32;
-pub const IMAGEHLP_GET_TYPE_INFO_UNCACHED: IMAGEHLP_GET_TYPE_INFO_FLAGS = 1u32;
+pub const FLOPPY_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(55u32);
+pub const FLTMGR_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(245u32);
+pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(256u32);
+pub const FORMAT_MESSAGE_ARGUMENT_ARRAY: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(8192u32);
+pub const FORMAT_MESSAGE_FROM_HMODULE: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(2048u32);
+pub const FORMAT_MESSAGE_FROM_STRING: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(1024u32);
+pub const FORMAT_MESSAGE_FROM_SYSTEM: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(4096u32);
+pub const FORMAT_MESSAGE_IGNORE_INSERTS: FORMAT_MESSAGE_OPTIONS = FORMAT_MESSAGE_OPTIONS(512u32);
+pub const FP_EMULATION_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(166u32);
+pub const FSRTL_EXTRA_CREATE_PARAMETER_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(268u32);
+pub const FunctionTableStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(13i32);
+pub const GPIO_CONTROLLER_DRIVER_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(312u32);
+pub const HAL1_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(97u32);
+pub const HAL_BLOCKED_PROCESSOR_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(474u32);
+pub const HAL_ILLEGAL_IOMMU_PAGE_FAULT: BUGCHECK_ERROR = BUGCHECK_ERROR(345u32);
+pub const HAL_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(92u32);
+pub const HAL_IOMMU_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(473u32);
+pub const HAL_MEMORY_ALLOCATION: BUGCHECK_ERROR = BUGCHECK_ERROR(172u32);
+pub const HANDLE_ERROR_ON_CRITICAL_THREAD: BUGCHECK_ERROR = BUGCHECK_ERROR(493u32);
+pub const HANDLE_LIVE_DUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(492u32);
+pub const HARDWARE_INTERRUPT_STORM: BUGCHECK_ERROR = BUGCHECK_ERROR(242u32);
+pub const HARDWARE_PROFILE_DOCKED_STRING: BUGCHECK_ERROR = BUGCHECK_ERROR(1073807362u32);
+pub const HARDWARE_PROFILE_UNDOCKED_STRING: BUGCHECK_ERROR = BUGCHECK_ERROR(1073807361u32);
+pub const HARDWARE_PROFILE_UNKNOWN_STRING: BUGCHECK_ERROR = BUGCHECK_ERROR(1073807363u32);
+pub const HARDWARE_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(463u32);
+pub const HTTP_DRIVER_CORRUPTED: BUGCHECK_ERROR = BUGCHECK_ERROR(250u32);
+pub const HYPERGUARD_INITIALIZATION_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(383u32);
+pub const HYPERGUARD_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(396u32);
+pub const HYPERVISOR_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(131073u32);
+pub const HandleDataStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(12i32);
+pub const HandleOperationListStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(18i32);
+pub const ILLEGAL_ATS_INITIALIZATION: BUGCHECK_ERROR = BUGCHECK_ERROR(489u32);
+pub const ILLEGAL_IOMMU_PAGE_FAULT: BUGCHECK_ERROR = BUGCHECK_ERROR(344u32);
+pub const IMAGEHLP_GET_TYPE_INFO_CHILDREN: IMAGEHLP_GET_TYPE_INFO_FLAGS = IMAGEHLP_GET_TYPE_INFO_FLAGS(2u32);
+pub const IMAGEHLP_GET_TYPE_INFO_UNCACHED: IMAGEHLP_GET_TYPE_INFO_FLAGS = IMAGEHLP_GET_TYPE_INFO_FLAGS(1u32);
 pub const IMAGEHLP_MODULE_REGION_ADDITIONAL: u32 = 4u32;
 pub const IMAGEHLP_MODULE_REGION_ALL: u32 = 255u32;
 pub const IMAGEHLP_MODULE_REGION_DLLBASE: u32 = 1u32;
@@ -568,258 +3446,258 @@ pub const IMAGEHLP_SYMBOL_INFO_REGRELATIVE: u32 = 16u32;
 pub const IMAGEHLP_SYMBOL_INFO_TLSRELATIVE: u32 = 16384u32;
 pub const IMAGEHLP_SYMBOL_INFO_VALUEPRESENT: u32 = 1u32;
 pub const IMAGEHLP_SYMBOL_THUNK: u32 = 8192u32;
-pub const IMAGEHLP_SYMBOL_TYPE_INFO_MAX: IMAGEHLP_SYMBOL_TYPE_INFO = 35i32;
+pub const IMAGEHLP_SYMBOL_TYPE_INFO_MAX: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(35i32);
 pub const IMAGEHLP_SYMBOL_VIRTUAL: u32 = 4096u32;
-pub const IMAGE_DEBUG_TYPE_BORLAND: IMAGE_DEBUG_TYPE = 9u32;
-pub const IMAGE_DEBUG_TYPE_CODEVIEW: IMAGE_DEBUG_TYPE = 2u32;
-pub const IMAGE_DEBUG_TYPE_COFF: IMAGE_DEBUG_TYPE = 1u32;
-pub const IMAGE_DEBUG_TYPE_EXCEPTION: IMAGE_DEBUG_TYPE = 5u32;
-pub const IMAGE_DEBUG_TYPE_FIXUP: IMAGE_DEBUG_TYPE = 6u32;
-pub const IMAGE_DEBUG_TYPE_FPO: IMAGE_DEBUG_TYPE = 3u32;
-pub const IMAGE_DEBUG_TYPE_MISC: IMAGE_DEBUG_TYPE = 4u32;
-pub const IMAGE_DEBUG_TYPE_UNKNOWN: IMAGE_DEBUG_TYPE = 0u32;
-pub const IMAGE_DIRECTORY_ENTRY_ARCHITECTURE: IMAGE_DIRECTORY_ENTRY = 7u16;
-pub const IMAGE_DIRECTORY_ENTRY_BASERELOC: IMAGE_DIRECTORY_ENTRY = 5u16;
-pub const IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT: IMAGE_DIRECTORY_ENTRY = 11u16;
-pub const IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR: IMAGE_DIRECTORY_ENTRY = 14u16;
-pub const IMAGE_DIRECTORY_ENTRY_DEBUG: IMAGE_DIRECTORY_ENTRY = 6u16;
-pub const IMAGE_DIRECTORY_ENTRY_DELAY_IMPORT: IMAGE_DIRECTORY_ENTRY = 13u16;
-pub const IMAGE_DIRECTORY_ENTRY_EXCEPTION: IMAGE_DIRECTORY_ENTRY = 3u16;
-pub const IMAGE_DIRECTORY_ENTRY_EXPORT: IMAGE_DIRECTORY_ENTRY = 0u16;
-pub const IMAGE_DIRECTORY_ENTRY_GLOBALPTR: IMAGE_DIRECTORY_ENTRY = 8u16;
-pub const IMAGE_DIRECTORY_ENTRY_IAT: IMAGE_DIRECTORY_ENTRY = 12u16;
-pub const IMAGE_DIRECTORY_ENTRY_IMPORT: IMAGE_DIRECTORY_ENTRY = 1u16;
-pub const IMAGE_DIRECTORY_ENTRY_LOAD_CONFIG: IMAGE_DIRECTORY_ENTRY = 10u16;
-pub const IMAGE_DIRECTORY_ENTRY_RESOURCE: IMAGE_DIRECTORY_ENTRY = 2u16;
-pub const IMAGE_DIRECTORY_ENTRY_SECURITY: IMAGE_DIRECTORY_ENTRY = 4u16;
-pub const IMAGE_DIRECTORY_ENTRY_TLS: IMAGE_DIRECTORY_ENTRY = 9u16;
-pub const IMAGE_DLLCHARACTERISTICS_APPCONTAINER: IMAGE_DLL_CHARACTERISTICS = 4096u16;
-pub const IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE: IMAGE_DLL_CHARACTERISTICS = 64u16;
-pub const IMAGE_DLLCHARACTERISTICS_EX_CET_COMPAT: IMAGE_DLL_CHARACTERISTICS = 1u16;
-pub const IMAGE_DLLCHARACTERISTICS_EX_CET_COMPAT_STRICT_MODE: IMAGE_DLL_CHARACTERISTICS = 2u16;
-pub const IMAGE_DLLCHARACTERISTICS_EX_CET_DYNAMIC_APIS_ALLOW_IN_PROC: IMAGE_DLL_CHARACTERISTICS = 8u16;
-pub const IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_1: IMAGE_DLL_CHARACTERISTICS = 16u16;
-pub const IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_2: IMAGE_DLL_CHARACTERISTICS = 32u16;
-pub const IMAGE_DLLCHARACTERISTICS_EX_CET_SET_CONTEXT_IP_VALIDATION_RELAXED_MODE: IMAGE_DLL_CHARACTERISTICS = 4u16;
-pub const IMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY: IMAGE_DLL_CHARACTERISTICS = 128u16;
-pub const IMAGE_DLLCHARACTERISTICS_GUARD_CF: IMAGE_DLL_CHARACTERISTICS = 16384u16;
-pub const IMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA: IMAGE_DLL_CHARACTERISTICS = 32u16;
-pub const IMAGE_DLLCHARACTERISTICS_NO_BIND: IMAGE_DLL_CHARACTERISTICS = 2048u16;
-pub const IMAGE_DLLCHARACTERISTICS_NO_ISOLATION: IMAGE_DLL_CHARACTERISTICS = 512u16;
-pub const IMAGE_DLLCHARACTERISTICS_NO_SEH: IMAGE_DLL_CHARACTERISTICS = 1024u16;
-pub const IMAGE_DLLCHARACTERISTICS_NX_COMPAT: IMAGE_DLL_CHARACTERISTICS = 256u16;
-pub const IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE: IMAGE_DLL_CHARACTERISTICS = 32768u16;
-pub const IMAGE_DLLCHARACTERISTICS_WDM_DRIVER: IMAGE_DLL_CHARACTERISTICS = 8192u16;
-pub const IMAGE_FILE_32BIT_MACHINE: IMAGE_FILE_CHARACTERISTICS = 256u16;
-pub const IMAGE_FILE_32BIT_MACHINE2: IMAGE_FILE_CHARACTERISTICS2 = 256u32;
-pub const IMAGE_FILE_AGGRESIVE_WS_TRIM: IMAGE_FILE_CHARACTERISTICS = 16u16;
-pub const IMAGE_FILE_AGGRESIVE_WS_TRIM2: IMAGE_FILE_CHARACTERISTICS2 = 16u32;
-pub const IMAGE_FILE_BYTES_REVERSED_HI: IMAGE_FILE_CHARACTERISTICS = 32768u16;
-pub const IMAGE_FILE_BYTES_REVERSED_HI_2: IMAGE_FILE_CHARACTERISTICS2 = 32768u32;
-pub const IMAGE_FILE_BYTES_REVERSED_LO: IMAGE_FILE_CHARACTERISTICS = 128u16;
-pub const IMAGE_FILE_BYTES_REVERSED_LO2: IMAGE_FILE_CHARACTERISTICS2 = 128u32;
-pub const IMAGE_FILE_DEBUG_STRIPPED: IMAGE_FILE_CHARACTERISTICS = 512u16;
-pub const IMAGE_FILE_DEBUG_STRIPPED2: IMAGE_FILE_CHARACTERISTICS2 = 512u32;
-pub const IMAGE_FILE_DLL: IMAGE_FILE_CHARACTERISTICS = 8192u16;
-pub const IMAGE_FILE_DLL_2: IMAGE_FILE_CHARACTERISTICS2 = 8192u32;
-pub const IMAGE_FILE_EXECUTABLE_IMAGE: IMAGE_FILE_CHARACTERISTICS = 2u16;
-pub const IMAGE_FILE_EXECUTABLE_IMAGE2: IMAGE_FILE_CHARACTERISTICS2 = 2u32;
-pub const IMAGE_FILE_LARGE_ADDRESS_AWARE: IMAGE_FILE_CHARACTERISTICS = 32u16;
-pub const IMAGE_FILE_LARGE_ADDRESS_AWARE2: IMAGE_FILE_CHARACTERISTICS2 = 32u32;
-pub const IMAGE_FILE_LINE_NUMS_STRIPPED: IMAGE_FILE_CHARACTERISTICS = 4u16;
-pub const IMAGE_FILE_LINE_NUMS_STRIPPED2: IMAGE_FILE_CHARACTERISTICS2 = 4u32;
-pub const IMAGE_FILE_LOCAL_SYMS_STRIPPED: IMAGE_FILE_CHARACTERISTICS = 8u16;
-pub const IMAGE_FILE_LOCAL_SYMS_STRIPPED2: IMAGE_FILE_CHARACTERISTICS2 = 8u32;
-pub const IMAGE_FILE_NET_RUN_FROM_SWAP: IMAGE_FILE_CHARACTERISTICS = 2048u16;
-pub const IMAGE_FILE_NET_RUN_FROM_SWAP2: IMAGE_FILE_CHARACTERISTICS2 = 2048u32;
-pub const IMAGE_FILE_RELOCS_STRIPPED: IMAGE_FILE_CHARACTERISTICS = 1u16;
-pub const IMAGE_FILE_RELOCS_STRIPPED2: IMAGE_FILE_CHARACTERISTICS2 = 1u32;
-pub const IMAGE_FILE_REMOVABLE_RUN_FROM_SWAP: IMAGE_FILE_CHARACTERISTICS = 1024u16;
-pub const IMAGE_FILE_REMOVABLE_RUN_FROM_SWAP2: IMAGE_FILE_CHARACTERISTICS2 = 1024u32;
-pub const IMAGE_FILE_SYSTEM: IMAGE_FILE_CHARACTERISTICS = 4096u16;
-pub const IMAGE_FILE_SYSTEM_2: IMAGE_FILE_CHARACTERISTICS2 = 4096u32;
-pub const IMAGE_FILE_UP_SYSTEM_ONLY: IMAGE_FILE_CHARACTERISTICS = 16384u16;
-pub const IMAGE_FILE_UP_SYSTEM_ONLY_2: IMAGE_FILE_CHARACTERISTICS2 = 16384u32;
-pub const IMAGE_NT_OPTIONAL_HDR32_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 267u16;
-pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 523u16;
-pub const IMAGE_NT_OPTIONAL_HDR_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 523u16;
-pub const IMAGE_ROM_OPTIONAL_HDR_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 263u16;
-pub const IMAGE_SCN_ALIGN_1024BYTES: IMAGE_SECTION_CHARACTERISTICS = 11534336u32;
-pub const IMAGE_SCN_ALIGN_128BYTES: IMAGE_SECTION_CHARACTERISTICS = 8388608u32;
-pub const IMAGE_SCN_ALIGN_16BYTES: IMAGE_SECTION_CHARACTERISTICS = 5242880u32;
-pub const IMAGE_SCN_ALIGN_1BYTES: IMAGE_SECTION_CHARACTERISTICS = 1048576u32;
-pub const IMAGE_SCN_ALIGN_2048BYTES: IMAGE_SECTION_CHARACTERISTICS = 12582912u32;
-pub const IMAGE_SCN_ALIGN_256BYTES: IMAGE_SECTION_CHARACTERISTICS = 9437184u32;
-pub const IMAGE_SCN_ALIGN_2BYTES: IMAGE_SECTION_CHARACTERISTICS = 2097152u32;
-pub const IMAGE_SCN_ALIGN_32BYTES: IMAGE_SECTION_CHARACTERISTICS = 6291456u32;
-pub const IMAGE_SCN_ALIGN_4096BYTES: IMAGE_SECTION_CHARACTERISTICS = 13631488u32;
-pub const IMAGE_SCN_ALIGN_4BYTES: IMAGE_SECTION_CHARACTERISTICS = 3145728u32;
-pub const IMAGE_SCN_ALIGN_512BYTES: IMAGE_SECTION_CHARACTERISTICS = 10485760u32;
-pub const IMAGE_SCN_ALIGN_64BYTES: IMAGE_SECTION_CHARACTERISTICS = 7340032u32;
-pub const IMAGE_SCN_ALIGN_8192BYTES: IMAGE_SECTION_CHARACTERISTICS = 14680064u32;
-pub const IMAGE_SCN_ALIGN_8BYTES: IMAGE_SECTION_CHARACTERISTICS = 4194304u32;
-pub const IMAGE_SCN_ALIGN_MASK: IMAGE_SECTION_CHARACTERISTICS = 15728640u32;
-pub const IMAGE_SCN_CNT_CODE: IMAGE_SECTION_CHARACTERISTICS = 32u32;
-pub const IMAGE_SCN_CNT_INITIALIZED_DATA: IMAGE_SECTION_CHARACTERISTICS = 64u32;
-pub const IMAGE_SCN_CNT_UNINITIALIZED_DATA: IMAGE_SECTION_CHARACTERISTICS = 128u32;
-pub const IMAGE_SCN_GPREL: IMAGE_SECTION_CHARACTERISTICS = 32768u32;
-pub const IMAGE_SCN_LNK_COMDAT: IMAGE_SECTION_CHARACTERISTICS = 4096u32;
-pub const IMAGE_SCN_LNK_INFO: IMAGE_SECTION_CHARACTERISTICS = 512u32;
-pub const IMAGE_SCN_LNK_NRELOC_OVFL: IMAGE_SECTION_CHARACTERISTICS = 16777216u32;
-pub const IMAGE_SCN_LNK_OTHER: IMAGE_SECTION_CHARACTERISTICS = 256u32;
-pub const IMAGE_SCN_LNK_REMOVE: IMAGE_SECTION_CHARACTERISTICS = 2048u32;
-pub const IMAGE_SCN_MEM_16BIT: IMAGE_SECTION_CHARACTERISTICS = 131072u32;
-pub const IMAGE_SCN_MEM_DISCARDABLE: IMAGE_SECTION_CHARACTERISTICS = 33554432u32;
-pub const IMAGE_SCN_MEM_EXECUTE: IMAGE_SECTION_CHARACTERISTICS = 536870912u32;
-pub const IMAGE_SCN_MEM_FARDATA: IMAGE_SECTION_CHARACTERISTICS = 32768u32;
-pub const IMAGE_SCN_MEM_LOCKED: IMAGE_SECTION_CHARACTERISTICS = 262144u32;
-pub const IMAGE_SCN_MEM_NOT_CACHED: IMAGE_SECTION_CHARACTERISTICS = 67108864u32;
-pub const IMAGE_SCN_MEM_NOT_PAGED: IMAGE_SECTION_CHARACTERISTICS = 134217728u32;
-pub const IMAGE_SCN_MEM_PRELOAD: IMAGE_SECTION_CHARACTERISTICS = 524288u32;
-pub const IMAGE_SCN_MEM_PURGEABLE: IMAGE_SECTION_CHARACTERISTICS = 131072u32;
-pub const IMAGE_SCN_MEM_READ: IMAGE_SECTION_CHARACTERISTICS = 1073741824u32;
-pub const IMAGE_SCN_MEM_SHARED: IMAGE_SECTION_CHARACTERISTICS = 268435456u32;
-pub const IMAGE_SCN_MEM_WRITE: IMAGE_SECTION_CHARACTERISTICS = 2147483648u32;
-pub const IMAGE_SCN_NO_DEFER_SPEC_EXC: IMAGE_SECTION_CHARACTERISTICS = 16384u32;
-pub const IMAGE_SCN_SCALE_INDEX: IMAGE_SECTION_CHARACTERISTICS = 1u32;
-pub const IMAGE_SCN_TYPE_NO_PAD: IMAGE_SECTION_CHARACTERISTICS = 8u32;
-pub const IMAGE_SUBSYSTEM_EFI_APPLICATION: IMAGE_SUBSYSTEM = 10u16;
-pub const IMAGE_SUBSYSTEM_EFI_BOOT_SERVICE_DRIVER: IMAGE_SUBSYSTEM = 11u16;
-pub const IMAGE_SUBSYSTEM_EFI_ROM: IMAGE_SUBSYSTEM = 13u16;
-pub const IMAGE_SUBSYSTEM_EFI_RUNTIME_DRIVER: IMAGE_SUBSYSTEM = 12u16;
-pub const IMAGE_SUBSYSTEM_NATIVE: IMAGE_SUBSYSTEM = 1u16;
-pub const IMAGE_SUBSYSTEM_NATIVE_WINDOWS: IMAGE_SUBSYSTEM = 8u16;
-pub const IMAGE_SUBSYSTEM_OS2_CUI: IMAGE_SUBSYSTEM = 5u16;
-pub const IMAGE_SUBSYSTEM_POSIX_CUI: IMAGE_SUBSYSTEM = 7u16;
-pub const IMAGE_SUBSYSTEM_UNKNOWN: IMAGE_SUBSYSTEM = 0u16;
-pub const IMAGE_SUBSYSTEM_WINDOWS_BOOT_APPLICATION: IMAGE_SUBSYSTEM = 16u16;
-pub const IMAGE_SUBSYSTEM_WINDOWS_CE_GUI: IMAGE_SUBSYSTEM = 9u16;
-pub const IMAGE_SUBSYSTEM_WINDOWS_CUI: IMAGE_SUBSYSTEM = 3u16;
-pub const IMAGE_SUBSYSTEM_WINDOWS_GUI: IMAGE_SUBSYSTEM = 2u16;
-pub const IMAGE_SUBSYSTEM_XBOX: IMAGE_SUBSYSTEM = 14u16;
-pub const IMAGE_SUBSYSTEM_XBOX_CODE_CATALOG: IMAGE_SUBSYSTEM = 17u16;
-pub const IMPERSONATING_WORKER_THREAD: BUGCHECK_ERROR = 223u32;
-pub const INACCESSIBLE_BOOT_DEVICE: BUGCHECK_ERROR = 123u32;
-pub const INCONSISTENT_IRP: BUGCHECK_ERROR = 42u32;
+pub const IMAGE_DEBUG_TYPE_BORLAND: IMAGE_DEBUG_TYPE = IMAGE_DEBUG_TYPE(9u32);
+pub const IMAGE_DEBUG_TYPE_CODEVIEW: IMAGE_DEBUG_TYPE = IMAGE_DEBUG_TYPE(2u32);
+pub const IMAGE_DEBUG_TYPE_COFF: IMAGE_DEBUG_TYPE = IMAGE_DEBUG_TYPE(1u32);
+pub const IMAGE_DEBUG_TYPE_EXCEPTION: IMAGE_DEBUG_TYPE = IMAGE_DEBUG_TYPE(5u32);
+pub const IMAGE_DEBUG_TYPE_FIXUP: IMAGE_DEBUG_TYPE = IMAGE_DEBUG_TYPE(6u32);
+pub const IMAGE_DEBUG_TYPE_FPO: IMAGE_DEBUG_TYPE = IMAGE_DEBUG_TYPE(3u32);
+pub const IMAGE_DEBUG_TYPE_MISC: IMAGE_DEBUG_TYPE = IMAGE_DEBUG_TYPE(4u32);
+pub const IMAGE_DEBUG_TYPE_UNKNOWN: IMAGE_DEBUG_TYPE = IMAGE_DEBUG_TYPE(0u32);
+pub const IMAGE_DIRECTORY_ENTRY_ARCHITECTURE: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(7u16);
+pub const IMAGE_DIRECTORY_ENTRY_BASERELOC: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(5u16);
+pub const IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(11u16);
+pub const IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(14u16);
+pub const IMAGE_DIRECTORY_ENTRY_DEBUG: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(6u16);
+pub const IMAGE_DIRECTORY_ENTRY_DELAY_IMPORT: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(13u16);
+pub const IMAGE_DIRECTORY_ENTRY_EXCEPTION: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(3u16);
+pub const IMAGE_DIRECTORY_ENTRY_EXPORT: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(0u16);
+pub const IMAGE_DIRECTORY_ENTRY_GLOBALPTR: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(8u16);
+pub const IMAGE_DIRECTORY_ENTRY_IAT: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(12u16);
+pub const IMAGE_DIRECTORY_ENTRY_IMPORT: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(1u16);
+pub const IMAGE_DIRECTORY_ENTRY_LOAD_CONFIG: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(10u16);
+pub const IMAGE_DIRECTORY_ENTRY_RESOURCE: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(2u16);
+pub const IMAGE_DIRECTORY_ENTRY_SECURITY: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(4u16);
+pub const IMAGE_DIRECTORY_ENTRY_TLS: IMAGE_DIRECTORY_ENTRY = IMAGE_DIRECTORY_ENTRY(9u16);
+pub const IMAGE_DLLCHARACTERISTICS_APPCONTAINER: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(4096u16);
+pub const IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(64u16);
+pub const IMAGE_DLLCHARACTERISTICS_EX_CET_COMPAT: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(1u16);
+pub const IMAGE_DLLCHARACTERISTICS_EX_CET_COMPAT_STRICT_MODE: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(2u16);
+pub const IMAGE_DLLCHARACTERISTICS_EX_CET_DYNAMIC_APIS_ALLOW_IN_PROC: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(8u16);
+pub const IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_1: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(16u16);
+pub const IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_2: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(32u16);
+pub const IMAGE_DLLCHARACTERISTICS_EX_CET_SET_CONTEXT_IP_VALIDATION_RELAXED_MODE: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(4u16);
+pub const IMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(128u16);
+pub const IMAGE_DLLCHARACTERISTICS_GUARD_CF: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(16384u16);
+pub const IMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(32u16);
+pub const IMAGE_DLLCHARACTERISTICS_NO_BIND: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(2048u16);
+pub const IMAGE_DLLCHARACTERISTICS_NO_ISOLATION: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(512u16);
+pub const IMAGE_DLLCHARACTERISTICS_NO_SEH: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(1024u16);
+pub const IMAGE_DLLCHARACTERISTICS_NX_COMPAT: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(256u16);
+pub const IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(32768u16);
+pub const IMAGE_DLLCHARACTERISTICS_WDM_DRIVER: IMAGE_DLL_CHARACTERISTICS = IMAGE_DLL_CHARACTERISTICS(8192u16);
+pub const IMAGE_FILE_32BIT_MACHINE: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(256u16);
+pub const IMAGE_FILE_32BIT_MACHINE2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(256u32);
+pub const IMAGE_FILE_AGGRESIVE_WS_TRIM: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(16u16);
+pub const IMAGE_FILE_AGGRESIVE_WS_TRIM2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(16u32);
+pub const IMAGE_FILE_BYTES_REVERSED_HI: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(32768u16);
+pub const IMAGE_FILE_BYTES_REVERSED_HI_2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(32768u32);
+pub const IMAGE_FILE_BYTES_REVERSED_LO: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(128u16);
+pub const IMAGE_FILE_BYTES_REVERSED_LO2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(128u32);
+pub const IMAGE_FILE_DEBUG_STRIPPED: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(512u16);
+pub const IMAGE_FILE_DEBUG_STRIPPED2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(512u32);
+pub const IMAGE_FILE_DLL: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(8192u16);
+pub const IMAGE_FILE_DLL_2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(8192u32);
+pub const IMAGE_FILE_EXECUTABLE_IMAGE: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(2u16);
+pub const IMAGE_FILE_EXECUTABLE_IMAGE2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(2u32);
+pub const IMAGE_FILE_LARGE_ADDRESS_AWARE: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(32u16);
+pub const IMAGE_FILE_LARGE_ADDRESS_AWARE2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(32u32);
+pub const IMAGE_FILE_LINE_NUMS_STRIPPED: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(4u16);
+pub const IMAGE_FILE_LINE_NUMS_STRIPPED2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(4u32);
+pub const IMAGE_FILE_LOCAL_SYMS_STRIPPED: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(8u16);
+pub const IMAGE_FILE_LOCAL_SYMS_STRIPPED2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(8u32);
+pub const IMAGE_FILE_NET_RUN_FROM_SWAP: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(2048u16);
+pub const IMAGE_FILE_NET_RUN_FROM_SWAP2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(2048u32);
+pub const IMAGE_FILE_RELOCS_STRIPPED: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(1u16);
+pub const IMAGE_FILE_RELOCS_STRIPPED2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(1u32);
+pub const IMAGE_FILE_REMOVABLE_RUN_FROM_SWAP: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(1024u16);
+pub const IMAGE_FILE_REMOVABLE_RUN_FROM_SWAP2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(1024u32);
+pub const IMAGE_FILE_SYSTEM: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(4096u16);
+pub const IMAGE_FILE_SYSTEM_2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(4096u32);
+pub const IMAGE_FILE_UP_SYSTEM_ONLY: IMAGE_FILE_CHARACTERISTICS = IMAGE_FILE_CHARACTERISTICS(16384u16);
+pub const IMAGE_FILE_UP_SYSTEM_ONLY_2: IMAGE_FILE_CHARACTERISTICS2 = IMAGE_FILE_CHARACTERISTICS2(16384u32);
+pub const IMAGE_NT_OPTIONAL_HDR32_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = IMAGE_OPTIONAL_HEADER_MAGIC(267u16);
+pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = IMAGE_OPTIONAL_HEADER_MAGIC(523u16);
+pub const IMAGE_NT_OPTIONAL_HDR_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = IMAGE_OPTIONAL_HEADER_MAGIC(523u16);
+pub const IMAGE_ROM_OPTIONAL_HDR_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = IMAGE_OPTIONAL_HEADER_MAGIC(263u16);
+pub const IMAGE_SCN_ALIGN_1024BYTES: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(11534336u32);
+pub const IMAGE_SCN_ALIGN_128BYTES: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(8388608u32);
+pub const IMAGE_SCN_ALIGN_16BYTES: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(5242880u32);
+pub const IMAGE_SCN_ALIGN_1BYTES: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(1048576u32);
+pub const IMAGE_SCN_ALIGN_2048BYTES: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(12582912u32);
+pub const IMAGE_SCN_ALIGN_256BYTES: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(9437184u32);
+pub const IMAGE_SCN_ALIGN_2BYTES: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(2097152u32);
+pub const IMAGE_SCN_ALIGN_32BYTES: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(6291456u32);
+pub const IMAGE_SCN_ALIGN_4096BYTES: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(13631488u32);
+pub const IMAGE_SCN_ALIGN_4BYTES: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(3145728u32);
+pub const IMAGE_SCN_ALIGN_512BYTES: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(10485760u32);
+pub const IMAGE_SCN_ALIGN_64BYTES: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(7340032u32);
+pub const IMAGE_SCN_ALIGN_8192BYTES: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(14680064u32);
+pub const IMAGE_SCN_ALIGN_8BYTES: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(4194304u32);
+pub const IMAGE_SCN_ALIGN_MASK: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(15728640u32);
+pub const IMAGE_SCN_CNT_CODE: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(32u32);
+pub const IMAGE_SCN_CNT_INITIALIZED_DATA: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(64u32);
+pub const IMAGE_SCN_CNT_UNINITIALIZED_DATA: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(128u32);
+pub const IMAGE_SCN_GPREL: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(32768u32);
+pub const IMAGE_SCN_LNK_COMDAT: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(4096u32);
+pub const IMAGE_SCN_LNK_INFO: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(512u32);
+pub const IMAGE_SCN_LNK_NRELOC_OVFL: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(16777216u32);
+pub const IMAGE_SCN_LNK_OTHER: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(256u32);
+pub const IMAGE_SCN_LNK_REMOVE: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(2048u32);
+pub const IMAGE_SCN_MEM_16BIT: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(131072u32);
+pub const IMAGE_SCN_MEM_DISCARDABLE: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(33554432u32);
+pub const IMAGE_SCN_MEM_EXECUTE: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(536870912u32);
+pub const IMAGE_SCN_MEM_FARDATA: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(32768u32);
+pub const IMAGE_SCN_MEM_LOCKED: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(262144u32);
+pub const IMAGE_SCN_MEM_NOT_CACHED: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(67108864u32);
+pub const IMAGE_SCN_MEM_NOT_PAGED: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(134217728u32);
+pub const IMAGE_SCN_MEM_PRELOAD: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(524288u32);
+pub const IMAGE_SCN_MEM_PURGEABLE: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(131072u32);
+pub const IMAGE_SCN_MEM_READ: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(1073741824u32);
+pub const IMAGE_SCN_MEM_SHARED: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(268435456u32);
+pub const IMAGE_SCN_MEM_WRITE: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(2147483648u32);
+pub const IMAGE_SCN_NO_DEFER_SPEC_EXC: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(16384u32);
+pub const IMAGE_SCN_SCALE_INDEX: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(1u32);
+pub const IMAGE_SCN_TYPE_NO_PAD: IMAGE_SECTION_CHARACTERISTICS = IMAGE_SECTION_CHARACTERISTICS(8u32);
+pub const IMAGE_SUBSYSTEM_EFI_APPLICATION: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(10u16);
+pub const IMAGE_SUBSYSTEM_EFI_BOOT_SERVICE_DRIVER: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(11u16);
+pub const IMAGE_SUBSYSTEM_EFI_ROM: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(13u16);
+pub const IMAGE_SUBSYSTEM_EFI_RUNTIME_DRIVER: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(12u16);
+pub const IMAGE_SUBSYSTEM_NATIVE: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(1u16);
+pub const IMAGE_SUBSYSTEM_NATIVE_WINDOWS: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(8u16);
+pub const IMAGE_SUBSYSTEM_OS2_CUI: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(5u16);
+pub const IMAGE_SUBSYSTEM_POSIX_CUI: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(7u16);
+pub const IMAGE_SUBSYSTEM_UNKNOWN: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(0u16);
+pub const IMAGE_SUBSYSTEM_WINDOWS_BOOT_APPLICATION: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(16u16);
+pub const IMAGE_SUBSYSTEM_WINDOWS_CE_GUI: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(9u16);
+pub const IMAGE_SUBSYSTEM_WINDOWS_CUI: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(3u16);
+pub const IMAGE_SUBSYSTEM_WINDOWS_GUI: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(2u16);
+pub const IMAGE_SUBSYSTEM_XBOX: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(14u16);
+pub const IMAGE_SUBSYSTEM_XBOX_CODE_CATALOG: IMAGE_SUBSYSTEM = IMAGE_SUBSYSTEM(17u16);
+pub const IMPERSONATING_WORKER_THREAD: BUGCHECK_ERROR = BUGCHECK_ERROR(223u32);
+pub const INACCESSIBLE_BOOT_DEVICE: BUGCHECK_ERROR = BUGCHECK_ERROR(123u32);
+pub const INCONSISTENT_IRP: BUGCHECK_ERROR = BUGCHECK_ERROR(42u32);
 pub const INLINE_FRAME_CONTEXT_IGNORE: u32 = 4294967295u32;
 pub const INLINE_FRAME_CONTEXT_INIT: u32 = 0u32;
-pub const INSTALL_MORE_MEMORY: BUGCHECK_ERROR = 125u32;
-pub const INSTRUCTION_BUS_ERROR: BUGCHECK_ERROR = 47u32;
-pub const INSTRUCTION_COHERENCY_EXCEPTION: BUGCHECK_ERROR = 86u32;
-pub const INSUFFICIENT_SYSTEM_MAP_REGS: BUGCHECK_ERROR = 69u32;
+pub const INSTALL_MORE_MEMORY: BUGCHECK_ERROR = BUGCHECK_ERROR(125u32);
+pub const INSTRUCTION_BUS_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(47u32);
+pub const INSTRUCTION_COHERENCY_EXCEPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(86u32);
+pub const INSUFFICIENT_SYSTEM_MAP_REGS: BUGCHECK_ERROR = BUGCHECK_ERROR(69u32);
 pub const INTERFACESAFE_FOR_UNTRUSTED_CALLER: u32 = 1u32;
 pub const INTERFACESAFE_FOR_UNTRUSTED_DATA: u32 = 2u32;
 pub const INTERFACE_USES_DISPEX: u32 = 4u32;
 pub const INTERFACE_USES_SECURITY_MANAGER: u32 = 8u32;
-pub const INTERNAL_POWER_ERROR: BUGCHECK_ERROR = 160u32;
-pub const INTERRUPT_EXCEPTION_NOT_HANDLED: BUGCHECK_ERROR = 61u32;
-pub const INTERRUPT_UNWIND_ATTEMPTED: BUGCHECK_ERROR = 60u32;
-pub const INVALID_AFFINITY_SET: BUGCHECK_ERROR = 3u32;
-pub const INVALID_ALTERNATE_SYSTEM_CALL_HANDLER_REGISTRATION: BUGCHECK_ERROR = 480u32;
-pub const INVALID_CALLBACK_STACK_ADDRESS: BUGCHECK_ERROR = 461u32;
-pub const INVALID_CANCEL_OF_FILE_OPEN: BUGCHECK_ERROR = 232u32;
-pub const INVALID_DATA_ACCESS_TRAP: BUGCHECK_ERROR = 4u32;
-pub const INVALID_DRIVER_HANDLE: BUGCHECK_ERROR = 287u32;
-pub const INVALID_EXTENDED_PROCESSOR_STATE: BUGCHECK_ERROR = 305u32;
-pub const INVALID_FLOATING_POINT_STATE: BUGCHECK_ERROR = 231u32;
-pub const INVALID_HIBERNATED_STATE: BUGCHECK_ERROR = 189u32;
-pub const INVALID_IO_BOOST_STATE: BUGCHECK_ERROR = 316u32;
-pub const INVALID_KERNEL_HANDLE: BUGCHECK_ERROR = 147u32;
-pub const INVALID_KERNEL_STACK_ADDRESS: BUGCHECK_ERROR = 462u32;
-pub const INVALID_MDL_RANGE: BUGCHECK_ERROR = 302u32;
-pub const INVALID_PROCESS_ATTACH_ATTEMPT: BUGCHECK_ERROR = 5u32;
-pub const INVALID_PROCESS_DETACH_ATTEMPT: BUGCHECK_ERROR = 6u32;
-pub const INVALID_PUSH_LOCK_FLAGS: BUGCHECK_ERROR = 338u32;
-pub const INVALID_REGION_OR_SEGMENT: BUGCHECK_ERROR = 153u32;
-pub const INVALID_RUNDOWN_PROTECTION_FLAGS: BUGCHECK_ERROR = 364u32;
-pub const INVALID_SILO_DETACH: BUGCHECK_ERROR = 459u32;
-pub const INVALID_SLOT_ALLOCATOR_FLAGS: BUGCHECK_ERROR = 365u32;
-pub const INVALID_SOFTWARE_INTERRUPT: BUGCHECK_ERROR = 7u32;
-pub const INVALID_THREAD_AFFINITY_STATE: BUGCHECK_ERROR = 488u32;
-pub const INVALID_WORK_QUEUE_ITEM: BUGCHECK_ERROR = 150u32;
-pub const IO1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 105u32;
+pub const INTERNAL_POWER_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(160u32);
+pub const INTERRUPT_EXCEPTION_NOT_HANDLED: BUGCHECK_ERROR = BUGCHECK_ERROR(61u32);
+pub const INTERRUPT_UNWIND_ATTEMPTED: BUGCHECK_ERROR = BUGCHECK_ERROR(60u32);
+pub const INVALID_AFFINITY_SET: BUGCHECK_ERROR = BUGCHECK_ERROR(3u32);
+pub const INVALID_ALTERNATE_SYSTEM_CALL_HANDLER_REGISTRATION: BUGCHECK_ERROR = BUGCHECK_ERROR(480u32);
+pub const INVALID_CALLBACK_STACK_ADDRESS: BUGCHECK_ERROR = BUGCHECK_ERROR(461u32);
+pub const INVALID_CANCEL_OF_FILE_OPEN: BUGCHECK_ERROR = BUGCHECK_ERROR(232u32);
+pub const INVALID_DATA_ACCESS_TRAP: BUGCHECK_ERROR = BUGCHECK_ERROR(4u32);
+pub const INVALID_DRIVER_HANDLE: BUGCHECK_ERROR = BUGCHECK_ERROR(287u32);
+pub const INVALID_EXTENDED_PROCESSOR_STATE: BUGCHECK_ERROR = BUGCHECK_ERROR(305u32);
+pub const INVALID_FLOATING_POINT_STATE: BUGCHECK_ERROR = BUGCHECK_ERROR(231u32);
+pub const INVALID_HIBERNATED_STATE: BUGCHECK_ERROR = BUGCHECK_ERROR(189u32);
+pub const INVALID_IO_BOOST_STATE: BUGCHECK_ERROR = BUGCHECK_ERROR(316u32);
+pub const INVALID_KERNEL_HANDLE: BUGCHECK_ERROR = BUGCHECK_ERROR(147u32);
+pub const INVALID_KERNEL_STACK_ADDRESS: BUGCHECK_ERROR = BUGCHECK_ERROR(462u32);
+pub const INVALID_MDL_RANGE: BUGCHECK_ERROR = BUGCHECK_ERROR(302u32);
+pub const INVALID_PROCESS_ATTACH_ATTEMPT: BUGCHECK_ERROR = BUGCHECK_ERROR(5u32);
+pub const INVALID_PROCESS_DETACH_ATTEMPT: BUGCHECK_ERROR = BUGCHECK_ERROR(6u32);
+pub const INVALID_PUSH_LOCK_FLAGS: BUGCHECK_ERROR = BUGCHECK_ERROR(338u32);
+pub const INVALID_REGION_OR_SEGMENT: BUGCHECK_ERROR = BUGCHECK_ERROR(153u32);
+pub const INVALID_RUNDOWN_PROTECTION_FLAGS: BUGCHECK_ERROR = BUGCHECK_ERROR(364u32);
+pub const INVALID_SILO_DETACH: BUGCHECK_ERROR = BUGCHECK_ERROR(459u32);
+pub const INVALID_SLOT_ALLOCATOR_FLAGS: BUGCHECK_ERROR = BUGCHECK_ERROR(365u32);
+pub const INVALID_SOFTWARE_INTERRUPT: BUGCHECK_ERROR = BUGCHECK_ERROR(7u32);
+pub const INVALID_THREAD_AFFINITY_STATE: BUGCHECK_ERROR = BUGCHECK_ERROR(488u32);
+pub const INVALID_WORK_QUEUE_ITEM: BUGCHECK_ERROR = BUGCHECK_ERROR(150u32);
+pub const IO1_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(105u32);
 pub const IOCTL_IPMI_INTERNAL_RECORD_SEL_EVENT: u32 = 2232320u32;
-pub const IORING: BUGCHECK_ERROR = 499u32;
-pub const IO_OBJECT_INVALID: BUGCHECK_ERROR = 328u32;
-pub const IO_THREADPOOL_DEADLOCK_LIVEDUMP: BUGCHECK_ERROR = 453u32;
-pub const IPI_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 475u32;
+pub const IORING: BUGCHECK_ERROR = BUGCHECK_ERROR(499u32);
+pub const IO_OBJECT_INVALID: BUGCHECK_ERROR = BUGCHECK_ERROR(328u32);
+pub const IO_THREADPOOL_DEADLOCK_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(453u32);
+pub const IPI_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(475u32);
 pub const IPMI_IOCTL_INDEX: u32 = 1024u32;
 pub const IPMI_OS_SEL_RECORD_MASK: u32 = 65535u32;
 pub const IPMI_OS_SEL_RECORD_VERSION: u32 = 1u32;
 pub const IPMI_OS_SEL_RECORD_VERSION_1: u32 = 1u32;
-pub const IRQL_GT_ZERO_AT_SYSTEM_SERVICE: BUGCHECK_ERROR = 74u32;
-pub const IRQL_NOT_DISPATCH_LEVEL: BUGCHECK_ERROR = 8u32;
-pub const IRQL_NOT_GREATER_OR_EQUAL: BUGCHECK_ERROR = 9u32;
-pub const IRQL_NOT_LESS_OR_EQUAL: BUGCHECK_ERROR = 10u32;
-pub const IRQL_UNEXPECTED_VALUE: BUGCHECK_ERROR = 200u32;
-pub const IncludeModuleCallback: MINIDUMP_CALLBACK_TYPE = 4i32;
-pub const IncludeThreadCallback: MINIDUMP_CALLBACK_TYPE = 3i32;
-pub const IncludeVmRegionCallback: MINIDUMP_CALLBACK_TYPE = 10i32;
-pub const IoFinishCallback: MINIDUMP_CALLBACK_TYPE = 13i32;
-pub const IoStartCallback: MINIDUMP_CALLBACK_TYPE = 11i32;
-pub const IoWriteAllCallback: MINIDUMP_CALLBACK_TYPE = 12i32;
-pub const IpmiOsSelRecordTypeBugcheckData: IPMI_OS_SEL_RECORD_TYPE = 9i32;
-pub const IpmiOsSelRecordTypeBugcheckRecovery: IPMI_OS_SEL_RECORD_TYPE = 8i32;
-pub const IpmiOsSelRecordTypeDriver: IPMI_OS_SEL_RECORD_TYPE = 7i32;
-pub const IpmiOsSelRecordTypeMax: IPMI_OS_SEL_RECORD_TYPE = 10i32;
-pub const IpmiOsSelRecordTypeOther: IPMI_OS_SEL_RECORD_TYPE = 1i32;
-pub const IpmiOsSelRecordTypeRaw: IPMI_OS_SEL_RECORD_TYPE = 6i32;
-pub const IpmiOsSelRecordTypeWhea: IPMI_OS_SEL_RECORD_TYPE = 0i32;
-pub const IpmiOsSelRecordTypeWheaErrorNmi: IPMI_OS_SEL_RECORD_TYPE = 4i32;
-pub const IpmiOsSelRecordTypeWheaErrorOther: IPMI_OS_SEL_RECORD_TYPE = 5i32;
-pub const IpmiOsSelRecordTypeWheaErrorPci: IPMI_OS_SEL_RECORD_TYPE = 3i32;
-pub const IpmiOsSelRecordTypeWheaErrorXpfMca: IPMI_OS_SEL_RECORD_TYPE = 2i32;
-pub const IptTraceStream: MINIDUMP_STREAM_TYPE = 23i32;
-pub const IsProcessSnapshotCallback: MINIDUMP_CALLBACK_TYPE = 16i32;
-pub const JavaScriptDataStream: MINIDUMP_STREAM_TYPE = 20i32;
-pub const KASAN_ENLIGHTENMENT_VIOLATION: BUGCHECK_ERROR = 497u32;
-pub const KASAN_ILLEGAL_ACCESS: BUGCHECK_ERROR = 498u32;
-pub const KERNEL_APC_PENDING_DURING_EXIT: BUGCHECK_ERROR = 32u32;
-pub const KERNEL_AUTO_BOOST_INVALID_LOCK_RELEASE: BUGCHECK_ERROR = 354u32;
-pub const KERNEL_AUTO_BOOST_LOCK_ACQUISITION_WITH_RAISED_IRQL: BUGCHECK_ERROR = 402u32;
-pub const KERNEL_CFG_INIT_FAILURE: BUGCHECK_ERROR = 1058u32;
-pub const KERNEL_DATA_INPAGE_ERROR: BUGCHECK_ERROR = 122u32;
-pub const KERNEL_EXPAND_STACK_ACTIVE: BUGCHECK_ERROR = 263u32;
-pub const KERNEL_LOCK_ENTRY_LEAKED_ON_THREAD_TERMINATION: BUGCHECK_ERROR = 339u32;
-pub const KERNEL_MODE_EXCEPTION_NOT_HANDLED: BUGCHECK_ERROR = 142u32;
-pub const KERNEL_MODE_EXCEPTION_NOT_HANDLED_M: BUGCHECK_ERROR = 268435598u32;
-pub const KERNEL_MODE_HEAP_CORRUPTION: BUGCHECK_ERROR = 314u32;
-pub const KERNEL_PARTITION_REFERENCE_VIOLATION: BUGCHECK_ERROR = 398u32;
-pub const KERNEL_SECURITY_CHECK_FAILURE: BUGCHECK_ERROR = 313u32;
-pub const KERNEL_STACK_INPAGE_ERROR: BUGCHECK_ERROR = 119u32;
-pub const KERNEL_STACK_LOCKED_AT_EXIT: BUGCHECK_ERROR = 148u32;
-pub const KERNEL_STORAGE_SLOT_IN_USE: BUGCHECK_ERROR = 409u32;
-pub const KERNEL_THREAD_PRIORITY_FLOOR_VIOLATION: BUGCHECK_ERROR = 343u32;
-pub const KERNEL_WMI_INTERNAL: BUGCHECK_ERROR = 330u32;
-pub const KMODE_EXCEPTION_NOT_HANDLED: BUGCHECK_ERROR = 30u32;
-pub const KernelMinidumpStatusCallback: MINIDUMP_CALLBACK_TYPE = 8i32;
-pub const LAST_CHANCE_CALLED_FROM_KMODE: BUGCHECK_ERROR = 21u32;
-pub const LIVE_SYSTEM_DUMP: BUGCHECK_ERROR = 353u32;
-pub const LM_SERVER_INTERNAL_ERROR: BUGCHECK_ERROR = 84u32;
-pub const LOADER_BLOCK_MISMATCH: BUGCHECK_ERROR = 256u32;
-pub const LOADER_ROLLBACK_DETECTED: BUGCHECK_ERROR = 406u32;
-pub const LOAD_DLL_DEBUG_EVENT: DEBUG_EVENT_CODE = 6u32;
-pub const LOCKED_PAGES_TRACKER_CORRUPTION: BUGCHECK_ERROR = 217u32;
-pub const LPC_INITIALIZATION_FAILED: BUGCHECK_ERROR = 106u32;
-pub const LastReservedStream: MINIDUMP_STREAM_TYPE = 65535i32;
-pub const MACHINE_CHECK_EXCEPTION: BUGCHECK_ERROR = 156u32;
-pub const MAILSLOT_FILE_SYSTEM: BUGCHECK_ERROR = 82u32;
-pub const MANUALLY_INITIATED_BLACKSCREEN_HOTKEY_LIVE_DUMP: BUGCHECK_ERROR = 8648u32;
-pub const MANUALLY_INITIATED_CRASH: BUGCHECK_ERROR = 226u32;
-pub const MANUALLY_INITIATED_CRASH1: BUGCHECK_ERROR = 3735936685u32;
-pub const MANUALLY_INITIATED_POWER_BUTTON_HOLD: BUGCHECK_ERROR = 456u32;
-pub const MANUALLY_INITIATED_POWER_BUTTON_HOLD_LIVE_DUMP: BUGCHECK_ERROR = 4552u32;
-pub const MAXIMUM_WAIT_OBJECTS_EXCEEDED: BUGCHECK_ERROR = 12u32;
+pub const IRQL_GT_ZERO_AT_SYSTEM_SERVICE: BUGCHECK_ERROR = BUGCHECK_ERROR(74u32);
+pub const IRQL_NOT_DISPATCH_LEVEL: BUGCHECK_ERROR = BUGCHECK_ERROR(8u32);
+pub const IRQL_NOT_GREATER_OR_EQUAL: BUGCHECK_ERROR = BUGCHECK_ERROR(9u32);
+pub const IRQL_NOT_LESS_OR_EQUAL: BUGCHECK_ERROR = BUGCHECK_ERROR(10u32);
+pub const IRQL_UNEXPECTED_VALUE: BUGCHECK_ERROR = BUGCHECK_ERROR(200u32);
+pub const IncludeModuleCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(4i32);
+pub const IncludeThreadCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(3i32);
+pub const IncludeVmRegionCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(10i32);
+pub const IoFinishCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(13i32);
+pub const IoStartCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(11i32);
+pub const IoWriteAllCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(12i32);
+pub const IpmiOsSelRecordTypeBugcheckData: IPMI_OS_SEL_RECORD_TYPE = IPMI_OS_SEL_RECORD_TYPE(9i32);
+pub const IpmiOsSelRecordTypeBugcheckRecovery: IPMI_OS_SEL_RECORD_TYPE = IPMI_OS_SEL_RECORD_TYPE(8i32);
+pub const IpmiOsSelRecordTypeDriver: IPMI_OS_SEL_RECORD_TYPE = IPMI_OS_SEL_RECORD_TYPE(7i32);
+pub const IpmiOsSelRecordTypeMax: IPMI_OS_SEL_RECORD_TYPE = IPMI_OS_SEL_RECORD_TYPE(10i32);
+pub const IpmiOsSelRecordTypeOther: IPMI_OS_SEL_RECORD_TYPE = IPMI_OS_SEL_RECORD_TYPE(1i32);
+pub const IpmiOsSelRecordTypeRaw: IPMI_OS_SEL_RECORD_TYPE = IPMI_OS_SEL_RECORD_TYPE(6i32);
+pub const IpmiOsSelRecordTypeWhea: IPMI_OS_SEL_RECORD_TYPE = IPMI_OS_SEL_RECORD_TYPE(0i32);
+pub const IpmiOsSelRecordTypeWheaErrorNmi: IPMI_OS_SEL_RECORD_TYPE = IPMI_OS_SEL_RECORD_TYPE(4i32);
+pub const IpmiOsSelRecordTypeWheaErrorOther: IPMI_OS_SEL_RECORD_TYPE = IPMI_OS_SEL_RECORD_TYPE(5i32);
+pub const IpmiOsSelRecordTypeWheaErrorPci: IPMI_OS_SEL_RECORD_TYPE = IPMI_OS_SEL_RECORD_TYPE(3i32);
+pub const IpmiOsSelRecordTypeWheaErrorXpfMca: IPMI_OS_SEL_RECORD_TYPE = IPMI_OS_SEL_RECORD_TYPE(2i32);
+pub const IptTraceStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(23i32);
+pub const IsProcessSnapshotCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(16i32);
+pub const JavaScriptDataStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(20i32);
+pub const KASAN_ENLIGHTENMENT_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(497u32);
+pub const KASAN_ILLEGAL_ACCESS: BUGCHECK_ERROR = BUGCHECK_ERROR(498u32);
+pub const KERNEL_APC_PENDING_DURING_EXIT: BUGCHECK_ERROR = BUGCHECK_ERROR(32u32);
+pub const KERNEL_AUTO_BOOST_INVALID_LOCK_RELEASE: BUGCHECK_ERROR = BUGCHECK_ERROR(354u32);
+pub const KERNEL_AUTO_BOOST_LOCK_ACQUISITION_WITH_RAISED_IRQL: BUGCHECK_ERROR = BUGCHECK_ERROR(402u32);
+pub const KERNEL_CFG_INIT_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(1058u32);
+pub const KERNEL_DATA_INPAGE_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(122u32);
+pub const KERNEL_EXPAND_STACK_ACTIVE: BUGCHECK_ERROR = BUGCHECK_ERROR(263u32);
+pub const KERNEL_LOCK_ENTRY_LEAKED_ON_THREAD_TERMINATION: BUGCHECK_ERROR = BUGCHECK_ERROR(339u32);
+pub const KERNEL_MODE_EXCEPTION_NOT_HANDLED: BUGCHECK_ERROR = BUGCHECK_ERROR(142u32);
+pub const KERNEL_MODE_EXCEPTION_NOT_HANDLED_M: BUGCHECK_ERROR = BUGCHECK_ERROR(268435598u32);
+pub const KERNEL_MODE_HEAP_CORRUPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(314u32);
+pub const KERNEL_PARTITION_REFERENCE_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(398u32);
+pub const KERNEL_SECURITY_CHECK_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(313u32);
+pub const KERNEL_STACK_INPAGE_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(119u32);
+pub const KERNEL_STACK_LOCKED_AT_EXIT: BUGCHECK_ERROR = BUGCHECK_ERROR(148u32);
+pub const KERNEL_STORAGE_SLOT_IN_USE: BUGCHECK_ERROR = BUGCHECK_ERROR(409u32);
+pub const KERNEL_THREAD_PRIORITY_FLOOR_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(343u32);
+pub const KERNEL_WMI_INTERNAL: BUGCHECK_ERROR = BUGCHECK_ERROR(330u32);
+pub const KMODE_EXCEPTION_NOT_HANDLED: BUGCHECK_ERROR = BUGCHECK_ERROR(30u32);
+pub const KernelMinidumpStatusCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(8i32);
+pub const LAST_CHANCE_CALLED_FROM_KMODE: BUGCHECK_ERROR = BUGCHECK_ERROR(21u32);
+pub const LIVE_SYSTEM_DUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(353u32);
+pub const LM_SERVER_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(84u32);
+pub const LOADER_BLOCK_MISMATCH: BUGCHECK_ERROR = BUGCHECK_ERROR(256u32);
+pub const LOADER_ROLLBACK_DETECTED: BUGCHECK_ERROR = BUGCHECK_ERROR(406u32);
+pub const LOAD_DLL_DEBUG_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(6u32);
+pub const LOCKED_PAGES_TRACKER_CORRUPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(217u32);
+pub const LPC_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(106u32);
+pub const LastReservedStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(65535i32);
+pub const MACHINE_CHECK_EXCEPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(156u32);
+pub const MAILSLOT_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(82u32);
+pub const MANUALLY_INITIATED_BLACKSCREEN_HOTKEY_LIVE_DUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(8648u32);
+pub const MANUALLY_INITIATED_CRASH: BUGCHECK_ERROR = BUGCHECK_ERROR(226u32);
+pub const MANUALLY_INITIATED_CRASH1: BUGCHECK_ERROR = BUGCHECK_ERROR(3735936685u32);
+pub const MANUALLY_INITIATED_POWER_BUTTON_HOLD: BUGCHECK_ERROR = BUGCHECK_ERROR(456u32);
+pub const MANUALLY_INITIATED_POWER_BUTTON_HOLD_LIVE_DUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(4552u32);
+pub const MAXIMUM_WAIT_OBJECTS_EXCEEDED: BUGCHECK_ERROR = BUGCHECK_ERROR(12u32);
 pub const MAX_SYM_NAME: u32 = 2000u32;
-pub const MBR_CHECKSUM_MISMATCH: BUGCHECK_ERROR = 139u32;
-pub const MDL_CACHE: BUGCHECK_ERROR = 500u32;
-pub const MEMORY1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 101u32;
-pub const MEMORY_IMAGE_CORRUPT: BUGCHECK_ERROR = 162u32;
-pub const MEMORY_MANAGEMENT: BUGCHECK_ERROR = 26u32;
-pub const MICROCODE_REVISION_MISMATCH: BUGCHECK_ERROR = 382u32;
+pub const MBR_CHECKSUM_MISMATCH: BUGCHECK_ERROR = BUGCHECK_ERROR(139u32);
+pub const MDL_CACHE: BUGCHECK_ERROR = BUGCHECK_ERROR(500u32);
+pub const MEMORY1_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(101u32);
+pub const MEMORY_IMAGE_CORRUPT: BUGCHECK_ERROR = BUGCHECK_ERROR(162u32);
+pub const MEMORY_MANAGEMENT: BUGCHECK_ERROR = BUGCHECK_ERROR(26u32);
+pub const MICROCODE_REVISION_MISMATCH: BUGCHECK_ERROR = BUGCHECK_ERROR(382u32);
 pub const MINIDUMP_MISC1_PROCESSOR_POWER_INFO: u32 = 4u32;
-pub const MINIDUMP_MISC1_PROCESS_ID: MINIDUMP_MISC_INFO_FLAGS = 1u32;
-pub const MINIDUMP_MISC1_PROCESS_TIMES: MINIDUMP_MISC_INFO_FLAGS = 2u32;
+pub const MINIDUMP_MISC1_PROCESS_ID: MINIDUMP_MISC_INFO_FLAGS = MINIDUMP_MISC_INFO_FLAGS(1u32);
+pub const MINIDUMP_MISC1_PROCESS_TIMES: MINIDUMP_MISC_INFO_FLAGS = MINIDUMP_MISC_INFO_FLAGS(2u32);
 pub const MINIDUMP_MISC3_PROCESS_EXECUTE_FLAGS: u32 = 32u32;
 pub const MINIDUMP_MISC3_PROCESS_INTEGRITY: u32 = 16u32;
 pub const MINIDUMP_MISC3_PROTECTED_PROCESS: u32 = 128u32;
@@ -835,287 +3713,287 @@ pub const MINIDUMP_SYSMEMINFO1_BASICPERF: u32 = 2u32;
 pub const MINIDUMP_SYSMEMINFO1_FILECACHE_TRANSITIONREPURPOSECOUNT_FLAGS: u32 = 1u32;
 pub const MINIDUMP_SYSMEMINFO1_PERF_CCTOTALDIRTYPAGES_CCDIRTYPAGETHRESHOLD: u32 = 4u32;
 pub const MINIDUMP_SYSMEMINFO1_PERF_RESIDENTAVAILABLEPAGES_SHAREDCOMMITPAGES: u32 = 8u32;
-pub const MINIDUMP_THREAD_INFO_ERROR_THREAD: MINIDUMP_THREAD_INFO_DUMP_FLAGS = 1u32;
-pub const MINIDUMP_THREAD_INFO_EXITED_THREAD: MINIDUMP_THREAD_INFO_DUMP_FLAGS = 4u32;
-pub const MINIDUMP_THREAD_INFO_INVALID_CONTEXT: MINIDUMP_THREAD_INFO_DUMP_FLAGS = 16u32;
-pub const MINIDUMP_THREAD_INFO_INVALID_INFO: MINIDUMP_THREAD_INFO_DUMP_FLAGS = 8u32;
-pub const MINIDUMP_THREAD_INFO_INVALID_TEB: MINIDUMP_THREAD_INFO_DUMP_FLAGS = 32u32;
-pub const MINIDUMP_THREAD_INFO_WRITING_THREAD: MINIDUMP_THREAD_INFO_DUMP_FLAGS = 2u32;
+pub const MINIDUMP_THREAD_INFO_ERROR_THREAD: MINIDUMP_THREAD_INFO_DUMP_FLAGS = MINIDUMP_THREAD_INFO_DUMP_FLAGS(1u32);
+pub const MINIDUMP_THREAD_INFO_EXITED_THREAD: MINIDUMP_THREAD_INFO_DUMP_FLAGS = MINIDUMP_THREAD_INFO_DUMP_FLAGS(4u32);
+pub const MINIDUMP_THREAD_INFO_INVALID_CONTEXT: MINIDUMP_THREAD_INFO_DUMP_FLAGS = MINIDUMP_THREAD_INFO_DUMP_FLAGS(16u32);
+pub const MINIDUMP_THREAD_INFO_INVALID_INFO: MINIDUMP_THREAD_INFO_DUMP_FLAGS = MINIDUMP_THREAD_INFO_DUMP_FLAGS(8u32);
+pub const MINIDUMP_THREAD_INFO_INVALID_TEB: MINIDUMP_THREAD_INFO_DUMP_FLAGS = MINIDUMP_THREAD_INFO_DUMP_FLAGS(32u32);
+pub const MINIDUMP_THREAD_INFO_WRITING_THREAD: MINIDUMP_THREAD_INFO_DUMP_FLAGS = MINIDUMP_THREAD_INFO_DUMP_FLAGS(2u32);
 pub const MINIDUMP_VERSION: u32 = 42899u32;
-pub const MISALIGNED_POINTER_PARAMETER: BUGCHECK_ERROR = 502u32;
-pub const MISMATCHED_HAL: BUGCHECK_ERROR = 121u32;
-pub const MPSDRV_QUERY_USER: BUGCHECK_ERROR = 1073742318u32;
-pub const MSRPC_STATE_VIOLATION: BUGCHECK_ERROR = 274u32;
-pub const MSSECCORE_ASSERTION_FAILURE: BUGCHECK_ERROR = 503u32;
-pub const MUI_NO_VALID_SYSTEM_LANGUAGE: BUGCHECK_ERROR = 298u32;
-pub const MULTIPLE_IRP_COMPLETE_REQUESTS: BUGCHECK_ERROR = 68u32;
-pub const MULTIPROCESSOR_CONFIGURATION_NOT_SUPPORTED: BUGCHECK_ERROR = 62u32;
-pub const MUP_FILE_SYSTEM: BUGCHECK_ERROR = 259u32;
-pub const MUST_SUCCEED_POOL_EMPTY: BUGCHECK_ERROR = 65u32;
-pub const MUTEX_ALREADY_OWNED: BUGCHECK_ERROR = 191u32;
-pub const MUTEX_LEVEL_NUMBER_VIOLATION: BUGCHECK_ERROR = 13u32;
-pub const Memory64ListStream: MINIDUMP_STREAM_TYPE = 9i32;
-pub const MemoryCallback: MINIDUMP_CALLBACK_TYPE = 5i32;
-pub const MemoryInfoListStream: MINIDUMP_STREAM_TYPE = 16i32;
-pub const MemoryListStream: MINIDUMP_STREAM_TYPE = 5i32;
-pub const MiniDumpFilterMemory: MINIDUMP_TYPE = 8i32;
-pub const MiniDumpFilterModulePaths: MINIDUMP_TYPE = 128i32;
-pub const MiniDumpFilterTriage: MINIDUMP_TYPE = 1048576i32;
-pub const MiniDumpFilterWriteCombinedMemory: MINIDUMP_TYPE = 16777216i32;
-pub const MiniDumpIgnoreInaccessibleMemory: MINIDUMP_TYPE = 131072i32;
-pub const MiniDumpNormal: MINIDUMP_TYPE = 0i32;
-pub const MiniDumpScanInaccessiblePartialPages: MINIDUMP_TYPE = 8388608i32;
-pub const MiniDumpScanMemory: MINIDUMP_TYPE = 16i32;
-pub const MiniDumpValidTypeFlags: MINIDUMP_TYPE = 33554431i32;
-pub const MiniDumpWithAvxXStateContext: MINIDUMP_TYPE = 2097152i32;
-pub const MiniDumpWithCodeSegs: MINIDUMP_TYPE = 8192i32;
-pub const MiniDumpWithDataSegs: MINIDUMP_TYPE = 1i32;
-pub const MiniDumpWithFullAuxiliaryState: MINIDUMP_TYPE = 32768i32;
-pub const MiniDumpWithFullMemory: MINIDUMP_TYPE = 2i32;
-pub const MiniDumpWithFullMemoryInfo: MINIDUMP_TYPE = 2048i32;
-pub const MiniDumpWithHandleData: MINIDUMP_TYPE = 4i32;
-pub const MiniDumpWithIndirectlyReferencedMemory: MINIDUMP_TYPE = 64i32;
-pub const MiniDumpWithIptTrace: MINIDUMP_TYPE = 4194304i32;
-pub const MiniDumpWithModuleHeaders: MINIDUMP_TYPE = 524288i32;
-pub const MiniDumpWithPrivateReadWriteMemory: MINIDUMP_TYPE = 512i32;
-pub const MiniDumpWithPrivateWriteCopyMemory: MINIDUMP_TYPE = 65536i32;
-pub const MiniDumpWithProcessThreadData: MINIDUMP_TYPE = 256i32;
-pub const MiniDumpWithThreadInfo: MINIDUMP_TYPE = 4096i32;
-pub const MiniDumpWithTokenInformation: MINIDUMP_TYPE = 262144i32;
-pub const MiniDumpWithUnloadedModules: MINIDUMP_TYPE = 32i32;
-pub const MiniDumpWithoutAuxiliaryState: MINIDUMP_TYPE = 16384i32;
-pub const MiniDumpWithoutOptionalData: MINIDUMP_TYPE = 1024i32;
-pub const MiniEventInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 6i32;
-pub const MiniHandleObjectInformationNone: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 0i32;
-pub const MiniHandleObjectInformationTypeMax: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 9i32;
-pub const MiniMutantInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 2i32;
-pub const MiniMutantInformation2: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 3i32;
-pub const MiniProcessInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 4i32;
-pub const MiniProcessInformation2: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 5i32;
-pub const MiniSecondaryValidFlags: MINIDUMP_SECONDARY_FLAGS = 1i32;
-pub const MiniSecondaryWithoutPowerInfo: MINIDUMP_SECONDARY_FLAGS = 1i32;
-pub const MiniSectionInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 7i32;
-pub const MiniSemaphoreInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 8i32;
-pub const MiniThreadInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 1i32;
-pub const MiscInfoStream: MINIDUMP_STREAM_TYPE = 15i32;
-pub const ModuleCallback: MINIDUMP_CALLBACK_TYPE = 0i32;
-pub const ModuleListStream: MINIDUMP_STREAM_TYPE = 4i32;
-pub const ModuleReferencedByMemory: MODULE_WRITE_FLAGS = 16i32;
-pub const ModuleWriteCodeSegs: MODULE_WRITE_FLAGS = 64i32;
-pub const ModuleWriteCvRecord: MODULE_WRITE_FLAGS = 8i32;
-pub const ModuleWriteDataSeg: MODULE_WRITE_FLAGS = 2i32;
-pub const ModuleWriteMiscRecord: MODULE_WRITE_FLAGS = 4i32;
-pub const ModuleWriteModule: MODULE_WRITE_FLAGS = 1i32;
-pub const ModuleWriteTlsData: MODULE_WRITE_FLAGS = 32i32;
-pub const NDIS_INTERNAL_ERROR: BUGCHECK_ERROR = 79u32;
-pub const NDIS_NET_BUFFER_LIST_INFO_ILLEGALLY_TRANSFERRED: BUGCHECK_ERROR = 326u32;
-pub const NETIO_INVALID_POOL_CALLER: BUGCHECK_ERROR = 294u32;
-pub const NETWORK_BOOT_DUPLICATE_ADDRESS: BUGCHECK_ERROR = 188u32;
-pub const NETWORK_BOOT_INITIALIZATION_FAILED: BUGCHECK_ERROR = 187u32;
-pub const NMI_HARDWARE_FAILURE: BUGCHECK_ERROR = 128u32;
-pub const NMR_INVALID_STATE: BUGCHECK_ERROR = 293u32;
-pub const NO_BOOT_DEVICE: BUGCHECK_ERROR = 83u32;
-pub const NO_EXCEPTION_HANDLING_SUPPORT: BUGCHECK_ERROR = 11u32;
-pub const NO_MORE_IRP_STACK_LOCATIONS: BUGCHECK_ERROR = 53u32;
-pub const NO_MORE_SYSTEM_PTES: BUGCHECK_ERROR = 63u32;
-pub const NO_PAGES_AVAILABLE: BUGCHECK_ERROR = 77u32;
-pub const NO_SPIN_LOCK_AVAILABLE: BUGCHECK_ERROR = 29u32;
-pub const NO_SUCH_PARTITION: BUGCHECK_ERROR = 67u32;
-pub const NO_USER_MODE_CONTEXT: BUGCHECK_ERROR = 14u32;
-pub const NPFS_FILE_SYSTEM: BUGCHECK_ERROR = 37u32;
-pub const NTFS_FILE_SYSTEM: BUGCHECK_ERROR = 36u32;
-pub const NTHV_GUEST_ERROR: BUGCHECK_ERROR = 280u32;
+pub const MISALIGNED_POINTER_PARAMETER: BUGCHECK_ERROR = BUGCHECK_ERROR(502u32);
+pub const MISMATCHED_HAL: BUGCHECK_ERROR = BUGCHECK_ERROR(121u32);
+pub const MPSDRV_QUERY_USER: BUGCHECK_ERROR = BUGCHECK_ERROR(1073742318u32);
+pub const MSRPC_STATE_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(274u32);
+pub const MSSECCORE_ASSERTION_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(503u32);
+pub const MUI_NO_VALID_SYSTEM_LANGUAGE: BUGCHECK_ERROR = BUGCHECK_ERROR(298u32);
+pub const MULTIPLE_IRP_COMPLETE_REQUESTS: BUGCHECK_ERROR = BUGCHECK_ERROR(68u32);
+pub const MULTIPROCESSOR_CONFIGURATION_NOT_SUPPORTED: BUGCHECK_ERROR = BUGCHECK_ERROR(62u32);
+pub const MUP_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(259u32);
+pub const MUST_SUCCEED_POOL_EMPTY: BUGCHECK_ERROR = BUGCHECK_ERROR(65u32);
+pub const MUTEX_ALREADY_OWNED: BUGCHECK_ERROR = BUGCHECK_ERROR(191u32);
+pub const MUTEX_LEVEL_NUMBER_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(13u32);
+pub const Memory64ListStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(9i32);
+pub const MemoryCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(5i32);
+pub const MemoryInfoListStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(16i32);
+pub const MemoryListStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(5i32);
+pub const MiniDumpFilterMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(8i32);
+pub const MiniDumpFilterModulePaths: MINIDUMP_TYPE = MINIDUMP_TYPE(128i32);
+pub const MiniDumpFilterTriage: MINIDUMP_TYPE = MINIDUMP_TYPE(1048576i32);
+pub const MiniDumpFilterWriteCombinedMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(16777216i32);
+pub const MiniDumpIgnoreInaccessibleMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(131072i32);
+pub const MiniDumpNormal: MINIDUMP_TYPE = MINIDUMP_TYPE(0i32);
+pub const MiniDumpScanInaccessiblePartialPages: MINIDUMP_TYPE = MINIDUMP_TYPE(8388608i32);
+pub const MiniDumpScanMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(16i32);
+pub const MiniDumpValidTypeFlags: MINIDUMP_TYPE = MINIDUMP_TYPE(33554431i32);
+pub const MiniDumpWithAvxXStateContext: MINIDUMP_TYPE = MINIDUMP_TYPE(2097152i32);
+pub const MiniDumpWithCodeSegs: MINIDUMP_TYPE = MINIDUMP_TYPE(8192i32);
+pub const MiniDumpWithDataSegs: MINIDUMP_TYPE = MINIDUMP_TYPE(1i32);
+pub const MiniDumpWithFullAuxiliaryState: MINIDUMP_TYPE = MINIDUMP_TYPE(32768i32);
+pub const MiniDumpWithFullMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(2i32);
+pub const MiniDumpWithFullMemoryInfo: MINIDUMP_TYPE = MINIDUMP_TYPE(2048i32);
+pub const MiniDumpWithHandleData: MINIDUMP_TYPE = MINIDUMP_TYPE(4i32);
+pub const MiniDumpWithIndirectlyReferencedMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(64i32);
+pub const MiniDumpWithIptTrace: MINIDUMP_TYPE = MINIDUMP_TYPE(4194304i32);
+pub const MiniDumpWithModuleHeaders: MINIDUMP_TYPE = MINIDUMP_TYPE(524288i32);
+pub const MiniDumpWithPrivateReadWriteMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(512i32);
+pub const MiniDumpWithPrivateWriteCopyMemory: MINIDUMP_TYPE = MINIDUMP_TYPE(65536i32);
+pub const MiniDumpWithProcessThreadData: MINIDUMP_TYPE = MINIDUMP_TYPE(256i32);
+pub const MiniDumpWithThreadInfo: MINIDUMP_TYPE = MINIDUMP_TYPE(4096i32);
+pub const MiniDumpWithTokenInformation: MINIDUMP_TYPE = MINIDUMP_TYPE(262144i32);
+pub const MiniDumpWithUnloadedModules: MINIDUMP_TYPE = MINIDUMP_TYPE(32i32);
+pub const MiniDumpWithoutAuxiliaryState: MINIDUMP_TYPE = MINIDUMP_TYPE(16384i32);
+pub const MiniDumpWithoutOptionalData: MINIDUMP_TYPE = MINIDUMP_TYPE(1024i32);
+pub const MiniEventInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE(6i32);
+pub const MiniHandleObjectInformationNone: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE(0i32);
+pub const MiniHandleObjectInformationTypeMax: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE(9i32);
+pub const MiniMutantInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE(2i32);
+pub const MiniMutantInformation2: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE(3i32);
+pub const MiniProcessInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE(4i32);
+pub const MiniProcessInformation2: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE(5i32);
+pub const MiniSecondaryValidFlags: MINIDUMP_SECONDARY_FLAGS = MINIDUMP_SECONDARY_FLAGS(1i32);
+pub const MiniSecondaryWithoutPowerInfo: MINIDUMP_SECONDARY_FLAGS = MINIDUMP_SECONDARY_FLAGS(1i32);
+pub const MiniSectionInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE(7i32);
+pub const MiniSemaphoreInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE(8i32);
+pub const MiniThreadInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE(1i32);
+pub const MiscInfoStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(15i32);
+pub const ModuleCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(0i32);
+pub const ModuleListStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(4i32);
+pub const ModuleReferencedByMemory: MODULE_WRITE_FLAGS = MODULE_WRITE_FLAGS(16i32);
+pub const ModuleWriteCodeSegs: MODULE_WRITE_FLAGS = MODULE_WRITE_FLAGS(64i32);
+pub const ModuleWriteCvRecord: MODULE_WRITE_FLAGS = MODULE_WRITE_FLAGS(8i32);
+pub const ModuleWriteDataSeg: MODULE_WRITE_FLAGS = MODULE_WRITE_FLAGS(2i32);
+pub const ModuleWriteMiscRecord: MODULE_WRITE_FLAGS = MODULE_WRITE_FLAGS(4i32);
+pub const ModuleWriteModule: MODULE_WRITE_FLAGS = MODULE_WRITE_FLAGS(1i32);
+pub const ModuleWriteTlsData: MODULE_WRITE_FLAGS = MODULE_WRITE_FLAGS(32i32);
+pub const NDIS_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(79u32);
+pub const NDIS_NET_BUFFER_LIST_INFO_ILLEGALLY_TRANSFERRED: BUGCHECK_ERROR = BUGCHECK_ERROR(326u32);
+pub const NETIO_INVALID_POOL_CALLER: BUGCHECK_ERROR = BUGCHECK_ERROR(294u32);
+pub const NETWORK_BOOT_DUPLICATE_ADDRESS: BUGCHECK_ERROR = BUGCHECK_ERROR(188u32);
+pub const NETWORK_BOOT_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(187u32);
+pub const NMI_HARDWARE_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(128u32);
+pub const NMR_INVALID_STATE: BUGCHECK_ERROR = BUGCHECK_ERROR(293u32);
+pub const NO_BOOT_DEVICE: BUGCHECK_ERROR = BUGCHECK_ERROR(83u32);
+pub const NO_EXCEPTION_HANDLING_SUPPORT: BUGCHECK_ERROR = BUGCHECK_ERROR(11u32);
+pub const NO_MORE_IRP_STACK_LOCATIONS: BUGCHECK_ERROR = BUGCHECK_ERROR(53u32);
+pub const NO_MORE_SYSTEM_PTES: BUGCHECK_ERROR = BUGCHECK_ERROR(63u32);
+pub const NO_PAGES_AVAILABLE: BUGCHECK_ERROR = BUGCHECK_ERROR(77u32);
+pub const NO_SPIN_LOCK_AVAILABLE: BUGCHECK_ERROR = BUGCHECK_ERROR(29u32);
+pub const NO_SUCH_PARTITION: BUGCHECK_ERROR = BUGCHECK_ERROR(67u32);
+pub const NO_USER_MODE_CONTEXT: BUGCHECK_ERROR = BUGCHECK_ERROR(14u32);
+pub const NPFS_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(37u32);
+pub const NTFS_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(36u32);
+pub const NTHV_GUEST_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(280u32);
 pub const NUM_SSRVOPTS: u32 = 32u32;
-pub const NumSymTypes: SYM_TYPE = 9i32;
-pub const OBJECT1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 98u32;
-pub const OBJECT_ATTRIB_ACCESS_FINAL: OBJECT_ATTRIB_FLAGS = 32768i32;
-pub const OBJECT_ATTRIB_ACCESS_PRIVATE: OBJECT_ATTRIB_FLAGS = 8192i32;
-pub const OBJECT_ATTRIB_ACCESS_PROTECTED: OBJECT_ATTRIB_FLAGS = 16384i32;
-pub const OBJECT_ATTRIB_ACCESS_PUBLIC: OBJECT_ATTRIB_FLAGS = 4096i32;
-pub const OBJECT_ATTRIB_HAS_EXTENDED_ATTRIBS: OBJECT_ATTRIB_FLAGS = 8388608i32;
-pub const OBJECT_ATTRIB_IS_CLASS: OBJECT_ATTRIB_FLAGS = 16777216i32;
-pub const OBJECT_ATTRIB_IS_FUNCTION: OBJECT_ATTRIB_FLAGS = 33554432i32;
-pub const OBJECT_ATTRIB_IS_INHERITED: OBJECT_ATTRIB_FLAGS = 1073741824i32;
-pub const OBJECT_ATTRIB_IS_INTERFACE: OBJECT_ATTRIB_FLAGS = -2147483648i32;
-pub const OBJECT_ATTRIB_IS_MACRO: OBJECT_ATTRIB_FLAGS = 268435456i32;
-pub const OBJECT_ATTRIB_IS_PROPERTY: OBJECT_ATTRIB_FLAGS = 134217728i32;
-pub const OBJECT_ATTRIB_IS_TYPE: OBJECT_ATTRIB_FLAGS = 536870912i32;
-pub const OBJECT_ATTRIB_IS_VARIABLE: OBJECT_ATTRIB_FLAGS = 67108864i32;
-pub const OBJECT_ATTRIB_NO_ATTRIB: OBJECT_ATTRIB_FLAGS = 0i32;
-pub const OBJECT_ATTRIB_NO_NAME: OBJECT_ATTRIB_FLAGS = 1i32;
-pub const OBJECT_ATTRIB_NO_TYPE: OBJECT_ATTRIB_FLAGS = 2i32;
-pub const OBJECT_ATTRIB_NO_VALUE: OBJECT_ATTRIB_FLAGS = 4i32;
-pub const OBJECT_ATTRIB_OBJECT_IS_EXPANDABLE: OBJECT_ATTRIB_FLAGS = 112i32;
-pub const OBJECT_ATTRIB_SLOT_IS_CATEGORY: OBJECT_ATTRIB_FLAGS = 1024i32;
-pub const OBJECT_ATTRIB_STORAGE_FIELD: OBJECT_ATTRIB_FLAGS = 262144i32;
-pub const OBJECT_ATTRIB_STORAGE_GLOBAL: OBJECT_ATTRIB_FLAGS = 65536i32;
-pub const OBJECT_ATTRIB_STORAGE_STATIC: OBJECT_ATTRIB_FLAGS = 131072i32;
-pub const OBJECT_ATTRIB_STORAGE_VIRTUAL: OBJECT_ATTRIB_FLAGS = 524288i32;
-pub const OBJECT_ATTRIB_TYPE_HAS_CODE: OBJECT_ATTRIB_FLAGS = 512i32;
-pub const OBJECT_ATTRIB_TYPE_IS_CONSTANT: OBJECT_ATTRIB_FLAGS = 1048576i32;
-pub const OBJECT_ATTRIB_TYPE_IS_EXPANDABLE: OBJECT_ATTRIB_FLAGS = 256i32;
-pub const OBJECT_ATTRIB_TYPE_IS_OBJECT: OBJECT_ATTRIB_FLAGS = 256i32;
-pub const OBJECT_ATTRIB_TYPE_IS_SYNCHRONIZED: OBJECT_ATTRIB_FLAGS = 2097152i32;
-pub const OBJECT_ATTRIB_TYPE_IS_VOLATILE: OBJECT_ATTRIB_FLAGS = 4194304i32;
-pub const OBJECT_ATTRIB_VALUE_HAS_CODE: OBJECT_ATTRIB_FLAGS = 128i32;
-pub const OBJECT_ATTRIB_VALUE_IS_CUSTOM: OBJECT_ATTRIB_FLAGS = 64i32;
-pub const OBJECT_ATTRIB_VALUE_IS_ENUM: OBJECT_ATTRIB_FLAGS = 32i32;
-pub const OBJECT_ATTRIB_VALUE_IS_INVALID: OBJECT_ATTRIB_FLAGS = 8i32;
-pub const OBJECT_ATTRIB_VALUE_IS_OBJECT: OBJECT_ATTRIB_FLAGS = 16i32;
-pub const OBJECT_ATTRIB_VALUE_READONLY: OBJECT_ATTRIB_FLAGS = 2048i32;
-pub const OBJECT_INITIALIZATION_FAILED: BUGCHECK_ERROR = 94u32;
-pub const OFS_FILE_SYSTEM: BUGCHECK_ERROR = 131u32;
-pub const OS_DATA_TAMPERING: BUGCHECK_ERROR = 341u32;
-pub const OUTPUT_DEBUG_STRING_EVENT: DEBUG_EVENT_CODE = 8u32;
-pub const PAGE_FAULT_BEYOND_END_OF_ALLOCATION: BUGCHECK_ERROR = 205u32;
-pub const PAGE_FAULT_IN_FREED_SPECIAL_POOL: BUGCHECK_ERROR = 204u32;
-pub const PAGE_FAULT_IN_NONPAGED_AREA: BUGCHECK_ERROR = 80u32;
-pub const PAGE_FAULT_IN_NONPAGED_AREA_M: BUGCHECK_ERROR = 268435536u32;
-pub const PAGE_FAULT_WITH_INTERRUPTS_OFF: BUGCHECK_ERROR = 73u32;
-pub const PAGE_NOT_ZERO: BUGCHECK_ERROR = 295u32;
-pub const PANIC_STACK_SWITCH: BUGCHECK_ERROR = 43u32;
-pub const PASSIVE_INTERRUPT_ERROR: BUGCHECK_ERROR = 315u32;
-pub const PCI_BUS_DRIVER_INTERNAL: BUGCHECK_ERROR = 161u32;
-pub const PCI_CONFIG_SPACE_ACCESS_FAILURE: BUGCHECK_ERROR = 192u32;
-pub const PCI_VERIFIER_DETECTED_VIOLATION: BUGCHECK_ERROR = 246u32;
-pub const PDC_LOCK_WATCHDOG_LIVEDUMP: BUGCHECK_ERROR = 380u32;
-pub const PDC_PRIVILEGE_CHECK_LIVEDUMP: BUGCHECK_ERROR = 415u32;
-pub const PDC_UNEXPECTED_REVOCATION_LIVEDUMP: BUGCHECK_ERROR = 381u32;
-pub const PDC_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 335u32;
-pub const PDC_WATCHDOG_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 348u32;
-pub const PFN_LIST_CORRUPT: BUGCHECK_ERROR = 78u32;
-pub const PFN_REFERENCE_COUNT: BUGCHECK_ERROR = 28u32;
-pub const PFN_SHARE_COUNT: BUGCHECK_ERROR = 27u32;
-pub const PF_DETECTED_CORRUPTION: BUGCHECK_ERROR = 401u32;
-pub const PHASE0_EXCEPTION: BUGCHECK_ERROR = 120u32;
-pub const PHASE0_INITIALIZATION_FAILED: BUGCHECK_ERROR = 49u32;
-pub const PHASE1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 50u32;
-pub const PINBALL_FILE_SYSTEM: BUGCHECK_ERROR = 89u32;
-pub const PNP_DETECTED_FATAL_ERROR: BUGCHECK_ERROR = 202u32;
-pub const PNP_INTERNAL_ERROR: BUGCHECK_ERROR = 149u32;
-pub const POOL_CORRUPTION_IN_FILE_AREA: BUGCHECK_ERROR = 222u32;
-pub const PORT_DRIVER_INTERNAL: BUGCHECK_ERROR = 44u32;
-pub const POWER_FAILURE_SIMULATE: BUGCHECK_ERROR = 229u32;
-pub const PP0_INITIALIZATION_FAILED: BUGCHECK_ERROR = 143u32;
-pub const PP1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 144u32;
-pub const PREVIOUS_FATAL_ABNORMAL_RESET_ERROR: BUGCHECK_ERROR = 373u32;
-pub const PROCESS1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 107u32;
-pub const PROCESSOR_DRIVER_INTERNAL: BUGCHECK_ERROR = 323u32;
-pub const PROCESSOR_START_TIMEOUT: BUGCHECK_ERROR = 479u32;
-pub const PROCESS_HAS_LOCKED_PAGES: BUGCHECK_ERROR = 118u32;
-pub const PROCESS_INITIALIZATION_FAILED: BUGCHECK_ERROR = 96u32;
-pub const PROFILER_CONFIGURATION_ILLEGAL: BUGCHECK_ERROR = 379u32;
-pub const PROP_INFO_ATTRIBUTES: PROP_INFO_FLAGS = 8i32;
-pub const PROP_INFO_AUTOEXPAND: PROP_INFO_FLAGS = 134217728i32;
-pub const PROP_INFO_DEBUGPROP: PROP_INFO_FLAGS = 16i32;
-pub const PROP_INFO_FULLNAME: PROP_INFO_FLAGS = 32i32;
-pub const PROP_INFO_NAME: PROP_INFO_FLAGS = 1i32;
-pub const PROP_INFO_TYPE: PROP_INFO_FLAGS = 2i32;
-pub const PROP_INFO_VALUE: PROP_INFO_FLAGS = 4i32;
-pub const ProcessVmCountersStream: MINIDUMP_STREAM_TYPE = 22i32;
-pub const QUOTA_UNDERFLOW: BUGCHECK_ERROR = 33u32;
-pub const RAMDISK_BOOT_INITIALIZATION_FAILED: BUGCHECK_ERROR = 248u32;
-pub const RDR_FILE_SYSTEM: BUGCHECK_ERROR = 39u32;
-pub const RECOM_DRIVER: BUGCHECK_ERROR = 132u32;
-pub const RECURSIVE_MACHINE_CHECK: BUGCHECK_ERROR = 251u32;
-pub const RECURSIVE_NMI: BUGCHECK_ERROR = 273u32;
-pub const REFERENCE_BY_POINTER: BUGCHECK_ERROR = 24u32;
-pub const REFMON_INITIALIZATION_FAILED: BUGCHECK_ERROR = 108u32;
-pub const REFS_FILE_SYSTEM: BUGCHECK_ERROR = 329u32;
-pub const REF_UNKNOWN_LOGON_SESSION: BUGCHECK_ERROR = 71u32;
-pub const REGISTRY_CALLBACK_DRIVER_EXCEPTION: BUGCHECK_ERROR = 319u32;
-pub const REGISTRY_ERROR: BUGCHECK_ERROR = 81u32;
-pub const REGISTRY_FILTER_DRIVER_EXCEPTION: BUGCHECK_ERROR = 309u32;
-pub const REGISTRY_LIVE_DUMP: BUGCHECK_ERROR = 487u32;
-pub const RESERVE_QUEUE_OVERFLOW: BUGCHECK_ERROR = 255u32;
-pub const RESOURCE_NOT_OWNED: BUGCHECK_ERROR = 227u32;
-pub const RESOURCE_OWNER_POINTER_INVALID: BUGCHECK_ERROR = 306u32;
+pub const NumSymTypes: SYM_TYPE = SYM_TYPE(9i32);
+pub const OBJECT1_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(98u32);
+pub const OBJECT_ATTRIB_ACCESS_FINAL: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(32768i32);
+pub const OBJECT_ATTRIB_ACCESS_PRIVATE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(8192i32);
+pub const OBJECT_ATTRIB_ACCESS_PROTECTED: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(16384i32);
+pub const OBJECT_ATTRIB_ACCESS_PUBLIC: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(4096i32);
+pub const OBJECT_ATTRIB_HAS_EXTENDED_ATTRIBS: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(8388608i32);
+pub const OBJECT_ATTRIB_IS_CLASS: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(16777216i32);
+pub const OBJECT_ATTRIB_IS_FUNCTION: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(33554432i32);
+pub const OBJECT_ATTRIB_IS_INHERITED: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(1073741824i32);
+pub const OBJECT_ATTRIB_IS_INTERFACE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(-2147483648i32);
+pub const OBJECT_ATTRIB_IS_MACRO: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(268435456i32);
+pub const OBJECT_ATTRIB_IS_PROPERTY: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(134217728i32);
+pub const OBJECT_ATTRIB_IS_TYPE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(536870912i32);
+pub const OBJECT_ATTRIB_IS_VARIABLE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(67108864i32);
+pub const OBJECT_ATTRIB_NO_ATTRIB: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(0i32);
+pub const OBJECT_ATTRIB_NO_NAME: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(1i32);
+pub const OBJECT_ATTRIB_NO_TYPE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(2i32);
+pub const OBJECT_ATTRIB_NO_VALUE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(4i32);
+pub const OBJECT_ATTRIB_OBJECT_IS_EXPANDABLE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(112i32);
+pub const OBJECT_ATTRIB_SLOT_IS_CATEGORY: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(1024i32);
+pub const OBJECT_ATTRIB_STORAGE_FIELD: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(262144i32);
+pub const OBJECT_ATTRIB_STORAGE_GLOBAL: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(65536i32);
+pub const OBJECT_ATTRIB_STORAGE_STATIC: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(131072i32);
+pub const OBJECT_ATTRIB_STORAGE_VIRTUAL: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(524288i32);
+pub const OBJECT_ATTRIB_TYPE_HAS_CODE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(512i32);
+pub const OBJECT_ATTRIB_TYPE_IS_CONSTANT: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(1048576i32);
+pub const OBJECT_ATTRIB_TYPE_IS_EXPANDABLE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(256i32);
+pub const OBJECT_ATTRIB_TYPE_IS_OBJECT: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(256i32);
+pub const OBJECT_ATTRIB_TYPE_IS_SYNCHRONIZED: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(2097152i32);
+pub const OBJECT_ATTRIB_TYPE_IS_VOLATILE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(4194304i32);
+pub const OBJECT_ATTRIB_VALUE_HAS_CODE: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(128i32);
+pub const OBJECT_ATTRIB_VALUE_IS_CUSTOM: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(64i32);
+pub const OBJECT_ATTRIB_VALUE_IS_ENUM: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(32i32);
+pub const OBJECT_ATTRIB_VALUE_IS_INVALID: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(8i32);
+pub const OBJECT_ATTRIB_VALUE_IS_OBJECT: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(16i32);
+pub const OBJECT_ATTRIB_VALUE_READONLY: OBJECT_ATTRIB_FLAGS = OBJECT_ATTRIB_FLAGS(2048i32);
+pub const OBJECT_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(94u32);
+pub const OFS_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(131u32);
+pub const OS_DATA_TAMPERING: BUGCHECK_ERROR = BUGCHECK_ERROR(341u32);
+pub const OUTPUT_DEBUG_STRING_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(8u32);
+pub const PAGE_FAULT_BEYOND_END_OF_ALLOCATION: BUGCHECK_ERROR = BUGCHECK_ERROR(205u32);
+pub const PAGE_FAULT_IN_FREED_SPECIAL_POOL: BUGCHECK_ERROR = BUGCHECK_ERROR(204u32);
+pub const PAGE_FAULT_IN_NONPAGED_AREA: BUGCHECK_ERROR = BUGCHECK_ERROR(80u32);
+pub const PAGE_FAULT_IN_NONPAGED_AREA_M: BUGCHECK_ERROR = BUGCHECK_ERROR(268435536u32);
+pub const PAGE_FAULT_WITH_INTERRUPTS_OFF: BUGCHECK_ERROR = BUGCHECK_ERROR(73u32);
+pub const PAGE_NOT_ZERO: BUGCHECK_ERROR = BUGCHECK_ERROR(295u32);
+pub const PANIC_STACK_SWITCH: BUGCHECK_ERROR = BUGCHECK_ERROR(43u32);
+pub const PASSIVE_INTERRUPT_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(315u32);
+pub const PCI_BUS_DRIVER_INTERNAL: BUGCHECK_ERROR = BUGCHECK_ERROR(161u32);
+pub const PCI_CONFIG_SPACE_ACCESS_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(192u32);
+pub const PCI_VERIFIER_DETECTED_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(246u32);
+pub const PDC_LOCK_WATCHDOG_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(380u32);
+pub const PDC_PRIVILEGE_CHECK_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(415u32);
+pub const PDC_UNEXPECTED_REVOCATION_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(381u32);
+pub const PDC_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(335u32);
+pub const PDC_WATCHDOG_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(348u32);
+pub const PFN_LIST_CORRUPT: BUGCHECK_ERROR = BUGCHECK_ERROR(78u32);
+pub const PFN_REFERENCE_COUNT: BUGCHECK_ERROR = BUGCHECK_ERROR(28u32);
+pub const PFN_SHARE_COUNT: BUGCHECK_ERROR = BUGCHECK_ERROR(27u32);
+pub const PF_DETECTED_CORRUPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(401u32);
+pub const PHASE0_EXCEPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(120u32);
+pub const PHASE0_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(49u32);
+pub const PHASE1_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(50u32);
+pub const PINBALL_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(89u32);
+pub const PNP_DETECTED_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(202u32);
+pub const PNP_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(149u32);
+pub const POOL_CORRUPTION_IN_FILE_AREA: BUGCHECK_ERROR = BUGCHECK_ERROR(222u32);
+pub const PORT_DRIVER_INTERNAL: BUGCHECK_ERROR = BUGCHECK_ERROR(44u32);
+pub const POWER_FAILURE_SIMULATE: BUGCHECK_ERROR = BUGCHECK_ERROR(229u32);
+pub const PP0_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(143u32);
+pub const PP1_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(144u32);
+pub const PREVIOUS_FATAL_ABNORMAL_RESET_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(373u32);
+pub const PROCESS1_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(107u32);
+pub const PROCESSOR_DRIVER_INTERNAL: BUGCHECK_ERROR = BUGCHECK_ERROR(323u32);
+pub const PROCESSOR_START_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(479u32);
+pub const PROCESS_HAS_LOCKED_PAGES: BUGCHECK_ERROR = BUGCHECK_ERROR(118u32);
+pub const PROCESS_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(96u32);
+pub const PROFILER_CONFIGURATION_ILLEGAL: BUGCHECK_ERROR = BUGCHECK_ERROR(379u32);
+pub const PROP_INFO_ATTRIBUTES: PROP_INFO_FLAGS = PROP_INFO_FLAGS(8i32);
+pub const PROP_INFO_AUTOEXPAND: PROP_INFO_FLAGS = PROP_INFO_FLAGS(134217728i32);
+pub const PROP_INFO_DEBUGPROP: PROP_INFO_FLAGS = PROP_INFO_FLAGS(16i32);
+pub const PROP_INFO_FULLNAME: PROP_INFO_FLAGS = PROP_INFO_FLAGS(32i32);
+pub const PROP_INFO_NAME: PROP_INFO_FLAGS = PROP_INFO_FLAGS(1i32);
+pub const PROP_INFO_TYPE: PROP_INFO_FLAGS = PROP_INFO_FLAGS(2i32);
+pub const PROP_INFO_VALUE: PROP_INFO_FLAGS = PROP_INFO_FLAGS(4i32);
+pub const ProcessVmCountersStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(22i32);
+pub const QUOTA_UNDERFLOW: BUGCHECK_ERROR = BUGCHECK_ERROR(33u32);
+pub const RAMDISK_BOOT_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(248u32);
+pub const RDR_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(39u32);
+pub const RECOM_DRIVER: BUGCHECK_ERROR = BUGCHECK_ERROR(132u32);
+pub const RECURSIVE_MACHINE_CHECK: BUGCHECK_ERROR = BUGCHECK_ERROR(251u32);
+pub const RECURSIVE_NMI: BUGCHECK_ERROR = BUGCHECK_ERROR(273u32);
+pub const REFERENCE_BY_POINTER: BUGCHECK_ERROR = BUGCHECK_ERROR(24u32);
+pub const REFMON_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(108u32);
+pub const REFS_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(329u32);
+pub const REF_UNKNOWN_LOGON_SESSION: BUGCHECK_ERROR = BUGCHECK_ERROR(71u32);
+pub const REGISTRY_CALLBACK_DRIVER_EXCEPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(319u32);
+pub const REGISTRY_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(81u32);
+pub const REGISTRY_FILTER_DRIVER_EXCEPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(309u32);
+pub const REGISTRY_LIVE_DUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(487u32);
+pub const RESERVE_QUEUE_OVERFLOW: BUGCHECK_ERROR = BUGCHECK_ERROR(255u32);
+pub const RESOURCE_NOT_OWNED: BUGCHECK_ERROR = BUGCHECK_ERROR(227u32);
+pub const RESOURCE_OWNER_POINTER_INVALID: BUGCHECK_ERROR = BUGCHECK_ERROR(306u32);
 pub const RESTORE_LAST_ERROR_NAME: windows_core::PCWSTR = windows_core::w!("RestoreLastError");
 pub const RESTORE_LAST_ERROR_NAME_A: windows_core::PCSTR = windows_core::s!("RestoreLastError");
 pub const RESTORE_LAST_ERROR_NAME_W: windows_core::PCWSTR = windows_core::w!("RestoreLastError");
-pub const RIP_EVENT: DEBUG_EVENT_CODE = 9u32;
-pub const ReadMemoryFailureCallback: MINIDUMP_CALLBACK_TYPE = 14i32;
-pub const RemoveMemoryCallback: MINIDUMP_CALLBACK_TYPE = 9i32;
-pub const ReservedStream0: MINIDUMP_STREAM_TYPE = 1i32;
-pub const ReservedStream1: MINIDUMP_STREAM_TYPE = 2i32;
-pub const SAVER_ACCOUNTPROVSVCINITFAILURE: BUGCHECK_ERROR = 61461u32;
-pub const SAVER_APPBARDISMISSAL: BUGCHECK_ERROR = 61454u32;
-pub const SAVER_APPLISTUNREACHABLE: BUGCHECK_ERROR = 61456u32;
-pub const SAVER_AUDIODRIVERHANG: BUGCHECK_ERROR = 62464u32;
-pub const SAVER_AUXILIARYFULLDUMP: BUGCHECK_ERROR = 61460u32;
-pub const SAVER_BATTERYPULLOUT: BUGCHECK_ERROR = 62720u32;
-pub const SAVER_BLANKSCREEN: BUGCHECK_ERROR = 61442u32;
-pub const SAVER_CALLDISMISSAL: BUGCHECK_ERROR = 61453u32;
-pub const SAVER_CAPTURESERVICE: BUGCHECK_ERROR = 63488u32;
-pub const SAVER_CHROMEPROCESSCRASH: BUGCHECK_ERROR = 61450u32;
-pub const SAVER_DEVICEUPDATEUNSPECIFIED: BUGCHECK_ERROR = 62208u32;
-pub const SAVER_GRAPHICS: BUGCHECK_ERROR = 61448u32;
-pub const SAVER_INPUT: BUGCHECK_ERROR = 61443u32;
-pub const SAVER_MEDIACORETESTHANG: BUGCHECK_ERROR = 62976u32;
-pub const SAVER_MTBFCOMMANDHANG: BUGCHECK_ERROR = 61697u32;
-pub const SAVER_MTBFCOMMANDTIMEOUT: BUGCHECK_ERROR = 789u32;
-pub const SAVER_MTBFIOERROR: BUGCHECK_ERROR = 61699u32;
-pub const SAVER_MTBFPASSBUGCHECK: BUGCHECK_ERROR = 61698u32;
-pub const SAVER_NAVIGATIONMODEL: BUGCHECK_ERROR = 61446u32;
-pub const SAVER_NAVSERVERTIMEOUT: BUGCHECK_ERROR = 61449u32;
-pub const SAVER_NONRESPONSIVEPROCESS: BUGCHECK_ERROR = 404u32;
-pub const SAVER_NOTIFICATIONDISMISSAL: BUGCHECK_ERROR = 61451u32;
-pub const SAVER_OUTOFMEMORY: BUGCHECK_ERROR = 61447u32;
-pub const SAVER_RENDERMOBILEUIOOM: BUGCHECK_ERROR = 61953u32;
-pub const SAVER_RENDERTHREADHANG: BUGCHECK_ERROR = 61952u32;
-pub const SAVER_REPORTNOTIFICATIONFAILURE: BUGCHECK_ERROR = 61457u32;
-pub const SAVER_RESOURCEMANAGEMENT: BUGCHECK_ERROR = 63232u32;
-pub const SAVER_RILADAPTATIONCRASH: BUGCHECK_ERROR = 61455u32;
-pub const SAVER_RPCFAILURE: BUGCHECK_ERROR = 61459u32;
-pub const SAVER_SICKAPPLICATION: BUGCHECK_ERROR = 34918u32;
-pub const SAVER_SPEECHDISMISSAL: BUGCHECK_ERROR = 61452u32;
-pub const SAVER_STARTNOTVISIBLE: BUGCHECK_ERROR = 61445u32;
-pub const SAVER_UNEXPECTEDSHUTDOWN: BUGCHECK_ERROR = 61458u32;
-pub const SAVER_UNSPECIFIED: BUGCHECK_ERROR = 61440u32;
-pub const SAVER_WAITFORSHELLREADY: BUGCHECK_ERROR = 63744u32;
-pub const SAVER_WATCHDOG: BUGCHECK_ERROR = 61444u32;
-pub const SCSI_DISK_DRIVER_INTERNAL: BUGCHECK_ERROR = 45u32;
-pub const SCSI_VERIFIER_DETECTED_VIOLATION: BUGCHECK_ERROR = 241u32;
-pub const SDBUS_INTERNAL_ERROR: BUGCHECK_ERROR = 346u32;
-pub const SECURE_BOOT_VIOLATION: BUGCHECK_ERROR = 325u32;
-pub const SECURE_FAULT_UNHANDLED: BUGCHECK_ERROR = 397u32;
-pub const SECURE_KERNEL_ERROR: BUGCHECK_ERROR = 395u32;
-pub const SECURE_PCI_CONFIG_SPACE_ACCESS_VIOLATION: BUGCHECK_ERROR = 490u32;
-pub const SECURITY1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 99u32;
-pub const SECURITY_INITIALIZATION_FAILED: BUGCHECK_ERROR = 95u32;
-pub const SECURITY_SYSTEM: BUGCHECK_ERROR = 41u32;
-pub const SEM_ALL_ERRORS: THREAD_ERROR_MODE = 0u32;
-pub const SEM_FAILCRITICALERRORS: THREAD_ERROR_MODE = 1u32;
-pub const SEM_NOALIGNMENTFAULTEXCEPT: THREAD_ERROR_MODE = 4u32;
-pub const SEM_NOGPFAULTERRORBOX: THREAD_ERROR_MODE = 2u32;
-pub const SEM_NOOPENFILEERRORBOX: THREAD_ERROR_MODE = 32768u32;
-pub const SERIAL_DRIVER_INTERNAL: BUGCHECK_ERROR = 56u32;
-pub const SESSION1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 109u32;
-pub const SESSION_HAS_VALID_POOL_ON_EXIT: BUGCHECK_ERROR = 171u32;
-pub const SESSION_HAS_VALID_SPECIAL_POOL_ON_EXIT: BUGCHECK_ERROR = 236u32;
-pub const SESSION_HAS_VALID_VIEWS_ON_EXIT: BUGCHECK_ERROR = 186u32;
-pub const SETUP_FAILURE: BUGCHECK_ERROR = 133u32;
-pub const SET_ENV_VAR_FAILED: BUGCHECK_ERROR = 91u32;
-pub const SET_OF_INVALID_CONTEXT: BUGCHECK_ERROR = 48u32;
-pub const SHARED_RESOURCE_CONV_ERROR: BUGCHECK_ERROR = 31u32;
-pub const SILO_CORRUPT: BUGCHECK_ERROR = 394u32;
-pub const SLE_ERROR: RIP_INFO_TYPE = 1u32;
-pub const SLE_MINORERROR: RIP_INFO_TYPE = 2u32;
-pub const SLE_WARNING: RIP_INFO_TYPE = 3u32;
-pub const SLMFLAG_ALT_INDEX: SYM_LOAD_FLAGS = 2u32;
-pub const SLMFLAG_NONE: SYM_LOAD_FLAGS = 0u32;
-pub const SLMFLAG_NO_SYMBOLS: SYM_LOAD_FLAGS = 4u32;
-pub const SLMFLAG_VIRTUAL: SYM_LOAD_FLAGS = 1u32;
-pub const SMB_REDIRECTOR_LIVEDUMP: BUGCHECK_ERROR = 423u32;
-pub const SMB_SERVER_LIVEDUMP: BUGCHECK_ERROR = 405u32;
-pub const SOC_CRITICAL_DEVICE_REMOVED: BUGCHECK_ERROR = 334u32;
-pub const SOC_SUBSYSTEM_FAILURE: BUGCHECK_ERROR = 331u32;
-pub const SOC_SUBSYSTEM_FAILURE_LIVEDUMP: BUGCHECK_ERROR = 349u32;
-pub const SOFT_RESTART_FATAL_ERROR: BUGCHECK_ERROR = 112u32;
-pub const SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION: BUGCHECK_ERROR = 193u32;
-pub const SPIN_LOCK_ALREADY_OWNED: BUGCHECK_ERROR = 15u32;
-pub const SPIN_LOCK_INIT_FAILURE: BUGCHECK_ERROR = 129u32;
-pub const SPIN_LOCK_NOT_OWNED: BUGCHECK_ERROR = 16u32;
+pub const RIP_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(9u32);
+pub const ReadMemoryFailureCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(14i32);
+pub const RemoveMemoryCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(9i32);
+pub const ReservedStream0: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(1i32);
+pub const ReservedStream1: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(2i32);
+pub const SAVER_ACCOUNTPROVSVCINITFAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(61461u32);
+pub const SAVER_APPBARDISMISSAL: BUGCHECK_ERROR = BUGCHECK_ERROR(61454u32);
+pub const SAVER_APPLISTUNREACHABLE: BUGCHECK_ERROR = BUGCHECK_ERROR(61456u32);
+pub const SAVER_AUDIODRIVERHANG: BUGCHECK_ERROR = BUGCHECK_ERROR(62464u32);
+pub const SAVER_AUXILIARYFULLDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(61460u32);
+pub const SAVER_BATTERYPULLOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(62720u32);
+pub const SAVER_BLANKSCREEN: BUGCHECK_ERROR = BUGCHECK_ERROR(61442u32);
+pub const SAVER_CALLDISMISSAL: BUGCHECK_ERROR = BUGCHECK_ERROR(61453u32);
+pub const SAVER_CAPTURESERVICE: BUGCHECK_ERROR = BUGCHECK_ERROR(63488u32);
+pub const SAVER_CHROMEPROCESSCRASH: BUGCHECK_ERROR = BUGCHECK_ERROR(61450u32);
+pub const SAVER_DEVICEUPDATEUNSPECIFIED: BUGCHECK_ERROR = BUGCHECK_ERROR(62208u32);
+pub const SAVER_GRAPHICS: BUGCHECK_ERROR = BUGCHECK_ERROR(61448u32);
+pub const SAVER_INPUT: BUGCHECK_ERROR = BUGCHECK_ERROR(61443u32);
+pub const SAVER_MEDIACORETESTHANG: BUGCHECK_ERROR = BUGCHECK_ERROR(62976u32);
+pub const SAVER_MTBFCOMMANDHANG: BUGCHECK_ERROR = BUGCHECK_ERROR(61697u32);
+pub const SAVER_MTBFCOMMANDTIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(789u32);
+pub const SAVER_MTBFIOERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(61699u32);
+pub const SAVER_MTBFPASSBUGCHECK: BUGCHECK_ERROR = BUGCHECK_ERROR(61698u32);
+pub const SAVER_NAVIGATIONMODEL: BUGCHECK_ERROR = BUGCHECK_ERROR(61446u32);
+pub const SAVER_NAVSERVERTIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(61449u32);
+pub const SAVER_NONRESPONSIVEPROCESS: BUGCHECK_ERROR = BUGCHECK_ERROR(404u32);
+pub const SAVER_NOTIFICATIONDISMISSAL: BUGCHECK_ERROR = BUGCHECK_ERROR(61451u32);
+pub const SAVER_OUTOFMEMORY: BUGCHECK_ERROR = BUGCHECK_ERROR(61447u32);
+pub const SAVER_RENDERMOBILEUIOOM: BUGCHECK_ERROR = BUGCHECK_ERROR(61953u32);
+pub const SAVER_RENDERTHREADHANG: BUGCHECK_ERROR = BUGCHECK_ERROR(61952u32);
+pub const SAVER_REPORTNOTIFICATIONFAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(61457u32);
+pub const SAVER_RESOURCEMANAGEMENT: BUGCHECK_ERROR = BUGCHECK_ERROR(63232u32);
+pub const SAVER_RILADAPTATIONCRASH: BUGCHECK_ERROR = BUGCHECK_ERROR(61455u32);
+pub const SAVER_RPCFAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(61459u32);
+pub const SAVER_SICKAPPLICATION: BUGCHECK_ERROR = BUGCHECK_ERROR(34918u32);
+pub const SAVER_SPEECHDISMISSAL: BUGCHECK_ERROR = BUGCHECK_ERROR(61452u32);
+pub const SAVER_STARTNOTVISIBLE: BUGCHECK_ERROR = BUGCHECK_ERROR(61445u32);
+pub const SAVER_UNEXPECTEDSHUTDOWN: BUGCHECK_ERROR = BUGCHECK_ERROR(61458u32);
+pub const SAVER_UNSPECIFIED: BUGCHECK_ERROR = BUGCHECK_ERROR(61440u32);
+pub const SAVER_WAITFORSHELLREADY: BUGCHECK_ERROR = BUGCHECK_ERROR(63744u32);
+pub const SAVER_WATCHDOG: BUGCHECK_ERROR = BUGCHECK_ERROR(61444u32);
+pub const SCSI_DISK_DRIVER_INTERNAL: BUGCHECK_ERROR = BUGCHECK_ERROR(45u32);
+pub const SCSI_VERIFIER_DETECTED_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(241u32);
+pub const SDBUS_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(346u32);
+pub const SECURE_BOOT_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(325u32);
+pub const SECURE_FAULT_UNHANDLED: BUGCHECK_ERROR = BUGCHECK_ERROR(397u32);
+pub const SECURE_KERNEL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(395u32);
+pub const SECURE_PCI_CONFIG_SPACE_ACCESS_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(490u32);
+pub const SECURITY1_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(99u32);
+pub const SECURITY_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(95u32);
+pub const SECURITY_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(41u32);
+pub const SEM_ALL_ERRORS: THREAD_ERROR_MODE = THREAD_ERROR_MODE(0u32);
+pub const SEM_FAILCRITICALERRORS: THREAD_ERROR_MODE = THREAD_ERROR_MODE(1u32);
+pub const SEM_NOALIGNMENTFAULTEXCEPT: THREAD_ERROR_MODE = THREAD_ERROR_MODE(4u32);
+pub const SEM_NOGPFAULTERRORBOX: THREAD_ERROR_MODE = THREAD_ERROR_MODE(2u32);
+pub const SEM_NOOPENFILEERRORBOX: THREAD_ERROR_MODE = THREAD_ERROR_MODE(32768u32);
+pub const SERIAL_DRIVER_INTERNAL: BUGCHECK_ERROR = BUGCHECK_ERROR(56u32);
+pub const SESSION1_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(109u32);
+pub const SESSION_HAS_VALID_POOL_ON_EXIT: BUGCHECK_ERROR = BUGCHECK_ERROR(171u32);
+pub const SESSION_HAS_VALID_SPECIAL_POOL_ON_EXIT: BUGCHECK_ERROR = BUGCHECK_ERROR(236u32);
+pub const SESSION_HAS_VALID_VIEWS_ON_EXIT: BUGCHECK_ERROR = BUGCHECK_ERROR(186u32);
+pub const SETUP_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(133u32);
+pub const SET_ENV_VAR_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(91u32);
+pub const SET_OF_INVALID_CONTEXT: BUGCHECK_ERROR = BUGCHECK_ERROR(48u32);
+pub const SHARED_RESOURCE_CONV_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(31u32);
+pub const SILO_CORRUPT: BUGCHECK_ERROR = BUGCHECK_ERROR(394u32);
+pub const SLE_ERROR: RIP_INFO_TYPE = RIP_INFO_TYPE(1u32);
+pub const SLE_MINORERROR: RIP_INFO_TYPE = RIP_INFO_TYPE(2u32);
+pub const SLE_WARNING: RIP_INFO_TYPE = RIP_INFO_TYPE(3u32);
+pub const SLMFLAG_ALT_INDEX: SYM_LOAD_FLAGS = SYM_LOAD_FLAGS(2u32);
+pub const SLMFLAG_NONE: SYM_LOAD_FLAGS = SYM_LOAD_FLAGS(0u32);
+pub const SLMFLAG_NO_SYMBOLS: SYM_LOAD_FLAGS = SYM_LOAD_FLAGS(4u32);
+pub const SLMFLAG_VIRTUAL: SYM_LOAD_FLAGS = SYM_LOAD_FLAGS(1u32);
+pub const SMB_REDIRECTOR_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(423u32);
+pub const SMB_SERVER_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(405u32);
+pub const SOC_CRITICAL_DEVICE_REMOVED: BUGCHECK_ERROR = BUGCHECK_ERROR(334u32);
+pub const SOC_SUBSYSTEM_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(331u32);
+pub const SOC_SUBSYSTEM_FAILURE_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(349u32);
+pub const SOFT_RESTART_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(112u32);
+pub const SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(193u32);
+pub const SPIN_LOCK_ALREADY_OWNED: BUGCHECK_ERROR = BUGCHECK_ERROR(15u32);
+pub const SPIN_LOCK_INIT_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(129u32);
+pub const SPIN_LOCK_NOT_OWNED: BUGCHECK_ERROR = BUGCHECK_ERROR(16u32);
 pub const SPLITSYM_EXTRACT_ALL: u32 = 2u32;
 pub const SPLITSYM_REMOVE_PRIVATE: u32 = 1u32;
 pub const SPLITSYM_SYMBOLPATH_IS_SRC: u32 = 4u32;
@@ -1133,13 +4011,13 @@ pub const SSRVOPT_DISABLE_PING_HOST: u32 = 67108864u32;
 pub const SSRVOPT_DISABLE_TIMEOUT: u32 = 134217728u32;
 pub const SSRVOPT_DONT_UNCOMPRESS: u32 = 33554432u32;
 pub const SSRVOPT_DOWNSTREAM_STORE: u32 = 8192u32;
-pub const SSRVOPT_DWORD: SYM_FIND_ID_OPTION = 2u32;
-pub const SSRVOPT_DWORDPTR: SYM_FIND_ID_OPTION = 4u32;
+pub const SSRVOPT_DWORD: SYM_FIND_ID_OPTION = SYM_FIND_ID_OPTION(2u32);
+pub const SSRVOPT_DWORDPTR: SYM_FIND_ID_OPTION = SYM_FIND_ID_OPTION(4u32);
 pub const SSRVOPT_ENABLE_COMM_MSG: u32 = 268435456u32;
 pub const SSRVOPT_FAVOR_COMPRESSED: u32 = 2097152u32;
 pub const SSRVOPT_FLAT_DEFAULT_STORE: u32 = 131072u32;
 pub const SSRVOPT_GETPATH: u32 = 64u32;
-pub const SSRVOPT_GUIDPTR: SYM_FIND_ID_OPTION = 8u32;
+pub const SSRVOPT_GUIDPTR: SYM_FIND_ID_OPTION = SYM_FIND_ID_OPTION(8u32);
 pub const SSRVOPT_MAX: u32 = 2147483648u32;
 pub const SSRVOPT_MESSAGE: u32 = 524288u32;
 pub const SSRVOPT_NOCOPY: u32 = 64u32;
@@ -1173,38 +4051,38 @@ pub const SSRVURI_UNC_COMPRESSED: u32 = 32u32;
 pub const SSRVURI_UNC_FILEPTR: u32 = 64u32;
 pub const SSRVURI_UNC_MASK: u32 = 240u32;
 pub const SSRVURI_UNC_NORMAL: u32 = 16u32;
-pub const STORAGE_DEVICE_ABNORMALITY_DETECTED: BUGCHECK_ERROR = 320u32;
-pub const STORAGE_MINIPORT_ERROR: BUGCHECK_ERROR = 240u32;
-pub const STORE_DATA_STRUCTURE_CORRUPTION: BUGCHECK_ERROR = 455u32;
-pub const STREAMS_INTERNAL_ERROR: BUGCHECK_ERROR = 75u32;
-pub const SYMBOLIC_INITIALIZATION_FAILED: BUGCHECK_ERROR = 100u32;
+pub const STORAGE_DEVICE_ABNORMALITY_DETECTED: BUGCHECK_ERROR = BUGCHECK_ERROR(320u32);
+pub const STORAGE_MINIPORT_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(240u32);
+pub const STORE_DATA_STRUCTURE_CORRUPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(455u32);
+pub const STREAMS_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(75u32);
+pub const SYMBOLIC_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(100u32);
 pub const SYMENUM_OPTIONS_DEFAULT: u32 = 1u32;
 pub const SYMENUM_OPTIONS_INLINE: u32 = 2u32;
-pub const SYMFLAG_CLR_TOKEN: SYMBOL_INFO_FLAGS = 262144u32;
-pub const SYMFLAG_CONSTANT: SYMBOL_INFO_FLAGS = 256u32;
-pub const SYMFLAG_EXPORT: SYMBOL_INFO_FLAGS = 512u32;
+pub const SYMFLAG_CLR_TOKEN: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(262144u32);
+pub const SYMFLAG_CONSTANT: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(256u32);
+pub const SYMFLAG_EXPORT: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(512u32);
 pub const SYMFLAG_FIXUP_ARM64X: u32 = 16777216u32;
-pub const SYMFLAG_FORWARDER: SYMBOL_INFO_FLAGS = 1024u32;
-pub const SYMFLAG_FRAMEREL: SYMBOL_INFO_FLAGS = 32u32;
-pub const SYMFLAG_FUNCTION: SYMBOL_INFO_FLAGS = 2048u32;
+pub const SYMFLAG_FORWARDER: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(1024u32);
+pub const SYMFLAG_FRAMEREL: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(32u32);
+pub const SYMFLAG_FUNCTION: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(2048u32);
 pub const SYMFLAG_FUNC_NO_RETURN: u32 = 1048576u32;
 pub const SYMFLAG_GLOBAL: u32 = 33554432u32;
-pub const SYMFLAG_ILREL: SYMBOL_INFO_FLAGS = 65536u32;
-pub const SYMFLAG_LOCAL: SYMBOL_INFO_FLAGS = 128u32;
-pub const SYMFLAG_METADATA: SYMBOL_INFO_FLAGS = 131072u32;
+pub const SYMFLAG_ILREL: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(65536u32);
+pub const SYMFLAG_LOCAL: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(128u32);
+pub const SYMFLAG_METADATA: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(131072u32);
 pub const SYMFLAG_NULL: u32 = 524288u32;
-pub const SYMFLAG_PARAMETER: SYMBOL_INFO_FLAGS = 64u32;
+pub const SYMFLAG_PARAMETER: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(64u32);
 pub const SYMFLAG_PUBLIC_CODE: u32 = 4194304u32;
-pub const SYMFLAG_REGISTER: SYMBOL_INFO_FLAGS = 8u32;
-pub const SYMFLAG_REGREL: SYMBOL_INFO_FLAGS = 16u32;
+pub const SYMFLAG_REGISTER: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(8u32);
+pub const SYMFLAG_REGREL: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(16u32);
 pub const SYMFLAG_REGREL_ALIASINDIR: u32 = 8388608u32;
 pub const SYMFLAG_RESET: u32 = 2147483648u32;
-pub const SYMFLAG_SLOT: SYMBOL_INFO_FLAGS = 32768u32;
+pub const SYMFLAG_SLOT: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(32768u32);
 pub const SYMFLAG_SYNTHETIC_ZEROBASE: u32 = 2097152u32;
-pub const SYMFLAG_THUNK: SYMBOL_INFO_FLAGS = 8192u32;
-pub const SYMFLAG_TLSREL: SYMBOL_INFO_FLAGS = 16384u32;
-pub const SYMFLAG_VALUEPRESENT: SYMBOL_INFO_FLAGS = 1u32;
-pub const SYMFLAG_VIRTUAL: SYMBOL_INFO_FLAGS = 4096u32;
+pub const SYMFLAG_THUNK: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(8192u32);
+pub const SYMFLAG_TLSREL: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(16384u32);
+pub const SYMFLAG_VALUEPRESENT: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(1u32);
+pub const SYMFLAG_VIRTUAL: SYMBOL_INFO_FLAGS = SYMBOL_INFO_FLAGS(4096u32);
 pub const SYMF_CONSTANT: u32 = 256u32;
 pub const SYMF_EXPORT: u32 = 512u32;
 pub const SYMF_FORWARDER: u32 = 1024u32;
@@ -1230,11 +4108,11 @@ pub const SYMOPT_DISABLE_SRVSTAR_ON_STARTUP: u32 = 1073741824u32;
 pub const SYMOPT_DISABLE_SYMSRV_AUTODETECT: u32 = 33554432u32;
 pub const SYMOPT_DISABLE_SYMSRV_TIMEOUT: u32 = 536870912u32;
 pub const SYMOPT_EXACT_SYMBOLS: u32 = 1024u32;
-pub const SYMOPT_EX_DISABLEACCESSTIMEUPDATE: IMAGEHLP_EXTENDED_OPTIONS = 0i32;
-pub const SYMOPT_EX_LASTVALIDDEBUGDIRECTORY: IMAGEHLP_EXTENDED_OPTIONS = 1i32;
-pub const SYMOPT_EX_MAX: IMAGEHLP_EXTENDED_OPTIONS = 4i32;
-pub const SYMOPT_EX_NEVERLOADSYMBOLS: IMAGEHLP_EXTENDED_OPTIONS = 3i32;
-pub const SYMOPT_EX_NOIMPLICITPATTERNSEARCH: IMAGEHLP_EXTENDED_OPTIONS = 2i32;
+pub const SYMOPT_EX_DISABLEACCESSTIMEUPDATE: IMAGEHLP_EXTENDED_OPTIONS = IMAGEHLP_EXTENDED_OPTIONS(0i32);
+pub const SYMOPT_EX_LASTVALIDDEBUGDIRECTORY: IMAGEHLP_EXTENDED_OPTIONS = IMAGEHLP_EXTENDED_OPTIONS(1i32);
+pub const SYMOPT_EX_MAX: IMAGEHLP_EXTENDED_OPTIONS = IMAGEHLP_EXTENDED_OPTIONS(4i32);
+pub const SYMOPT_EX_NEVERLOADSYMBOLS: IMAGEHLP_EXTENDED_OPTIONS = IMAGEHLP_EXTENDED_OPTIONS(3i32);
+pub const SYMOPT_EX_NOIMPLICITPATTERNSEARCH: IMAGEHLP_EXTENDED_OPTIONS = IMAGEHLP_EXTENDED_OPTIONS(2i32);
 pub const SYMOPT_FAIL_CRITICAL_ERRORS: u32 = 512u32;
 pub const SYMOPT_FAVOR_COMPRESSED: u32 = 8388608u32;
 pub const SYMOPT_FLAT_DIRECTORY: u32 = 4194304u32;
@@ -1262,11 +4140,11 @@ pub const SYMSEARCH_MASKOBJS: u32 = 1u32;
 pub const SYMSEARCH_RECURSE: u32 = 2u32;
 pub const SYMSRV_VERSION: u32 = 2u32;
 pub const SYMSTOREOPT_ALT_INDEX: u32 = 16u32;
-pub const SYMSTOREOPT_COMPRESS: SYM_SRV_STORE_FILE_FLAGS = 1u32;
-pub const SYMSTOREOPT_OVERWRITE: SYM_SRV_STORE_FILE_FLAGS = 2u32;
-pub const SYMSTOREOPT_PASS_IF_EXISTS: SYM_SRV_STORE_FILE_FLAGS = 64u32;
-pub const SYMSTOREOPT_POINTER: SYM_SRV_STORE_FILE_FLAGS = 8u32;
-pub const SYMSTOREOPT_RETURNINDEX: SYM_SRV_STORE_FILE_FLAGS = 4u32;
+pub const SYMSTOREOPT_COMPRESS: SYM_SRV_STORE_FILE_FLAGS = SYM_SRV_STORE_FILE_FLAGS(1u32);
+pub const SYMSTOREOPT_OVERWRITE: SYM_SRV_STORE_FILE_FLAGS = SYM_SRV_STORE_FILE_FLAGS(2u32);
+pub const SYMSTOREOPT_PASS_IF_EXISTS: SYM_SRV_STORE_FILE_FLAGS = SYM_SRV_STORE_FILE_FLAGS(64u32);
+pub const SYMSTOREOPT_POINTER: SYM_SRV_STORE_FILE_FLAGS = SYM_SRV_STORE_FILE_FLAGS(8u32);
+pub const SYMSTOREOPT_RETURNINDEX: SYM_SRV_STORE_FILE_FLAGS = SYM_SRV_STORE_FILE_FLAGS(4u32);
 pub const SYMSTOREOPT_UNICODE: u32 = 32u32;
 pub const SYM_INLINE_COMP_DIFFERENT: u32 = 5u32;
 pub const SYM_INLINE_COMP_ERROR: u32 = 0u32;
@@ -1277,97 +4155,97 @@ pub const SYM_INLINE_COMP_STEPOVER: u32 = 4u32;
 pub const SYM_STKWALK_DEFAULT: u32 = 0u32;
 pub const SYM_STKWALK_FORCE_FRAMEPTR: u32 = 1u32;
 pub const SYM_STKWALK_ZEROEXTEND_PTRS: u32 = 2u32;
-pub const SYNTHETIC_EXCEPTION_UNHANDLED: BUGCHECK_ERROR = 399u32;
-pub const SYNTHETIC_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 458u32;
-pub const SYSTEM_EXIT_OWNED_MUTEX: BUGCHECK_ERROR = 57u32;
-pub const SYSTEM_IMAGE_BAD_SIGNATURE: BUGCHECK_ERROR = 195u32;
-pub const SYSTEM_LICENSE_VIOLATION: BUGCHECK_ERROR = 154u32;
-pub const SYSTEM_PTE_MISUSE: BUGCHECK_ERROR = 218u32;
-pub const SYSTEM_SCAN_AT_RAISED_IRQL_CAUGHT_IMPROPER_DRIVER_UNLOAD: BUGCHECK_ERROR = 212u32;
-pub const SYSTEM_SERVICE_EXCEPTION: BUGCHECK_ERROR = 59u32;
-pub const SYSTEM_THREAD_EXCEPTION_NOT_HANDLED: BUGCHECK_ERROR = 126u32;
-pub const SYSTEM_THREAD_EXCEPTION_NOT_HANDLED_M: BUGCHECK_ERROR = 268435582u32;
-pub const SYSTEM_UNWIND_PREVIOUS_USER: BUGCHECK_ERROR = 58u32;
-pub const SecondaryFlagsCallback: MINIDUMP_CALLBACK_TYPE = 15i32;
-pub const SymCoff: SYM_TYPE = 1i32;
-pub const SymCv: SYM_TYPE = 2i32;
-pub const SymDeferred: SYM_TYPE = 5i32;
-pub const SymDia: SYM_TYPE = 7i32;
-pub const SymExport: SYM_TYPE = 4i32;
-pub const SymNone: SYM_TYPE = 0i32;
-pub const SymPdb: SYM_TYPE = 3i32;
-pub const SymSym: SYM_TYPE = 6i32;
-pub const SymVirtual: SYM_TYPE = 8i32;
-pub const SystemInfoStream: MINIDUMP_STREAM_TYPE = 7i32;
-pub const SystemMemoryInfoStream: MINIDUMP_STREAM_TYPE = 21i32;
+pub const SYNTHETIC_EXCEPTION_UNHANDLED: BUGCHECK_ERROR = BUGCHECK_ERROR(399u32);
+pub const SYNTHETIC_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(458u32);
+pub const SYSTEM_EXIT_OWNED_MUTEX: BUGCHECK_ERROR = BUGCHECK_ERROR(57u32);
+pub const SYSTEM_IMAGE_BAD_SIGNATURE: BUGCHECK_ERROR = BUGCHECK_ERROR(195u32);
+pub const SYSTEM_LICENSE_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(154u32);
+pub const SYSTEM_PTE_MISUSE: BUGCHECK_ERROR = BUGCHECK_ERROR(218u32);
+pub const SYSTEM_SCAN_AT_RAISED_IRQL_CAUGHT_IMPROPER_DRIVER_UNLOAD: BUGCHECK_ERROR = BUGCHECK_ERROR(212u32);
+pub const SYSTEM_SERVICE_EXCEPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(59u32);
+pub const SYSTEM_THREAD_EXCEPTION_NOT_HANDLED: BUGCHECK_ERROR = BUGCHECK_ERROR(126u32);
+pub const SYSTEM_THREAD_EXCEPTION_NOT_HANDLED_M: BUGCHECK_ERROR = BUGCHECK_ERROR(268435582u32);
+pub const SYSTEM_UNWIND_PREVIOUS_USER: BUGCHECK_ERROR = BUGCHECK_ERROR(58u32);
+pub const SecondaryFlagsCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(15i32);
+pub const SymCoff: SYM_TYPE = SYM_TYPE(1i32);
+pub const SymCv: SYM_TYPE = SYM_TYPE(2i32);
+pub const SymDeferred: SYM_TYPE = SYM_TYPE(5i32);
+pub const SymDia: SYM_TYPE = SYM_TYPE(7i32);
+pub const SymExport: SYM_TYPE = SYM_TYPE(4i32);
+pub const SymNone: SYM_TYPE = SYM_TYPE(0i32);
+pub const SymPdb: SYM_TYPE = SYM_TYPE(3i32);
+pub const SymSym: SYM_TYPE = SYM_TYPE(6i32);
+pub const SymVirtual: SYM_TYPE = SYM_TYPE(8i32);
+pub const SystemInfoStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(7i32);
+pub const SystemMemoryInfoStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(21i32);
 pub const TARGET_ATTRIBUTE_PACMASK: u32 = 1u32;
-pub const TARGET_MDL_TOO_SMALL: BUGCHECK_ERROR = 64u32;
-pub const TCPIP_AOAC_NIC_ACTIVE_REFERENCE_LEAK: BUGCHECK_ERROR = 336u32;
-pub const TELEMETRY_ASSERTS_LIVEDUMP: BUGCHECK_ERROR = 465u32;
-pub const TERMINAL_SERVER_DRIVER_MADE_INCORRECT_MEMORY_REFERENCE: BUGCHECK_ERROR = 207u32;
-pub const THIRD_PARTY_FILE_SYSTEM_FAILURE: BUGCHECK_ERROR = 264u32;
-pub const THREAD_NOT_MUTEX_OWNER: BUGCHECK_ERROR = 17u32;
-pub const THREAD_STUCK_IN_DEVICE_DRIVER: BUGCHECK_ERROR = 234u32;
-pub const THREAD_STUCK_IN_DEVICE_DRIVER_M: BUGCHECK_ERROR = 268435690u32;
-pub const THREAD_TERMINATE_HELD_MUTEX: BUGCHECK_ERROR = 1073741962u32;
-pub const TIMER_OR_DPC_INVALID: BUGCHECK_ERROR = 199u32;
-pub const TI_FINDCHILDREN: IMAGEHLP_SYMBOL_TYPE_INFO = 7i32;
-pub const TI_GET_ADDRESS: IMAGEHLP_SYMBOL_TYPE_INFO = 22i32;
-pub const TI_GET_ADDRESSOFFSET: IMAGEHLP_SYMBOL_TYPE_INFO = 9i32;
-pub const TI_GET_ARRAYINDEXTYPEID: IMAGEHLP_SYMBOL_TYPE_INFO = 6i32;
-pub const TI_GET_BASETYPE: IMAGEHLP_SYMBOL_TYPE_INFO = 5i32;
-pub const TI_GET_BITPOSITION: IMAGEHLP_SYMBOL_TYPE_INFO = 14i32;
-pub const TI_GET_CALLING_CONVENTION: IMAGEHLP_SYMBOL_TYPE_INFO = 26i32;
-pub const TI_GET_CHILDRENCOUNT: IMAGEHLP_SYMBOL_TYPE_INFO = 13i32;
-pub const TI_GET_CLASSPARENTID: IMAGEHLP_SYMBOL_TYPE_INFO = 18i32;
-pub const TI_GET_COUNT: IMAGEHLP_SYMBOL_TYPE_INFO = 12i32;
-pub const TI_GET_DATAKIND: IMAGEHLP_SYMBOL_TYPE_INFO = 8i32;
-pub const TI_GET_INDIRECTVIRTUALBASECLASS: IMAGEHLP_SYMBOL_TYPE_INFO = 32i32;
-pub const TI_GET_IS_REFERENCE: IMAGEHLP_SYMBOL_TYPE_INFO = 31i32;
-pub const TI_GET_LENGTH: IMAGEHLP_SYMBOL_TYPE_INFO = 2i32;
-pub const TI_GET_LEXICALPARENT: IMAGEHLP_SYMBOL_TYPE_INFO = 21i32;
-pub const TI_GET_NESTED: IMAGEHLP_SYMBOL_TYPE_INFO = 19i32;
-pub const TI_GET_OBJECTPOINTERTYPE: IMAGEHLP_SYMBOL_TYPE_INFO = 34i32;
-pub const TI_GET_OFFSET: IMAGEHLP_SYMBOL_TYPE_INFO = 10i32;
-pub const TI_GET_SYMINDEX: IMAGEHLP_SYMBOL_TYPE_INFO = 20i32;
-pub const TI_GET_SYMNAME: IMAGEHLP_SYMBOL_TYPE_INFO = 1i32;
-pub const TI_GET_SYMTAG: IMAGEHLP_SYMBOL_TYPE_INFO = 0i32;
-pub const TI_GET_THISADJUST: IMAGEHLP_SYMBOL_TYPE_INFO = 23i32;
-pub const TI_GET_TYPE: IMAGEHLP_SYMBOL_TYPE_INFO = 3i32;
-pub const TI_GET_TYPEID: IMAGEHLP_SYMBOL_TYPE_INFO = 4i32;
-pub const TI_GET_UDTKIND: IMAGEHLP_SYMBOL_TYPE_INFO = 24i32;
-pub const TI_GET_VALUE: IMAGEHLP_SYMBOL_TYPE_INFO = 11i32;
-pub const TI_GET_VIRTUALBASECLASS: IMAGEHLP_SYMBOL_TYPE_INFO = 15i32;
-pub const TI_GET_VIRTUALBASEDISPINDEX: IMAGEHLP_SYMBOL_TYPE_INFO = 30i32;
-pub const TI_GET_VIRTUALBASEOFFSET: IMAGEHLP_SYMBOL_TYPE_INFO = 29i32;
-pub const TI_GET_VIRTUALBASEPOINTEROFFSET: IMAGEHLP_SYMBOL_TYPE_INFO = 17i32;
-pub const TI_GET_VIRTUALBASETABLETYPE: IMAGEHLP_SYMBOL_TYPE_INFO = 33i32;
-pub const TI_GET_VIRTUALTABLESHAPEID: IMAGEHLP_SYMBOL_TYPE_INFO = 16i32;
-pub const TI_GTIEX_REQS_VALID: IMAGEHLP_SYMBOL_TYPE_INFO = 28i32;
-pub const TI_IS_CLOSE_EQUIV_TO: IMAGEHLP_SYMBOL_TYPE_INFO = 27i32;
-pub const TI_IS_EQUIV_TO: IMAGEHLP_SYMBOL_TYPE_INFO = 25i32;
-pub const TOO_MANY_RECURSIVE_FAULTS: BUGCHECK_ERROR = 286u32;
-pub const TRAP_CAUSE_UNKNOWN: BUGCHECK_ERROR = 18u32;
-pub const TTM_FATAL_ERROR: BUGCHECK_ERROR = 411u32;
-pub const TTM_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 416u32;
-pub const ThreadCallback: MINIDUMP_CALLBACK_TYPE = 1i32;
-pub const ThreadExCallback: MINIDUMP_CALLBACK_TYPE = 2i32;
-pub const ThreadExListStream: MINIDUMP_STREAM_TYPE = 8i32;
-pub const ThreadInfoListStream: MINIDUMP_STREAM_TYPE = 17i32;
-pub const ThreadListStream: MINIDUMP_STREAM_TYPE = 3i32;
-pub const ThreadNamesStream: MINIDUMP_STREAM_TYPE = 24i32;
-pub const ThreadWriteBackingStore: THREAD_WRITE_FLAGS = 8i32;
-pub const ThreadWriteContext: THREAD_WRITE_FLAGS = 4i32;
-pub const ThreadWriteInstructionWindow: THREAD_WRITE_FLAGS = 16i32;
-pub const ThreadWriteStack: THREAD_WRITE_FLAGS = 2i32;
-pub const ThreadWriteThread: THREAD_WRITE_FLAGS = 1i32;
-pub const ThreadWriteThreadData: THREAD_WRITE_FLAGS = 32i32;
-pub const ThreadWriteThreadInfo: THREAD_WRITE_FLAGS = 64i32;
-pub const TokenStream: MINIDUMP_STREAM_TYPE = 19i32;
-pub const UCMUCSI_FAILURE: BUGCHECK_ERROR = 472u32;
-pub const UCMUCSI_LIVEDUMP: BUGCHECK_ERROR = 468u32;
-pub const UDFS_FILE_SYSTEM: BUGCHECK_ERROR = 155u32;
-pub const UFX_LIVEDUMP: BUGCHECK_ERROR = 408u32;
+pub const TARGET_MDL_TOO_SMALL: BUGCHECK_ERROR = BUGCHECK_ERROR(64u32);
+pub const TCPIP_AOAC_NIC_ACTIVE_REFERENCE_LEAK: BUGCHECK_ERROR = BUGCHECK_ERROR(336u32);
+pub const TELEMETRY_ASSERTS_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(465u32);
+pub const TERMINAL_SERVER_DRIVER_MADE_INCORRECT_MEMORY_REFERENCE: BUGCHECK_ERROR = BUGCHECK_ERROR(207u32);
+pub const THIRD_PARTY_FILE_SYSTEM_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(264u32);
+pub const THREAD_NOT_MUTEX_OWNER: BUGCHECK_ERROR = BUGCHECK_ERROR(17u32);
+pub const THREAD_STUCK_IN_DEVICE_DRIVER: BUGCHECK_ERROR = BUGCHECK_ERROR(234u32);
+pub const THREAD_STUCK_IN_DEVICE_DRIVER_M: BUGCHECK_ERROR = BUGCHECK_ERROR(268435690u32);
+pub const THREAD_TERMINATE_HELD_MUTEX: BUGCHECK_ERROR = BUGCHECK_ERROR(1073741962u32);
+pub const TIMER_OR_DPC_INVALID: BUGCHECK_ERROR = BUGCHECK_ERROR(199u32);
+pub const TI_FINDCHILDREN: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(7i32);
+pub const TI_GET_ADDRESS: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(22i32);
+pub const TI_GET_ADDRESSOFFSET: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(9i32);
+pub const TI_GET_ARRAYINDEXTYPEID: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(6i32);
+pub const TI_GET_BASETYPE: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(5i32);
+pub const TI_GET_BITPOSITION: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(14i32);
+pub const TI_GET_CALLING_CONVENTION: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(26i32);
+pub const TI_GET_CHILDRENCOUNT: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(13i32);
+pub const TI_GET_CLASSPARENTID: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(18i32);
+pub const TI_GET_COUNT: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(12i32);
+pub const TI_GET_DATAKIND: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(8i32);
+pub const TI_GET_INDIRECTVIRTUALBASECLASS: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(32i32);
+pub const TI_GET_IS_REFERENCE: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(31i32);
+pub const TI_GET_LENGTH: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(2i32);
+pub const TI_GET_LEXICALPARENT: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(21i32);
+pub const TI_GET_NESTED: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(19i32);
+pub const TI_GET_OBJECTPOINTERTYPE: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(34i32);
+pub const TI_GET_OFFSET: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(10i32);
+pub const TI_GET_SYMINDEX: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(20i32);
+pub const TI_GET_SYMNAME: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(1i32);
+pub const TI_GET_SYMTAG: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(0i32);
+pub const TI_GET_THISADJUST: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(23i32);
+pub const TI_GET_TYPE: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(3i32);
+pub const TI_GET_TYPEID: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(4i32);
+pub const TI_GET_UDTKIND: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(24i32);
+pub const TI_GET_VALUE: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(11i32);
+pub const TI_GET_VIRTUALBASECLASS: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(15i32);
+pub const TI_GET_VIRTUALBASEDISPINDEX: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(30i32);
+pub const TI_GET_VIRTUALBASEOFFSET: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(29i32);
+pub const TI_GET_VIRTUALBASEPOINTEROFFSET: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(17i32);
+pub const TI_GET_VIRTUALBASETABLETYPE: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(33i32);
+pub const TI_GET_VIRTUALTABLESHAPEID: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(16i32);
+pub const TI_GTIEX_REQS_VALID: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(28i32);
+pub const TI_IS_CLOSE_EQUIV_TO: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(27i32);
+pub const TI_IS_EQUIV_TO: IMAGEHLP_SYMBOL_TYPE_INFO = IMAGEHLP_SYMBOL_TYPE_INFO(25i32);
+pub const TOO_MANY_RECURSIVE_FAULTS: BUGCHECK_ERROR = BUGCHECK_ERROR(286u32);
+pub const TRAP_CAUSE_UNKNOWN: BUGCHECK_ERROR = BUGCHECK_ERROR(18u32);
+pub const TTM_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(411u32);
+pub const TTM_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(416u32);
+pub const ThreadCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(1i32);
+pub const ThreadExCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(2i32);
+pub const ThreadExListStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(8i32);
+pub const ThreadInfoListStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(17i32);
+pub const ThreadListStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(3i32);
+pub const ThreadNamesStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(24i32);
+pub const ThreadWriteBackingStore: THREAD_WRITE_FLAGS = THREAD_WRITE_FLAGS(8i32);
+pub const ThreadWriteContext: THREAD_WRITE_FLAGS = THREAD_WRITE_FLAGS(4i32);
+pub const ThreadWriteInstructionWindow: THREAD_WRITE_FLAGS = THREAD_WRITE_FLAGS(16i32);
+pub const ThreadWriteStack: THREAD_WRITE_FLAGS = THREAD_WRITE_FLAGS(2i32);
+pub const ThreadWriteThread: THREAD_WRITE_FLAGS = THREAD_WRITE_FLAGS(1i32);
+pub const ThreadWriteThreadData: THREAD_WRITE_FLAGS = THREAD_WRITE_FLAGS(32i32);
+pub const ThreadWriteThreadInfo: THREAD_WRITE_FLAGS = THREAD_WRITE_FLAGS(64i32);
+pub const TokenStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(19i32);
+pub const UCMUCSI_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(472u32);
+pub const UCMUCSI_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(468u32);
+pub const UDFS_FILE_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(155u32);
+pub const UFX_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(408u32);
 pub const UNDNAME_32_BIT_DECODE: u32 = 2048u32;
 pub const UNDNAME_COMPLETE: u32 = 0u32;
 pub const UNDNAME_NAME_ONLY: u32 = 4096u32;
@@ -1385,64 +4263,64 @@ pub const UNDNAME_NO_RETURN_UDT_MODEL: u32 = 1024u32;
 pub const UNDNAME_NO_SPECIAL_SYMS: u32 = 16384u32;
 pub const UNDNAME_NO_THISTYPE: u32 = 96u32;
 pub const UNDNAME_NO_THROW_SIGNATURES: u32 = 256u32;
-pub const UNEXPECTED_INITIALIZATION_CALL: BUGCHECK_ERROR = 51u32;
-pub const UNEXPECTED_KERNEL_MODE_TRAP: BUGCHECK_ERROR = 127u32;
-pub const UNEXPECTED_KERNEL_MODE_TRAP_M: BUGCHECK_ERROR = 268435583u32;
-pub const UNEXPECTED_STORE_EXCEPTION: BUGCHECK_ERROR = 340u32;
-pub const UNLOAD_DLL_DEBUG_EVENT: DEBUG_EVENT_CODE = 7u32;
-pub const UNMOUNTABLE_BOOT_VOLUME: BUGCHECK_ERROR = 237u32;
-pub const UNSUPPORTED_INSTRUCTION_MODE: BUGCHECK_ERROR = 337u32;
-pub const UNSUPPORTED_PROCESSOR: BUGCHECK_ERROR = 93u32;
-pub const UNWIND_ON_INVALID_STACK: BUGCHECK_ERROR = 427u32;
-pub const UNW_FLAG_CHAININFO: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = 4u32;
-pub const UNW_FLAG_EHANDLER: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = 1u32;
-pub const UNW_FLAG_NHANDLER: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = 0u32;
-pub const UNW_FLAG_UHANDLER: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = 2u32;
-pub const UP_DRIVER_ON_MP_SYSTEM: BUGCHECK_ERROR = 146u32;
-pub const USB4_HARDWARE_VIOLATION: BUGCHECK_ERROR = 496u32;
-pub const USB_DRIPS_BLOCKER_SURPRISE_REMOVAL_LIVEDUMP: BUGCHECK_ERROR = 421u32;
-pub const USER_MODE_HEALTH_MONITOR: BUGCHECK_ERROR = 158u32;
-pub const USER_MODE_HEALTH_MONITOR_LIVEDUMP: BUGCHECK_ERROR = 457u32;
-pub const UnloadedModuleListStream: MINIDUMP_STREAM_TYPE = 14i32;
-pub const UnusedStream: MINIDUMP_STREAM_TYPE = 0i32;
-pub const VER_PLATFORM_WIN32_NT: VER_PLATFORM = 2u32;
-pub const VER_PLATFORM_WIN32_WINDOWS: VER_PLATFORM = 1u32;
-pub const VER_PLATFORM_WIN32s: VER_PLATFORM = 0u32;
-pub const VHD_BOOT_HOST_VOLUME_NOT_ENOUGH_SPACE: BUGCHECK_ERROR = 310u32;
-pub const VHD_BOOT_INITIALIZATION_FAILED: BUGCHECK_ERROR = 303u32;
-pub const VIDEO_DRIVER_DEBUG_REPORT_REQUEST: BUGCHECK_ERROR = 1073741997u32;
-pub const VIDEO_DRIVER_INIT_FAILURE: BUGCHECK_ERROR = 180u32;
-pub const VIDEO_DWMINIT_TIMEOUT_FALLBACK_BDD: BUGCHECK_ERROR = 391u32;
-pub const VIDEO_DXGKRNL_BLACK_SCREEN_LIVEDUMP: BUGCHECK_ERROR = 424u32;
-pub const VIDEO_DXGKRNL_FATAL_ERROR: BUGCHECK_ERROR = 275u32;
-pub const VIDEO_DXGKRNL_LIVEDUMP: BUGCHECK_ERROR = 403u32;
-pub const VIDEO_DXGKRNL_SYSMM_FATAL_ERROR: BUGCHECK_ERROR = 484u32;
-pub const VIDEO_ENGINE_TIMEOUT_DETECTED: BUGCHECK_ERROR = 321u32;
-pub const VIDEO_MEMORY_MANAGEMENT_INTERNAL: BUGCHECK_ERROR = 270u32;
-pub const VIDEO_MINIPORT_BLACK_SCREEN_LIVEDUMP: BUGCHECK_ERROR = 440u32;
-pub const VIDEO_MINIPORT_FAILED_LIVEDUMP: BUGCHECK_ERROR = 432u32;
-pub const VIDEO_SCHEDULER_INTERNAL_ERROR: BUGCHECK_ERROR = 281u32;
-pub const VIDEO_SHADOW_DRIVER_FATAL_ERROR: BUGCHECK_ERROR = 276u32;
-pub const VIDEO_TDR_APPLICATION_BLOCKED: BUGCHECK_ERROR = 322u32;
-pub const VIDEO_TDR_FAILURE: BUGCHECK_ERROR = 278u32;
-pub const VIDEO_TDR_TIMEOUT_DETECTED: BUGCHECK_ERROR = 279u32;
-pub const VMBUS_LIVEDUMP: BUGCHECK_ERROR = 1073742319u32;
-pub const VOLMGRX_INTERNAL_ERROR: BUGCHECK_ERROR = 88u32;
-pub const VOLSNAP_OVERLAPPED_TABLE_ACCESS: BUGCHECK_ERROR = 301u32;
-pub const VSL_INITIALIZATION_FAILED: BUGCHECK_ERROR = 111u32;
-pub const VmPostReadCallback: MINIDUMP_CALLBACK_TYPE = 20i32;
-pub const VmPreReadCallback: MINIDUMP_CALLBACK_TYPE = 19i32;
-pub const VmQueryCallback: MINIDUMP_CALLBACK_TYPE = 18i32;
-pub const VmStartCallback: MINIDUMP_CALLBACK_TYPE = 17i32;
-pub const WCT_ASYNC_OPEN_FLAG: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS = 1u32;
+pub const UNEXPECTED_INITIALIZATION_CALL: BUGCHECK_ERROR = BUGCHECK_ERROR(51u32);
+pub const UNEXPECTED_KERNEL_MODE_TRAP: BUGCHECK_ERROR = BUGCHECK_ERROR(127u32);
+pub const UNEXPECTED_KERNEL_MODE_TRAP_M: BUGCHECK_ERROR = BUGCHECK_ERROR(268435583u32);
+pub const UNEXPECTED_STORE_EXCEPTION: BUGCHECK_ERROR = BUGCHECK_ERROR(340u32);
+pub const UNLOAD_DLL_DEBUG_EVENT: DEBUG_EVENT_CODE = DEBUG_EVENT_CODE(7u32);
+pub const UNMOUNTABLE_BOOT_VOLUME: BUGCHECK_ERROR = BUGCHECK_ERROR(237u32);
+pub const UNSUPPORTED_INSTRUCTION_MODE: BUGCHECK_ERROR = BUGCHECK_ERROR(337u32);
+pub const UNSUPPORTED_PROCESSOR: BUGCHECK_ERROR = BUGCHECK_ERROR(93u32);
+pub const UNWIND_ON_INVALID_STACK: BUGCHECK_ERROR = BUGCHECK_ERROR(427u32);
+pub const UNW_FLAG_CHAININFO: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = RTL_VIRTUAL_UNWIND_HANDLER_TYPE(4u32);
+pub const UNW_FLAG_EHANDLER: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = RTL_VIRTUAL_UNWIND_HANDLER_TYPE(1u32);
+pub const UNW_FLAG_NHANDLER: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = RTL_VIRTUAL_UNWIND_HANDLER_TYPE(0u32);
+pub const UNW_FLAG_UHANDLER: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = RTL_VIRTUAL_UNWIND_HANDLER_TYPE(2u32);
+pub const UP_DRIVER_ON_MP_SYSTEM: BUGCHECK_ERROR = BUGCHECK_ERROR(146u32);
+pub const USB4_HARDWARE_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(496u32);
+pub const USB_DRIPS_BLOCKER_SURPRISE_REMOVAL_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(421u32);
+pub const USER_MODE_HEALTH_MONITOR: BUGCHECK_ERROR = BUGCHECK_ERROR(158u32);
+pub const USER_MODE_HEALTH_MONITOR_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(457u32);
+pub const UnloadedModuleListStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(14i32);
+pub const UnusedStream: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(0i32);
+pub const VER_PLATFORM_WIN32_NT: VER_PLATFORM = VER_PLATFORM(2u32);
+pub const VER_PLATFORM_WIN32_WINDOWS: VER_PLATFORM = VER_PLATFORM(1u32);
+pub const VER_PLATFORM_WIN32s: VER_PLATFORM = VER_PLATFORM(0u32);
+pub const VHD_BOOT_HOST_VOLUME_NOT_ENOUGH_SPACE: BUGCHECK_ERROR = BUGCHECK_ERROR(310u32);
+pub const VHD_BOOT_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(303u32);
+pub const VIDEO_DRIVER_DEBUG_REPORT_REQUEST: BUGCHECK_ERROR = BUGCHECK_ERROR(1073741997u32);
+pub const VIDEO_DRIVER_INIT_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(180u32);
+pub const VIDEO_DWMINIT_TIMEOUT_FALLBACK_BDD: BUGCHECK_ERROR = BUGCHECK_ERROR(391u32);
+pub const VIDEO_DXGKRNL_BLACK_SCREEN_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(424u32);
+pub const VIDEO_DXGKRNL_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(275u32);
+pub const VIDEO_DXGKRNL_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(403u32);
+pub const VIDEO_DXGKRNL_SYSMM_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(484u32);
+pub const VIDEO_ENGINE_TIMEOUT_DETECTED: BUGCHECK_ERROR = BUGCHECK_ERROR(321u32);
+pub const VIDEO_MEMORY_MANAGEMENT_INTERNAL: BUGCHECK_ERROR = BUGCHECK_ERROR(270u32);
+pub const VIDEO_MINIPORT_BLACK_SCREEN_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(440u32);
+pub const VIDEO_MINIPORT_FAILED_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(432u32);
+pub const VIDEO_SCHEDULER_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(281u32);
+pub const VIDEO_SHADOW_DRIVER_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(276u32);
+pub const VIDEO_TDR_APPLICATION_BLOCKED: BUGCHECK_ERROR = BUGCHECK_ERROR(322u32);
+pub const VIDEO_TDR_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(278u32);
+pub const VIDEO_TDR_TIMEOUT_DETECTED: BUGCHECK_ERROR = BUGCHECK_ERROR(279u32);
+pub const VMBUS_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(1073742319u32);
+pub const VOLMGRX_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(88u32);
+pub const VOLSNAP_OVERLAPPED_TABLE_ACCESS: BUGCHECK_ERROR = BUGCHECK_ERROR(301u32);
+pub const VSL_INITIALIZATION_FAILED: BUGCHECK_ERROR = BUGCHECK_ERROR(111u32);
+pub const VmPostReadCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(20i32);
+pub const VmPreReadCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(19i32);
+pub const VmQueryCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(18i32);
+pub const VmStartCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(17i32);
+pub const WCT_ASYNC_OPEN_FLAG: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS = OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS(1u32);
 pub const WCT_MAX_NODE_COUNT: u32 = 16u32;
 pub const WCT_NETWORK_IO_FLAG: u32 = 8u32;
 pub const WCT_OBJNAME_LENGTH: u32 = 128u32;
-pub const WCT_OUT_OF_PROC_COM_FLAG: WAIT_CHAIN_THREAD_OPTIONS = 2u32;
-pub const WCT_OUT_OF_PROC_CS_FLAG: WAIT_CHAIN_THREAD_OPTIONS = 4u32;
-pub const WCT_OUT_OF_PROC_FLAG: WAIT_CHAIN_THREAD_OPTIONS = 1u32;
-pub const WDF_VIOLATION: BUGCHECK_ERROR = 269u32;
-pub const WFP_INVALID_OPERATION: BUGCHECK_ERROR = 467u32;
+pub const WCT_OUT_OF_PROC_COM_FLAG: WAIT_CHAIN_THREAD_OPTIONS = WAIT_CHAIN_THREAD_OPTIONS(2u32);
+pub const WCT_OUT_OF_PROC_CS_FLAG: WAIT_CHAIN_THREAD_OPTIONS = WAIT_CHAIN_THREAD_OPTIONS(4u32);
+pub const WCT_OUT_OF_PROC_FLAG: WAIT_CHAIN_THREAD_OPTIONS = WAIT_CHAIN_THREAD_OPTIONS(1u32);
+pub const WDF_VIOLATION: BUGCHECK_ERROR = BUGCHECK_ERROR(269u32);
+pub const WFP_INVALID_OPERATION: BUGCHECK_ERROR = BUGCHECK_ERROR(467u32);
 pub const WHEA_BAD_PAGE_LIST_LOCATION: u32 = 15u32;
 pub const WHEA_BAD_PAGE_LIST_MAX_SIZE: u32 = 14u32;
 pub const WHEA_CMCI_THRESHOLD_COUNT: u32 = 10u32;
@@ -1475,7 +4353,7 @@ pub const WHEA_ERROR_SOURCE_FLAG_FIRMWAREFIRST: u32 = 1u32;
 pub const WHEA_ERROR_SOURCE_FLAG_GHES_ASSIST: u32 = 4u32;
 pub const WHEA_ERROR_SOURCE_FLAG_GLOBAL: u32 = 2u32;
 pub const WHEA_ERROR_SOURCE_INVALID_RELATED_SOURCE: u32 = 65535u32;
-pub const WHEA_INTERNAL_ERROR: BUGCHECK_ERROR = 290u32;
+pub const WHEA_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(290u32);
 pub const WHEA_MAX_MC_BANKS: u32 = 32u32;
 pub const WHEA_MEM_PERSISTOFFLINE: u32 = 1u32;
 pub const WHEA_MEM_PFA_DISABLE: u32 = 2u32;
@@ -1502,477 +4380,1213 @@ pub const WHEA_RESTORE_CMCI_ERR_LIMIT: u32 = 9u32;
 pub const WHEA_ROW_FAIL_CHECK_ENABLE: u32 = 18u32;
 pub const WHEA_ROW_FAIL_CHECK_EXTENT: u32 = 17u32;
 pub const WHEA_ROW_FAIL_CHECK_THRESHOLD: u32 = 19u32;
-pub const WHEA_UNCORRECTABLE_ERROR: BUGCHECK_ERROR = 292u32;
+pub const WHEA_UNCORRECTABLE_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(292u32);
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_AMD64MCA: u32 = 2u32;
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_IA32MCA: u32 = 0u32;
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_Intel64MCA: u32 = 1u32;
-pub const WIN32K_ATOMIC_CHECK_FAILURE: BUGCHECK_ERROR = 352u32;
-pub const WIN32K_CALLOUT_WATCHDOG_BUGCHECK: BUGCHECK_ERROR = 418u32;
-pub const WIN32K_CALLOUT_WATCHDOG_LIVEDUMP: BUGCHECK_ERROR = 417u32;
-pub const WIN32K_CRITICAL_FAILURE: BUGCHECK_ERROR = 356u32;
-pub const WIN32K_CRITICAL_FAILURE_LIVEDUMP: BUGCHECK_ERROR = 400u32;
-pub const WIN32K_HANDLE_MANAGER: BUGCHECK_ERROR = 311u32;
-pub const WIN32K_INIT_OR_RIT_FAILURE: BUGCHECK_ERROR = 145u32;
-pub const WIN32K_POWER_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 412u32;
-pub const WIN32K_SECURITY_FAILURE: BUGCHECK_ERROR = 407u32;
-pub const WINDOWS_NT_BANNER: BUGCHECK_ERROR = 1073741950u32;
-pub const WINDOWS_NT_CSD_STRING: BUGCHECK_ERROR = 1073741959u32;
-pub const WINDOWS_NT_INFO_STRING: BUGCHECK_ERROR = 1073741960u32;
-pub const WINDOWS_NT_INFO_STRING_PLURAL: BUGCHECK_ERROR = 1073741981u32;
-pub const WINDOWS_NT_MP_STRING: BUGCHECK_ERROR = 1073741961u32;
-pub const WINDOWS_NT_RC_STRING: BUGCHECK_ERROR = 1073741982u32;
-pub const WINLOGON_FATAL_ERROR: BUGCHECK_ERROR = 3221226010u32;
-pub const WINSOCK_DETECTED_HUNG_CLOSESOCKET_LIVEDUMP: BUGCHECK_ERROR = 342u32;
-pub const WORKER_INVALID: BUGCHECK_ERROR = 228u32;
-pub const WORKER_THREAD_INVALID_STATE: BUGCHECK_ERROR = 466u32;
-pub const WORKER_THREAD_RETURNED_AT_BAD_IRQL: BUGCHECK_ERROR = 225u32;
-pub const WORKER_THREAD_RETURNED_WHILE_ATTACHED_TO_SILO: BUGCHECK_ERROR = 410u32;
-pub const WORKER_THREAD_RETURNED_WITH_BAD_IO_PRIORITY: BUGCHECK_ERROR = 296u32;
-pub const WORKER_THREAD_RETURNED_WITH_BAD_PAGING_IO_PRIORITY: BUGCHECK_ERROR = 297u32;
-pub const WORKER_THREAD_RETURNED_WITH_NON_DEFAULT_WORKLOAD_CLASS: BUGCHECK_ERROR = 470u32;
-pub const WORKER_THREAD_RETURNED_WITH_SYSTEM_PAGE_PRIORITY_ACTIVE: BUGCHECK_ERROR = 347u32;
-pub const WORKER_THREAD_TEST_CONDITION: BUGCHECK_ERROR = 355u32;
-pub const WOW64_CONTEXT_ALL: WOW64_CONTEXT_FLAGS = 65599u32;
-pub const WOW64_CONTEXT_CONTROL: WOW64_CONTEXT_FLAGS = 65537u32;
-pub const WOW64_CONTEXT_DEBUG_REGISTERS: WOW64_CONTEXT_FLAGS = 65552u32;
-pub const WOW64_CONTEXT_EXCEPTION_ACTIVE: WOW64_CONTEXT_FLAGS = 134217728u32;
-pub const WOW64_CONTEXT_EXCEPTION_REPORTING: WOW64_CONTEXT_FLAGS = 2147483648u32;
-pub const WOW64_CONTEXT_EXCEPTION_REQUEST: WOW64_CONTEXT_FLAGS = 1073741824u32;
-pub const WOW64_CONTEXT_EXTENDED_REGISTERS: WOW64_CONTEXT_FLAGS = 65568u32;
-pub const WOW64_CONTEXT_FLOATING_POINT: WOW64_CONTEXT_FLAGS = 65544u32;
-pub const WOW64_CONTEXT_FULL: WOW64_CONTEXT_FLAGS = 65543u32;
-pub const WOW64_CONTEXT_INTEGER: WOW64_CONTEXT_FLAGS = 65538u32;
-pub const WOW64_CONTEXT_SEGMENTS: WOW64_CONTEXT_FLAGS = 65540u32;
-pub const WOW64_CONTEXT_SERVICE_ACTIVE: WOW64_CONTEXT_FLAGS = 268435456u32;
-pub const WOW64_CONTEXT_X86: WOW64_CONTEXT_FLAGS = 65536u32;
-pub const WOW64_CONTEXT_XSTATE: WOW64_CONTEXT_FLAGS = 65600u32;
+pub const WIN32K_ATOMIC_CHECK_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(352u32);
+pub const WIN32K_CALLOUT_WATCHDOG_BUGCHECK: BUGCHECK_ERROR = BUGCHECK_ERROR(418u32);
+pub const WIN32K_CALLOUT_WATCHDOG_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(417u32);
+pub const WIN32K_CRITICAL_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(356u32);
+pub const WIN32K_CRITICAL_FAILURE_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(400u32);
+pub const WIN32K_HANDLE_MANAGER: BUGCHECK_ERROR = BUGCHECK_ERROR(311u32);
+pub const WIN32K_INIT_OR_RIT_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(145u32);
+pub const WIN32K_POWER_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(412u32);
+pub const WIN32K_SECURITY_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(407u32);
+pub const WINDOWS_NT_BANNER: BUGCHECK_ERROR = BUGCHECK_ERROR(1073741950u32);
+pub const WINDOWS_NT_CSD_STRING: BUGCHECK_ERROR = BUGCHECK_ERROR(1073741959u32);
+pub const WINDOWS_NT_INFO_STRING: BUGCHECK_ERROR = BUGCHECK_ERROR(1073741960u32);
+pub const WINDOWS_NT_INFO_STRING_PLURAL: BUGCHECK_ERROR = BUGCHECK_ERROR(1073741981u32);
+pub const WINDOWS_NT_MP_STRING: BUGCHECK_ERROR = BUGCHECK_ERROR(1073741961u32);
+pub const WINDOWS_NT_RC_STRING: BUGCHECK_ERROR = BUGCHECK_ERROR(1073741982u32);
+pub const WINLOGON_FATAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(3221226010u32);
+pub const WINSOCK_DETECTED_HUNG_CLOSESOCKET_LIVEDUMP: BUGCHECK_ERROR = BUGCHECK_ERROR(342u32);
+pub const WORKER_INVALID: BUGCHECK_ERROR = BUGCHECK_ERROR(228u32);
+pub const WORKER_THREAD_INVALID_STATE: BUGCHECK_ERROR = BUGCHECK_ERROR(466u32);
+pub const WORKER_THREAD_RETURNED_AT_BAD_IRQL: BUGCHECK_ERROR = BUGCHECK_ERROR(225u32);
+pub const WORKER_THREAD_RETURNED_WHILE_ATTACHED_TO_SILO: BUGCHECK_ERROR = BUGCHECK_ERROR(410u32);
+pub const WORKER_THREAD_RETURNED_WITH_BAD_IO_PRIORITY: BUGCHECK_ERROR = BUGCHECK_ERROR(296u32);
+pub const WORKER_THREAD_RETURNED_WITH_BAD_PAGING_IO_PRIORITY: BUGCHECK_ERROR = BUGCHECK_ERROR(297u32);
+pub const WORKER_THREAD_RETURNED_WITH_NON_DEFAULT_WORKLOAD_CLASS: BUGCHECK_ERROR = BUGCHECK_ERROR(470u32);
+pub const WORKER_THREAD_RETURNED_WITH_SYSTEM_PAGE_PRIORITY_ACTIVE: BUGCHECK_ERROR = BUGCHECK_ERROR(347u32);
+pub const WORKER_THREAD_TEST_CONDITION: BUGCHECK_ERROR = BUGCHECK_ERROR(355u32);
+pub const WOW64_CONTEXT_ALL: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65599u32);
+pub const WOW64_CONTEXT_CONTROL: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65537u32);
+pub const WOW64_CONTEXT_DEBUG_REGISTERS: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65552u32);
+pub const WOW64_CONTEXT_EXCEPTION_ACTIVE: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(134217728u32);
+pub const WOW64_CONTEXT_EXCEPTION_REPORTING: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(2147483648u32);
+pub const WOW64_CONTEXT_EXCEPTION_REQUEST: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(1073741824u32);
+pub const WOW64_CONTEXT_EXTENDED_REGISTERS: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65568u32);
+pub const WOW64_CONTEXT_FLOATING_POINT: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65544u32);
+pub const WOW64_CONTEXT_FULL: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65543u32);
+pub const WOW64_CONTEXT_INTEGER: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65538u32);
+pub const WOW64_CONTEXT_SEGMENTS: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65540u32);
+pub const WOW64_CONTEXT_SERVICE_ACTIVE: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(268435456u32);
+pub const WOW64_CONTEXT_X86: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65536u32);
+pub const WOW64_CONTEXT_XSTATE: WOW64_CONTEXT_FLAGS = WOW64_CONTEXT_FLAGS(65600u32);
 pub const WOW64_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
 pub const WOW64_SIZE_OF_80387_REGISTERS: u32 = 80u32;
-pub const WVR_LIVEDUMP_APP_IO_TIMEOUT: BUGCHECK_ERROR = 387u32;
-pub const WVR_LIVEDUMP_CRITICAL_ERROR: BUGCHECK_ERROR = 390u32;
-pub const WVR_LIVEDUMP_MANUALLY_INITIATED: BUGCHECK_ERROR = 388u32;
-pub const WVR_LIVEDUMP_RECOVERY_IOCONTEXT_TIMEOUT: BUGCHECK_ERROR = 386u32;
-pub const WVR_LIVEDUMP_REPLICATION_IOCONTEXT_TIMEOUT: BUGCHECK_ERROR = 384u32;
-pub const WVR_LIVEDUMP_STATE_FAILURE: BUGCHECK_ERROR = 389u32;
-pub const WVR_LIVEDUMP_STATE_TRANSITION_TIMEOUT: BUGCHECK_ERROR = 385u32;
-pub const WctAlpcType: WCT_OBJECT_TYPE = 4i32;
-pub const WctComActivationType: WCT_OBJECT_TYPE = 9i32;
-pub const WctComType: WCT_OBJECT_TYPE = 5i32;
-pub const WctCriticalSectionType: WCT_OBJECT_TYPE = 1i32;
-pub const WctMaxType: WCT_OBJECT_TYPE = 13i32;
-pub const WctMutexType: WCT_OBJECT_TYPE = 3i32;
-pub const WctProcessWaitType: WCT_OBJECT_TYPE = 7i32;
-pub const WctSendMessageType: WCT_OBJECT_TYPE = 2i32;
-pub const WctSmbIoType: WCT_OBJECT_TYPE = 12i32;
-pub const WctSocketIoType: WCT_OBJECT_TYPE = 11i32;
-pub const WctStatusAbandoned: WCT_OBJECT_STATUS = 8i32;
-pub const WctStatusBlocked: WCT_OBJECT_STATUS = 3i32;
-pub const WctStatusError: WCT_OBJECT_STATUS = 10i32;
-pub const WctStatusMax: WCT_OBJECT_STATUS = 11i32;
-pub const WctStatusNoAccess: WCT_OBJECT_STATUS = 1i32;
-pub const WctStatusNotOwned: WCT_OBJECT_STATUS = 7i32;
-pub const WctStatusOwned: WCT_OBJECT_STATUS = 6i32;
-pub const WctStatusPidOnly: WCT_OBJECT_STATUS = 4i32;
-pub const WctStatusPidOnlyRpcss: WCT_OBJECT_STATUS = 5i32;
-pub const WctStatusRunning: WCT_OBJECT_STATUS = 2i32;
-pub const WctStatusUnknown: WCT_OBJECT_STATUS = 9i32;
-pub const WctThreadType: WCT_OBJECT_TYPE = 8i32;
-pub const WctThreadWaitType: WCT_OBJECT_TYPE = 6i32;
-pub const WctUnknownType: WCT_OBJECT_TYPE = 10i32;
-pub const WheaErrSrcStateRemovePending: WHEA_ERROR_SOURCE_STATE = 4i32;
-pub const WheaErrSrcStateRemoved: WHEA_ERROR_SOURCE_STATE = 3i32;
-pub const WheaErrSrcStateStarted: WHEA_ERROR_SOURCE_STATE = 2i32;
-pub const WheaErrSrcStateStopped: WHEA_ERROR_SOURCE_STATE = 1i32;
-pub const WheaErrSrcTypeBMC: WHEA_ERROR_SOURCE_TYPE = 14i32;
-pub const WheaErrSrcTypeBOOT: WHEA_ERROR_SOURCE_TYPE = 7i32;
-pub const WheaErrSrcTypeCMC: WHEA_ERROR_SOURCE_TYPE = 1i32;
-pub const WheaErrSrcTypeCPE: WHEA_ERROR_SOURCE_TYPE = 2i32;
-pub const WheaErrSrcTypeDeviceDriver: WHEA_ERROR_SOURCE_TYPE = 16i32;
-pub const WheaErrSrcTypeGeneric: WHEA_ERROR_SOURCE_TYPE = 5i32;
-pub const WheaErrSrcTypeGenericV2: WHEA_ERROR_SOURCE_TYPE = 12i32;
-pub const WheaErrSrcTypeINIT: WHEA_ERROR_SOURCE_TYPE = 6i32;
-pub const WheaErrSrcTypeIPFCMC: WHEA_ERROR_SOURCE_TYPE = 10i32;
-pub const WheaErrSrcTypeIPFCPE: WHEA_ERROR_SOURCE_TYPE = 11i32;
-pub const WheaErrSrcTypeIPFMCA: WHEA_ERROR_SOURCE_TYPE = 9i32;
-pub const WheaErrSrcTypeMCE: WHEA_ERROR_SOURCE_TYPE = 0i32;
-pub const WheaErrSrcTypeMax: WHEA_ERROR_SOURCE_TYPE = 19i32;
-pub const WheaErrSrcTypeNMI: WHEA_ERROR_SOURCE_TYPE = 3i32;
-pub const WheaErrSrcTypePCIe: WHEA_ERROR_SOURCE_TYPE = 4i32;
-pub const WheaErrSrcTypePMEM: WHEA_ERROR_SOURCE_TYPE = 15i32;
-pub const WheaErrSrcTypeSCIGeneric: WHEA_ERROR_SOURCE_TYPE = 8i32;
-pub const WheaErrSrcTypeSCIGenericV2: WHEA_ERROR_SOURCE_TYPE = 13i32;
-pub const WheaErrSrcTypeSea: WHEA_ERROR_SOURCE_TYPE = 17i32;
-pub const WheaErrSrcTypeSei: WHEA_ERROR_SOURCE_TYPE = 18i32;
-pub const WriteKernelMinidumpCallback: MINIDUMP_CALLBACK_TYPE = 7i32;
-pub const XBOX_360_SYSTEM_CRASH: BUGCHECK_ERROR = 864u32;
-pub const XBOX_360_SYSTEM_CRASH_RESERVED: BUGCHECK_ERROR = 1056u32;
-pub const XBOX_CORRUPTED_IMAGE: BUGCHECK_ERROR = 855u32;
-pub const XBOX_CORRUPTED_IMAGE_BASE: BUGCHECK_ERROR = 857u32;
-pub const XBOX_INVERTED_FUNCTION_TABLE_OVERFLOW: BUGCHECK_ERROR = 856u32;
-pub const XBOX_MANUALLY_INITIATED_CRASH: BUGCHECK_ERROR = 196614u32;
-pub const XBOX_SECURITY_FAILUE: BUGCHECK_ERROR = 1057u32;
-pub const XBOX_SHUTDOWN_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 859u32;
-pub const XBOX_VMCTRL_CS_TIMEOUT: BUGCHECK_ERROR = 854u32;
-pub const XBOX_XDS_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 858u32;
-pub const XNS_INTERNAL_ERROR: BUGCHECK_ERROR = 87u32;
-pub const ceStreamBucketParameters: MINIDUMP_STREAM_TYPE = 32778i32;
-pub const ceStreamDiagnosisList: MINIDUMP_STREAM_TYPE = 32780i32;
-pub const ceStreamException: MINIDUMP_STREAM_TYPE = 32770i32;
-pub const ceStreamMemoryPhysicalList: MINIDUMP_STREAM_TYPE = 32777i32;
-pub const ceStreamMemoryVirtualList: MINIDUMP_STREAM_TYPE = 32776i32;
-pub const ceStreamModuleList: MINIDUMP_STREAM_TYPE = 32771i32;
-pub const ceStreamNull: MINIDUMP_STREAM_TYPE = 32768i32;
-pub const ceStreamProcessList: MINIDUMP_STREAM_TYPE = 32772i32;
-pub const ceStreamProcessModuleMap: MINIDUMP_STREAM_TYPE = 32779i32;
-pub const ceStreamSystemInfo: MINIDUMP_STREAM_TYPE = 32769i32;
-pub const ceStreamThreadCallStackList: MINIDUMP_STREAM_TYPE = 32775i32;
-pub const ceStreamThreadContextList: MINIDUMP_STREAM_TYPE = 32774i32;
-pub const ceStreamThreadList: MINIDUMP_STREAM_TYPE = 32773i32;
-pub const hdBase: IMAGEHLP_HD_TYPE = 0i32;
-pub const hdMax: IMAGEHLP_HD_TYPE = 3i32;
-pub const hdSrc: IMAGEHLP_HD_TYPE = 2i32;
-pub const hdSym: IMAGEHLP_HD_TYPE = 1i32;
-pub const sevAttn: IMAGEHLP_CBA_EVENT_SEVERITY = 2u32;
-pub const sevFatal: IMAGEHLP_CBA_EVENT_SEVERITY = 3u32;
-pub const sevInfo: IMAGEHLP_CBA_EVENT_SEVERITY = 0u32;
+pub const WVR_LIVEDUMP_APP_IO_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(387u32);
+pub const WVR_LIVEDUMP_CRITICAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(390u32);
+pub const WVR_LIVEDUMP_MANUALLY_INITIATED: BUGCHECK_ERROR = BUGCHECK_ERROR(388u32);
+pub const WVR_LIVEDUMP_RECOVERY_IOCONTEXT_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(386u32);
+pub const WVR_LIVEDUMP_REPLICATION_IOCONTEXT_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(384u32);
+pub const WVR_LIVEDUMP_STATE_FAILURE: BUGCHECK_ERROR = BUGCHECK_ERROR(389u32);
+pub const WVR_LIVEDUMP_STATE_TRANSITION_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(385u32);
+pub const WctAlpcType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(4i32);
+pub const WctComActivationType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(9i32);
+pub const WctComType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(5i32);
+pub const WctCriticalSectionType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(1i32);
+pub const WctMaxType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(13i32);
+pub const WctMutexType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(3i32);
+pub const WctProcessWaitType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(7i32);
+pub const WctSendMessageType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(2i32);
+pub const WctSmbIoType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(12i32);
+pub const WctSocketIoType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(11i32);
+pub const WctStatusAbandoned: WCT_OBJECT_STATUS = WCT_OBJECT_STATUS(8i32);
+pub const WctStatusBlocked: WCT_OBJECT_STATUS = WCT_OBJECT_STATUS(3i32);
+pub const WctStatusError: WCT_OBJECT_STATUS = WCT_OBJECT_STATUS(10i32);
+pub const WctStatusMax: WCT_OBJECT_STATUS = WCT_OBJECT_STATUS(11i32);
+pub const WctStatusNoAccess: WCT_OBJECT_STATUS = WCT_OBJECT_STATUS(1i32);
+pub const WctStatusNotOwned: WCT_OBJECT_STATUS = WCT_OBJECT_STATUS(7i32);
+pub const WctStatusOwned: WCT_OBJECT_STATUS = WCT_OBJECT_STATUS(6i32);
+pub const WctStatusPidOnly: WCT_OBJECT_STATUS = WCT_OBJECT_STATUS(4i32);
+pub const WctStatusPidOnlyRpcss: WCT_OBJECT_STATUS = WCT_OBJECT_STATUS(5i32);
+pub const WctStatusRunning: WCT_OBJECT_STATUS = WCT_OBJECT_STATUS(2i32);
+pub const WctStatusUnknown: WCT_OBJECT_STATUS = WCT_OBJECT_STATUS(9i32);
+pub const WctThreadType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(8i32);
+pub const WctThreadWaitType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(6i32);
+pub const WctUnknownType: WCT_OBJECT_TYPE = WCT_OBJECT_TYPE(10i32);
+pub const WheaErrSrcStateRemovePending: WHEA_ERROR_SOURCE_STATE = WHEA_ERROR_SOURCE_STATE(4i32);
+pub const WheaErrSrcStateRemoved: WHEA_ERROR_SOURCE_STATE = WHEA_ERROR_SOURCE_STATE(3i32);
+pub const WheaErrSrcStateStarted: WHEA_ERROR_SOURCE_STATE = WHEA_ERROR_SOURCE_STATE(2i32);
+pub const WheaErrSrcStateStopped: WHEA_ERROR_SOURCE_STATE = WHEA_ERROR_SOURCE_STATE(1i32);
+pub const WheaErrSrcTypeBMC: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(14i32);
+pub const WheaErrSrcTypeBOOT: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(7i32);
+pub const WheaErrSrcTypeCMC: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(1i32);
+pub const WheaErrSrcTypeCPE: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(2i32);
+pub const WheaErrSrcTypeDeviceDriver: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(16i32);
+pub const WheaErrSrcTypeGeneric: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(5i32);
+pub const WheaErrSrcTypeGenericV2: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(12i32);
+pub const WheaErrSrcTypeINIT: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(6i32);
+pub const WheaErrSrcTypeIPFCMC: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(10i32);
+pub const WheaErrSrcTypeIPFCPE: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(11i32);
+pub const WheaErrSrcTypeIPFMCA: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(9i32);
+pub const WheaErrSrcTypeMCE: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(0i32);
+pub const WheaErrSrcTypeMax: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(19i32);
+pub const WheaErrSrcTypeNMI: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(3i32);
+pub const WheaErrSrcTypePCIe: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(4i32);
+pub const WheaErrSrcTypePMEM: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(15i32);
+pub const WheaErrSrcTypeSCIGeneric: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(8i32);
+pub const WheaErrSrcTypeSCIGenericV2: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(13i32);
+pub const WheaErrSrcTypeSea: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(17i32);
+pub const WheaErrSrcTypeSei: WHEA_ERROR_SOURCE_TYPE = WHEA_ERROR_SOURCE_TYPE(18i32);
+pub const WriteKernelMinidumpCallback: MINIDUMP_CALLBACK_TYPE = MINIDUMP_CALLBACK_TYPE(7i32);
+pub const XBOX_360_SYSTEM_CRASH: BUGCHECK_ERROR = BUGCHECK_ERROR(864u32);
+pub const XBOX_360_SYSTEM_CRASH_RESERVED: BUGCHECK_ERROR = BUGCHECK_ERROR(1056u32);
+pub const XBOX_CORRUPTED_IMAGE: BUGCHECK_ERROR = BUGCHECK_ERROR(855u32);
+pub const XBOX_CORRUPTED_IMAGE_BASE: BUGCHECK_ERROR = BUGCHECK_ERROR(857u32);
+pub const XBOX_INVERTED_FUNCTION_TABLE_OVERFLOW: BUGCHECK_ERROR = BUGCHECK_ERROR(856u32);
+pub const XBOX_MANUALLY_INITIATED_CRASH: BUGCHECK_ERROR = BUGCHECK_ERROR(196614u32);
+pub const XBOX_SECURITY_FAILUE: BUGCHECK_ERROR = BUGCHECK_ERROR(1057u32);
+pub const XBOX_SHUTDOWN_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(859u32);
+pub const XBOX_VMCTRL_CS_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(854u32);
+pub const XBOX_XDS_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = BUGCHECK_ERROR(858u32);
+pub const XNS_INTERNAL_ERROR: BUGCHECK_ERROR = BUGCHECK_ERROR(87u32);
+pub const ceStreamBucketParameters: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32778i32);
+pub const ceStreamDiagnosisList: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32780i32);
+pub const ceStreamException: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32770i32);
+pub const ceStreamMemoryPhysicalList: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32777i32);
+pub const ceStreamMemoryVirtualList: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32776i32);
+pub const ceStreamModuleList: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32771i32);
+pub const ceStreamNull: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32768i32);
+pub const ceStreamProcessList: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32772i32);
+pub const ceStreamProcessModuleMap: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32779i32);
+pub const ceStreamSystemInfo: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32769i32);
+pub const ceStreamThreadCallStackList: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32775i32);
+pub const ceStreamThreadContextList: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32774i32);
+pub const ceStreamThreadList: MINIDUMP_STREAM_TYPE = MINIDUMP_STREAM_TYPE(32773i32);
+pub const hdBase: IMAGEHLP_HD_TYPE = IMAGEHLP_HD_TYPE(0i32);
+pub const hdMax: IMAGEHLP_HD_TYPE = IMAGEHLP_HD_TYPE(3i32);
+pub const hdSrc: IMAGEHLP_HD_TYPE = IMAGEHLP_HD_TYPE(2i32);
+pub const hdSym: IMAGEHLP_HD_TYPE = IMAGEHLP_HD_TYPE(1i32);
+pub const sevAttn: IMAGEHLP_CBA_EVENT_SEVERITY = IMAGEHLP_CBA_EVENT_SEVERITY(2u32);
+pub const sevFatal: IMAGEHLP_CBA_EVENT_SEVERITY = IMAGEHLP_CBA_EVENT_SEVERITY(3u32);
+pub const sevInfo: IMAGEHLP_CBA_EVENT_SEVERITY = IMAGEHLP_CBA_EVENT_SEVERITY(0u32);
 pub const sevMax: i32 = 4i32;
-pub const sevProblem: IMAGEHLP_CBA_EVENT_SEVERITY = 1u32;
-pub const sfDbg: IMAGEHLP_SF_TYPE = 1i32;
-pub const sfImage: IMAGEHLP_SF_TYPE = 0i32;
-pub const sfMax: IMAGEHLP_SF_TYPE = 4i32;
-pub const sfMpd: IMAGEHLP_SF_TYPE = 3i32;
-pub const sfPdb: IMAGEHLP_SF_TYPE = 2i32;
+pub const sevProblem: IMAGEHLP_CBA_EVENT_SEVERITY = IMAGEHLP_CBA_EVENT_SEVERITY(1u32);
+pub const sfDbg: IMAGEHLP_SF_TYPE = IMAGEHLP_SF_TYPE(1i32);
+pub const sfImage: IMAGEHLP_SF_TYPE = IMAGEHLP_SF_TYPE(0i32);
+pub const sfMax: IMAGEHLP_SF_TYPE = IMAGEHLP_SF_TYPE(4i32);
+pub const sfMpd: IMAGEHLP_SF_TYPE = IMAGEHLP_SF_TYPE(3i32);
+pub const sfPdb: IMAGEHLP_SF_TYPE = IMAGEHLP_SF_TYPE(2i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct ADDRESS_MODE(pub i32);
 impl windows_core::TypeKind for ADDRESS_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for ADDRESS_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("ADDRESS_MODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct BUGCHECK_ERROR(pub u32);
 impl windows_core::TypeKind for BUGCHECK_ERROR {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for BUGCHECK_ERROR {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("BUGCHECK_ERROR").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct CONTEXT_FLAGS(pub u32);
 impl windows_core::TypeKind for CONTEXT_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for CONTEXT_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("CONTEXT_FLAGS").field(&self.0).finish()
+    }
+}
+impl CONTEXT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for CONTEXT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for CONTEXT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for CONTEXT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for CONTEXT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for CONTEXT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DBGPROP_ATTRIB_FLAGS(pub i32);
 impl windows_core::TypeKind for DBGPROP_ATTRIB_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DBGPROP_ATTRIB_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DBGPROP_ATTRIB_FLAGS").field(&self.0).finish()
+    }
+}
+impl DBGPROP_ATTRIB_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DBGPROP_ATTRIB_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DBGPROP_ATTRIB_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DBGPROP_ATTRIB_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DBGPROP_ATTRIB_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DBGPROP_ATTRIB_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DBGPROP_INFO(pub i32);
 impl windows_core::TypeKind for DBGPROP_INFO {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DBGPROP_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DBGPROP_INFO").field(&self.0).finish()
+    }
+}
+impl DBGPROP_INFO {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for DBGPROP_INFO {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for DBGPROP_INFO {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for DBGPROP_INFO {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for DBGPROP_INFO {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for DBGPROP_INFO {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DEBUG_EVENT_CODE(pub u32);
 impl windows_core::TypeKind for DEBUG_EVENT_CODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DEBUG_EVENT_CODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DEBUG_EVENT_CODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DUMP_TYPE(pub i32);
 impl windows_core::TypeKind for DUMP_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for DUMP_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DUMP_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct EX_PROP_INFO_FLAGS(pub i32);
 impl windows_core::TypeKind for EX_PROP_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for EX_PROP_INFO_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("EX_PROP_INFO_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FACILITY_CODE(pub u32);
 impl windows_core::TypeKind for FACILITY_CODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FACILITY_CODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FACILITY_CODE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct FORMAT_MESSAGE_OPTIONS(pub u32);
 impl windows_core::TypeKind for FORMAT_MESSAGE_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for FORMAT_MESSAGE_OPTIONS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("FORMAT_MESSAGE_OPTIONS").field(&self.0).finish()
+    }
+}
+impl FORMAT_MESSAGE_OPTIONS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for FORMAT_MESSAGE_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for FORMAT_MESSAGE_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for FORMAT_MESSAGE_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for FORMAT_MESSAGE_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for FORMAT_MESSAGE_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMAGEHLP_CBA_EVENT_SEVERITY(pub u32);
 impl windows_core::TypeKind for IMAGEHLP_CBA_EVENT_SEVERITY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMAGEHLP_CBA_EVENT_SEVERITY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMAGEHLP_CBA_EVENT_SEVERITY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMAGEHLP_EXTENDED_OPTIONS(pub i32);
 impl windows_core::TypeKind for IMAGEHLP_EXTENDED_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMAGEHLP_EXTENDED_OPTIONS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMAGEHLP_EXTENDED_OPTIONS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMAGEHLP_GET_TYPE_INFO_FLAGS(pub u32);
 impl windows_core::TypeKind for IMAGEHLP_GET_TYPE_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMAGEHLP_GET_TYPE_INFO_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMAGEHLP_GET_TYPE_INFO_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMAGEHLP_HD_TYPE(pub i32);
 impl windows_core::TypeKind for IMAGEHLP_HD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMAGEHLP_HD_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMAGEHLP_HD_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMAGEHLP_SF_TYPE(pub i32);
 impl windows_core::TypeKind for IMAGEHLP_SF_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMAGEHLP_SF_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMAGEHLP_SF_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMAGEHLP_STATUS_REASON(pub i32);
 impl windows_core::TypeKind for IMAGEHLP_STATUS_REASON {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMAGEHLP_STATUS_REASON {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMAGEHLP_STATUS_REASON").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMAGEHLP_SYMBOL_TYPE_INFO(pub i32);
 impl windows_core::TypeKind for IMAGEHLP_SYMBOL_TYPE_INFO {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMAGEHLP_SYMBOL_TYPE_INFO {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMAGEHLP_SYMBOL_TYPE_INFO").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMAGE_DEBUG_TYPE(pub u32);
 impl windows_core::TypeKind for IMAGE_DEBUG_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMAGE_DEBUG_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMAGE_DEBUG_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMAGE_DIRECTORY_ENTRY(pub u16);
 impl windows_core::TypeKind for IMAGE_DIRECTORY_ENTRY {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMAGE_DIRECTORY_ENTRY {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMAGE_DIRECTORY_ENTRY").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMAGE_DLL_CHARACTERISTICS(pub u16);
 impl windows_core::TypeKind for IMAGE_DLL_CHARACTERISTICS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMAGE_DLL_CHARACTERISTICS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMAGE_DLL_CHARACTERISTICS").field(&self.0).finish()
+    }
+}
+impl IMAGE_DLL_CHARACTERISTICS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IMAGE_DLL_CHARACTERISTICS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IMAGE_DLL_CHARACTERISTICS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IMAGE_DLL_CHARACTERISTICS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IMAGE_DLL_CHARACTERISTICS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IMAGE_DLL_CHARACTERISTICS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMAGE_FILE_CHARACTERISTICS(pub u16);
 impl windows_core::TypeKind for IMAGE_FILE_CHARACTERISTICS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMAGE_FILE_CHARACTERISTICS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMAGE_FILE_CHARACTERISTICS").field(&self.0).finish()
+    }
+}
+impl IMAGE_FILE_CHARACTERISTICS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IMAGE_FILE_CHARACTERISTICS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IMAGE_FILE_CHARACTERISTICS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IMAGE_FILE_CHARACTERISTICS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IMAGE_FILE_CHARACTERISTICS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IMAGE_FILE_CHARACTERISTICS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMAGE_FILE_CHARACTERISTICS2(pub u32);
 impl windows_core::TypeKind for IMAGE_FILE_CHARACTERISTICS2 {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMAGE_FILE_CHARACTERISTICS2 {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMAGE_FILE_CHARACTERISTICS2").field(&self.0).finish()
+    }
+}
+impl IMAGE_FILE_CHARACTERISTICS2 {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IMAGE_FILE_CHARACTERISTICS2 {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IMAGE_FILE_CHARACTERISTICS2 {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IMAGE_FILE_CHARACTERISTICS2 {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IMAGE_FILE_CHARACTERISTICS2 {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IMAGE_FILE_CHARACTERISTICS2 {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMAGE_OPTIONAL_HEADER_MAGIC(pub u16);
 impl windows_core::TypeKind for IMAGE_OPTIONAL_HEADER_MAGIC {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMAGE_OPTIONAL_HEADER_MAGIC {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMAGE_OPTIONAL_HEADER_MAGIC").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMAGE_SECTION_CHARACTERISTICS(pub u32);
 impl windows_core::TypeKind for IMAGE_SECTION_CHARACTERISTICS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMAGE_SECTION_CHARACTERISTICS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMAGE_SECTION_CHARACTERISTICS").field(&self.0).finish()
+    }
+}
+impl IMAGE_SECTION_CHARACTERISTICS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for IMAGE_SECTION_CHARACTERISTICS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for IMAGE_SECTION_CHARACTERISTICS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for IMAGE_SECTION_CHARACTERISTICS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for IMAGE_SECTION_CHARACTERISTICS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for IMAGE_SECTION_CHARACTERISTICS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IMAGE_SUBSYSTEM(pub u16);
 impl windows_core::TypeKind for IMAGE_SUBSYSTEM {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IMAGE_SUBSYSTEM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IMAGE_SUBSYSTEM").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct IPMI_OS_SEL_RECORD_TYPE(pub i32);
 impl windows_core::TypeKind for IPMI_OS_SEL_RECORD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for IPMI_OS_SEL_RECORD_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("IPMI_OS_SEL_RECORD_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MINIDUMP_CALLBACK_TYPE(pub i32);
 impl windows_core::TypeKind for MINIDUMP_CALLBACK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MINIDUMP_CALLBACK_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MINIDUMP_CALLBACK_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE(pub i32);
 impl windows_core::TypeKind for MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MINIDUMP_MISC_INFO_FLAGS(pub u32);
 impl windows_core::TypeKind for MINIDUMP_MISC_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MINIDUMP_MISC_INFO_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MINIDUMP_MISC_INFO_FLAGS").field(&self.0).finish()
+    }
+}
+impl MINIDUMP_MISC_INFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for MINIDUMP_MISC_INFO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for MINIDUMP_MISC_INFO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for MINIDUMP_MISC_INFO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for MINIDUMP_MISC_INFO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for MINIDUMP_MISC_INFO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MINIDUMP_SECONDARY_FLAGS(pub i32);
 impl windows_core::TypeKind for MINIDUMP_SECONDARY_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MINIDUMP_SECONDARY_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MINIDUMP_SECONDARY_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MINIDUMP_STREAM_TYPE(pub i32);
 impl windows_core::TypeKind for MINIDUMP_STREAM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MINIDUMP_STREAM_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MINIDUMP_STREAM_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MINIDUMP_THREAD_INFO_DUMP_FLAGS(pub u32);
 impl windows_core::TypeKind for MINIDUMP_THREAD_INFO_DUMP_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MINIDUMP_THREAD_INFO_DUMP_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MINIDUMP_THREAD_INFO_DUMP_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MINIDUMP_TYPE(pub i32);
 impl windows_core::TypeKind for MINIDUMP_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MINIDUMP_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MINIDUMP_TYPE").field(&self.0).finish()
+    }
+}
+impl MINIDUMP_TYPE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for MINIDUMP_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for MINIDUMP_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for MINIDUMP_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for MINIDUMP_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for MINIDUMP_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MODLOAD_DATA_TYPE(pub u32);
 impl windows_core::TypeKind for MODLOAD_DATA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MODLOAD_DATA_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MODLOAD_DATA_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MODULE_WRITE_FLAGS(pub i32);
 impl windows_core::TypeKind for MODULE_WRITE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MODULE_WRITE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MODULE_WRITE_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OBJECT_ATTRIB_FLAGS(pub i32);
 impl windows_core::TypeKind for OBJECT_ATTRIB_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OBJECT_ATTRIB_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OBJECT_ATTRIB_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS(pub u32);
 impl windows_core::TypeKind for OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct PROP_INFO_FLAGS(pub i32);
 impl windows_core::TypeKind for PROP_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for PROP_INFO_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("PROP_INFO_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RIP_INFO_TYPE(pub u32);
 impl windows_core::TypeKind for RIP_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for RIP_INFO_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RIP_INFO_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct RTL_VIRTUAL_UNWIND_HANDLER_TYPE(pub u32);
 impl windows_core::TypeKind for RTL_VIRTUAL_UNWIND_HANDLER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for RTL_VIRTUAL_UNWIND_HANDLER_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("RTL_VIRTUAL_UNWIND_HANDLER_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SYMBOL_INFO_FLAGS(pub u32);
 impl windows_core::TypeKind for SYMBOL_INFO_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SYMBOL_INFO_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SYMBOL_INFO_FLAGS").field(&self.0).finish()
+    }
+}
+impl SYMBOL_INFO_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SYMBOL_INFO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SYMBOL_INFO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SYMBOL_INFO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SYMBOL_INFO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SYMBOL_INFO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SYM_FIND_ID_OPTION(pub u32);
 impl windows_core::TypeKind for SYM_FIND_ID_OPTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SYM_FIND_ID_OPTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SYM_FIND_ID_OPTION").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SYM_LOAD_FLAGS(pub u32);
 impl windows_core::TypeKind for SYM_LOAD_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SYM_LOAD_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SYM_LOAD_FLAGS").field(&self.0).finish()
+    }
+}
+impl SYM_LOAD_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for SYM_LOAD_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for SYM_LOAD_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for SYM_LOAD_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for SYM_LOAD_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for SYM_LOAD_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SYM_SRV_STORE_FILE_FLAGS(pub u32);
 impl windows_core::TypeKind for SYM_SRV_STORE_FILE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SYM_SRV_STORE_FILE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SYM_SRV_STORE_FILE_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SYM_TYPE(pub i32);
 impl windows_core::TypeKind for SYM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SYM_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SYM_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct THREAD_ERROR_MODE(pub u32);
 impl windows_core::TypeKind for THREAD_ERROR_MODE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for THREAD_ERROR_MODE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("THREAD_ERROR_MODE").field(&self.0).finish()
+    }
+}
+impl THREAD_ERROR_MODE {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for THREAD_ERROR_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for THREAD_ERROR_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for THREAD_ERROR_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for THREAD_ERROR_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for THREAD_ERROR_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct THREAD_WRITE_FLAGS(pub i32);
 impl windows_core::TypeKind for THREAD_WRITE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for THREAD_WRITE_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("THREAD_WRITE_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct VER_PLATFORM(pub u32);
 impl windows_core::TypeKind for VER_PLATFORM {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for VER_PLATFORM {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("VER_PLATFORM").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WAIT_CHAIN_THREAD_OPTIONS(pub u32);
 impl windows_core::TypeKind for WAIT_CHAIN_THREAD_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WAIT_CHAIN_THREAD_OPTIONS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WAIT_CHAIN_THREAD_OPTIONS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WCT_OBJECT_STATUS(pub i32);
 impl windows_core::TypeKind for WCT_OBJECT_STATUS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WCT_OBJECT_STATUS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WCT_OBJECT_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WCT_OBJECT_TYPE(pub i32);
 impl windows_core::TypeKind for WCT_OBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WCT_OBJECT_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WCT_OBJECT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_ERROR_SOURCE_STATE(pub i32);
 impl windows_core::TypeKind for WHEA_ERROR_SOURCE_STATE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_ERROR_SOURCE_STATE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_ERROR_SOURCE_STATE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WHEA_ERROR_SOURCE_TYPE(pub i32);
 impl windows_core::TypeKind for WHEA_ERROR_SOURCE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WHEA_ERROR_SOURCE_TYPE {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WHEA_ERROR_SOURCE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct WOW64_CONTEXT_FLAGS(pub u32);
 impl windows_core::TypeKind for WOW64_CONTEXT_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for WOW64_CONTEXT_FLAGS {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("WOW64_CONTEXT_FLAGS").field(&self.0).finish()
+    }
+}
+impl WOW64_CONTEXT_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for WOW64_CONTEXT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for WOW64_CONTEXT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for WOW64_CONTEXT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for WOW64_CONTEXT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for WOW64_CONTEXT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRESS {
     pub Offset: u32,
     pub Segment: u16,
     pub Mode: ADDRESS_MODE,
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for ADDRESS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for ADDRESS {
@@ -1980,141 +5594,140 @@ impl Default for ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for ADDRESS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRESS64 {
     pub Offset: u64,
     pub Segment: u16,
     pub Mode: ADDRESS_MODE,
+}
+impl windows_core::TypeKind for ADDRESS64 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ADDRESS64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ADDRESS64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union AER_BRIDGE_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_BRIDGE_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for AER_BRIDGE_DESCRIPTOR_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for AER_BRIDGE_DESCRIPTOR_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AER_BRIDGE_DESCRIPTOR_FLAGS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct AER_BRIDGE_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for AER_BRIDGE_DESCRIPTOR_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for AER_BRIDGE_DESCRIPTOR_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AER_BRIDGE_DESCRIPTOR_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union AER_ENDPOINT_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_ENDPOINT_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for AER_ENDPOINT_DESCRIPTOR_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for AER_ENDPOINT_DESCRIPTOR_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AER_ENDPOINT_DESCRIPTOR_FLAGS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct AER_ENDPOINT_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for AER_ENDPOINT_DESCRIPTOR_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for AER_ENDPOINT_DESCRIPTOR_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AER_ENDPOINT_DESCRIPTOR_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union AER_ROOTPORT_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_ROOTPORT_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for AER_ROOTPORT_DESCRIPTOR_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for AER_ROOTPORT_DESCRIPTOR_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AER_ROOTPORT_DESCRIPTOR_FLAGS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APC_CALLBACK_DATA {
     pub Parameter: usize,
     pub ContextRecord: *mut CONTEXT,
     pub Reserved0: usize,
     pub Reserved1: usize,
 }
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for APC_CALLBACK_DATA {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for APC_CALLBACK_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for APC_CALLBACK_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct API_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
     pub Revision: u16,
     pub Reserved: u16,
 }
+impl windows_core::TypeKind for API_VERSION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for API_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for API_VERSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct ARM64_NT_CONTEXT {
     pub ContextFlags: u32,
     pub Cpsr: u32,
@@ -2130,21 +5743,25 @@ pub struct ARM64_NT_CONTEXT {
     pub Wvr: [u64; 2],
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ARM64_NT_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 impl Default for ARM64_NT_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ARM64_NT_CONTEXT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union ARM64_NT_CONTEXT_0 {
     pub Anonymous: ARM64_NT_CONTEXT_0_0,
     pub X: [u64; 31],
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ARM64_NT_CONTEXT_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 impl Default for ARM64_NT_CONTEXT_0 {
@@ -2152,13 +5769,9 @@ impl Default for ARM64_NT_CONTEXT_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ARM64_NT_CONTEXT_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARM64_NT_CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -2193,17 +5806,17 @@ pub struct ARM64_NT_CONTEXT_0_0 {
     pub Lr: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+impl windows_core::TypeKind for ARM64_NT_CONTEXT_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 impl Default for ARM64_NT_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-impl windows_core::TypeKind for ARM64_NT_CONTEXT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union ARM64_NT_NEON128 {
     pub Anonymous: ARM64_NT_NEON128_0,
     pub D: [f64; 2],
@@ -2211,31 +5824,32 @@ pub union ARM64_NT_NEON128 {
     pub H: [u16; 8],
     pub B: [u8; 16],
 }
+impl windows_core::TypeKind for ARM64_NT_NEON128 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for ARM64_NT_NEON128 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ARM64_NT_NEON128 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARM64_NT_NEON128_0 {
     pub Low: u64,
     pub High: i64,
+}
+impl windows_core::TypeKind for ARM64_NT_NEON128_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for ARM64_NT_NEON128_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for ARM64_NT_NEON128_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct CONTEXT {
     pub ContextFlags: CONTEXT_FLAGS,
     pub Cpsr: u32,
@@ -2251,35 +5865,41 @@ pub struct CONTEXT {
     pub Wvr: [u64; 2],
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for CONTEXT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub union CONTEXT_0 {
     pub Anonymous: CONTEXT_0_0,
     pub X: [u64; 31],
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for CONTEXT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for CONTEXT_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -2314,18 +5934,21 @@ pub struct CONTEXT_0_0 {
     pub Lr: u64,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for CONTEXT_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for CONTEXT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct CONTEXT {
     pub P1Home: u64,
     pub P2Home: u64,
@@ -2375,35 +5998,41 @@ pub struct CONTEXT {
     pub LastExceptionFromRip: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for CONTEXT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub union CONTEXT_0 {
     pub FltSave: XSAVE_FORMAT,
     pub Anonymous: CONTEXT_0_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for CONTEXT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for CONTEXT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for CONTEXT_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONTEXT_0_0 {
     pub Header: [M128A; 2],
     pub Legacy: [M128A; 8],
@@ -2425,19 +6054,21 @@ pub struct CONTEXT_0_0 {
     pub Xmm15: M128A,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for CONTEXT_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for CONTEXT_0_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct CONTEXT {
     pub ContextFlags: CONTEXT_FLAGS,
     pub Dr0: u32,
@@ -2467,62 +6098,62 @@ pub struct CONTEXT {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for CONTEXT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union CPU_INFORMATION {
     pub X86CpuInfo: CPU_INFORMATION_0,
     pub OtherCpuInfo: CPU_INFORMATION_1,
+}
+impl windows_core::TypeKind for CPU_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CPU_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CPU_INFORMATION {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct CPU_INFORMATION_1 {
     pub ProcessorFeatures: [u64; 2],
+}
+impl windows_core::TypeKind for CPU_INFORMATION_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for CPU_INFORMATION_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CPU_INFORMATION_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CPU_INFORMATION_0 {
     pub VendorId: [u32; 3],
     pub VersionInformation: u32,
     pub FeatureInformation: u32,
     pub AMDExtendedCpuFeatures: u32,
 }
+impl windows_core::TypeKind for CPU_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for CPU_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for CPU_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATE_PROCESS_DEBUG_INFO {
     pub hFile: super::super::super::Foundation::HANDLE,
     pub hProcess: super::super::super::Foundation::HANDLE,
@@ -2536,22 +6167,26 @@ pub struct CREATE_PROCESS_DEBUG_INFO {
     pub fUnicode: u16,
 }
 #[cfg(feature = "Win32_System_Threading")]
+impl windows_core::TypeKind for CREATE_PROCESS_DEBUG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Threading")]
 impl Default for CREATE_PROCESS_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Threading")]
-impl windows_core::TypeKind for CREATE_PROCESS_DEBUG_INFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATE_THREAD_DEBUG_INFO {
     pub hThread: super::super::super::Foundation::HANDLE,
     pub lpThreadLocalBase: *mut core::ffi::c_void,
     pub lpStartAddress: super::super::Threading::LPTHREAD_START_ROUTINE,
+}
+#[cfg(feature = "Win32_System_Threading")]
+impl windows_core::TypeKind for CREATE_THREAD_DEBUG_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Threading")]
 impl Default for CREATE_THREAD_DEBUG_INFO {
@@ -2559,27 +6194,23 @@ impl Default for CREATE_THREAD_DEBUG_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Threading")]
-impl windows_core::TypeKind for CREATE_THREAD_DEBUG_INFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBGHELP_DATA_REPORT_STRUCT {
     pub pBinPathNonExist: windows_core::PCWSTR,
     pub pSymbolPathNonExist: windows_core::PCWSTR,
+}
+impl windows_core::TypeKind for DBGHELP_DATA_REPORT_STRUCT {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DBGHELP_DATA_REPORT_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DBGHELP_DATA_REPORT_STRUCT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_EVENT {
     pub dwDebugEventCode: DEBUG_EVENT_CODE,
     pub dwProcessId: u32,
@@ -2587,18 +6218,18 @@ pub struct DEBUG_EVENT {
     pub u: DEBUG_EVENT_0,
 }
 #[cfg(feature = "Win32_System_Threading")]
+impl windows_core::TypeKind for DEBUG_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Threading")]
 impl Default for DEBUG_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Threading")]
-impl windows_core::TypeKind for DEBUG_EVENT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Threading")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union DEBUG_EVENT_0 {
     pub Exception: EXCEPTION_DEBUG_INFO,
     pub CreateThread: CREATE_THREAD_DEBUG_INFO,
@@ -2611,19 +6242,19 @@ pub union DEBUG_EVENT_0 {
     pub RipInfo: RIP_INFO,
 }
 #[cfg(feature = "Win32_System_Threading")]
+impl windows_core::TypeKind for DEBUG_EVENT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Threading")]
 impl Default for DEBUG_EVENT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Threading")]
-impl windows_core::TypeKind for DEBUG_EVENT_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DISPATCHER_CONTEXT {
     pub ControlPc: usize,
     pub ImageBase: usize,
@@ -2640,20 +6271,20 @@ pub struct DISPATCHER_CONTEXT {
 }
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for DISPATCHER_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for DISPATCHER_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "aarch64")]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for DISPATCHER_CONTEXT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DISPATCHER_CONTEXT {
     pub ControlPc: u64,
     pub ImageBase: u64,
@@ -2669,45 +6300,45 @@ pub struct DISPATCHER_CONTEXT {
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for DISPATCHER_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for DISPATCHER_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for DISPATCHER_CONTEXT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union DUMP_FILE_ATTRIBUTES {
     pub Anonymous: DUMP_FILE_ATTRIBUTES_0,
     pub Attributes: u32,
+}
+impl windows_core::TypeKind for DUMP_FILE_ATTRIBUTES {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DUMP_FILE_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DUMP_FILE_ATTRIBUTES {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DUMP_FILE_ATTRIBUTES_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for DUMP_FILE_ATTRIBUTES_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DUMP_FILE_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DUMP_FILE_ATTRIBUTES_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct DUMP_HEADER32 {
     pub Signature: u32,
     pub ValidDump: u32,
@@ -2748,30 +6379,30 @@ pub struct DUMP_HEADER32 {
     pub SystemTime: i64,
     pub _reserved3: [u8; 56],
 }
+impl windows_core::TypeKind for DUMP_HEADER32 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DUMP_HEADER32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DUMP_HEADER32 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union DUMP_HEADER32_0 {
     pub PhysicalMemoryBlock: PHYSICAL_MEMORY_DESCRIPTOR32,
     pub PhysicalMemoryBlockBuffer: [u8; 700],
+}
+impl windows_core::TypeKind for DUMP_HEADER32_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DUMP_HEADER32_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DUMP_HEADER32_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct DUMP_HEADER64 {
     pub Signature: u32,
     pub ValidDump: u32,
@@ -2810,77 +6441,85 @@ pub struct DUMP_HEADER64 {
     pub BootId: u32,
     pub _reserved0: [u8; 4008],
 }
+impl windows_core::TypeKind for DUMP_HEADER64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for DUMP_HEADER64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DUMP_HEADER64 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union DUMP_HEADER64_0 {
     pub PhysicalMemoryBlock: PHYSICAL_MEMORY_DESCRIPTOR64,
     pub PhysicalMemoryBlockBuffer: [u8; 700],
+}
+impl windows_core::TypeKind for DUMP_HEADER64_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DUMP_HEADER64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DUMP_HEADER64_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub struct DebugPropertyInfo {
     pub m_dwValidFields: u32,
-    pub m_bstrName: windows_core::BSTR,
-    pub m_bstrType: windows_core::BSTR,
-    pub m_bstrValue: windows_core::BSTR,
-    pub m_bstrFullName: windows_core::BSTR,
+    pub m_bstrName: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub m_bstrType: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub m_bstrValue: core::mem::ManuallyDrop<windows_core::BSTR>,
+    pub m_bstrFullName: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub m_dwAttrib: u32,
-    pub m_pDebugProp: Option<IDebugProperty>,
+    pub m_pDebugProp: core::mem::ManuallyDrop<Option<IDebugProperty>>,
+}
+impl Clone for DebugPropertyInfo {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl windows_core::TypeKind for DebugPropertyInfo {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for DebugPropertyInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for DebugPropertyInfo {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXCEPTION_DEBUG_INFO {
     pub ExceptionRecord: EXCEPTION_RECORD,
     pub dwFirstChance: u32,
+}
+impl windows_core::TypeKind for EXCEPTION_DEBUG_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EXCEPTION_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXCEPTION_DEBUG_INFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXCEPTION_POINTERS {
     pub ExceptionRecord: *mut EXCEPTION_RECORD,
     pub ContextRecord: *mut CONTEXT,
 }
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for EXCEPTION_POINTERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for EXCEPTION_POINTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXCEPTION_POINTERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXCEPTION_RECORD {
     pub ExceptionCode: super::super::super::Foundation::NTSTATUS,
     pub ExceptionFlags: u32,
@@ -2889,16 +6528,16 @@ pub struct EXCEPTION_RECORD {
     pub NumberParameters: u32,
     pub ExceptionInformation: [usize; 15],
 }
+impl windows_core::TypeKind for EXCEPTION_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EXCEPTION_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXCEPTION_RECORD {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXCEPTION_RECORD32 {
     pub ExceptionCode: super::super::super::Foundation::NTSTATUS,
     pub ExceptionFlags: u32,
@@ -2907,16 +6546,16 @@ pub struct EXCEPTION_RECORD32 {
     pub NumberParameters: u32,
     pub ExceptionInformation: [u32; 15],
 }
+impl windows_core::TypeKind for EXCEPTION_RECORD32 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EXCEPTION_RECORD32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXCEPTION_RECORD32 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXCEPTION_RECORD64 {
     pub ExceptionCode: super::super::super::Foundation::NTSTATUS,
     pub ExceptionFlags: u32,
@@ -2926,43 +6565,42 @@ pub struct EXCEPTION_RECORD64 {
     pub __unusedAlignment: u32,
     pub ExceptionInformation: [u64; 15],
 }
+impl windows_core::TypeKind for EXCEPTION_RECORD64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for EXCEPTION_RECORD64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXCEPTION_RECORD64 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXIT_PROCESS_DEBUG_INFO {
     pub dwExitCode: u32,
+}
+impl windows_core::TypeKind for EXIT_PROCESS_DEBUG_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EXIT_PROCESS_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXIT_PROCESS_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXIT_THREAD_DEBUG_INFO {
     pub dwExitCode: u32,
+}
+impl windows_core::TypeKind for EXIT_THREAD_DEBUG_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for EXIT_THREAD_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for EXIT_THREAD_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct ExtendedDebugPropertyInfo {
     pub dwValidFields: u32,
     pub pszName: windows_core::PWSTR,
@@ -2970,25 +6608,31 @@ pub struct ExtendedDebugPropertyInfo {
     pub pszValue: windows_core::PWSTR,
     pub pszFullName: windows_core::PWSTR,
     pub dwAttrib: u32,
-    pub pDebugProp: Option<IDebugProperty>,
+    pub pDebugProp: core::mem::ManuallyDrop<Option<IDebugProperty>>,
     pub nDISPID: u32,
     pub nType: u32,
-    pub varValue: super::super::Variant::VARIANT,
-    pub plbValue: Option<super::super::Com::StructuredStorage::ILockBytes>,
-    pub pDebugExtProp: Option<IDebugExtendedProperty>,
+    pub varValue: core::mem::ManuallyDrop<super::super::Variant::VARIANT>,
+    pub plbValue: core::mem::ManuallyDrop<Option<super::super::Com::StructuredStorage::ILockBytes>>,
+    pub pDebugExtProp: core::mem::ManuallyDrop<Option<IDebugExtendedProperty>>,
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl Clone for ExtendedDebugPropertyInfo {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::TypeKind for ExtendedDebugPropertyInfo {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl Default for ExtendedDebugPropertyInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::TypeKind for ExtendedDebugPropertyInfo {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FPO_DATA {
     pub ulOffStart: u32,
     pub cbProcSize: u32,
@@ -2996,65 +6640,65 @@ pub struct FPO_DATA {
     pub cdwParams: u16,
     pub _bitfield: u16,
 }
+impl windows_core::TypeKind for FPO_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for FPO_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for FPO_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_CBA_EVENT {
     pub severity: IMAGEHLP_CBA_EVENT_SEVERITY,
     pub code: u32,
     pub desc: windows_core::PSTR,
     pub object: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for IMAGEHLP_CBA_EVENT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGEHLP_CBA_EVENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_CBA_EVENT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_CBA_EVENTW {
     pub severity: IMAGEHLP_CBA_EVENT_SEVERITY,
     pub code: u32,
     pub desc: windows_core::PCWSTR,
     pub object: *mut core::ffi::c_void,
 }
+impl windows_core::TypeKind for IMAGEHLP_CBA_EVENTW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGEHLP_CBA_EVENTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_CBA_EVENTW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_CBA_READ_MEMORY {
     pub addr: u64,
     pub buf: *mut core::ffi::c_void,
     pub bytes: u32,
     pub bytesread: *mut u32,
 }
+impl windows_core::TypeKind for IMAGEHLP_CBA_READ_MEMORY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGEHLP_CBA_READ_MEMORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_CBA_READ_MEMORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u32,
@@ -3065,17 +6709,17 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     pub hFile: super::super::super::Foundation::HANDLE,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u64,
@@ -3086,16 +6730,16 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     pub hFile: super::super::super::Foundation::HANDLE,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u64,
@@ -3106,17 +6750,17 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     pub hFile: super::super::super::Foundation::HANDLE,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL {
     pub SizeOfStruct: u32,
     pub NumberOfDups: u32,
@@ -3124,33 +6768,33 @@ pub struct IMAGEHLP_DUPLICATE_SYMBOL {
     pub SelectedSymbol: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_DUPLICATE_SYMBOL {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_DUPLICATE_SYMBOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_DUPLICATE_SYMBOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL64 {
     pub SizeOfStruct: u32,
     pub NumberOfDups: u32,
     pub Symbol: *mut IMAGEHLP_SYMBOL64,
     pub SelectedSymbol: u32,
 }
+impl windows_core::TypeKind for IMAGEHLP_DUPLICATE_SYMBOL64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGEHLP_DUPLICATE_SYMBOL64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_DUPLICATE_SYMBOL64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
     pub SizeOfStruct: u32,
     pub Flags: IMAGEHLP_GET_TYPE_INFO_FLAGS,
@@ -3171,32 +6815,32 @@ pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
     pub NumReqsValid: u32,
     pub ReqsValid: *mut u64,
 }
+impl windows_core::TypeKind for IMAGEHLP_GET_TYPE_INFO_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGEHLP_GET_TYPE_INFO_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_GET_TYPE_INFO_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_JIT_SYMBOLMAP {
     pub SizeOfStruct: u32,
     pub Address: u64,
     pub BaseOfImage: u64,
+}
+impl windows_core::TypeKind for IMAGEHLP_JIT_SYMBOLMAP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGEHLP_JIT_SYMBOLMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_JIT_SYMBOLMAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_LINE {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -3205,17 +6849,17 @@ pub struct IMAGEHLP_LINE {
     pub Address: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_LINE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_LINE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_LINE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_LINE64 {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -3223,17 +6867,17 @@ pub struct IMAGEHLP_LINE64 {
     pub FileName: windows_core::PSTR,
     pub Address: u64,
 }
+impl windows_core::TypeKind for IMAGEHLP_LINE64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGEHLP_LINE64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_LINE64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_LINEW {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -3242,17 +6886,17 @@ pub struct IMAGEHLP_LINEW {
     pub Address: u64,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_LINEW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_LINEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_LINEW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_LINEW64 {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -3260,17 +6904,17 @@ pub struct IMAGEHLP_LINEW64 {
     pub FileName: windows_core::PWSTR,
     pub Address: u64,
 }
+impl windows_core::TypeKind for IMAGEHLP_LINEW64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGEHLP_LINEW64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_LINEW64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_MODULE {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u32,
@@ -3284,17 +6928,17 @@ pub struct IMAGEHLP_MODULE {
     pub LoadedImageName: [i8; 256],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_MODULE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_MODULE64 {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u64,
@@ -3322,31 +6966,31 @@ pub struct IMAGEHLP_MODULE64 {
     pub MachineType: u32,
     pub Reserved: u32,
 }
+impl windows_core::TypeKind for IMAGEHLP_MODULE64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGEHLP_MODULE64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_MODULE64 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_MODULE64_EX {
     pub Module: IMAGEHLP_MODULE64,
     pub RegionFlags: u32,
+}
+impl windows_core::TypeKind for IMAGEHLP_MODULE64_EX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGEHLP_MODULE64_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_MODULE64_EX {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_MODULEW {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u32,
@@ -3360,17 +7004,17 @@ pub struct IMAGEHLP_MODULEW {
     pub LoadedImageName: [u16; 256],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_MODULEW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_MODULEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_MODULEW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_MODULEW64 {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u64,
@@ -3398,30 +7042,30 @@ pub struct IMAGEHLP_MODULEW64 {
     pub MachineType: u32,
     pub Reserved: u32,
 }
+impl windows_core::TypeKind for IMAGEHLP_MODULEW64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGEHLP_MODULEW64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_MODULEW64 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_MODULEW64_EX {
     pub Module: IMAGEHLP_MODULEW64,
     pub RegionFlags: u32,
+}
+impl windows_core::TypeKind for IMAGEHLP_MODULEW64_EX {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGEHLP_MODULEW64_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_MODULEW64_EX {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_STACK_FRAME {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
@@ -3434,17 +7078,17 @@ pub struct IMAGEHLP_STACK_FRAME {
     pub Virtual: super::super::super::Foundation::BOOL,
     pub Reserved2: u32,
 }
+impl windows_core::TypeKind for IMAGEHLP_STACK_FRAME {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGEHLP_STACK_FRAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_STACK_FRAME {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOL {
     pub SizeOfStruct: u32,
     pub Address: u32,
@@ -3454,17 +7098,17 @@ pub struct IMAGEHLP_SYMBOL {
     pub Name: [i8; 1],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_SYMBOL {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_SYMBOL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_SYMBOL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOL64 {
     pub SizeOfStruct: u32,
     pub Address: u64,
@@ -3473,31 +7117,31 @@ pub struct IMAGEHLP_SYMBOL64 {
     pub MaxNameLength: u32,
     pub Name: [i8; 1],
 }
+impl windows_core::TypeKind for IMAGEHLP_SYMBOL64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGEHLP_SYMBOL64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_SYMBOL64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOL64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL64,
     pub name: [i8; 2001],
+}
+impl windows_core::TypeKind for IMAGEHLP_SYMBOL64_PACKAGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGEHLP_SYMBOL64_PACKAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_SYMBOL64_PACKAGE {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOLW {
     pub SizeOfStruct: u32,
     pub Address: u32,
@@ -3507,17 +7151,17 @@ pub struct IMAGEHLP_SYMBOLW {
     pub Name: [u16; 1],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_SYMBOLW {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_SYMBOLW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_SYMBOLW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOLW64 {
     pub SizeOfStruct: u32,
     pub Address: u64,
@@ -3526,34 +7170,38 @@ pub struct IMAGEHLP_SYMBOLW64 {
     pub MaxNameLength: u32,
     pub Name: [u16; 1],
 }
+impl windows_core::TypeKind for IMAGEHLP_SYMBOLW64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGEHLP_SYMBOLW64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_SYMBOLW64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOLW64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOLW64,
     pub name: [u16; 2001],
+}
+impl windows_core::TypeKind for IMAGEHLP_SYMBOLW64_PACKAGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGEHLP_SYMBOLW64_PACKAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_SYMBOLW64_PACKAGE {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOLW_PACKAGE {
     pub sym: IMAGEHLP_SYMBOLW,
     pub name: [u16; 2001],
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_SYMBOLW_PACKAGE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_SYMBOLW_PACKAGE {
@@ -3561,16 +7209,16 @@ impl Default for IMAGEHLP_SYMBOLW_PACKAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_SYMBOLW_PACKAGE {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOL_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL,
     pub name: [i8; 2001],
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for IMAGEHLP_SYMBOL_PACKAGE {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for IMAGEHLP_SYMBOL_PACKAGE {
@@ -3578,68 +7226,64 @@ impl Default for IMAGEHLP_SYMBOL_PACKAGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for IMAGEHLP_SYMBOL_PACKAGE {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGEHLP_SYMBOL_SRC {
     pub sizeofstruct: u32,
     pub r#type: u32,
     pub file: [i8; 260],
+}
+impl windows_core::TypeKind for IMAGEHLP_SYMBOL_SRC {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGEHLP_SYMBOL_SRC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGEHLP_SYMBOL_SRC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0,
+}
+impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindData: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0,
+}
+impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_COFF_SYMBOLS_HEADER {
     pub NumberOfSymbols: u32,
     pub LvaToFirstSymbol: u32,
@@ -3650,16 +7294,16 @@ pub struct IMAGE_COFF_SYMBOLS_HEADER {
     pub RvaToFirstByteOfData: u32,
     pub RvaToLastByteOfData: u32,
 }
+impl windows_core::TypeKind for IMAGE_COFF_SYMBOLS_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGE_COFF_SYMBOLS_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_COFF_SYMBOLS_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_COR20_HEADER {
     pub cb: u32,
     pub MajorRuntimeVersion: u16,
@@ -3674,44 +7318,44 @@ pub struct IMAGE_COR20_HEADER {
     pub ExportAddressTableJumps: IMAGE_DATA_DIRECTORY,
     pub ManagedNativeHeader: IMAGE_DATA_DIRECTORY,
 }
+impl windows_core::TypeKind for IMAGE_COR20_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGE_COR20_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_COR20_HEADER {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union IMAGE_COR20_HEADER_0 {
     pub EntryPointToken: u32,
     pub EntryPointRVA: u32,
+}
+impl windows_core::TypeKind for IMAGE_COR20_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_COR20_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_COR20_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_DATA_DIRECTORY {
     pub VirtualAddress: u32,
     pub Size: u32,
+}
+impl windows_core::TypeKind for IMAGE_DATA_DIRECTORY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_DATA_DIRECTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_DATA_DIRECTORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_DEBUG_DIRECTORY {
     pub Characteristics: u32,
     pub TimeDateStamp: u32,
@@ -3722,18 +7366,18 @@ pub struct IMAGE_DEBUG_DIRECTORY {
     pub AddressOfRawData: u32,
     pub PointerToRawData: u32,
 }
+impl windows_core::TypeKind for IMAGE_DEBUG_DIRECTORY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGE_DEBUG_DIRECTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_DEBUG_DIRECTORY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_DEBUG_INFORMATION {
     pub List: super::super::Kernel::LIST_ENTRY,
     pub ReservedSize: u32,
@@ -3769,19 +7413,19 @@ pub struct IMAGE_DEBUG_INFORMATION {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for IMAGE_DEBUG_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for IMAGE_DEBUG_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_Kernel")]
-impl windows_core::TypeKind for IMAGE_DEBUG_INFORMATION {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_FILE_HEADER {
     pub Machine: super::super::SystemInformation::IMAGE_FILE_MACHINE,
     pub NumberOfSections: u16,
@@ -3792,77 +7436,77 @@ pub struct IMAGE_FILE_HEADER {
     pub Characteristics: IMAGE_FILE_CHARACTERISTICS,
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for IMAGE_FILE_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for IMAGE_FILE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for IMAGE_FILE_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_FUNCTION_ENTRY {
     pub StartingAddress: u32,
     pub EndingAddress: u32,
     pub EndOfPrologue: u32,
+}
+impl windows_core::TypeKind for IMAGE_FUNCTION_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_FUNCTION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_FUNCTION_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_FUNCTION_ENTRY64 {
     pub StartingAddress: u64,
     pub EndingAddress: u64,
     pub Anonymous: IMAGE_FUNCTION_ENTRY64_0,
+}
+impl windows_core::TypeKind for IMAGE_FUNCTION_ENTRY64 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_FUNCTION_ENTRY64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_FUNCTION_ENTRY64 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union IMAGE_FUNCTION_ENTRY64_0 {
     pub EndOfPrologue: u64,
     pub UnwindInfoAddress: u64,
+}
+impl windows_core::TypeKind for IMAGE_FUNCTION_ENTRY64_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_FUNCTION_ENTRY64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_FUNCTION_ENTRY64_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     pub Flags: u16,
     pub Catalog: u16,
     pub CatalogOffset: u32,
     pub Reserved: u32,
 }
+impl windows_core::TypeKind for IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
     pub Size: u32,
     pub TimeDateStamp: u32,
@@ -3914,16 +7558,16 @@ pub struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
     pub CastGuardOsDeterminedFailureMode: u32,
     pub GuardMemcpyFunctionPointer: u32,
 }
+impl windows_core::TypeKind for IMAGE_LOAD_CONFIG_DIRECTORY32 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGE_LOAD_CONFIG_DIRECTORY32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_LOAD_CONFIG_DIRECTORY32 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
     pub Size: u32,
     pub TimeDateStamp: u32,
@@ -3975,21 +7619,25 @@ pub struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
     pub CastGuardOsDeterminedFailureMode: u64,
     pub GuardMemcpyFunctionPointer: u64,
 }
+impl windows_core::TypeKind for IMAGE_LOAD_CONFIG_DIRECTORY64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGE_LOAD_CONFIG_DIRECTORY64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_LOAD_CONFIG_DIRECTORY64 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_NT_HEADERS32 {
     pub Signature: u32,
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_OPTIONAL_HEADER32,
+}
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for IMAGE_NT_HEADERS32 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for IMAGE_NT_HEADERS32 {
@@ -3997,17 +7645,17 @@ impl Default for IMAGE_NT_HEADERS32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for IMAGE_NT_HEADERS32 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_NT_HEADERS64 {
     pub Signature: u32,
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_OPTIONAL_HEADER64,
+}
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for IMAGE_NT_HEADERS64 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for IMAGE_NT_HEADERS64 {
@@ -4015,12 +7663,8 @@ impl Default for IMAGE_NT_HEADERS64 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for IMAGE_NT_HEADERS64 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_OPTIONAL_HEADER32 {
     pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,
     pub MajorLinkerVersion: u8,
@@ -4054,16 +7698,16 @@ pub struct IMAGE_OPTIONAL_HEADER32 {
     pub NumberOfRvaAndSizes: u32,
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
+impl windows_core::TypeKind for IMAGE_OPTIONAL_HEADER32 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGE_OPTIONAL_HEADER32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_OPTIONAL_HEADER32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_OPTIONAL_HEADER64 {
     pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,
     pub MajorLinkerVersion: u8,
@@ -4096,20 +7740,24 @@ pub struct IMAGE_OPTIONAL_HEADER64 {
     pub NumberOfRvaAndSizes: u32,
     pub DataDirectory: [IMAGE_DATA_DIRECTORY; 16],
 }
+impl windows_core::TypeKind for IMAGE_OPTIONAL_HEADER64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGE_OPTIONAL_HEADER64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_OPTIONAL_HEADER64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ROM_HEADERS {
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_ROM_OPTIONAL_HEADER,
+}
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for IMAGE_ROM_HEADERS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for IMAGE_ROM_HEADERS {
@@ -4117,12 +7765,8 @@ impl Default for IMAGE_ROM_HEADERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for IMAGE_ROM_HEADERS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ROM_OPTIONAL_HEADER {
     pub Magic: u16,
     pub MajorLinkerVersion: u8,
@@ -4138,45 +7782,45 @@ pub struct IMAGE_ROM_OPTIONAL_HEADER {
     pub CprMask: [u32; 4],
     pub GpValue: u32,
 }
+impl windows_core::TypeKind for IMAGE_ROM_OPTIONAL_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGE_ROM_OPTIONAL_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_ROM_OPTIONAL_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub EndAddress: u32,
     pub Anonymous: IMAGE_RUNTIME_FUNCTION_ENTRY_0,
+}
+impl windows_core::TypeKind for IMAGE_RUNTIME_FUNCTION_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_RUNTIME_FUNCTION_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_RUNTIME_FUNCTION_ENTRY {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindInfoAddress: u32,
     pub UnwindData: u32,
+}
+impl windows_core::TypeKind for IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_SECTION_HEADER {
     pub Name: [u8; 8],
     pub Misc: IMAGE_SECTION_HEADER_0,
@@ -4189,30 +7833,30 @@ pub struct IMAGE_SECTION_HEADER {
     pub NumberOfLinenumbers: u16,
     pub Characteristics: IMAGE_SECTION_CHARACTERISTICS,
 }
+impl windows_core::TypeKind for IMAGE_SECTION_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IMAGE_SECTION_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_SECTION_HEADER {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union IMAGE_SECTION_HEADER_0 {
     pub PhysicalAddress: u32,
     pub VirtualSize: u32,
+}
+impl windows_core::TypeKind for IMAGE_SECTION_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for IMAGE_SECTION_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IMAGE_SECTION_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct IPMI_OS_SEL_RECORD {
     pub Signature: u32,
     pub Version: u32,
@@ -4221,17 +7865,17 @@ pub struct IPMI_OS_SEL_RECORD {
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
+impl windows_core::TypeKind for IPMI_OS_SEL_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for IPMI_OS_SEL_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for IPMI_OS_SEL_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KDHELP {
     pub Thread: u32,
     pub ThCallbackStack: u32,
@@ -4247,17 +7891,17 @@ pub struct KDHELP {
     pub Reserved: [u32; 5],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for KDHELP {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for KDHELP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for KDHELP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KDHELP64 {
     pub Thread: u64,
     pub ThCallbackStack: u32,
@@ -4277,17 +7921,17 @@ pub struct KDHELP64 {
     pub RetpolineStubSize: u32,
     pub Reserved0: [u64; 2],
 }
+impl windows_core::TypeKind for KDHELP64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for KDHELP64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for KDHELP64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub X19: *mut u64,
     pub X20: *mut u64,
@@ -4311,38 +7955,42 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub D15: *mut u64,
 }
 #[cfg(target_arch = "aarch64")]
+impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "aarch64")]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Anonymous1: KNONVOLATILE_CONTEXT_POINTERS_0,
     pub Anonymous2: KNONVOLATILE_CONTEXT_POINTERS_1,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union KNONVOLATILE_CONTEXT_POINTERS_0 {
     pub FloatingContext: [*mut M128A; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_0_0,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS_0 {
@@ -4350,13 +7998,9 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm0: *mut M128A,
     pub Xmm1: *mut M128A,
@@ -4376,21 +8020,25 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm15: *mut M128A,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union KNONVOLATILE_CONTEXT_POINTERS_1 {
     pub IntegerContext: [*mut u64; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_1_0,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS_1 {
@@ -4398,13 +8046,9 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_1 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub Rax: *mut u64,
     pub Rcx: *mut u64,
@@ -4424,20 +8068,24 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub R15: *mut u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Dummy: u32,
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for KNONVOLATILE_CONTEXT_POINTERS {
@@ -4445,72 +8093,68 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for KNONVOLATILE_CONTEXT_POINTERS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct LDT_ENTRY {
     pub LimitLow: u16,
     pub BaseLow: u16,
     pub HighWord: LDT_ENTRY_0,
+}
+impl windows_core::TypeKind for LDT_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for LDT_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDT_ENTRY {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union LDT_ENTRY_0 {
     pub Bytes: LDT_ENTRY_0_0,
     pub Bits: LDT_ENTRY_0_1,
+}
+impl windows_core::TypeKind for LDT_ENTRY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for LDT_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDT_ENTRY_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDT_ENTRY_0_1 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for LDT_ENTRY_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for LDT_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDT_ENTRY_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
     pub Flags2: u8,
     pub BaseHi: u8,
 }
+impl windows_core::TypeKind for LDT_ENTRY_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for LDT_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LDT_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOADED_IMAGE {
     pub ModuleName: windows_core::PSTR,
     pub hFile: super::super::super::Foundation::HANDLE,
@@ -4529,20 +8173,20 @@ pub struct LOADED_IMAGE {
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+impl windows_core::TypeKind for LOADED_IMAGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 impl Default for LOADED_IMAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for LOADED_IMAGE {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOADED_IMAGE {
     pub ModuleName: windows_core::PSTR,
     pub hFile: super::super::super::Foundation::HANDLE,
@@ -4561,18 +8205,18 @@ pub struct LOADED_IMAGE {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+impl windows_core::TypeKind for LOADED_IMAGE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
 impl Default for LOADED_IMAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-impl windows_core::TypeKind for LOADED_IMAGE {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOAD_DLL_DEBUG_INFO {
     pub hFile: super::super::super::Foundation::HANDLE,
     pub lpBaseOfDll: *mut core::ffi::c_void,
@@ -4581,90 +8225,90 @@ pub struct LOAD_DLL_DEBUG_INFO {
     pub lpImageName: *mut core::ffi::c_void,
     pub fUnicode: u16,
 }
+impl windows_core::TypeKind for LOAD_DLL_DEBUG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for LOAD_DLL_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for LOAD_DLL_DEBUG_INFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct M128A {
     pub Low: u64,
     pub High: i64,
+}
+impl windows_core::TypeKind for M128A {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for M128A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for M128A {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
     pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 impl Default for MINIDUMP_CALLBACK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_INFORMATION {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
     pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
     pub CallbackParam: *mut core::ffi::c_void,
 }
 #[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 impl Default for MINIDUMP_CALLBACK_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_INFORMATION {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
-#[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_CALLBACK_INPUT {
     pub ProcessId: u32,
     pub ProcessHandle: super::super::super::Foundation::HANDLE,
     pub CallbackType: u32,
     pub Anonymous: MINIDUMP_CALLBACK_INPUT_0,
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
 impl Default for MINIDUMP_CALLBACK_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_INPUT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
+#[derive(Clone, Copy)]
 pub union MINIDUMP_CALLBACK_INPUT_0 {
     pub Status: windows_core::HRESULT,
     pub Thread: MINIDUMP_THREAD_CALLBACK,
@@ -4679,21 +8323,25 @@ pub union MINIDUMP_CALLBACK_INPUT_0 {
     pub VmPreRead: MINIDUMP_VM_PRE_READ_CALLBACK,
     pub VmPostRead: MINIDUMP_VM_POST_READ_CALLBACK,
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_INPUT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
 impl Default for MINIDUMP_CALLBACK_INPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_INPUT_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_CALLBACK_OUTPUT {
     pub Anonymous: MINIDUMP_CALLBACK_OUTPUT_0,
+}
+#[cfg(feature = "Win32_System_Memory")]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Memory")]
 impl Default for MINIDUMP_CALLBACK_OUTPUT {
@@ -4701,13 +8349,9 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union MINIDUMP_CALLBACK_OUTPUT_0 {
     pub ModuleWriteFlags: u32,
     pub ThreadWriteFlags: u32,
@@ -4721,21 +8365,25 @@ pub union MINIDUMP_CALLBACK_OUTPUT_0 {
     pub Status: windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Memory")]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Memory")]
 impl Default for MINIDUMP_CALLBACK_OUTPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
     pub MemoryBase: u64,
     pub MemorySize: u32,
+}
+#[cfg(feature = "Win32_System_Memory")]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Memory")]
 impl Default for MINIDUMP_CALLBACK_OUTPUT_0_0 {
@@ -4743,16 +8391,16 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_1 {
     pub CheckCancel: super::super::super::Foundation::BOOL,
     pub Cancel: super::super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_System_Memory")]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Memory")]
 impl Default for MINIDUMP_CALLBACK_OUTPUT_0_1 {
@@ -4760,16 +8408,16 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_1 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_2 {
     pub VmRegion: MINIDUMP_MEMORY_INFO,
     pub Continue: super::super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_System_Memory")]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_2 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Memory")]
 impl Default for MINIDUMP_CALLBACK_OUTPUT_0_2 {
@@ -4777,16 +8425,16 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0_2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_2 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_3 {
     pub VmQueryStatus: windows_core::HRESULT,
     pub VmQueryResult: MINIDUMP_MEMORY_INFO,
+}
+#[cfg(feature = "Win32_System_Memory")]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_3 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Memory")]
 impl Default for MINIDUMP_CALLBACK_OUTPUT_0_3 {
@@ -4794,16 +8442,16 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0_3 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_3 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_4 {
     pub VmReadStatus: windows_core::HRESULT,
     pub VmReadBytesCompleted: u32,
+}
+#[cfg(feature = "Win32_System_Memory")]
+impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_4 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Memory")]
 impl Default for MINIDUMP_CALLBACK_OUTPUT_0_4 {
@@ -4811,26 +8459,22 @@ impl Default for MINIDUMP_CALLBACK_OUTPUT_0_4 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_CALLBACK_OUTPUT_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_DIRECTORY {
     pub StreamType: u32,
     pub Location: MINIDUMP_LOCATION_DESCRIPTOR,
+}
+impl windows_core::TypeKind for MINIDUMP_DIRECTORY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_DIRECTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_DIRECTORY {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_EXCEPTION {
     pub ExceptionCode: u32,
     pub ExceptionFlags: u32,
@@ -4840,84 +8484,90 @@ pub struct MINIDUMP_EXCEPTION {
     pub __unusedAlignment: u32,
     pub ExceptionInformation: [u64; 15],
 }
+impl windows_core::TypeKind for MINIDUMP_EXCEPTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_EXCEPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_EXCEPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
     pub ThreadId: u32,
     pub ExceptionPointers: *mut EXCEPTION_POINTERS,
     pub ClientPointers: super::super::super::Foundation::BOOL,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for MINIDUMP_EXCEPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION {
-    type TypeKind = windows_core::CloneType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
     pub ThreadId: u32,
     pub ExceptionPointers: *mut EXCEPTION_POINTERS,
     pub ClientPointers: super::super::super::Foundation::BOOL,
 }
 #[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for MINIDUMP_EXCEPTION_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION64 {
     pub ThreadId: u32,
     pub ExceptionRecord: u64,
     pub ContextRecord: u64,
     pub ClientPointers: super::super::super::Foundation::BOOL,
 }
+impl windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_EXCEPTION_INFORMATION64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_EXCEPTION_INFORMATION64 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_EXCEPTION_STREAM {
     pub ThreadId: u32,
     pub __alignment: u32,
     pub ExceptionRecord: MINIDUMP_EXCEPTION,
     pub ThreadContext: MINIDUMP_LOCATION_DESCRIPTOR,
 }
+impl windows_core::TypeKind for MINIDUMP_EXCEPTION_STREAM {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_EXCEPTION_STREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_EXCEPTION_STREAM {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
     pub MinimumAddress: u64,
     pub MaximumAddress: u64,
@@ -4925,16 +8575,16 @@ pub struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
     pub EntryCount: u32,
     pub SizeOfAlignPad: u32,
 }
+impl windows_core::TypeKind for MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
     pub SizeOfHeader: u32,
     pub SizeOfDescriptor: u32,
@@ -4943,32 +8593,32 @@ pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
     pub NumberOfDescriptors: u32,
     pub SizeOfAlignPad: u32,
 }
+impl windows_core::TypeKind for MINIDUMP_FUNCTION_TABLE_STREAM {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_FUNCTION_TABLE_STREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_FUNCTION_TABLE_STREAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_HANDLE_DATA_STREAM {
     pub SizeOfHeader: u32,
     pub SizeOfDescriptor: u32,
     pub NumberOfDescriptors: u32,
     pub Reserved: u32,
 }
+impl windows_core::TypeKind for MINIDUMP_HANDLE_DATA_STREAM {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_HANDLE_DATA_STREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_HANDLE_DATA_STREAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_HANDLE_DESCRIPTOR {
     pub Handle: u64,
     pub TypeNameRva: u32,
@@ -4978,16 +8628,16 @@ pub struct MINIDUMP_HANDLE_DESCRIPTOR {
     pub HandleCount: u32,
     pub PointerCount: u32,
 }
+impl windows_core::TypeKind for MINIDUMP_HANDLE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_HANDLE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_HANDLE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_HANDLE_DESCRIPTOR_2 {
     pub Handle: u64,
     pub TypeNameRva: u32,
@@ -4999,47 +8649,47 @@ pub struct MINIDUMP_HANDLE_DESCRIPTOR_2 {
     pub ObjectInfoRva: u32,
     pub Reserved0: u32,
 }
+impl windows_core::TypeKind for MINIDUMP_HANDLE_DESCRIPTOR_2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_HANDLE_DESCRIPTOR_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_HANDLE_DESCRIPTOR_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION {
     pub NextInfoRva: u32,
     pub InfoType: u32,
     pub SizeOfInfo: u32,
+}
+impl windows_core::TypeKind for MINIDUMP_HANDLE_OBJECT_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_HANDLE_OBJECT_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_HANDLE_OBJECT_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_HANDLE_OPERATION_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
     pub NumberOfEntries: u32,
     pub Reserved: u32,
 }
+impl windows_core::TypeKind for MINIDUMP_HANDLE_OPERATION_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_HANDLE_OPERATION_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_HANDLE_OPERATION_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_HEADER {
     pub Signature: u32,
     pub Version: u32,
@@ -5049,144 +8699,144 @@ pub struct MINIDUMP_HEADER {
     pub Anonymous: MINIDUMP_HEADER_0,
     pub Flags: u64,
 }
+impl windows_core::TypeKind for MINIDUMP_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_HEADER {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union MINIDUMP_HEADER_0 {
     pub Reserved: u32,
     pub TimeDateStamp: u32,
+}
+impl windows_core::TypeKind for MINIDUMP_HEADER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_HEADER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_HEADER_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_INCLUDE_MODULE_CALLBACK {
     pub BaseOfImage: u64,
+}
+impl windows_core::TypeKind for MINIDUMP_INCLUDE_MODULE_CALLBACK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_INCLUDE_MODULE_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_INCLUDE_MODULE_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
     pub ThreadId: u32,
+}
+impl windows_core::TypeKind for MINIDUMP_INCLUDE_THREAD_CALLBACK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_INCLUDE_THREAD_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_INCLUDE_THREAD_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_IO_CALLBACK {
     pub Handle: super::super::super::Foundation::HANDLE,
     pub Offset: u64,
     pub Buffer: *mut core::ffi::c_void,
     pub BufferBytes: u32,
 }
+impl windows_core::TypeKind for MINIDUMP_IO_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_IO_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_IO_CALLBACK {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR {
     pub DataSize: u32,
     pub Rva: u32,
+}
+impl windows_core::TypeKind for MINIDUMP_LOCATION_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_LOCATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_LOCATION_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR64 {
     pub DataSize: u64,
     pub Rva: u64,
+}
+impl windows_core::TypeKind for MINIDUMP_LOCATION_DESCRIPTOR64 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_LOCATION_DESCRIPTOR64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_LOCATION_DESCRIPTOR64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_MEMORY64_LIST {
     pub NumberOfMemoryRanges: u64,
     pub BaseRva: u64,
     pub MemoryRanges: [MINIDUMP_MEMORY_DESCRIPTOR64; 1],
+}
+impl windows_core::TypeKind for MINIDUMP_MEMORY64_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_MEMORY64_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_MEMORY64_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR {
     pub StartOfMemoryRange: u64,
     pub Memory: MINIDUMP_LOCATION_DESCRIPTOR,
+}
+impl windows_core::TypeKind for MINIDUMP_MEMORY_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_MEMORY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_MEMORY_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR64 {
     pub StartOfMemoryRange: u64,
     pub DataSize: u64,
+}
+impl windows_core::TypeKind for MINIDUMP_MEMORY_DESCRIPTOR64 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_MEMORY_DESCRIPTOR64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_MEMORY_DESCRIPTOR64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Memory")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_MEMORY_INFO {
     pub BaseAddress: u64,
     pub AllocationBase: u64,
@@ -5199,46 +8849,46 @@ pub struct MINIDUMP_MEMORY_INFO {
     pub __alignment2: u32,
 }
 #[cfg(feature = "Win32_System_Memory")]
+impl windows_core::TypeKind for MINIDUMP_MEMORY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Memory")]
 impl Default for MINIDUMP_MEMORY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Memory")]
-impl windows_core::TypeKind for MINIDUMP_MEMORY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_MEMORY_INFO_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
     pub NumberOfEntries: u64,
+}
+impl windows_core::TypeKind for MINIDUMP_MEMORY_INFO_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_MEMORY_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_MEMORY_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_MEMORY_LIST {
     pub NumberOfMemoryRanges: u32,
     pub MemoryRanges: [MINIDUMP_MEMORY_DESCRIPTOR; 1],
+}
+impl windows_core::TypeKind for MINIDUMP_MEMORY_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_MEMORY_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_MEMORY_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_MISC_INFO {
     pub SizeOfInfo: u32,
     pub Flags1: MINIDUMP_MISC_INFO_FLAGS,
@@ -5247,16 +8897,16 @@ pub struct MINIDUMP_MISC_INFO {
     pub ProcessUserTime: u32,
     pub ProcessKernelTime: u32,
 }
+impl windows_core::TypeKind for MINIDUMP_MISC_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_MISC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_MISC_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_MISC_INFO_2 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -5270,17 +8920,17 @@ pub struct MINIDUMP_MISC_INFO_2 {
     pub ProcessorMaxIdleState: u32,
     pub ProcessorCurrentIdleState: u32,
 }
+impl windows_core::TypeKind for MINIDUMP_MISC_INFO_2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_MISC_INFO_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_MISC_INFO_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_MISC_INFO_3 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -5300,18 +8950,18 @@ pub struct MINIDUMP_MISC_INFO_3 {
     pub TimeZone: super::super::Time::TIME_ZONE_INFORMATION,
 }
 #[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for MINIDUMP_MISC_INFO_3 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Time")]
 impl Default for MINIDUMP_MISC_INFO_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for MINIDUMP_MISC_INFO_3 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_MISC_INFO_4 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -5333,18 +8983,18 @@ pub struct MINIDUMP_MISC_INFO_4 {
     pub DbgBldStr: [u16; 40],
 }
 #[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for MINIDUMP_MISC_INFO_4 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Time")]
 impl Default for MINIDUMP_MISC_INFO_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for MINIDUMP_MISC_INFO_4 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_Time")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_MISC_INFO_5 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -5368,18 +9018,18 @@ pub struct MINIDUMP_MISC_INFO_5 {
     pub ProcessCookie: u32,
 }
 #[cfg(feature = "Win32_System_Time")]
+impl windows_core::TypeKind for MINIDUMP_MISC_INFO_5 {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_Time")]
 impl Default for MINIDUMP_MISC_INFO_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Time")]
-impl windows_core::TypeKind for MINIDUMP_MISC_INFO_5 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_MODULE {
     pub BaseOfImage: u64,
     pub SizeOfImage: u32,
@@ -5393,18 +9043,18 @@ pub struct MINIDUMP_MODULE {
     pub Reserved1: u64,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for MINIDUMP_MODULE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for MINIDUMP_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for MINIDUMP_MODULE {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_MODULE_CALLBACK {
     pub FullPath: windows_core::PWSTR,
     pub BaseOfImage: u64,
@@ -5418,21 +9068,25 @@ pub struct MINIDUMP_MODULE_CALLBACK {
     pub SizeOfMiscRecord: u32,
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for MINIDUMP_MODULE_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for MINIDUMP_MODULE_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for MINIDUMP_MODULE_CALLBACK {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_MODULE_LIST {
     pub NumberOfModules: u32,
     pub Modules: [MINIDUMP_MODULE; 1],
+}
+#[cfg(feature = "Win32_Storage_FileSystem")]
+impl windows_core::TypeKind for MINIDUMP_MODULE_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl Default for MINIDUMP_MODULE_LIST {
@@ -5440,12 +9094,8 @@ impl Default for MINIDUMP_MODULE_LIST {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
-impl windows_core::TypeKind for MINIDUMP_MODULE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_PROCESS_VM_COUNTERS_1 {
     pub Revision: u16,
     pub PageFaultCount: u32,
@@ -5459,16 +9109,16 @@ pub struct MINIDUMP_PROCESS_VM_COUNTERS_1 {
     pub PeakPagefileUsage: u64,
     pub PrivateUsage: u64,
 }
+impl windows_core::TypeKind for MINIDUMP_PROCESS_VM_COUNTERS_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_PROCESS_VM_COUNTERS_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_PROCESS_VM_COUNTERS_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_PROCESS_VM_COUNTERS_2 {
     pub Revision: u16,
     pub Flags: u16,
@@ -5492,45 +9142,45 @@ pub struct MINIDUMP_PROCESS_VM_COUNTERS_2 {
     pub JobPrivateCommitLimit: u64,
     pub JobTotalCommitLimit: u64,
 }
+impl windows_core::TypeKind for MINIDUMP_PROCESS_VM_COUNTERS_2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_PROCESS_VM_COUNTERS_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_PROCESS_VM_COUNTERS_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
     pub Offset: u64,
     pub Bytes: u32,
     pub FailureStatus: windows_core::HRESULT,
+}
+impl windows_core::TypeKind for MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_STRING {
     pub Length: u32,
     pub Buffer: [u16; 1],
+}
+impl windows_core::TypeKind for MINIDUMP_STRING {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_STRING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_STRING {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_SYSTEM_BASIC_INFORMATION {
     pub TimerResolution: u32,
     pub PageSize: u32,
@@ -5543,32 +9193,32 @@ pub struct MINIDUMP_SYSTEM_BASIC_INFORMATION {
     pub ActiveProcessorsAffinityMask: u64,
     pub NumberOfProcessors: u32,
 }
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_BASIC_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_SYSTEM_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
     pub AvailablePages: u64,
     pub CommittedPages: u64,
     pub CommitLimit: u64,
     pub PeakCommitment: u64,
 }
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
     pub CurrentSize: u64,
     pub PeakSize: u64,
@@ -5580,17 +9230,17 @@ pub struct MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
     pub TransitionRePurposeCount: u32,
     pub Flags: u32,
 }
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_SYSTEM_INFO {
     pub ProcessorArchitecture: super::super::SystemInformation::PROCESSOR_ARCHITECTURE,
     pub ProcessorLevel: u16,
@@ -5605,21 +9255,25 @@ pub struct MINIDUMP_SYSTEM_INFO {
     pub Cpu: CPU_INFORMATION,
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for MINIDUMP_SYSTEM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union MINIDUMP_SYSTEM_INFO_0 {
     pub Reserved0: u16,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_0_0,
+}
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for MINIDUMP_SYSTEM_INFO_0 {
@@ -5627,16 +9281,16 @@ impl Default for MINIDUMP_SYSTEM_INFO_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MINIDUMP_SYSTEM_INFO_0_0 {
     pub NumberOfProcessors: u8,
     pub ProductType: u8,
+}
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for MINIDUMP_SYSTEM_INFO_0_0 {
@@ -5644,16 +9298,16 @@ impl Default for MINIDUMP_SYSTEM_INFO_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union MINIDUMP_SYSTEM_INFO_1 {
     pub Reserved1: u32,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_1_0,
+}
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_1 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for MINIDUMP_SYSTEM_INFO_1 {
@@ -5661,16 +9315,16 @@ impl Default for MINIDUMP_SYSTEM_INFO_1 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_1 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemInformation")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MINIDUMP_SYSTEM_INFO_1_0 {
     pub SuiteMask: u16,
     pub Reserved2: u16,
+}
+#[cfg(feature = "Win32_System_SystemInformation")]
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_1_0 {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_SystemInformation")]
 impl Default for MINIDUMP_SYSTEM_INFO_1_0 {
@@ -5678,12 +9332,8 @@ impl Default for MINIDUMP_SYSTEM_INFO_1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_INFO_1_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     pub Revision: u16,
     pub Flags: u16,
@@ -5692,16 +9342,16 @@ pub struct MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     pub BasicPerfInfo: MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION,
     pub PerfInfo: MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION,
 }
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_MEMORY_INFO_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_MEMORY_INFO_1 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
     pub IdleProcessTime: u64,
     pub IoReadTransferCount: u64,
@@ -5782,16 +9432,16 @@ pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
     pub ResidentAvailablePages: i64,
     pub SharedCommittedPages: u64,
 }
+impl windows_core::TypeKind for MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD {
     pub ThreadId: u32,
     pub SuspendCount: u32,
@@ -5801,17 +9451,18 @@ pub struct MINIDUMP_THREAD {
     pub Stack: MINIDUMP_MEMORY_DESCRIPTOR,
     pub ThreadContext: MINIDUMP_LOCATION_DESCRIPTOR,
 }
+impl windows_core::TypeKind for MINIDUMP_THREAD {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_THREAD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_THREAD {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: u32,
     pub ThreadHandle: super::super::super::Foundation::HANDLE,
@@ -5822,18 +9473,21 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub StackEnd: u64,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for MINIDUMP_THREAD_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for MINIDUMP_THREAD_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for MINIDUMP_THREAD_CALLBACK {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: u32,
     pub ThreadHandle: super::super::super::Foundation::HANDLE,
@@ -5843,17 +9497,19 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub StackEnd: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for MINIDUMP_THREAD_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for MINIDUMP_THREAD_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MINIDUMP_THREAD_CALLBACK {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_EX {
     pub ThreadId: u32,
     pub SuspendCount: u32,
@@ -5864,17 +9520,18 @@ pub struct MINIDUMP_THREAD_EX {
     pub ThreadContext: MINIDUMP_LOCATION_DESCRIPTOR,
     pub BackingStore: MINIDUMP_MEMORY_DESCRIPTOR,
 }
+impl windows_core::TypeKind for MINIDUMP_THREAD_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_THREAD_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_THREAD_EX {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: u32,
     pub ThreadHandle: super::super::super::Foundation::HANDLE,
@@ -5887,18 +9544,21 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub BackingStoreEnd: u64,
 }
 #[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for MINIDUMP_THREAD_EX_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for MINIDUMP_THREAD_EX_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for MINIDUMP_THREAD_EX_CALLBACK {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[cfg(feature = "Win32_System_Kernel")]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: u32,
     pub ThreadHandle: super::super::super::Foundation::HANDLE,
@@ -5910,31 +9570,33 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub BackingStoreEnd: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+impl windows_core::TypeKind for MINIDUMP_THREAD_EX_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
 impl Default for MINIDUMP_THREAD_EX_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MINIDUMP_THREAD_EX_CALLBACK {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_EX_LIST {
     pub NumberOfThreads: u32,
     pub Threads: [MINIDUMP_THREAD_EX; 1],
+}
+impl windows_core::TypeKind for MINIDUMP_THREAD_EX_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_THREAD_EX_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_THREAD_EX_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_INFO {
     pub ThreadId: u32,
     pub DumpFlags: MINIDUMP_THREAD_INFO_DUMP_FLAGS,
@@ -5947,104 +9609,104 @@ pub struct MINIDUMP_THREAD_INFO {
     pub StartAddress: u64,
     pub Affinity: u64,
 }
+impl windows_core::TypeKind for MINIDUMP_THREAD_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_THREAD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_THREAD_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_INFO_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
     pub NumberOfEntries: u32,
+}
+impl windows_core::TypeKind for MINIDUMP_THREAD_INFO_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_THREAD_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_THREAD_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_LIST {
     pub NumberOfThreads: u32,
     pub Threads: [MINIDUMP_THREAD; 1],
+}
+impl windows_core::TypeKind for MINIDUMP_THREAD_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_THREAD_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_THREAD_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_NAME {
     pub ThreadId: u32,
     pub RvaOfThreadName: u64,
+}
+impl windows_core::TypeKind for MINIDUMP_THREAD_NAME {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_THREAD_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_THREAD_NAME {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_THREAD_NAME_LIST {
     pub NumberOfThreadNames: u32,
     pub ThreadNames: [MINIDUMP_THREAD_NAME; 1],
+}
+impl windows_core::TypeKind for MINIDUMP_THREAD_NAME_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_THREAD_NAME_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_THREAD_NAME_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_TOKEN_INFO_HEADER {
     pub TokenSize: u32,
     pub TokenId: u32,
     pub TokenHandle: u64,
+}
+impl windows_core::TypeKind for MINIDUMP_TOKEN_INFO_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_TOKEN_INFO_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_TOKEN_INFO_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_TOKEN_INFO_LIST {
     pub TokenListSize: u32,
     pub TokenListEntries: u32,
     pub ListHeaderSize: u32,
     pub ElementHeaderSize: u32,
 }
+impl windows_core::TypeKind for MINIDUMP_TOKEN_INFO_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_TOKEN_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_TOKEN_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_UNLOADED_MODULE {
     pub BaseOfImage: u64,
     pub SizeOfImage: u32,
@@ -6052,50 +9714,54 @@ pub struct MINIDUMP_UNLOADED_MODULE {
     pub TimeDateStamp: u32,
     pub ModuleNameRva: u32,
 }
+impl windows_core::TypeKind for MINIDUMP_UNLOADED_MODULE {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_UNLOADED_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_UNLOADED_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_UNLOADED_MODULE_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
     pub NumberOfEntries: u32,
+}
+impl windows_core::TypeKind for MINIDUMP_UNLOADED_MODULE_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_UNLOADED_MODULE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_UNLOADED_MODULE_LIST {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_USER_RECORD {
     pub Type: u32,
     pub Memory: MINIDUMP_LOCATION_DESCRIPTOR,
+}
+impl windows_core::TypeKind for MINIDUMP_USER_RECORD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_USER_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_USER_RECORD {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_USER_STREAM {
     pub Type: u32,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for MINIDUMP_USER_STREAM {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for MINIDUMP_USER_STREAM {
@@ -6103,17 +9769,17 @@ impl Default for MINIDUMP_USER_STREAM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MINIDUMP_USER_STREAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_USER_STREAM {
     pub Type: u32,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for MINIDUMP_USER_STREAM {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for MINIDUMP_USER_STREAM {
@@ -6121,33 +9787,33 @@ impl Default for MINIDUMP_USER_STREAM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for MINIDUMP_USER_STREAM {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_USER_STREAM_INFORMATION {
     pub UserStreamCount: u32,
     pub UserStreamArray: *mut MINIDUMP_USER_STREAM,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for MINIDUMP_USER_STREAM_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for MINIDUMP_USER_STREAM_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for MINIDUMP_USER_STREAM_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_USER_STREAM_INFORMATION {
     pub UserStreamCount: u32,
     pub UserStreamArray: *mut MINIDUMP_USER_STREAM,
+}
+#[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for MINIDUMP_USER_STREAM_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }
 #[cfg(target_arch = "x86")]
 impl Default for MINIDUMP_USER_STREAM_INFORMATION {
@@ -6155,12 +9821,8 @@ impl Default for MINIDUMP_USER_STREAM_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for MINIDUMP_USER_STREAM_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_VM_POST_READ_CALLBACK {
     pub Offset: u64,
     pub Buffer: *mut core::ffi::c_void,
@@ -6168,44 +9830,44 @@ pub struct MINIDUMP_VM_POST_READ_CALLBACK {
     pub Completed: u32,
     pub Status: windows_core::HRESULT,
 }
+impl windows_core::TypeKind for MINIDUMP_VM_POST_READ_CALLBACK {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MINIDUMP_VM_POST_READ_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_VM_POST_READ_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_VM_PRE_READ_CALLBACK {
     pub Offset: u64,
     pub Buffer: *mut core::ffi::c_void,
     pub Size: u32,
+}
+impl windows_core::TypeKind for MINIDUMP_VM_PRE_READ_CALLBACK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_VM_PRE_READ_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_VM_PRE_READ_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct MINIDUMP_VM_QUERY_CALLBACK {
     pub Offset: u64,
+}
+impl windows_core::TypeKind for MINIDUMP_VM_QUERY_CALLBACK {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MINIDUMP_VM_QUERY_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MINIDUMP_VM_QUERY_CALLBACK {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODLOAD_CVMISC {
     pub oCV: u32,
     pub cCV: usize,
@@ -6214,16 +9876,16 @@ pub struct MODLOAD_CVMISC {
     pub dtImage: u32,
     pub cImage: u32,
 }
+impl windows_core::TypeKind for MODLOAD_CVMISC {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MODLOAD_CVMISC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MODLOAD_CVMISC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODLOAD_DATA {
     pub ssize: u32,
     pub ssig: MODLOAD_DATA_TYPE,
@@ -6231,174 +9893,174 @@ pub struct MODLOAD_DATA {
     pub size: u32,
     pub flags: u32,
 }
+impl windows_core::TypeKind for MODLOAD_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for MODLOAD_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MODLOAD_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODLOAD_PDBGUID_PDBAGE {
     pub PdbGuid: windows_core::GUID,
     pub PdbAge: u32,
+}
+impl windows_core::TypeKind for MODLOAD_PDBGUID_PDBAGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MODLOAD_PDBGUID_PDBAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MODLOAD_PDBGUID_PDBAGE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODULE_TYPE_INFO {
     pub dataLength: u16,
     pub leaf: u16,
     pub data: [u8; 1],
+}
+impl windows_core::TypeKind for MODULE_TYPE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for MODULE_TYPE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for MODULE_TYPE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OMAP {
     pub rva: u32,
     pub rvaTo: u32,
+}
+impl windows_core::TypeKind for OMAP {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OMAP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OUTPUT_DEBUG_STRING_INFO {
     pub lpDebugStringData: windows_core::PSTR,
     pub fUnicode: u16,
     pub nDebugStringLength: u16,
+}
+impl windows_core::TypeKind for OUTPUT_DEBUG_STRING_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for OUTPUT_DEBUG_STRING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for OUTPUT_DEBUG_STRING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_MEMORY_DESCRIPTOR32 {
     pub NumberOfRuns: u32,
     pub NumberOfPages: u32,
     pub Run: [PHYSICAL_MEMORY_RUN32; 1],
+}
+impl windows_core::TypeKind for PHYSICAL_MEMORY_DESCRIPTOR32 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PHYSICAL_MEMORY_DESCRIPTOR32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_MEMORY_DESCRIPTOR32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_MEMORY_DESCRIPTOR64 {
     pub NumberOfRuns: u32,
     pub NumberOfPages: u64,
     pub Run: [PHYSICAL_MEMORY_RUN64; 1],
+}
+impl windows_core::TypeKind for PHYSICAL_MEMORY_DESCRIPTOR64 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PHYSICAL_MEMORY_DESCRIPTOR64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_MEMORY_DESCRIPTOR64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_MEMORY_RUN32 {
     pub BasePage: u32,
     pub PageCount: u32,
+}
+impl windows_core::TypeKind for PHYSICAL_MEMORY_RUN32 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PHYSICAL_MEMORY_RUN32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_MEMORY_RUN32 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_MEMORY_RUN64 {
     pub BasePage: u64,
     pub PageCount: u64,
+}
+impl windows_core::TypeKind for PHYSICAL_MEMORY_RUN64 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for PHYSICAL_MEMORY_RUN64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for PHYSICAL_MEMORY_RUN64 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RIP_INFO {
     pub dwError: u32,
     pub dwType: RIP_INFO_TYPE,
+}
+impl windows_core::TypeKind for RIP_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for RIP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for RIP_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOURCEFILE {
     pub ModBase: u64,
     pub FileName: windows_core::PSTR,
+}
+impl windows_core::TypeKind for SOURCEFILE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SOURCEFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SOURCEFILE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOURCEFILEW {
     pub ModBase: u64,
     pub FileName: windows_core::PWSTR,
+}
+impl windows_core::TypeKind for SOURCEFILEW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SOURCEFILEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SOURCEFILEW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SRCCODEINFO {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -6408,16 +10070,16 @@ pub struct SRCCODEINFO {
     pub LineNumber: u32,
     pub Address: u64,
 }
+impl windows_core::TypeKind for SRCCODEINFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SRCCODEINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SRCCODEINFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SRCCODEINFOW {
     pub SizeOfStruct: u32,
     pub Key: *mut core::ffi::c_void,
@@ -6427,17 +10089,17 @@ pub struct SRCCODEINFOW {
     pub LineNumber: u32,
     pub Address: u64,
 }
+impl windows_core::TypeKind for SRCCODEINFOW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SRCCODEINFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SRCCODEINFOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STACKFRAME {
     pub AddrPC: ADDRESS,
     pub AddrReturn: ADDRESS,
@@ -6452,17 +10114,17 @@ pub struct STACKFRAME {
     pub AddrBStore: ADDRESS,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for STACKFRAME {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for STACKFRAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for STACKFRAME {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STACKFRAME64 {
     pub AddrPC: ADDRESS64,
     pub AddrReturn: ADDRESS64,
@@ -6476,16 +10138,16 @@ pub struct STACKFRAME64 {
     pub Reserved: [u64; 3],
     pub KdHelp: KDHELP64,
 }
+impl windows_core::TypeKind for STACKFRAME64 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for STACKFRAME64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STACKFRAME64 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STACKFRAME_EX {
     pub AddrPC: ADDRESS64,
     pub AddrReturn: ADDRESS64,
@@ -6501,16 +10163,16 @@ pub struct STACKFRAME_EX {
     pub StackFrameSize: u32,
     pub InlineFrameContext: u32,
 }
+impl windows_core::TypeKind for STACKFRAME_EX {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for STACKFRAME_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for STACKFRAME_EX {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYMBOL_INFO {
     pub SizeOfStruct: u32,
     pub TypeIndex: u32,
@@ -6528,16 +10190,16 @@ pub struct SYMBOL_INFO {
     pub MaxNameLen: u32,
     pub Name: [i8; 1],
 }
+impl windows_core::TypeKind for SYMBOL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SYMBOL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYMBOL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYMBOL_INFOW {
     pub SizeOfStruct: u32,
     pub TypeIndex: u32,
@@ -6555,59 +10217,59 @@ pub struct SYMBOL_INFOW {
     pub MaxNameLen: u32,
     pub Name: [u16; 1],
 }
+impl windows_core::TypeKind for SYMBOL_INFOW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SYMBOL_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYMBOL_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYMBOL_INFO_PACKAGE {
     pub si: SYMBOL_INFO,
     pub name: [i8; 2001],
+}
+impl windows_core::TypeKind for SYMBOL_INFO_PACKAGE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SYMBOL_INFO_PACKAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYMBOL_INFO_PACKAGE {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYMBOL_INFO_PACKAGEW {
     pub si: SYMBOL_INFOW,
     pub name: [u16; 2001],
+}
+impl windows_core::TypeKind for SYMBOL_INFO_PACKAGEW {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SYMBOL_INFO_PACKAGEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYMBOL_INFO_PACKAGEW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYMSRV_EXTENDED_OUTPUT_DATA {
     pub sizeOfStruct: u32,
     pub version: u32,
     pub filePtrMsg: [u16; 261],
+}
+impl windows_core::TypeKind for SYMSRV_EXTENDED_OUTPUT_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SYMSRV_EXTENDED_OUTPUT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYMSRV_EXTENDED_OUTPUT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYMSRV_INDEX_INFO {
     pub sizeofstruct: u32,
     pub file: [i8; 261],
@@ -6620,16 +10282,16 @@ pub struct SYMSRV_INDEX_INFO {
     pub sig: u32,
     pub age: u32,
 }
+impl windows_core::TypeKind for SYMSRV_INDEX_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SYMSRV_INDEX_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYMSRV_INDEX_INFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYMSRV_INDEX_INFOW {
     pub sizeofstruct: u32,
     pub file: [u16; 261],
@@ -6642,45 +10304,45 @@ pub struct SYMSRV_INDEX_INFOW {
     pub sig: u32,
     pub age: u32,
 }
+impl windows_core::TypeKind for SYMSRV_INDEX_INFOW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SYMSRV_INDEX_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SYMSRV_INDEX_INFOW {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TI_FINDCHILDREN_PARAMS {
     pub Count: u32,
     pub Start: u32,
     pub ChildId: [u32; 1],
+}
+impl windows_core::TypeKind for TI_FINDCHILDREN_PARAMS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for TI_FINDCHILDREN_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for TI_FINDCHILDREN_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNLOAD_DLL_DEBUG_INFO {
     pub lpBaseOfDll: *mut core::ffi::c_void,
+}
+impl windows_core::TypeKind for UNLOAD_DLL_DEBUG_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for UNLOAD_DLL_DEBUG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for UNLOAD_DLL_DEBUG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNWIND_HISTORY_TABLE {
     pub Count: u32,
     pub LocalHint: u8,
@@ -6692,111 +10354,111 @@ pub struct UNWIND_HISTORY_TABLE {
     pub Entry: [UNWIND_HISTORY_TABLE_ENTRY; 12],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for UNWIND_HISTORY_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for UNWIND_HISTORY_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for UNWIND_HISTORY_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNWIND_HISTORY_TABLE_ENTRY {
     pub ImageBase: usize,
     pub FunctionEntry: *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY,
 }
 #[cfg(target_arch = "aarch64")]
+impl windows_core::TypeKind for UNWIND_HISTORY_TABLE_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "aarch64")]
 impl Default for UNWIND_HISTORY_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "aarch64")]
-impl windows_core::TypeKind for UNWIND_HISTORY_TABLE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNWIND_HISTORY_TABLE_ENTRY {
     pub ImageBase: usize,
     pub FunctionEntry: *mut IMAGE_RUNTIME_FUNCTION_ENTRY,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for UNWIND_HISTORY_TABLE_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for UNWIND_HISTORY_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for UNWIND_HISTORY_TABLE_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WAITCHAIN_NODE_INFO {
     pub ObjectType: WCT_OBJECT_TYPE,
     pub ObjectStatus: WCT_OBJECT_STATUS,
     pub Anonymous: WAITCHAIN_NODE_INFO_0,
+}
+impl windows_core::TypeKind for WAITCHAIN_NODE_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WAITCHAIN_NODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WAITCHAIN_NODE_INFO {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union WAITCHAIN_NODE_INFO_0 {
     pub LockObject: WAITCHAIN_NODE_INFO_0_0,
     pub ThreadObject: WAITCHAIN_NODE_INFO_0_1,
+}
+impl windows_core::TypeKind for WAITCHAIN_NODE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WAITCHAIN_NODE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WAITCHAIN_NODE_INFO_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WAITCHAIN_NODE_INFO_0_0 {
     pub ObjectName: [u16; 128],
     pub Timeout: i64,
     pub Alertable: super::super::super::Foundation::BOOL,
+}
+impl windows_core::TypeKind for WAITCHAIN_NODE_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WAITCHAIN_NODE_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WAITCHAIN_NODE_INFO_0_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WAITCHAIN_NODE_INFO_0_1 {
     pub ProcessId: u32,
     pub ThreadId: u32,
     pub WaitTime: u32,
     pub ContextSwitches: u32,
 }
+impl windows_core::TypeKind for WAITCHAIN_NODE_INFO_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WAITCHAIN_NODE_INFO_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WAITCHAIN_NODE_INFO_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_AER_BRIDGE_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
@@ -6813,16 +10475,16 @@ pub struct WHEA_AER_BRIDGE_DESCRIPTOR {
     pub SecondaryUncorrectableErrorSev: u32,
     pub SecondaryCapsAndControl: u32,
 }
+impl windows_core::TypeKind for WHEA_AER_BRIDGE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_AER_BRIDGE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_AER_BRIDGE_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_AER_ENDPOINT_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
@@ -6836,16 +10498,16 @@ pub struct WHEA_AER_ENDPOINT_DESCRIPTOR {
     pub CorrectableErrorMask: u32,
     pub AdvancedCapsAndControl: u32,
 }
+impl windows_core::TypeKind for WHEA_AER_ENDPOINT_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_AER_ENDPOINT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_AER_ENDPOINT_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_AER_ROOTPORT_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
@@ -6860,16 +10522,16 @@ pub struct WHEA_AER_ROOTPORT_DESCRIPTOR {
     pub AdvancedCapsAndControl: u32,
     pub RootErrorCommand: u32,
 }
+impl windows_core::TypeKind for WHEA_AER_ROOTPORT_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_AER_ROOTPORT_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_AER_ROOTPORT_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_DEVICE_DRIVER_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
@@ -6888,16 +10550,16 @@ pub struct WHEA_DEVICE_DRIVER_DESCRIPTOR {
     pub PacketStateBuffer: *mut u8,
     pub OpenHandles: i32,
 }
+impl windows_core::TypeKind for WHEA_DEVICE_DRIVER_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_DEVICE_DRIVER_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_DEVICE_DRIVER_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_DRIVER_BUFFER_SET {
     pub Version: u32,
     pub Data: *mut u8,
@@ -6906,31 +10568,31 @@ pub struct WHEA_DRIVER_BUFFER_SET {
     pub SectionFriendlyName: *mut u8,
     pub Flags: *mut u8,
 }
+impl windows_core::TypeKind for WHEA_DRIVER_BUFFER_SET {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_DRIVER_BUFFER_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_DRIVER_BUFFER_SET {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DD {
     pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
     pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
     pub Correct: WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER,
+}
+impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION_DD {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_ERROR_SOURCE_CONFIGURATION_DD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION_DD {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
     pub Version: u32,
     pub SourceGuid: windows_core::GUID,
@@ -6943,16 +10605,16 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
     pub CreatorId: windows_core::GUID,
     pub PartitionId: windows_core::GUID,
 }
+impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
     pub Version: u32,
     pub SourceGuid: windows_core::GUID,
@@ -6961,16 +10623,16 @@ pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
     pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
     pub Uninitialize: WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER,
 }
+impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_ERROR_SOURCE_DESCRIPTOR {
     pub Length: u32,
     pub Version: u32,
@@ -6984,16 +10646,16 @@ pub struct WHEA_ERROR_SOURCE_DESCRIPTOR {
     pub Flags: u32,
     pub Info: WHEA_ERROR_SOURCE_DESCRIPTOR_0,
 }
+impl windows_core::TypeKind for WHEA_ERROR_SOURCE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ERROR_SOURCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
     pub XpfMceDescriptor: WHEA_XPF_MCE_DESCRIPTOR,
     pub XpfCmcDescriptor: WHEA_XPF_CMC_DESCRIPTOR,
@@ -7008,16 +10670,16 @@ pub union WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
     pub GenErrDescriptorV2: WHEA_GENERIC_ERROR_DESCRIPTOR_V2,
     pub DeviceDriverDescriptor: WHEA_DEVICE_DRIVER_DESCRIPTOR,
 }
+impl windows_core::TypeKind for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR_DESCRIPTOR {
     pub Type: u16,
     pub Reserved: u8,
@@ -7031,16 +10693,16 @@ pub struct WHEA_GENERIC_ERROR_DESCRIPTOR {
     pub ErrStatusAddress: i64,
     pub Notify: WHEA_NOTIFICATION_DESCRIPTOR,
 }
+impl windows_core::TypeKind for WHEA_GENERIC_ERROR_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_GENERIC_ERROR_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_GENERIC_ERROR_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
     pub Type: u16,
     pub Reserved: u8,
@@ -7061,77 +10723,77 @@ pub struct WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
     pub ReadAckPreserveMask: u64,
     pub ReadAckWriteMask: u64,
 }
+impl windows_core::TypeKind for WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_IPF_CMC_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
     pub Reserved: u8,
+}
+impl windows_core::TypeKind for WHEA_IPF_CMC_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_IPF_CMC_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_IPF_CMC_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_IPF_CPE_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
     pub Reserved: u8,
+}
+impl windows_core::TypeKind for WHEA_IPF_CPE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_IPF_CPE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_IPF_CPE_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_IPF_MCA_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
     pub Reserved: u8,
+}
+impl windows_core::TypeKind for WHEA_IPF_MCA_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_IPF_MCA_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_IPF_MCA_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR {
     pub Type: u8,
     pub Length: u8,
     pub Flags: WHEA_NOTIFICATION_FLAGS,
     pub u: WHEA_NOTIFICATION_DESCRIPTOR_0,
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union WHEA_NOTIFICATION_DESCRIPTOR_0 {
     pub Polled: WHEA_NOTIFICATION_DESCRIPTOR_0_0,
     pub Interrupt: WHEA_NOTIFICATION_DESCRIPTOR_0_1,
@@ -7142,16 +10804,16 @@ pub union WHEA_NOTIFICATION_DESCRIPTOR_0 {
     pub Sei: WHEA_NOTIFICATION_DESCRIPTOR_0_6,
     pub Gsiv: WHEA_NOTIFICATION_DESCRIPTOR_0_7,
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -7160,16 +10822,16 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     pub ErrorThreshold: u32,
     pub ErrorThresholdWindow: u32,
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -7178,16 +10840,16 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
     pub ErrorThreshold: u32,
     pub ErrorThresholdWindow: u32,
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -7196,16 +10858,16 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
     pub ErrorThreshold: u32,
     pub ErrorThresholdWindow: u32,
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -7214,29 +10876,29 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
     pub ErrorThreshold: u32,
     pub ErrorThresholdWindow: u32,
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
     pub PollInterval: u32,
+}
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -7245,16 +10907,16 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
     pub ErrorThreshold: u32,
     pub ErrorThresholdWindow: u32,
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -7263,16 +10925,16 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
     pub ErrorThreshold: u32,
     pub ErrorThresholdWindow: u32,
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -7281,83 +10943,83 @@ pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
     pub ErrorThreshold: u32,
     pub ErrorThresholdWindow: u32,
 }
+impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union WHEA_NOTIFICATION_FLAGS {
     pub Anonymous: WHEA_NOTIFICATION_FLAGS_0,
     pub AsUSHORT: u16,
+}
+impl windows_core::TypeKind for WHEA_NOTIFICATION_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_NOTIFICATION_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_FLAGS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_NOTIFICATION_FLAGS_0 {
     pub _bitfield: u16,
+}
+impl windows_core::TypeKind for WHEA_NOTIFICATION_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_NOTIFICATION_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_NOTIFICATION_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCI_SLOT_NUMBER {
     pub u: WHEA_PCI_SLOT_NUMBER_0,
+}
+impl windows_core::TypeKind for WHEA_PCI_SLOT_NUMBER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCI_SLOT_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCI_SLOT_NUMBER {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union WHEA_PCI_SLOT_NUMBER_0 {
     pub bits: WHEA_PCI_SLOT_NUMBER_0_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for WHEA_PCI_SLOT_NUMBER_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCI_SLOT_NUMBER_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCI_SLOT_NUMBER_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_PCI_SLOT_NUMBER_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for WHEA_PCI_SLOT_NUMBER_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_PCI_SLOT_NUMBER_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_PCI_SLOT_NUMBER_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_CMC_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
@@ -7366,16 +11028,16 @@ pub struct WHEA_XPF_CMC_DESCRIPTOR {
     pub Notify: WHEA_NOTIFICATION_DESCRIPTOR,
     pub Banks: [WHEA_XPF_MC_BANK_DESCRIPTOR; 32],
 }
+impl windows_core::TypeKind for WHEA_XPF_CMC_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_XPF_CMC_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_CMC_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_MCE_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
@@ -7385,16 +11047,16 @@ pub struct WHEA_XPF_MCE_DESCRIPTOR {
     pub MCG_GlobalControl: u64,
     pub Banks: [WHEA_XPF_MC_BANK_DESCRIPTOR; 32],
 }
+impl windows_core::TypeKind for WHEA_XPF_MCE_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_XPF_MCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_MCE_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_MC_BANK_DESCRIPTOR {
     pub BankNumber: u8,
     pub ClearOnInitialization: super::super::super::Foundation::BOOLEAN,
@@ -7406,30 +11068,30 @@ pub struct WHEA_XPF_MC_BANK_DESCRIPTOR {
     pub MiscMsr: u32,
     pub ControlData: u64,
 }
+impl windows_core::TypeKind for WHEA_XPF_MC_BANK_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WHEA_XPF_MC_BANK_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_MC_BANK_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WHEA_XPF_NMI_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: super::super::super::Foundation::BOOLEAN,
+}
+impl windows_core::TypeKind for WHEA_XPF_NMI_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WHEA_XPF_NMI_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WHEA_XPF_NMI_DESCRIPTOR {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WOW64_CONTEXT {
     pub ContextFlags: WOW64_CONTEXT_FLAGS,
     pub Dr0: u32,
@@ -7457,30 +11119,30 @@ pub struct WOW64_CONTEXT {
     pub SegSs: u32,
     pub ExtendedRegisters: [u8; 512],
 }
+impl windows_core::TypeKind for WOW64_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WOW64_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WOW64_CONTEXT {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WOW64_DESCRIPTOR_TABLE_ENTRY {
     pub Selector: u32,
     pub Descriptor: WOW64_LDT_ENTRY,
+}
+impl windows_core::TypeKind for WOW64_DESCRIPTOR_TABLE_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WOW64_DESCRIPTOR_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WOW64_DESCRIPTOR_TABLE_ENTRY {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WOW64_FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -7492,158 +11154,158 @@ pub struct WOW64_FLOATING_SAVE_AREA {
     pub RegisterArea: [u8; 80],
     pub Cr0NpxState: u32,
 }
+impl windows_core::TypeKind for WOW64_FLOATING_SAVE_AREA {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WOW64_FLOATING_SAVE_AREA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WOW64_FLOATING_SAVE_AREA {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct WOW64_LDT_ENTRY {
     pub LimitLow: u16,
     pub BaseLow: u16,
     pub HighWord: WOW64_LDT_ENTRY_0,
+}
+impl windows_core::TypeKind for WOW64_LDT_ENTRY {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WOW64_LDT_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WOW64_LDT_ENTRY {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union WOW64_LDT_ENTRY_0 {
     pub Bytes: WOW64_LDT_ENTRY_0_0,
     pub Bits: WOW64_LDT_ENTRY_0_1,
+}
+impl windows_core::TypeKind for WOW64_LDT_ENTRY_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WOW64_LDT_ENTRY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WOW64_LDT_ENTRY_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WOW64_LDT_ENTRY_0_1 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for WOW64_LDT_ENTRY_0_1 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for WOW64_LDT_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WOW64_LDT_ENTRY_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WOW64_LDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
     pub Flags2: u8,
     pub BaseHi: u8,
 }
+impl windows_core::TypeKind for WOW64_LDT_ENTRY_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for WOW64_LDT_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for WOW64_LDT_ENTRY_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union XPF_MCE_FLAGS {
     pub Anonymous: XPF_MCE_FLAGS_0,
     pub AsULONG: u32,
+}
+impl windows_core::TypeKind for XPF_MCE_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for XPF_MCE_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XPF_MCE_FLAGS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct XPF_MCE_FLAGS_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for XPF_MCE_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for XPF_MCE_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XPF_MCE_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union XPF_MC_BANK_FLAGS {
     pub Anonymous: XPF_MC_BANK_FLAGS_0,
     pub AsUCHAR: u8,
+}
+impl windows_core::TypeKind for XPF_MC_BANK_FLAGS {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for XPF_MC_BANK_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XPF_MC_BANK_FLAGS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XPF_MC_BANK_FLAGS_0 {
     pub _bitfield: u8,
+}
+impl windows_core::TypeKind for XPF_MC_BANK_FLAGS_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for XPF_MC_BANK_FLAGS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XPF_MC_BANK_FLAGS_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_AREA {
     pub LegacyState: XSAVE_FORMAT,
     pub Header: XSAVE_AREA_HEADER,
+}
+impl windows_core::TypeKind for XSAVE_AREA {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for XSAVE_AREA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XSAVE_AREA {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_AREA_HEADER {
     pub Mask: u64,
     pub CompactionMask: u64,
     pub Reserved2: [u64; 6],
+}
+impl windows_core::TypeKind for XSAVE_AREA_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for XSAVE_AREA_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XSAVE_AREA_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
     pub StatusWord: u16,
@@ -7663,18 +11325,18 @@ pub struct XSAVE_FORMAT {
     pub Reserved4: [u8; 96],
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for XSAVE_FORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for XSAVE_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for XSAVE_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
     pub StatusWord: u16,
@@ -7694,17 +11356,17 @@ pub struct XSAVE_FORMAT {
     pub Reserved4: [u8; 224],
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for XSAVE_FORMAT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for XSAVE_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for XSAVE_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct XSTATE_CONFIGURATION {
     pub EnabledFeatures: u64,
     pub EnabledVolatileFeatures: u64,
@@ -7720,60 +11382,60 @@ pub struct XSTATE_CONFIGURATION {
     pub AllNonLargeFeatureSize: u32,
     pub Spare: u32,
 }
+impl windows_core::TypeKind for XSTATE_CONFIGURATION {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for XSTATE_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XSTATE_CONFIGURATION {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub union XSTATE_CONFIGURATION_0 {
     pub ControlFlags: u32,
     pub Anonymous: XSTATE_CONFIGURATION_0_0,
+}
+impl windows_core::TypeKind for XSTATE_CONFIGURATION_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for XSTATE_CONFIGURATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XSTATE_CONFIGURATION_0 {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSTATE_CONFIGURATION_0_0 {
     pub _bitfield: u32,
+}
+impl windows_core::TypeKind for XSTATE_CONFIGURATION_0_0 {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for XSTATE_CONFIGURATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XSTATE_CONFIGURATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy)]
 pub struct XSTATE_CONFIG_FEATURE_MSC_INFO {
     pub SizeOfInfo: u32,
     pub ContextSize: u32,
     pub EnabledFeatures: u64,
     pub Features: [XSTATE_FEATURE; 64],
 }
+impl windows_core::TypeKind for XSTATE_CONFIG_FEATURE_MSC_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for XSTATE_CONFIG_FEATURE_MSC_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XSTATE_CONFIG_FEATURE_MSC_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
     pub Length: u32,
@@ -7782,18 +11444,18 @@ pub struct XSTATE_CONTEXT {
     pub Buffer: *mut core::ffi::c_void,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl windows_core::TypeKind for XSTATE_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for XSTATE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl windows_core::TypeKind for XSTATE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
     pub Length: u32,
@@ -7804,33 +11466,34 @@ pub struct XSTATE_CONTEXT {
     pub Reserved3: u32,
 }
 #[cfg(target_arch = "x86")]
+impl windows_core::TypeKind for XSTATE_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl Default for XSTATE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(target_arch = "x86")]
-impl windows_core::TypeKind for XSTATE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSTATE_FEATURE {
     pub Offset: u32,
     pub Size: u32,
+}
+impl windows_core::TypeKind for XSTATE_FEATURE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for XSTATE_FEATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for XSTATE_FEATURE {
-    type TypeKind = windows_core::CopyType;
-}
 pub type DIGEST_FUNCTION = Option<unsafe extern "system" fn(refdata: *mut core::ffi::c_void, pdata: *mut u8, dwlength: u32) -> super::super::super::Foundation::BOOL>;
 pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = Option<unsafe extern "system" fn() -> u32>;
+#[cfg(feature = "Win32_System_Kernel")]
 pub type LPTOP_LEVEL_EXCEPTION_FILTER = Option<unsafe extern "system" fn(exceptioninfo: *const EXCEPTION_POINTERS) -> i32>;
-#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Memory"))]
+#[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 pub type MINIDUMP_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(callbackparam: *mut core::ffi::c_void, callbackinput: *const MINIDUMP_CALLBACK_INPUT, callbackoutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> super::super::super::Foundation::BOOL>;
 pub type PCOGETACTIVATIONSTATE = Option<unsafe extern "system" fn(param0: windows_core::GUID, param1: u32, param2: *mut u32) -> windows_core::HRESULT>;
 pub type PCOGETCALLSTATE = Option<unsafe extern "system" fn(param0: i32, param1: *mut u32) -> windows_core::HRESULT>;
@@ -7924,6 +11587,7 @@ pub type PSYM_ENUMSYMBOLS_CALLBACKW = Option<unsafe extern "system" fn(symbolnam
 #[cfg(target_arch = "x86")]
 pub type PTRANSLATE_ADDRESS_ROUTINE = Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *mut ADDRESS) -> u32>;
 pub type PTRANSLATE_ADDRESS_ROUTINE64 = Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *const ADDRESS64) -> u64>;
+#[cfg(feature = "Win32_System_Kernel")]
 pub type PVECTORED_EXCEPTION_HANDLER = Option<unsafe extern "system" fn(exceptioninfo: *mut EXCEPTION_POINTERS) -> i32>;
 pub type PWAITCHAINCALLBACK = Option<unsafe extern "system" fn(wcthandle: *mut core::ffi::c_void, context: usize, callbackstatus: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut super::super::super::Foundation::BOOL)>;
 pub type SYMADDSOURCESTREAM = Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: windows_core::PCSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL>;
@@ -7931,3 +11595,5 @@ pub type SYMADDSOURCESTREAMA = Option<unsafe extern "system" fn(param0: super::s
 pub type WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = Option<unsafe extern "system" fn(errorsourcedesc: *mut core::ffi::c_void, maximumsectionlength: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 pub type WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, errorsourceid: u32) -> super::super::super::Foundation::NTSTATUS>;
 pub type WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
+#[cfg(feature = "implement")]
+core::include!("impl.rs");

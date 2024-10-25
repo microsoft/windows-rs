@@ -1,3 +1,57 @@
+#[inline]
+pub unsafe fn ComDBClaimNextFreePort<P0>(hcomdb: P0, comnumber: *mut u32) -> i32
+where
+    P0: windows_core::Param<HCOMDB>,
+{
+    windows_targets::link!("msports.dll" "system" fn ComDBClaimNextFreePort(hcomdb : HCOMDB, comnumber : *mut u32) -> i32);
+    ComDBClaimNextFreePort(hcomdb.param().abi(), comnumber)
+}
+#[inline]
+pub unsafe fn ComDBClaimPort<P0, P1>(hcomdb: P0, comnumber: u32, forceclaim: P1, forced: Option<*mut super::super::Foundation::BOOL>) -> i32
+where
+    P0: windows_core::Param<HCOMDB>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
+{
+    windows_targets::link!("msports.dll" "system" fn ComDBClaimPort(hcomdb : HCOMDB, comnumber : u32, forceclaim : super::super::Foundation:: BOOL, forced : *mut super::super::Foundation:: BOOL) -> i32);
+    ComDBClaimPort(hcomdb.param().abi(), comnumber, forceclaim.param().abi(), core::mem::transmute(forced.unwrap_or(core::ptr::null_mut())))
+}
+#[inline]
+pub unsafe fn ComDBClose<P0>(hcomdb: P0) -> i32
+where
+    P0: windows_core::Param<HCOMDB>,
+{
+    windows_targets::link!("msports.dll" "system" fn ComDBClose(hcomdb : HCOMDB) -> i32);
+    ComDBClose(hcomdb.param().abi())
+}
+#[inline]
+pub unsafe fn ComDBGetCurrentPortUsage<P0>(hcomdb: P0, buffer: Option<&mut [u8]>, reporttype: u32, maxportsreported: Option<*mut u32>) -> i32
+where
+    P0: windows_core::Param<HCOMDB>,
+{
+    windows_targets::link!("msports.dll" "system" fn ComDBGetCurrentPortUsage(hcomdb : HCOMDB, buffer : *mut u8, buffersize : u32, reporttype : u32, maxportsreported : *mut u32) -> i32);
+    ComDBGetCurrentPortUsage(hcomdb.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), reporttype, core::mem::transmute(maxportsreported.unwrap_or(core::ptr::null_mut())))
+}
+#[inline]
+pub unsafe fn ComDBOpen(phcomdb: *mut HCOMDB) -> i32 {
+    windows_targets::link!("msports.dll" "system" fn ComDBOpen(phcomdb : *mut HCOMDB) -> i32);
+    ComDBOpen(phcomdb)
+}
+#[inline]
+pub unsafe fn ComDBReleasePort<P0>(hcomdb: P0, comnumber: u32) -> i32
+where
+    P0: windows_core::Param<HCOMDB>,
+{
+    windows_targets::link!("msports.dll" "system" fn ComDBReleasePort(hcomdb : HCOMDB, comnumber : u32) -> i32);
+    ComDBReleasePort(hcomdb.param().abi(), comnumber)
+}
+#[inline]
+pub unsafe fn ComDBResizeDatabase<P0>(hcomdb: P0, newsize: u32) -> i32
+where
+    P0: windows_core::Param<HCOMDB>,
+{
+    windows_targets::link!("msports.dll" "system" fn ComDBResizeDatabase(hcomdb : HCOMDB, newsize : u32) -> i32);
+    ComDBResizeDatabase(hcomdb.param().abi(), newsize)
+}
 pub const CDB_REPORT_BITS: u32 = 0u32;
 pub const CDB_REPORT_BYTES: u32 = 1u32;
 pub const COMDB_MAX_PORTS_ARBITRATED: u32 = 4096u32;
@@ -82,33 +136,62 @@ pub const SPACE_PARITY: u32 = 4u32;
 pub const STOP_BITS_1_5: u32 = 1u32;
 pub const STOP_BITS_2: u32 = 2u32;
 pub const STOP_BIT_1: u32 = 0u32;
-pub const SerenumFirstHalf: SERENUM_PORTION = 0i32;
-pub const SerenumSecondHalf: SERENUM_PORTION = 1i32;
-pub const SerenumWhole: SERENUM_PORTION = 2i32;
+pub const SerenumFirstHalf: SERENUM_PORTION = SERENUM_PORTION(0i32);
+pub const SerenumSecondHalf: SERENUM_PORTION = SERENUM_PORTION(1i32);
+pub const SerenumWhole: SERENUM_PORTION = SERENUM_PORTION(2i32);
 #[repr(transparent)]
-#[derive(Copy, Clone, Debug, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct SERENUM_PORTION(pub i32);
 impl windows_core::TypeKind for SERENUM_PORTION {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for SERENUM_PORTION {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("SERENUM_PORTION").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct HCOMDB(pub *mut core::ffi::c_void);
+impl HCOMDB {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for HCOMDB {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            _ = ComDBClose(*self);
+        }
+    }
+}
+impl Default for HCOMDB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+impl windows_core::TypeKind for HCOMDB {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERENUM_PORT_DESC {
     pub Size: u32,
     pub PortHandle: *mut core::ffi::c_void,
     pub PortAddress: i64,
     pub Reserved: [u16; 1],
 }
+impl windows_core::TypeKind for SERENUM_PORT_DESC {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERENUM_PORT_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERENUM_PORT_DESC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERENUM_PORT_PARAMETERS {
     pub Size: u32,
     pub ReadAccessor: PSERENUM_READPORT,
@@ -119,16 +202,16 @@ pub struct SERENUM_PORT_PARAMETERS {
     pub NumberAxis: u16,
     pub Reserved: [u16; 3],
 }
+impl windows_core::TypeKind for SERENUM_PORT_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERENUM_PORT_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERENUM_PORT_PARAMETERS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIALCONFIG {
     pub Size: u32,
     pub Version: u16,
@@ -137,16 +220,16 @@ pub struct SERIALCONFIG {
     pub ProviderSize: u32,
     pub ProviderData: [u16; 1],
 }
+impl windows_core::TypeKind for SERIALCONFIG {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERIALCONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIALCONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIALPERF_STATS {
     pub ReceivedCount: u32,
     pub TransmittedCount: u32,
@@ -155,45 +238,45 @@ pub struct SERIALPERF_STATS {
     pub BufferOverrunErrorCount: u32,
     pub ParityErrorCount: u32,
 }
+impl windows_core::TypeKind for SERIALPERF_STATS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERIALPERF_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIALPERF_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_BASIC_SETTINGS {
     pub Timeouts: SERIAL_TIMEOUTS,
     pub HandFlow: SERIAL_HANDFLOW,
     pub RxFifo: u32,
     pub TxFifo: u32,
 }
+impl windows_core::TypeKind for SERIAL_BASIC_SETTINGS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERIAL_BASIC_SETTINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIAL_BASIC_SETTINGS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_BAUD_RATE {
     pub BaudRate: u32,
+}
+impl windows_core::TypeKind for SERIAL_BAUD_RATE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERIAL_BAUD_RATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIAL_BAUD_RATE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_CHARS {
     pub EofChar: u8,
     pub ErrorChar: u8,
@@ -202,16 +285,16 @@ pub struct SERIAL_CHARS {
     pub XonChar: u8,
     pub XoffChar: u8,
 }
+impl windows_core::TypeKind for SERIAL_CHARS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERIAL_CHARS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIAL_CHARS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_COMMPROP {
     pub PacketLength: u16,
     pub PacketVersion: u16,
@@ -232,61 +315,61 @@ pub struct SERIAL_COMMPROP {
     pub ProvSpec2: u32,
     pub ProvChar: [u16; 1],
 }
+impl windows_core::TypeKind for SERIAL_COMMPROP {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERIAL_COMMPROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIAL_COMMPROP {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_HANDFLOW {
     pub ControlHandShake: u32,
     pub FlowReplace: u32,
     pub XonLimit: i32,
     pub XoffLimit: i32,
 }
+impl windows_core::TypeKind for SERIAL_HANDFLOW {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERIAL_HANDFLOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIAL_HANDFLOW {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_LINE_CONTROL {
     pub StopBits: u8,
     pub Parity: u8,
     pub WordLength: u8,
+}
+impl windows_core::TypeKind for SERIAL_LINE_CONTROL {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERIAL_LINE_CONTROL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIAL_LINE_CONTROL {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_QUEUE_SIZE {
     pub InSize: u32,
     pub OutSize: u32,
+}
+impl windows_core::TypeKind for SERIAL_QUEUE_SIZE {
+    type TypeKind = windows_core::CopyType;
 }
 impl Default for SERIAL_QUEUE_SIZE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIAL_QUEUE_SIZE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_STATUS {
     pub Errors: u32,
     pub HoldReasons: u32,
@@ -295,16 +378,16 @@ pub struct SERIAL_STATUS {
     pub EofReceived: super::super::Foundation::BOOLEAN,
     pub WaitForImmediate: super::super::Foundation::BOOLEAN,
 }
+impl windows_core::TypeKind for SERIAL_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERIAL_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIAL_STATUS {
-    type TypeKind = windows_core::CloneType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_TIMEOUTS {
     pub ReadIntervalTimeout: u32,
     pub ReadTotalTimeoutMultiplier: u32,
@@ -312,28 +395,28 @@ pub struct SERIAL_TIMEOUTS {
     pub WriteTotalTimeoutMultiplier: u32,
     pub WriteTotalTimeoutConstant: u32,
 }
+impl windows_core::TypeKind for SERIAL_TIMEOUTS {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERIAL_TIMEOUTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for SERIAL_TIMEOUTS {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_XOFF_COUNTER {
     pub Timeout: u32,
     pub Counter: i32,
     pub XoffChar: u8,
 }
+impl windows_core::TypeKind for SERIAL_XOFF_COUNTER {
+    type TypeKind = windows_core::CopyType;
+}
 impl Default for SERIAL_XOFF_COUNTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for SERIAL_XOFF_COUNTER {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PSERENUM_READPORT = Option<unsafe extern "system" fn(serportaddress: *const core::ffi::c_void) -> u8>;
 pub type PSERENUM_WRITEPORT = Option<unsafe extern "system" fn(serportaddress: *const core::ffi::c_void, value: u8)>;

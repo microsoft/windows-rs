@@ -39,7 +39,28 @@ pub struct INamedPolicyStatics_Vtbl {
     GetPolicyFromPathForUser: usize,
 }
 pub struct NamedPolicy;
-impl NamedPolicy {}
+impl NamedPolicy {
+    pub fn GetPolicyFromPath(area: &windows_core::HSTRING, name: &windows_core::HSTRING) -> windows_core::Result<NamedPolicyData> {
+        Self::INamedPolicyStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetPolicyFromPath)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(area), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "System")]
+    pub fn GetPolicyFromPathForUser<P0>(user: P0, area: &windows_core::HSTRING, name: &windows_core::HSTRING) -> windows_core::Result<NamedPolicyData>
+    where
+        P0: windows_core::Param<super::super::System::User>,
+    {
+        Self::INamedPolicyStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetPolicyFromPathForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(area), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn INamedPolicyStatics<R, F: FnOnce(&INamedPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<NamedPolicy, INamedPolicyStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeName for NamedPolicy {
     const NAME: &'static str = "Windows.Management.Policies.NamedPolicy";
 }
@@ -127,14 +148,14 @@ impl NamedPolicyData {
             (windows_core::Interface::vtable(this).GetString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Changed<P0>(&self, changedHandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn Changed<P0>(&self, changedhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<NamedPolicyData, windows_core::IInspectable>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), changedHandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), changedhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
     pub fn RemoveChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
@@ -146,14 +167,16 @@ impl windows_core::RuntimeType for NamedPolicyData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INamedPolicyData>();
 }
 unsafe impl windows_core::Interface for NamedPolicyData {
-    type Vtable = <INamedPolicyData as windows_core::Interface>::Vtable;
+    type Vtable = INamedPolicyData_Vtbl;
     const IID: windows_core::GUID = <INamedPolicyData as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for NamedPolicyData {
     const NAME: &'static str = "Windows.Management.Policies.NamedPolicyData";
 }
+unsafe impl Send for NamedPolicyData {}
+unsafe impl Sync for NamedPolicyData {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct NamedPolicyKind(pub i32);
 impl NamedPolicyKind {
     pub const Invalid: Self = Self(0i32);
@@ -165,6 +188,11 @@ impl NamedPolicyKind {
 }
 impl windows_core::TypeKind for NamedPolicyKind {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for NamedPolicyKind {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("NamedPolicyKind").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for NamedPolicyKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Policies.NamedPolicyKind;i4)");

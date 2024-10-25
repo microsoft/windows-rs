@@ -43,12 +43,14 @@ impl windows_core::RuntimeType for ScreenReaderPositionChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScreenReaderPositionChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for ScreenReaderPositionChangedEventArgs {
-    type Vtable = <IScreenReaderPositionChangedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IScreenReaderPositionChangedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IScreenReaderPositionChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ScreenReaderPositionChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Accessibility.ScreenReaderPositionChangedEventArgs";
 }
+unsafe impl Send for ScreenReaderPositionChangedEventArgs {}
+unsafe impl Sync for ScreenReaderPositionChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScreenReaderService(windows_core::IUnknown);
@@ -87,9 +89,11 @@ impl windows_core::RuntimeType for ScreenReaderService {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScreenReaderService>();
 }
 unsafe impl windows_core::Interface for ScreenReaderService {
-    type Vtable = <IScreenReaderService as windows_core::Interface>::Vtable;
+    type Vtable = IScreenReaderService_Vtbl;
     const IID: windows_core::GUID = <IScreenReaderService as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ScreenReaderService {
     const NAME: &'static str = "Windows.UI.Accessibility.ScreenReaderService";
 }
+unsafe impl Send for ScreenReaderService {}
+unsafe impl Sync for ScreenReaderService {}

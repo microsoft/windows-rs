@@ -59,10 +59,13 @@ pub struct IMidiInPortStatics_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiMessage, IMidiMessage_Vtbl, 0x79767945_1094_4283_9be0_289fc0ee8334);
-windows_core::imp::interface_hierarchy!(IMidiMessage, windows_core::IUnknown, windows_core::IInspectable);
-impl windows_core::RuntimeType for IMidiMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+impl core::ops::Deref for IMidiMessage {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
 }
+windows_core::imp::interface_hierarchy!(IMidiMessage, windows_core::IUnknown, windows_core::IInspectable);
 impl IMidiMessage {
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -86,6 +89,9 @@ impl IMidiMessage {
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for IMidiMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IMidiMessage_Vtbl {
@@ -147,26 +153,29 @@ pub struct IMidiNoteOnMessageFactory_Vtbl {
     pub CreateMidiNoteOnMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u8, u8, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IMidiOutPort, IMidiOutPort_Vtbl, 0x931d6d9f_57a2_4a3a_adb8_4640886f6693);
+impl core::ops::Deref for IMidiOutPort {
+    type Target = windows_core::IInspectable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
 windows_core::imp::interface_hierarchy!(IMidiOutPort, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IMidiOutPort, super::super::Foundation::IClosable);
-impl windows_core::RuntimeType for IMidiOutPort {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IMidiOutPort {
-    pub fn SendMessage<P0>(&self, midiMessage: P0) -> windows_core::Result<()>
+    pub fn SendMessage<P0>(&self, midimessage: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMidiMessage>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midiMessage.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midimessage.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendBuffer<P0>(&self, midiData: P0) -> windows_core::Result<()>
+    pub fn SendBuffer<P0>(&self, mididata: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), midiData.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), mididata.param().abi()).ok() }
     }
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -179,6 +188,9 @@ impl IMidiOutPort {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for IMidiOutPort {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IMidiOutPort_Vtbl {
@@ -359,7 +371,7 @@ pub struct IMidiTimeCodeMessageFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiActiveSensingMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiActiveSensingMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(MidiActiveSensingMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiActiveSensingMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -395,16 +407,19 @@ impl windows_core::RuntimeType for MidiActiveSensingMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessage>();
 }
 unsafe impl windows_core::Interface for MidiActiveSensingMessage {
-    type Vtable = <IMidiMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiActiveSensingMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiActiveSensingMessage";
 }
+unsafe impl Send for MidiActiveSensingMessage {}
+unsafe impl Sync for MidiActiveSensingMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiChannelPressureMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiChannelPressureMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MidiChannelPressureMessage, IMidiMessage);
 impl MidiChannelPressureMessage {
     pub fn Channel(&self) -> windows_core::Result<u8> {
         let this = self;
@@ -457,16 +472,18 @@ impl windows_core::RuntimeType for MidiChannelPressureMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiChannelPressureMessage>();
 }
 unsafe impl windows_core::Interface for MidiChannelPressureMessage {
-    type Vtable = <IMidiChannelPressureMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiChannelPressureMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiChannelPressureMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiChannelPressureMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiChannelPressureMessage";
 }
+unsafe impl Send for MidiChannelPressureMessage {}
+unsafe impl Sync for MidiChannelPressureMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiContinueMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiContinueMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(MidiContinueMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiContinueMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -502,16 +519,19 @@ impl windows_core::RuntimeType for MidiContinueMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessage>();
 }
 unsafe impl windows_core::Interface for MidiContinueMessage {
-    type Vtable = <IMidiMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiContinueMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiContinueMessage";
 }
+unsafe impl Send for MidiContinueMessage {}
+unsafe impl Sync for MidiContinueMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiControlChangeMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiControlChangeMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MidiControlChangeMessage, IMidiMessage);
 impl MidiControlChangeMessage {
     pub fn Channel(&self) -> windows_core::Result<u8> {
         let this = self;
@@ -534,10 +554,10 @@ impl MidiControlChangeMessage {
             (windows_core::Interface::vtable(this).ControlValue)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateMidiControlChangeMessage(channel: u8, controller: u8, controlValue: u8) -> windows_core::Result<MidiControlChangeMessage> {
+    pub fn CreateMidiControlChangeMessage(channel: u8, controller: u8, controlvalue: u8) -> windows_core::Result<MidiControlChangeMessage> {
         Self::IMidiControlChangeMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMidiControlChangeMessage)(windows_core::Interface::as_raw(this), channel, controller, controlValue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMidiControlChangeMessage)(windows_core::Interface::as_raw(this), channel, controller, controlvalue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
@@ -571,17 +591,24 @@ impl windows_core::RuntimeType for MidiControlChangeMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiControlChangeMessage>();
 }
 unsafe impl windows_core::Interface for MidiControlChangeMessage {
-    type Vtable = <IMidiControlChangeMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiControlChangeMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiControlChangeMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiControlChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiControlChangeMessage";
 }
+unsafe impl Send for MidiControlChangeMessage {}
+unsafe impl Sync for MidiControlChangeMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiInPort(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiInPort, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MidiInPort, super::super::Foundation::IClosable);
 impl MidiInPort {
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     pub fn MessageReceived<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>>,
@@ -603,10 +630,10 @@ impl MidiInPort {
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(deviceId: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MidiInPort>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MidiInPort>> {
         Self::IMidiInPortStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
@@ -614,10 +641,6 @@ impl MidiInPort {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     fn IMidiInPortStatics<R, F: FnOnce(&IMidiInPortStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiInPort, IMidiInPortStatics> = windows_core::imp::FactoryCache::new();
@@ -628,12 +651,14 @@ impl windows_core::RuntimeType for MidiInPort {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiInPort>();
 }
 unsafe impl windows_core::Interface for MidiInPort {
-    type Vtable = <IMidiInPort as windows_core::Interface>::Vtable;
+    type Vtable = IMidiInPort_Vtbl;
     const IID: windows_core::GUID = <IMidiInPort as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiInPort {
     const NAME: &'static str = "Windows.Devices.Midi.MidiInPort";
 }
+unsafe impl Send for MidiInPort {}
+unsafe impl Sync for MidiInPort {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiMessageReceivedEventArgs(windows_core::IUnknown);
@@ -651,16 +676,19 @@ impl windows_core::RuntimeType for MidiMessageReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessageReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for MidiMessageReceivedEventArgs {
-    type Vtable = <IMidiMessageReceivedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IMidiMessageReceivedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IMidiMessageReceivedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Midi.MidiMessageReceivedEventArgs";
 }
+unsafe impl Send for MidiMessageReceivedEventArgs {}
+unsafe impl Sync for MidiMessageReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiNoteOffMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiNoteOffMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MidiNoteOffMessage, IMidiMessage);
 impl MidiNoteOffMessage {
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
@@ -720,16 +748,19 @@ impl windows_core::RuntimeType for MidiNoteOffMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiNoteOffMessage>();
 }
 unsafe impl windows_core::Interface for MidiNoteOffMessage {
-    type Vtable = <IMidiNoteOffMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiNoteOffMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiNoteOffMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiNoteOffMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiNoteOffMessage";
 }
+unsafe impl Send for MidiNoteOffMessage {}
+unsafe impl Sync for MidiNoteOffMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiNoteOnMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiNoteOnMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MidiNoteOnMessage, IMidiMessage);
 impl MidiNoteOnMessage {
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
@@ -789,31 +820,38 @@ impl windows_core::RuntimeType for MidiNoteOnMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiNoteOnMessage>();
 }
 unsafe impl windows_core::Interface for MidiNoteOnMessage {
-    type Vtable = <IMidiNoteOnMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiNoteOnMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiNoteOnMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiNoteOnMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiNoteOnMessage";
 }
+unsafe impl Send for MidiNoteOnMessage {}
+unsafe impl Sync for MidiNoteOnMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiOutPort(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiOutPort, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(MidiOutPort, windows_core::IUnknown, windows_core::IInspectable, IMidiOutPort);
+windows_core::imp::required_hierarchy!(MidiOutPort, super::super::Foundation::IClosable);
 impl MidiOutPort {
-    pub fn SendMessage<P0>(&self, midiMessage: P0) -> windows_core::Result<()>
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn SendMessage<P0>(&self, midimessage: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMidiMessage>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midiMessage.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midimessage.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendBuffer<P0>(&self, midiData: P0) -> windows_core::Result<()>
+    pub fn SendBuffer<P0>(&self, mididata: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), midiData.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), mididata.param().abi()).ok() }
     }
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -822,10 +860,10 @@ impl MidiOutPort {
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(deviceId: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IMidiOutPort>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IMidiOutPort>> {
         Self::IMidiOutPortStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
@@ -833,10 +871,6 @@ impl MidiOutPort {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     fn IMidiOutPortStatics<R, F: FnOnce(&IMidiOutPortStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiOutPort, IMidiOutPortStatics> = windows_core::imp::FactoryCache::new();
@@ -847,16 +881,19 @@ impl windows_core::RuntimeType for MidiOutPort {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiOutPort>();
 }
 unsafe impl windows_core::Interface for MidiOutPort {
-    type Vtable = <IMidiOutPort as windows_core::Interface>::Vtable;
+    type Vtable = IMidiOutPort_Vtbl;
     const IID: windows_core::GUID = <IMidiOutPort as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiOutPort {
     const NAME: &'static str = "Windows.Devices.Midi.MidiOutPort";
 }
+unsafe impl Send for MidiOutPort {}
+unsafe impl Sync for MidiOutPort {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiPitchBendChangeMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiPitchBendChangeMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MidiPitchBendChangeMessage, IMidiMessage);
 impl MidiPitchBendChangeMessage {
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
@@ -909,16 +946,19 @@ impl windows_core::RuntimeType for MidiPitchBendChangeMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiPitchBendChangeMessage>();
 }
 unsafe impl windows_core::Interface for MidiPitchBendChangeMessage {
-    type Vtable = <IMidiPitchBendChangeMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiPitchBendChangeMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiPitchBendChangeMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiPitchBendChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiPitchBendChangeMessage";
 }
+unsafe impl Send for MidiPitchBendChangeMessage {}
+unsafe impl Sync for MidiPitchBendChangeMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiPolyphonicKeyPressureMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiPolyphonicKeyPressureMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MidiPolyphonicKeyPressureMessage, IMidiMessage);
 impl MidiPolyphonicKeyPressureMessage {
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
@@ -978,16 +1018,19 @@ impl windows_core::RuntimeType for MidiPolyphonicKeyPressureMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiPolyphonicKeyPressureMessage>();
 }
 unsafe impl windows_core::Interface for MidiPolyphonicKeyPressureMessage {
-    type Vtable = <IMidiPolyphonicKeyPressureMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiPolyphonicKeyPressureMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiPolyphonicKeyPressureMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiPolyphonicKeyPressureMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiPolyphonicKeyPressureMessage";
 }
+unsafe impl Send for MidiPolyphonicKeyPressureMessage {}
+unsafe impl Sync for MidiPolyphonicKeyPressureMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiProgramChangeMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiProgramChangeMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MidiProgramChangeMessage, IMidiMessage);
 impl MidiProgramChangeMessage {
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
@@ -1040,16 +1083,19 @@ impl windows_core::RuntimeType for MidiProgramChangeMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiProgramChangeMessage>();
 }
 unsafe impl windows_core::Interface for MidiProgramChangeMessage {
-    type Vtable = <IMidiProgramChangeMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiProgramChangeMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiProgramChangeMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiProgramChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiProgramChangeMessage";
 }
+unsafe impl Send for MidiProgramChangeMessage {}
+unsafe impl Sync for MidiProgramChangeMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSongPositionPointerMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSongPositionPointerMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MidiSongPositionPointerMessage, IMidiMessage);
 impl MidiSongPositionPointerMessage {
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
@@ -1095,16 +1141,19 @@ impl windows_core::RuntimeType for MidiSongPositionPointerMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiSongPositionPointerMessage>();
 }
 unsafe impl windows_core::Interface for MidiSongPositionPointerMessage {
-    type Vtable = <IMidiSongPositionPointerMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiSongPositionPointerMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiSongPositionPointerMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiSongPositionPointerMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSongPositionPointerMessage";
 }
+unsafe impl Send for MidiSongPositionPointerMessage {}
+unsafe impl Sync for MidiSongPositionPointerMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSongSelectMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSongSelectMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MidiSongSelectMessage, IMidiMessage);
 impl MidiSongSelectMessage {
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
@@ -1150,16 +1199,18 @@ impl windows_core::RuntimeType for MidiSongSelectMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiSongSelectMessage>();
 }
 unsafe impl windows_core::Interface for MidiSongSelectMessage {
-    type Vtable = <IMidiSongSelectMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiSongSelectMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiSongSelectMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiSongSelectMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSongSelectMessage";
 }
+unsafe impl Send for MidiSongSelectMessage {}
+unsafe impl Sync for MidiSongSelectMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiStartMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiStartMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(MidiStartMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiStartMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1195,16 +1246,18 @@ impl windows_core::RuntimeType for MidiStartMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessage>();
 }
 unsafe impl windows_core::Interface for MidiStartMessage {
-    type Vtable = <IMidiMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiStartMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiStartMessage";
 }
+unsafe impl Send for MidiStartMessage {}
+unsafe impl Sync for MidiStartMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiStopMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiStopMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(MidiStopMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiStopMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1240,31 +1293,38 @@ impl windows_core::RuntimeType for MidiStopMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessage>();
 }
 unsafe impl windows_core::Interface for MidiStopMessage {
-    type Vtable = <IMidiMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiStopMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiStopMessage";
 }
+unsafe impl Send for MidiStopMessage {}
+unsafe impl Sync for MidiStopMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSynthesizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSynthesizer, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MidiSynthesizer, super::super::Foundation::IClosable, IMidiOutPort);
 impl MidiSynthesizer {
-    pub fn SendMessage<P0>(&self, midiMessage: P0) -> windows_core::Result<()>
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn SendMessage<P0>(&self, midimessage: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IMidiMessage>,
     {
         let this = &windows_core::Interface::cast::<IMidiOutPort>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midiMessage.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midimessage.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendBuffer<P0>(&self, midiData: P0) -> windows_core::Result<()>
+    pub fn SendBuffer<P0>(&self, mididata: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = &windows_core::Interface::cast::<IMidiOutPort>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), midiData.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), mididata.param().abi()).ok() }
     }
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IMidiOutPort>(self)?;
@@ -1299,28 +1359,24 @@ impl MidiSynthesizer {
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn CreateFromAudioDeviceAsync<P0>(audioDevice: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>
+    pub fn CreateFromAudioDeviceAsync<P0>(audiodevice: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>
     where
         P0: windows_core::Param<super::Enumeration::DeviceInformation>,
     {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromAudioDeviceAsync)(windows_core::Interface::as_raw(this), audioDevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromAudioDeviceAsync)(windows_core::Interface::as_raw(this), audiodevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn IsSynthesizer<P0>(midiDevice: P0) -> windows_core::Result<bool>
+    pub fn IsSynthesizer<P0>(mididevice: P0) -> windows_core::Result<bool>
     where
         P0: windows_core::Param<super::Enumeration::DeviceInformation>,
     {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsSynthesizer)(windows_core::Interface::as_raw(this), midiDevice.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsSynthesizer)(windows_core::Interface::as_raw(this), mididevice.param().abi(), &mut result__).map(|| result__)
         })
-    }
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     fn IMidiSynthesizerStatics<R, F: FnOnce(&IMidiSynthesizerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MidiSynthesizer, IMidiSynthesizerStatics> = windows_core::imp::FactoryCache::new();
@@ -1331,16 +1387,18 @@ impl windows_core::RuntimeType for MidiSynthesizer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiSynthesizer>();
 }
 unsafe impl windows_core::Interface for MidiSynthesizer {
-    type Vtable = <IMidiSynthesizer as windows_core::Interface>::Vtable;
+    type Vtable = IMidiSynthesizer_Vtbl;
     const IID: windows_core::GUID = <IMidiSynthesizer as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiSynthesizer {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSynthesizer";
 }
+unsafe impl Send for MidiSynthesizer {}
+unsafe impl Sync for MidiSynthesizer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSystemExclusiveMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiSystemExclusiveMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(MidiSystemExclusiveMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiSystemExclusiveMessage {
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1365,13 +1423,13 @@ impl MidiSystemExclusiveMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateMidiSystemExclusiveMessage<P0>(rawData: P0) -> windows_core::Result<MidiSystemExclusiveMessage>
+    pub fn CreateMidiSystemExclusiveMessage<P0>(rawdata: P0) -> windows_core::Result<MidiSystemExclusiveMessage>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::IMidiSystemExclusiveMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMidiSystemExclusiveMessage)(windows_core::Interface::as_raw(this), rawData.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMidiSystemExclusiveMessage)(windows_core::Interface::as_raw(this), rawdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IMidiSystemExclusiveMessageFactory<R, F: FnOnce(&IMidiSystemExclusiveMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1383,16 +1441,18 @@ impl windows_core::RuntimeType for MidiSystemExclusiveMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessage>();
 }
 unsafe impl windows_core::Interface for MidiSystemExclusiveMessage {
-    type Vtable = <IMidiMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiSystemExclusiveMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSystemExclusiveMessage";
 }
+unsafe impl Send for MidiSystemExclusiveMessage {}
+unsafe impl Sync for MidiSystemExclusiveMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiSystemResetMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiSystemResetMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(MidiSystemResetMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiSystemResetMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1428,16 +1488,19 @@ impl windows_core::RuntimeType for MidiSystemResetMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessage>();
 }
 unsafe impl windows_core::Interface for MidiSystemResetMessage {
-    type Vtable = <IMidiMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiSystemResetMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSystemResetMessage";
 }
+unsafe impl Send for MidiSystemResetMessage {}
+unsafe impl Sync for MidiSystemResetMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiTimeCodeMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiTimeCodeMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MidiTimeCodeMessage, IMidiMessage);
 impl MidiTimeCodeMessage {
     pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
@@ -1475,10 +1538,10 @@ impl MidiTimeCodeMessage {
             (windows_core::Interface::vtable(this).Values)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateMidiTimeCodeMessage(frameType: u8, values: u8) -> windows_core::Result<MidiTimeCodeMessage> {
+    pub fn CreateMidiTimeCodeMessage(frametype: u8, values: u8) -> windows_core::Result<MidiTimeCodeMessage> {
         Self::IMidiTimeCodeMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateMidiTimeCodeMessage)(windows_core::Interface::as_raw(this), frameType, values, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateMidiTimeCodeMessage)(windows_core::Interface::as_raw(this), frametype, values, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IMidiTimeCodeMessageFactory<R, F: FnOnce(&IMidiTimeCodeMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1490,16 +1553,18 @@ impl windows_core::RuntimeType for MidiTimeCodeMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiTimeCodeMessage>();
 }
 unsafe impl windows_core::Interface for MidiTimeCodeMessage {
-    type Vtable = <IMidiTimeCodeMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiTimeCodeMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiTimeCodeMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiTimeCodeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTimeCodeMessage";
 }
+unsafe impl Send for MidiTimeCodeMessage {}
+unsafe impl Sync for MidiTimeCodeMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiTimingClockMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiTimingClockMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(MidiTimingClockMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiTimingClockMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1535,16 +1600,18 @@ impl windows_core::RuntimeType for MidiTimingClockMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessage>();
 }
 unsafe impl windows_core::Interface for MidiTimingClockMessage {
-    type Vtable = <IMidiMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiTimingClockMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTimingClockMessage";
 }
+unsafe impl Send for MidiTimingClockMessage {}
+unsafe impl Sync for MidiTimingClockMessage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MidiTuneRequestMessage(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(MidiTuneRequestMessage, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::interface_hierarchy!(MidiTuneRequestMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiTuneRequestMessage {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1580,14 +1647,16 @@ impl windows_core::RuntimeType for MidiTuneRequestMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMidiMessage>();
 }
 unsafe impl windows_core::Interface for MidiTuneRequestMessage {
-    type Vtable = <IMidiMessage as windows_core::Interface>::Vtable;
+    type Vtable = IMidiMessage_Vtbl;
     const IID: windows_core::GUID = <IMidiMessage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MidiTuneRequestMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTuneRequestMessage";
 }
+unsafe impl Send for MidiTuneRequestMessage {}
+unsafe impl Sync for MidiTuneRequestMessage {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct MidiMessageType(pub i32);
 impl MidiMessageType {
     pub const None: Self = Self(0i32);
@@ -1614,6 +1683,13 @@ impl MidiMessageType {
 impl windows_core::TypeKind for MidiMessageType {
     type TypeKind = windows_core::CopyType;
 }
+impl core::fmt::Debug for MidiMessageType {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("MidiMessageType").field(&self.0).finish()
+    }
+}
 impl windows_core::RuntimeType for MidiMessageType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Midi.MidiMessageType;i4)");
 }
+#[cfg(feature = "implement")]
+core::include!("impl.rs");

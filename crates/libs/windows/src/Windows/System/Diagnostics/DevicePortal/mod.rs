@@ -123,13 +123,13 @@ impl DevicePortalConnection {
         unsafe { (windows_core::Interface::vtable(this).RemoveRequestReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "ApplicationModel_AppService")]
-    pub fn GetForAppServiceConnection<P0>(appServiceConnection: P0) -> windows_core::Result<DevicePortalConnection>
+    pub fn GetForAppServiceConnection<P0>(appserviceconnection: P0) -> windows_core::Result<DevicePortalConnection>
     where
         P0: windows_core::Param<super::super::super::ApplicationModel::AppService::AppServiceConnection>,
     {
         Self::IDevicePortalConnectionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForAppServiceConnection)(windows_core::Interface::as_raw(this), appServiceConnection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForAppServiceConnection)(windows_core::Interface::as_raw(this), appserviceconnection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
@@ -144,25 +144,25 @@ impl DevicePortalConnection {
         }
     }
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub fn GetServerMessageWebSocketForRequest2<P0>(&self, request: P0, messageType: super::super::super::Networking::Sockets::SocketMessageType, protocol: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>
+    pub fn GetServerMessageWebSocketForRequest2<P0>(&self, request: P0, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>
     where
         P0: windows_core::Param<super::super::super::Web::Http::HttpRequestMessage>,
     {
         let this = &windows_core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetServerMessageWebSocketForRequest2)(windows_core::Interface::as_raw(this), request.param().abi(), messageType, core::mem::transmute_copy(protocol), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetServerMessageWebSocketForRequest2)(windows_core::Interface::as_raw(this), request.param().abi(), messagetype, core::mem::transmute_copy(protocol), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub fn GetServerMessageWebSocketForRequest3<P0>(&self, request: P0, messageType: super::super::super::Networking::Sockets::SocketMessageType, protocol: &windows_core::HSTRING, outboundBufferSizeInBytes: u32, maxMessageSize: u32, receiveMode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode) -> windows_core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>
+    pub fn GetServerMessageWebSocketForRequest3<P0>(&self, request: P0, messagetype: super::super::super::Networking::Sockets::SocketMessageType, protocol: &windows_core::HSTRING, outboundbuffersizeinbytes: u32, maxmessagesize: u32, receivemode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode) -> windows_core::Result<super::super::super::Networking::Sockets::ServerMessageWebSocket>
     where
         P0: windows_core::Param<super::super::super::Web::Http::HttpRequestMessage>,
     {
         let this = &windows_core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetServerMessageWebSocketForRequest3)(windows_core::Interface::as_raw(this), request.param().abi(), messageType, core::mem::transmute_copy(protocol), outboundBufferSizeInBytes, maxMessageSize, receiveMode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetServerMessageWebSocketForRequest3)(windows_core::Interface::as_raw(this), request.param().abi(), messagetype, core::mem::transmute_copy(protocol), outboundbuffersizeinbytes, maxmessagesize, receivemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
@@ -177,14 +177,14 @@ impl DevicePortalConnection {
         }
     }
     #[cfg(all(feature = "Networking_Sockets", feature = "Web_Http"))]
-    pub fn GetServerStreamWebSocketForRequest2<P0>(&self, request: P0, protocol: &windows_core::HSTRING, outboundBufferSizeInBytes: u32, noDelay: bool) -> windows_core::Result<super::super::super::Networking::Sockets::ServerStreamWebSocket>
+    pub fn GetServerStreamWebSocketForRequest2<P0>(&self, request: P0, protocol: &windows_core::HSTRING, outboundbuffersizeinbytes: u32, nodelay: bool) -> windows_core::Result<super::super::super::Networking::Sockets::ServerStreamWebSocket>
     where
         P0: windows_core::Param<super::super::super::Web::Http::HttpRequestMessage>,
     {
         let this = &windows_core::Interface::cast::<IDevicePortalWebSocketConnection>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetServerStreamWebSocketForRequest2)(windows_core::Interface::as_raw(this), request.param().abi(), core::mem::transmute_copy(protocol), outboundBufferSizeInBytes, noDelay, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetServerStreamWebSocketForRequest2)(windows_core::Interface::as_raw(this), request.param().abi(), core::mem::transmute_copy(protocol), outboundbuffersizeinbytes, nodelay, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     fn IDevicePortalConnectionStatics<R, F: FnOnce(&IDevicePortalConnectionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -196,12 +196,14 @@ impl windows_core::RuntimeType for DevicePortalConnection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePortalConnection>();
 }
 unsafe impl windows_core::Interface for DevicePortalConnection {
-    type Vtable = <IDevicePortalConnection as windows_core::Interface>::Vtable;
+    type Vtable = IDevicePortalConnection_Vtbl;
     const IID: windows_core::GUID = <IDevicePortalConnection as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DevicePortalConnection {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnection";
 }
+unsafe impl Send for DevicePortalConnection {}
+unsafe impl Sync for DevicePortalConnection {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePortalConnectionClosedEventArgs(windows_core::IUnknown);
@@ -219,12 +221,14 @@ impl windows_core::RuntimeType for DevicePortalConnectionClosedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePortalConnectionClosedEventArgs>();
 }
 unsafe impl windows_core::Interface for DevicePortalConnectionClosedEventArgs {
-    type Vtable = <IDevicePortalConnectionClosedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IDevicePortalConnectionClosedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IDevicePortalConnectionClosedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DevicePortalConnectionClosedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedEventArgs";
 }
+unsafe impl Send for DevicePortalConnectionClosedEventArgs {}
+unsafe impl Sync for DevicePortalConnectionClosedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePortalConnectionRequestReceivedEventArgs(windows_core::IUnknown);
@@ -273,14 +277,16 @@ impl windows_core::RuntimeType for DevicePortalConnectionRequestReceivedEventArg
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePortalConnectionRequestReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for DevicePortalConnectionRequestReceivedEventArgs {
-    type Vtable = <IDevicePortalConnectionRequestReceivedEventArgs as windows_core::Interface>::Vtable;
+    type Vtable = IDevicePortalConnectionRequestReceivedEventArgs_Vtbl;
     const IID: windows_core::GUID = <IDevicePortalConnectionRequestReceivedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DevicePortalConnectionRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs";
 }
+unsafe impl Send for DevicePortalConnectionRequestReceivedEventArgs {}
+unsafe impl Sync for DevicePortalConnectionRequestReceivedEventArgs {}
 #[repr(transparent)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(PartialEq, Eq, Copy, Clone, Default)]
 pub struct DevicePortalConnectionClosedReason(pub i32);
 impl DevicePortalConnectionClosedReason {
     pub const Unknown: Self = Self(0i32);
@@ -292,6 +298,11 @@ impl DevicePortalConnectionClosedReason {
 }
 impl windows_core::TypeKind for DevicePortalConnectionClosedReason {
     type TypeKind = windows_core::CopyType;
+}
+impl core::fmt::Debug for DevicePortalConnectionClosedReason {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        f.debug_tuple("DevicePortalConnectionClosedReason").field(&self.0).finish()
+    }
 }
 impl windows_core::RuntimeType for DevicePortalConnectionClosedReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedReason;i4)");
