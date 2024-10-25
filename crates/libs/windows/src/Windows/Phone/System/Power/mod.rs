@@ -19,45 +19,12 @@ pub struct IPowerManagerStatics2_Vtbl {
     pub PowerSavingModeEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 pub struct PowerManager;
-impl PowerManager {
-    pub fn PowerSavingMode() -> windows_core::Result<PowerSavingMode> {
-        Self::IPowerManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PowerSavingMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    pub fn PowerSavingModeChanged<P0>(changehandler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::EventHandler<windows_core::IInspectable>>,
-    {
-        Self::IPowerManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PowerSavingModeChanged)(windows_core::Interface::as_raw(this), changehandler.param().abi(), &mut result__).map(|| result__)
-        })
-    }
-    pub fn RemovePowerSavingModeChanged(token: super::super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
-        Self::IPowerManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemovePowerSavingModeChanged)(windows_core::Interface::as_raw(this), token).ok() })
-    }
-    pub fn PowerSavingModeEnabled() -> windows_core::Result<bool> {
-        Self::IPowerManagerStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PowerSavingModeEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    fn IPowerManagerStatics<R, F: FnOnce(&IPowerManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PowerManager, IPowerManagerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IPowerManagerStatics2<R, F: FnOnce(&IPowerManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<PowerManager, IPowerManagerStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl PowerManager {}
 impl windows_core::RuntimeName for PowerManager {
     const NAME: &'static str = "Windows.Phone.System.Power.PowerManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PowerSavingMode(pub i32);
 impl PowerSavingMode {
     pub const Off: Self = Self(0i32);
@@ -65,11 +32,6 @@ impl PowerSavingMode {
 }
 impl windows_core::TypeKind for PowerSavingMode {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PowerSavingMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PowerSavingMode").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for PowerSavingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.System.Power.PowerSavingMode;i4)");

@@ -11,6 +11,10 @@ windows_core::imp::define_interface!(
     DeferralCompletedHandler_Vtbl,
     0xed32a372_f3c8_4faa_9cfb_470148da3888
 );
+impl windows_core::RuntimeType for DeferralCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl DeferralCompletedHandler {
     pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = DeferralCompletedHandlerBox {
@@ -27,10 +31,6 @@ impl DeferralCompletedHandler {
                 .ok()
         }
     }
-}
-impl windows_core::RuntimeType for DeferralCompletedHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct DeferralCompletedHandler_Vtbl {

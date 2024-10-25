@@ -89,10 +89,10 @@ impl DataProtectionProvider {
             (windows_core::Interface::vtable(this).UnprotectStreamAsync)(windows_core::Interface::as_raw(this), src.param().abi(), dest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateOverloadExplicit(protectiondescriptor: &windows_core::HSTRING) -> windows_core::Result<DataProtectionProvider> {
+    pub fn CreateOverloadExplicit(protectionDescriptor: &windows_core::HSTRING) -> windows_core::Result<DataProtectionProvider> {
         Self::IDataProtectionProviderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateOverloadExplicit)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(protectiondescriptor), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateOverloadExplicit)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(protectionDescriptor), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IDataProtectionProviderFactory<R, F: FnOnce(&IDataProtectionProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -104,11 +104,9 @@ impl windows_core::RuntimeType for DataProtectionProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataProtectionProvider>();
 }
 unsafe impl windows_core::Interface for DataProtectionProvider {
-    type Vtable = IDataProtectionProvider_Vtbl;
+    type Vtable = <IDataProtectionProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataProtectionProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DataProtectionProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.DataProtection.DataProtectionProvider";
 }
-unsafe impl Send for DataProtectionProvider {}
-unsafe impl Sync for DataProtectionProvider {}

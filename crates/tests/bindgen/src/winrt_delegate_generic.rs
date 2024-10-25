@@ -14,7 +14,14 @@ where
 unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for EventHandler<T> {
     type Vtable = EventHandler_Vtbl<T>;
     const IID: windows_core::GUID =
-        windows_core::GUID::from_u128(0x9de1c535_6ae1_11e0_84e1_18a905bcc53f);
+        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for EventHandler<T> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"pinterface({9de1c535-6ae1-11e0-84e1-18a905bcc53f}")
+        .push_slice(b";")
+        .push_other(T::SIGNATURE)
+        .push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
     pub fn new<
@@ -49,10 +56,6 @@ impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
             .ok()
         }
     }
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for EventHandler<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct EventHandler_Vtbl<T>

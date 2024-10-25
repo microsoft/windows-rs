@@ -181,14 +181,12 @@ impl windows_core::RuntimeType for CurrentSessionChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICurrentSessionChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for CurrentSessionChangedEventArgs {
-    type Vtable = ICurrentSessionChangedEventArgs_Vtbl;
+    type Vtable = <ICurrentSessionChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICurrentSessionChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CurrentSessionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.CurrentSessionChangedEventArgs";
 }
-unsafe impl Send for CurrentSessionChangedEventArgs {}
-unsafe impl Sync for CurrentSessionChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GlobalSystemMediaTransportControlsSession(windows_core::IUnknown);
@@ -299,32 +297,32 @@ impl GlobalSystemMediaTransportControlsSession {
             (windows_core::Interface::vtable(this).TryTogglePlayPauseAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryChangeAutoRepeatModeAsync(&self, requestedautorepeatmode: super::MediaPlaybackAutoRepeatMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryChangeAutoRepeatModeAsync(&self, requestedAutoRepeatMode: super::MediaPlaybackAutoRepeatMode) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryChangeAutoRepeatModeAsync)(windows_core::Interface::as_raw(this), requestedautorepeatmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryChangeAutoRepeatModeAsync)(windows_core::Interface::as_raw(this), requestedAutoRepeatMode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryChangePlaybackRateAsync(&self, requestedplaybackrate: f64) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryChangePlaybackRateAsync(&self, requestedPlaybackRate: f64) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryChangePlaybackRateAsync)(windows_core::Interface::as_raw(this), requestedplaybackrate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryChangePlaybackRateAsync)(windows_core::Interface::as_raw(this), requestedPlaybackRate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryChangeShuffleActiveAsync(&self, requestedshufflestate: bool) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryChangeShuffleActiveAsync(&self, requestedShuffleState: bool) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryChangeShuffleActiveAsync)(windows_core::Interface::as_raw(this), requestedshufflestate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryChangeShuffleActiveAsync)(windows_core::Interface::as_raw(this), requestedShuffleState, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryChangePlaybackPositionAsync(&self, requestedplaybackposition: i64) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryChangePlaybackPositionAsync(&self, requestedPlaybackPosition: i64) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryChangePlaybackPositionAsync)(windows_core::Interface::as_raw(this), requestedplaybackposition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryChangePlaybackPositionAsync)(windows_core::Interface::as_raw(this), requestedPlaybackPosition, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TimelinePropertiesChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
@@ -374,14 +372,12 @@ impl windows_core::RuntimeType for GlobalSystemMediaTransportControlsSession {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGlobalSystemMediaTransportControlsSession>();
 }
 unsafe impl windows_core::Interface for GlobalSystemMediaTransportControlsSession {
-    type Vtable = IGlobalSystemMediaTransportControlsSession_Vtbl;
+    type Vtable = <IGlobalSystemMediaTransportControlsSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGlobalSystemMediaTransportControlsSession as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSession {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSession";
 }
-unsafe impl Send for GlobalSystemMediaTransportControlsSession {}
-unsafe impl Sync for GlobalSystemMediaTransportControlsSession {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionManager(windows_core::IUnknown);
@@ -445,14 +441,12 @@ impl windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionMana
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGlobalSystemMediaTransportControlsSessionManager>();
 }
 unsafe impl windows_core::Interface for GlobalSystemMediaTransportControlsSessionManager {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionManager_Vtbl;
+    type Vtable = <IGlobalSystemMediaTransportControlsSessionManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGlobalSystemMediaTransportControlsSessionManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionManager {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager";
 }
-unsafe impl Send for GlobalSystemMediaTransportControlsSessionManager {}
-unsafe impl Sync for GlobalSystemMediaTransportControlsSessionManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionMediaProperties(windows_core::IUnknown);
@@ -535,14 +529,12 @@ impl windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionMedi
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGlobalSystemMediaTransportControlsSessionMediaProperties>();
 }
 unsafe impl windows_core::Interface for GlobalSystemMediaTransportControlsSessionMediaProperties {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionMediaProperties_Vtbl;
+    type Vtable = <IGlobalSystemMediaTransportControlsSessionMediaProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGlobalSystemMediaTransportControlsSessionMediaProperties as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionMediaProperties {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties";
 }
-unsafe impl Send for GlobalSystemMediaTransportControlsSessionMediaProperties {}
-unsafe impl Sync for GlobalSystemMediaTransportControlsSessionMediaProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackControls(windows_core::IUnknown);
@@ -658,14 +650,12 @@ impl windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlay
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGlobalSystemMediaTransportControlsSessionPlaybackControls>();
 }
 unsafe impl windows_core::Interface for GlobalSystemMediaTransportControlsSessionPlaybackControls {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackControls_Vtbl;
+    type Vtable = <IGlobalSystemMediaTransportControlsSessionPlaybackControls as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGlobalSystemMediaTransportControlsSessionPlaybackControls as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionPlaybackControls {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackControls";
 }
-unsafe impl Send for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
-unsafe impl Sync for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackInfo(windows_core::IUnknown);
@@ -718,14 +708,12 @@ impl windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlay
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGlobalSystemMediaTransportControlsSessionPlaybackInfo>();
 }
 unsafe impl windows_core::Interface for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionPlaybackInfo_Vtbl;
+    type Vtable = <IGlobalSystemMediaTransportControlsSessionPlaybackInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGlobalSystemMediaTransportControlsSessionPlaybackInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionPlaybackInfo {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackInfo";
 }
-unsafe impl Send for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
-unsafe impl Sync for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GlobalSystemMediaTransportControlsSessionTimelineProperties(windows_core::IUnknown);
@@ -778,14 +766,12 @@ impl windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionTime
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGlobalSystemMediaTransportControlsSessionTimelineProperties>();
 }
 unsafe impl windows_core::Interface for GlobalSystemMediaTransportControlsSessionTimelineProperties {
-    type Vtable = IGlobalSystemMediaTransportControlsSessionTimelineProperties_Vtbl;
+    type Vtable = <IGlobalSystemMediaTransportControlsSessionTimelineProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGlobalSystemMediaTransportControlsSessionTimelineProperties as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GlobalSystemMediaTransportControlsSessionTimelineProperties {
     const NAME: &'static str = "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionTimelineProperties";
 }
-unsafe impl Send for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
-unsafe impl Sync for GlobalSystemMediaTransportControlsSessionTimelineProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPropertiesChangedEventArgs(windows_core::IUnknown);
@@ -795,14 +781,12 @@ impl windows_core::RuntimeType for MediaPropertiesChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaPropertiesChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for MediaPropertiesChangedEventArgs {
-    type Vtable = IMediaPropertiesChangedEventArgs_Vtbl;
+    type Vtable = <IMediaPropertiesChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaPropertiesChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MediaPropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.MediaPropertiesChangedEventArgs";
 }
-unsafe impl Send for MediaPropertiesChangedEventArgs {}
-unsafe impl Sync for MediaPropertiesChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaybackInfoChangedEventArgs(windows_core::IUnknown);
@@ -812,14 +796,12 @@ impl windows_core::RuntimeType for PlaybackInfoChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaybackInfoChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for PlaybackInfoChangedEventArgs {
-    type Vtable = IPlaybackInfoChangedEventArgs_Vtbl;
+    type Vtable = <IPlaybackInfoChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlaybackInfoChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PlaybackInfoChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.PlaybackInfoChangedEventArgs";
 }
-unsafe impl Send for PlaybackInfoChangedEventArgs {}
-unsafe impl Sync for PlaybackInfoChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SessionsChangedEventArgs(windows_core::IUnknown);
@@ -829,14 +811,12 @@ impl windows_core::RuntimeType for SessionsChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISessionsChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for SessionsChangedEventArgs {
-    type Vtable = ISessionsChangedEventArgs_Vtbl;
+    type Vtable = <ISessionsChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISessionsChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SessionsChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.SessionsChangedEventArgs";
 }
-unsafe impl Send for SessionsChangedEventArgs {}
-unsafe impl Sync for SessionsChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TimelinePropertiesChangedEventArgs(windows_core::IUnknown);
@@ -846,16 +826,14 @@ impl windows_core::RuntimeType for TimelinePropertiesChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITimelinePropertiesChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for TimelinePropertiesChangedEventArgs {
-    type Vtable = ITimelinePropertiesChangedEventArgs_Vtbl;
+    type Vtable = <ITimelinePropertiesChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITimelinePropertiesChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for TimelinePropertiesChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Control.TimelinePropertiesChangedEventArgs";
 }
-unsafe impl Send for TimelinePropertiesChangedEventArgs {}
-unsafe impl Sync for TimelinePropertiesChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackStatus(pub i32);
 impl GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     pub const Closed: Self = Self(0i32);
@@ -867,11 +845,6 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackStatus {
 }
 impl windows_core::TypeKind for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GlobalSystemMediaTransportControlsSessionPlaybackStatus").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackStatus;i4)");

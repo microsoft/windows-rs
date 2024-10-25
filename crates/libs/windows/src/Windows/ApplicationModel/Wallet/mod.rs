@@ -587,16 +587,15 @@ impl WalletBarcode {
         })
     }
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn CreateCustomWalletBarcode<P0>(streamtobarcodeimage: P0) -> windows_core::Result<WalletBarcode>
+    pub fn CreateCustomWalletBarcode<P0>(streamToBarcodeImage: P0) -> windows_core::Result<WalletBarcode>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         Self::IWalletBarcodeFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCustomWalletBarcode)(windows_core::Interface::as_raw(this), streamtobarcodeimage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCustomWalletBarcode)(windows_core::Interface::as_raw(this), streamToBarcodeImage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     fn IWalletBarcodeFactory<R, F: FnOnce(&IWalletBarcodeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WalletBarcode, IWalletBarcodeFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -608,17 +607,13 @@ impl windows_core::RuntimeType for WalletBarcode {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for WalletBarcode {
-    type Vtable = IWalletBarcode_Vtbl;
+    type Vtable = <IWalletBarcode as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletBarcode as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for WalletBarcode {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletBarcode";
 }
-#[cfg(feature = "deprecated")]
-unsafe impl Send for WalletBarcode {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for WalletBarcode {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1008,13 +1003,12 @@ impl WalletItem {
         }
     }
     #[cfg(feature = "deprecated")]
-    pub fn CreateWalletItem(kind: WalletItemKind, displayname: &windows_core::HSTRING) -> windows_core::Result<WalletItem> {
+    pub fn CreateWalletItem(kind: WalletItemKind, displayName: &windows_core::HSTRING) -> windows_core::Result<WalletItem> {
         Self::IWalletItemFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWalletItem)(windows_core::Interface::as_raw(this), kind, core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWalletItem)(windows_core::Interface::as_raw(this), kind, core::mem::transmute_copy(displayName), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     fn IWalletItemFactory<R, F: FnOnce(&IWalletItemFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WalletItem, IWalletItemFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -1026,17 +1020,13 @@ impl windows_core::RuntimeType for WalletItem {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for WalletItem {
-    type Vtable = IWalletItem_Vtbl;
+    type Vtable = <IWalletItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletItem as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for WalletItem {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItem";
 }
-#[cfg(feature = "deprecated")]
-unsafe impl Send for WalletItem {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for WalletItem {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1117,7 +1107,6 @@ impl WalletItemCustomProperty {
             (windows_core::Interface::vtable(this).CreateWalletItemCustomProperty)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     fn IWalletItemCustomPropertyFactory<R, F: FnOnce(&IWalletItemCustomPropertyFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WalletItemCustomProperty, IWalletItemCustomPropertyFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -1129,17 +1118,13 @@ impl windows_core::RuntimeType for WalletItemCustomProperty {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for WalletItemCustomProperty {
-    type Vtable = IWalletItemCustomProperty_Vtbl;
+    type Vtable = <IWalletItemCustomProperty as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletItemCustomProperty as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for WalletItemCustomProperty {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemCustomProperty";
 }
-#[cfg(feature = "deprecated")]
-unsafe impl Send for WalletItemCustomProperty {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for WalletItemCustomProperty {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1149,9 +1134,9 @@ windows_core::imp::interface_hierarchy!(WalletItemStore, windows_core::IUnknown,
 #[cfg(feature = "deprecated")]
 impl WalletItemStore {
     #[cfg(feature = "deprecated")]
-    pub fn AddAsync<P0>(&self, id: &windows_core::HSTRING, item: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn AddAsync<P1>(&self, id: &windows_core::HSTRING, item: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::Param<WalletItem>,
+        P1: windows_core::Param<WalletItem>,
     {
         let this = self;
         unsafe {
@@ -1244,7 +1229,7 @@ impl windows_core::RuntimeType for WalletItemStore {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for WalletItemStore {
-    type Vtable = IWalletItemStore_Vtbl;
+    type Vtable = <IWalletItemStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletItemStore as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1252,26 +1237,9 @@ impl windows_core::RuntimeName for WalletItemStore {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemStore";
 }
 #[cfg(feature = "deprecated")]
-unsafe impl Send for WalletItemStore {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for WalletItemStore {}
-#[cfg(feature = "deprecated")]
 pub struct WalletManager;
 #[cfg(feature = "deprecated")]
-impl WalletManager {
-    #[cfg(feature = "deprecated")]
-    pub fn RequestStoreAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<WalletItemStore>> {
-        Self::IWalletManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "deprecated")]
-    fn IWalletManagerStatics<R, F: FnOnce(&IWalletManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<WalletManager, IWalletManagerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl WalletManager {}
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for WalletManager {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletManager";
@@ -1324,17 +1292,13 @@ impl windows_core::RuntimeType for WalletRelevantLocation {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for WalletRelevantLocation {
-    type Vtable = IWalletRelevantLocation_Vtbl;
+    type Vtable = <IWalletRelevantLocation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletRelevantLocation as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for WalletRelevantLocation {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletRelevantLocation";
 }
-#[cfg(feature = "deprecated")]
-unsafe impl Send for WalletRelevantLocation {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for WalletRelevantLocation {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1438,17 +1402,13 @@ impl windows_core::RuntimeType for WalletTransaction {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for WalletTransaction {
-    type Vtable = IWalletTransaction_Vtbl;
+    type Vtable = <IWalletTransaction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletTransaction as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for WalletTransaction {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletTransaction";
 }
-#[cfg(feature = "deprecated")]
-unsafe impl Send for WalletTransaction {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for WalletTransaction {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1477,7 +1437,6 @@ impl WalletVerb {
             (windows_core::Interface::vtable(this).CreateWalletVerb)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     fn IWalletVerbFactory<R, F: FnOnce(&IWalletVerbFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WalletVerb, IWalletVerbFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -1489,22 +1448,16 @@ impl windows_core::RuntimeType for WalletVerb {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for WalletVerb {
-    type Vtable = IWalletVerb_Vtbl;
+    type Vtable = <IWalletVerb as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletVerb as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for WalletVerb {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletVerb";
 }
-#[cfg(feature = "deprecated")]
-unsafe impl Send for WalletVerb {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for WalletVerb {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct WalletActionKind(pub i32);
-#[cfg(feature = "deprecated")]
 impl WalletActionKind {
     pub const OpenItem: Self = Self(0i32);
     pub const Transaction: Self = Self(1i32);
@@ -1512,25 +1465,15 @@ impl WalletActionKind {
     pub const Message: Self = Self(3i32);
     pub const Verb: Self = Self(4i32);
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::TypeKind for WalletActionKind {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "deprecated")]
-impl core::fmt::Debug for WalletActionKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WalletActionKind").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for WalletActionKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletActionKind;i4)");
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct WalletBarcodeSymbology(pub i32);
-#[cfg(feature = "deprecated")]
 impl WalletBarcodeSymbology {
     pub const Invalid: Self = Self(0i32);
     pub const Upca: Self = Self(1i32);
@@ -1545,25 +1488,15 @@ impl WalletBarcodeSymbology {
     pub const Aztec: Self = Self(10i32);
     pub const Custom: Self = Self(100000i32);
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::TypeKind for WalletBarcodeSymbology {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "deprecated")]
-impl core::fmt::Debug for WalletBarcodeSymbology {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WalletBarcodeSymbology").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for WalletBarcodeSymbology {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletBarcodeSymbology;i4)");
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct WalletDetailViewPosition(pub i32);
-#[cfg(feature = "deprecated")]
 impl WalletDetailViewPosition {
     pub const Hidden: Self = Self(0i32);
     pub const HeaderField1: Self = Self(1i32);
@@ -1581,25 +1514,15 @@ impl WalletDetailViewPosition {
     pub const FooterField3: Self = Self(13i32);
     pub const FooterField4: Self = Self(14i32);
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::TypeKind for WalletDetailViewPosition {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "deprecated")]
-impl core::fmt::Debug for WalletDetailViewPosition {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WalletDetailViewPosition").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for WalletDetailViewPosition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletDetailViewPosition;i4)");
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct WalletItemKind(pub i32);
-#[cfg(feature = "deprecated")]
 impl WalletItemKind {
     pub const Invalid: Self = Self(0i32);
     pub const Deal: Self = Self(1i32);
@@ -1609,41 +1532,23 @@ impl WalletItemKind {
     pub const BoardingPass: Self = Self(5i32);
     pub const MembershipCard: Self = Self(6i32);
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::TypeKind for WalletItemKind {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "deprecated")]
-impl core::fmt::Debug for WalletItemKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WalletItemKind").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for WalletItemKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletItemKind;i4)");
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct WalletSummaryViewPosition(pub i32);
-#[cfg(feature = "deprecated")]
 impl WalletSummaryViewPosition {
     pub const Hidden: Self = Self(0i32);
     pub const Field1: Self = Self(1i32);
     pub const Field2: Self = Self(2i32);
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::TypeKind for WalletSummaryViewPosition {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "deprecated")]
-impl core::fmt::Debug for WalletSummaryViewPosition {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WalletSummaryViewPosition").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for WalletSummaryViewPosition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletSummaryViewPosition;i4)");
 }

@@ -7,13 +7,10 @@ pub mod Syndication;
 #[cfg(feature = "Web_UI")]
 pub mod UI;
 windows_core::imp::define_interface!(IUriToStreamResolver, IUriToStreamResolver_Vtbl, 0xb0aba86a_9aeb_4d3a_9590_003e3ca7e290);
-impl core::ops::Deref for IUriToStreamResolver {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUriToStreamResolver, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for IUriToStreamResolver {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IUriToStreamResolver {
     #[cfg(feature = "Storage_Streams")]
     pub fn UriToStreamAsync<P0>(&self, uri: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>>
@@ -26,9 +23,6 @@ impl IUriToStreamResolver {
             (windows_core::Interface::vtable(this).UriToStreamAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-impl windows_core::RuntimeType for IUriToStreamResolver {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IUriToStreamResolver_Vtbl {
@@ -48,23 +42,12 @@ pub struct IWebErrorStatics_Vtbl {
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut WebErrorStatus) -> windows_core::HRESULT,
 }
 pub struct WebError;
-impl WebError {
-    pub fn GetStatus(hresult: i32) -> windows_core::Result<WebErrorStatus> {
-        Self::IWebErrorStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStatus)(windows_core::Interface::as_raw(this), hresult, &mut result__).map(|| result__)
-        })
-    }
-    fn IWebErrorStatics<R, F: FnOnce(&IWebErrorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<WebError, IWebErrorStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl WebError {}
 impl windows_core::RuntimeName for WebError {
     const NAME: &'static str = "Windows.Web.WebError";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct WebErrorStatus(pub i32);
 impl WebErrorStatus {
     pub const Unknown: Self = Self(0i32);
@@ -126,13 +109,6 @@ impl WebErrorStatus {
 impl windows_core::TypeKind for WebErrorStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WebErrorStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WebErrorStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for WebErrorStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.WebErrorStatus;i4)");
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

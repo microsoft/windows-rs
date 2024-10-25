@@ -38,79 +38,12 @@ pub struct ICommunicationBlockingAppManagerStatics2_Vtbl {
     pub RequestSetAsActiveBlockingAppAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub struct CommunicationBlockingAccessManager;
-impl CommunicationBlockingAccessManager {
-    pub fn IsBlockingActive() -> windows_core::Result<bool> {
-        Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsBlockingActive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    pub fn IsBlockedNumberAsync(number: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsBlockedNumberAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(number), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ShowBlockNumbersUI<P0>(phonenumbers: P0) -> windows_core::Result<bool>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-    {
-        Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowBlockNumbersUI)(windows_core::Interface::as_raw(this), phonenumbers.param().abi(), &mut result__).map(|| result__)
-        })
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ShowUnblockNumbersUI<P0>(phonenumbers: P0) -> windows_core::Result<bool>
-    where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
-    {
-        Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowUnblockNumbersUI)(windows_core::Interface::as_raw(this), phonenumbers.param().abi(), &mut result__).map(|| result__)
-        })
-    }
-    pub fn ShowBlockedCallsUI() -> windows_core::Result<()> {
-        Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowBlockedCallsUI)(windows_core::Interface::as_raw(this)).ok() })
-    }
-    pub fn ShowBlockedMessagesUI() -> windows_core::Result<()> {
-        Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowBlockedMessagesUI)(windows_core::Interface::as_raw(this)).ok() })
-    }
-    fn ICommunicationBlockingAccessManagerStatics<R, F: FnOnce(&ICommunicationBlockingAccessManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<CommunicationBlockingAccessManager, ICommunicationBlockingAccessManagerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl CommunicationBlockingAccessManager {}
 impl windows_core::RuntimeName for CommunicationBlockingAccessManager {
     const NAME: &'static str = "Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAccessManager";
 }
 pub struct CommunicationBlockingAppManager;
-impl CommunicationBlockingAppManager {
-    pub fn IsCurrentAppActiveBlockingApp() -> windows_core::Result<bool> {
-        Self::ICommunicationBlockingAppManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsCurrentAppActiveBlockingApp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    pub fn ShowCommunicationBlockingSettingsUI() -> windows_core::Result<()> {
-        Self::ICommunicationBlockingAppManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowCommunicationBlockingSettingsUI)(windows_core::Interface::as_raw(this)).ok() })
-    }
-    pub fn RequestSetAsActiveBlockingAppAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        Self::ICommunicationBlockingAppManagerStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestSetAsActiveBlockingAppAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ICommunicationBlockingAppManagerStatics<R, F: FnOnce(&ICommunicationBlockingAppManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<CommunicationBlockingAppManager, ICommunicationBlockingAppManagerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn ICommunicationBlockingAppManagerStatics2<R, F: FnOnce(&ICommunicationBlockingAppManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<CommunicationBlockingAppManager, ICommunicationBlockingAppManagerStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl CommunicationBlockingAppManager {}
 impl windows_core::RuntimeName for CommunicationBlockingAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAppManager";
 }

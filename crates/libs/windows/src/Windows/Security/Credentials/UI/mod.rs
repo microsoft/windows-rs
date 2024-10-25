@@ -72,33 +72,7 @@ pub struct IUserConsentVerifierStatics_Vtbl {
     pub RequestVerificationAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub struct CredentialPicker;
-impl CredentialPicker {
-    pub fn PickWithOptionsAsync<P0>(options: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>
-    where
-        P0: windows_core::Param<CredentialPickerOptions>,
-    {
-        Self::ICredentialPickerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PickWithOptionsAsync)(windows_core::Interface::as_raw(this), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn PickWithMessageAsync(targetname: &windows_core::HSTRING, message: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
-        Self::ICredentialPickerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PickWithMessageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(targetname), core::mem::transmute_copy(message), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn PickWithCaptionAsync(targetname: &windows_core::HSTRING, message: &windows_core::HSTRING, caption: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
-        Self::ICredentialPickerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PickWithCaptionAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(targetname), core::mem::transmute_copy(message), core::mem::transmute_copy(caption), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ICredentialPickerStatics<R, F: FnOnce(&ICredentialPickerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<CredentialPicker, ICredentialPickerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl CredentialPicker {}
 impl windows_core::RuntimeName for CredentialPicker {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPicker";
 }
@@ -234,7 +208,7 @@ impl windows_core::RuntimeType for CredentialPickerOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICredentialPickerOptions>();
 }
 unsafe impl windows_core::Interface for CredentialPickerOptions {
-    type Vtable = ICredentialPickerOptions_Vtbl;
+    type Vtable = <ICredentialPickerOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICredentialPickerOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CredentialPickerOptions {
@@ -300,36 +274,19 @@ impl windows_core::RuntimeType for CredentialPickerResults {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICredentialPickerResults>();
 }
 unsafe impl windows_core::Interface for CredentialPickerResults {
-    type Vtable = ICredentialPickerResults_Vtbl;
+    type Vtable = <ICredentialPickerResults as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICredentialPickerResults as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CredentialPickerResults {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPickerResults";
 }
 pub struct UserConsentVerifier;
-impl UserConsentVerifier {
-    pub fn CheckAvailabilityAsync() -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerifierAvailability>> {
-        Self::IUserConsentVerifierStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CheckAvailabilityAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn RequestVerificationAsync(message: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerificationResult>> {
-        Self::IUserConsentVerifierStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestVerificationAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IUserConsentVerifierStatics<R, F: FnOnce(&IUserConsentVerifierStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<UserConsentVerifier, IUserConsentVerifierStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl UserConsentVerifier {}
 impl windows_core::RuntimeName for UserConsentVerifier {
     const NAME: &'static str = "Windows.Security.Credentials.UI.UserConsentVerifier";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AuthenticationProtocol(pub i32);
 impl AuthenticationProtocol {
     pub const Basic: Self = Self(0i32);
@@ -343,16 +300,11 @@ impl AuthenticationProtocol {
 impl windows_core::TypeKind for AuthenticationProtocol {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for AuthenticationProtocol {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AuthenticationProtocol").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for AuthenticationProtocol {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.AuthenticationProtocol;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct CredentialSaveOption(pub i32);
 impl CredentialSaveOption {
     pub const Unselected: Self = Self(0i32);
@@ -362,16 +314,11 @@ impl CredentialSaveOption {
 impl windows_core::TypeKind for CredentialSaveOption {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CredentialSaveOption {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CredentialSaveOption").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for CredentialSaveOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.CredentialSaveOption;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct UserConsentVerificationResult(pub i32);
 impl UserConsentVerificationResult {
     pub const Verified: Self = Self(0i32);
@@ -385,16 +332,11 @@ impl UserConsentVerificationResult {
 impl windows_core::TypeKind for UserConsentVerificationResult {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UserConsentVerificationResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UserConsentVerificationResult").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for UserConsentVerificationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.UserConsentVerificationResult;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct UserConsentVerifierAvailability(pub i32);
 impl UserConsentVerifierAvailability {
     pub const Available: Self = Self(0i32);
@@ -405,11 +347,6 @@ impl UserConsentVerifierAvailability {
 }
 impl windows_core::TypeKind for UserConsentVerifierAvailability {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for UserConsentVerifierAvailability {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UserConsentVerifierAvailability").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for UserConsentVerifierAvailability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.UserConsentVerifierAvailability;i4)");

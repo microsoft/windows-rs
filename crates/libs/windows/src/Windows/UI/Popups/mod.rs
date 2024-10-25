@@ -47,13 +47,10 @@ pub struct IPopupMenu_Vtbl {
     pub ShowAsyncWithRectAndPlacement: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Rect, Placement, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUICommand, IUICommand_Vtbl, 0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f);
-impl core::ops::Deref for IUICommand {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IUICommand, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for IUICommand {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IUICommand {
     pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -94,9 +91,6 @@ impl IUICommand {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetId)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-}
-impl windows_core::RuntimeType for IUICommand {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IUICommand_Vtbl {
@@ -215,7 +209,7 @@ impl windows_core::RuntimeType for MessageDialog {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMessageDialog>();
 }
 unsafe impl windows_core::Interface for MessageDialog {
-    type Vtable = IMessageDialog_Vtbl;
+    type Vtable = <IMessageDialog as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMessageDialog as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MessageDialog {
@@ -241,11 +235,11 @@ impl PopupMenu {
             (windows_core::Interface::vtable(this).Commands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAsync(&self, invocationpoint: super::super::Foundation::Point) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
+    pub fn ShowAsync(&self, invocationPoint: super::super::Foundation::Point) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowAsync)(windows_core::Interface::as_raw(this), invocationpoint, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ShowAsync)(windows_core::Interface::as_raw(this), invocationPoint, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn ShowAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
@@ -255,11 +249,11 @@ impl PopupMenu {
             (windows_core::Interface::vtable(this).ShowAsyncWithRect)(windows_core::Interface::as_raw(this), selection, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: Placement) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
+    pub fn ShowAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredPlacement: Placement) -> windows_core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowAsyncWithRectAndPlacement)(windows_core::Interface::as_raw(this), selection, preferredplacement, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ShowAsyncWithRectAndPlacement)(windows_core::Interface::as_raw(this), selection, preferredPlacement, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -267,7 +261,7 @@ impl windows_core::RuntimeType for PopupMenu {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPopupMenu>();
 }
 unsafe impl windows_core::Interface for PopupMenu {
-    type Vtable = IPopupMenu_Vtbl;
+    type Vtable = <IPopupMenu as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPopupMenu as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PopupMenu {
@@ -276,7 +270,7 @@ impl windows_core::RuntimeName for PopupMenu {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UICommand(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UICommand, windows_core::IUnknown, windows_core::IInspectable, IUICommand);
+windows_core::imp::interface_hierarchy!(UICommand, windows_core::IUnknown, windows_core::IInspectable);
 impl UICommand {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -330,23 +324,23 @@ impl UICommand {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithHandler<P0>(label: &windows_core::HSTRING, action: P0) -> windows_core::Result<UICommand>
+    pub fn CreateWithHandler<P1>(label: &windows_core::HSTRING, action: P1) -> windows_core::Result<UICommand>
     where
-        P0: windows_core::Param<UICommandInvokedHandler>,
+        P1: windows_core::Param<UICommandInvokedHandler>,
     {
         Self::IUICommandFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithHandler)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), action.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithHandlerAndId<P0, P1>(label: &windows_core::HSTRING, action: P0, commandid: P1) -> windows_core::Result<UICommand>
+    pub fn CreateWithHandlerAndId<P1, P2>(label: &windows_core::HSTRING, action: P1, commandId: P2) -> windows_core::Result<UICommand>
     where
-        P0: windows_core::Param<UICommandInvokedHandler>,
-        P1: windows_core::Param<windows_core::IInspectable>,
+        P1: windows_core::Param<UICommandInvokedHandler>,
+        P2: windows_core::Param<windows_core::IInspectable>,
     {
         Self::IUICommandFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithHandlerAndId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), action.param().abi(), commandid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithHandlerAndId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), action.param().abi(), commandId.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IUICommandFactory<R, F: FnOnce(&IUICommandFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -358,18 +352,16 @@ impl windows_core::RuntimeType for UICommand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUICommand>();
 }
 unsafe impl windows_core::Interface for UICommand {
-    type Vtable = IUICommand_Vtbl;
+    type Vtable = <IUICommand as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUICommand as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UICommand {
     const NAME: &'static str = "Windows.UI.Popups.UICommand";
 }
-unsafe impl Send for UICommand {}
-unsafe impl Sync for UICommand {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UICommandSeparator(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(UICommandSeparator, windows_core::IUnknown, windows_core::IInspectable, IUICommand);
+windows_core::imp::interface_hierarchy!(UICommandSeparator, windows_core::IUnknown, windows_core::IInspectable);
 impl UICommandSeparator {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -422,90 +414,19 @@ impl windows_core::RuntimeType for UICommandSeparator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUICommand>();
 }
 unsafe impl windows_core::Interface for UICommandSeparator {
-    type Vtable = IUICommand_Vtbl;
+    type Vtable = <IUICommand as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUICommand as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UICommandSeparator {
     const NAME: &'static str = "Windows.UI.Popups.UICommandSeparator";
 }
-unsafe impl Send for UICommandSeparator {}
-unsafe impl Sync for UICommandSeparator {}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct MessageDialogOptions(pub u32);
-impl MessageDialogOptions {
-    pub const None: Self = Self(0u32);
-    pub const AcceptUserInputAfterDelay: Self = Self(1u32);
-}
-impl windows_core::TypeKind for MessageDialogOptions {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for MessageDialogOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MessageDialogOptions").field(&self.0).finish()
-    }
-}
-impl MessageDialogOptions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for MessageDialogOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for MessageDialogOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for MessageDialogOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for MessageDialogOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for MessageDialogOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-impl windows_core::RuntimeType for MessageDialogOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.MessageDialogOptions;u4)");
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct Placement(pub i32);
-impl Placement {
-    pub const Default: Self = Self(0i32);
-    pub const Above: Self = Self(1i32);
-    pub const Below: Self = Self(2i32);
-    pub const Left: Self = Self(3i32);
-    pub const Right: Self = Self(4i32);
-}
-impl windows_core::TypeKind for Placement {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for Placement {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("Placement").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for Placement {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.Placement;i4)");
-}
 windows_core::imp::define_interface!(UICommandInvokedHandler, UICommandInvokedHandler_Vtbl, 0xdaf77a4f_c27a_4298_9ac6_2922c45e7da6);
+impl windows_core::RuntimeType for UICommandInvokedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl UICommandInvokedHandler {
     pub fn new<F: FnMut(Option<&IUICommand>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = UICommandInvokedHandlerBox::<F> { vtable: &UICommandInvokedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = UICommandInvokedHandlerBox { vtable: &UICommandInvokedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke<P0>(&self, command: P0) -> windows_core::Result<()>
@@ -515,6 +436,11 @@ impl UICommandInvokedHandler {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), command.param().abi()).ok() }
     }
+}
+#[repr(C)]
+pub struct UICommandInvokedHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, command: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
 struct UICommandInvokedHandlerBox<F: FnMut(Option<&IUICommand>) -> windows_core::Result<()> + Send + 'static> {
@@ -554,13 +480,32 @@ impl<F: FnMut(Option<&IUICommand>) -> windows_core::Result<()> + Send + 'static>
         (this.invoke)(windows_core::from_raw_borrowed(&command)).into()
     }
 }
-impl windows_core::RuntimeType for UICommandInvokedHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+#[repr(transparent)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct MessageDialogOptions(pub u32);
+impl MessageDialogOptions {
+    pub const None: Self = Self(0u32);
+    pub const AcceptUserInputAfterDelay: Self = Self(1u32);
 }
-#[repr(C)]
-pub struct UICommandInvokedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+impl windows_core::TypeKind for MessageDialogOptions {
+    type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");
+impl windows_core::RuntimeType for MessageDialogOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.MessageDialogOptions;u4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct Placement(pub i32);
+impl Placement {
+    pub const Default: Self = Self(0i32);
+    pub const Above: Self = Self(1i32);
+    pub const Below: Self = Self(2i32);
+    pub const Left: Self = Self(3i32);
+    pub const Right: Self = Self(4i32);
+}
+impl windows_core::TypeKind for Placement {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for Placement {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Popups.Placement;i4)");
+}

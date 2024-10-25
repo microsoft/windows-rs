@@ -37,9 +37,9 @@ impl windows_core::RuntimeType for IBackgroundAudioTrackStatics {
 pub struct IBackgroundAudioTrackStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateFromEmbeddedAudioTrack: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub CreateFromFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Streams")))]
     CreateFromFileAsync: usize,
 }
 windows_core::imp::define_interface!(IEmbeddedAudioTrack, IEmbeddedAudioTrack_Vtbl, 0x55ee5a7a_2d30_3fba_a190_4f1a6454f88f);
@@ -106,13 +106,13 @@ pub struct IMediaClipStatics_Vtbl {
     pub CreateFromColor: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::UI::Color, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "UI"))]
     CreateFromColor: usize,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub CreateFromFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Streams")))]
     CreateFromFileAsync: usize,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub CreateFromImageFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::TimeSpan, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Streams")))]
     CreateFromImageFileAsync: usize,
 }
 windows_core::imp::define_interface!(IMediaClipStatics2, IMediaClipStatics2_Vtbl, 0x5b1dd7b3_854e_4d9b_877d_4774a556cd12);
@@ -148,9 +148,9 @@ pub struct IMediaComposition_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     UserData: usize,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub SaveAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Streams")))]
     SaveAsync: usize,
     #[cfg(all(feature = "Graphics_Imaging", feature = "Storage_Streams"))]
     pub GetThumbnailAsync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::TimeSpan, i32, i32, VideoFramePrecision, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -160,17 +160,17 @@ pub struct IMediaComposition_Vtbl {
     pub GetThumbnailsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32, VideoFramePrecision, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Storage_Streams")))]
     GetThumbnailsAsync: usize,
-    #[cfg(all(feature = "Media_Transcoding", feature = "Storage"))]
+    #[cfg(all(feature = "Media_Transcoding", feature = "Storage", feature = "Storage_Streams"))]
     pub RenderToFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Media_Transcoding", feature = "Storage")))]
+    #[cfg(not(all(feature = "Media_Transcoding", feature = "Storage", feature = "Storage_Streams")))]
     RenderToFileAsync: usize,
-    #[cfg(all(feature = "Media_Transcoding", feature = "Storage"))]
+    #[cfg(all(feature = "Media_Transcoding", feature = "Storage", feature = "Storage_Streams"))]
     pub RenderToFileWithTrimmingPreferenceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, MediaTrimmingPreference, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Media_Transcoding", feature = "Storage")))]
+    #[cfg(not(all(feature = "Media_Transcoding", feature = "Storage", feature = "Storage_Streams")))]
     RenderToFileWithTrimmingPreferenceAsync: usize,
-    #[cfg(all(feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage"))]
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage", feature = "Storage_Streams"))]
     pub RenderToFileWithProfileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, MediaTrimmingPreference, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage")))]
+    #[cfg(not(all(feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage", feature = "Storage_Streams")))]
     RenderToFileWithProfileAsync: usize,
     #[cfg(feature = "Media_MediaProperties")]
     pub CreateDefaultEncodingProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -208,9 +208,9 @@ impl windows_core::RuntimeType for IMediaCompositionStatics {
 #[repr(C)]
 pub struct IMediaCompositionStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub LoadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Streams")))]
     LoadAsync: usize,
 }
 windows_core::imp::define_interface!(IMediaOverlay, IMediaOverlay_Vtbl, 0xa902ae5d_7869_4830_8ab1_94dc01c05fa4);
@@ -364,16 +364,16 @@ impl BackgroundAudioTrack {
             (windows_core::Interface::vtable(this).AudioEffectDefinitions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateFromEmbeddedAudioTrack<P0>(embeddedaudiotrack: P0) -> windows_core::Result<BackgroundAudioTrack>
+    pub fn CreateFromEmbeddedAudioTrack<P0>(embeddedAudioTrack: P0) -> windows_core::Result<BackgroundAudioTrack>
     where
         P0: windows_core::Param<EmbeddedAudioTrack>,
     {
         Self::IBackgroundAudioTrackStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromEmbeddedAudioTrack)(windows_core::Interface::as_raw(this), embeddedaudiotrack.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromEmbeddedAudioTrack)(windows_core::Interface::as_raw(this), embeddedAudioTrack.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub fn CreateFromFileAsync<P0>(file: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -392,14 +392,12 @@ impl windows_core::RuntimeType for BackgroundAudioTrack {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundAudioTrack>();
 }
 unsafe impl windows_core::Interface for BackgroundAudioTrack {
-    type Vtable = IBackgroundAudioTrack_Vtbl;
+    type Vtable = <IBackgroundAudioTrack as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundAudioTrack as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for BackgroundAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.BackgroundAudioTrack";
 }
-unsafe impl Send for BackgroundAudioTrack {}
-unsafe impl Sync for BackgroundAudioTrack {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmbeddedAudioTrack(windows_core::IUnknown);
@@ -418,14 +416,12 @@ impl windows_core::RuntimeType for EmbeddedAudioTrack {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmbeddedAudioTrack>();
 }
 unsafe impl windows_core::Interface for EmbeddedAudioTrack {
-    type Vtable = IEmbeddedAudioTrack_Vtbl;
+    type Vtable = <IEmbeddedAudioTrack as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmbeddedAudioTrack as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EmbeddedAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.EmbeddedAudioTrack";
 }
-unsafe impl Send for EmbeddedAudioTrack {}
-unsafe impl Sync for EmbeddedAudioTrack {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaClip(windows_core::IUnknown);
@@ -551,13 +547,13 @@ impl MediaClip {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn CreateFromColor(color: super::super::UI::Color, originalduration: super::super::Foundation::TimeSpan) -> windows_core::Result<MediaClip> {
+    pub fn CreateFromColor(color: super::super::UI::Color, originalDuration: super::super::Foundation::TimeSpan) -> windows_core::Result<MediaClip> {
         Self::IMediaClipStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromColor)(windows_core::Interface::as_raw(this), color, originalduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromColor)(windows_core::Interface::as_raw(this), color, originalDuration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub fn CreateFromFileAsync<P0>(file: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -567,24 +563,24 @@ impl MediaClip {
             (windows_core::Interface::vtable(this).CreateFromFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "Storage")]
-    pub fn CreateFromImageFileAsync<P0>(file: P0, originalduration: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
+    pub fn CreateFromImageFileAsync<P0>(file: P0, originalDuration: super::super::Foundation::TimeSpan) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaClip>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         Self::IMediaClipStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromImageFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), originalduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromImageFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), originalDuration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateFromSurface<P0>(surface: P0, originalduration: super::super::Foundation::TimeSpan) -> windows_core::Result<MediaClip>
+    pub fn CreateFromSurface<P0>(surface: P0, originalDuration: super::super::Foundation::TimeSpan) -> windows_core::Result<MediaClip>
     where
         P0: windows_core::Param<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>,
     {
         Self::IMediaClipStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateFromSurface)(windows_core::Interface::as_raw(this), surface.param().abi(), originalduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateFromSurface)(windows_core::Interface::as_raw(this), surface.param().abi(), originalDuration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IMediaClipStatics<R, F: FnOnce(&IMediaClipStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -600,14 +596,12 @@ impl windows_core::RuntimeType for MediaClip {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaClip>();
 }
 unsafe impl windows_core::Interface for MediaClip {
-    type Vtable = IMediaClip_Vtbl;
+    type Vtable = <IMediaClip as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaClip as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MediaClip {
     const NAME: &'static str = "Windows.Media.Editing.MediaClip";
 }
-unsafe impl Send for MediaClip {}
-unsafe impl Sync for MediaClip {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaComposition(windows_core::IUnknown);
@@ -658,7 +652,7 @@ impl MediaComposition {
             (windows_core::Interface::vtable(this).Clone)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub fn SaveAsync<P0>(&self, file: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -670,25 +664,25 @@ impl MediaComposition {
         }
     }
     #[cfg(all(feature = "Graphics_Imaging", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsync(&self, timefromstart: super::super::Foundation::TimeSpan, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>> {
+    pub fn GetThumbnailAsync(&self, timeFromStart: super::super::Foundation::TimeSpan, scaledWidth: i32, scaledHeight: i32, framePrecision: VideoFramePrecision) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetThumbnailAsync)(windows_core::Interface::as_raw(this), timefromstart, scaledwidth, scaledheight, frameprecision, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetThumbnailAsync)(windows_core::Interface::as_raw(this), timeFromStart, scaledWidth, scaledHeight, framePrecision, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging", feature = "Storage_Streams"))]
-    pub fn GetThumbnailsAsync<P0>(&self, timesfromstart: P0, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>
+    pub fn GetThumbnailsAsync<P0>(&self, timesFromStart: P0, scaledWidth: i32, scaledHeight: i32, framePrecision: VideoFramePrecision) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetThumbnailsAsync)(windows_core::Interface::as_raw(this), timesfromstart.param().abi(), scaledwidth, scaledheight, frameprecision, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetThumbnailsAsync)(windows_core::Interface::as_raw(this), timesFromStart.param().abi(), scaledWidth, scaledHeight, framePrecision, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Media_Transcoding", feature = "Storage"))]
+    #[cfg(all(feature = "Media_Transcoding", feature = "Storage", feature = "Storage_Streams"))]
     pub fn RenderToFileAsync<P0>(&self, destination: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -699,27 +693,27 @@ impl MediaComposition {
             (windows_core::Interface::vtable(this).RenderToFileAsync)(windows_core::Interface::as_raw(this), destination.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Media_Transcoding", feature = "Storage"))]
-    pub fn RenderToFileWithTrimmingPreferenceAsync<P0>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
+    #[cfg(all(feature = "Media_Transcoding", feature = "Storage", feature = "Storage_Streams"))]
+    pub fn RenderToFileWithTrimmingPreferenceAsync<P0>(&self, destination: P0, trimmingPreference: MediaTrimmingPreference) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenderToFileWithTrimmingPreferenceAsync)(windows_core::Interface::as_raw(this), destination.param().abi(), trimmingpreference, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RenderToFileWithTrimmingPreferenceAsync)(windows_core::Interface::as_raw(this), destination.param().abi(), trimmingPreference, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage"))]
-    pub fn RenderToFileWithProfileAsync<P0, P1>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference, encodingprofile: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
+    #[cfg(all(feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage", feature = "Storage_Streams"))]
+    pub fn RenderToFileWithProfileAsync<P0, P2>(&self, destination: P0, trimmingPreference: MediaTrimmingPreference, encodingProfile: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
-        P1: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
+        P2: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RenderToFileWithProfileAsync)(windows_core::Interface::as_raw(this), destination.param().abi(), trimmingpreference, encodingprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RenderToFileWithProfileAsync)(windows_core::Interface::as_raw(this), destination.param().abi(), trimmingPreference, encodingProfile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
@@ -739,22 +733,22 @@ impl MediaComposition {
         }
     }
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties"))]
-    pub fn GenerateMediaStreamSourceWithProfile<P0>(&self, encodingprofile: P0) -> windows_core::Result<super::Core::MediaStreamSource>
+    pub fn GenerateMediaStreamSourceWithProfile<P0>(&self, encodingProfile: P0) -> windows_core::Result<super::Core::MediaStreamSource>
     where
         P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GenerateMediaStreamSourceWithProfile)(windows_core::Interface::as_raw(this), encodingprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GenerateMediaStreamSourceWithProfile)(windows_core::Interface::as_raw(this), encodingProfile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Media_Core")]
-    pub fn GeneratePreviewMediaStreamSource(&self, scaledwidth: i32, scaledheight: i32) -> windows_core::Result<super::Core::MediaStreamSource> {
+    pub fn GeneratePreviewMediaStreamSource(&self, scaledWidth: i32, scaledHeight: i32) -> windows_core::Result<super::Core::MediaStreamSource> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GeneratePreviewMediaStreamSource)(windows_core::Interface::as_raw(this), scaledwidth, scaledheight, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GeneratePreviewMediaStreamSource)(windows_core::Interface::as_raw(this), scaledWidth, scaledHeight, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -765,7 +759,7 @@ impl MediaComposition {
             (windows_core::Interface::vtable(this).OverlayLayers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub fn LoadAsync<P0>(file: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<MediaComposition>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
@@ -784,14 +778,12 @@ impl windows_core::RuntimeType for MediaComposition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaComposition>();
 }
 unsafe impl windows_core::Interface for MediaComposition {
-    type Vtable = IMediaComposition_Vtbl;
+    type Vtable = <IMediaComposition as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaComposition as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MediaComposition {
     const NAME: &'static str = "Windows.Media.Editing.MediaComposition";
 }
-unsafe impl Send for MediaComposition {}
-unsafe impl Sync for MediaComposition {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaOverlay(windows_core::IUnknown);
@@ -882,14 +874,12 @@ impl windows_core::RuntimeType for MediaOverlay {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaOverlay>();
 }
 unsafe impl windows_core::Interface for MediaOverlay {
-    type Vtable = IMediaOverlay_Vtbl;
+    type Vtable = <IMediaOverlay as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaOverlay as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MediaOverlay {
     const NAME: &'static str = "Windows.Media.Editing.MediaOverlay";
 }
-unsafe impl Send for MediaOverlay {}
-unsafe impl Sync for MediaOverlay {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaOverlayLayer(windows_core::IUnknown);
@@ -926,13 +916,13 @@ impl MediaOverlayLayer {
         }
     }
     #[cfg(feature = "Media_Effects")]
-    pub fn CreateWithCompositorDefinition<P0>(compositordefinition: P0) -> windows_core::Result<MediaOverlayLayer>
+    pub fn CreateWithCompositorDefinition<P0>(compositorDefinition: P0) -> windows_core::Result<MediaOverlayLayer>
     where
         P0: windows_core::Param<super::Effects::IVideoCompositorDefinition>,
     {
         Self::IMediaOverlayLayerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithCompositorDefinition)(windows_core::Interface::as_raw(this), compositordefinition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithCompositorDefinition)(windows_core::Interface::as_raw(this), compositorDefinition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IMediaOverlayLayerFactory<R, F: FnOnce(&IMediaOverlayLayerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -944,16 +934,14 @@ impl windows_core::RuntimeType for MediaOverlayLayer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaOverlayLayer>();
 }
 unsafe impl windows_core::Interface for MediaOverlayLayer {
-    type Vtable = IMediaOverlayLayer_Vtbl;
+    type Vtable = <IMediaOverlayLayer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaOverlayLayer as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MediaOverlayLayer {
     const NAME: &'static str = "Windows.Media.Editing.MediaOverlayLayer";
 }
-unsafe impl Send for MediaOverlayLayer {}
-unsafe impl Sync for MediaOverlayLayer {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MediaTrimmingPreference(pub i32);
 impl MediaTrimmingPreference {
     pub const Fast: Self = Self(0i32);
@@ -962,16 +950,11 @@ impl MediaTrimmingPreference {
 impl windows_core::TypeKind for MediaTrimmingPreference {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MediaTrimmingPreference {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MediaTrimmingPreference").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for MediaTrimmingPreference {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.MediaTrimmingPreference;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct VideoFramePrecision(pub i32);
 impl VideoFramePrecision {
     pub const NearestFrame: Self = Self(0i32);
@@ -979,11 +962,6 @@ impl VideoFramePrecision {
 }
 impl windows_core::TypeKind for VideoFramePrecision {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for VideoFramePrecision {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VideoFramePrecision").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for VideoFramePrecision {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.VideoFramePrecision;i4)");

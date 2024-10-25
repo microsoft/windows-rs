@@ -110,14 +110,12 @@ impl windows_core::RuntimeType for PerformLocalActionRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPerformLocalActionRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for PerformLocalActionRequestedEventArgs {
-    type Vtable = IPerformLocalActionRequestedEventArgs_Vtbl;
+    type Vtable = <IPerformLocalActionRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPerformLocalActionRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PerformLocalActionRequestedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Provider.PerformLocalActionRequestedEventArgs";
 }
-unsafe impl Send for PerformLocalActionRequestedEventArgs {}
-unsafe impl Sync for PerformLocalActionRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteDesktopConnectionInfo(windows_core::IUnknown);
@@ -136,13 +134,13 @@ impl RemoteDesktopConnectionInfo {
         unsafe { (windows_core::Interface::vtable(this).PerformLocalActionFromRemote)(windows_core::Interface::as_raw(this), action).ok() }
     }
     #[cfg(feature = "UI")]
-    pub fn GetForLaunchUri<P0>(launchuri: P0, windowid: super::super::super::UI::WindowId) -> windows_core::Result<RemoteDesktopConnectionInfo>
+    pub fn GetForLaunchUri<P0>(launchUri: P0, windowId: super::super::super::UI::WindowId) -> windows_core::Result<RemoteDesktopConnectionInfo>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         Self::IRemoteDesktopConnectionInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), launchuri.param().abi(), windowid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), launchUri.param().abi(), windowId, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IRemoteDesktopConnectionInfoStatics<R, F: FnOnce(&IRemoteDesktopConnectionInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -154,19 +152,16 @@ impl windows_core::RuntimeType for RemoteDesktopConnectionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteDesktopConnectionInfo>();
 }
 unsafe impl windows_core::Interface for RemoteDesktopConnectionInfo {
-    type Vtable = IRemoteDesktopConnectionInfo_Vtbl;
+    type Vtable = <IRemoteDesktopConnectionInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteDesktopConnectionInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RemoteDesktopConnectionInfo {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Provider.RemoteDesktopConnectionInfo";
 }
-unsafe impl Send for RemoteDesktopConnectionInfo {}
-unsafe impl Sync for RemoteDesktopConnectionInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteDesktopConnectionRemoteInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoteDesktopConnectionRemoteInfo, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RemoteDesktopConnectionRemoteInfo, super::super::super::Foundation::IClosable);
 impl RemoteDesktopConnectionRemoteInfo {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -210,13 +205,13 @@ impl RemoteDesktopConnectionRemoteInfo {
             (windows_core::Interface::vtable(this).IsSwitchSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn GetForLaunchUri<P0>(launchuri: P0) -> windows_core::Result<RemoteDesktopConnectionRemoteInfo>
+    pub fn GetForLaunchUri<P0>(launchUri: P0) -> windows_core::Result<RemoteDesktopConnectionRemoteInfo>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         Self::IRemoteDesktopConnectionRemoteInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), launchuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetForLaunchUri)(windows_core::Interface::as_raw(this), launchUri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IRemoteDesktopConnectionRemoteInfoStatics<R, F: FnOnce(&IRemoteDesktopConnectionRemoteInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -228,14 +223,12 @@ impl windows_core::RuntimeType for RemoteDesktopConnectionRemoteInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteDesktopConnectionRemoteInfo>();
 }
 unsafe impl windows_core::Interface for RemoteDesktopConnectionRemoteInfo {
-    type Vtable = IRemoteDesktopConnectionRemoteInfo_Vtbl;
+    type Vtable = <IRemoteDesktopConnectionRemoteInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteDesktopConnectionRemoteInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RemoteDesktopConnectionRemoteInfo {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Provider.RemoteDesktopConnectionRemoteInfo";
 }
-unsafe impl Send for RemoteDesktopConnectionRemoteInfo {}
-unsafe impl Sync for RemoteDesktopConnectionRemoteInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteDesktopInfo(windows_core::IUnknown);
@@ -255,10 +248,10 @@ impl RemoteDesktopInfo {
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance(id: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<RemoteDesktopInfo> {
+    pub fn CreateInstance(id: &windows_core::HSTRING, displayName: &windows_core::HSTRING) -> windows_core::Result<RemoteDesktopInfo> {
         Self::IRemoteDesktopInfoFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), core::mem::transmute_copy(displayName), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IRemoteDesktopInfoFactory<R, F: FnOnce(&IRemoteDesktopInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -270,39 +263,19 @@ impl windows_core::RuntimeType for RemoteDesktopInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteDesktopInfo>();
 }
 unsafe impl windows_core::Interface for RemoteDesktopInfo {
-    type Vtable = IRemoteDesktopInfo_Vtbl;
+    type Vtable = <IRemoteDesktopInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteDesktopInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RemoteDesktopInfo {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo";
 }
-unsafe impl Send for RemoteDesktopInfo {}
-unsafe impl Sync for RemoteDesktopInfo {}
 pub struct RemoteDesktopRegistrar;
-impl RemoteDesktopRegistrar {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DesktopInfos() -> windows_core::Result<super::super::super::Foundation::Collections::IVector<RemoteDesktopInfo>> {
-        Self::IRemoteDesktopRegistrarStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DesktopInfos)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn IsSwitchToLocalSessionEnabled() -> windows_core::Result<bool> {
-        Self::IRemoteDesktopRegistrarStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsSwitchToLocalSessionEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    fn IRemoteDesktopRegistrarStatics<R, F: FnOnce(&IRemoteDesktopRegistrarStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<RemoteDesktopRegistrar, IRemoteDesktopRegistrarStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl RemoteDesktopRegistrar {}
 impl windows_core::RuntimeName for RemoteDesktopRegistrar {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Provider.RemoteDesktopRegistrar";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct RemoteDesktopConnectionStatus(pub i32);
 impl RemoteDesktopConnectionStatus {
     pub const Connecting: Self = Self(0i32);
@@ -313,16 +286,11 @@ impl RemoteDesktopConnectionStatus {
 impl windows_core::TypeKind for RemoteDesktopConnectionStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RemoteDesktopConnectionStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RemoteDesktopConnectionStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for RemoteDesktopConnectionStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteDesktop.Provider.RemoteDesktopConnectionStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct RemoteDesktopLocalAction(pub i32);
 impl RemoteDesktopLocalAction {
     pub const ShowBluetoothSettings: Self = Self(0i32);
@@ -333,11 +301,6 @@ impl RemoteDesktopLocalAction {
 }
 impl windows_core::TypeKind for RemoteDesktopLocalAction {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for RemoteDesktopLocalAction {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RemoteDesktopLocalAction").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for RemoteDesktopLocalAction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteDesktop.Provider.RemoteDesktopLocalAction;i4)");

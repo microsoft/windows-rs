@@ -164,11 +164,11 @@ impl DialApp {
             (windows_core::Interface::vtable(this).AppName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestLaunchAsync(&self, appargument: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DialAppLaunchResult>> {
+    pub fn RequestLaunchAsync(&self, appArgument: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DialAppLaunchResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestLaunchAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appargument), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestLaunchAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appArgument), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn StopAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DialAppStopResult>> {
@@ -190,14 +190,12 @@ impl windows_core::RuntimeType for DialApp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialApp>();
 }
 unsafe impl windows_core::Interface for DialApp {
-    type Vtable = IDialApp_Vtbl;
+    type Vtable = <IDialApp as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialApp as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DialApp {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialApp";
 }
-unsafe impl Send for DialApp {}
-unsafe impl Sync for DialApp {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialAppStateDetails(windows_core::IUnknown);
@@ -222,14 +220,12 @@ impl windows_core::RuntimeType for DialAppStateDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialAppStateDetails>();
 }
 unsafe impl windows_core::Interface for DialAppStateDetails {
-    type Vtable = IDialAppStateDetails_Vtbl;
+    type Vtable = <IDialAppStateDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialAppStateDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DialAppStateDetails {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialAppStateDetails";
 }
-unsafe impl Send for DialAppStateDetails {}
-unsafe impl Sync for DialAppStateDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialDevice(windows_core::IUnknown);
@@ -242,11 +238,11 @@ impl DialDevice {
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDialApp(&self, appname: &windows_core::HSTRING) -> windows_core::Result<DialApp> {
+    pub fn GetDialApp(&self, appName: &windows_core::HSTRING) -> windows_core::Result<DialApp> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDialApp)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDialApp)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appName), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn FriendlyName(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -264,10 +260,10 @@ impl DialDevice {
             (windows_core::Interface::vtable(this).Thumbnail)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeviceSelector(appname: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector(appName: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
         Self::IDialDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appName), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn FromIdAsync(value: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DialDevice>> {
@@ -295,14 +291,12 @@ impl windows_core::RuntimeType for DialDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDevice>();
 }
 unsafe impl windows_core::Interface for DialDevice {
-    type Vtable = IDialDevice_Vtbl;
+    type Vtable = <IDialDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DialDevice {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevice";
 }
-unsafe impl Send for DialDevice {}
-unsafe impl Sync for DialDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialDevicePicker(windows_core::IUnknown);
@@ -377,9 +371,9 @@ impl DialDevicePicker {
         unsafe { (windows_core::Interface::vtable(this).Show)(windows_core::Interface::as_raw(this), selection).ok() }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowWithPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_core::Result<()> {
+    pub fn ShowWithPlacement(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ShowWithPlacement)(windows_core::Interface::as_raw(this), selection, preferredplacement).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ShowWithPlacement)(windows_core::Interface::as_raw(this), selection, preferredPlacement).ok() }
     }
     pub fn PickSingleDialDeviceAsync(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DialDevice>> {
         let this = self;
@@ -389,11 +383,11 @@ impl DialDevicePicker {
         }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn PickSingleDialDeviceAsyncWithPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DialDevice>> {
+    pub fn PickSingleDialDeviceAsyncWithPlacement(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DialDevice>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PickSingleDialDeviceAsyncWithPlacement)(windows_core::Interface::as_raw(this), selection, preferredplacement, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).PickSingleDialDeviceAsyncWithPlacement)(windows_core::Interface::as_raw(this), selection, preferredPlacement, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Hide(&self) -> windows_core::Result<()> {
@@ -412,14 +406,12 @@ impl windows_core::RuntimeType for DialDevicePicker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDevicePicker>();
 }
 unsafe impl windows_core::Interface for DialDevicePicker {
-    type Vtable = IDialDevicePicker_Vtbl;
+    type Vtable = <IDialDevicePicker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialDevicePicker as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DialDevicePicker {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevicePicker";
 }
-unsafe impl Send for DialDevicePicker {}
-unsafe impl Sync for DialDevicePicker {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialDevicePickerFilter(windows_core::IUnknown);
@@ -438,14 +430,12 @@ impl windows_core::RuntimeType for DialDevicePickerFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDevicePickerFilter>();
 }
 unsafe impl windows_core::Interface for DialDevicePickerFilter {
-    type Vtable = IDialDevicePickerFilter_Vtbl;
+    type Vtable = <IDialDevicePickerFilter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialDevicePickerFilter as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DialDevicePickerFilter {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevicePickerFilter";
 }
-unsafe impl Send for DialDevicePickerFilter {}
-unsafe impl Sync for DialDevicePickerFilter {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialDeviceSelectedEventArgs(windows_core::IUnknown);
@@ -463,14 +453,12 @@ impl windows_core::RuntimeType for DialDeviceSelectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDeviceSelectedEventArgs>();
 }
 unsafe impl windows_core::Interface for DialDeviceSelectedEventArgs {
-    type Vtable = IDialDeviceSelectedEventArgs_Vtbl;
+    type Vtable = <IDialDeviceSelectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialDeviceSelectedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DialDeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDeviceSelectedEventArgs";
 }
-unsafe impl Send for DialDeviceSelectedEventArgs {}
-unsafe impl Sync for DialDeviceSelectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialDisconnectButtonClickedEventArgs(windows_core::IUnknown);
@@ -488,14 +476,12 @@ impl windows_core::RuntimeType for DialDisconnectButtonClickedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDisconnectButtonClickedEventArgs>();
 }
 unsafe impl windows_core::Interface for DialDisconnectButtonClickedEventArgs {
-    type Vtable = IDialDisconnectButtonClickedEventArgs_Vtbl;
+    type Vtable = <IDialDisconnectButtonClickedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialDisconnectButtonClickedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DialDisconnectButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDisconnectButtonClickedEventArgs";
 }
-unsafe impl Send for DialDisconnectButtonClickedEventArgs {}
-unsafe impl Sync for DialDisconnectButtonClickedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialReceiverApp(windows_core::IUnknown);
@@ -510,14 +496,14 @@ impl DialReceiverApp {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAdditionalDataAsync<P0>(&self, additionaldata: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetAdditionalDataAsync<P0>(&self, additionalData: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetAdditionalDataAsync)(windows_core::Interface::as_raw(this), additionaldata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetAdditionalDataAsync)(windows_core::Interface::as_raw(this), additionalData.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetUniqueDeviceNameAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>> {
@@ -542,16 +528,14 @@ impl windows_core::RuntimeType for DialReceiverApp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialReceiverApp>();
 }
 unsafe impl windows_core::Interface for DialReceiverApp {
-    type Vtable = IDialReceiverApp_Vtbl;
+    type Vtable = <IDialReceiverApp as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialReceiverApp as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DialReceiverApp {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialReceiverApp";
 }
-unsafe impl Send for DialReceiverApp {}
-unsafe impl Sync for DialReceiverApp {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DialAppLaunchResult(pub i32);
 impl DialAppLaunchResult {
     pub const Launched: Self = Self(0i32);
@@ -562,16 +546,11 @@ impl DialAppLaunchResult {
 impl windows_core::TypeKind for DialAppLaunchResult {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DialAppLaunchResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DialAppLaunchResult").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DialAppLaunchResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppLaunchResult;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DialAppState(pub i32);
 impl DialAppState {
     pub const Unknown: Self = Self(0i32);
@@ -582,16 +561,11 @@ impl DialAppState {
 impl windows_core::TypeKind for DialAppState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DialAppState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DialAppState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DialAppState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DialAppStopResult(pub i32);
 impl DialAppStopResult {
     pub const Stopped: Self = Self(0i32);
@@ -602,16 +576,11 @@ impl DialAppStopResult {
 impl windows_core::TypeKind for DialAppStopResult {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DialAppStopResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DialAppStopResult").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DialAppStopResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialAppStopResult;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DialDeviceDisplayStatus(pub i32);
 impl DialDeviceDisplayStatus {
     pub const None: Self = Self(0i32);
@@ -623,11 +592,6 @@ impl DialDeviceDisplayStatus {
 }
 impl windows_core::TypeKind for DialDeviceDisplayStatus {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DialDeviceDisplayStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DialDeviceDisplayStatus").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for DialDeviceDisplayStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialDeviceDisplayStatus;i4)");

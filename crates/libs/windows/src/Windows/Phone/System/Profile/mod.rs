@@ -16,20 +16,7 @@ pub struct IRetailModeStatics_Vtbl {
 #[cfg(feature = "deprecated")]
 pub struct RetailMode;
 #[cfg(feature = "deprecated")]
-impl RetailMode {
-    #[cfg(feature = "deprecated")]
-    pub fn RetailModeEnabled() -> windows_core::Result<bool> {
-        Self::IRetailModeStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RetailModeEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    #[cfg(feature = "deprecated")]
-    fn IRetailModeStatics<R, F: FnOnce(&IRetailModeStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<RetailMode, IRetailModeStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl RetailMode {}
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for RetailMode {
     const NAME: &'static str = "Windows.Phone.System.Profile.RetailMode";

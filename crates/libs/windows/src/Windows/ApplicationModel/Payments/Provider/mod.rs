@@ -91,28 +91,26 @@ impl windows_core::RuntimeType for PaymentAppCanMakePaymentTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentAppCanMakePaymentTriggerDetails>();
 }
 unsafe impl windows_core::Interface for PaymentAppCanMakePaymentTriggerDetails {
-    type Vtable = IPaymentAppCanMakePaymentTriggerDetails_Vtbl;
+    type Vtable = <IPaymentAppCanMakePaymentTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentAppCanMakePaymentTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentAppCanMakePaymentTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentAppCanMakePaymentTriggerDetails";
 }
-unsafe impl Send for PaymentAppCanMakePaymentTriggerDetails {}
-unsafe impl Sync for PaymentAppCanMakePaymentTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentAppManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentAppManager, windows_core::IUnknown, windows_core::IInspectable);
 impl PaymentAppManager {
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterAsync<P0>(&self, supportedpaymentmethodids: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn RegisterAsync<P0>(&self, supportedPaymentMethodIds: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
         P0: windows_core::Param<super::super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RegisterAsync)(windows_core::Interface::as_raw(this), supportedpaymentmethodids.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RegisterAsync)(windows_core::Interface::as_raw(this), supportedPaymentMethodIds.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn UnregisterAsync(&self) -> windows_core::Result<super::super::super::Foundation::IAsyncAction> {
@@ -137,14 +135,12 @@ impl windows_core::RuntimeType for PaymentAppManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentAppManager>();
 }
 unsafe impl windows_core::Interface for PaymentAppManager {
-    type Vtable = IPaymentAppManager_Vtbl;
+    type Vtable = <IPaymentAppManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentAppManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentAppManager";
 }
-unsafe impl Send for PaymentAppManager {}
-unsafe impl Sync for PaymentAppManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentTransaction(windows_core::IUnknown);
@@ -190,34 +186,34 @@ impl PaymentTransaction {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPayerPhoneNumber)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn UpdateShippingAddressAsync<P0>(&self, shippingaddress: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>
+    pub fn UpdateShippingAddressAsync<P0>(&self, shippingAddress: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>
     where
         P0: windows_core::Param<super::PaymentAddress>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateShippingAddressAsync)(windows_core::Interface::as_raw(this), shippingaddress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateShippingAddressAsync)(windows_core::Interface::as_raw(this), shippingAddress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdateSelectedShippingOptionAsync<P0>(&self, selectedshippingoption: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>
+    pub fn UpdateSelectedShippingOptionAsync<P0>(&self, selectedShippingOption: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>
     where
         P0: windows_core::Param<super::PaymentShippingOption>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).UpdateSelectedShippingOptionAsync)(windows_core::Interface::as_raw(this), selectedshippingoption.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).UpdateSelectedShippingOptionAsync)(windows_core::Interface::as_raw(this), selectedShippingOption.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AcceptAsync<P0>(&self, paymenttoken: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>>
+    pub fn AcceptAsync<P0>(&self, paymentToken: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>>
     where
         P0: windows_core::Param<super::PaymentToken>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AcceptAsync)(windows_core::Interface::as_raw(this), paymenttoken.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AcceptAsync)(windows_core::Interface::as_raw(this), paymentToken.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Reject(&self) -> windows_core::Result<()> {
@@ -239,14 +235,12 @@ impl windows_core::RuntimeType for PaymentTransaction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentTransaction>();
 }
 unsafe impl windows_core::Interface for PaymentTransaction {
-    type Vtable = IPaymentTransaction_Vtbl;
+    type Vtable = <IPaymentTransaction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentTransaction as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentTransaction {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentTransaction";
 }
-unsafe impl Send for PaymentTransaction {}
-unsafe impl Sync for PaymentTransaction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentTransactionAcceptResult(windows_core::IUnknown);
@@ -264,11 +258,9 @@ impl windows_core::RuntimeType for PaymentTransactionAcceptResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentTransactionAcceptResult>();
 }
 unsafe impl windows_core::Interface for PaymentTransactionAcceptResult {
-    type Vtable = IPaymentTransactionAcceptResult_Vtbl;
+    type Vtable = <IPaymentTransactionAcceptResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentTransactionAcceptResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentTransactionAcceptResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentTransactionAcceptResult";
 }
-unsafe impl Send for PaymentTransactionAcceptResult {}
-unsafe impl Sync for PaymentTransactionAcceptResult {}

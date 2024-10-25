@@ -219,13 +219,10 @@ pub struct IDesignModeStatics2_Vtbl {
     pub DesignMode2Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IEnteredBackgroundEventArgs, IEnteredBackgroundEventArgs_Vtbl, 0xf722dcc2_9827_403d_aaed_ecca9ac17398);
-impl core::ops::Deref for IEnteredBackgroundEventArgs {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IEnteredBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for IEnteredBackgroundEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IEnteredBackgroundEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::Foundation::Deferral> {
         let this = self;
@@ -234,9 +231,6 @@ impl IEnteredBackgroundEventArgs {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-impl windows_core::RuntimeType for IEnteredBackgroundEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IEnteredBackgroundEventArgs_Vtbl {
@@ -303,13 +297,10 @@ pub struct IFullTrustProcessLauncherStatics2_Vtbl {
     pub LaunchFullTrustProcessForAppWithArgumentsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILeavingBackgroundEventArgs, ILeavingBackgroundEventArgs_Vtbl, 0x39c6ec9a_ae6e_46f9_a07a_cfc23f88733e);
-impl core::ops::Deref for ILeavingBackgroundEventArgs {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ILeavingBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for ILeavingBackgroundEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ILeavingBackgroundEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::Foundation::Deferral> {
         let this = self;
@@ -318,9 +309,6 @@ impl ILeavingBackgroundEventArgs {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-impl windows_core::RuntimeType for ILeavingBackgroundEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct ILeavingBackgroundEventArgs_Vtbl {
@@ -355,9 +343,9 @@ impl windows_core::RuntimeType for IPackage {
 pub struct IPackage_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Search"))]
     pub InstalledLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Search")))]
     InstalledLocation: usize,
     pub IsFramework: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     #[cfg(feature = "Foundation_Collections")]
@@ -444,13 +432,13 @@ impl windows_core::RuntimeType for IPackage7 {
 #[repr(C)]
 pub struct IPackage7_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Search"))]
     pub MutableLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Search")))]
     MutableLocation: usize,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Search"))]
     pub EffectiveLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Search")))]
     EffectiveLocation: usize,
 }
 windows_core::imp::define_interface!(IPackage8, IPackage8_Vtbl, 0x2c584f7b_ce2a_4be6_a093_77cfbb2a7ea1);
@@ -460,17 +448,17 @@ impl windows_core::RuntimeType for IPackage8 {
 #[repr(C)]
 pub struct IPackage8_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Search"))]
     pub EffectiveExternalLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Search")))]
     EffectiveExternalLocation: usize,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Search"))]
     pub MachineExternalLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Search")))]
     MachineExternalLocation: usize,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Search"))]
     pub UserExternalLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Search")))]
     UserExternalLocation: usize,
     pub InstalledPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub MutablePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
@@ -613,13 +601,10 @@ pub struct IPackageCatalogStatics_Vtbl {
     pub OpenForCurrentUser: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IPackageCatalogStatics2, IPackageCatalogStatics2_Vtbl, 0x4c11c159_9a28_598c_b185_55e1899b2be4);
-impl core::ops::Deref for IPackageCatalogStatics2 {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IPackageCatalogStatics2, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for IPackageCatalogStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IPackageCatalogStatics2 {
     pub fn OpenForPackage<P0>(&self, package: P0) -> windows_core::Result<PackageCatalog>
     where
@@ -631,9 +616,6 @@ impl IPackageCatalogStatics2 {
             (windows_core::Interface::vtable(this).OpenForPackage)(windows_core::Interface::as_raw(this), package.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-impl windows_core::RuntimeType for IPackageCatalogStatics2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IPackageCatalogStatics2_Vtbl {
@@ -824,10 +806,7 @@ pub struct IPackageWithMetadata_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub InstallDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::DateTime) -> windows_core::HRESULT,
     pub GetThumbnailToken: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    #[cfg(feature = "deprecated")]
     pub Launch: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Launch: usize,
 }
 windows_core::imp::define_interface!(IStartupTask, IStartupTask_Vtbl, 0xf75c23c8_b5f2_4f6c_88dd_36cb1d599d17);
 impl windows_core::RuntimeType for IStartupTask {
@@ -855,21 +834,15 @@ pub struct IStartupTaskStatics_Vtbl {
     pub GetAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISuspendingDeferral, ISuspendingDeferral_Vtbl, 0x59140509_8bc9_4eb4_b636_dabdc4f46f66);
-impl core::ops::Deref for ISuspendingDeferral {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ISuspendingDeferral, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for ISuspendingDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ISuspendingDeferral {
     pub fn Complete(&self) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
-}
-impl windows_core::RuntimeType for ISuspendingDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct ISuspendingDeferral_Vtbl {
@@ -877,13 +850,10 @@ pub struct ISuspendingDeferral_Vtbl {
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISuspendingEventArgs, ISuspendingEventArgs_Vtbl, 0x96061c05_2dba_4d08_b0bd_2b30a131c6aa);
-impl core::ops::Deref for ISuspendingEventArgs {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ISuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for ISuspendingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ISuspendingEventArgs {
     pub fn SuspendingOperation(&self) -> windows_core::Result<SuspendingOperation> {
         let this = self;
@@ -893,22 +863,16 @@ impl ISuspendingEventArgs {
         }
     }
 }
-impl windows_core::RuntimeType for ISuspendingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct ISuspendingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SuspendingOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ISuspendingOperation, ISuspendingOperation_Vtbl, 0x9da4ca41_20e1_4e9b_9f65_a9f435340c3a);
-impl core::ops::Deref for ISuspendingOperation {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ISuspendingOperation, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for ISuspendingOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ISuspendingOperation {
     pub fn GetDeferral(&self) -> windows_core::Result<SuspendingDeferral> {
         let this = self;
@@ -924,9 +888,6 @@ impl ISuspendingOperation {
             (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-}
-impl windows_core::RuntimeType for ISuspendingOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct ISuspendingOperation_Vtbl {
@@ -966,14 +927,12 @@ impl windows_core::RuntimeType for AppDisplayInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppDisplayInfo>();
 }
 unsafe impl windows_core::Interface for AppDisplayInfo {
-    type Vtable = IAppDisplayInfo_Vtbl;
+    type Vtable = <IAppDisplayInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppDisplayInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppDisplayInfo {
     const NAME: &'static str = "Windows.ApplicationModel.AppDisplayInfo";
 }
-unsafe impl Send for AppDisplayInfo {}
-unsafe impl Sync for AppDisplayInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppInfo(windows_core::IUnknown);
@@ -1034,20 +993,20 @@ impl AppInfo {
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetFromAppUserModelId(appusermodelid: &windows_core::HSTRING) -> windows_core::Result<AppInfo> {
+    pub fn GetFromAppUserModelId(appUserModelId: &windows_core::HSTRING) -> windows_core::Result<AppInfo> {
         Self::IAppInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFromAppUserModelId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appusermodelid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFromAppUserModelId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appUserModelId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn GetFromAppUserModelIdForUser<P0>(user: P0, appusermodelid: &windows_core::HSTRING) -> windows_core::Result<AppInfo>
+    pub fn GetFromAppUserModelIdForUser<P0>(user: P0, appUserModelId: &windows_core::HSTRING) -> windows_core::Result<AppInfo>
     where
         P0: windows_core::Param<super::System::User>,
     {
         Self::IAppInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetFromAppUserModelIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(appusermodelid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetFromAppUserModelIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(appUserModelId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IAppInfoStatics<R, F: FnOnce(&IAppInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1059,14 +1018,12 @@ impl windows_core::RuntimeType for AppInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppInfo>();
 }
 unsafe impl windows_core::Interface for AppInfo {
-    type Vtable = IAppInfo_Vtbl;
+    type Vtable = <IAppInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppInfo {
     const NAME: &'static str = "Windows.ApplicationModel.AppInfo";
 }
-unsafe impl Send for AppInfo {}
-unsafe impl Sync for AppInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppInstallerInfo(windows_core::IUnknown);
@@ -1193,14 +1150,12 @@ impl windows_core::RuntimeType for AppInstallerInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppInstallerInfo>();
 }
 unsafe impl windows_core::Interface for AppInstallerInfo {
-    type Vtable = IAppInstallerInfo_Vtbl;
+    type Vtable = <IAppInstallerInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppInstallerInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppInstallerInfo {
     const NAME: &'static str = "Windows.ApplicationModel.AppInstallerInfo";
 }
-unsafe impl Send for AppInstallerInfo {}
-unsafe impl Sync for AppInstallerInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppInstance(windows_core::IUnknown);
@@ -1262,57 +1217,26 @@ impl windows_core::RuntimeType for AppInstance {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppInstance>();
 }
 unsafe impl windows_core::Interface for AppInstance {
-    type Vtable = IAppInstance_Vtbl;
+    type Vtable = <IAppInstance as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppInstance as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppInstance {
     const NAME: &'static str = "Windows.ApplicationModel.AppInstance";
 }
-unsafe impl Send for AppInstance {}
-unsafe impl Sync for AppInstance {}
 pub struct CameraApplicationManager;
-impl CameraApplicationManager {
-    pub fn ShowInstalledApplicationsUI() -> windows_core::Result<()> {
-        Self::ICameraApplicationManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowInstalledApplicationsUI)(windows_core::Interface::as_raw(this)).ok() })
-    }
-    fn ICameraApplicationManagerStatics<R, F: FnOnce(&ICameraApplicationManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<CameraApplicationManager, ICameraApplicationManagerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl CameraApplicationManager {}
 impl windows_core::RuntimeName for CameraApplicationManager {
     const NAME: &'static str = "Windows.ApplicationModel.CameraApplicationManager";
 }
 pub struct DesignMode;
-impl DesignMode {
-    pub fn DesignModeEnabled() -> windows_core::Result<bool> {
-        Self::IDesignModeStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DesignModeEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    pub fn DesignMode2Enabled() -> windows_core::Result<bool> {
-        Self::IDesignModeStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DesignMode2Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    fn IDesignModeStatics<R, F: FnOnce(&IDesignModeStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<DesignMode, IDesignModeStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IDesignModeStatics2<R, F: FnOnce(&IDesignModeStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<DesignMode, IDesignModeStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl DesignMode {}
 impl windows_core::RuntimeName for DesignMode {
     const NAME: &'static str = "Windows.ApplicationModel.DesignMode";
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnteredBackgroundEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(EnteredBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable, IEnteredBackgroundEventArgs);
+windows_core::imp::interface_hierarchy!(EnteredBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EnteredBackgroundEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::Foundation::Deferral> {
         let this = self;
@@ -1326,14 +1250,12 @@ impl windows_core::RuntimeType for EnteredBackgroundEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnteredBackgroundEventArgs>();
 }
 unsafe impl windows_core::Interface for EnteredBackgroundEventArgs {
-    type Vtable = IEnteredBackgroundEventArgs_Vtbl;
+    type Vtable = <IEnteredBackgroundEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEnteredBackgroundEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EnteredBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.EnteredBackgroundEventArgs";
 }
-unsafe impl Send for EnteredBackgroundEventArgs {}
-unsafe impl Sync for EnteredBackgroundEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FindRelatedPackagesOptions(windows_core::IUnknown);
@@ -1394,10 +1316,10 @@ impl FindRelatedPackagesOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIncludeResources)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CreateInstance(relationship: PackageRelationship) -> windows_core::Result<FindRelatedPackagesOptions> {
+    pub fn CreateInstance(Relationship: PackageRelationship) -> windows_core::Result<FindRelatedPackagesOptions> {
         Self::IFindRelatedPackagesOptionsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), relationship, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), Relationship, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IFindRelatedPackagesOptionsFactory<R, F: FnOnce(&IFindRelatedPackagesOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1409,14 +1331,12 @@ impl windows_core::RuntimeType for FindRelatedPackagesOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFindRelatedPackagesOptions>();
 }
 unsafe impl windows_core::Interface for FindRelatedPackagesOptions {
-    type Vtable = IFindRelatedPackagesOptions_Vtbl;
+    type Vtable = <IFindRelatedPackagesOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFindRelatedPackagesOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FindRelatedPackagesOptions {
     const NAME: &'static str = "Windows.ApplicationModel.FindRelatedPackagesOptions";
 }
-unsafe impl Send for FindRelatedPackagesOptions {}
-unsafe impl Sync for FindRelatedPackagesOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FullTrustProcessLaunchResult(windows_core::IUnknown);
@@ -1441,68 +1361,21 @@ impl windows_core::RuntimeType for FullTrustProcessLaunchResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFullTrustProcessLaunchResult>();
 }
 unsafe impl windows_core::Interface for FullTrustProcessLaunchResult {
-    type Vtable = IFullTrustProcessLaunchResult_Vtbl;
+    type Vtable = <IFullTrustProcessLaunchResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFullTrustProcessLaunchResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FullTrustProcessLaunchResult {
     const NAME: &'static str = "Windows.ApplicationModel.FullTrustProcessLaunchResult";
 }
-unsafe impl Send for FullTrustProcessLaunchResult {}
-unsafe impl Sync for FullTrustProcessLaunchResult {}
 pub struct FullTrustProcessLauncher;
-impl FullTrustProcessLauncher {
-    pub fn LaunchFullTrustProcessForCurrentAppAsync() -> windows_core::Result<super::Foundation::IAsyncAction> {
-        Self::IFullTrustProcessLauncherStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFullTrustProcessForCurrentAppAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn LaunchFullTrustProcessForCurrentAppWithParametersAsync(parametergroupid: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        Self::IFullTrustProcessLauncherStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFullTrustProcessForCurrentAppWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(parametergroupid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn LaunchFullTrustProcessForAppAsync(fulltrustpackagerelativeappid: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        Self::IFullTrustProcessLauncherStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFullTrustProcessForAppAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(fulltrustpackagerelativeappid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn LaunchFullTrustProcessForAppWithParametersAsync(fulltrustpackagerelativeappid: &windows_core::HSTRING, parametergroupid: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncAction> {
-        Self::IFullTrustProcessLauncherStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFullTrustProcessForAppWithParametersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(fulltrustpackagerelativeappid), core::mem::transmute_copy(parametergroupid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn LaunchFullTrustProcessForCurrentAppWithArgumentsAsync(commandline: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>> {
-        Self::IFullTrustProcessLauncherStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFullTrustProcessForCurrentAppWithArgumentsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(commandline), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn LaunchFullTrustProcessForAppWithArgumentsAsync(fulltrustpackagerelativeappid: &windows_core::HSTRING, commandline: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>> {
-        Self::IFullTrustProcessLauncherStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LaunchFullTrustProcessForAppWithArgumentsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(fulltrustpackagerelativeappid), core::mem::transmute_copy(commandline), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IFullTrustProcessLauncherStatics<R, F: FnOnce(&IFullTrustProcessLauncherStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<FullTrustProcessLauncher, IFullTrustProcessLauncherStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IFullTrustProcessLauncherStatics2<R, F: FnOnce(&IFullTrustProcessLauncherStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<FullTrustProcessLauncher, IFullTrustProcessLauncherStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl FullTrustProcessLauncher {}
 impl windows_core::RuntimeName for FullTrustProcessLauncher {
     const NAME: &'static str = "Windows.ApplicationModel.FullTrustProcessLauncher";
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LeavingBackgroundEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(LeavingBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable, ILeavingBackgroundEventArgs);
+windows_core::imp::interface_hierarchy!(LeavingBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl LeavingBackgroundEventArgs {
     pub fn GetDeferral(&self) -> windows_core::Result<super::Foundation::Deferral> {
         let this = self;
@@ -1516,14 +1389,12 @@ impl windows_core::RuntimeType for LeavingBackgroundEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILeavingBackgroundEventArgs>();
 }
 unsafe impl windows_core::Interface for LeavingBackgroundEventArgs {
-    type Vtable = ILeavingBackgroundEventArgs_Vtbl;
+    type Vtable = <ILeavingBackgroundEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILeavingBackgroundEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LeavingBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.LeavingBackgroundEventArgs";
 }
-unsafe impl Send for LeavingBackgroundEventArgs {}
-unsafe impl Sync for LeavingBackgroundEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LimitedAccessFeatureRequestResult(windows_core::IUnknown);
@@ -1555,27 +1426,14 @@ impl windows_core::RuntimeType for LimitedAccessFeatureRequestResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILimitedAccessFeatureRequestResult>();
 }
 unsafe impl windows_core::Interface for LimitedAccessFeatureRequestResult {
-    type Vtable = ILimitedAccessFeatureRequestResult_Vtbl;
+    type Vtable = <ILimitedAccessFeatureRequestResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILimitedAccessFeatureRequestResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LimitedAccessFeatureRequestResult {
     const NAME: &'static str = "Windows.ApplicationModel.LimitedAccessFeatureRequestResult";
 }
-unsafe impl Send for LimitedAccessFeatureRequestResult {}
-unsafe impl Sync for LimitedAccessFeatureRequestResult {}
 pub struct LimitedAccessFeatures;
-impl LimitedAccessFeatures {
-    pub fn TryUnlockFeature(featureid: &windows_core::HSTRING, token: &windows_core::HSTRING, attestation: &windows_core::HSTRING) -> windows_core::Result<LimitedAccessFeatureRequestResult> {
-        Self::ILimitedAccessFeaturesStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryUnlockFeature)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(featureid), core::mem::transmute_copy(token), core::mem::transmute_copy(attestation), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ILimitedAccessFeaturesStatics<R, F: FnOnce(&ILimitedAccessFeaturesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<LimitedAccessFeatures, ILimitedAccessFeaturesStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl LimitedAccessFeatures {}
 impl windows_core::RuntimeName for LimitedAccessFeatures {
     const NAME: &'static str = "Windows.ApplicationModel.LimitedAccessFeatures";
 }
@@ -1591,7 +1449,7 @@ impl Package {
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Search"))]
     pub fn InstalledLocation(&self) -> windows_core::Result<super::Storage::StorageFolder> {
         let this = self;
         unsafe {
@@ -1733,21 +1591,21 @@ impl Package {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StageContentGroupsWithPriorityAsync<P0>(&self, names: P0, movetoheadofqueue: bool) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>
+    pub fn StageContentGroupsWithPriorityAsync<P0>(&self, names: P0, moveToHeadOfQueue: bool) -> windows_core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>
     where
         P0: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IPackage5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StageContentGroupsWithPriorityAsync)(windows_core::Interface::as_raw(this), names.param().abi(), movetoheadofqueue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StageContentGroupsWithPriorityAsync)(windows_core::Interface::as_raw(this), names.param().abi(), moveToHeadOfQueue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetInUseAsync(&self, inuse: bool) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>> {
+    pub fn SetInUseAsync(&self, inUse: bool) -> windows_core::Result<super::Foundation::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<IPackage5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetInUseAsync)(windows_core::Interface::as_raw(this), inuse, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetInUseAsync)(windows_core::Interface::as_raw(this), inUse, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetAppInstallerInfo(&self) -> windows_core::Result<AppInstallerInfo> {
@@ -1764,7 +1622,7 @@ impl Package {
             (windows_core::Interface::vtable(this).CheckUpdateAvailabilityAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Search"))]
     pub fn MutableLocation(&self) -> windows_core::Result<super::Storage::StorageFolder> {
         let this = &windows_core::Interface::cast::<IPackage7>(self)?;
         unsafe {
@@ -1772,7 +1630,7 @@ impl Package {
             (windows_core::Interface::vtable(this).MutableLocation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Search"))]
     pub fn EffectiveLocation(&self) -> windows_core::Result<super::Storage::StorageFolder> {
         let this = &windows_core::Interface::cast::<IPackage7>(self)?;
         unsafe {
@@ -1780,7 +1638,7 @@ impl Package {
             (windows_core::Interface::vtable(this).EffectiveLocation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Search"))]
     pub fn EffectiveExternalLocation(&self) -> windows_core::Result<super::Storage::StorageFolder> {
         let this = &windows_core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -1788,7 +1646,7 @@ impl Package {
             (windows_core::Interface::vtable(this).EffectiveExternalLocation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Search"))]
     pub fn MachineExternalLocation(&self) -> windows_core::Result<super::Storage::StorageFolder> {
         let this = &windows_core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -1796,7 +1654,7 @@ impl Package {
             (windows_core::Interface::vtable(this).MachineExternalLocation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Search"))]
     pub fn UserExternalLocation(&self) -> windows_core::Result<super::Storage::StorageFolder> {
         let this = &windows_core::Interface::cast::<IPackage8>(self)?;
         unsafe {
@@ -1907,7 +1765,6 @@ impl Package {
             (windows_core::Interface::vtable(this).GetThumbnailToken)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Launch(&self, parameters: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPackageWithMetadata>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Launch)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(parameters)).ok() }
@@ -1921,14 +1778,12 @@ impl windows_core::RuntimeType for Package {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackage>();
 }
 unsafe impl windows_core::Interface for Package {
-    type Vtable = IPackage_Vtbl;
+    type Vtable = <IPackage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Package {
     const NAME: &'static str = "Windows.ApplicationModel.Package";
 }
-unsafe impl Send for Package {}
-unsafe impl Sync for Package {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageCatalog(windows_core::IUnknown);
@@ -2018,40 +1873,40 @@ impl PackageCatalog {
         let this = &windows_core::Interface::cast::<IPackageCatalog2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemovePackageContentGroupStaging)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn AddOptionalPackageAsync(&self, optionalpackagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<PackageCatalogAddOptionalPackageResult>> {
+    pub fn AddOptionalPackageAsync(&self, optionalPackageFamilyName: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<PackageCatalogAddOptionalPackageResult>> {
         let this = &windows_core::Interface::cast::<IPackageCatalog2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddOptionalPackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(optionalpackagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AddOptionalPackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(optionalPackageFamilyName), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RemoveOptionalPackagesAsync<P0>(&self, optionalpackagefamilynames: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveOptionalPackagesResult>>
+    pub fn RemoveOptionalPackagesAsync<P0>(&self, optionalPackageFamilyNames: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveOptionalPackagesResult>>
     where
         P0: windows_core::Param<super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IPackageCatalog3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveOptionalPackagesAsync)(windows_core::Interface::as_raw(this), optionalpackagefamilynames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveOptionalPackagesAsync)(windows_core::Interface::as_raw(this), optionalPackageFamilyNames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AddResourcePackageAsync(&self, resourcepackagefamilyname: &windows_core::HSTRING, resourceid: &windows_core::HSTRING, options: AddResourcePackageOptions) -> windows_core::Result<super::Foundation::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>> {
+    pub fn AddResourcePackageAsync(&self, resourcePackageFamilyName: &windows_core::HSTRING, resourceID: &windows_core::HSTRING, options: AddResourcePackageOptions) -> windows_core::Result<super::Foundation::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>> {
         let this = &windows_core::Interface::cast::<IPackageCatalog4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddResourcePackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resourcepackagefamilyname), core::mem::transmute_copy(resourceid), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).AddResourcePackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resourcePackageFamilyName), core::mem::transmute_copy(resourceID), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RemoveResourcePackagesAsync<P0>(&self, resourcepackages: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveResourcePackagesResult>>
+    pub fn RemoveResourcePackagesAsync<P0>(&self, resourcePackages: P0) -> windows_core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveResourcePackagesResult>>
     where
         P0: windows_core::Param<super::Foundation::Collections::IIterable<Package>>,
     {
         let this = &windows_core::Interface::cast::<IPackageCatalog4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveResourcePackagesAsync)(windows_core::Interface::as_raw(this), resourcepackages.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RemoveResourcePackagesAsync)(windows_core::Interface::as_raw(this), resourcePackages.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn OpenForCurrentPackage() -> windows_core::Result<PackageCatalog> {
@@ -2088,7 +1943,7 @@ impl windows_core::RuntimeType for PackageCatalog {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageCatalog>();
 }
 unsafe impl windows_core::Interface for PackageCatalog {
-    type Vtable = IPackageCatalog_Vtbl;
+    type Vtable = <IPackageCatalog as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageCatalog as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageCatalog {
@@ -2118,7 +1973,7 @@ impl windows_core::RuntimeType for PackageCatalogAddOptionalPackageResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageCatalogAddOptionalPackageResult>();
 }
 unsafe impl windows_core::Interface for PackageCatalogAddOptionalPackageResult {
-    type Vtable = IPackageCatalogAddOptionalPackageResult_Vtbl;
+    type Vtable = <IPackageCatalogAddOptionalPackageResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageCatalogAddOptionalPackageResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageCatalogAddOptionalPackageResult {
@@ -2155,14 +2010,12 @@ impl windows_core::RuntimeType for PackageCatalogAddResourcePackageResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageCatalogAddResourcePackageResult>();
 }
 unsafe impl windows_core::Interface for PackageCatalogAddResourcePackageResult {
-    type Vtable = IPackageCatalogAddResourcePackageResult_Vtbl;
+    type Vtable = <IPackageCatalogAddResourcePackageResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageCatalogAddResourcePackageResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageCatalogAddResourcePackageResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogAddResourcePackageResult";
 }
-unsafe impl Send for PackageCatalogAddResourcePackageResult {}
-unsafe impl Sync for PackageCatalogAddResourcePackageResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageCatalogRemoveOptionalPackagesResult(windows_core::IUnknown);
@@ -2188,7 +2041,7 @@ impl windows_core::RuntimeType for PackageCatalogRemoveOptionalPackagesResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageCatalogRemoveOptionalPackagesResult>();
 }
 unsafe impl windows_core::Interface for PackageCatalogRemoveOptionalPackagesResult {
-    type Vtable = IPackageCatalogRemoveOptionalPackagesResult_Vtbl;
+    type Vtable = <IPackageCatalogRemoveOptionalPackagesResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageCatalogRemoveOptionalPackagesResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageCatalogRemoveOptionalPackagesResult {
@@ -2219,14 +2072,12 @@ impl windows_core::RuntimeType for PackageCatalogRemoveResourcePackagesResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageCatalogRemoveResourcePackagesResult>();
 }
 unsafe impl windows_core::Interface for PackageCatalogRemoveResourcePackagesResult {
-    type Vtable = IPackageCatalogRemoveResourcePackagesResult_Vtbl;
+    type Vtable = <IPackageCatalogRemoveResourcePackagesResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageCatalogRemoveResourcePackagesResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageCatalogRemoveResourcePackagesResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogRemoveResourcePackagesResult";
 }
-unsafe impl Send for PackageCatalogRemoveResourcePackagesResult {}
-unsafe impl Sync for PackageCatalogRemoveResourcePackagesResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageContentGroup(windows_core::IUnknown);
@@ -2275,14 +2126,12 @@ impl windows_core::RuntimeType for PackageContentGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageContentGroup>();
 }
 unsafe impl windows_core::Interface for PackageContentGroup {
-    type Vtable = IPackageContentGroup_Vtbl;
+    type Vtable = <IPackageContentGroup as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageContentGroup as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageContentGroup {
     const NAME: &'static str = "Windows.ApplicationModel.PackageContentGroup";
 }
-unsafe impl Send for PackageContentGroup {}
-unsafe impl Sync for PackageContentGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageContentGroupStagingEventArgs(windows_core::IUnknown);
@@ -2342,14 +2191,12 @@ impl windows_core::RuntimeType for PackageContentGroupStagingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageContentGroupStagingEventArgs>();
 }
 unsafe impl windows_core::Interface for PackageContentGroupStagingEventArgs {
-    type Vtable = IPackageContentGroupStagingEventArgs_Vtbl;
+    type Vtable = <IPackageContentGroupStagingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageContentGroupStagingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageContentGroupStagingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageContentGroupStagingEventArgs";
 }
-unsafe impl Send for PackageContentGroupStagingEventArgs {}
-unsafe impl Sync for PackageContentGroupStagingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageId(windows_core::IUnknown);
@@ -2431,14 +2278,12 @@ impl windows_core::RuntimeType for PackageId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageId>();
 }
 unsafe impl windows_core::Interface for PackageId {
-    type Vtable = IPackageId_Vtbl;
+    type Vtable = <IPackageId as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageId as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageId {
     const NAME: &'static str = "Windows.ApplicationModel.PackageId";
 }
-unsafe impl Send for PackageId {}
-unsafe impl Sync for PackageId {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageInstallingEventArgs(windows_core::IUnknown);
@@ -2484,14 +2329,12 @@ impl windows_core::RuntimeType for PackageInstallingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageInstallingEventArgs>();
 }
 unsafe impl windows_core::Interface for PackageInstallingEventArgs {
-    type Vtable = IPackageInstallingEventArgs_Vtbl;
+    type Vtable = <IPackageInstallingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageInstallingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageInstallingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageInstallingEventArgs";
 }
-unsafe impl Send for PackageInstallingEventArgs {}
-unsafe impl Sync for PackageInstallingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageStagingEventArgs(windows_core::IUnknown);
@@ -2537,14 +2380,12 @@ impl windows_core::RuntimeType for PackageStagingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageStagingEventArgs>();
 }
 unsafe impl windows_core::Interface for PackageStagingEventArgs {
-    type Vtable = IPackageStagingEventArgs_Vtbl;
+    type Vtable = <IPackageStagingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageStagingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageStagingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageStagingEventArgs";
 }
-unsafe impl Send for PackageStagingEventArgs {}
-unsafe impl Sync for PackageStagingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageStatus(windows_core::IUnknown);
@@ -2646,14 +2487,12 @@ impl windows_core::RuntimeType for PackageStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageStatus>();
 }
 unsafe impl windows_core::Interface for PackageStatus {
-    type Vtable = IPackageStatus_Vtbl;
+    type Vtable = <IPackageStatus as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageStatus as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageStatus {
     const NAME: &'static str = "Windows.ApplicationModel.PackageStatus";
 }
-unsafe impl Send for PackageStatus {}
-unsafe impl Sync for PackageStatus {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageStatusChangedEventArgs(windows_core::IUnknown);
@@ -2671,14 +2510,12 @@ impl windows_core::RuntimeType for PackageStatusChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageStatusChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for PackageStatusChangedEventArgs {
-    type Vtable = IPackageStatusChangedEventArgs_Vtbl;
+    type Vtable = <IPackageStatusChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageStatusChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageStatusChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageStatusChangedEventArgs";
 }
-unsafe impl Send for PackageStatusChangedEventArgs {}
-unsafe impl Sync for PackageStatusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageUninstallingEventArgs(windows_core::IUnknown);
@@ -2724,14 +2561,12 @@ impl windows_core::RuntimeType for PackageUninstallingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageUninstallingEventArgs>();
 }
 unsafe impl windows_core::Interface for PackageUninstallingEventArgs {
-    type Vtable = IPackageUninstallingEventArgs_Vtbl;
+    type Vtable = <IPackageUninstallingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageUninstallingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageUninstallingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageUninstallingEventArgs";
 }
-unsafe impl Send for PackageUninstallingEventArgs {}
-unsafe impl Sync for PackageUninstallingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageUpdateAvailabilityResult(windows_core::IUnknown);
@@ -2756,14 +2591,12 @@ impl windows_core::RuntimeType for PackageUpdateAvailabilityResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageUpdateAvailabilityResult>();
 }
 unsafe impl windows_core::Interface for PackageUpdateAvailabilityResult {
-    type Vtable = IPackageUpdateAvailabilityResult_Vtbl;
+    type Vtable = <IPackageUpdateAvailabilityResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageUpdateAvailabilityResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageUpdateAvailabilityResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageUpdateAvailabilityResult";
 }
-unsafe impl Send for PackageUpdateAvailabilityResult {}
-unsafe impl Sync for PackageUpdateAvailabilityResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageUpdatingEventArgs(windows_core::IUnknown);
@@ -2816,14 +2649,12 @@ impl windows_core::RuntimeType for PackageUpdatingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageUpdatingEventArgs>();
 }
 unsafe impl windows_core::Interface for PackageUpdatingEventArgs {
-    type Vtable = IPackageUpdatingEventArgs_Vtbl;
+    type Vtable = <IPackageUpdatingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageUpdatingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PackageUpdatingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageUpdatingEventArgs";
 }
-unsafe impl Send for PackageUpdatingEventArgs {}
-unsafe impl Sync for PackageUpdatingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StartupTask(windows_core::IUnknown);
@@ -2861,10 +2692,10 @@ impl StartupTask {
             (windows_core::Interface::vtable(this).GetForCurrentPackageAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetAsync(taskid: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StartupTask>> {
+    pub fn GetAsync(taskId: &windows_core::HSTRING) -> windows_core::Result<super::Foundation::IAsyncOperation<StartupTask>> {
         Self::IStartupTaskStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(taskid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(taskId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IStartupTaskStatics<R, F: FnOnce(&IStartupTaskStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -2876,18 +2707,16 @@ impl windows_core::RuntimeType for StartupTask {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStartupTask>();
 }
 unsafe impl windows_core::Interface for StartupTask {
-    type Vtable = IStartupTask_Vtbl;
+    type Vtable = <IStartupTask as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStartupTask as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for StartupTask {
     const NAME: &'static str = "Windows.ApplicationModel.StartupTask";
 }
-unsafe impl Send for StartupTask {}
-unsafe impl Sync for StartupTask {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingDeferral(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SuspendingDeferral, windows_core::IUnknown, windows_core::IInspectable, ISuspendingDeferral);
+windows_core::imp::interface_hierarchy!(SuspendingDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl SuspendingDeferral {
     pub fn Complete(&self) -> windows_core::Result<()> {
         let this = self;
@@ -2898,18 +2727,16 @@ impl windows_core::RuntimeType for SuspendingDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISuspendingDeferral>();
 }
 unsafe impl windows_core::Interface for SuspendingDeferral {
-    type Vtable = ISuspendingDeferral_Vtbl;
+    type Vtable = <ISuspendingDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISuspendingDeferral as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SuspendingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.SuspendingDeferral";
 }
-unsafe impl Send for SuspendingDeferral {}
-unsafe impl Sync for SuspendingDeferral {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingEventArgs(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable, ISuspendingEventArgs);
+windows_core::imp::interface_hierarchy!(SuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SuspendingEventArgs {
     pub fn SuspendingOperation(&self) -> windows_core::Result<SuspendingOperation> {
         let this = self;
@@ -2923,18 +2750,16 @@ impl windows_core::RuntimeType for SuspendingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISuspendingEventArgs>();
 }
 unsafe impl windows_core::Interface for SuspendingEventArgs {
-    type Vtable = ISuspendingEventArgs_Vtbl;
+    type Vtable = <ISuspendingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISuspendingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SuspendingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.SuspendingEventArgs";
 }
-unsafe impl Send for SuspendingEventArgs {}
-unsafe impl Sync for SuspendingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingOperation(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SuspendingOperation, windows_core::IUnknown, windows_core::IInspectable, ISuspendingOperation);
+windows_core::imp::interface_hierarchy!(SuspendingOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl SuspendingOperation {
     pub fn GetDeferral(&self) -> windows_core::Result<SuspendingDeferral> {
         let this = self;
@@ -2955,16 +2780,14 @@ impl windows_core::RuntimeType for SuspendingOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISuspendingOperation>();
 }
 unsafe impl windows_core::Interface for SuspendingOperation {
-    type Vtable = ISuspendingOperation_Vtbl;
+    type Vtable = <ISuspendingOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISuspendingOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SuspendingOperation {
     const NAME: &'static str = "Windows.ApplicationModel.SuspendingOperation";
 }
-unsafe impl Send for SuspendingOperation {}
-unsafe impl Sync for SuspendingOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AddResourcePackageOptions(pub u32);
 impl AddResourcePackageOptions {
     pub const None: Self = Self(0u32);
@@ -2974,49 +2797,11 @@ impl AddResourcePackageOptions {
 impl windows_core::TypeKind for AddResourcePackageOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for AddResourcePackageOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AddResourcePackageOptions").field(&self.0).finish()
-    }
-}
-impl AddResourcePackageOptions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for AddResourcePackageOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for AddResourcePackageOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for AddResourcePackageOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for AddResourcePackageOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for AddResourcePackageOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for AddResourcePackageOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AddResourcePackageOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AppExecutionContext(pub i32);
 impl AppExecutionContext {
     pub const Unknown: Self = Self(0i32);
@@ -3026,16 +2811,11 @@ impl AppExecutionContext {
 impl windows_core::TypeKind for AppExecutionContext {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for AppExecutionContext {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AppExecutionContext").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for AppExecutionContext {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppExecutionContext;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct AppInstallerPolicySource(pub i32);
 impl AppInstallerPolicySource {
     pub const Default: Self = Self(0i32);
@@ -3044,16 +2824,11 @@ impl AppInstallerPolicySource {
 impl windows_core::TypeKind for AppInstallerPolicySource {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for AppInstallerPolicySource {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AppInstallerPolicySource").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for AppInstallerPolicySource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppInstallerPolicySource;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct FullTrustLaunchResult(pub i32);
 impl FullTrustLaunchResult {
     pub const Success: Self = Self(0i32);
@@ -3064,16 +2839,11 @@ impl FullTrustLaunchResult {
 impl windows_core::TypeKind for FullTrustLaunchResult {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FullTrustLaunchResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FullTrustLaunchResult").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for FullTrustLaunchResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.FullTrustLaunchResult;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct LimitedAccessFeatureStatus(pub i32);
 impl LimitedAccessFeatureStatus {
     pub const Unavailable: Self = Self(0i32);
@@ -3084,16 +2854,11 @@ impl LimitedAccessFeatureStatus {
 impl windows_core::TypeKind for LimitedAccessFeatureStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LimitedAccessFeatureStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LimitedAccessFeatureStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for LimitedAccessFeatureStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.LimitedAccessFeatureStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PackageContentGroupState(pub i32);
 impl PackageContentGroupState {
     pub const NotStaged: Self = Self(0i32);
@@ -3104,16 +2869,11 @@ impl PackageContentGroupState {
 impl windows_core::TypeKind for PackageContentGroupState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PackageContentGroupState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PackageContentGroupState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PackageContentGroupState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageContentGroupState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PackageRelationship(pub i32);
 impl PackageRelationship {
     pub const Dependencies: Self = Self(0i32);
@@ -3123,16 +2883,11 @@ impl PackageRelationship {
 impl windows_core::TypeKind for PackageRelationship {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PackageRelationship {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PackageRelationship").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PackageRelationship {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageRelationship;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PackageSignatureKind(pub i32);
 impl PackageSignatureKind {
     pub const None: Self = Self(0i32);
@@ -3144,16 +2899,11 @@ impl PackageSignatureKind {
 impl windows_core::TypeKind for PackageSignatureKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PackageSignatureKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PackageSignatureKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PackageSignatureKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageSignatureKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PackageUpdateAvailability(pub i32);
 impl PackageUpdateAvailability {
     pub const Unknown: Self = Self(0i32);
@@ -3165,16 +2915,11 @@ impl PackageUpdateAvailability {
 impl windows_core::TypeKind for PackageUpdateAvailability {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PackageUpdateAvailability {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PackageUpdateAvailability").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PackageUpdateAvailability {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.PackageUpdateAvailability;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct StartupTaskState(pub i32);
 impl StartupTaskState {
     pub const Disabled: Self = Self(0i32);
@@ -3186,16 +2931,11 @@ impl StartupTaskState {
 impl windows_core::TypeKind for StartupTaskState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for StartupTaskState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("StartupTaskState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for StartupTaskState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.StartupTaskState;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PackageInstallProgress {
     pub PercentComplete: u32,
 }
@@ -3205,13 +2945,8 @@ impl windows_core::TypeKind for PackageInstallProgress {
 impl windows_core::RuntimeType for PackageInstallProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.PackageInstallProgress;u4)");
 }
-impl Default for PackageInstallProgress {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PackageVersion {
     pub Major: u16,
     pub Minor: u16,
@@ -3224,10 +2959,3 @@ impl windows_core::TypeKind for PackageVersion {
 impl windows_core::RuntimeType for PackageVersion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.PackageVersion;u2;u2;u2;u2)");
 }
-impl Default for PackageVersion {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

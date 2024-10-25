@@ -14,9 +14,9 @@ pub struct IAppExtension_Vtbl {
     pub GetExtensionPropertiesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetExtensionPropertiesAsync: usize,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Search"))]
     pub GetPublicFolderAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Search")))]
     GetPublicFolderAsync: usize,
 }
 windows_core::imp::define_interface!(IAppExtension2, IAppExtension2_Vtbl, 0xab3b15f0_14f9_4b9f_9419_a349a242ef38);
@@ -40,9 +40,9 @@ pub struct IAppExtension3_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetExtensionProperties: usize,
     pub GetPublicPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Search"))]
     pub GetPublicFolder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Search")))]
     GetPublicFolder: usize,
 }
 windows_core::imp::define_interface!(IAppExtensionCatalog, IAppExtensionCatalog_Vtbl, 0x97872032_8426_4ad1_9084_92e88c2da200);
@@ -195,7 +195,7 @@ impl AppExtension {
             (windows_core::Interface::vtable(this).GetExtensionPropertiesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Search"))]
     pub fn GetPublicFolderAsync(&self) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFolder>> {
         let this = self;
         unsafe {
@@ -225,7 +225,7 @@ impl AppExtension {
             (windows_core::Interface::vtable(this).GetPublicPath)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Search"))]
     pub fn GetPublicFolder(&self) -> windows_core::Result<super::super::Storage::StorageFolder> {
         let this = &windows_core::Interface::cast::<IAppExtension3>(self)?;
         unsafe {
@@ -238,14 +238,12 @@ impl windows_core::RuntimeType for AppExtension {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppExtension>();
 }
 unsafe impl windows_core::Interface for AppExtension {
-    type Vtable = IAppExtension_Vtbl;
+    type Vtable = <IAppExtension as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppExtension as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppExtension {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtension";
 }
-unsafe impl Send for AppExtension {}
-unsafe impl Sync for AppExtension {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtensionCatalog(windows_core::IUnknown);
@@ -259,11 +257,11 @@ impl AppExtensionCatalog {
             (windows_core::Interface::vtable(this).FindAllAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestRemovePackageAsync(&self, packagefullname: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestRemovePackageAsync(&self, packageFullName: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestRemovePackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestRemovePackageAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packageFullName), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn PackageInstalled<P0>(&self, handler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
@@ -344,10 +342,10 @@ impl AppExtensionCatalog {
             (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Open(appextensionname: &windows_core::HSTRING) -> windows_core::Result<AppExtensionCatalog> {
+    pub fn Open(appExtensionName: &windows_core::HSTRING) -> windows_core::Result<AppExtensionCatalog> {
         Self::IAppExtensionCatalogStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Open)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appextensionname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).Open)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appExtensionName), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IAppExtensionCatalogStatics<R, F: FnOnce(&IAppExtensionCatalogStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -359,7 +357,7 @@ impl windows_core::RuntimeType for AppExtensionCatalog {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppExtensionCatalog>();
 }
 unsafe impl windows_core::Interface for AppExtensionCatalog {
-    type Vtable = IAppExtensionCatalog_Vtbl;
+    type Vtable = <IAppExtensionCatalog as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppExtensionCatalog as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppExtensionCatalog {
@@ -397,14 +395,12 @@ impl windows_core::RuntimeType for AppExtensionPackageInstalledEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppExtensionPackageInstalledEventArgs>();
 }
 unsafe impl windows_core::Interface for AppExtensionPackageInstalledEventArgs {
-    type Vtable = IAppExtensionPackageInstalledEventArgs_Vtbl;
+    type Vtable = <IAppExtensionPackageInstalledEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppExtensionPackageInstalledEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppExtensionPackageInstalledEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageInstalledEventArgs";
 }
-unsafe impl Send for AppExtensionPackageInstalledEventArgs {}
-unsafe impl Sync for AppExtensionPackageInstalledEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtensionPackageStatusChangedEventArgs(windows_core::IUnknown);
@@ -429,14 +425,12 @@ impl windows_core::RuntimeType for AppExtensionPackageStatusChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppExtensionPackageStatusChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for AppExtensionPackageStatusChangedEventArgs {
-    type Vtable = IAppExtensionPackageStatusChangedEventArgs_Vtbl;
+    type Vtable = <IAppExtensionPackageStatusChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppExtensionPackageStatusChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppExtensionPackageStatusChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageStatusChangedEventArgs";
 }
-unsafe impl Send for AppExtensionPackageStatusChangedEventArgs {}
-unsafe impl Sync for AppExtensionPackageStatusChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtensionPackageUninstallingEventArgs(windows_core::IUnknown);
@@ -461,14 +455,12 @@ impl windows_core::RuntimeType for AppExtensionPackageUninstallingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppExtensionPackageUninstallingEventArgs>();
 }
 unsafe impl windows_core::Interface for AppExtensionPackageUninstallingEventArgs {
-    type Vtable = IAppExtensionPackageUninstallingEventArgs_Vtbl;
+    type Vtable = <IAppExtensionPackageUninstallingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppExtensionPackageUninstallingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppExtensionPackageUninstallingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUninstallingEventArgs";
 }
-unsafe impl Send for AppExtensionPackageUninstallingEventArgs {}
-unsafe impl Sync for AppExtensionPackageUninstallingEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtensionPackageUpdatedEventArgs(windows_core::IUnknown);
@@ -501,14 +493,12 @@ impl windows_core::RuntimeType for AppExtensionPackageUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppExtensionPackageUpdatedEventArgs>();
 }
 unsafe impl windows_core::Interface for AppExtensionPackageUpdatedEventArgs {
-    type Vtable = IAppExtensionPackageUpdatedEventArgs_Vtbl;
+    type Vtable = <IAppExtensionPackageUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppExtensionPackageUpdatedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppExtensionPackageUpdatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatedEventArgs";
 }
-unsafe impl Send for AppExtensionPackageUpdatedEventArgs {}
-unsafe impl Sync for AppExtensionPackageUpdatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExtensionPackageUpdatingEventArgs(windows_core::IUnknown);
@@ -533,11 +523,9 @@ impl windows_core::RuntimeType for AppExtensionPackageUpdatingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppExtensionPackageUpdatingEventArgs>();
 }
 unsafe impl windows_core::Interface for AppExtensionPackageUpdatingEventArgs {
-    type Vtable = IAppExtensionPackageUpdatingEventArgs_Vtbl;
+    type Vtable = <IAppExtensionPackageUpdatingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppExtensionPackageUpdatingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AppExtensionPackageUpdatingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatingEventArgs";
 }
-unsafe impl Send for AppExtensionPackageUpdatingEventArgs {}
-unsafe impl Sync for AppExtensionPackageUpdatingEventArgs {}

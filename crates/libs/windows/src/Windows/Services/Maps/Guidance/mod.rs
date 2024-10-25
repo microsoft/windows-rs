@@ -311,14 +311,12 @@ impl windows_core::RuntimeType for GuidanceAudioNotificationRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceAudioNotificationRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for GuidanceAudioNotificationRequestedEventArgs {
-    type Vtable = IGuidanceAudioNotificationRequestedEventArgs_Vtbl;
+    type Vtable = <IGuidanceAudioNotificationRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceAudioNotificationRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GuidanceAudioNotificationRequestedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceAudioNotificationRequestedEventArgs";
 }
-unsafe impl Send for GuidanceAudioNotificationRequestedEventArgs {}
-unsafe impl Sync for GuidanceAudioNotificationRequestedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceLaneInfo(windows_core::IUnknown);
@@ -343,14 +341,12 @@ impl windows_core::RuntimeType for GuidanceLaneInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceLaneInfo>();
 }
 unsafe impl windows_core::Interface for GuidanceLaneInfo {
-    type Vtable = IGuidanceLaneInfo_Vtbl;
+    type Vtable = <IGuidanceLaneInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceLaneInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GuidanceLaneInfo {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceLaneInfo";
 }
-unsafe impl Send for GuidanceLaneInfo {}
-unsafe impl Sync for GuidanceLaneInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceManeuver(windows_core::IUnknown);
@@ -446,14 +442,12 @@ impl windows_core::RuntimeType for GuidanceManeuver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceManeuver>();
 }
 unsafe impl windows_core::Interface for GuidanceManeuver {
-    type Vtable = IGuidanceManeuver_Vtbl;
+    type Vtable = <IGuidanceManeuver as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceManeuver as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GuidanceManeuver {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceManeuver";
 }
-unsafe impl Send for GuidanceManeuver {}
-unsafe impl Sync for GuidanceManeuver {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceMapMatchedCoordinate(windows_core::IUnknown);
@@ -500,14 +494,12 @@ impl windows_core::RuntimeType for GuidanceMapMatchedCoordinate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceMapMatchedCoordinate>();
 }
 unsafe impl windows_core::Interface for GuidanceMapMatchedCoordinate {
-    type Vtable = IGuidanceMapMatchedCoordinate_Vtbl;
+    type Vtable = <IGuidanceMapMatchedCoordinate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceMapMatchedCoordinate as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GuidanceMapMatchedCoordinate {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceMapMatchedCoordinate";
 }
-unsafe impl Send for GuidanceMapMatchedCoordinate {}
-unsafe impl Sync for GuidanceMapMatchedCoordinate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceNavigator(windows_core::IUnknown);
@@ -520,12 +512,12 @@ impl GuidanceNavigator {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartNavigating)(windows_core::Interface::as_raw(this), route.param().abi()).ok() }
     }
-    pub fn StartSimulating<P0>(&self, route: P0, speedinmeterspersecond: i32) -> windows_core::Result<()>
+    pub fn StartSimulating<P0>(&self, route: P0, speedInMetersPerSecond: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<GuidanceRoute>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).StartSimulating)(windows_core::Interface::as_raw(this), route.param().abi(), speedinmeterspersecond).ok() }
+        unsafe { (windows_core::Interface::vtable(this).StartSimulating)(windows_core::Interface::as_raw(this), route.param().abi(), speedInMetersPerSecond).ok() }
     }
     pub fn StartTracking(&self) -> windows_core::Result<()> {
         let this = self;
@@ -667,25 +659,25 @@ impl GuidanceNavigator {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveUserLocationRestored)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SetGuidanceVoice(&self, voiceid: i32, voicefolder: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetGuidanceVoice(&self, voiceId: i32, voiceFolder: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetGuidanceVoice)(windows_core::Interface::as_raw(this), voiceid, core::mem::transmute_copy(voicefolder)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetGuidanceVoice)(windows_core::Interface::as_raw(this), voiceId, core::mem::transmute_copy(voiceFolder)).ok() }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn UpdateUserLocation<P0>(&self, userlocation: P0) -> windows_core::Result<()>
+    pub fn UpdateUserLocation<P0>(&self, userLocation: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Devices::Geolocation::Geocoordinate>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdateUserLocation)(windows_core::Interface::as_raw(this), userlocation.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateUserLocation)(windows_core::Interface::as_raw(this), userLocation.param().abi()).ok() }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn UpdateUserLocationWithPositionOverride<P0>(&self, userlocation: P0, positionoverride: super::super::super::Devices::Geolocation::BasicGeoposition) -> windows_core::Result<()>
+    pub fn UpdateUserLocationWithPositionOverride<P0>(&self, userLocation: P0, positionOverride: super::super::super::Devices::Geolocation::BasicGeoposition) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Devices::Geolocation::Geocoordinate>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).UpdateUserLocationWithPositionOverride)(windows_core::Interface::as_raw(this), userlocation.param().abi(), positionoverride).ok() }
+        unsafe { (windows_core::Interface::vtable(this).UpdateUserLocationWithPositionOverride)(windows_core::Interface::as_raw(this), userLocation.param().abi(), positionOverride).ok() }
     }
     pub fn AudioNotificationRequested<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -737,14 +729,12 @@ impl windows_core::RuntimeType for GuidanceNavigator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceNavigator>();
 }
 unsafe impl windows_core::Interface for GuidanceNavigator {
-    type Vtable = IGuidanceNavigator_Vtbl;
+    type Vtable = <IGuidanceNavigator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceNavigator as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GuidanceNavigator {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceNavigator";
 }
-unsafe impl Send for GuidanceNavigator {}
-unsafe impl Sync for GuidanceNavigator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceReroutedEventArgs(windows_core::IUnknown);
@@ -762,14 +752,12 @@ impl windows_core::RuntimeType for GuidanceReroutedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceReroutedEventArgs>();
 }
 unsafe impl windows_core::Interface for GuidanceReroutedEventArgs {
-    type Vtable = IGuidanceReroutedEventArgs_Vtbl;
+    type Vtable = <IGuidanceReroutedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceReroutedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GuidanceReroutedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceReroutedEventArgs";
 }
-unsafe impl Send for GuidanceReroutedEventArgs {}
-unsafe impl Sync for GuidanceReroutedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceRoadSegment(windows_core::IUnknown);
@@ -851,14 +839,12 @@ impl windows_core::RuntimeType for GuidanceRoadSegment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceRoadSegment>();
 }
 unsafe impl windows_core::Interface for GuidanceRoadSegment {
-    type Vtable = IGuidanceRoadSegment_Vtbl;
+    type Vtable = <IGuidanceRoadSegment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceRoadSegment as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GuidanceRoadSegment {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoadSegment";
 }
-unsafe impl Send for GuidanceRoadSegment {}
-unsafe impl Sync for GuidanceRoadSegment {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceRoadSignpost(windows_core::IUnknown);
@@ -907,14 +893,12 @@ impl windows_core::RuntimeType for GuidanceRoadSignpost {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceRoadSignpost>();
 }
 unsafe impl windows_core::Interface for GuidanceRoadSignpost {
-    type Vtable = IGuidanceRoadSignpost_Vtbl;
+    type Vtable = <IGuidanceRoadSignpost as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceRoadSignpost as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GuidanceRoadSignpost {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoadSignpost";
 }
-unsafe impl Send for GuidanceRoadSignpost {}
-unsafe impl Sync for GuidanceRoadSignpost {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceRoute(windows_core::IUnknown);
@@ -973,22 +957,22 @@ impl GuidanceRoute {
             (windows_core::Interface::vtable(this).ConvertToMapRoute)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CanCreateFromMapRoute<P0>(maproute: P0) -> windows_core::Result<bool>
+    pub fn CanCreateFromMapRoute<P0>(mapRoute: P0) -> windows_core::Result<bool>
     where
         P0: windows_core::Param<super::MapRoute>,
     {
         Self::IGuidanceRouteStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CanCreateFromMapRoute)(windows_core::Interface::as_raw(this), maproute.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).CanCreateFromMapRoute)(windows_core::Interface::as_raw(this), mapRoute.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn TryCreateFromMapRoute<P0>(maproute: P0) -> windows_core::Result<GuidanceRoute>
+    pub fn TryCreateFromMapRoute<P0>(mapRoute: P0) -> windows_core::Result<GuidanceRoute>
     where
         P0: windows_core::Param<super::MapRoute>,
     {
         Self::IGuidanceRouteStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryCreateFromMapRoute)(windows_core::Interface::as_raw(this), maproute.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryCreateFromMapRoute)(windows_core::Interface::as_raw(this), mapRoute.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IGuidanceRouteStatics<R, F: FnOnce(&IGuidanceRouteStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1000,14 +984,12 @@ impl windows_core::RuntimeType for GuidanceRoute {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceRoute>();
 }
 unsafe impl windows_core::Interface for GuidanceRoute {
-    type Vtable = IGuidanceRoute_Vtbl;
+    type Vtable = <IGuidanceRoute as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceRoute as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GuidanceRoute {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceRoute";
 }
-unsafe impl Send for GuidanceRoute {}
-unsafe impl Sync for GuidanceRoute {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceTelemetryCollector(windows_core::IUnknown);
@@ -1065,14 +1047,12 @@ impl windows_core::RuntimeType for GuidanceTelemetryCollector {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceTelemetryCollector>();
 }
 unsafe impl windows_core::Interface for GuidanceTelemetryCollector {
-    type Vtable = IGuidanceTelemetryCollector_Vtbl;
+    type Vtable = <IGuidanceTelemetryCollector as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceTelemetryCollector as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GuidanceTelemetryCollector {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceTelemetryCollector";
 }
-unsafe impl Send for GuidanceTelemetryCollector {}
-unsafe impl Sync for GuidanceTelemetryCollector {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceUpdatedEventArgs(windows_core::IUnknown);
@@ -1182,16 +1162,14 @@ impl windows_core::RuntimeType for GuidanceUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceUpdatedEventArgs>();
 }
 unsafe impl windows_core::Interface for GuidanceUpdatedEventArgs {
-    type Vtable = IGuidanceUpdatedEventArgs_Vtbl;
+    type Vtable = <IGuidanceUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceUpdatedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GuidanceUpdatedEventArgs {
     const NAME: &'static str = "Windows.Services.Maps.Guidance.GuidanceUpdatedEventArgs";
 }
-unsafe impl Send for GuidanceUpdatedEventArgs {}
-unsafe impl Sync for GuidanceUpdatedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GuidanceAudioMeasurementSystem(pub i32);
 impl GuidanceAudioMeasurementSystem {
     pub const Meters: Self = Self(0i32);
@@ -1201,16 +1179,11 @@ impl GuidanceAudioMeasurementSystem {
 impl windows_core::TypeKind for GuidanceAudioMeasurementSystem {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GuidanceAudioMeasurementSystem {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GuidanceAudioMeasurementSystem").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GuidanceAudioMeasurementSystem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioMeasurementSystem;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GuidanceAudioNotificationKind(pub i32);
 impl GuidanceAudioNotificationKind {
     pub const Maneuver: Self = Self(0i32);
@@ -1223,16 +1196,11 @@ impl GuidanceAudioNotificationKind {
 impl windows_core::TypeKind for GuidanceAudioNotificationKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GuidanceAudioNotificationKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GuidanceAudioNotificationKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GuidanceAudioNotificationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotificationKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GuidanceAudioNotifications(pub u32);
 impl GuidanceAudioNotifications {
     pub const None: Self = Self(0u32);
@@ -1246,49 +1214,11 @@ impl GuidanceAudioNotifications {
 impl windows_core::TypeKind for GuidanceAudioNotifications {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GuidanceAudioNotifications {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GuidanceAudioNotifications").field(&self.0).finish()
-    }
-}
-impl GuidanceAudioNotifications {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for GuidanceAudioNotifications {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for GuidanceAudioNotifications {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for GuidanceAudioNotifications {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for GuidanceAudioNotifications {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for GuidanceAudioNotifications {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for GuidanceAudioNotifications {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceAudioNotifications;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GuidanceLaneMarkers(pub u32);
 impl GuidanceLaneMarkers {
     pub const None: Self = Self(0u32);
@@ -1306,49 +1236,11 @@ impl GuidanceLaneMarkers {
 impl windows_core::TypeKind for GuidanceLaneMarkers {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GuidanceLaneMarkers {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GuidanceLaneMarkers").field(&self.0).finish()
-    }
-}
-impl GuidanceLaneMarkers {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for GuidanceLaneMarkers {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for GuidanceLaneMarkers {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for GuidanceLaneMarkers {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for GuidanceLaneMarkers {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for GuidanceLaneMarkers {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for GuidanceLaneMarkers {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceLaneMarkers;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GuidanceManeuverKind(pub i32);
 impl GuidanceManeuverKind {
     pub const None: Self = Self(0i32);
@@ -1403,16 +1295,11 @@ impl GuidanceManeuverKind {
 impl windows_core::TypeKind for GuidanceManeuverKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GuidanceManeuverKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GuidanceManeuverKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GuidanceManeuverKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceManeuverKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GuidanceMode(pub i32);
 impl GuidanceMode {
     pub const None: Self = Self(0i32);
@@ -1422,11 +1309,6 @@ impl GuidanceMode {
 }
 impl windows_core::TypeKind for GuidanceMode {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for GuidanceMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GuidanceMode").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for GuidanceMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.Guidance.GuidanceMode;i4)");

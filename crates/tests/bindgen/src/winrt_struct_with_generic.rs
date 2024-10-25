@@ -16,6 +16,10 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+impl windows_core::RuntimeType for IPropertyValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IPropertyValue {
     pub fn IsNumericScalar(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -338,10 +342,6 @@ impl IPropertyValue {
         }
     }
 }
-impl windows_core::RuntimeType for IPropertyValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IPropertyValue_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -480,7 +480,14 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IPropert
 unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IReference<T> {
     type Vtable = IReference_Vtbl<T>;
     const IID: windows_core::GUID =
-        windows_core::GUID::from_u128(0x61c17706_2d65_11e0_9ae8_d48564015472);
+        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IReference<T> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"pinterface({61c17706-2d65-11e0-9ae8-d48564015472}")
+        .push_slice(b";")
+        .push_other(T::SIGNATURE)
+        .push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> IReference<T> {
     pub fn Value(&self) -> windows_core::Result<T> {
@@ -814,10 +821,6 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .ok()
         }
     }
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IReference<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IReference_Vtbl<T>

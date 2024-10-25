@@ -83,9 +83,9 @@ impl AddAppointmentOperation {
             (windows_core::Interface::vtable(this).SourcePackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportCompleted(&self, itemid: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn ReportCompleted(&self, itemId: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(itemid)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(itemId)).ok() }
     }
     pub fn ReportCanceled(&self) -> windows_core::Result<()> {
         let this = self;
@@ -104,55 +104,14 @@ impl windows_core::RuntimeType for AddAppointmentOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAddAppointmentOperation>();
 }
 unsafe impl windows_core::Interface for AddAppointmentOperation {
-    type Vtable = IAddAppointmentOperation_Vtbl;
+    type Vtable = <IAddAppointmentOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAddAppointmentOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for AddAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.AddAppointmentOperation";
 }
-unsafe impl Send for AddAppointmentOperation {}
-unsafe impl Sync for AddAppointmentOperation {}
 pub struct AppointmentsProviderLaunchActionVerbs;
-impl AppointmentsProviderLaunchActionVerbs {
-    pub fn AddAppointment() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).AddAppointment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn ReplaceAppointment() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReplaceAppointment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn RemoveAppointment() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RemoveAppointment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn ShowTimeFrame() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowTimeFrame)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn ShowAppointmentDetails() -> windows_core::Result<windows_core::HSTRING> {
-        Self::IAppointmentsProviderLaunchActionVerbsStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowAppointmentDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IAppointmentsProviderLaunchActionVerbsStatics<R, F: FnOnce(&IAppointmentsProviderLaunchActionVerbsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<AppointmentsProviderLaunchActionVerbs, IAppointmentsProviderLaunchActionVerbsStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IAppointmentsProviderLaunchActionVerbsStatics2<R, F: FnOnce(&IAppointmentsProviderLaunchActionVerbsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<AppointmentsProviderLaunchActionVerbs, IAppointmentsProviderLaunchActionVerbsStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl AppointmentsProviderLaunchActionVerbs {}
 impl windows_core::RuntimeName for AppointmentsProviderLaunchActionVerbs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.AppointmentsProviderLaunchActionVerbs";
 }
@@ -203,14 +162,12 @@ impl windows_core::RuntimeType for RemoveAppointmentOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoveAppointmentOperation>();
 }
 unsafe impl windows_core::Interface for RemoveAppointmentOperation {
-    type Vtable = IRemoveAppointmentOperation_Vtbl;
+    type Vtable = <IRemoveAppointmentOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoveAppointmentOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RemoveAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.RemoveAppointmentOperation";
 }
-unsafe impl Send for RemoveAppointmentOperation {}
-unsafe impl Sync for RemoveAppointmentOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ReplaceAppointmentOperation(windows_core::IUnknown);
@@ -244,9 +201,9 @@ impl ReplaceAppointmentOperation {
             (windows_core::Interface::vtable(this).SourcePackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportCompleted(&self, itemid: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn ReportCompleted(&self, itemId: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(itemid)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(itemId)).ok() }
     }
     pub fn ReportCanceled(&self) -> windows_core::Result<()> {
         let this = self;
@@ -265,11 +222,9 @@ impl windows_core::RuntimeType for ReplaceAppointmentOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IReplaceAppointmentOperation>();
 }
 unsafe impl windows_core::Interface for ReplaceAppointmentOperation {
-    type Vtable = IReplaceAppointmentOperation_Vtbl;
+    type Vtable = <IReplaceAppointmentOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IReplaceAppointmentOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ReplaceAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.ReplaceAppointmentOperation";
 }
-unsafe impl Send for ReplaceAppointmentOperation {}
-unsafe impl Sync for ReplaceAppointmentOperation {}

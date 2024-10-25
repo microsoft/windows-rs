@@ -131,14 +131,14 @@ impl EndpointPair {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRemoteServiceName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CreateEndpointPair<P0, P1>(localhostname: P0, localservicename: &windows_core::HSTRING, remotehostname: P1, remoteservicename: &windows_core::HSTRING) -> windows_core::Result<EndpointPair>
+    pub fn CreateEndpointPair<P0, P2>(localHostName: P0, localServiceName: &windows_core::HSTRING, remoteHostName: P2, remoteServiceName: &windows_core::HSTRING) -> windows_core::Result<EndpointPair>
     where
         P0: windows_core::Param<HostName>,
-        P1: windows_core::Param<HostName>,
+        P2: windows_core::Param<HostName>,
     {
         Self::IEndpointPairFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateEndpointPair)(windows_core::Interface::as_raw(this), localhostname.param().abi(), core::mem::transmute_copy(localservicename), remotehostname.param().abi(), core::mem::transmute_copy(remoteservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateEndpointPair)(windows_core::Interface::as_raw(this), localHostName.param().abi(), core::mem::transmute_copy(localServiceName), remoteHostName.param().abi(), core::mem::transmute_copy(remoteServiceName), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IEndpointPairFactory<R, F: FnOnce(&IEndpointPairFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -150,20 +150,24 @@ impl windows_core::RuntimeType for EndpointPair {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEndpointPair>();
 }
 unsafe impl windows_core::Interface for EndpointPair {
-    type Vtable = IEndpointPair_Vtbl;
+    type Vtable = <IEndpointPair as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEndpointPair as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EndpointPair {
     const NAME: &'static str = "Windows.Networking.EndpointPair";
 }
-unsafe impl Send for EndpointPair {}
-unsafe impl Sync for EndpointPair {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HostName(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HostName, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(HostName, super::Foundation::IStringable);
 impl HostName {
+    pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = &windows_core::Interface::cast::<super::Foundation::IStringable>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     #[cfg(feature = "Networking_Connectivity")]
     pub fn IPInformation(&self) -> windows_core::Result<Connectivity::IPInformation> {
         let this = self;
@@ -200,20 +204,20 @@ impl HostName {
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsEqual<P0>(&self, hostname: P0) -> windows_core::Result<bool>
+    pub fn IsEqual<P0>(&self, hostName: P0) -> windows_core::Result<bool>
     where
         P0: windows_core::Param<HostName>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), hostname.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsEqual)(windows_core::Interface::as_raw(this), hostName.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateHostName(hostname: &windows_core::HSTRING) -> windows_core::Result<HostName> {
+    pub fn CreateHostName(hostName: &windows_core::HSTRING) -> windows_core::Result<HostName> {
         Self::IHostNameFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateHostName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(hostname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateHostName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(hostName), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn Compare(value1: &windows_core::HSTRING, value2: &windows_core::HSTRING) -> windows_core::Result<i32> {
@@ -221,13 +225,6 @@ impl HostName {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Compare)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value1), core::mem::transmute_copy(value2), &mut result__).map(|| result__)
         })
-    }
-    pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<super::Foundation::IStringable>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
     }
     fn IHostNameFactory<R, F: FnOnce(&IHostNameFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HostName, IHostNameFactory> = windows_core::imp::FactoryCache::new();
@@ -242,16 +239,14 @@ impl windows_core::RuntimeType for HostName {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHostName>();
 }
 unsafe impl windows_core::Interface for HostName {
-    type Vtable = IHostName_Vtbl;
+    type Vtable = <IHostName as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHostName as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HostName {
     const NAME: &'static str = "Windows.Networking.HostName";
 }
-unsafe impl Send for HostName {}
-unsafe impl Sync for HostName {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DomainNameType(pub i32);
 impl DomainNameType {
     pub const Suffix: Self = Self(0i32);
@@ -260,16 +255,11 @@ impl DomainNameType {
 impl windows_core::TypeKind for DomainNameType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DomainNameType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DomainNameType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DomainNameType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.DomainNameType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct HostNameSortOptions(pub u32);
 impl HostNameSortOptions {
     pub const None: Self = Self(0u32);
@@ -278,49 +268,11 @@ impl HostNameSortOptions {
 impl windows_core::TypeKind for HostNameSortOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HostNameSortOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HostNameSortOptions").field(&self.0).finish()
-    }
-}
-impl HostNameSortOptions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for HostNameSortOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for HostNameSortOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for HostNameSortOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for HostNameSortOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for HostNameSortOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for HostNameSortOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameSortOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct HostNameType(pub i32);
 impl HostNameType {
     pub const DomainName: Self = Self(0i32);
@@ -330,11 +282,6 @@ impl HostNameType {
 }
 impl windows_core::TypeKind for HostNameType {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for HostNameType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HostNameType").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for HostNameType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameType;i4)");

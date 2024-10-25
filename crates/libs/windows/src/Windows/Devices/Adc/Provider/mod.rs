@@ -1,11 +1,8 @@
 windows_core::imp::define_interface!(IAdcControllerProvider, IAdcControllerProvider_Vtbl, 0xbe545828_816d_4de5_a048_aba06958aaa8);
-impl core::ops::Deref for IAdcControllerProvider {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IAdcControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for IAdcControllerProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IAdcControllerProvider {
     pub fn ChannelCount(&self) -> windows_core::Result<i32> {
         let this = self;
@@ -46,11 +43,11 @@ impl IAdcControllerProvider {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetChannelMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsChannelModeSupported(&self, channelmode: ProviderAdcChannelMode) -> windows_core::Result<bool> {
+    pub fn IsChannelModeSupported(&self, channelMode: ProviderAdcChannelMode) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsChannelModeSupported)(windows_core::Interface::as_raw(this), channelmode, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsChannelModeSupported)(windows_core::Interface::as_raw(this), channelMode, &mut result__).map(|| result__)
         }
     }
     pub fn AcquireChannel(&self, channel: i32) -> windows_core::Result<()> {
@@ -61,16 +58,13 @@ impl IAdcControllerProvider {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReleaseChannel)(windows_core::Interface::as_raw(this), channel).ok() }
     }
-    pub fn ReadValue(&self, channelnumber: i32) -> windows_core::Result<i32> {
+    pub fn ReadValue(&self, channelNumber: i32) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ReadValue)(windows_core::Interface::as_raw(this), channelnumber, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).ReadValue)(windows_core::Interface::as_raw(this), channelNumber, &mut result__).map(|| result__)
         }
     }
-}
-impl windows_core::RuntimeType for IAdcControllerProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IAdcControllerProvider_Vtbl {
@@ -87,13 +81,10 @@ pub struct IAdcControllerProvider_Vtbl {
     pub ReadValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IAdcProvider, IAdcProvider_Vtbl, 0x28953668_9359_4c57_bc88_e275e81638c9);
-impl core::ops::Deref for IAdcProvider {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IAdcProvider, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for IAdcProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IAdcProvider {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>> {
@@ -104,9 +95,6 @@ impl IAdcProvider {
         }
     }
 }
-impl windows_core::RuntimeType for IAdcProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IAdcProvider_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -116,7 +104,7 @@ pub struct IAdcProvider_Vtbl {
     GetControllers: usize,
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ProviderAdcChannelMode(pub i32);
 impl ProviderAdcChannelMode {
     pub const SingleEnded: Self = Self(0i32);
@@ -125,13 +113,6 @@ impl ProviderAdcChannelMode {
 impl windows_core::TypeKind for ProviderAdcChannelMode {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ProviderAdcChannelMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ProviderAdcChannelMode").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ProviderAdcChannelMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.Provider.ProviderAdcChannelMode;i4)");
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

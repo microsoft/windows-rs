@@ -22,13 +22,16 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_
 unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IIterable<T> {
     type Vtable = IIterable_Vtbl<T>;
     const IID: windows_core::GUID =
-        windows_core::GUID::from_u128(0xfaa585ea_6214_4217_afda_7f46de5869b3);
+        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIterable<T> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"pinterface({faa585ea-6214-4217-afda-7f46de5869b3}")
+        .push_slice(b";")
+        .push_other(T::SIGNATURE)
+        .push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> IIterable<T> {}
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIterable<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IIterable_Vtbl<T>
 where
@@ -59,7 +62,14 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterabl
 unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IVector<T> {
     type Vtable = IVector_Vtbl<T>;
     const IID: windows_core::GUID =
-        windows_core::GUID::from_u128(0x913337e9_11a1_4345_a3a2_4e7f956e222d);
+        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVector<T> {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d}")
+        .push_slice(b";")
+        .push_other(T::SIGNATURE)
+        .push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {
@@ -200,10 +210,6 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
             .ok()
         }
     }
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVector<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IVector_Vtbl<T>

@@ -91,24 +91,24 @@ impl HdmiDisplayInformation {
             (windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeAsync)(windows_core::Interface::as_raw(this), mode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestSetCurrentDisplayModeWithHdrAsync<P0>(&self, mode: P0, hdroption: HdmiDisplayHdrOption) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestSetCurrentDisplayModeWithHdrAsync<P0>(&self, mode: P0, hdrOption: HdmiDisplayHdrOption) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<HdmiDisplayMode>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAsync)(windows_core::Interface::as_raw(this), mode.param().abi(), hdroption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAsync)(windows_core::Interface::as_raw(this), mode.param().abi(), hdrOption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestSetCurrentDisplayModeWithHdrAndMetadataAsync<P0>(&self, mode: P0, hdroption: HdmiDisplayHdrOption, hdrmetadata: HdmiDisplayHdr2086Metadata) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
+    pub fn RequestSetCurrentDisplayModeWithHdrAndMetadataAsync<P0>(&self, mode: P0, hdrOption: HdmiDisplayHdrOption, hdrMetadata: HdmiDisplayHdr2086Metadata) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<HdmiDisplayMode>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAndMetadataAsync)(windows_core::Interface::as_raw(this), mode.param().abi(), hdroption, hdrmetadata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAndMetadataAsync)(windows_core::Interface::as_raw(this), mode.param().abi(), hdrOption, hdrMetadata, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn DisplayModesChanged<P0>(&self, value: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
@@ -140,14 +140,12 @@ impl windows_core::RuntimeType for HdmiDisplayInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHdmiDisplayInformation>();
 }
 unsafe impl windows_core::Interface for HdmiDisplayInformation {
-    type Vtable = IHdmiDisplayInformation_Vtbl;
+    type Vtable = <IHdmiDisplayInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHdmiDisplayInformation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HdmiDisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayInformation";
 }
-unsafe impl Send for HdmiDisplayInformation {}
-unsafe impl Sync for HdmiDisplayInformation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HdmiDisplayMode(windows_core::IUnknown);
@@ -245,16 +243,14 @@ impl windows_core::RuntimeType for HdmiDisplayMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHdmiDisplayMode>();
 }
 unsafe impl windows_core::Interface for HdmiDisplayMode {
-    type Vtable = IHdmiDisplayMode_Vtbl;
+    type Vtable = <IHdmiDisplayMode as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHdmiDisplayMode as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for HdmiDisplayMode {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayMode";
 }
-unsafe impl Send for HdmiDisplayMode {}
-unsafe impl Sync for HdmiDisplayMode {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct HdmiDisplayColorSpace(pub i32);
 impl HdmiDisplayColorSpace {
     pub const RgbLimited: Self = Self(0i32);
@@ -265,16 +261,11 @@ impl HdmiDisplayColorSpace {
 impl windows_core::TypeKind for HdmiDisplayColorSpace {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HdmiDisplayColorSpace {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HdmiDisplayColorSpace").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for HdmiDisplayColorSpace {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayColorSpace;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct HdmiDisplayHdrOption(pub i32);
 impl HdmiDisplayHdrOption {
     pub const None: Self = Self(0i32);
@@ -285,16 +276,11 @@ impl HdmiDisplayHdrOption {
 impl windows_core::TypeKind for HdmiDisplayHdrOption {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HdmiDisplayHdrOption {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HdmiDisplayHdrOption").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for HdmiDisplayHdrOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayHdrOption;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct HdmiDisplayPixelEncoding(pub i32);
 impl HdmiDisplayPixelEncoding {
     pub const Rgb444: Self = Self(0i32);
@@ -305,16 +291,11 @@ impl HdmiDisplayPixelEncoding {
 impl windows_core::TypeKind for HdmiDisplayPixelEncoding {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HdmiDisplayPixelEncoding {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HdmiDisplayPixelEncoding").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for HdmiDisplayPixelEncoding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct HdmiDisplayHdr2086Metadata {
     pub RedPrimaryX: u16,
     pub RedPrimaryY: u16,
@@ -334,9 +315,4 @@ impl windows_core::TypeKind for HdmiDisplayHdr2086Metadata {
 }
 impl windows_core::RuntimeType for HdmiDisplayHdr2086Metadata {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.Core.HdmiDisplayHdr2086Metadata;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2;u2)");
-}
-impl Default for HdmiDisplayHdr2086Metadata {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

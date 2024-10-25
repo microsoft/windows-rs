@@ -1,13 +1,10 @@
 #[cfg(feature = "Web_UI_Interop")]
 pub mod Interop;
 windows_core::imp::define_interface!(IWebViewControl, IWebViewControl_Vtbl, 0x3f921316_bc70_4bda_9136_c94370899fab);
-impl core::ops::Deref for IWebViewControl {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IWebViewControl, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for IWebViewControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IWebViewControl {
     pub fn Source(&self) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -106,31 +103,31 @@ impl IWebViewControl {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).NavigateToString)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text)).ok() }
     }
-    pub fn NavigateToLocalStreamUri<P0, P1>(&self, source: P0, streamresolver: P1) -> windows_core::Result<()>
+    pub fn NavigateToLocalStreamUri<P0, P1>(&self, source: P0, streamResolver: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<super::IUriToStreamResolver>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).NavigateToLocalStreamUri)(windows_core::Interface::as_raw(this), source.param().abi(), streamresolver.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).NavigateToLocalStreamUri)(windows_core::Interface::as_raw(this), source.param().abi(), streamResolver.param().abi()).ok() }
     }
     #[cfg(feature = "Web_Http")]
-    pub fn NavigateWithHttpRequestMessage<P0>(&self, requestmessage: P0) -> windows_core::Result<()>
+    pub fn NavigateWithHttpRequestMessage<P0>(&self, requestMessage: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::Http::HttpRequestMessage>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).NavigateWithHttpRequestMessage)(windows_core::Interface::as_raw(this), requestmessage.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).NavigateWithHttpRequestMessage)(windows_core::Interface::as_raw(this), requestMessage.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn InvokeScriptAsync<P0>(&self, scriptname: &windows_core::HSTRING, arguments: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
+    pub fn InvokeScriptAsync<P1>(&self, scriptName: &windows_core::HSTRING, arguments: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InvokeScriptAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(scriptname), arguments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).InvokeScriptAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(scriptName), arguments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -152,11 +149,11 @@ impl IWebViewControl {
             (windows_core::Interface::vtable(this).CaptureSelectedContentToDataPackageAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BuildLocalStreamUri(&self, contentidentifier: &windows_core::HSTRING, relativepath: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn BuildLocalStreamUri(&self, contentIdentifier: &windows_core::HSTRING, relativePath: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BuildLocalStreamUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(contentidentifier), core::mem::transmute_copy(relativepath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).BuildLocalStreamUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(contentIdentifier), core::mem::transmute_copy(relativePath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetDeferredPermissionRequestById(&self, id: u32, result: &mut Option<WebViewControlDeferredPermissionRequest>) -> windows_core::Result<()> {
@@ -402,9 +399,6 @@ impl IWebViewControl {
         unsafe { (windows_core::Interface::vtable(this).RemoveWebResourceRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl windows_core::RuntimeType for IWebViewControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IWebViewControl_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -488,21 +482,15 @@ pub struct IWebViewControl_Vtbl {
     pub RemoveWebResourceRequested: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebViewControl2, IWebViewControl2_Vtbl, 0x4d3c06f9_c8df_41cc_8bd5_2a947b204503);
-impl core::ops::Deref for IWebViewControl2 {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IWebViewControl2, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for IWebViewControl2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IWebViewControl2 {
     pub fn AddInitializeScript(&self, script: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddInitializeScript)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(script)).ok() }
     }
-}
-impl windows_core::RuntimeType for IWebViewControl2 {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IWebViewControl2_Vtbl {
@@ -704,7 +692,7 @@ impl windows_core::RuntimeType for WebViewControlContentLoadingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlContentLoadingEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlContentLoadingEventArgs {
-    type Vtable = IWebViewControlContentLoadingEventArgs_Vtbl;
+    type Vtable = <IWebViewControlContentLoadingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlContentLoadingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlContentLoadingEventArgs {
@@ -727,7 +715,7 @@ impl windows_core::RuntimeType for WebViewControlDOMContentLoadedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlDOMContentLoadedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlDOMContentLoadedEventArgs {
-    type Vtable = IWebViewControlDOMContentLoadedEventArgs_Vtbl;
+    type Vtable = <IWebViewControlDOMContentLoadedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlDOMContentLoadedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlDOMContentLoadedEventArgs {
@@ -772,7 +760,7 @@ impl windows_core::RuntimeType for WebViewControlDeferredPermissionRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlDeferredPermissionRequest>();
 }
 unsafe impl windows_core::Interface for WebViewControlDeferredPermissionRequest {
-    type Vtable = IWebViewControlDeferredPermissionRequest_Vtbl;
+    type Vtable = <IWebViewControlDeferredPermissionRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlDeferredPermissionRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlDeferredPermissionRequest {
@@ -806,7 +794,7 @@ impl windows_core::RuntimeType for WebViewControlLongRunningScriptDetectedEventA
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlLongRunningScriptDetectedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlLongRunningScriptDetectedEventArgs {
-    type Vtable = IWebViewControlLongRunningScriptDetectedEventArgs_Vtbl;
+    type Vtable = <IWebViewControlLongRunningScriptDetectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlLongRunningScriptDetectedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlLongRunningScriptDetectedEventArgs {
@@ -843,7 +831,7 @@ impl windows_core::RuntimeType for WebViewControlNavigationCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlNavigationCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlNavigationCompletedEventArgs {
-    type Vtable = IWebViewControlNavigationCompletedEventArgs_Vtbl;
+    type Vtable = <IWebViewControlNavigationCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlNavigationCompletedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlNavigationCompletedEventArgs {
@@ -877,7 +865,7 @@ impl windows_core::RuntimeType for WebViewControlNavigationStartingEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlNavigationStartingEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlNavigationStartingEventArgs {
-    type Vtable = IWebViewControlNavigationStartingEventArgs_Vtbl;
+    type Vtable = <IWebViewControlNavigationStartingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlNavigationStartingEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlNavigationStartingEventArgs {
@@ -939,7 +927,7 @@ impl windows_core::RuntimeType for WebViewControlNewWindowRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlNewWindowRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlNewWindowRequestedEventArgs {
-    type Vtable = IWebViewControlNewWindowRequestedEventArgs_Vtbl;
+    type Vtable = <IWebViewControlNewWindowRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlNewWindowRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlNewWindowRequestedEventArgs {
@@ -995,7 +983,7 @@ impl windows_core::RuntimeType for WebViewControlPermissionRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlPermissionRequest>();
 }
 unsafe impl windows_core::Interface for WebViewControlPermissionRequest {
-    type Vtable = IWebViewControlPermissionRequest_Vtbl;
+    type Vtable = <IWebViewControlPermissionRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlPermissionRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlPermissionRequest {
@@ -1018,7 +1006,7 @@ impl windows_core::RuntimeType for WebViewControlPermissionRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlPermissionRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlPermissionRequestedEventArgs {
-    type Vtable = IWebViewControlPermissionRequestedEventArgs_Vtbl;
+    type Vtable = <IWebViewControlPermissionRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlPermissionRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlPermissionRequestedEventArgs {
@@ -1048,7 +1036,7 @@ impl windows_core::RuntimeType for WebViewControlScriptNotifyEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlScriptNotifyEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlScriptNotifyEventArgs {
-    type Vtable = IWebViewControlScriptNotifyEventArgs_Vtbl;
+    type Vtable = <IWebViewControlScriptNotifyEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlScriptNotifyEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlScriptNotifyEventArgs {
@@ -1097,7 +1085,7 @@ impl windows_core::RuntimeType for WebViewControlSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlSettings>();
 }
 unsafe impl windows_core::Interface for WebViewControlSettings {
-    type Vtable = IWebViewControlSettings_Vtbl;
+    type Vtable = <IWebViewControlSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlSettings as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlSettings {
@@ -1131,7 +1119,7 @@ impl windows_core::RuntimeType for WebViewControlUnsupportedUriSchemeIdentifiedE
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
-    type Vtable = IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs_Vtbl;
+    type Vtable = <IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
@@ -1168,7 +1156,7 @@ impl windows_core::RuntimeType for WebViewControlUnviewableContentIdentifiedEven
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlUnviewableContentIdentifiedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlUnviewableContentIdentifiedEventArgs {
-    type Vtable = IWebViewControlUnviewableContentIdentifiedEventArgs_Vtbl;
+    type Vtable = <IWebViewControlUnviewableContentIdentifiedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlUnviewableContentIdentifiedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlUnviewableContentIdentifiedEventArgs {
@@ -1215,14 +1203,14 @@ impl windows_core::RuntimeType for WebViewControlWebResourceRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlWebResourceRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlWebResourceRequestedEventArgs {
-    type Vtable = IWebViewControlWebResourceRequestedEventArgs_Vtbl;
+    type Vtable = <IWebViewControlWebResourceRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlWebResourceRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebViewControlWebResourceRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.WebViewControlWebResourceRequestedEventArgs";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct WebViewControlPermissionState(pub i32);
 impl WebViewControlPermissionState {
     pub const Unknown: Self = Self(0i32);
@@ -1233,16 +1221,11 @@ impl WebViewControlPermissionState {
 impl windows_core::TypeKind for WebViewControlPermissionState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WebViewControlPermissionState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WebViewControlPermissionState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for WebViewControlPermissionState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct WebViewControlPermissionType(pub i32);
 impl WebViewControlPermissionType {
     pub const Geolocation: Self = Self(0i32);
@@ -1256,13 +1239,6 @@ impl WebViewControlPermissionType {
 impl windows_core::TypeKind for WebViewControlPermissionType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WebViewControlPermissionType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WebViewControlPermissionType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for WebViewControlPermissionType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.WebViewControlPermissionType;i4)");
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

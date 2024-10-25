@@ -124,14 +124,12 @@ impl windows_core::RuntimeType for DetectedFace {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDetectedFace>();
 }
 unsafe impl windows_core::Interface for DetectedFace {
-    type Vtable = IDetectedFace_Vtbl;
+    type Vtable = <IDetectedFace as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDetectedFace as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DetectedFace {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.DetectedFace";
 }
-unsafe impl Send for DetectedFace {}
-unsafe impl Sync for DetectedFace {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FaceDetector(windows_core::IUnknown);
@@ -149,14 +147,14 @@ impl FaceDetector {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]
-    pub fn DetectFacesWithSearchAreaAsync<P0>(&self, image: P0, searcharea: super::super::Graphics::Imaging::BitmapBounds) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
+    pub fn DetectFacesWithSearchAreaAsync<P0>(&self, image: P0, searchArea: super::super::Graphics::Imaging::BitmapBounds) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
     where
         P0: windows_core::Param<super::super::Graphics::Imaging::SoftwareBitmap>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DetectFacesWithSearchAreaAsync)(windows_core::Interface::as_raw(this), image.param().abi(), searcharea, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).DetectFacesWithSearchAreaAsync)(windows_core::Interface::as_raw(this), image.param().abi(), searchArea, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
@@ -199,10 +197,10 @@ impl FaceDetector {
         })
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn IsBitmapPixelFormatSupported(bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> windows_core::Result<bool> {
+    pub fn IsBitmapPixelFormatSupported(bitmapPixelFormat: super::super::Graphics::Imaging::BitmapPixelFormat) -> windows_core::Result<bool> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsBitmapPixelFormatSupported)(windows_core::Interface::as_raw(this), bitmappixelformat, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsBitmapPixelFormatSupported)(windows_core::Interface::as_raw(this), bitmapPixelFormat, &mut result__).map(|| result__)
         })
     }
     pub fn IsSupported() -> windows_core::Result<bool> {
@@ -220,28 +218,26 @@ impl windows_core::RuntimeType for FaceDetector {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFaceDetector>();
 }
 unsafe impl windows_core::Interface for FaceDetector {
-    type Vtable = IFaceDetector_Vtbl;
+    type Vtable = <IFaceDetector as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFaceDetector as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FaceDetector {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceDetector";
 }
-unsafe impl Send for FaceDetector {}
-unsafe impl Sync for FaceDetector {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FaceTracker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FaceTracker, windows_core::IUnknown, windows_core::IInspectable);
 impl FaceTracker {
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ProcessNextFrameAsync<P0>(&self, videoframe: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
+    pub fn ProcessNextFrameAsync<P0>(&self, videoFrame: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>>
     where
         P0: windows_core::Param<super::VideoFrame>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProcessNextFrameAsync)(windows_core::Interface::as_raw(this), videoframe.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).ProcessNextFrameAsync)(windows_core::Interface::as_raw(this), videoFrame.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
@@ -284,10 +280,10 @@ impl FaceTracker {
         })
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn IsBitmapPixelFormatSupported(bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> windows_core::Result<bool> {
+    pub fn IsBitmapPixelFormatSupported(bitmapPixelFormat: super::super::Graphics::Imaging::BitmapPixelFormat) -> windows_core::Result<bool> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsBitmapPixelFormatSupported)(windows_core::Interface::as_raw(this), bitmappixelformat, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsBitmapPixelFormatSupported)(windows_core::Interface::as_raw(this), bitmapPixelFormat, &mut result__).map(|| result__)
         })
     }
     pub fn IsSupported() -> windows_core::Result<bool> {
@@ -305,11 +301,9 @@ impl windows_core::RuntimeType for FaceTracker {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFaceTracker>();
 }
 unsafe impl windows_core::Interface for FaceTracker {
-    type Vtable = IFaceTracker_Vtbl;
+    type Vtable = <IFaceTracker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFaceTracker as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FaceTracker {
     const NAME: &'static str = "Windows.Media.FaceAnalysis.FaceTracker";
 }
-unsafe impl Send for FaceTracker {}
-unsafe impl Sync for FaceTracker {}

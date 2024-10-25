@@ -79,14 +79,12 @@ impl windows_core::RuntimeType for EnterpriseKeyCredentialRegistrationInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterpriseKeyCredentialRegistrationInfo>();
 }
 unsafe impl windows_core::Interface for EnterpriseKeyCredentialRegistrationInfo {
-    type Vtable = IEnterpriseKeyCredentialRegistrationInfo_Vtbl;
+    type Vtable = <IEnterpriseKeyCredentialRegistrationInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEnterpriseKeyCredentialRegistrationInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EnterpriseKeyCredentialRegistrationInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationInfo";
 }
-unsafe impl Send for EnterpriseKeyCredentialRegistrationInfo {}
-unsafe impl Sync for EnterpriseKeyCredentialRegistrationInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnterpriseKeyCredentialRegistrationManager(windows_core::IUnknown);
@@ -115,11 +113,9 @@ impl windows_core::RuntimeType for EnterpriseKeyCredentialRegistrationManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterpriseKeyCredentialRegistrationManager>();
 }
 unsafe impl windows_core::Interface for EnterpriseKeyCredentialRegistrationManager {
-    type Vtable = IEnterpriseKeyCredentialRegistrationManager_Vtbl;
+    type Vtable = <IEnterpriseKeyCredentialRegistrationManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEnterpriseKeyCredentialRegistrationManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for EnterpriseKeyCredentialRegistrationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.EnterpriseKeyCredentialRegistrationManager";
 }
-unsafe impl Send for EnterpriseKeyCredentialRegistrationManager {}
-unsafe impl Sync for EnterpriseKeyCredentialRegistrationManager {}

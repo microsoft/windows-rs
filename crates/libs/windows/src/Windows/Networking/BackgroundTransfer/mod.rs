@@ -5,17 +5,17 @@ impl windows_core::RuntimeType for IBackgroundDownloader {
 #[repr(C)]
 pub struct IBackgroundDownloader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub CreateDownload: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Streams")))]
     CreateDownload: usize,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub CreateDownloadFromFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Streams")))]
     CreateDownloadFromFile: usize,
-    #[cfg(feature = "Storage_Streams")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub CreateDownloadAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Streams")))]
     CreateDownloadAsync: usize,
 }
 windows_core::imp::define_interface!(IBackgroundDownloader2, IBackgroundDownloader2_Vtbl, 0xa94a5847_348d_4a35_890e_8a1ef3798479);
@@ -89,9 +89,9 @@ pub struct IBackgroundDownloaderStaticMethods_Vtbl {
     pub GetCurrentDownloadsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetCurrentDownloadsAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetCurrentDownloadsForGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetCurrentDownloadsForGroupAsync: usize,
 }
 windows_core::imp::define_interface!(IBackgroundDownloaderStaticMethods2, IBackgroundDownloaderStaticMethods2_Vtbl, 0x2faa1327_1ad4_4ca5_b2cd_08dbf0746afe);
@@ -122,17 +122,14 @@ pub struct IBackgroundDownloaderUserConsent_Vtbl {
     RequestUnconstrainedDownloadsAsync: usize,
 }
 windows_core::imp::define_interface!(IBackgroundTransferBase, IBackgroundTransferBase_Vtbl, 0x2a9da250_c769_458c_afe8_feb8d4d3b2ef);
-impl core::ops::Deref for IBackgroundTransferBase {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IBackgroundTransferBase, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for IBackgroundTransferBase {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IBackgroundTransferBase {
-    pub fn SetRequestHeader(&self, headername: &windows_core::HSTRING, headervalue: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetRequestHeader(&self, headerName: &windows_core::HSTRING, headerValue: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headername), core::mem::transmute_copy(headervalue)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headerName), core::mem::transmute_copy(headerValue)).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
@@ -177,7 +174,6 @@ impl IBackgroundTransferBase {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMethod)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -185,7 +181,6 @@ impl IBackgroundTransferBase {
             (windows_core::Interface::vtable(this).Group)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetGroup(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetGroup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
@@ -201,9 +196,6 @@ impl IBackgroundTransferBase {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCostPolicy)(windows_core::Interface::as_raw(this), value).ok() }
     }
-}
-impl windows_core::RuntimeType for IBackgroundTransferBase {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IBackgroundTransferBase_Vtbl {
@@ -227,14 +219,8 @@ pub struct IBackgroundTransferBase_Vtbl {
     SetProxyCredential: usize,
     pub Method: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetMethod: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    #[cfg(feature = "deprecated")]
     pub Group: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Group: usize,
-    #[cfg(feature = "deprecated")]
     pub SetGroup: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetGroup: usize,
     pub CostPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundTransferCostPolicy) -> windows_core::HRESULT,
     pub SetCostPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTransferCostPolicy) -> windows_core::HRESULT,
 }
@@ -277,19 +263,16 @@ pub struct IBackgroundTransferContentPart_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SetHeader: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
     pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub SetFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Streams")))]
     SetFile: usize,
 }
 windows_core::imp::define_interface!(IBackgroundTransferContentPartFactory, IBackgroundTransferContentPartFactory_Vtbl, 0x90ef98a9_7a01_4a0b_9f80_a0b0bb370f8d);
-impl core::ops::Deref for IBackgroundTransferContentPartFactory {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IBackgroundTransferContentPartFactory, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for IBackgroundTransferContentPartFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IBackgroundTransferContentPartFactory {
     pub fn CreateWithName(&self, name: &windows_core::HSTRING) -> windows_core::Result<BackgroundTransferContentPart> {
         let this = self;
@@ -298,16 +281,13 @@ impl IBackgroundTransferContentPartFactory {
             (windows_core::Interface::vtable(this).CreateWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateWithNameAndFileName(&self, name: &windows_core::HSTRING, filename: &windows_core::HSTRING) -> windows_core::Result<BackgroundTransferContentPart> {
+    pub fn CreateWithNameAndFileName(&self, name: &windows_core::HSTRING, fileName: &windows_core::HSTRING) -> windows_core::Result<BackgroundTransferContentPart> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithNameAndFileName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(filename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithNameAndFileName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(fileName), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-impl windows_core::RuntimeType for IBackgroundTransferContentPartFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IBackgroundTransferContentPartFactory_Vtbl {
@@ -348,13 +328,10 @@ pub struct IBackgroundTransferGroupStatics_Vtbl {
     pub CreateGroup: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTransferOperation, IBackgroundTransferOperation_Vtbl, 0xded06846_90ca_44fb_8fb1_124154c0d539);
-impl core::ops::Deref for IBackgroundTransferOperation {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IBackgroundTransferOperation, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for IBackgroundTransferOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IBackgroundTransferOperation {
     pub fn Guid(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -377,7 +354,6 @@ impl IBackgroundTransferOperation {
             (windows_core::Interface::vtable(this).Method)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -412,19 +388,13 @@ impl IBackgroundTransferOperation {
         }
     }
 }
-impl windows_core::RuntimeType for IBackgroundTransferOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IBackgroundTransferOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Guid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub RequestedUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Method: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    #[cfg(feature = "deprecated")]
     pub Group: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Group: usize,
     pub CostPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundTransferCostPolicy) -> windows_core::HRESULT,
     pub SetCostPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, BackgroundTransferCostPolicy) -> windows_core::HRESULT,
     #[cfg(feature = "Storage_Streams")]
@@ -434,13 +404,10 @@ pub struct IBackgroundTransferOperation_Vtbl {
     pub GetResponseInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBackgroundTransferOperationPriority, IBackgroundTransferOperationPriority_Vtbl, 0x04854327_5254_4b3a_915e_0aa49275c0f9);
-impl core::ops::Deref for IBackgroundTransferOperationPriority {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IBackgroundTransferOperationPriority, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for IBackgroundTransferOperationPriority {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IBackgroundTransferOperationPriority {
     pub fn Priority(&self) -> windows_core::Result<BackgroundTransferPriority> {
         let this = self;
@@ -453,9 +420,6 @@ impl IBackgroundTransferOperationPriority {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPriority)(windows_core::Interface::as_raw(this), value).ok() }
     }
-}
-impl windows_core::RuntimeType for IBackgroundTransferOperationPriority {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IBackgroundTransferOperationPriority_Vtbl {
@@ -484,9 +448,9 @@ impl windows_core::RuntimeType for IBackgroundUploader {
 #[repr(C)]
 pub struct IBackgroundUploader_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub CreateUpload: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Streams")))]
     CreateUpload: usize,
     #[cfg(feature = "Storage_Streams")]
     pub CreateUploadFromStreamAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -576,9 +540,9 @@ pub struct IBackgroundUploaderStaticMethods_Vtbl {
     pub GetCurrentUploadsAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     GetCurrentUploadsAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub GetCurrentUploadsForGroupAsync: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    #[cfg(not(feature = "Foundation_Collections"))]
     GetCurrentUploadsForGroupAsync: usize,
 }
 windows_core::imp::define_interface!(IBackgroundUploaderStaticMethods2, IBackgroundUploaderStaticMethods2_Vtbl, 0xe919ac62_ea08_42f0_a2ac_07e467549080);
@@ -638,9 +602,9 @@ impl windows_core::RuntimeType for IDownloadOperation {
 #[repr(C)]
 pub struct IDownloadOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub ResultFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Streams")))]
     ResultFile: usize,
     pub Progress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundDownloadProgress) -> windows_core::HRESULT,
     pub StartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -742,9 +706,9 @@ impl windows_core::RuntimeType for IUploadOperation {
 #[repr(C)]
 pub struct IUploadOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub SourceFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
+    #[cfg(not(all(feature = "Storage", feature = "Storage_Streams")))]
     SourceFile: usize,
     pub Progress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut BackgroundUploadProgress) -> windows_core::HRESULT,
     pub StartAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -782,7 +746,6 @@ pub struct IUploadOperation4_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundDownloader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundDownloader, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(BackgroundDownloader, IBackgroundTransferBase);
 impl BackgroundDownloader {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -791,8 +754,8 @@ impl BackgroundDownloader {
         static SHARED: windows_core::imp::FactoryCache<BackgroundDownloader, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "Storage")]
-    pub fn CreateDownload<P0, P1>(&self, uri: P0, resultfile: P1) -> windows_core::Result<DownloadOperation>
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
+    pub fn CreateDownload<P0, P1>(&self, uri: P0, resultFile: P1) -> windows_core::Result<DownloadOperation>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -800,11 +763,11 @@ impl BackgroundDownloader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDownload)(windows_core::Interface::as_raw(this), uri.param().abi(), resultfile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateDownload)(windows_core::Interface::as_raw(this), uri.param().abi(), resultFile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage")]
-    pub fn CreateDownloadFromFile<P0, P1, P2>(&self, uri: P0, resultfile: P1, requestbodyfile: P2) -> windows_core::Result<DownloadOperation>
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
+    pub fn CreateDownloadFromFile<P0, P1, P2>(&self, uri: P0, resultFile: P1, requestBodyFile: P2) -> windows_core::Result<DownloadOperation>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -813,11 +776,11 @@ impl BackgroundDownloader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDownloadFromFile)(windows_core::Interface::as_raw(this), uri.param().abi(), resultfile.param().abi(), requestbodyfile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateDownloadFromFile)(windows_core::Interface::as_raw(this), uri.param().abi(), resultFile.param().abi(), requestBodyFile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn CreateDownloadAsync<P0, P1, P2>(&self, uri: P0, resultfile: P1, requestbodystream: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DownloadOperation>>
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
+    pub fn CreateDownloadAsync<P0, P1, P2>(&self, uri: P0, resultFile: P1, requestBodyStream: P2) -> windows_core::Result<super::super::Foundation::IAsyncOperation<DownloadOperation>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -826,7 +789,7 @@ impl BackgroundDownloader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateDownloadAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), resultfile.param().abi(), requestbodystream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateDownloadAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), resultFile.param().abi(), requestBodyStream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TransferGroup(&self) -> windows_core::Result<BackgroundTransferGroup> {
@@ -914,13 +877,13 @@ impl BackgroundDownloader {
             (windows_core::Interface::vtable(this).CompletionGroup)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateWithCompletionGroup<P0>(completiongroup: P0) -> windows_core::Result<BackgroundDownloader>
+    pub fn CreateWithCompletionGroup<P0>(completionGroup: P0) -> windows_core::Result<BackgroundDownloader>
     where
         P0: windows_core::Param<BackgroundTransferCompletionGroup>,
     {
         Self::IBackgroundDownloaderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithCompletionGroup)(windows_core::Interface::as_raw(this), completiongroup.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithCompletionGroup)(windows_core::Interface::as_raw(this), completionGroup.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -930,7 +893,7 @@ impl BackgroundDownloader {
             (windows_core::Interface::vtable(this).GetCurrentDownloadsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentDownloadsForGroupAsync(group: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>> {
         Self::IBackgroundDownloaderStaticMethods(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -947,7 +910,7 @@ impl BackgroundDownloader {
             (windows_core::Interface::vtable(this).GetCurrentDownloadsForTransferGroupAsync)(windows_core::Interface::as_raw(this), group.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn RequestUnconstrainedDownloadsAsync<P0>(operations: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::IIterable<DownloadOperation>>,
@@ -957,9 +920,9 @@ impl BackgroundDownloader {
             (windows_core::Interface::vtable(this).RequestUnconstrainedDownloadsAsync)(windows_core::Interface::as_raw(this), operations.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn SetRequestHeader(&self, headername: &windows_core::HSTRING, headervalue: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetRequestHeader(&self, headerName: &windows_core::HSTRING, headerValue: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IBackgroundTransferBase>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headername), core::mem::transmute_copy(headervalue)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headerName), core::mem::transmute_copy(headerValue)).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
@@ -1004,7 +967,6 @@ impl BackgroundDownloader {
         let this = &windows_core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMethod)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe {
@@ -1012,7 +974,6 @@ impl BackgroundDownloader {
             (windows_core::Interface::vtable(this).Group)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetGroup(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetGroup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
@@ -1040,7 +1001,6 @@ impl BackgroundDownloader {
         static SHARED: windows_core::imp::FactoryCache<BackgroundDownloader, IBackgroundDownloaderStaticMethods2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "deprecated")]
     fn IBackgroundDownloaderUserConsent<R, F: FnOnce(&IBackgroundDownloaderUserConsent) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundDownloader, IBackgroundDownloaderUserConsent> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -1050,14 +1010,12 @@ impl windows_core::RuntimeType for BackgroundDownloader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundDownloader>();
 }
 unsafe impl windows_core::Interface for BackgroundDownloader {
-    type Vtable = IBackgroundDownloader_Vtbl;
+    type Vtable = <IBackgroundDownloader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundDownloader as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for BackgroundDownloader {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundDownloader";
 }
-unsafe impl Send for BackgroundDownloader {}
-unsafe impl Sync for BackgroundDownloader {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferCompletionGroup(windows_core::IUnknown);
@@ -1094,14 +1052,12 @@ impl windows_core::RuntimeType for BackgroundTransferCompletionGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTransferCompletionGroup>();
 }
 unsafe impl windows_core::Interface for BackgroundTransferCompletionGroup {
-    type Vtable = IBackgroundTransferCompletionGroup_Vtbl;
+    type Vtable = <IBackgroundTransferCompletionGroup as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTransferCompletionGroup as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for BackgroundTransferCompletionGroup {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroup";
 }
-unsafe impl Send for BackgroundTransferCompletionGroup {}
-unsafe impl Sync for BackgroundTransferCompletionGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferCompletionGroupTriggerDetails(windows_core::IUnknown);
@@ -1128,14 +1084,12 @@ impl windows_core::RuntimeType for BackgroundTransferCompletionGroupTriggerDetai
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTransferCompletionGroupTriggerDetails>();
 }
 unsafe impl windows_core::Interface for BackgroundTransferCompletionGroupTriggerDetails {
-    type Vtable = IBackgroundTransferCompletionGroupTriggerDetails_Vtbl;
+    type Vtable = <IBackgroundTransferCompletionGroupTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTransferCompletionGroupTriggerDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for BackgroundTransferCompletionGroupTriggerDetails {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroupTriggerDetails";
 }
-unsafe impl Send for BackgroundTransferCompletionGroupTriggerDetails {}
-unsafe impl Sync for BackgroundTransferCompletionGroupTriggerDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferContentPart(windows_core::IUnknown);
@@ -1148,15 +1102,15 @@ impl BackgroundTransferContentPart {
         static SHARED: windows_core::imp::FactoryCache<BackgroundTransferContentPart, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn SetHeader(&self, headername: &windows_core::HSTRING, headervalue: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetHeader(&self, headerName: &windows_core::HSTRING, headerValue: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headername), core::mem::transmute_copy(headervalue)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headerName), core::mem::transmute_copy(headerValue)).ok() }
     }
     pub fn SetText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub fn SetFile<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -1170,10 +1124,10 @@ impl BackgroundTransferContentPart {
             (windows_core::Interface::vtable(this).CreateWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithNameAndFileName(name: &windows_core::HSTRING, filename: &windows_core::HSTRING) -> windows_core::Result<BackgroundTransferContentPart> {
+    pub fn CreateWithNameAndFileName(name: &windows_core::HSTRING, fileName: &windows_core::HSTRING) -> windows_core::Result<BackgroundTransferContentPart> {
         Self::IBackgroundTransferContentPartFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithNameAndFileName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(filename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithNameAndFileName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(fileName), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn IBackgroundTransferContentPartFactory<R, F: FnOnce(&IBackgroundTransferContentPartFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1185,28 +1139,14 @@ impl windows_core::RuntimeType for BackgroundTransferContentPart {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTransferContentPart>();
 }
 unsafe impl windows_core::Interface for BackgroundTransferContentPart {
-    type Vtable = IBackgroundTransferContentPart_Vtbl;
+    type Vtable = <IBackgroundTransferContentPart as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTransferContentPart as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for BackgroundTransferContentPart {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart";
 }
-unsafe impl Send for BackgroundTransferContentPart {}
-unsafe impl Sync for BackgroundTransferContentPart {}
 pub struct BackgroundTransferError;
-impl BackgroundTransferError {
-    #[cfg(feature = "Web")]
-    pub fn GetStatus(hresult: i32) -> windows_core::Result<super::super::Web::WebErrorStatus> {
-        Self::IBackgroundTransferErrorStaticMethods(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetStatus)(windows_core::Interface::as_raw(this), hresult, &mut result__).map(|| result__)
-        })
-    }
-    fn IBackgroundTransferErrorStaticMethods<R, F: FnOnce(&IBackgroundTransferErrorStaticMethods) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<BackgroundTransferError, IBackgroundTransferErrorStaticMethods> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl BackgroundTransferError {}
 impl windows_core::RuntimeName for BackgroundTransferError {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferError";
 }
@@ -1248,14 +1188,12 @@ impl windows_core::RuntimeType for BackgroundTransferGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTransferGroup>();
 }
 unsafe impl windows_core::Interface for BackgroundTransferGroup {
-    type Vtable = IBackgroundTransferGroup_Vtbl;
+    type Vtable = <IBackgroundTransferGroup as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTransferGroup as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for BackgroundTransferGroup {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferGroup";
 }
-unsafe impl Send for BackgroundTransferGroup {}
-unsafe impl Sync for BackgroundTransferGroup {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferRangesDownloadedEventArgs(windows_core::IUnknown);
@@ -1288,19 +1226,16 @@ impl windows_core::RuntimeType for BackgroundTransferRangesDownloadedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTransferRangesDownloadedEventArgs>();
 }
 unsafe impl windows_core::Interface for BackgroundTransferRangesDownloadedEventArgs {
-    type Vtable = IBackgroundTransferRangesDownloadedEventArgs_Vtbl;
+    type Vtable = <IBackgroundTransferRangesDownloadedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTransferRangesDownloadedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for BackgroundTransferRangesDownloadedEventArgs {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferRangesDownloadedEventArgs";
 }
-unsafe impl Send for BackgroundTransferRangesDownloadedEventArgs {}
-unsafe impl Sync for BackgroundTransferRangesDownloadedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundUploader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundUploader, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(BackgroundUploader, IBackgroundTransferBase);
 impl BackgroundUploader {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1309,9 +1244,9 @@ impl BackgroundUploader {
         static SHARED: windows_core::imp::FactoryCache<BackgroundUploader, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn SetRequestHeader(&self, headername: &windows_core::HSTRING, headervalue: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetRequestHeader(&self, headerName: &windows_core::HSTRING, headerValue: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IBackgroundTransferBase>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headername), core::mem::transmute_copy(headervalue)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headerName), core::mem::transmute_copy(headerValue)).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
@@ -1356,7 +1291,6 @@ impl BackgroundUploader {
         let this = &windows_core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMethod)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe {
@@ -1364,7 +1298,6 @@ impl BackgroundUploader {
             (windows_core::Interface::vtable(this).Group)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn SetGroup(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetGroup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
@@ -1380,8 +1313,8 @@ impl BackgroundUploader {
         let this = &windows_core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCostPolicy)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Storage")]
-    pub fn CreateUpload<P0, P1>(&self, uri: P0, sourcefile: P1) -> windows_core::Result<UploadOperation>
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
+    pub fn CreateUpload<P0, P1>(&self, uri: P0, sourceFile: P1) -> windows_core::Result<UploadOperation>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -1389,11 +1322,11 @@ impl BackgroundUploader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateUpload)(windows_core::Interface::as_raw(this), uri.param().abi(), sourcefile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateUpload)(windows_core::Interface::as_raw(this), uri.param().abi(), sourceFile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateUploadFromStreamAsync<P0, P1>(&self, uri: P0, sourcestream: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
+    pub fn CreateUploadFromStreamAsync<P0, P1>(&self, uri: P0, sourceStream: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<super::super::Storage::Streams::IInputStream>,
@@ -1401,7 +1334,7 @@ impl BackgroundUploader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateUploadFromStreamAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), sourcestream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateUploadFromStreamAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), sourceStream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1417,7 +1350,7 @@ impl BackgroundUploader {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateUploadWithSubTypeAsync<P0, P1>(&self, uri: P0, parts: P1, subtype: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
+    pub fn CreateUploadWithSubTypeAsync<P0, P1>(&self, uri: P0, parts: P1, subType: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>,
@@ -1425,11 +1358,11 @@ impl BackgroundUploader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateUploadWithSubTypeAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), parts.param().abi(), core::mem::transmute_copy(subtype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateUploadWithSubTypeAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), parts.param().abi(), core::mem::transmute_copy(subType), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateUploadWithSubTypeAndBoundaryAsync<P0, P1>(&self, uri: P0, parts: P1, subtype: &windows_core::HSTRING, boundary: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
+    pub fn CreateUploadWithSubTypeAndBoundaryAsync<P0, P1>(&self, uri: P0, parts: P1, subType: &windows_core::HSTRING, boundary: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>,
@@ -1437,7 +1370,7 @@ impl BackgroundUploader {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateUploadWithSubTypeAndBoundaryAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), parts.param().abi(), core::mem::transmute_copy(subtype), core::mem::transmute_copy(boundary), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateUploadWithSubTypeAndBoundaryAsync)(windows_core::Interface::as_raw(this), uri.param().abi(), parts.param().abi(), core::mem::transmute_copy(subType), core::mem::transmute_copy(boundary), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn TransferGroup(&self) -> windows_core::Result<BackgroundTransferGroup> {
@@ -1525,13 +1458,13 @@ impl BackgroundUploader {
             (windows_core::Interface::vtable(this).CompletionGroup)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateWithCompletionGroup<P0>(completiongroup: P0) -> windows_core::Result<BackgroundUploader>
+    pub fn CreateWithCompletionGroup<P0>(completionGroup: P0) -> windows_core::Result<BackgroundUploader>
     where
         P0: windows_core::Param<BackgroundTransferCompletionGroup>,
     {
         Self::IBackgroundUploaderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateWithCompletionGroup)(windows_core::Interface::as_raw(this), completiongroup.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateWithCompletionGroup)(windows_core::Interface::as_raw(this), completionGroup.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
@@ -1541,7 +1474,7 @@ impl BackgroundUploader {
             (windows_core::Interface::vtable(this).GetCurrentUploadsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentUploadsForGroupAsync(group: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>> {
         Self::IBackgroundUploaderStaticMethods(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1558,7 +1491,7 @@ impl BackgroundUploader {
             (windows_core::Interface::vtable(this).GetCurrentUploadsForTransferGroupAsync)(windows_core::Interface::as_raw(this), group.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    #[cfg(feature = "Foundation_Collections")]
     pub fn RequestUnconstrainedUploadsAsync<P0>(operations: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::IIterable<UploadOperation>>,
@@ -1580,7 +1513,6 @@ impl BackgroundUploader {
         static SHARED: windows_core::imp::FactoryCache<BackgroundUploader, IBackgroundUploaderStaticMethods2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[cfg(feature = "deprecated")]
     fn IBackgroundUploaderUserConsent<R, F: FnOnce(&IBackgroundUploaderUserConsent) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundUploader, IBackgroundUploaderUserConsent> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -1590,50 +1522,14 @@ impl windows_core::RuntimeType for BackgroundUploader {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundUploader>();
 }
 unsafe impl windows_core::Interface for BackgroundUploader {
-    type Vtable = IBackgroundUploader_Vtbl;
+    type Vtable = <IBackgroundUploader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundUploader as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for BackgroundUploader {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundUploader";
 }
-unsafe impl Send for BackgroundUploader {}
-unsafe impl Sync for BackgroundUploader {}
 pub struct ContentPrefetcher;
-impl ContentPrefetcher {
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ContentUris() -> windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
-        Self::IContentPrefetcher(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ContentUris)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn SetIndirectContentUri<P0>(value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::Uri>,
-    {
-        Self::IContentPrefetcher(|this| unsafe { (windows_core::Interface::vtable(this).SetIndirectContentUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
-    }
-    pub fn IndirectContentUri() -> windows_core::Result<super::super::Foundation::Uri> {
-        Self::IContentPrefetcher(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IndirectContentUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn LastSuccessfulPrefetchTime() -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
-        Self::IContentPrefetcherTime(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LastSuccessfulPrefetchTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IContentPrefetcher<R, F: FnOnce(&IContentPrefetcher) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<ContentPrefetcher, IContentPrefetcher> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn IContentPrefetcherTime<R, F: FnOnce(&IContentPrefetcherTime) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<ContentPrefetcher, IContentPrefetcherTime> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl ContentPrefetcher {}
 impl windows_core::RuntimeName for ContentPrefetcher {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.ContentPrefetcher";
 }
@@ -1641,7 +1537,6 @@ impl windows_core::RuntimeName for ContentPrefetcher {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DownloadOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DownloadOperation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(DownloadOperation, IBackgroundTransferOperation, IBackgroundTransferOperationPriority);
 impl DownloadOperation {
     pub fn Guid(&self) -> windows_core::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<IBackgroundTransferOperation>(self)?;
@@ -1664,7 +1559,6 @@ impl DownloadOperation {
             (windows_core::Interface::vtable(this).Method)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
@@ -1709,7 +1603,7 @@ impl DownloadOperation {
         let this = &windows_core::Interface::cast::<IBackgroundTransferOperationPriority>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPriority)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub fn ResultFile(&self) -> windows_core::Result<super::super::Storage::IStorageFile> {
         let this = self;
         unsafe {
@@ -1780,19 +1674,19 @@ impl DownloadOperation {
             (windows_core::Interface::vtable(this).GetDownloadedRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RangesDownloaded<P0>(&self, eventhandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    pub fn RangesDownloaded<P0>(&self, eventHandler: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DownloadOperation, BackgroundTransferRangesDownloadedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RangesDownloaded)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).RangesDownloaded)(windows_core::Interface::as_raw(this), eventHandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRangesDownloaded(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
+    pub fn RemoveRangesDownloaded(&self, eventCookie: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IDownloadOperation3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveRangesDownloaded)(windows_core::Interface::as_raw(this), eventcookie).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveRangesDownloaded)(windows_core::Interface::as_raw(this), eventCookie).ok() }
     }
     pub fn SetRequestedUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -1821,27 +1715,25 @@ impl DownloadOperation {
         let this = &windows_core::Interface::cast::<IDownloadOperation4>(self)?;
         unsafe { (windows_core::Interface::vtable(this).MakeCurrentInTransferGroup)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SetRequestHeader(&self, headername: &windows_core::HSTRING, headervalue: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetRequestHeader(&self, headerName: &windows_core::HSTRING, headerValue: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IDownloadOperation5>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headername), core::mem::transmute_copy(headervalue)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headerName), core::mem::transmute_copy(headerValue)).ok() }
     }
-    pub fn RemoveRequestHeader(&self, headername: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn RemoveRequestHeader(&self, headerName: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IDownloadOperation5>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headername)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headerName)).ok() }
     }
 }
 impl windows_core::RuntimeType for DownloadOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDownloadOperation>();
 }
 unsafe impl windows_core::Interface for DownloadOperation {
-    type Vtable = IDownloadOperation_Vtbl;
+    type Vtable = <IDownloadOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDownloadOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DownloadOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.DownloadOperation";
 }
-unsafe impl Send for DownloadOperation {}
-unsafe impl Sync for DownloadOperation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResponseInformation(windows_core::IUnknown);
@@ -1881,14 +1773,12 @@ impl windows_core::RuntimeType for ResponseInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IResponseInformation>();
 }
 unsafe impl windows_core::Interface for ResponseInformation {
-    type Vtable = IResponseInformation_Vtbl;
+    type Vtable = <IResponseInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IResponseInformation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ResponseInformation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.ResponseInformation";
 }
-unsafe impl Send for ResponseInformation {}
-unsafe impl Sync for ResponseInformation {}
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -1912,22 +1802,17 @@ impl windows_core::RuntimeType for UnconstrainedTransferRequestResult {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for UnconstrainedTransferRequestResult {
-    type Vtable = IUnconstrainedTransferRequestResult_Vtbl;
+    type Vtable = <IUnconstrainedTransferRequestResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUnconstrainedTransferRequestResult as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for UnconstrainedTransferRequestResult {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.UnconstrainedTransferRequestResult";
 }
-#[cfg(feature = "deprecated")]
-unsafe impl Send for UnconstrainedTransferRequestResult {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for UnconstrainedTransferRequestResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UploadOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UploadOperation, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UploadOperation, IBackgroundTransferOperation, IBackgroundTransferOperationPriority);
 impl UploadOperation {
     pub fn Guid(&self) -> windows_core::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<IBackgroundTransferOperation>(self)?;
@@ -1950,7 +1835,6 @@ impl UploadOperation {
             (windows_core::Interface::vtable(this).Method)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
@@ -1995,7 +1879,7 @@ impl UploadOperation {
         let this = &windows_core::Interface::cast::<IBackgroundTransferOperationPriority>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPriority)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "Storage_Streams"))]
     pub fn SourceFile(&self) -> windows_core::Result<super::super::Storage::IStorageFile> {
         let this = self;
         unsafe {
@@ -2035,29 +1919,27 @@ impl UploadOperation {
         let this = &windows_core::Interface::cast::<IUploadOperation3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).MakeCurrentInTransferGroup)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SetRequestHeader(&self, headername: &windows_core::HSTRING, headervalue: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetRequestHeader(&self, headerName: &windows_core::HSTRING, headerValue: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IUploadOperation4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headername), core::mem::transmute_copy(headervalue)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headerName), core::mem::transmute_copy(headerValue)).ok() }
     }
-    pub fn RemoveRequestHeader(&self, headername: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn RemoveRequestHeader(&self, headerName: &windows_core::HSTRING) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IUploadOperation4>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).RemoveRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headername)).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headerName)).ok() }
     }
 }
 impl windows_core::RuntimeType for UploadOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUploadOperation>();
 }
 unsafe impl windows_core::Interface for UploadOperation {
-    type Vtable = IUploadOperation_Vtbl;
+    type Vtable = <IUploadOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUploadOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UploadOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.UploadOperation";
 }
-unsafe impl Send for UploadOperation {}
-unsafe impl Sync for UploadOperation {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct BackgroundTransferBehavior(pub i32);
 impl BackgroundTransferBehavior {
     pub const Parallel: Self = Self(0i32);
@@ -2066,16 +1948,11 @@ impl BackgroundTransferBehavior {
 impl windows_core::TypeKind for BackgroundTransferBehavior {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BackgroundTransferBehavior {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BackgroundTransferBehavior").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for BackgroundTransferBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferBehavior;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct BackgroundTransferCostPolicy(pub i32);
 impl BackgroundTransferCostPolicy {
     pub const Default: Self = Self(0i32);
@@ -2085,16 +1962,11 @@ impl BackgroundTransferCostPolicy {
 impl windows_core::TypeKind for BackgroundTransferCostPolicy {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BackgroundTransferCostPolicy {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BackgroundTransferCostPolicy").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for BackgroundTransferCostPolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferCostPolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct BackgroundTransferPriority(pub i32);
 impl BackgroundTransferPriority {
     pub const Default: Self = Self(0i32);
@@ -2104,16 +1976,11 @@ impl BackgroundTransferPriority {
 impl windows_core::TypeKind for BackgroundTransferPriority {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BackgroundTransferPriority {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BackgroundTransferPriority").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for BackgroundTransferPriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferPriority;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct BackgroundTransferStatus(pub i32);
 impl BackgroundTransferStatus {
     pub const Idle: Self = Self(0i32);
@@ -2130,16 +1997,11 @@ impl BackgroundTransferStatus {
 impl windows_core::TypeKind for BackgroundTransferStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BackgroundTransferStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BackgroundTransferStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for BackgroundTransferStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct BackgroundDownloadProgress {
     pub BytesReceived: u64,
     pub TotalBytesToReceive: u64,
@@ -2153,13 +2015,8 @@ impl windows_core::TypeKind for BackgroundDownloadProgress {
 impl windows_core::RuntimeType for BackgroundDownloadProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundDownloadProgress;u8;u8;enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4);b1;b1)");
 }
-impl Default for BackgroundDownloadProgress {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct BackgroundTransferFileRange {
     pub Offset: u64,
     pub Length: u64,
@@ -2170,13 +2027,8 @@ impl windows_core::TypeKind for BackgroundTransferFileRange {
 impl windows_core::RuntimeType for BackgroundTransferFileRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundTransferFileRange;u8;u8)");
 }
-impl Default for BackgroundTransferFileRange {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct BackgroundUploadProgress {
     pub BytesReceived: u64,
     pub BytesSent: u64,
@@ -2192,10 +2044,3 @@ impl windows_core::TypeKind for BackgroundUploadProgress {
 impl windows_core::RuntimeType for BackgroundUploadProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundUploadProgress;u8;u8;u8;u8;enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4);b1;b1)");
 }
-impl Default for BackgroundUploadProgress {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

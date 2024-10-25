@@ -16,6 +16,10 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+impl windows_core::RuntimeType for IAsyncInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IAsyncInfo {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -54,10 +58,6 @@ impl IAsyncInfo {
         }
     }
 }
-impl windows_core::RuntimeType for IAsyncInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IAsyncInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -93,7 +93,16 @@ unsafe impl<TResult: windows_core::RuntimeType + 'static> windows_core::Interfac
 {
     type Vtable = IAsyncOperation_Vtbl<TResult>;
     const IID: windows_core::GUID =
-        windows_core::GUID::from_u128(0x9fc2b0bb_e446_44e2_aa61_9cab8f636af2);
+        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+}
+impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType
+    for IAsyncOperation<TResult>
+{
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
+        .push_slice(b"pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2}")
+        .push_slice(b";")
+        .push_other(TResult::SIGNATURE)
+        .push_slice(b")");
 }
 impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
     pub fn GetResults(&self) -> windows_core::Result<TResult> {
@@ -143,12 +152,6 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
                 .ok()
         }
     }
-}
-impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType
-    for IAsyncOperation<TResult>
-{
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IAsyncOperation_Vtbl<TResult>

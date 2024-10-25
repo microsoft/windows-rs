@@ -16,6 +16,10 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+impl windows_core::RuntimeType for IStringable {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IStringable {
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -28,10 +32,6 @@ impl IStringable {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-impl windows_core::RuntimeType for IStringable {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IStringable_Vtbl {

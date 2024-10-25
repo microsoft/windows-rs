@@ -1,11 +1,8 @@
 windows_core::imp::define_interface!(IGpioControllerProvider, IGpioControllerProvider_Vtbl, 0xad11cec7_19ea_4b21_874f_b91aed4a25db);
-impl core::ops::Deref for IGpioControllerProvider {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IGpioControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for IGpioControllerProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IGpioControllerProvider {
     pub fn PinCount(&self) -> windows_core::Result<i32> {
         let this = self;
@@ -14,16 +11,13 @@ impl IGpioControllerProvider {
             (windows_core::Interface::vtable(this).PinCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn OpenPinProvider(&self, pin: i32, sharingmode: ProviderGpioSharingMode) -> windows_core::Result<IGpioPinProvider> {
+    pub fn OpenPinProvider(&self, pin: i32, sharingMode: ProviderGpioSharingMode) -> windows_core::Result<IGpioPinProvider> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OpenPinProvider)(windows_core::Interface::as_raw(this), pin, sharingmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).OpenPinProvider)(windows_core::Interface::as_raw(this), pin, sharingMode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-impl windows_core::RuntimeType for IGpioControllerProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IGpioControllerProvider_Vtbl {
@@ -32,13 +26,10 @@ pub struct IGpioControllerProvider_Vtbl {
     pub OpenPinProvider: unsafe extern "system" fn(*mut core::ffi::c_void, i32, ProviderGpioSharingMode, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGpioPinProvider, IGpioPinProvider_Vtbl, 0x42344cb7_6abc_40ff_9ce7_73b85301b900);
-impl core::ops::Deref for IGpioPinProvider {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IGpioPinProvider, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for IGpioPinProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IGpioPinProvider {
     pub fn ValueChanged<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -79,11 +70,11 @@ impl IGpioPinProvider {
             (windows_core::Interface::vtable(this).SharingMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsDriveModeSupported(&self, drivemode: ProviderGpioPinDriveMode) -> windows_core::Result<bool> {
+    pub fn IsDriveModeSupported(&self, driveMode: ProviderGpioPinDriveMode) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsDriveModeSupported)(windows_core::Interface::as_raw(this), drivemode, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsDriveModeSupported)(windows_core::Interface::as_raw(this), driveMode, &mut result__).map(|| result__)
         }
     }
     pub fn GetDriveMode(&self) -> windows_core::Result<ProviderGpioPinDriveMode> {
@@ -108,9 +99,6 @@ impl IGpioPinProvider {
             (windows_core::Interface::vtable(this).Read)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-}
-impl windows_core::RuntimeType for IGpioPinProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IGpioPinProvider_Vtbl {
@@ -146,13 +134,10 @@ pub struct IGpioPinProviderValueChangedEventArgsFactory_Vtbl {
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, ProviderGpioPinEdge, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGpioProvider, IGpioProvider_Vtbl, 0x44e82707_08ca_434a_afe0_d61580446f7e);
-impl core::ops::Deref for IGpioProvider {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IGpioProvider, windows_core::IUnknown, windows_core::IInspectable);
+impl windows_core::RuntimeType for IGpioProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IGpioProvider {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetControllers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IGpioControllerProvider>> {
@@ -162,9 +147,6 @@ impl IGpioProvider {
             (windows_core::Interface::vtable(this).GetControllers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-}
-impl windows_core::RuntimeType for IGpioProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IGpioProvider_Vtbl {
@@ -201,16 +183,14 @@ impl windows_core::RuntimeType for GpioPinProviderValueChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGpioPinProviderValueChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for GpioPinProviderValueChangedEventArgs {
-    type Vtable = IGpioPinProviderValueChangedEventArgs_Vtbl;
+    type Vtable = <IGpioPinProviderValueChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGpioPinProviderValueChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GpioPinProviderValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Gpio.Provider.GpioPinProviderValueChangedEventArgs";
 }
-unsafe impl Send for GpioPinProviderValueChangedEventArgs {}
-unsafe impl Sync for GpioPinProviderValueChangedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ProviderGpioPinDriveMode(pub i32);
 impl ProviderGpioPinDriveMode {
     pub const Input: Self = Self(0i32);
@@ -225,16 +205,11 @@ impl ProviderGpioPinDriveMode {
 impl windows_core::TypeKind for ProviderGpioPinDriveMode {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ProviderGpioPinDriveMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ProviderGpioPinDriveMode").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ProviderGpioPinDriveMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinDriveMode;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ProviderGpioPinEdge(pub i32);
 impl ProviderGpioPinEdge {
     pub const FallingEdge: Self = Self(0i32);
@@ -243,16 +218,11 @@ impl ProviderGpioPinEdge {
 impl windows_core::TypeKind for ProviderGpioPinEdge {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ProviderGpioPinEdge {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ProviderGpioPinEdge").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ProviderGpioPinEdge {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinEdge;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ProviderGpioPinValue(pub i32);
 impl ProviderGpioPinValue {
     pub const Low: Self = Self(0i32);
@@ -261,16 +231,11 @@ impl ProviderGpioPinValue {
 impl windows_core::TypeKind for ProviderGpioPinValue {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ProviderGpioPinValue {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ProviderGpioPinValue").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ProviderGpioPinValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioPinValue;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ProviderGpioSharingMode(pub i32);
 impl ProviderGpioSharingMode {
     pub const Exclusive: Self = Self(0i32);
@@ -279,13 +244,6 @@ impl ProviderGpioSharingMode {
 impl windows_core::TypeKind for ProviderGpioSharingMode {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ProviderGpioSharingMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ProviderGpioSharingMode").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ProviderGpioSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.Provider.ProviderGpioSharingMode;i4)");
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

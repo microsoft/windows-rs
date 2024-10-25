@@ -16,6 +16,10 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+impl windows_core::RuntimeType for IAsyncInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IAsyncInfo {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -64,10 +68,6 @@ impl IAsyncInfo {
                 .ok()
         }
     }
-}
-impl windows_core::RuntimeType for IAsyncInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IAsyncInfo_Vtbl {

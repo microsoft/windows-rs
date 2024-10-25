@@ -50,28 +50,7 @@ pub struct IHolographicKeyboardPlacementOverridePreviewStatics_Vtbl {
     GetForCurrentView: usize,
 }
 pub struct HolographicApplicationPreview;
-impl HolographicApplicationPreview {
-    pub fn IsCurrentViewPresentedOnHolographicDisplay() -> windows_core::Result<bool> {
-        Self::IHolographicApplicationPreviewStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsCurrentViewPresentedOnHolographicDisplay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        })
-    }
-    #[cfg(feature = "ApplicationModel_Activation")]
-    pub fn IsHolographicActivation<P0>(activatedeventargs: P0) -> windows_core::Result<bool>
-    where
-        P0: windows_core::Param<super::super::Activation::IActivatedEventArgs>,
-    {
-        Self::IHolographicApplicationPreviewStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsHolographicActivation)(windows_core::Interface::as_raw(this), activatedeventargs.param().abi(), &mut result__).map(|| result__)
-        })
-    }
-    fn IHolographicApplicationPreviewStatics<R, F: FnOnce(&IHolographicApplicationPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<HolographicApplicationPreview, IHolographicApplicationPreviewStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl HolographicApplicationPreview {}
 impl windows_core::RuntimeName for HolographicApplicationPreview {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Holographic.HolographicApplicationPreview";
 }
@@ -84,20 +63,20 @@ windows_core::imp::interface_hierarchy!(HolographicKeyboardPlacementOverridePrev
 #[cfg(feature = "deprecated")]
 impl HolographicKeyboardPlacementOverridePreview {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "deprecated"))]
-    pub fn SetPlacementOverride<P0>(&self, coordinatesystem: P0, topcenterposition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()>
+    pub fn SetPlacementOverride<P0>(&self, coordinateSystem: P0, topCenterPosition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverride)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, normal).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverride)(windows_core::Interface::as_raw(this), coordinateSystem.param().abi(), topCenterPosition, normal).ok() }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "deprecated"))]
-    pub fn SetPlacementOverrideWithMaxSize<P0>(&self, coordinatesystem: P0, topcenterposition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3, maxsize: super::super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()>
+    pub fn SetPlacementOverrideWithMaxSize<P0>(&self, coordinateSystem: P0, topCenterPosition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3, maxSize: super::super::super::Foundation::Numerics::Vector2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, normal, maxsize).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(windows_core::Interface::as_raw(this), coordinateSystem.param().abi(), topCenterPosition, normal, maxSize).ok() }
     }
     #[cfg(feature = "deprecated")]
     pub fn ResetPlacementOverride(&self) -> windows_core::Result<()> {
@@ -111,7 +90,6 @@ impl HolographicKeyboardPlacementOverridePreview {
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    #[cfg(feature = "deprecated")]
     fn IHolographicKeyboardPlacementOverridePreviewStatics<R, F: FnOnce(&IHolographicKeyboardPlacementOverridePreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HolographicKeyboardPlacementOverridePreview, IHolographicKeyboardPlacementOverridePreviewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -123,14 +101,10 @@ impl windows_core::RuntimeType for HolographicKeyboardPlacementOverridePreview {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for HolographicKeyboardPlacementOverridePreview {
-    type Vtable = IHolographicKeyboardPlacementOverridePreview_Vtbl;
+    type Vtable = <IHolographicKeyboardPlacementOverridePreview as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicKeyboardPlacementOverridePreview as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for HolographicKeyboardPlacementOverridePreview {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview";
 }
-#[cfg(feature = "deprecated")]
-unsafe impl Send for HolographicKeyboardPlacementOverridePreview {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for HolographicKeyboardPlacementOverridePreview {}

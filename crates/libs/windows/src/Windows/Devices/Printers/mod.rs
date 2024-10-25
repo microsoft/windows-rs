@@ -469,14 +469,12 @@ impl windows_core::RuntimeType for IppAttributeError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppAttributeError>();
 }
 unsafe impl windows_core::Interface for IppAttributeError {
-    type Vtable = IIppAttributeError_Vtbl;
+    type Vtable = <IIppAttributeError as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIppAttributeError as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IppAttributeError {
     const NAME: &'static str = "Windows.Devices.Printers.IppAttributeError";
 }
-unsafe impl Send for IppAttributeError {}
-unsafe impl Sync for IppAttributeError {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppAttributeValue(windows_core::IUnknown);
@@ -774,23 +772,23 @@ impl IppAttributeValue {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateCollection<P0>(memberattributes: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateCollection<P0>(memberAttributes: P0) -> windows_core::Result<IppAttributeValue>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, IppAttributeValue>>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCollection)(windows_core::Interface::as_raw(this), memberattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCollection)(windows_core::Interface::as_raw(this), memberAttributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateCollectionArray<P0>(memberattributesarray: P0) -> windows_core::Result<IppAttributeValue>
+    pub fn CreateCollectionArray<P0>(memberAttributesArray: P0) -> windows_core::Result<IppAttributeValue>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, IppAttributeValue>>>>,
     {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateCollectionArray)(windows_core::Interface::as_raw(this), memberattributesarray.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).CreateCollectionArray)(windows_core::Interface::as_raw(this), memberAttributesArray.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn CreateTextWithLanguage<P0>(value: P0) -> windows_core::Result<IppAttributeValue>
@@ -971,14 +969,12 @@ impl windows_core::RuntimeType for IppAttributeValue {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppAttributeValue>();
 }
 unsafe impl windows_core::Interface for IppAttributeValue {
-    type Vtable = IIppAttributeValue_Vtbl;
+    type Vtable = <IIppAttributeValue as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIppAttributeValue as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IppAttributeValue {
     const NAME: &'static str = "Windows.Devices.Printers.IppAttributeValue";
 }
-unsafe impl Send for IppAttributeValue {}
-unsafe impl Sync for IppAttributeValue {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppIntegerRange(windows_core::IUnknown);
@@ -1013,14 +1009,12 @@ impl windows_core::RuntimeType for IppIntegerRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppIntegerRange>();
 }
 unsafe impl windows_core::Interface for IppIntegerRange {
-    type Vtable = IIppIntegerRange_Vtbl;
+    type Vtable = <IIppIntegerRange as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIppIntegerRange as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IppIntegerRange {
     const NAME: &'static str = "Windows.Devices.Printers.IppIntegerRange";
 }
-unsafe impl Send for IppIntegerRange {}
-unsafe impl Sync for IppIntegerRange {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppPrintDevice(windows_core::IUnknown);
@@ -1041,47 +1035,47 @@ impl IppPrintDevice {
         }
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn GetPrinterAttributesAsBuffer<P0>(&self, attributenames: P0) -> windows_core::Result<super::super::Storage::Streams::IBuffer>
+    pub fn GetPrinterAttributesAsBuffer<P0>(&self, attributeNames: P0) -> windows_core::Result<super::super::Storage::Streams::IBuffer>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPrinterAttributesAsBuffer)(windows_core::Interface::as_raw(this), attributenames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPrinterAttributesAsBuffer)(windows_core::Interface::as_raw(this), attributeNames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPrinterAttributes<P0>(&self, attributenames: P0) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, IppAttributeValue>>
+    pub fn GetPrinterAttributes<P0>(&self, attributeNames: P0) -> windows_core::Result<super::super::Foundation::Collections::IMap<windows_core::HSTRING, IppAttributeValue>>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetPrinterAttributes)(windows_core::Interface::as_raw(this), attributenames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetPrinterAttributes)(windows_core::Interface::as_raw(this), attributeNames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetPrinterAttributesFromBuffer<P0>(&self, printerattributesbuffer: P0) -> windows_core::Result<IppSetAttributesResult>
+    pub fn SetPrinterAttributesFromBuffer<P0>(&self, printerAttributesBuffer: P0) -> windows_core::Result<IppSetAttributesResult>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetPrinterAttributesFromBuffer)(windows_core::Interface::as_raw(this), printerattributesbuffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetPrinterAttributesFromBuffer)(windows_core::Interface::as_raw(this), printerAttributesBuffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetPrinterAttributes<P0>(&self, printerattributes: P0) -> windows_core::Result<IppSetAttributesResult>
+    pub fn SetPrinterAttributes<P0>(&self, printerAttributes: P0) -> windows_core::Result<IppSetAttributesResult>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<windows_core::HSTRING, IppAttributeValue>>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetPrinterAttributes)(windows_core::Interface::as_raw(this), printerattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SetPrinterAttributes)(windows_core::Interface::as_raw(this), printerAttributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetMaxSupportedPdfSize(&self) -> windows_core::Result<u64> {
@@ -1098,11 +1092,11 @@ impl IppPrintDevice {
             (windows_core::Interface::vtable(this).GetMaxSupportedPdfVersion)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsPdlPassthroughSupported(&self, pdlcontenttype: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn IsPdlPassthroughSupported(&self, pdlContentType: &windows_core::HSTRING) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IIppPrintDevice2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsPdlPassthroughSupported)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pdlcontenttype), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsPdlPassthroughSupported)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pdlContentType), &mut result__).map(|| result__)
         }
     }
     pub fn GetPdlPassthroughProvider(&self) -> windows_core::Result<PdlPassthroughProvider> {
@@ -1153,11 +1147,11 @@ impl IppPrintDevice {
         let this = &windows_core::Interface::cast::<IIppPrintDevice4>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RefreshPrintDeviceCapabilities)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn GetMaxSupportedPdlVersion(&self, pdlcontenttype: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetMaxSupportedPdlVersion(&self, pdlContentType: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IIppPrintDevice4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetMaxSupportedPdlVersion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pdlcontenttype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetMaxSupportedPdlVersion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pdlContentType), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
@@ -1166,22 +1160,22 @@ impl IppPrintDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<IppPrintDevice> {
+    pub fn FromId(deviceId: &windows_core::HSTRING) -> windows_core::Result<IppPrintDevice> {
         Self::IIppPrintDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromPrinterName(printername: &windows_core::HSTRING) -> windows_core::Result<IppPrintDevice> {
+    pub fn FromPrinterName(printerName: &windows_core::HSTRING) -> windows_core::Result<IppPrintDevice> {
         Self::IIppPrintDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromPrinterName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromPrinterName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printerName), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn IsIppPrinter(printername: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn IsIppPrinter(printerName: &windows_core::HSTRING) -> windows_core::Result<bool> {
         Self::IIppPrintDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsIppPrinter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).IsIppPrinter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printerName), &mut result__).map(|| result__)
         })
     }
     fn IIppPrintDeviceStatics<R, F: FnOnce(&IIppPrintDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1193,14 +1187,12 @@ impl windows_core::RuntimeType for IppPrintDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppPrintDevice>();
 }
 unsafe impl windows_core::Interface for IppPrintDevice {
-    type Vtable = IIppPrintDevice_Vtbl;
+    type Vtable = <IIppPrintDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIppPrintDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IppPrintDevice {
     const NAME: &'static str = "Windows.Devices.Printers.IppPrintDevice";
 }
-unsafe impl Send for IppPrintDevice {}
-unsafe impl Sync for IppPrintDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppResolution(windows_core::IUnknown);
@@ -1242,14 +1234,12 @@ impl windows_core::RuntimeType for IppResolution {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppResolution>();
 }
 unsafe impl windows_core::Interface for IppResolution {
-    type Vtable = IIppResolution_Vtbl;
+    type Vtable = <IIppResolution as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIppResolution as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IppResolution {
     const NAME: &'static str = "Windows.Devices.Printers.IppResolution";
 }
-unsafe impl Send for IppResolution {}
-unsafe impl Sync for IppResolution {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppSetAttributesResult(windows_core::IUnknown);
@@ -1275,14 +1265,12 @@ impl windows_core::RuntimeType for IppSetAttributesResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppSetAttributesResult>();
 }
 unsafe impl windows_core::Interface for IppSetAttributesResult {
-    type Vtable = IIppSetAttributesResult_Vtbl;
+    type Vtable = <IIppSetAttributesResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIppSetAttributesResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IppSetAttributesResult {
     const NAME: &'static str = "Windows.Devices.Printers.IppSetAttributesResult";
 }
-unsafe impl Send for IppSetAttributesResult {}
-unsafe impl Sync for IppSetAttributesResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppTextWithLanguage(windows_core::IUnknown);
@@ -1317,14 +1305,12 @@ impl windows_core::RuntimeType for IppTextWithLanguage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppTextWithLanguage>();
 }
 unsafe impl windows_core::Interface for IppTextWithLanguage {
-    type Vtable = IIppTextWithLanguage_Vtbl;
+    type Vtable = <IIppTextWithLanguage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIppTextWithLanguage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for IppTextWithLanguage {
     const NAME: &'static str = "Windows.Devices.Printers.IppTextWithLanguage";
 }
-unsafe impl Send for IppTextWithLanguage {}
-unsafe impl Sync for IppTextWithLanguage {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PageConfigurationSettings(windows_core::IUnknown);
@@ -1364,14 +1350,12 @@ impl windows_core::RuntimeType for PageConfigurationSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPageConfigurationSettings>();
 }
 unsafe impl windows_core::Interface for PageConfigurationSettings {
-    type Vtable = IPageConfigurationSettings_Vtbl;
+    type Vtable = <IPageConfigurationSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPageConfigurationSettings as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PageConfigurationSettings {
     const NAME: &'static str = "Windows.Devices.Printers.PageConfigurationSettings";
 }
-unsafe impl Send for PageConfigurationSettings {}
-unsafe impl Sync for PageConfigurationSettings {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdlPassthroughProvider(windows_core::IUnknown);
@@ -1386,27 +1370,27 @@ impl PdlPassthroughProvider {
         }
     }
     #[cfg(feature = "Graphics_Printing")]
-    pub fn StartPrintJobWithTaskOptions<P0, P1>(&self, jobname: &windows_core::HSTRING, pdlcontenttype: &windows_core::HSTRING, taskoptions: P0, pageconfigurationsettings: P1) -> windows_core::Result<PdlPassthroughTarget>
+    pub fn StartPrintJobWithTaskOptions<P2, P3>(&self, jobName: &windows_core::HSTRING, pdlContentType: &windows_core::HSTRING, taskOptions: P2, pageConfigurationSettings: P3) -> windows_core::Result<PdlPassthroughTarget>
     where
-        P0: windows_core::Param<super::super::Graphics::Printing::PrintTaskOptions>,
-        P1: windows_core::Param<PageConfigurationSettings>,
+        P2: windows_core::Param<super::super::Graphics::Printing::PrintTaskOptions>,
+        P3: windows_core::Param<PageConfigurationSettings>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartPrintJobWithTaskOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(jobname), core::mem::transmute_copy(pdlcontenttype), taskoptions.param().abi(), pageconfigurationsettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartPrintJobWithTaskOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(jobName), core::mem::transmute_copy(pdlContentType), taskOptions.param().abi(), pageConfigurationSettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn StartPrintJobWithPrintTicket<P0, P1>(&self, jobname: &windows_core::HSTRING, pdlcontenttype: &windows_core::HSTRING, printticket: P0, pageconfigurationsettings: P1) -> windows_core::Result<PdlPassthroughTarget>
+    pub fn StartPrintJobWithPrintTicket<P2, P3>(&self, jobName: &windows_core::HSTRING, pdlContentType: &windows_core::HSTRING, printTicket: P2, pageConfigurationSettings: P3) -> windows_core::Result<PdlPassthroughTarget>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
-        P1: windows_core::Param<PageConfigurationSettings>,
+        P2: windows_core::Param<super::super::Storage::Streams::IInputStream>,
+        P3: windows_core::Param<PageConfigurationSettings>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).StartPrintJobWithPrintTicket)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(jobname), core::mem::transmute_copy(pdlcontenttype), printticket.param().abi(), pageconfigurationsettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).StartPrintJobWithPrintTicket)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(jobName), core::mem::transmute_copy(pdlContentType), printTicket.param().abi(), pageConfigurationSettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1414,24 +1398,17 @@ impl windows_core::RuntimeType for PdlPassthroughProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdlPassthroughProvider>();
 }
 unsafe impl windows_core::Interface for PdlPassthroughProvider {
-    type Vtable = IPdlPassthroughProvider_Vtbl;
+    type Vtable = <IPdlPassthroughProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPdlPassthroughProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PdlPassthroughProvider {
     const NAME: &'static str = "Windows.Devices.Printers.PdlPassthroughProvider";
 }
-unsafe impl Send for PdlPassthroughProvider {}
-unsafe impl Sync for PdlPassthroughProvider {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdlPassthroughTarget(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PdlPassthroughTarget, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(PdlPassthroughTarget, super::super::Foundation::IClosable);
 impl PdlPassthroughTarget {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn PrintJobId(&self) -> windows_core::Result<i32> {
         let this = self;
         unsafe {
@@ -1451,19 +1428,21 @@ impl PdlPassthroughTarget {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Submit)(windows_core::Interface::as_raw(this)).ok() }
     }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
 }
 impl windows_core::RuntimeType for PdlPassthroughTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdlPassthroughTarget>();
 }
 unsafe impl windows_core::Interface for PdlPassthroughTarget {
-    type Vtable = IPdlPassthroughTarget_Vtbl;
+    type Vtable = <IPdlPassthroughTarget as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPdlPassthroughTarget as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PdlPassthroughTarget {
     const NAME: &'static str = "Windows.Devices.Printers.PdlPassthroughTarget";
 }
-unsafe impl Send for PdlPassthroughTarget {}
-unsafe impl Sync for PdlPassthroughTarget {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DDevice(windows_core::IUnknown);
@@ -1476,10 +1455,10 @@ impl Print3DDevice {
             (windows_core::Interface::vtable(this).PrintSchema)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Print3DDevice>> {
+    pub fn FromIdAsync(deviceId: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Print3DDevice>> {
         Self::IPrint3DDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
@@ -1497,14 +1476,12 @@ impl windows_core::RuntimeType for Print3DDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrint3DDevice>();
 }
 unsafe impl windows_core::Interface for Print3DDevice {
-    type Vtable = IPrint3DDevice_Vtbl;
+    type Vtable = <IPrint3DDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrint3DDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Print3DDevice {
     const NAME: &'static str = "Windows.Devices.Printers.Print3DDevice";
 }
-unsafe impl Send for Print3DDevice {}
-unsafe impl Sync for Print3DDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSchema(windows_core::IUnknown);
@@ -1519,25 +1496,25 @@ impl PrintSchema {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetCapabilitiesAsync<P0>(&self, constrainticket: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>
+    pub fn GetCapabilitiesAsync<P0>(&self, constrainTicket: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamWithContentType>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetCapabilitiesAsync)(windows_core::Interface::as_raw(this), constrainticket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetCapabilitiesAsync)(windows_core::Interface::as_raw(this), constrainTicket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn MergeAndValidateWithDefaultPrintTicketAsync<P0>(&self, deltaticket: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>
+    pub fn MergeAndValidateWithDefaultPrintTicketAsync<P0>(&self, deltaTicket: P0) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamWithContentType>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MergeAndValidateWithDefaultPrintTicketAsync)(windows_core::Interface::as_raw(this), deltaticket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).MergeAndValidateWithDefaultPrintTicketAsync)(windows_core::Interface::as_raw(this), deltaTicket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1545,16 +1522,14 @@ impl windows_core::RuntimeType for PrintSchema {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSchema>();
 }
 unsafe impl windows_core::Interface for PrintSchema {
-    type Vtable = IPrintSchema_Vtbl;
+    type Vtable = <IPrintSchema as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintSchema as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PrintSchema {
     const NAME: &'static str = "Windows.Devices.Printers.PrintSchema";
 }
-unsafe impl Send for PrintSchema {}
-unsafe impl Sync for PrintSchema {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct IppAttributeErrorReason(pub i32);
 impl IppAttributeErrorReason {
     pub const RequestEntityTooLarge: Self = Self(0i32);
@@ -1566,16 +1541,11 @@ impl IppAttributeErrorReason {
 impl windows_core::TypeKind for IppAttributeErrorReason {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IppAttributeErrorReason {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IppAttributeErrorReason").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for IppAttributeErrorReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeErrorReason;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct IppAttributeValueKind(pub i32);
 impl IppAttributeValueKind {
     pub const Unsupported: Self = Self(0i32);
@@ -1603,16 +1573,11 @@ impl IppAttributeValueKind {
 impl windows_core::TypeKind for IppAttributeValueKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IppAttributeValueKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IppAttributeValueKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for IppAttributeValueKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeValueKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct IppPrintDeviceKind(pub i32);
 impl IppPrintDeviceKind {
     pub const Printer: Self = Self(0i32);
@@ -1622,16 +1587,11 @@ impl IppPrintDeviceKind {
 impl windows_core::TypeKind for IppPrintDeviceKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IppPrintDeviceKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IppPrintDeviceKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for IppPrintDeviceKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppPrintDeviceKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct IppResolutionUnit(pub i32);
 impl IppResolutionUnit {
     pub const DotsPerInch: Self = Self(0i32);
@@ -1640,16 +1600,11 @@ impl IppResolutionUnit {
 impl windows_core::TypeKind for IppResolutionUnit {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IppResolutionUnit {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IppResolutionUnit").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for IppResolutionUnit {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppResolutionUnit;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PageConfigurationSource(pub i32);
 impl PageConfigurationSource {
     pub const PrintJobConfiguration: Self = Self(0i32);
@@ -1657,11 +1612,6 @@ impl PageConfigurationSource {
 }
 impl windows_core::TypeKind for PageConfigurationSource {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PageConfigurationSource {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PageConfigurationSource").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for PageConfigurationSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.PageConfigurationSource;i4)");

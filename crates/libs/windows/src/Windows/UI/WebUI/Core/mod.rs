@@ -65,33 +65,21 @@ pub struct IWebUICommandBarConfirmationButton_Vtbl {
     pub RemoveItemInvoked: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWebUICommandBarElement, IWebUICommandBarElement_Vtbl, 0xc9069ec2_284a_4633_8aad_637a27e282c3);
-impl core::ops::Deref for IWebUICommandBarElement {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IWebUICommandBarElement, windows_core::IUnknown, windows_core::IInspectable);
-impl IWebUICommandBarElement {}
 impl windows_core::RuntimeType for IWebUICommandBarElement {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+impl IWebUICommandBarElement {}
 #[repr(C)]
 pub struct IWebUICommandBarElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(IWebUICommandBarIcon, IWebUICommandBarIcon_Vtbl, 0xd587655d_2014_42be_969a_7d14ca6c8a49);
-impl core::ops::Deref for IWebUICommandBarIcon {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IWebUICommandBarIcon, windows_core::IUnknown, windows_core::IInspectable);
-impl IWebUICommandBarIcon {}
 impl windows_core::RuntimeType for IWebUICommandBarIcon {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+impl IWebUICommandBarIcon {}
 #[repr(C)]
 pub struct IWebUICommandBarIcon_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -313,19 +301,16 @@ impl windows_core::RuntimeType for WebUICommandBar {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBar>();
 }
 unsafe impl windows_core::Interface for WebUICommandBar {
-    type Vtable = IWebUICommandBar_Vtbl;
+    type Vtable = <IWebUICommandBar as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUICommandBar as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebUICommandBar {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBar";
 }
-unsafe impl Send for WebUICommandBar {}
-unsafe impl Sync for WebUICommandBar {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarBitmapIcon(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBarBitmapIcon, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(WebUICommandBarBitmapIcon, IWebUICommandBarIcon);
 impl WebUICommandBarBitmapIcon {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -366,19 +351,16 @@ impl windows_core::RuntimeType for WebUICommandBarBitmapIcon {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarBitmapIcon>();
 }
 unsafe impl windows_core::Interface for WebUICommandBarBitmapIcon {
-    type Vtable = IWebUICommandBarBitmapIcon_Vtbl;
+    type Vtable = <IWebUICommandBarBitmapIcon as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUICommandBarBitmapIcon as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebUICommandBarBitmapIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarBitmapIcon";
 }
-unsafe impl Send for WebUICommandBarBitmapIcon {}
-unsafe impl Sync for WebUICommandBarBitmapIcon {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarConfirmationButton(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBarConfirmationButton, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(WebUICommandBarConfirmationButton, IWebUICommandBarElement);
 impl WebUICommandBarConfirmationButton {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -417,19 +399,16 @@ impl windows_core::RuntimeType for WebUICommandBarConfirmationButton {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarConfirmationButton>();
 }
 unsafe impl windows_core::Interface for WebUICommandBarConfirmationButton {
-    type Vtable = IWebUICommandBarConfirmationButton_Vtbl;
+    type Vtable = <IWebUICommandBarConfirmationButton as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUICommandBarConfirmationButton as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebUICommandBarConfirmationButton {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarConfirmationButton";
 }
-unsafe impl Send for WebUICommandBarConfirmationButton {}
-unsafe impl Sync for WebUICommandBarConfirmationButton {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarIconButton(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBarIconButton, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(WebUICommandBarIconButton, IWebUICommandBarElement);
 impl WebUICommandBarIconButton {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -515,14 +494,12 @@ impl windows_core::RuntimeType for WebUICommandBarIconButton {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarIconButton>();
 }
 unsafe impl windows_core::Interface for WebUICommandBarIconButton {
-    type Vtable = IWebUICommandBarIconButton_Vtbl;
+    type Vtable = <IWebUICommandBarIconButton as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUICommandBarIconButton as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebUICommandBarIconButton {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarIconButton";
 }
-unsafe impl Send for WebUICommandBarIconButton {}
-unsafe impl Sync for WebUICommandBarIconButton {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarItemInvokedEventArgs(windows_core::IUnknown);
@@ -540,14 +517,12 @@ impl windows_core::RuntimeType for WebUICommandBarItemInvokedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarItemInvokedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebUICommandBarItemInvokedEventArgs {
-    type Vtable = IWebUICommandBarItemInvokedEventArgs_Vtbl;
+    type Vtable = <IWebUICommandBarItemInvokedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUICommandBarItemInvokedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebUICommandBarItemInvokedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarItemInvokedEventArgs";
 }
-unsafe impl Send for WebUICommandBarItemInvokedEventArgs {}
-unsafe impl Sync for WebUICommandBarItemInvokedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarSizeChangedEventArgs(windows_core::IUnknown);
@@ -565,19 +540,16 @@ impl windows_core::RuntimeType for WebUICommandBarSizeChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarSizeChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebUICommandBarSizeChangedEventArgs {
-    type Vtable = IWebUICommandBarSizeChangedEventArgs_Vtbl;
+    type Vtable = <IWebUICommandBarSizeChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUICommandBarSizeChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebUICommandBarSizeChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarSizeChangedEventArgs";
 }
-unsafe impl Send for WebUICommandBarSizeChangedEventArgs {}
-unsafe impl Sync for WebUICommandBarSizeChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarSymbolIcon(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBarSymbolIcon, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(WebUICommandBarSymbolIcon, IWebUICommandBarIcon);
 impl WebUICommandBarSymbolIcon {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -612,43 +584,30 @@ impl windows_core::RuntimeType for WebUICommandBarSymbolIcon {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarSymbolIcon>();
 }
 unsafe impl windows_core::Interface for WebUICommandBarSymbolIcon {
-    type Vtable = IWebUICommandBarSymbolIcon_Vtbl;
+    type Vtable = <IWebUICommandBarSymbolIcon as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUICommandBarSymbolIcon as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WebUICommandBarSymbolIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarSymbolIcon";
 }
-unsafe impl Send for WebUICommandBarSymbolIcon {}
-unsafe impl Sync for WebUICommandBarSymbolIcon {}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct WebUICommandBarClosedDisplayMode(pub i32);
-impl WebUICommandBarClosedDisplayMode {
-    pub const Default: Self = Self(0i32);
-    pub const Minimal: Self = Self(1i32);
-    pub const Compact: Self = Self(2i32);
-}
-impl windows_core::TypeKind for WebUICommandBarClosedDisplayMode {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for WebUICommandBarClosedDisplayMode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WebUICommandBarClosedDisplayMode").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for WebUICommandBarClosedDisplayMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.Core.WebUICommandBarClosedDisplayMode;i4)");
-}
 windows_core::imp::define_interface!(MenuClosedEventHandler, MenuClosedEventHandler_Vtbl, 0x435387c8_4dd0_4c52_9489_d390ce7721d2);
+impl windows_core::RuntimeType for MenuClosedEventHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl MenuClosedEventHandler {
     pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = MenuClosedEventHandlerBox::<F> { vtable: &MenuClosedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = MenuClosedEventHandlerBox { vtable: &MenuClosedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke(&self) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+#[repr(C)]
+pub struct MenuClosedEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
 struct MenuClosedEventHandlerBox<F: FnMut() -> windows_core::Result<()> + Send + 'static> {
@@ -688,24 +647,24 @@ impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> MenuClosedEventHan
         (this.invoke)().into()
     }
 }
-impl windows_core::RuntimeType for MenuClosedEventHandler {
+windows_core::imp::define_interface!(MenuOpenedEventHandler, MenuOpenedEventHandler_Vtbl, 0x18dc0ad3_678f_4c19_8963_cc1c49a5ef9e);
+impl windows_core::RuntimeType for MenuOpenedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct MenuClosedEventHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(MenuOpenedEventHandler, MenuOpenedEventHandler_Vtbl, 0x18dc0ad3_678f_4c19_8963_cc1c49a5ef9e);
 impl MenuOpenedEventHandler {
     pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = MenuOpenedEventHandlerBox::<F> { vtable: &MenuOpenedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = MenuOpenedEventHandlerBox { vtable: &MenuOpenedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke(&self) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+#[repr(C)]
+pub struct MenuOpenedEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
 struct MenuOpenedEventHandlerBox<F: FnMut() -> windows_core::Result<()> + Send + 'static> {
@@ -745,27 +704,27 @@ impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> MenuOpenedEventHan
         (this.invoke)().into()
     }
 }
-impl windows_core::RuntimeType for MenuOpenedEventHandler {
+windows_core::imp::define_interface!(SizeChangedEventHandler, SizeChangedEventHandler_Vtbl, 0xd49cfe3c_dd2e_4c28_b627_303a7f911af5);
+impl windows_core::RuntimeType for SizeChangedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
-#[repr(C)]
-pub struct MenuOpenedEventHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(SizeChangedEventHandler, SizeChangedEventHandler_Vtbl, 0xd49cfe3c_dd2e_4c28_b627_303a7f911af5);
 impl SizeChangedEventHandler {
     pub fn new<F: FnMut(Option<&WebUICommandBarSizeChangedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = SizeChangedEventHandlerBox::<F> { vtable: &SizeChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = SizeChangedEventHandlerBox { vtable: &SizeChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
-    pub fn Invoke<P0>(&self, eventargs: P0) -> windows_core::Result<()>
+    pub fn Invoke<P0>(&self, eventArgs: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<WebUICommandBarSizeChangedEventArgs>,
     {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), eventargs.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), eventArgs.param().abi()).ok() }
     }
+}
+#[repr(C)]
+pub struct SizeChangedEventHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, eventArgs: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
 struct SizeChangedEventHandlerBox<F: FnMut(Option<&WebUICommandBarSizeChangedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
@@ -800,18 +759,22 @@ impl<F: FnMut(Option<&WebUICommandBarSizeChangedEventArgs>) -> windows_core::Res
         }
         remaining
     }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, eventArgs: *mut core::ffi::c_void) -> windows_core::HRESULT {
         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
-        (this.invoke)(windows_core::from_raw_borrowed(&eventargs)).into()
+        (this.invoke)(windows_core::from_raw_borrowed(&eventArgs)).into()
     }
 }
-impl windows_core::RuntimeType for SizeChangedEventHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+#[repr(transparent)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct WebUICommandBarClosedDisplayMode(pub i32);
+impl WebUICommandBarClosedDisplayMode {
+    pub const Default: Self = Self(0i32);
+    pub const Minimal: Self = Self(1i32);
+    pub const Compact: Self = Self(2i32);
 }
-#[repr(C)]
-pub struct SizeChangedEventHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+impl windows_core::TypeKind for WebUICommandBarClosedDisplayMode {
+    type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");
+impl windows_core::RuntimeType for WebUICommandBarClosedDisplayMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WebUI.Core.WebUICommandBarClosedDisplayMode;i4)");
+}

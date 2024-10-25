@@ -163,12 +163,7 @@ pub struct ILampStatics_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Lamp(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Lamp, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Lamp, super::super::Foundation::IClosable);
 impl Lamp {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
@@ -238,10 +233,10 @@ impl Lamp {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Lamp>> {
+    pub fn FromIdAsync(deviceId: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<Lamp>> {
         Self::ILampStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     pub fn GetDefaultAsync() -> windows_core::Result<super::super::Foundation::IAsyncOperation<Lamp>> {
@@ -249,6 +244,10 @@ impl Lamp {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
+    }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     fn ILampStatics<R, F: FnOnce(&ILampStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Lamp, ILampStatics> = windows_core::imp::FactoryCache::new();
@@ -259,14 +258,12 @@ impl windows_core::RuntimeType for Lamp {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILamp>();
 }
 unsafe impl windows_core::Interface for Lamp {
-    type Vtable = ILamp_Vtbl;
+    type Vtable = <ILamp as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILamp as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Lamp {
     const NAME: &'static str = "Windows.Devices.Lights.Lamp";
 }
-unsafe impl Send for Lamp {}
-unsafe impl Sync for Lamp {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArray(windows_core::IUnknown);
@@ -365,11 +362,11 @@ impl LampArray {
             (windows_core::Interface::vtable(this).SupportsVirtualKeys)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetLampInfo(&self, lampindex: i32) -> windows_core::Result<LampInfo> {
+    pub fn GetLampInfo(&self, lampIndex: i32) -> windows_core::Result<LampInfo> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetLampInfo)(windows_core::Interface::as_raw(this), lampindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).GetLampInfo)(windows_core::Interface::as_raw(this), lampIndex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "System")]
@@ -388,57 +385,57 @@ impl LampArray {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn SetColor(&self, desiredcolor: super::super::UI::Color) -> windows_core::Result<()> {
+    pub fn SetColor(&self, desiredColor: super::super::UI::Color) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetColor)(windows_core::Interface::as_raw(this), desiredcolor).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetColor)(windows_core::Interface::as_raw(this), desiredColor).ok() }
     }
     #[cfg(feature = "UI")]
-    pub fn SetColorForIndex(&self, lampindex: i32, desiredcolor: super::super::UI::Color) -> windows_core::Result<()> {
+    pub fn SetColorForIndex(&self, lampIndex: i32, desiredColor: super::super::UI::Color) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetColorForIndex)(windows_core::Interface::as_raw(this), lampindex, desiredcolor).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetColorForIndex)(windows_core::Interface::as_raw(this), lampIndex, desiredColor).ok() }
     }
     #[cfg(feature = "UI")]
-    pub fn SetSingleColorForIndices(&self, desiredcolor: super::super::UI::Color, lampindexes: &[i32]) -> windows_core::Result<()> {
+    pub fn SetSingleColorForIndices(&self, desiredColor: super::super::UI::Color, lampIndexes: &[i32]) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetSingleColorForIndices)(windows_core::Interface::as_raw(this), desiredcolor, lampindexes.len().try_into().unwrap(), lampindexes.as_ptr()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSingleColorForIndices)(windows_core::Interface::as_raw(this), desiredColor, lampIndexes.len().try_into().unwrap(), lampIndexes.as_ptr()).ok() }
     }
     #[cfg(feature = "UI")]
-    pub fn SetColorsForIndices(&self, desiredcolors: &[super::super::UI::Color], lampindexes: &[i32]) -> windows_core::Result<()> {
+    pub fn SetColorsForIndices(&self, desiredColors: &[super::super::UI::Color], lampIndexes: &[i32]) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetColorsForIndices)(windows_core::Interface::as_raw(this), desiredcolors.len().try_into().unwrap(), desiredcolors.as_ptr(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetColorsForIndices)(windows_core::Interface::as_raw(this), desiredColors.len().try_into().unwrap(), desiredColors.as_ptr(), lampIndexes.len().try_into().unwrap(), lampIndexes.as_ptr()).ok() }
     }
     #[cfg(all(feature = "System", feature = "UI"))]
-    pub fn SetColorsForKey(&self, desiredcolor: super::super::UI::Color, key: super::super::System::VirtualKey) -> windows_core::Result<()> {
+    pub fn SetColorsForKey(&self, desiredColor: super::super::UI::Color, key: super::super::System::VirtualKey) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetColorsForKey)(windows_core::Interface::as_raw(this), desiredcolor, key).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetColorsForKey)(windows_core::Interface::as_raw(this), desiredColor, key).ok() }
     }
     #[cfg(all(feature = "System", feature = "UI"))]
-    pub fn SetColorsForKeys(&self, desiredcolors: &[super::super::UI::Color], keys: &[super::super::System::VirtualKey]) -> windows_core::Result<()> {
+    pub fn SetColorsForKeys(&self, desiredColors: &[super::super::UI::Color], keys: &[super::super::System::VirtualKey]) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetColorsForKeys)(windows_core::Interface::as_raw(this), desiredcolors.len().try_into().unwrap(), desiredcolors.as_ptr(), keys.len().try_into().unwrap(), keys.as_ptr()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetColorsForKeys)(windows_core::Interface::as_raw(this), desiredColors.len().try_into().unwrap(), desiredColors.as_ptr(), keys.len().try_into().unwrap(), keys.as_ptr()).ok() }
     }
     #[cfg(feature = "UI")]
-    pub fn SetColorsForPurposes(&self, desiredcolor: super::super::UI::Color, purposes: LampPurposes) -> windows_core::Result<()> {
+    pub fn SetColorsForPurposes(&self, desiredColor: super::super::UI::Color, purposes: LampPurposes) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetColorsForPurposes)(windows_core::Interface::as_raw(this), desiredcolor, purposes).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetColorsForPurposes)(windows_core::Interface::as_raw(this), desiredColor, purposes).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendMessageAsync<P0>(&self, messageid: i32, message: P0) -> windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SendMessageAsync<P1>(&self, messageId: i32, message: P1) -> windows_core::Result<super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SendMessageAsync)(windows_core::Interface::as_raw(this), messageid, message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).SendMessageAsync)(windows_core::Interface::as_raw(this), messageId, message.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RequestMessageAsync(&self, messageid: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
+    pub fn RequestMessageAsync(&self, messageId: i32) -> windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestMessageAsync)(windows_core::Interface::as_raw(this), messageid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).RequestMessageAsync)(windows_core::Interface::as_raw(this), messageId, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsAvailable(&self) -> windows_core::Result<bool> {
@@ -468,10 +465,10 @@ impl LampArray {
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LampArray>> {
+    pub fn FromIdAsync(deviceId: &windows_core::HSTRING) -> windows_core::Result<super::super::Foundation::IAsyncOperation<LampArray>> {
         Self::ILampArrayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceId), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     fn ILampArrayStatics<R, F: FnOnce(&ILampArrayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -483,14 +480,12 @@ impl windows_core::RuntimeType for LampArray {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArray>();
 }
 unsafe impl windows_core::Interface for LampArray {
-    type Vtable = ILampArray_Vtbl;
+    type Vtable = <ILampArray as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArray as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LampArray {
     const NAME: &'static str = "Windows.Devices.Lights.LampArray";
 }
-unsafe impl Send for LampArray {}
-unsafe impl Sync for LampArray {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampAvailabilityChangedEventArgs(windows_core::IUnknown);
@@ -508,14 +503,12 @@ impl windows_core::RuntimeType for LampAvailabilityChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampAvailabilityChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for LampAvailabilityChangedEventArgs {
-    type Vtable = ILampAvailabilityChangedEventArgs_Vtbl;
+    type Vtable = <ILampAvailabilityChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampAvailabilityChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LampAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.LampAvailabilityChangedEventArgs";
 }
-unsafe impl Send for LampAvailabilityChangedEventArgs {}
-unsafe impl Sync for LampAvailabilityChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampInfo(windows_core::IUnknown);
@@ -580,11 +573,11 @@ impl LampInfo {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn GetNearestSupportedColor(&self, desiredcolor: super::super::UI::Color) -> windows_core::Result<super::super::UI::Color> {
+    pub fn GetNearestSupportedColor(&self, desiredColor: super::super::UI::Color) -> windows_core::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetNearestSupportedColor)(windows_core::Interface::as_raw(this), desiredcolor, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GetNearestSupportedColor)(windows_core::Interface::as_raw(this), desiredColor, &mut result__).map(|| result__)
         }
     }
     pub fn UpdateLatency(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
@@ -599,16 +592,14 @@ impl windows_core::RuntimeType for LampInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampInfo>();
 }
 unsafe impl windows_core::Interface for LampInfo {
-    type Vtable = ILampInfo_Vtbl;
+    type Vtable = <ILampInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for LampInfo {
     const NAME: &'static str = "Windows.Devices.Lights.LampInfo";
 }
-unsafe impl Send for LampInfo {}
-unsafe impl Sync for LampInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct LampArrayKind(pub i32);
 impl LampArrayKind {
     pub const Undefined: Self = Self(0i32);
@@ -629,16 +620,11 @@ impl LampArrayKind {
 impl windows_core::TypeKind for LampArrayKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LampArrayKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LampArrayKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for LampArrayKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampArrayKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct LampPurposes(pub u32);
 impl LampPurposes {
     pub const Undefined: Self = Self(0u32);
@@ -651,44 +637,6 @@ impl LampPurposes {
 }
 impl windows_core::TypeKind for LampPurposes {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LampPurposes {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LampPurposes").field(&self.0).finish()
-    }
-}
-impl LampPurposes {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for LampPurposes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for LampPurposes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for LampPurposes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for LampPurposes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for LampPurposes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 impl windows_core::RuntimeType for LampPurposes {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampPurposes;u4)");

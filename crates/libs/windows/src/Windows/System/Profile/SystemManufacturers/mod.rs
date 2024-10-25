@@ -83,27 +83,14 @@ impl windows_core::RuntimeType for OemSupportInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOemSupportInfo>();
 }
 unsafe impl windows_core::Interface for OemSupportInfo {
-    type Vtable = IOemSupportInfo_Vtbl;
+    type Vtable = <IOemSupportInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOemSupportInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for OemSupportInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.OemSupportInfo";
 }
-unsafe impl Send for OemSupportInfo {}
-unsafe impl Sync for OemSupportInfo {}
 pub struct SmbiosInformation;
-impl SmbiosInformation {
-    pub fn SerialNumber() -> windows_core::Result<windows_core::HSTRING> {
-        Self::ISmbiosInformationStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SerialNumber)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ISmbiosInformationStatics<R, F: FnOnce(&ISmbiosInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<SmbiosInformation, ISmbiosInformationStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl SmbiosInformation {}
 impl windows_core::RuntimeName for SmbiosInformation {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SmbiosInformation";
 }
@@ -166,43 +153,14 @@ impl windows_core::RuntimeType for SystemSupportDeviceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemSupportDeviceInfo>();
 }
 unsafe impl windows_core::Interface for SystemSupportDeviceInfo {
-    type Vtable = ISystemSupportDeviceInfo_Vtbl;
+    type Vtable = <ISystemSupportDeviceInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemSupportDeviceInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SystemSupportDeviceInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SystemSupportDeviceInfo";
 }
-unsafe impl Send for SystemSupportDeviceInfo {}
-unsafe impl Sync for SystemSupportDeviceInfo {}
 pub struct SystemSupportInfo;
-impl SystemSupportInfo {
-    pub fn LocalSystemEdition() -> windows_core::Result<windows_core::HSTRING> {
-        Self::ISystemSupportInfoStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LocalSystemEdition)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn OemSupportInfo() -> windows_core::Result<OemSupportInfo> {
-        Self::ISystemSupportInfoStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OemSupportInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn LocalDeviceInfo() -> windows_core::Result<SystemSupportDeviceInfo> {
-        Self::ISystemSupportInfoStatics2(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LocalDeviceInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn ISystemSupportInfoStatics<R, F: FnOnce(&ISystemSupportInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<SystemSupportInfo, ISystemSupportInfoStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    fn ISystemSupportInfoStatics2<R, F: FnOnce(&ISystemSupportInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<SystemSupportInfo, ISystemSupportInfoStatics2> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
+impl SystemSupportInfo {}
 impl windows_core::RuntimeName for SystemSupportInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SystemSupportInfo";
 }

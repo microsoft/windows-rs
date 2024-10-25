@@ -16,6 +16,10 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+impl windows_core::RuntimeType for IClosable {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl IClosable {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = self;
@@ -24,10 +28,6 @@ impl IClosable {
                 .ok()
         }
     }
-}
-impl windows_core::RuntimeType for IClosable {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 #[repr(C)]
 pub struct IClosable_Vtbl {
