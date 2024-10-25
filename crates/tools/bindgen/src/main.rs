@@ -54,6 +54,9 @@ fn main() {
     test("--out winrt_class_with_handler.rs --filter Deferral DeferralCompletedHandler --flat --no-comment");
     test("--out winrt_class_without_handler.rs --filter Deferral --flat --no-comment");
 
+    // TODO: need to test 3rd party package support and make sure we can compose code gen from different sources
+    // test("--out package --filter WwwFormUrlDecoder --package");
+
     // test("--out winrt_class.rs --filter Windows.Foundation.Deferral --flat --no-comment");
     // test("--out winrt_class_static.rs --filter Windows.Foundation.GuidHelper --flat --no-comment");
 
