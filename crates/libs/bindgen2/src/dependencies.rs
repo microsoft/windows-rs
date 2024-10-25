@@ -1,5 +1,6 @@
 use super::*;
 
+// TODO: maybe make this a HashSet so we can use `difference`
 type Map = HashMap<&'static str, HashSet<&'static str>>;
 
 #[derive(Clone, Debug, PartialEq, Eq)]
@@ -21,6 +22,8 @@ impl Dependencies {
             self.insert(namespace, name);
         }
     }
+
+
 
     // pub fn included(&self, filter: &Filter) -> bool {
     //     for (namespace, name) in self.iter() {

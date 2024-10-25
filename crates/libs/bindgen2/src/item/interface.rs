@@ -77,6 +77,14 @@ impl Interface {
         let named_phantoms = writer.write_generic_named_phantoms(&self.generics);
         let interfaces = self.required_interfaces();
 
+        // let mut dependencies = Dependencies::new();
+
+        // if writer.config.package {
+        //     self.dependencies(&mut dependencies);
+        // }
+
+        // let cfg = writer.write_cfg(self.def, self.def.namespace(), dependencies, false);
+
         let methods = non_exclusive.then(|| {
             let method_names = &mut MethodNames::new();
             let virtual_names = &mut MethodNames::new();
@@ -180,11 +188,13 @@ impl Interface {
         // TODO: this disparity is a real pain to code gen
         let definition = if self.generics.is_empty() {
             quote! {
+                //#cfg
                 windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
                 #interfaces
             }
         } else {
             quote! {
+                //#cfg
                 #[repr(transparent)]
                 #[derive(PartialEq, Eq, Debug, Clone)]
                 pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
