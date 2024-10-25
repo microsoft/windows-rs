@@ -81,6 +81,21 @@ impl Class {
             }
         }
 
+        let new = self.has_default_constructor().then(|| 
+            quote! {
+                pub fn new() -> windows_core::Result<Self> {
+                    Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+                }
+                fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(
+                    callback: F,
+                ) -> windows_core::Result<R> {
+                    static SHARED: windows_core::imp::FactoryCache<#name, windows_core::imp::IGenericFactory> =
+                        windows_core::imp::FactoryCache::new();
+                    SHARED.call(callback)
+                }
+            }
+        );
+
         let factories = self.required_interfaces.iter().filter_map(|interface| match interface.kind {
             InterfaceKind::Static | InterfaceKind::Composable => {
                 if interface.methods.is_empty() {
@@ -117,6 +132,7 @@ impl Class {
                 //windows_core::imp::required_hierarchy!(#name, IClosable);
                 #cfg
                 impl #name {
+                    #new
                     #methods
                     #(#factories)*
                 }
@@ -257,5 +273,16 @@ impl Class {
         }
 
         set
+    }
+
+    fn has_default_constructor(&self) -> bool {
+        self.def.attributes().filter(|attribute| {
+            attribute.name() == "ActivatableAttribute"
+        }).any(|attribute| {
+            !attribute
+            .args()
+            .iter()
+            .any(|arg| matches!(arg.1, Value::TypeName(_)))
+        })
     }
 }
