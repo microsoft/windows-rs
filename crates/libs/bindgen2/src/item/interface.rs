@@ -69,7 +69,6 @@ impl Interface {
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = self.write_name(writer);
         let vtbl_name = self.write_vtbl_name(writer);
-        let guid = writer.write_guid_u128(&self.def.guid_attribute().unwrap());
         let non_exclusive = !self.def.has_attribute("ExclusiveToAttribute");
         let constraints = writer.write_generic_constraints(&self.generics);
         let phantoms = writer.write_generic_phantoms(&self.generics);
@@ -236,12 +235,29 @@ impl Interface {
 
         // TODO: this disparity is a real pain to code gen
         let definition = if self.generics.is_empty() {
+            let guid = writer.write_guid_u128(&self.def.guid_attribute().unwrap());
+
             quote! {
                 #cfg
                 windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
                 #interfaces
+                #cfg
+                impl windows_core::RuntimeType for #name {
+                    // tODO: this needs to be different for generic interfaces
+                    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+                }
             }
         } else {
+            let guid = self.def.guid_attribute().unwrap();
+            let pinterface =  Literal::byte_string(&format!("pinterface({{{guid}}}"));
+
+            let generics = self.generics.iter().map(|generic|{
+                let name = generic.write(writer);
+                quote! {
+                    .push_slice(b";").push_other(#name::SIGNATURE)
+                }
+            });
+
             quote! {
                 #[repr(transparent)]
                 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -251,7 +267,10 @@ impl Interface {
                 #interfaces
                 unsafe impl<#constraints> windows_core::Interface for #name {
                     type Vtable = #vtbl_name;
-                    const IID: windows_core::GUID = windows_core::GUID::from_u128(#guid);
+                    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+                }
+                impl<#constraints> windows_core::RuntimeType for #name {
+                    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#pinterface)#(#generics)*.push_slice(b")");
                 }
             }
         };
@@ -259,10 +278,6 @@ impl Interface {
         quote! {
             #definition
             #methods
-            #cfg
-            impl<#constraints> windows_core::RuntimeType for #name {
-                const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-            }
             #cfg
             #[repr(C)]
             pub struct #vtbl_name where #constraints {
@@ -302,6 +317,9 @@ impl Interface {
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
+            for ty in &self.generics {
+                ty.dependencies(dependencies);
+            }
             for interface in self.required_interfaces() {
                 interface.dependencies(dependencies);
             }
