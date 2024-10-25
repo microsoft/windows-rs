@@ -1,11 +1,12 @@
 use super::*;
 
 impl Writer {
+    // TODO: have an interface-method specific version of this to avoid all the type-specific goo
     pub fn write_cfg<R: HasAttributes>(
         &self,
         row: R,
         namespace: &str,
-        dependencies: Dependencies,
+        dependencies: &Dependencies,
         not: bool,
     ) -> TokenStream {
         let mut features = BTreeSet::new();

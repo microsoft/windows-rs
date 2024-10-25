@@ -77,13 +77,13 @@ impl Interface {
         let named_phantoms = writer.write_generic_named_phantoms(&self.generics);
         let interfaces = self.required_interfaces();
 
-        // let mut dependencies = Dependencies::new();
+        let mut dependencies = Dependencies::new();
 
-        // if writer.config.package {
-        //     self.dependencies(&mut dependencies);
-        // }
+        if writer.config.package {
+            self.dependencies(&mut dependencies);
+        }
 
-        // let cfg = writer.write_cfg(self.def, self.def.namespace(), dependencies, false);
+        let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
 
         let methods = non_exclusive.then(|| {
             let method_names = &mut MethodNames::new();
@@ -98,13 +98,26 @@ impl Interface {
                     MethodOrName::Method(method) => Some(method),
                     _ => None,
                 }) {
-                   methods.combine(method.write(
+                    let mut difference = Dependencies::new();
+
+                    if writer.config.package {
+                        difference = method.dependencies.difference(&dependencies);
+                    }
+            
+                    let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
+            
+                   let method = method.write(
                         writer,
                         self.write_name(writer),
                         InterfaceKind::Default,
                         method_names,
                         virtual_names,
-                    ));
+                    );
+
+                    methods.combine(quote! {
+                        #cfg
+                        #method
+                    });
                 }
 
                 for interface in &self.required_interfaces {
@@ -118,13 +131,26 @@ impl Interface {
                             _ => None,
                         })
                     {
-                        methods.combine(method.write(
+                        let mut difference = Dependencies::new();
+
+                        if writer.config.package {
+                            difference = method.dependencies.difference(&dependencies);
+                        }
+                
+                        let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
+
+                        let method = method.write(
                             writer,
                             interface.write_name(writer),
                             interface.kind,
                              method_names,
                              virtual_names,
-                        ));
+                        );
+
+                        methods.combine(quote! {
+                            #cfg
+                            #method
+                        });
                     }
                 }
 
@@ -140,11 +166,32 @@ impl Interface {
         let vtbl_methods = self.methods.iter().map(|method| {
             match method {
             MethodOrName::Method(method) => {
+                let mut difference = Dependencies::new();
+
+                if writer.config.package {
+                    difference = method.dependencies.difference(&dependencies);
+                }
+
                 let name = virtual_names.add(method.def);
                 let vtbl = method.write_abi(writer, false);
+                let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
+
+                if cfg.is_empty() {
+                    quote! {
+                        pub #name: unsafe extern "system" fn(#vtbl) -> windows_core::HRESULT,
+                    }
+                } else {
+                let cfg_not = writer.write_cfg(self.def, self.def.namespace(), &difference, true);
+
                 quote! {
+                    #cfg
                     pub #name: unsafe extern "system" fn(#vtbl) -> windows_core::HRESULT,
+                    #cfg_not
+                    #name: usize,
                 }
+                }
+        
+
             }
             MethodOrName::Name(name) => {
                 let name = to_ident(name);
@@ -159,6 +206,7 @@ impl Interface {
         let interfaces =non_exclusive.then(|| {
             if self.generics.is_empty() {
                     let hierarchy = quote! {
+                        #cfg
                         windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
                     };
 
@@ -168,6 +216,7 @@ impl Interface {
                         let interfaces = interfaces.iter().map(|ty| ty.write_name(writer));
                         quote! {
                             #hierarchy
+                            #cfg
                             windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
                         }
                     }
@@ -188,13 +237,12 @@ impl Interface {
         // TODO: this disparity is a real pain to code gen
         let definition = if self.generics.is_empty() {
             quote! {
-                //#cfg
+                #cfg
                 windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
                 #interfaces
             }
         } else {
             quote! {
-                //#cfg
                 #[repr(transparent)]
                 #[derive(PartialEq, Eq, Debug, Clone)]
                 pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
@@ -211,9 +259,11 @@ impl Interface {
         quote! {
             #definition
             #methods
+            #cfg
             impl<#constraints> windows_core::RuntimeType for #name {
                 const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
             }
+            #cfg
             #[repr(C)]
             pub struct #vtbl_name where #constraints {
                 pub base__: windows_core::IInspectable_Vtbl,

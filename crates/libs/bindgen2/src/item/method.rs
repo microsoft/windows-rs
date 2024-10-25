@@ -6,6 +6,7 @@ pub struct Method {
     pub def: MethodDef,
     pub generics: Vec<Type>,
     pub signature: Signature,
+    // TODO: this should already exclude the parent/interface dependencies?
     pub dependencies: Dependencies,
 }
 
@@ -505,11 +506,8 @@ impl Method {
             }
         };
 
-        let features = quote!{};
-
         match kind {
             InterfaceKind::Default => quote! {
-                #features
                 pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
                     let this = self;
                     unsafe {
@@ -526,7 +524,6 @@ impl Method {
                 };
     
                 quote! {
-                    #features
                     pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
                         let this = &windows_core::Interface::cast::<#interface_name>(self)#unwrap;
                         unsafe {
@@ -537,7 +534,6 @@ impl Method {
             }
             InterfaceKind::Static | InterfaceKind::Composable => {
                 quote! {
-                    #features
                     pub fn #name<#(#generics,)*>(#(#params)*) #return_type #where_clause {
                         Self::#interface_name(|this| unsafe { #vcall })
                     }

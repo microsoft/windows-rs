@@ -48,7 +48,7 @@ impl CppStruct {
             self.dependencies(&mut dependencies);
         }
 
-        let cfg = writer.write_cfg(self.def, self.def.namespace(), dependencies, false);
+        let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
         self.write_with_cfg(writer, &cfg)
     }
 

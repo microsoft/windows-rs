@@ -35,7 +35,7 @@ impl CppConst {
             self.dependencies(&mut dependencies);
         }
 
-        let cfg = writer.write_cfg(self.field, self.def.namespace(), dependencies, false);
+        let cfg = writer.write_cfg(self.field, self.def.namespace(), &dependencies, false);
 
         if let Some(constant) = self.field.constant() {
             let constant_ty = constant.ty();

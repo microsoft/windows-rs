@@ -26,9 +26,18 @@ impl Class {
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.def.name());
 
+        let mut dependencies = Dependencies::new();
+
+        if writer.config.package {
+            self.dependencies(&mut dependencies);
+        }
+
+        let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
+
         let runtime_name = format!("{}.{}", self.def.namespace(), self.def.name(),);
 
         let runtime_name = quote! {
+            #cfg
             impl windows_core::RuntimeName for #name {
                 const NAME: &'static str = #runtime_name;
             }
@@ -48,13 +57,27 @@ impl Class {
                     _ => None,
                 })
             {
-                methods.combine(method.write(
+                let mut difference = Dependencies::new();
+
+                if writer.config.package {
+                    difference = method.dependencies.difference(&dependencies);
+                }
+        
+                let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
+
+                let method = method.write(
                     writer,
                     interface.write_name(writer),
                     interface.kind,
                     &mut method_names,
                     &mut virtual_names,
-                ));
+                );
+
+                methods.combine(quote! {
+                    #cfg
+                    #method
+                });
+
             }
         }
 
@@ -85,18 +108,23 @@ impl Class {
             let default_interface = default_interface.write(writer);
 
             quote! {
+                #cfg
                 #[repr(transparent)]
                 #[derive(PartialEq, Eq, Debug, Clone)]
                 pub struct #name(windows_core::IUnknown);
+                #cfg
                 windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
                 //windows_core::imp::required_hierarchy!(#name, IClosable);
+                #cfg
                 impl #name {
                     #methods
                     #(#factories)*
                 }
+                #cfg
                 impl windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, #default_interface>();
                 }
+                #cfg
                 unsafe impl windows_core::Interface for #name {
                     type Vtable = <#default_interface as windows_core::Interface>::Vtable;
                     const IID: windows_core::GUID = <#default_interface as windows_core::Interface>::IID;
@@ -105,7 +133,9 @@ impl Class {
             }
         } else {
             quote! {
+                #cfg
                 pub struct #name;
+                #cfg
                 impl #name {
                     //#(#methods)*
                 }

@@ -67,7 +67,7 @@ impl CppFn {
             windows_targets::link!(#library #abi #symbol fn #name(#(#params),* #vararg) #return_sig);
         });
 
-        let cfg = writer.write_cfg(self.method, self.def.namespace(), dependencies, false);
+        let cfg = writer.write_cfg(self.method, self.def.namespace(), &dependencies, false);
 
         if writer.config.sys {
             return quote! {

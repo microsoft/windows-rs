@@ -45,7 +45,7 @@ impl CppDelegate {
             self.dependencies(&mut dependencies);
         }
 
-        let cfg = writer.write_cfg(self.def, self.def.namespace(), dependencies, false);
+        let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
 
         // TODO: are all callback "system" ABI?
 

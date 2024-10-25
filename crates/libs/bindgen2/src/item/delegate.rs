@@ -21,6 +21,16 @@ impl Delegate {
         let named_phantoms = writer.write_generic_named_phantoms(&self.generics);
         let method = self.method();
 
+        
+        let mut dependencies = Dependencies::new();
+
+        if writer.config.package {
+            self.dependencies(&mut dependencies);
+        }
+
+        let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
+
+
         let invoke = method.write(
             writer,
             self.write_name(writer),
@@ -39,6 +49,7 @@ impl Delegate {
             let phantoms = writer.write_generic_phantoms(&self.generics);
 
             quote! {
+                #cfg
                 #[repr(transparent)]
                 #[derive(PartialEq, Eq, Debug, Clone)]
                 pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
