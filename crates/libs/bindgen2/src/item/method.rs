@@ -167,7 +167,7 @@ impl Method {
             };
 
             if named_params {
-                let name = to_ident(&p.1.name());
+                let name = to_ident(p.1.name());
                 quote! { #name: #sig }
             } else {
                 sig
@@ -211,7 +211,7 @@ impl Method {
 
     pub fn write_abi(&self, writer: &Writer, named_params: bool) -> TokenStream {
         let args = self.signature.params.iter().map(|param| {
-            let name = to_ident(&param.1.name());
+            let name = to_ident(param.1.name());
             let abi = param.0.write_abi(writer);
             let abi_size_name: TokenStream = format!("{}_array_size", name.as_str()).into();
 
@@ -308,7 +308,7 @@ impl Method {
 
         let args = {
             let args = params.iter().map(|param|{
-                let name = to_ident(&param.1.name());
+                let name = to_ident(param.1.name());
 
                 if param.1.flags().contains(ParamAttributes::In) {
                     if param.0.is_winrt_array() {
@@ -370,7 +370,7 @@ impl Method {
             .iter()
             .enumerate()
             .filter_map(|(position, (ty, def))| {
-                if is_convertible(&ty, *def) {
+                if is_convertible(ty, *def) {
                     let name: TokenStream = format!("P{position}").into();
                     Some(name)
                 } else {
@@ -383,7 +383,7 @@ impl Method {
                 .iter()
                 .enumerate()
                 .filter_map(|(position, (ty, def))| {
-                    if is_convertible(&ty, *def) {
+                    if is_convertible(ty, *def) {
                         let name: TokenStream = format!("P{position}").into();
                         let ty = ty.write(writer);
 
@@ -402,7 +402,7 @@ impl Method {
         };
 
         let params = params.iter().enumerate().map(|(position, param)| {
-            let name = to_ident(&param.1.name());
+            let name = to_ident(param.1.name());
             let kind = param.0.write(writer);
             let default_type = param.0.write_default(writer);
 

@@ -328,10 +328,8 @@ impl Interface {
                     panic!();
                 };
 
-                if set
-                    .iter()
-                    .position(|existing| existing.def == interface.def)
-                    .is_none()
+                if !set
+                    .iter().any(|existing| existing.def == interface.def)
                 {
                     walk(&interface, set);
                     set.push(interface);
