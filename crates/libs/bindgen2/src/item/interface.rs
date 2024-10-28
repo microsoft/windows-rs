@@ -69,7 +69,7 @@ impl Interface {
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = self.write_name(writer);
         let vtbl_name = self.write_vtbl_name(writer);
-        let non_exclusive = !self.def.has_attribute("ExclusiveToAttribute");
+        let is_exclusive = self.def.has_attribute("ExclusiveToAttribute");
         let constraints = writer.write_generic_constraints(&self.generics);
         let phantoms = writer.write_generic_phantoms(&self.generics);
         // TODO: should be able to "quote" this from the above
@@ -125,7 +125,7 @@ impl Interface {
             }
         };
 
-        if non_exclusive && !interfaces.is_empty() {
+        if !is_exclusive && !interfaces.is_empty() {
             if self.generics.is_empty() {
                 let interfaces = interfaces.iter().map(|ty| ty.write_name(writer));
 
@@ -147,7 +147,7 @@ impl Interface {
             }
         }
 
-        if non_exclusive {
+        if !is_exclusive {
             let method_names = &mut MethodNames::new();
             let virtual_names = &mut MethodNames::new();
             let mut methods = TokenStream::new();

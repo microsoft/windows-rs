@@ -60,6 +60,8 @@ struct Config {
 
                    // TODO: options to include deprecated APIs - excluded by default?
                    // options to include preview APIs - excluded by default?
+
+    pub implement: bool,
 }
 
 /// The Windows code generator.
@@ -81,6 +83,7 @@ where
     let mut no_comment = false;
     let mut no_deps = false;
     let mut package = false;
+    let mut implement = false;
     let mut rustfmt = String::new();
     let mut output = String::new();
     let mut sys = false;
@@ -103,6 +106,7 @@ where
                 "--no-deps" => no_deps = true,
                 "--package" => package = true,
                 "--sys" => sys = true,
+                "--implement" => implement = true,
                 _ => panic!("windows-bindgen: invalid option `{arg}`"),
             },
             ArgKind::Output => {
@@ -157,6 +161,7 @@ where
         rustfmt,
         output,
         sys,
+        implement,
     }));
 
     //dbg!(&filter);
