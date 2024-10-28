@@ -116,6 +116,7 @@ impl Class {
 
         if let Some(default_interface) = self.default_interface() {
             let default_interface = default_interface.write(writer);
+            let interfaces = self.required_interfaces.iter().map(|ty|ty.write_name(writer));
 
             quote! {
                 #cfg
@@ -124,7 +125,7 @@ impl Class {
                 pub struct #name(windows_core::IUnknown);
                 #cfg
                 windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
-                //windows_core::imp::required_hierarchy!(#name, IClosable);
+                windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
                 #cfg
                 impl #name {
                     #new
