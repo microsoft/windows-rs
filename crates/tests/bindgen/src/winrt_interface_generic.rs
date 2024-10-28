@@ -83,11 +83,6 @@ impl<TResult: windows_core::RuntimeType + 'static>
     windows_core::imp::CanInto<windows_core::IInspectable> for IAsyncOperation<TResult>
 {
 }
-impl<TResult: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IAsyncInfo>
-    for IAsyncOperation<TResult>
-{
-    const QUERY: bool = true;
-}
 unsafe impl<TResult: windows_core::RuntimeType + 'static> windows_core::Interface
     for IAsyncOperation<TResult>
 {
@@ -103,6 +98,11 @@ impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType
         .push_slice(b";")
         .push_other(TResult::SIGNATURE)
         .push_slice(b")");
+}
+impl<TResult: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IAsyncInfo>
+    for IAsyncOperation<TResult>
+{
+    const QUERY: bool = true;
 }
 impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
     pub fn GetResults(&self) -> windows_core::Result<TResult> {

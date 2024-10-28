@@ -39,6 +39,11 @@ windows_core::imp::define_interface!(
     IDeferral_Vtbl,
     0xd6269732_3b7f_46a7_b40b_4fdca2a2c693
 );
+windows_core::imp::interface_hierarchy!(
+    IDeferral,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
 impl windows_core::RuntimeType for IDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -52,6 +57,11 @@ windows_core::imp::define_interface!(
     IDeferralFactory,
     IDeferralFactory_Vtbl,
     0x65a1ecc5_3fb5_4832_8ca9_f061b281d13a
+);
+windows_core::imp::interface_hierarchy!(
+    IDeferralFactory,
+    windows_core::IUnknown,
+    windows_core::IInspectable
 );
 impl windows_core::RuntimeType for IDeferralFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =

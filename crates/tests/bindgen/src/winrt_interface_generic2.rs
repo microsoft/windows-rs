@@ -53,11 +53,6 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_
     for IVector<T>
 {
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<T>>
-    for IVector<T>
-{
-    const QUERY: bool = true;
-}
 unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IVector<T> {
     type Vtable = IVector_Vtbl<T>;
     const IID: windows_core::GUID =
@@ -69,6 +64,11 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVect
         .push_slice(b";")
         .push_other(T::SIGNATURE)
         .push_slice(b")");
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IIterable<T>>
+    for IVector<T>
+{
+    const QUERY: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     pub fn GetAt(&self, index: u32) -> windows_core::Result<T> {

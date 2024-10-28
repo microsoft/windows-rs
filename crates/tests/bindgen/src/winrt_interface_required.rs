@@ -16,11 +16,11 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(IAsyncAction, IAsyncInfo);
 impl windows_core::RuntimeType for IAsyncAction {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+windows_core::imp::required_hierarchy!(IAsyncAction, IAsyncInfo);
 impl IAsyncAction {
     pub fn GetResults(&self) -> windows_core::Result<()> {
         let this = self;

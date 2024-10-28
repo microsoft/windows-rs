@@ -84,10 +84,72 @@ impl Interface {
 
         let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
 
-        let methods = non_exclusive.then(|| {
+        let mut result = if self.generics.is_empty() {
+            let guid = writer.write_guid_u128(&self.def.guid_attribute().unwrap());
+
+            quote! {
+                #cfg
+                windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
+                #cfg
+                windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
+                #cfg
+                impl windows_core::RuntimeType for #name {
+                    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+                }
+            }
+        } else {
+            let guid = self.def.guid_attribute().unwrap();
+            let pinterface = Literal::byte_string(&format!("pinterface({{{guid}}}"));
+
+            let generics = self.generics.iter().map(|generic| {
+                let name = generic.write(writer);
+
+                quote! {
+                    .push_slice(b";").push_other(#name::SIGNATURE)
+                }
+            });
+
+            quote! {
+                #[repr(transparent)]
+                #[derive(PartialEq, Eq, Debug, Clone)]
+                pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
+                impl<#constraints> windows_core::imp::CanInto<windows_core::IUnknown> for #name {}
+                impl<#constraints> windows_core::imp::CanInto<windows_core::IInspectable> for #name {}
+                unsafe impl<#constraints> windows_core::Interface for #name {
+                    type Vtable = #vtbl_name;
+                    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+                }
+                impl<#constraints> windows_core::RuntimeType for #name {
+                    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#pinterface)#(#generics)*.push_slice(b")");
+                }
+            }
+        };
+
+        if non_exclusive && !interfaces.is_empty() {
+            if self.generics.is_empty() {
+                let interfaces = interfaces.iter().map(|ty| ty.write_name(writer));
+
+                result.combine(quote! {
+                    #cfg
+                    windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
+                });
+            } else {
+                let interfaces = interfaces.iter().map(|ty| {
+                    let ty = ty.write_name(writer);
+                    quote!{
+                        impl<#constraints> windows_core::imp::CanInto<#ty> for #name { const QUERY: bool = true; }
+                    }
+                });
+
+                result.combine(quote! {
+                    #(#interfaces)*
+                });
+            }
+        }
+
+        if non_exclusive {
             let method_names = &mut MethodNames::new();
             let virtual_names = &mut MethodNames::new();
-
             let mut methods = TokenStream::new();
 
             for method in self.methods.iter().filter_map(|method| match &method {
@@ -146,140 +208,64 @@ impl Interface {
                 }
             }
 
-            if methods.is_empty() {
-                quote! {}
-            } else {
-                quote! {
+            if !methods.is_empty() {
+                result.combine(quote! {
                     impl<#constraints> #name {
                         #methods
                     }
-                }
-            }
-        });
-
-        let virtual_names = &mut MethodNames::new();
-
-        let vtbl_methods = self.methods.iter().map(|method| match method {
-            MethodOrName::Method(method) => {
-                let mut difference = Dependencies::new();
-
-                if writer.config.package {
-                    difference = method.dependencies.difference(&dependencies);
-                }
-
-                let name = virtual_names.add(method.def);
-                let vtbl = method.write_abi(writer, false);
-                let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
-
-                if cfg.is_empty() {
-                    quote! {
-                        pub #name: unsafe extern "system" fn(#vtbl) -> windows_core::HRESULT,
-                    }
-                } else {
-                    let cfg_not =
-                        writer.write_cfg(self.def, self.def.namespace(), &difference, true);
-
-                    quote! {
-                        #cfg
-                        pub #name: unsafe extern "system" fn(#vtbl) -> windows_core::HRESULT,
-                        #cfg_not
-                        #name: usize,
-                    }
-                }
-            }
-            MethodOrName::Name(name) => {
-                let name = to_ident(name);
-                quote! { #name: usize, }
-            }
-        });
-
-        // TODO: rather than all this nesting/chaining - jsut have a result token stream
-        // that we combine into in successive flat conditions
-
-        let interfaces = non_exclusive.then(|| {
-            if self.generics.is_empty() {
-                let hierarchy = quote! {
-                    #cfg
-                    windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
-                };
-
-                if interfaces.is_empty() {
-                    hierarchy
-                } else {
-                    let interfaces = interfaces.iter().map(|ty| ty.write_name(writer));
-                    quote! {
-                        #hierarchy
-                        #cfg
-                        windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
-                    }
-                    }
-            } else {
-                let interfaces = interfaces.iter().map(|ty| {
-                    let ty = ty.write_name(writer);
-                    quote!{
-                        impl<#constraints> windows_core::imp::CanInto<#ty> for #name { const QUERY: bool = true; }
-                    }
                 });
-
-                quote! {
-                    #(#interfaces)*
-                }
             }
-        });
+        }
 
-        // TODO: this disparity is a real pain to code gen
-        let definition = if self.generics.is_empty() {
-            let guid = writer.write_guid_u128(&self.def.guid_attribute().unwrap());
+        {
+            let virtual_names = &mut MethodNames::new();
 
-            quote! {
-                #cfg
-                windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
-                #interfaces
-                #cfg
-                impl windows_core::RuntimeType for #name {
-                    // tODO: this needs to be different for generic interfaces
-                    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+            let vtbl_methods = self.methods.iter().map(|method| match method {
+                MethodOrName::Method(method) => {
+                    let mut difference = Dependencies::new();
+
+                    if writer.config.package {
+                        difference = method.dependencies.difference(&dependencies);
+                    }
+
+                    let name = virtual_names.add(method.def);
+                    let vtbl = method.write_abi(writer, false);
+                    let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
+
+                    if cfg.is_empty() {
+                        quote! {
+                            pub #name: unsafe extern "system" fn(#vtbl) -> windows_core::HRESULT,
+                        }
+                    } else {
+                        let cfg_not =
+                            writer.write_cfg(self.def, self.def.namespace(), &difference, true);
+
+                        quote! {
+                            #cfg
+                            pub #name: unsafe extern "system" fn(#vtbl) -> windows_core::HRESULT,
+                            #cfg_not
+                            #name: usize,
+                        }
+                    }
                 }
-            }
-        } else {
-            let guid = self.def.guid_attribute().unwrap();
-            let pinterface = Literal::byte_string(&format!("pinterface({{{guid}}}"));
-
-            let generics = self.generics.iter().map(|generic| {
-                let name = generic.write(writer);
-                quote! {
-                    .push_slice(b";").push_other(#name::SIGNATURE)
+                MethodOrName::Name(name) => {
+                    let name = to_ident(name);
+                    quote! { #name: usize, }
                 }
             });
 
-            quote! {
-                #[repr(transparent)]
-                #[derive(PartialEq, Eq, Debug, Clone)]
-                pub struct #name(windows_core::IUnknown, #phantoms) where #constraints;
-                impl<#constraints> windows_core::imp::CanInto<windows_core::IUnknown> for #name {}
-                impl<#constraints> windows_core::imp::CanInto<windows_core::IInspectable> for #name {}
-                #interfaces
-                unsafe impl<#constraints> windows_core::Interface for #name {
-                    type Vtable = #vtbl_name;
-                    const IID: windows_core::GUID = windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
+            result.combine(quote! {
+                #cfg
+                #[repr(C)]
+                pub struct #vtbl_name where #constraints {
+                    pub base__: windows_core::IInspectable_Vtbl,
+                    #(#vtbl_methods)*
+                    #named_phantoms
                 }
-                impl<#constraints> windows_core::RuntimeType for #name {
-                    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(#pinterface)#(#generics)*.push_slice(b")");
-                }
-            }
-        };
-
-        quote! {
-            #definition
-            #methods
-            #cfg
-            #[repr(C)]
-            pub struct #vtbl_name where #constraints {
-                pub base__: windows_core::IInspectable_Vtbl,
-                #(#vtbl_methods)*
-                #named_phantoms
-            }
+            });
         }
+
+        result
     }
 
     pub fn write_name(&self, writer: &Writer) -> TokenStream {

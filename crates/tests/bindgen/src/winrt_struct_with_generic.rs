@@ -472,11 +472,6 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_
     for IReference<T>
 {
 }
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IPropertyValue>
-    for IReference<T>
-{
-    const QUERY: bool = true;
-}
 unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IReference<T> {
     type Vtable = IReference_Vtbl<T>;
     const IID: windows_core::GUID =
@@ -488,6 +483,11 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IRefe
         .push_slice(b";")
         .push_other(T::SIGNATURE)
         .push_slice(b")");
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IPropertyValue>
+    for IReference<T>
+{
+    const QUERY: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> IReference<T> {
     pub fn Value(&self) -> windows_core::Result<T> {
