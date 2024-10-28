@@ -149,12 +149,12 @@ impl Interface {
             if methods.is_empty() {
                 quote! {}
             } else {
-            quote! {
-                impl<#constraints> #name {
-                    #methods
+                quote! {
+                    impl<#constraints> #name {
+                        #methods
+                    }
                 }
             }
-        }
         });
 
         let virtual_names = &mut MethodNames::new();
@@ -196,22 +196,22 @@ impl Interface {
         // TODO: rather than all this nesting/chaining - jsut have a result token stream
         // that we combine into in successive flat conditions
 
-        let interfaces =non_exclusive.then(|| {
+        let interfaces = non_exclusive.then(|| {
             if self.generics.is_empty() {
-                    let hierarchy = quote! {
-                        #cfg
-                        windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
-                    };
+                let hierarchy = quote! {
+                    #cfg
+                    windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
+                };
 
-                    if interfaces.is_empty() {
-                        hierarchy
-                    } else {
-                        let interfaces = interfaces.iter().map(|ty| ty.write_name(writer));
-                        quote! {
-                            #hierarchy
-                            #cfg
-                            windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
-                        }
+                if interfaces.is_empty() {
+                    hierarchy
+                } else {
+                    let interfaces = interfaces.iter().map(|ty| ty.write_name(writer));
+                    quote! {
+                        #hierarchy
+                        #cfg
+                        windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
+                    }
                     }
             } else {
                 let interfaces = interfaces.iter().map(|ty| {
@@ -332,9 +332,7 @@ impl Interface {
                     panic!();
                 };
 
-                if !set
-                    .iter().any(|existing| existing.def == interface.def)
-                {
+                if !set.iter().any(|existing| existing.def == interface.def) {
                     walk(&interface, set);
                     set.push(interface);
                 }

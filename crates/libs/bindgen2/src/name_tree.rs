@@ -58,7 +58,8 @@ impl NameTree {
         fn get<'a>(tree: &'a NameTree, path: &str) -> Option<&'a NameTree> {
             if let Some(next) = path.find('.') {
                 tree.nested
-                    .get(&path[..next]).and_then(|tree| get(tree, &path[next + 1..]))
+                    .get(&path[..next])
+                    .and_then(|tree| get(tree, &path[next + 1..]))
             } else {
                 tree.nested.get(path)
             }

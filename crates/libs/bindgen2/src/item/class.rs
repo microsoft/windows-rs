@@ -116,7 +116,10 @@ impl Class {
 
         if let Some(default_interface) = self.default_interface() {
             let default_interface = default_interface.write(writer);
-            let interfaces = self.required_interfaces.iter().map(|ty|ty.write_name(writer));
+            let interfaces = self
+                .required_interfaces
+                .iter()
+                .map(|ty| ty.write_name(writer));
 
             quote! {
                 #cfg
