@@ -29,13 +29,10 @@ impl Method {
     //     self.dependencies.included(filter)
     // }
 
-    pub fn write_upcall(&self, 
-    inner: TokenStream,
-    this: bool,
-) -> TokenStream {
-    let noexcept = self.def.has_attribute("NoExceptionAttribute");
+    pub fn write_upcall(&self, inner: TokenStream, this: bool) -> TokenStream {
+        let noexcept = self.def.has_attribute("NoExceptionAttribute");
 
-    let invoke_args = self.signature
+        let invoke_args = self.signature
         .params
         .iter()
         .map(|param| {
@@ -63,117 +60,119 @@ impl Method {
             }
         });
 
-    let this = if this {
-        quote! { this, }
-    } else {
-        quote! {}
-    };
+        let this = if this {
+            quote! { this, }
+        } else {
+            quote! {}
+        };
 
-    match &self.signature.return_type.0 {
-        Type::Void => {
-            if noexcept {
-                quote! {
-                    #inner(#this #(#invoke_args,)*);
-                    windows_core::HRESULT(0)
-                }
-            } else {
-                quote! {
-                    #inner(#this #(#invoke_args,)*).into()
-                }
-            }
-        }
-        _ if self.signature.return_type.0.is_winrt_array() => {
-            if noexcept {
-                quote! {
-                    let ok__ = #inner(#this #(#invoke_args,)*);
-                    let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    result__.write(ok_data__);
-                    result_size__.write(ok_data_len__);
-                    windows_core::HRESULT(0)
-                }
-            } else {
-                quote! {
-                    match #inner(#this #(#invoke_args,)*) {
-                        Ok(ok__) => {
-                            let (ok_data__, ok_data_len__) = ok__.into_abi();
-                            // use `ptr::write` since `result` could be uninitialized
-                            result__.write(ok_data__);
-                            result_size__.write(ok_data_len__);
-                            windows_core::HRESULT(0)
-                        }
-                        Err(err) => err.into()
+        match &self.signature.return_type.0 {
+            Type::Void => {
+                if noexcept {
+                    quote! {
+                        #inner(#this #(#invoke_args,)*);
+                        windows_core::HRESULT(0)
+                    }
+                } else {
+                    quote! {
+                        #inner(#this #(#invoke_args,)*).into()
                     }
                 }
             }
-        }
-        _ => {
-            let forget = if self.signature.return_type.0.is_blittable() {
-                quote! {}
-            } else {
-                quote! { core::mem::forget(ok__); }
-            };
-
-            if noexcept {
-                quote! {
-                    let ok__ = #inner(#this #(#invoke_args,)*);
-                    // use `ptr::write` since `result` could be uninitialized
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    #forget
-                    windows_core::HRESULT(0)
-                }
-            } else {
-                quote! {
-                    match #inner(#this #(#invoke_args,)*) {
-                        Ok(ok__) => {
-                            // use `ptr::write` since `result` could be uninitialized
-                            result__.write(core::mem::transmute_copy(&ok__));
-                            #forget
-                            windows_core::HRESULT(0)
+            _ if self.signature.return_type.0.is_winrt_array() => {
+                if noexcept {
+                    quote! {
+                        let ok__ = #inner(#this #(#invoke_args,)*);
+                        let (ok_data__, ok_data_len__) = ok__.into_abi();
+                        result__.write(ok_data__);
+                        result_size__.write(ok_data_len__);
+                        windows_core::HRESULT(0)
+                    }
+                } else {
+                    quote! {
+                        match #inner(#this #(#invoke_args,)*) {
+                            Ok(ok__) => {
+                                let (ok_data__, ok_data_len__) = ok__.into_abi();
+                                // use `ptr::write` since `result` could be uninitialized
+                                result__.write(ok_data__);
+                                result_size__.write(ok_data_len__);
+                                windows_core::HRESULT(0)
+                            }
+                            Err(err) => err.into()
                         }
-                        Err(err) => err.into()
+                    }
+                }
+            }
+            _ => {
+                let forget = if self.signature.return_type.0.is_blittable() {
+                    quote! {}
+                } else {
+                    quote! { core::mem::forget(ok__); }
+                };
+
+                if noexcept {
+                    quote! {
+                        let ok__ = #inner(#this #(#invoke_args,)*);
+                        // use `ptr::write` since `result` could be uninitialized
+                        result__.write(core::mem::transmute_copy(&ok__));
+                        #forget
+                        windows_core::HRESULT(0)
+                    }
+                } else {
+                    quote! {
+                        match #inner(#this #(#invoke_args,)*) {
+                            Ok(ok__) => {
+                                // use `ptr::write` since `result` could be uninitialized
+                                result__.write(core::mem::transmute_copy(&ok__));
+                                #forget
+                                windows_core::HRESULT(0)
+                            }
+                            Err(err) => err.into()
+                        }
                     }
                 }
             }
         }
     }
-}
 
-    pub fn write_impl_signature(&self, writer: &Writer, named_params: bool, has_this: bool) -> TokenStream {
+    pub fn write_impl_signature(
+        &self,
+        writer: &Writer,
+        named_params: bool,
+        has_this: bool,
+    ) -> TokenStream {
         let noexcept = self.def.has_attribute("NoExceptionAttribute");
 
-        let params = self.signature
-            .params
-            .iter()
-            .map(|p| {
-                let default_type = p.0.write_default(writer);
+        let params = self.signature.params.iter().map(|p| {
+            let default_type = p.0.write_default(writer);
 
-                let sig = if p.1.flags().contains(ParamAttributes::In) {
-                    if p.0.is_winrt_array() {
-                        quote! { &[#default_type] }
-                    } else if p.0.is_primitive() {
-                        quote! { #default_type }
-                    } else if p.0.is_nullable() {
-                        let type_name = p.0.write(writer);
-                        quote! { Option<&#type_name> }
-                    } else {
-                        quote! { &#default_type }
-                    }
-                } else if p.0.is_winrt_array() {
-                    quote! { &mut [#default_type] }
-                } else if p.0.is_winrt_array_ref() {
-                    let kind = p.0.write(writer);
-                    quote! { &mut windows_core::Array<#kind> }
+            let sig = if p.1.flags().contains(ParamAttributes::In) {
+                if p.0.is_winrt_array() {
+                    quote! { &[#default_type] }
+                } else if p.0.is_primitive() {
+                    quote! { #default_type }
+                } else if p.0.is_nullable() {
+                    let type_name = p.0.write(writer);
+                    quote! { Option<&#type_name> }
                 } else {
-                    quote! { &mut #default_type }
-                };
-        
-                if named_params {
-                    let name = to_ident(&p.1.name());
-                    quote! { #name: #sig }
-                } else {
-                    sig
+                    quote! { &#default_type }
                 }
-            });
+            } else if p.0.is_winrt_array() {
+                quote! { &mut [#default_type] }
+            } else if p.0.is_winrt_array_ref() {
+                let kind = p.0.write(writer);
+                quote! { &mut windows_core::Array<#kind> }
+            } else {
+                quote! { &mut #default_type }
+            };
+
+            if named_params {
+                let name = to_ident(&p.1.name());
+                quote! { #name: #sig }
+            } else {
+                sig
+            }
+        });
 
         let return_type_tokens = if self.signature.return_type.0 == Type::Void {
             quote! { () }
@@ -200,9 +199,9 @@ impl Method {
         };
 
         if has_this {
-            quote! { 
-                (&self, #(#params),*) #return_type_tokens
-             }
+            quote! {
+               (&self, #(#params),*) #return_type_tokens
+            }
         } else {
             quote! {
                 (#(#params),*) #return_type_tokens
@@ -210,78 +209,78 @@ impl Method {
         }
     }
 
-    pub fn write_abi(&self, writer: &Writer, named_params: bool, ) -> TokenStream {
-            let args = self.signature.params.iter().map(|param| {
-                let name = to_ident(&param.1.name());
-                let abi = param.0.write_abi(writer);
-                let abi_size_name: TokenStream = format!("{}_array_size", name.as_str()).into();
+    pub fn write_abi(&self, writer: &Writer, named_params: bool) -> TokenStream {
+        let args = self.signature.params.iter().map(|param| {
+            let name = to_ident(&param.1.name());
+            let abi = param.0.write_abi(writer);
+            let abi_size_name: TokenStream = format!("{}_array_size", name.as_str()).into();
 
-                if param.1.flags().contains(ParamAttributes::In) {
-                    if param.0.is_winrt_array() {
-                        if named_params {
-                            quote! { #abi_size_name: u32, #name: *const #abi }
-                        } else {
-                            quote! { u32, *const #abi }
-                        }
-                    } else if param.0.is_const_ref() {
-                        if named_params {
-                            quote! { #name: &#abi }
-                        } else {
-                            quote! { &#abi }
-                        }
-                    } else if named_params {
-                        quote! { #name: #abi }
-                    } else {
-                        quote! { #abi }
-                    }
-                } else if param.0.is_winrt_array() {
+            if param.1.flags().contains(ParamAttributes::In) {
+                if param.0.is_winrt_array() {
                     if named_params {
-                        quote! { #abi_size_name: u32, #name: *mut #abi }
+                        quote! { #abi_size_name: u32, #name: *const #abi }
                     } else {
-                        quote! { u32, *mut #abi }
+                        quote! { u32, *const #abi }
                     }
-                } else if param.0.is_winrt_array_ref() {
+                } else if param.0.is_const_ref() {
                     if named_params {
-                        quote! { #abi_size_name: *mut u32, #name: *mut *mut #abi }
+                        quote! { #name: &#abi }
                     } else {
-                        quote! { *mut u32, *mut *mut #abi }
+                        quote! { &#abi }
                     }
                 } else if named_params {
-                    quote! { #name: *mut #abi }
+                    quote! { #name: #abi }
                 } else {
-                    quote! { *mut #abi }
+                    quote! { #abi }
                 }
-            });
-
-            let return_arg = match &self.signature.return_type.0 {
-                Type::Void => quote! {},
-                Type::Array(ty) => {
-                    let ty = ty.write_abi(writer);
-                    if named_params {
-                        quote! { result_size__: *mut u32, result__: *mut *mut #ty }
-                    } else {
-                        quote! { *mut u32, *mut *mut #ty }
-                    }
+            } else if param.0.is_winrt_array() {
+                if named_params {
+                    quote! { #abi_size_name: u32, #name: *mut #abi }
+                } else {
+                    quote! { u32, *mut #abi }
                 }
-                ty =>  {
-                    let ty = ty.write_abi(writer);
-                    if named_params {
-                        quote! { result__: *mut #ty }
-                    } else {
-                        quote! { *mut #ty }
-                    }
+            } else if param.0.is_winrt_array_ref() {
+                if named_params {
+                    quote! { #abi_size_name: *mut u32, #name: *mut *mut #abi }
+                } else {
+                    quote! { *mut u32, *mut *mut #abi }
                 }
-            };
-
-            if named_params {
-                quote! {
-                    this: *mut core::ffi::c_void, #(#args,)* #return_arg
-                }
+            } else if named_params {
+                quote! { #name: *mut #abi }
             } else {
-                quote! {
-                    *mut core::ffi::c_void, #(#args,)* #return_arg
+                quote! { *mut #abi }
+            }
+        });
+
+        let return_arg = match &self.signature.return_type.0 {
+            Type::Void => quote! {},
+            Type::Array(ty) => {
+                let ty = ty.write_abi(writer);
+                if named_params {
+                    quote! { result_size__: *mut u32, result__: *mut *mut #ty }
+                } else {
+                    quote! { *mut u32, *mut *mut #ty }
                 }
             }
+            ty => {
+                let ty = ty.write_abi(writer);
+                if named_params {
+                    quote! { result__: *mut #ty }
+                } else {
+                    quote! { *mut #ty }
+                }
+            }
+        };
+
+        if named_params {
+            quote! {
+                this: *mut core::ffi::c_void, #(#args,)* #return_arg
+            }
+        } else {
+            quote! {
+                *mut core::ffi::c_void, #(#args,)* #return_arg
+            }
+        }
     }
 
     pub fn write(
@@ -346,12 +345,14 @@ impl Method {
 
             let return_arg = match &self.signature.return_type.0 {
                 Type::Void => quote! {},
-                ty => if ty.is_winrt_array() {
-                    let ty = ty.write(writer);
-                    quote! { windows_core::Array::<#ty>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _ }
-                } else {
-                    quote! { &mut result__ }
-                },
+                ty => {
+                    if ty.is_winrt_array() {
+                        let ty = ty.write(writer);
+                        quote! { windows_core::Array::<#ty>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _ }
+                    } else {
+                        quote! { &mut result__ }
+                    }
+                }
             };
 
             if kind == InterfaceKind::Composable {
@@ -365,7 +366,10 @@ impl Method {
             }
         };
 
-        let generics =  params.iter().enumerate().filter_map(|(position, (ty, def))| {
+        let generics = params
+            .iter()
+            .enumerate()
+            .filter_map(|(position, (ty, def))| {
                 if is_convertible(&ty, *def) {
                     let name: TokenStream = format!("P{position}").into();
                     Some(name)
@@ -375,18 +379,20 @@ impl Method {
             });
 
         let where_clause = {
-            let constraints: Vec<_> = params.iter().enumerate().filter_map(|(position, (ty, def))| {
-                if is_convertible(&ty, *def) {
-                    let name: TokenStream = format!("P{position}").into();
-                    let ty = ty.write(writer);
-                    
-                    Some(
-                        quote! { #name: windows_core::Param<#ty>, }
-                    )
-                } else {
-                    None
-                }
-            }).collect();
+            let constraints: Vec<_> = params
+                .iter()
+                .enumerate()
+                .filter_map(|(position, (ty, def))| {
+                    if is_convertible(&ty, *def) {
+                        let name: TokenStream = format!("P{position}").into();
+                        let ty = ty.write(writer);
+
+                        Some(quote! { #name: windows_core::Param<#ty>, })
+                    } else {
+                        None
+                    }
+                })
+                .collect();
 
             if constraints.is_empty() {
                 quote! {}
@@ -417,7 +423,7 @@ impl Method {
                 quote! { #name: &mut windows_core::Array<#kind>, }
             } else {
                 quote! { #name: &mut #default_type, }
-            }    
+            }
         });
 
         let return_type = match &self.signature.return_type.0 {
@@ -433,7 +439,7 @@ impl Method {
         };
 
         let noexcept = self.def.has_attribute("NoExceptionAttribute");
-    
+
         let return_type = if noexcept {
             if self.signature.return_type.0.is_nullable() {
                 quote! { -> Option<#return_type> }
@@ -515,14 +521,13 @@ impl Method {
                     }
                 }
             },
-            InterfaceKind::None
-            | InterfaceKind::Base => {
+            InterfaceKind::None | InterfaceKind::Base => {
                 let unwrap = if noexcept {
                     quote! { .unwrap() }
                 } else {
                     quote! { ? }
                 };
-    
+
                 quote! {
                     pub fn #name<#(#generics,)*>(&self, #(#params)*) #return_type #where_clause {
                         let this = &windows_core::Interface::cast::<#interface_name>(self)#unwrap;

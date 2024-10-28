@@ -90,10 +90,36 @@ impl Interface {
 
             let mut methods = TokenStream::new();
 
-            for method in 
-                self.methods
-                .iter()
-                .filter_map(|method| match &method {
+            for method in self.methods.iter().filter_map(|method| match &method {
+                MethodOrName::Method(method) => Some(method),
+                _ => None,
+            }) {
+                let mut difference = Dependencies::new();
+
+                if writer.config.package {
+                    difference = method.dependencies.difference(&dependencies);
+                }
+
+                let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
+
+                let method = method.write(
+                    writer,
+                    self.write_name(writer),
+                    InterfaceKind::Default,
+                    method_names,
+                    virtual_names,
+                );
+
+                methods.combine(quote! {
+                    #cfg
+                    #method
+                });
+            }
+
+            for interface in &self.required_interfaces {
+                let virtual_names = &mut MethodNames::new();
+
+                for method in interface.methods.iter().filter_map(|method| match &method {
                     MethodOrName::Method(method) => Some(method),
                     _ => None,
                 }) {
@@ -102,13 +128,13 @@ impl Interface {
                     if writer.config.package {
                         difference = method.dependencies.difference(&dependencies);
                     }
-            
+
                     let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
-            
-                   let method = method.write(
+
+                    let method = method.write(
                         writer,
-                        self.write_name(writer),
-                        InterfaceKind::Default,
+                        interface.write_name(writer),
+                        interface.kind,
                         method_names,
                         virtual_names,
                     );
@@ -118,40 +144,7 @@ impl Interface {
                         #method
                     });
                 }
-
-                for interface in &self.required_interfaces {
-                    let  virtual_names = &mut MethodNames::new();
-        
-                    for method in interface
-                        .methods
-                        .iter()
-                        .filter_map(|method| match &method {
-                            MethodOrName::Method(method) => Some(method),
-                            _ => None,
-                        })
-                    {
-                        let mut difference = Dependencies::new();
-
-                        if writer.config.package {
-                            difference = method.dependencies.difference(&dependencies);
-                        }
-                
-                        let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
-
-                        let method = method.write(
-                            writer,
-                            interface.write_name(writer),
-                            interface.kind,
-                             method_names,
-                             virtual_names,
-                        );
-
-                        methods.combine(quote! {
-                            #cfg
-                            #method
-                        });
-                    }
-                }
+            }
 
             quote! {
                 impl<#constraints> #name {
@@ -161,9 +154,8 @@ impl Interface {
         });
 
         let virtual_names = &mut MethodNames::new();
-        
-        let vtbl_methods = self.methods.iter().map(|method| {
-            match method {
+
+        let vtbl_methods = self.methods.iter().map(|method| match method {
             MethodOrName::Method(method) => {
                 let mut difference = Dependencies::new();
 
@@ -180,22 +172,20 @@ impl Interface {
                         pub #name: unsafe extern "system" fn(#vtbl) -> windows_core::HRESULT,
                     }
                 } else {
-                let cfg_not = writer.write_cfg(self.def, self.def.namespace(), &difference, true);
+                    let cfg_not =
+                        writer.write_cfg(self.def, self.def.namespace(), &difference, true);
 
-                quote! {
-                    #cfg
-                    pub #name: unsafe extern "system" fn(#vtbl) -> windows_core::HRESULT,
-                    #cfg_not
-                    #name: usize,
+                    quote! {
+                        #cfg
+                        pub #name: unsafe extern "system" fn(#vtbl) -> windows_core::HRESULT,
+                        #cfg_not
+                        #name: usize,
+                    }
                 }
-                }
-        
-
             }
             MethodOrName::Name(name) => {
                 let name = to_ident(name);
                 quote! { #name: usize, }
-            }
             }
         });
 
@@ -249,9 +239,9 @@ impl Interface {
             }
         } else {
             let guid = self.def.guid_attribute().unwrap();
-            let pinterface =  Literal::byte_string(&format!("pinterface({{{guid}}}"));
+            let pinterface = Literal::byte_string(&format!("pinterface({{{guid}}}"));
 
-            let generics = self.generics.iter().map(|generic|{
+            let generics = self.generics.iter().map(|generic| {
                 let name = generic.write(writer);
                 quote! {
                     .push_slice(b";").push_other(#name::SIGNATURE)

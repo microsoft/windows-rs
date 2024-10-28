@@ -49,20 +49,16 @@ impl Class {
         for interface in &self.required_interfaces {
             let mut virtual_names = MethodNames::new();
 
-            for method in interface
-                .methods
-                .iter()
-                .filter_map(|method| match &method {
-                    MethodOrName::Method(method) => Some(method),
-                    _ => None,
-                })
-            {
+            for method in interface.methods.iter().filter_map(|method| match &method {
+                MethodOrName::Method(method) => Some(method),
+                _ => None,
+            }) {
                 let mut difference = Dependencies::new();
 
                 if writer.config.package {
                     difference = method.dependencies.difference(&dependencies);
                 }
-        
+
                 let cfg = writer.write_cfg(self.def, self.def.namespace(), &difference, false);
 
                 let method = method.write(
@@ -77,7 +73,6 @@ impl Class {
                     #cfg
                     #method
                 });
-
             }
         }
 
@@ -276,13 +271,14 @@ impl Class {
     }
 
     fn has_default_constructor(&self) -> bool {
-        self.def.attributes().filter(|attribute| {
-            attribute.name() == "ActivatableAttribute"
-        }).any(|attribute| {
-            !attribute
-            .args()
-            .iter()
-            .any(|arg| matches!(arg.1, Value::TypeName(_)))
-        })
+        self.def
+            .attributes()
+            .filter(|attribute| attribute.name() == "ActivatableAttribute")
+            .any(|attribute| {
+                !attribute
+                    .args()
+                    .iter()
+                    .any(|arg| matches!(arg.1, Value::TypeName(_)))
+            })
     }
 }

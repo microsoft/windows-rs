@@ -330,15 +330,9 @@ impl Type {
                 let len = Literal::usize_unsuffixed(*len);
                 quote! { [#name; #len] }
             }
-            Type::Array(ty) => {
-                ty.write(writer)
-            }
-            Type::ArrayRef(ty) => {
-                ty.write(writer)
-            }
-            Type::ConstRef(ty) => {
-                ty.write(writer)
-            }
+            Type::Array(ty) => ty.write(writer),
+            Type::ArrayRef(ty) => ty.write(writer),
+            Type::ConstRef(ty) => ty.write(writer),
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
@@ -361,7 +355,11 @@ impl Type {
 
     pub fn write_abi(&self, writer: &Writer) -> TokenStream {
         match self {
-            Self::IUnknown | Self::Object | Self::Item(Item::Delegate(_)) | Self::Item(Item::Class(_)) | Self::Item(Item::Interface(_)) => quote! { *mut core::ffi::c_void },
+            Self::IUnknown
+            | Self::Object
+            | Self::Item(Item::Delegate(_))
+            | Self::Item(Item::Class(_))
+            | Self::Item(Item::Interface(_)) => quote! { *mut core::ffi::c_void },
             Self::String => quote! { core::mem::MaybeUninit<windows_core::HSTRING> },
             Self::BSTR => quote! { core::mem::MaybeUninit<windows_core::BSTR> },
             Self::ArrayFixed(ty, len) => {
@@ -461,11 +459,7 @@ impl Type {
     pub fn is_blittable(&self) -> bool {
         match self {
             Self::Item(item) => item.is_blittable(),
-            Self::String
-            | Type::BSTR
-            | Type::Object
-            | Type::IUnknown
-            | Type::Param(_) => false,
+            Self::String | Type::BSTR | Type::Object | Type::IUnknown | Type::Param(_) => false,
             Type::ArrayFixed(ty, _) => ty.is_blittable(),
             Type::Array(ty) => ty.is_blittable(),
             _ => true,

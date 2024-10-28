@@ -4,3 +4,4 @@ pub mod Iterable;
 pub mod MapView;
 #[cfg(feature = "implement")]
 pub mod VectorView;
+pub mod iterator;

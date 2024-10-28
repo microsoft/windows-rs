@@ -25,13 +25,12 @@ impl Dependencies {
 
     pub fn difference(&self, other: &Self) -> Self {
         Self {
-            set: self.set.difference(&other.set).copied().collect()
+            set: self.set.difference(&other.set).copied().collect(),
         }
     }
 
     pub fn iter(&self) -> impl Iterator<Item = (&'static str, &'static str)> + '_ {
-        self.set
-            .iter().copied()
+        self.set.iter().copied()
     }
 
     pub fn namespaces(&self) -> impl Iterator<Item = &'static str> + '_ {
@@ -47,7 +46,8 @@ impl Dependencies {
     }
 
     pub fn excluded(&self, filter: &Filter) -> bool {
-        self.set.iter()
+        self.set
+            .iter()
             .any(|(namespace, name)| filter.excludes_type_name(namespace, name))
     }
 }

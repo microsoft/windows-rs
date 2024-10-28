@@ -11,7 +11,7 @@ impl Delegate {
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = self.write_name(writer);
         //let vtbl_name = self.write_vtbl_name(writer);
-        let vtbl_name : TokenStream = format!("{}_Vtbl", self.def.name()).into();
+        let vtbl_name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
         let boxed: TokenStream = format!("{}Box", self.def.name()).into();
         let generic_names = self.generics.iter().map(|ty| ty.write(writer));
         let generic_names = quote! { #(#generic_names,)* };
@@ -20,7 +20,6 @@ impl Delegate {
         let named_phantoms = writer.write_generic_named_phantoms(&self.generics);
         let method = self.method();
 
-        
         let mut dependencies = Dependencies::new();
 
         if writer.config.package {
@@ -28,7 +27,6 @@ impl Delegate {
         }
 
         let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
-
 
         let invoke = method.write(
             writer,
@@ -54,9 +52,9 @@ impl Delegate {
             let phantoms = writer.write_generic_phantoms(&self.generics);
 
             let guid = self.def.guid_attribute().unwrap();
-            let pinterface =  Literal::byte_string(&format!("pinterface({{{guid}}}"));
+            let pinterface = Literal::byte_string(&format!("pinterface({{{guid}}}"));
 
-            let generics = self.generics.iter().map(|generic|{
+            let generics = self.generics.iter().map(|generic| {
                 let name = generic.write(writer);
                 quote! {
                     .push_slice(b";").push_other(#name::SIGNATURE)
@@ -84,7 +82,7 @@ impl Delegate {
             quote! { F: FnMut #signature + Send + 'static }
         };
 
-        let invoke_upcall = method.write_upcall( quote! { (this.invoke) }, false);
+        let invoke_upcall = method.write_upcall(quote! { (this.invoke) }, false);
 
         quote! {
             #definition
@@ -121,11 +119,11 @@ impl Delegate {
                 };
                 unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
                     let this = this as *mut *mut core::ffi::c_void as *mut Self;
-    
+
                     if iid.is_null() || interface.is_null() {
                         return windows_core::HRESULT(-2147467261); // E_POINTER
                     }
-    
+
                     *interface = if *iid == <#name as windows_core::Interface>::IID ||
                         *iid == <windows_core::IUnknown as windows_core::Interface>::IID ||
                         *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
@@ -133,9 +131,9 @@ impl Delegate {
                         } else {
                             core::ptr::null_mut()
                         };
-    
+
                     // TODO: implement IMarshal
-    
+
                     if (*interface).is_null() {
                         windows_core::HRESULT(-2147467262) // E_NOINTERFACE
                     } else {
@@ -150,11 +148,11 @@ impl Delegate {
                 unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
                     let this = this as *mut *mut core::ffi::c_void as *mut Self;
                     let remaining = (*this).count.release();
-    
+
                     if remaining == 0 {
                         let _ = Box::from_raw(this);
                     }
-    
+
                     remaining
                 }
                 unsafe extern "system" fn Invoke(#invoke_vtbl) -> windows_core::HRESULT {
