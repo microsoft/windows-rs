@@ -76,7 +76,7 @@ impl Class {
             }
         }
 
-        let new = self.has_default_constructor().then(|| 
+        let new = self.has_default_constructor().then(||
             quote! {
                 pub fn new() -> windows_core::Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -98,7 +98,7 @@ impl Class {
                 } else {
                         let interface_type = interface.write_name(writer);
                         let cfg = quote! {};
-    
+
                         Some(quote! {
                             #cfg
                             fn #interface_type<R, F: FnOnce(&#interface_type) -> windows_core::Result<R>>(

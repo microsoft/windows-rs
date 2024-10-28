@@ -38,7 +38,7 @@ impl Method {
         .map(|param| {
             let name = to_ident(param.1.name());
             let abi_size_name: TokenStream = format!("{}_array_size", param.1.name()).into();
-        
+
             if param.1.flags().contains(ParamAttributes::In) {
                 if param.0.is_winrt_array() {
                     quote! { core::slice::from_raw_parts(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
