@@ -31,7 +31,6 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IIter
         .push_other(T::SIGNATURE)
         .push_slice(b")");
 }
-impl<T: windows_core::RuntimeType + 'static> IIterable<T> {}
 #[repr(C)]
 pub struct IIterable_Vtbl<T>
 where
