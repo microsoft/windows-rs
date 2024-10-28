@@ -48,6 +48,7 @@ impl Writer {
         // TODO: simpler way to do this? needs a tesd too...
         let mut compact: Vec<&'static str> = dependencies.namespaces().collect();
         compact.sort();
+        compact.dedup();
 
         for pos in 0..compact.len() {
             match (compact.get(pos), compact.get(pos + 1)) {
@@ -62,6 +63,7 @@ impl Writer {
         for dependency in compact {
             if dependency.is_empty()
                 || namespace_starts_with(namespace, dependency)
+                // TODO: do these skips need to be dependent on whether the current namespace is Win32 or not?
                 || dependency == "Windows.Foundation"
                 || dependency == "Windows.Win32.Foundation"
             {

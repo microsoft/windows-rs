@@ -146,11 +146,15 @@ impl Interface {
                 }
             }
 
+            if methods.is_empty() {
+                quote! {}
+            } else {
             quote! {
                 impl<#constraints> #name {
                     #methods
                 }
             }
+        }
         });
 
         let virtual_names = &mut MethodNames::new();
