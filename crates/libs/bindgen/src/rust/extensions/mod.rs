@@ -24,8 +24,3 @@ pub fn gen_mod(_writer: &Writer, namespace: &str) -> TokenStream {
         _ => quote!(),
     }
 }
-
-/// Generates extension code that is subject to the `implement` feature for a specific namespace
-pub fn gen_impl(_namespace: &str) -> TokenStream {
-    TokenStream::new()
-}

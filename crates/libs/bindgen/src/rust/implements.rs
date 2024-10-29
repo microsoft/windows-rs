@@ -2,8 +2,8 @@ use super::*;
 use metadata::HasAttributes;
 
 pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
-    if def.kind() != metadata::TypeKind::Interface
-        || (!writer.implement && def.has_attribute("ExclusiveToAttribute"))
+    if !(def.kind() == metadata::TypeKind::Interface
+        && (writer.implement || (writer.package && !def.has_attribute("ExclusiveToAttribute"))))
     {
         return quote! {};
     }

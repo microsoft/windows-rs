@@ -113,25 +113,10 @@ fn gen_package(writer: &Writer) -> Result<()> {
 
     trees.par_iter().try_for_each(|tree| {
         let directory = format!("{directory}/{}", tree.namespace.replace('.', "/"));
-        let mut tokens = namespace(writer, tree);
-
-        let tokens_impl = if !writer.sys {
-            namespace_impl(writer, tree)
-        } else {
-            String::new()
-        };
-
-        if !writer.sys && !tokens_impl.is_empty() {
-            tokens.push_str("#[cfg(feature = \"implement\")]\ncore::include!(\"impl.rs\");\n");
-        }
+        let tokens = namespace(writer, tree);
 
         let output = format!("{directory}/mod.rs");
         write_to_file(&output, try_format(writer, &tokens))?;
-
-        if !writer.sys && !tokens_impl.is_empty() {
-            let output = format!("{directory}/impl.rs");
-            write_to_file(&output, try_format(writer, &tokens_impl))?;
-        }
 
         Ok::<(), Error>(())
     })?;
@@ -248,43 +233,6 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
     }
 
     tokens.combine(&extensions::gen_mod(writer, tree.namespace));
-
-    if writer.implement {
-        tokens.push_str(&namespace_impl(writer, tree));
-    }
-
-    tokens.into_string()
-}
-
-fn namespace_impl(writer: &Writer, tree: &Tree) -> String {
-    let writer = &mut writer.clone();
-    writer.namespace = tree.namespace;
-    let mut types = std::collections::BTreeMap::new();
-
-    for item in writer.reader.namespace_items(tree.namespace) {
-        if let metadata::Item::Type(def) = item {
-            let type_name = def.type_name();
-            if writer.reader.core_type(type_name).is_some() {
-                continue;
-            }
-            if def.kind() != metadata::TypeKind::Interface {
-                continue;
-            }
-            let tokens = implements::writer(writer, def);
-
-            if !tokens.is_empty() {
-                types.insert(type_name.name(), tokens);
-            }
-        }
-    }
-
-    let types = types.values();
-
-    let mut tokens = quote! {
-        #(#types)*
-    };
-
-    tokens.combine(&extensions::gen_impl(tree.namespace));
     tokens.into_string()
 }
 

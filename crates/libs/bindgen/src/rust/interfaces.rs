@@ -230,5 +230,6 @@ fn gen_win_interface(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
         has_unknown_base,
     ));
     tokens.combine(&writer.interface_vtbl(def, generics, &constraints, &features));
+    tokens.combine(&implements::writer(writer, def));
     tokens
 }
