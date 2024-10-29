@@ -146,10 +146,13 @@ impl ID3DInclude_Vtbl {
     }
 }
 #[doc(hidden)]
+#[cfg(feature = "std")]
 struct ID3DInclude_ImplVtbl<T: ID3DInclude_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "std")]
 impl<T: ID3DInclude_Impl> ID3DInclude_ImplVtbl<T> {
     const VTABLE: ID3DInclude_Vtbl = ID3DInclude_Vtbl::new::<T>();
 }
+#[cfg(feature = "std")]
 impl ID3DInclude {
     pub fn new<'a, T: ID3DInclude_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &ID3DInclude_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };

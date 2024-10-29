@@ -1501,10 +1501,13 @@ impl IMemoryAllocator_Vtbl {
     }
 }
 #[doc(hidden)]
+#[cfg(feature = "std")]
 struct IMemoryAllocator_ImplVtbl<T: IMemoryAllocator_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "std")]
 impl<T: IMemoryAllocator_Impl> IMemoryAllocator_ImplVtbl<T> {
     const VTABLE: IMemoryAllocator_Vtbl = IMemoryAllocator_Vtbl::new::<T>();
 }
+#[cfg(feature = "std")]
 impl IMemoryAllocator {
     pub fn new<'a, T: IMemoryAllocator_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IMemoryAllocator_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };

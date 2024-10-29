@@ -27111,10 +27111,13 @@ impl IDebugFAEntryTags_Vtbl {
     }
 }
 #[doc(hidden)]
+#[cfg(feature = "std")]
 struct IDebugFAEntryTags_ImplVtbl<T: IDebugFAEntryTags_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "std")]
 impl<T: IDebugFAEntryTags_Impl> IDebugFAEntryTags_ImplVtbl<T> {
     const VTABLE: IDebugFAEntryTags_Vtbl = IDebugFAEntryTags_Vtbl::new::<T>();
 }
+#[cfg(feature = "std")]
 impl IDebugFAEntryTags {
     pub fn new<'a, T: IDebugFAEntryTags_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IDebugFAEntryTags_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };

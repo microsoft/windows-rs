@@ -1182,12 +1182,15 @@ impl IVssCreateWriterMetadata_Vtbl {
     }
 }
 #[doc(hidden)]
+#[cfg(feature = "std")]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 struct IVssCreateWriterMetadata_ImplVtbl<T: IVssCreateWriterMetadata_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "std")]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 impl<T: IVssCreateWriterMetadata_Impl> IVssCreateWriterMetadata_ImplVtbl<T> {
     const VTABLE: IVssCreateWriterMetadata_Vtbl = IVssCreateWriterMetadata_Vtbl::new::<T>();
 }
+#[cfg(feature = "std")]
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 impl IVssCreateWriterMetadata {
     pub fn new<'a, T: IVssCreateWriterMetadata_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
@@ -2669,10 +2672,13 @@ impl IVssWriterComponents_Vtbl {
     }
 }
 #[doc(hidden)]
+#[cfg(feature = "std")]
 struct IVssWriterComponents_ImplVtbl<T: IVssWriterComponents_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "std")]
 impl<T: IVssWriterComponents_Impl> IVssWriterComponents_ImplVtbl<T> {
     const VTABLE: IVssWriterComponents_Vtbl = IVssWriterComponents_Vtbl::new::<T>();
 }
+#[cfg(feature = "std")]
 impl IVssWriterComponents {
     pub fn new<'a, T: IVssWriterComponents_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IVssWriterComponents_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };

@@ -13619,10 +13619,13 @@ impl IUMS_Vtbl {
     }
 }
 #[doc(hidden)]
+#[cfg(feature = "std")]
 struct IUMS_ImplVtbl<T: IUMS_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "std")]
 impl<T: IUMS_Impl> IUMS_ImplVtbl<T> {
     const VTABLE: IUMS_Vtbl = IUMS_Vtbl::new::<T>();
 }
+#[cfg(feature = "std")]
 impl IUMS {
     pub fn new<'a, T: IUMS_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IUMS_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };

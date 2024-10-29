@@ -460,10 +460,13 @@ impl IXAudio2EngineCallback_Vtbl {
     }
 }
 #[doc(hidden)]
+#[cfg(feature = "std")]
 struct IXAudio2EngineCallback_ImplVtbl<T: IXAudio2EngineCallback_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "std")]
 impl<T: IXAudio2EngineCallback_Impl> IXAudio2EngineCallback_ImplVtbl<T> {
     const VTABLE: IXAudio2EngineCallback_Vtbl = IXAudio2EngineCallback_Vtbl::new::<T>();
 }
+#[cfg(feature = "std")]
 impl IXAudio2EngineCallback {
     pub fn new<'a, T: IXAudio2EngineCallback_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2EngineCallback_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
@@ -557,10 +560,13 @@ impl IXAudio2MasteringVoice_Vtbl {
     }
 }
 #[doc(hidden)]
+#[cfg(feature = "std")]
 struct IXAudio2MasteringVoice_ImplVtbl<T: IXAudio2MasteringVoice_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "std")]
 impl<T: IXAudio2MasteringVoice_Impl> IXAudio2MasteringVoice_ImplVtbl<T> {
     const VTABLE: IXAudio2MasteringVoice_Vtbl = IXAudio2MasteringVoice_Vtbl::new::<T>();
 }
+#[cfg(feature = "std")]
 impl IXAudio2MasteringVoice {
     pub fn new<'a, T: IXAudio2MasteringVoice_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2MasteringVoice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
@@ -704,10 +710,13 @@ impl IXAudio2SourceVoice_Vtbl {
     }
 }
 #[doc(hidden)]
+#[cfg(feature = "std")]
 struct IXAudio2SourceVoice_ImplVtbl<T: IXAudio2SourceVoice_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "std")]
 impl<T: IXAudio2SourceVoice_Impl> IXAudio2SourceVoice_ImplVtbl<T> {
     const VTABLE: IXAudio2SourceVoice_Vtbl = IXAudio2SourceVoice_Vtbl::new::<T>();
 }
+#[cfg(feature = "std")]
 impl IXAudio2SourceVoice {
     pub fn new<'a, T: IXAudio2SourceVoice_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2SourceVoice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
@@ -735,10 +744,13 @@ impl IXAudio2SubmixVoice_Vtbl {
     }
 }
 #[doc(hidden)]
+#[cfg(feature = "std")]
 struct IXAudio2SubmixVoice_ImplVtbl<T: IXAudio2SubmixVoice_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "std")]
 impl<T: IXAudio2SubmixVoice_Impl> IXAudio2SubmixVoice_ImplVtbl<T> {
     const VTABLE: IXAudio2SubmixVoice_Vtbl = IXAudio2SubmixVoice_Vtbl::new::<T>();
 }
+#[cfg(feature = "std")]
 impl IXAudio2SubmixVoice {
     pub fn new<'a, T: IXAudio2SubmixVoice_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2SubmixVoice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
@@ -994,10 +1006,13 @@ impl IXAudio2Voice_Vtbl {
     }
 }
 #[doc(hidden)]
+#[cfg(feature = "std")]
 struct IXAudio2Voice_ImplVtbl<T: IXAudio2Voice_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "std")]
 impl<T: IXAudio2Voice_Impl> IXAudio2Voice_ImplVtbl<T> {
     const VTABLE: IXAudio2Voice_Vtbl = IXAudio2Voice_Vtbl::new::<T>();
 }
+#[cfg(feature = "std")]
 impl IXAudio2Voice {
     pub fn new<'a, T: IXAudio2Voice_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2Voice_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
@@ -1097,10 +1112,13 @@ impl IXAudio2VoiceCallback_Vtbl {
     }
 }
 #[doc(hidden)]
+#[cfg(feature = "std")]
 struct IXAudio2VoiceCallback_ImplVtbl<T: IXAudio2VoiceCallback_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "std")]
 impl<T: IXAudio2VoiceCallback_Impl> IXAudio2VoiceCallback_ImplVtbl<T> {
     const VTABLE: IXAudio2VoiceCallback_Vtbl = IXAudio2VoiceCallback_Vtbl::new::<T>();
 }
+#[cfg(feature = "std")]
 impl IXAudio2VoiceCallback {
     pub fn new<'a, T: IXAudio2VoiceCallback_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
         let this = windows_core::ScopedHeap { vtable: &IXAudio2VoiceCallback_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
