@@ -459,6 +459,549 @@ pub struct IPropertyValue_Vtbl {
     GetSizeArray: usize,
     GetRectArray: usize,
 }
+impl windows_core::RuntimeName for IPropertyValue {
+    const NAME: &'static str = "Windows.Foundation.IPropertyValue";
+}
+impl IPropertyValue_Vtbl {
+    pub const fn new<Identity: IPropertyValue_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn IsNumericScalar<
+            Identity: IPropertyValue_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            result__: *mut bool,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPropertyValue_Impl::IsNumericScalar(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetUInt8<Identity: IPropertyValue_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut u8,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPropertyValue_Impl::GetUInt8(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetInt16<Identity: IPropertyValue_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut i16,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPropertyValue_Impl::GetInt16(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetUInt16<Identity: IPropertyValue_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut u16,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPropertyValue_Impl::GetUInt16(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetInt32<Identity: IPropertyValue_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut i32,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPropertyValue_Impl::GetInt32(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetUInt32<Identity: IPropertyValue_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut u32,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPropertyValue_Impl::GetUInt32(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetInt64<Identity: IPropertyValue_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut i64,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPropertyValue_Impl::GetInt64(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetUInt64<Identity: IPropertyValue_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut u64,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPropertyValue_Impl::GetUInt64(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetSingle<Identity: IPropertyValue_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut f32,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPropertyValue_Impl::GetSingle(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDouble<Identity: IPropertyValue_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut f64,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPropertyValue_Impl::GetDouble(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetChar16<Identity: IPropertyValue_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut u16,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPropertyValue_Impl::GetChar16(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetBoolean<Identity: IPropertyValue_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut bool,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPropertyValue_Impl::GetBoolean(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetString<Identity: IPropertyValue_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPropertyValue_Impl::GetString(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetGuid<Identity: IPropertyValue_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut windows_core::GUID,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPropertyValue_Impl::GetGuid(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetUInt8Array<
+            Identity: IPropertyValue_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value_array_size: *mut u32,
+            value: *mut *mut u8,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPropertyValue_Impl::GetUInt8Array(
+                this,
+                windows_core::ArrayProxy::from_raw_parts(
+                    core::mem::transmute_copy(&value),
+                    value_array_size,
+                )
+                .as_array(),
+            )
+            .into()
+        }
+        unsafe extern "system" fn GetInt16Array<
+            Identity: IPropertyValue_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value_array_size: *mut u32,
+            value: *mut *mut i16,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPropertyValue_Impl::GetInt16Array(
+                this,
+                windows_core::ArrayProxy::from_raw_parts(
+                    core::mem::transmute_copy(&value),
+                    value_array_size,
+                )
+                .as_array(),
+            )
+            .into()
+        }
+        unsafe extern "system" fn GetUInt16Array<
+            Identity: IPropertyValue_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value_array_size: *mut u32,
+            value: *mut *mut u16,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPropertyValue_Impl::GetUInt16Array(
+                this,
+                windows_core::ArrayProxy::from_raw_parts(
+                    core::mem::transmute_copy(&value),
+                    value_array_size,
+                )
+                .as_array(),
+            )
+            .into()
+        }
+        unsafe extern "system" fn GetInt32Array<
+            Identity: IPropertyValue_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value_array_size: *mut u32,
+            value: *mut *mut i32,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPropertyValue_Impl::GetInt32Array(
+                this,
+                windows_core::ArrayProxy::from_raw_parts(
+                    core::mem::transmute_copy(&value),
+                    value_array_size,
+                )
+                .as_array(),
+            )
+            .into()
+        }
+        unsafe extern "system" fn GetUInt32Array<
+            Identity: IPropertyValue_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value_array_size: *mut u32,
+            value: *mut *mut u32,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPropertyValue_Impl::GetUInt32Array(
+                this,
+                windows_core::ArrayProxy::from_raw_parts(
+                    core::mem::transmute_copy(&value),
+                    value_array_size,
+                )
+                .as_array(),
+            )
+            .into()
+        }
+        unsafe extern "system" fn GetInt64Array<
+            Identity: IPropertyValue_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value_array_size: *mut u32,
+            value: *mut *mut i64,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPropertyValue_Impl::GetInt64Array(
+                this,
+                windows_core::ArrayProxy::from_raw_parts(
+                    core::mem::transmute_copy(&value),
+                    value_array_size,
+                )
+                .as_array(),
+            )
+            .into()
+        }
+        unsafe extern "system" fn GetUInt64Array<
+            Identity: IPropertyValue_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value_array_size: *mut u32,
+            value: *mut *mut u64,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPropertyValue_Impl::GetUInt64Array(
+                this,
+                windows_core::ArrayProxy::from_raw_parts(
+                    core::mem::transmute_copy(&value),
+                    value_array_size,
+                )
+                .as_array(),
+            )
+            .into()
+        }
+        unsafe extern "system" fn GetSingleArray<
+            Identity: IPropertyValue_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value_array_size: *mut u32,
+            value: *mut *mut f32,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPropertyValue_Impl::GetSingleArray(
+                this,
+                windows_core::ArrayProxy::from_raw_parts(
+                    core::mem::transmute_copy(&value),
+                    value_array_size,
+                )
+                .as_array(),
+            )
+            .into()
+        }
+        unsafe extern "system" fn GetDoubleArray<
+            Identity: IPropertyValue_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value_array_size: *mut u32,
+            value: *mut *mut f64,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPropertyValue_Impl::GetDoubleArray(
+                this,
+                windows_core::ArrayProxy::from_raw_parts(
+                    core::mem::transmute_copy(&value),
+                    value_array_size,
+                )
+                .as_array(),
+            )
+            .into()
+        }
+        unsafe extern "system" fn GetChar16Array<
+            Identity: IPropertyValue_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value_array_size: *mut u32,
+            value: *mut *mut u16,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPropertyValue_Impl::GetChar16Array(
+                this,
+                windows_core::ArrayProxy::from_raw_parts(
+                    core::mem::transmute_copy(&value),
+                    value_array_size,
+                )
+                .as_array(),
+            )
+            .into()
+        }
+        unsafe extern "system" fn GetBooleanArray<
+            Identity: IPropertyValue_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value_array_size: *mut u32,
+            value: *mut *mut bool,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPropertyValue_Impl::GetBooleanArray(
+                this,
+                windows_core::ArrayProxy::from_raw_parts(
+                    core::mem::transmute_copy(&value),
+                    value_array_size,
+                )
+                .as_array(),
+            )
+            .into()
+        }
+        unsafe extern "system" fn GetStringArray<
+            Identity: IPropertyValue_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value_array_size: *mut u32,
+            value: *mut *mut windows_core::HSTRING,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPropertyValue_Impl::GetStringArray(
+                this,
+                windows_core::ArrayProxy::from_raw_parts(
+                    core::mem::transmute_copy(&value),
+                    value_array_size,
+                )
+                .as_array(),
+            )
+            .into()
+        }
+        unsafe extern "system" fn GetInspectableArray<
+            Identity: IPropertyValue_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value_array_size: *mut u32,
+            value: *mut *mut windows_core::IInspectable,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPropertyValue_Impl::GetInspectableArray(
+                this,
+                windows_core::ArrayProxy::from_raw_parts(
+                    core::mem::transmute_copy(&value),
+                    value_array_size,
+                )
+                .as_array(),
+            )
+            .into()
+        }
+        unsafe extern "system" fn GetGuidArray<
+            Identity: IPropertyValue_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value_array_size: *mut u32,
+            value: *mut *mut windows_core::GUID,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPropertyValue_Impl::GetGuidArray(
+                this,
+                windows_core::ArrayProxy::from_raw_parts(
+                    core::mem::transmute_copy(&value),
+                    value_array_size,
+                )
+                .as_array(),
+            )
+            .into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IPropertyValue, OFFSET>(),
+            get_Type: 0,
+            IsNumericScalar: IsNumericScalar::<Identity, OFFSET>,
+            GetUInt8: GetUInt8::<Identity, OFFSET>,
+            GetInt16: GetInt16::<Identity, OFFSET>,
+            GetUInt16: GetUInt16::<Identity, OFFSET>,
+            GetInt32: GetInt32::<Identity, OFFSET>,
+            GetUInt32: GetUInt32::<Identity, OFFSET>,
+            GetInt64: GetInt64::<Identity, OFFSET>,
+            GetUInt64: GetUInt64::<Identity, OFFSET>,
+            GetSingle: GetSingle::<Identity, OFFSET>,
+            GetDouble: GetDouble::<Identity, OFFSET>,
+            GetChar16: GetChar16::<Identity, OFFSET>,
+            GetBoolean: GetBoolean::<Identity, OFFSET>,
+            GetString: GetString::<Identity, OFFSET>,
+            GetGuid: GetGuid::<Identity, OFFSET>,
+            GetDateTime: 0,
+            GetTimeSpan: 0,
+            GetPoint: 0,
+            GetSize: 0,
+            GetRect: 0,
+            GetUInt8Array: GetUInt8Array::<Identity, OFFSET>,
+            GetInt16Array: GetInt16Array::<Identity, OFFSET>,
+            GetUInt16Array: GetUInt16Array::<Identity, OFFSET>,
+            GetInt32Array: GetInt32Array::<Identity, OFFSET>,
+            GetUInt32Array: GetUInt32Array::<Identity, OFFSET>,
+            GetInt64Array: GetInt64Array::<Identity, OFFSET>,
+            GetUInt64Array: GetUInt64Array::<Identity, OFFSET>,
+            GetSingleArray: GetSingleArray::<Identity, OFFSET>,
+            GetDoubleArray: GetDoubleArray::<Identity, OFFSET>,
+            GetChar16Array: GetChar16Array::<Identity, OFFSET>,
+            GetBooleanArray: GetBooleanArray::<Identity, OFFSET>,
+            GetStringArray: GetStringArray::<Identity, OFFSET>,
+            GetInspectableArray: GetInspectableArray::<Identity, OFFSET>,
+            GetGuidArray: GetGuidArray::<Identity, OFFSET>,
+            GetDateTimeArray: 0,
+            GetTimeSpanArray: 0,
+            GetPointArray: 0,
+            GetSizeArray: 0,
+            GetRectArray: 0,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IPropertyValue as windows_core::Interface>::IID
+    }
+}
+pub trait IPropertyValue_Impl: Sized + windows_core::IUnknownImpl {
+    fn IsNumericScalar(&self) -> windows_core::Result<bool>;
+    fn GetUInt8(&self) -> windows_core::Result<u8>;
+    fn GetInt16(&self) -> windows_core::Result<i16>;
+    fn GetUInt16(&self) -> windows_core::Result<u16>;
+    fn GetInt32(&self) -> windows_core::Result<i32>;
+    fn GetUInt32(&self) -> windows_core::Result<u32>;
+    fn GetInt64(&self) -> windows_core::Result<i64>;
+    fn GetUInt64(&self) -> windows_core::Result<u64>;
+    fn GetSingle(&self) -> windows_core::Result<f32>;
+    fn GetDouble(&self) -> windows_core::Result<f64>;
+    fn GetChar16(&self) -> windows_core::Result<u16>;
+    fn GetBoolean(&self) -> windows_core::Result<bool>;
+    fn GetString(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn GetGuid(&self) -> windows_core::Result<windows_core::GUID>;
+    fn GetUInt8Array(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()>;
+    fn GetInt16Array(&self, value: &mut windows_core::Array<i16>) -> windows_core::Result<()>;
+    fn GetUInt16Array(&self, value: &mut windows_core::Array<u16>) -> windows_core::Result<()>;
+    fn GetInt32Array(&self, value: &mut windows_core::Array<i32>) -> windows_core::Result<()>;
+    fn GetUInt32Array(&self, value: &mut windows_core::Array<u32>) -> windows_core::Result<()>;
+    fn GetInt64Array(&self, value: &mut windows_core::Array<i64>) -> windows_core::Result<()>;
+    fn GetUInt64Array(&self, value: &mut windows_core::Array<u64>) -> windows_core::Result<()>;
+    fn GetSingleArray(&self, value: &mut windows_core::Array<f32>) -> windows_core::Result<()>;
+    fn GetDoubleArray(&self, value: &mut windows_core::Array<f64>) -> windows_core::Result<()>;
+    fn GetChar16Array(&self, value: &mut windows_core::Array<u16>) -> windows_core::Result<()>;
+    fn GetBooleanArray(&self, value: &mut windows_core::Array<bool>) -> windows_core::Result<()>;
+    fn GetStringArray(
+        &self,
+        value: &mut windows_core::Array<windows_core::HSTRING>,
+    ) -> windows_core::Result<()>;
+    fn GetInspectableArray(
+        &self,
+        value: &mut windows_core::Array<windows_core::IInspectable>,
+    ) -> windows_core::Result<()>;
+    fn GetGuidArray(
+        &self,
+        value: &mut windows_core::Array<windows_core::GUID>,
+    ) -> windows_core::Result<()>;
+}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IReference<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
@@ -833,6 +1376,45 @@ where
         *mut windows_core::AbiType<T>,
     ) -> windows_core::HRESULT,
     T: core::marker::PhantomData<T>,
+}
+impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IReference<T> {
+    const NAME: &'static str = "Windows.Foundation.IReference";
+}
+impl<T: windows_core::RuntimeType + 'static> IReference_Vtbl<T> {
+    pub const fn new<Identity: IReference_Impl<T>, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Value<
+            T: windows_core::RuntimeType + 'static,
+            Identity: IReference_Impl<T>,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            result__: *mut windows_core::AbiType<T>,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IReference_Impl::Value(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IReference<T>, OFFSET>(),
+            Value: Value::<T, Identity, OFFSET>,
+            T: core::marker::PhantomData::<T>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IReference<T> as windows_core::Interface>::IID
+    }
+}
+pub trait IReference_Impl<T>: IPropertyValue_Impl
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    fn Value(&self) -> windows_core::Result<T>;
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Default, PartialEq)]

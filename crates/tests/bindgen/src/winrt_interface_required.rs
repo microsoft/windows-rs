@@ -75,6 +75,31 @@ pub struct IAsyncAction_Vtbl {
     get_Completed: usize,
     pub GetResults: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+impl windows_core::RuntimeName for IAsyncAction {
+    const NAME: &'static str = "Windows.Foundation.IAsyncAction";
+}
+impl IAsyncAction_Vtbl {
+    pub const fn new<Identity: IAsyncAction_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetResults<Identity: IAsyncAction_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IAsyncAction_Impl::GetResults(this).into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IAsyncAction, OFFSET>(),
+            put_Completed: 0,
+            get_Completed: 0,
+            GetResults: GetResults::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IAsyncAction as windows_core::Interface>::IID
+    }
+}
+pub trait IAsyncAction_Impl: IAsyncInfo_Impl {
+    fn GetResults(&self) -> windows_core::Result<()>;
+}
 windows_core::imp::define_interface!(
     IAsyncInfo,
     IAsyncInfo_Vtbl,
@@ -138,4 +163,66 @@ pub struct IAsyncInfo_Vtbl {
     ) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+impl windows_core::RuntimeName for IAsyncInfo {
+    const NAME: &'static str = "Windows.Foundation.IAsyncInfo";
+}
+impl IAsyncInfo_Vtbl {
+    pub const fn new<Identity: IAsyncInfo_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Id<Identity: IAsyncInfo_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut u32,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IAsyncInfo_Impl::Id(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ErrorCode<Identity: IAsyncInfo_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut windows_core::HRESULT,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IAsyncInfo_Impl::ErrorCode(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Cancel<Identity: IAsyncInfo_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IAsyncInfo_Impl::Cancel(this).into()
+        }
+        unsafe extern "system" fn Close<Identity: IAsyncInfo_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IAsyncInfo_Impl::Close(this).into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IAsyncInfo, OFFSET>(),
+            Id: Id::<Identity, OFFSET>,
+            get_Status: 0,
+            ErrorCode: ErrorCode::<Identity, OFFSET>,
+            Cancel: Cancel::<Identity, OFFSET>,
+            Close: Close::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IAsyncInfo as windows_core::Interface>::IID
+    }
+}
+pub trait IAsyncInfo_Impl: Sized + windows_core::IUnknownImpl {
+    fn Id(&self) -> windows_core::Result<u32>;
+    fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT>;
+    fn Cancel(&self) -> windows_core::Result<()>;
+    fn Close(&self) -> windows_core::Result<()>;
 }

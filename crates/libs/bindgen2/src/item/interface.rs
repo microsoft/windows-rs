@@ -68,6 +68,7 @@ impl Interface {
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = self.write_name(writer);
+
         let vtbl_name = self.write_vtbl_name(writer);
         let is_exclusive = self.def.has_attribute("ExclusiveToAttribute");
         let constraints = writer.write_generic_constraints(&self.generics);
@@ -265,6 +266,93 @@ impl Interface {
             });
         }
 
+        if writer.config.implement || !is_exclusive {
+            let impl_name : TokenStream = format!("{}_Impl", self.def.name()).into();
+            let generics: Vec<_> = self.generics.iter().map(|ty| ty.write(writer)).collect();
+            let runtime_name = format!("{}.{}", self.def.namespace(), self.def.name(),);
+
+            result.combine(quote! {
+                #cfg
+                impl<#constraints> windows_core::RuntimeName for #name {
+                    const NAME: &'static str = #runtime_name;
+                }
+            });
+
+            let mut names = MethodNames::new();
+
+            let field_methods: Vec<_> = self.methods.iter().map(|method| match method {
+                MethodOrName::Method(method) => {
+                    let name = names.add(method.def);
+                    quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
+                }
+                MethodOrName::Name(name) => {
+                    // TODO: test this condition - should cause an AV when method is called
+                    // TODO: does this need to use `MethodNames` for overloading?
+                    let name = to_ident(name);
+                    quote! { #name: 0, }
+                }
+            }).collect();
+
+            let mut names = MethodNames::new();
+
+            let impl_methods: Vec<_> = self.methods.iter().map(|method| match method {
+                MethodOrName::Method(method) => {
+                    let name = names.add(method.def);
+                    let signature = method.write_abi(writer, true);
+                    let call = quote! { #impl_name::#name };
+                    let upcall = method.write_upcall(call, true);
+
+                    quote! {
+                        unsafe extern "system" fn #name<#constraints Identity: #impl_name <#(#generics,)*>, const OFFSET: isize> (#signature) -> windows_core::HRESULT {
+                            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                            #upcall        
+                        }
+                    }
+                }
+                _ => quote! {},
+            }).collect();
+
+            let mut names = MethodNames::new();
+
+            let trait_methods: Vec<_> = self.methods.iter().map(|method| match method {
+                MethodOrName::Method(method) => {
+                    let name = names.add(method.def);
+                    let signature = method.write_impl_signature(writer, true, true);
+                    quote! { fn #name #signature; }
+                }
+                _ => quote!{},
+            }).collect();
+
+            let requires = if interfaces.is_empty() {
+                quote! { Sized + windows_core::IUnknownImpl }
+            } else {
+                let interfaces = interfaces.iter().map(|ty| ty.write_impl_name(writer));
+
+                quote! {  #(#interfaces)+* }
+            };
+
+            result.combine(quote! {
+                #cfg
+                impl<#constraints> #vtbl_name {
+                    pub const fn new<Identity: #impl_name <#(#generics,)*>, const OFFSET: isize>() -> Self {
+                        #(#impl_methods)*
+                        Self {
+                            base__: windows_core::IInspectable_Vtbl::new::<Identity, #name, OFFSET>(),
+                            #(#field_methods)*
+                            #named_phantoms
+                        }
+                    }
+                    pub fn matches(iid: &windows_core::GUID) -> bool {
+                        iid == &<#name as windows_core::Interface>::IID
+                    }
+                }
+                #cfg
+                pub trait #impl_name <#(#generics),*> : #requires where #constraints {
+                    #(#trait_methods)*
+                }
+            });
+        }
+
         result
     }
 
@@ -280,8 +368,19 @@ impl Interface {
         }
     }
 
-    pub fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
+    fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
         let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
+
+        if self.generics.is_empty() {
+            name
+        } else {
+            let generics = self.generics.iter().map(|ty| ty.write(writer));
+            quote! { #name < #(#generics,)* > }
+        }
+    }
+
+    fn write_impl_name(&self, writer: &Writer) -> TokenStream {
+        let name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
         if self.generics.is_empty() {
             name

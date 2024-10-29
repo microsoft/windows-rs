@@ -58,9 +58,8 @@ struct Config {
     pub rustfmt: String,
     pub sys: bool, // TODO: if sys and not package then include minimal "vtbl" definitions
 
-                   // TODO: options to include deprecated APIs - excluded by default?
-                   // options to include preview APIs - excluded by default?
-
+    // TODO: options to include deprecated APIs - excluded by default?
+    // options to include preview APIs - excluded by default?
     pub implement: bool,
 }
 

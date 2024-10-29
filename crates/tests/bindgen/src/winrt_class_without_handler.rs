@@ -34,6 +34,29 @@ pub struct IClosable_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+impl windows_core::RuntimeName for IClosable {
+    const NAME: &'static str = "Windows.Foundation.IClosable";
+}
+impl IClosable_Vtbl {
+    pub const fn new<Identity: IClosable_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Close<Identity: IClosable_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IClosable_Impl::Close(this).into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IClosable, OFFSET>(),
+            Close: Close::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IClosable as windows_core::Interface>::IID
+    }
+}
+pub trait IClosable_Impl: Sized + windows_core::IUnknownImpl {
+    fn Close(&self) -> windows_core::Result<()>;
+}
 windows_core::imp::define_interface!(
     IDeferral,
     IDeferral_Vtbl,
