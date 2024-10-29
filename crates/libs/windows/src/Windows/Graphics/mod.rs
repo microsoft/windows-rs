@@ -30,6 +30,18 @@ impl windows_core::RuntimeType for IGeometrySource2D {
 pub struct IGeometrySource2D_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
+pub trait IGeometrySource2D_Impl: Sized + windows_core::IUnknownImpl {}
+impl windows_core::RuntimeName for IGeometrySource2D {
+    const NAME: &'static str = "Windows.Graphics.IGeometrySource2D";
+}
+impl IGeometrySource2D_Vtbl {
+    pub const fn new<Identity: IGeometrySource2D_Impl, const OFFSET: isize>() -> IGeometrySource2D_Vtbl {
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IGeometrySource2D, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IGeometrySource2D as windows_core::Interface>::IID
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DisplayAdapterId {
@@ -116,5 +128,3 @@ impl Default for SizeInt32 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

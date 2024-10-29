@@ -80,6 +80,18 @@ impl windows_core::RuntimeType for IWebUICommandBarElement {
 pub struct IWebUICommandBarElement_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
+pub trait IWebUICommandBarElement_Impl: Sized + windows_core::IUnknownImpl {}
+impl windows_core::RuntimeName for IWebUICommandBarElement {
+    const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarElement";
+}
+impl IWebUICommandBarElement_Vtbl {
+    pub const fn new<Identity: IWebUICommandBarElement_Impl, const OFFSET: isize>() -> IWebUICommandBarElement_Vtbl {
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebUICommandBarElement, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWebUICommandBarElement as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWebUICommandBarIcon, IWebUICommandBarIcon_Vtbl, 0xd587655d_2014_42be_969a_7d14ca6c8a49);
 impl core::ops::Deref for IWebUICommandBarIcon {
     type Target = windows_core::IInspectable;
@@ -95,6 +107,18 @@ impl windows_core::RuntimeType for IWebUICommandBarIcon {
 #[repr(C)]
 pub struct IWebUICommandBarIcon_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+}
+pub trait IWebUICommandBarIcon_Impl: Sized + windows_core::IUnknownImpl {}
+impl windows_core::RuntimeName for IWebUICommandBarIcon {
+    const NAME: &'static str = "Windows.UI.WebUI.Core.IWebUICommandBarIcon";
+}
+impl IWebUICommandBarIcon_Vtbl {
+    pub const fn new<Identity: IWebUICommandBarIcon_Impl, const OFFSET: isize>() -> IWebUICommandBarIcon_Vtbl {
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebUICommandBarIcon, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWebUICommandBarIcon as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IWebUICommandBarIconButton, IWebUICommandBarIconButton_Vtbl, 0x8f1bc93a_3a7c_4842_a0cf_aff6ea308586);
 impl windows_core::RuntimeType for IWebUICommandBarIconButton {
@@ -813,5 +837,3 @@ pub struct SizeChangedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

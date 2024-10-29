@@ -201,6 +201,24 @@ pub struct IVpnChannelStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProcessEventAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IVpnChannelStatics_Impl: Sized + windows_core::IUnknownImpl {
+    fn ProcessEventAsync(&self, thirdpartyplugin: Option<&windows_core::IInspectable>, event: Option<&windows_core::IInspectable>) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IVpnChannelStatics {
+    const NAME: &'static str = "Windows.Networking.Vpn.IVpnChannelStatics";
+}
+impl IVpnChannelStatics_Vtbl {
+    pub const fn new<Identity: IVpnChannelStatics_Impl, const OFFSET: isize>() -> IVpnChannelStatics_Vtbl {
+        unsafe extern "system" fn ProcessEventAsync<Identity: IVpnChannelStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, thirdpartyplugin: *mut core::ffi::c_void, event: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnChannelStatics_Impl::ProcessEventAsync(this, windows_core::from_raw_borrowed(&thirdpartyplugin), windows_core::from_raw_borrowed(&event)).into()
+        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IVpnChannelStatics, OFFSET>(), ProcessEventAsync: ProcessEventAsync::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVpnChannelStatics as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IVpnCredential, IVpnCredential_Vtbl, 0xb7e78af3_a46d_404b_8729_1832522853ac);
 impl core::ops::Deref for IVpnCredential {
     type Target = windows_core::IInspectable;
@@ -261,6 +279,76 @@ pub struct IVpnCredential_Vtbl {
     pub OldPasswordCredential: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Security_Credentials"))]
     OldPasswordCredential: usize,
+}
+#[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
+pub trait IVpnCredential_Impl: Sized + windows_core::IUnknownImpl {
+    fn PasskeyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
+    fn CertificateCredential(&self) -> windows_core::Result<super::super::Security::Cryptography::Certificates::Certificate>;
+    fn AdditionalPin(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn OldPasswordCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
+}
+#[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
+impl windows_core::RuntimeName for IVpnCredential {
+    const NAME: &'static str = "Windows.Networking.Vpn.IVpnCredential";
+}
+#[cfg(all(feature = "Security_Credentials", feature = "Security_Cryptography_Certificates"))]
+impl IVpnCredential_Vtbl {
+    pub const fn new<Identity: IVpnCredential_Impl, const OFFSET: isize>() -> IVpnCredential_Vtbl {
+        unsafe extern "system" fn PasskeyCredential<Identity: IVpnCredential_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnCredential_Impl::PasskeyCredential(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CertificateCredential<Identity: IVpnCredential_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnCredential_Impl::CertificateCredential(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AdditionalPin<Identity: IVpnCredential_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnCredential_Impl::AdditionalPin(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn OldPasswordCredential<Identity: IVpnCredential_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnCredential_Impl::OldPasswordCredential(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVpnCredential, OFFSET>(),
+            PasskeyCredential: PasskeyCredential::<Identity, OFFSET>,
+            CertificateCredential: CertificateCredential::<Identity, OFFSET>,
+            AdditionalPin: AdditionalPin::<Identity, OFFSET>,
+            OldPasswordCredential: OldPasswordCredential::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVpnCredential as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IVpnCustomCheckBox, IVpnCustomCheckBox_Vtbl, 0x43878753_03c5_4e61_93d7_a957714c4282);
 impl windows_core::RuntimeType for IVpnCustomCheckBox {
@@ -367,6 +455,76 @@ pub struct IVpnCustomPrompt_Vtbl {
     pub SetBordered: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub Bordered: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
+pub trait IVpnCustomPrompt_Impl: Sized + windows_core::IUnknownImpl {
+    fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
+    fn Label(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn SetCompulsory(&self, value: bool) -> windows_core::Result<()>;
+    fn Compulsory(&self) -> windows_core::Result<bool>;
+    fn SetBordered(&self, value: bool) -> windows_core::Result<()>;
+    fn Bordered(&self) -> windows_core::Result<bool>;
+}
+impl windows_core::RuntimeName for IVpnCustomPrompt {
+    const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomPrompt";
+}
+impl IVpnCustomPrompt_Vtbl {
+    pub const fn new<Identity: IVpnCustomPrompt_Impl, const OFFSET: isize>() -> IVpnCustomPrompt_Vtbl {
+        unsafe extern "system" fn SetLabel<Identity: IVpnCustomPrompt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnCustomPrompt_Impl::SetLabel(this, core::mem::transmute(&value)).into()
+        }
+        unsafe extern "system" fn Label<Identity: IVpnCustomPrompt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnCustomPrompt_Impl::Label(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetCompulsory<Identity: IVpnCustomPrompt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnCustomPrompt_Impl::SetCompulsory(this, value).into()
+        }
+        unsafe extern "system" fn Compulsory<Identity: IVpnCustomPrompt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnCustomPrompt_Impl::Compulsory(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetBordered<Identity: IVpnCustomPrompt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnCustomPrompt_Impl::SetBordered(this, value).into()
+        }
+        unsafe extern "system" fn Bordered<Identity: IVpnCustomPrompt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnCustomPrompt_Impl::Bordered(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVpnCustomPrompt, OFFSET>(),
+            SetLabel: SetLabel::<Identity, OFFSET>,
+            Label: Label::<Identity, OFFSET>,
+            SetCompulsory: SetCompulsory::<Identity, OFFSET>,
+            Compulsory: Compulsory::<Identity, OFFSET>,
+            SetBordered: SetBordered::<Identity, OFFSET>,
+            Bordered: Bordered::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVpnCustomPrompt as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IVpnCustomPromptBooleanInput, IVpnCustomPromptBooleanInput_Vtbl, 0xc4c9a69e_ff47_4527_9f27_a49292019979);
 impl windows_core::RuntimeType for IVpnCustomPromptBooleanInput {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -433,6 +591,76 @@ pub struct IVpnCustomPromptElement_Vtbl {
     pub Compulsory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetEmphasized: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub Emphasized: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
+pub trait IVpnCustomPromptElement_Impl: Sized + windows_core::IUnknownImpl {
+    fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
+    fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn SetCompulsory(&self, value: bool) -> windows_core::Result<()>;
+    fn Compulsory(&self) -> windows_core::Result<bool>;
+    fn SetEmphasized(&self, value: bool) -> windows_core::Result<()>;
+    fn Emphasized(&self) -> windows_core::Result<bool>;
+}
+impl windows_core::RuntimeName for IVpnCustomPromptElement {
+    const NAME: &'static str = "Windows.Networking.Vpn.IVpnCustomPromptElement";
+}
+impl IVpnCustomPromptElement_Vtbl {
+    pub const fn new<Identity: IVpnCustomPromptElement_Impl, const OFFSET: isize>() -> IVpnCustomPromptElement_Vtbl {
+        unsafe extern "system" fn SetDisplayName<Identity: IVpnCustomPromptElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnCustomPromptElement_Impl::SetDisplayName(this, core::mem::transmute(&value)).into()
+        }
+        unsafe extern "system" fn DisplayName<Identity: IVpnCustomPromptElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnCustomPromptElement_Impl::DisplayName(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetCompulsory<Identity: IVpnCustomPromptElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnCustomPromptElement_Impl::SetCompulsory(this, value).into()
+        }
+        unsafe extern "system" fn Compulsory<Identity: IVpnCustomPromptElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnCustomPromptElement_Impl::Compulsory(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetEmphasized<Identity: IVpnCustomPromptElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnCustomPromptElement_Impl::SetEmphasized(this, value).into()
+        }
+        unsafe extern "system" fn Emphasized<Identity: IVpnCustomPromptElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnCustomPromptElement_Impl::Emphasized(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVpnCustomPromptElement, OFFSET>(),
+            SetDisplayName: SetDisplayName::<Identity, OFFSET>,
+            DisplayName: DisplayName::<Identity, OFFSET>,
+            SetCompulsory: SetCompulsory::<Identity, OFFSET>,
+            Compulsory: Compulsory::<Identity, OFFSET>,
+            SetEmphasized: SetEmphasized::<Identity, OFFSET>,
+            Emphasized: Emphasized::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVpnCustomPromptElement as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IVpnCustomPromptOptionSelector, IVpnCustomPromptOptionSelector_Vtbl, 0x3b8f34d9_8ec1_4e95_9a4e_7ba64d38f330);
 impl windows_core::RuntimeType for IVpnCustomPromptOptionSelector {
@@ -559,6 +787,37 @@ pub struct IVpnDomainNameInfoFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateVpnDomainNameInfo: usize,
 }
+#[cfg(feature = "Foundation_Collections")]
+pub trait IVpnDomainNameInfoFactory_Impl: Sized + windows_core::IUnknownImpl {
+    fn CreateVpnDomainNameInfo(&self, name: &windows_core::HSTRING, nametype: VpnDomainNameType, dnsserverlist: Option<&super::super::Foundation::Collections::IIterable<super::HostName>>, proxyserverlist: Option<&super::super::Foundation::Collections::IIterable<super::HostName>>) -> windows_core::Result<VpnDomainNameInfo>;
+}
+#[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeName for IVpnDomainNameInfoFactory {
+    const NAME: &'static str = "Windows.Networking.Vpn.IVpnDomainNameInfoFactory";
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IVpnDomainNameInfoFactory_Vtbl {
+    pub const fn new<Identity: IVpnDomainNameInfoFactory_Impl, const OFFSET: isize>() -> IVpnDomainNameInfoFactory_Vtbl {
+        unsafe extern "system" fn CreateVpnDomainNameInfo<Identity: IVpnDomainNameInfoFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::HSTRING>, nametype: VpnDomainNameType, dnsserverlist: *mut core::ffi::c_void, proxyserverlist: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnDomainNameInfoFactory_Impl::CreateVpnDomainNameInfo(this, core::mem::transmute(&name), nametype, windows_core::from_raw_borrowed(&dnsserverlist), windows_core::from_raw_borrowed(&proxyserverlist)) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVpnDomainNameInfoFactory, OFFSET>(),
+            CreateVpnDomainNameInfo: CreateVpnDomainNameInfo::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVpnDomainNameInfoFactory as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IVpnForegroundActivatedEventArgs, IVpnForegroundActivatedEventArgs_Vtbl, 0x85b465b0_cadb_4d70_ac92_543a24dc9ebc);
 impl windows_core::RuntimeType for IVpnForegroundActivatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -618,6 +877,34 @@ impl windows_core::RuntimeType for IVpnInterfaceIdFactory {
 pub struct IVpnInterfaceIdFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateVpnInterfaceId: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IVpnInterfaceIdFactory_Impl: Sized + windows_core::IUnknownImpl {
+    fn CreateVpnInterfaceId(&self, address: &[u8]) -> windows_core::Result<VpnInterfaceId>;
+}
+impl windows_core::RuntimeName for IVpnInterfaceIdFactory {
+    const NAME: &'static str = "Windows.Networking.Vpn.IVpnInterfaceIdFactory";
+}
+impl IVpnInterfaceIdFactory_Vtbl {
+    pub const fn new<Identity: IVpnInterfaceIdFactory_Impl, const OFFSET: isize>() -> IVpnInterfaceIdFactory_Vtbl {
+        unsafe extern "system" fn CreateVpnInterfaceId<Identity: IVpnInterfaceIdFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, address_array_size: u32, address: *const u8, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnInterfaceIdFactory_Impl::CreateVpnInterfaceId(this, core::slice::from_raw_parts(core::mem::transmute_copy(&address), address_array_size as usize)) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVpnInterfaceIdFactory, OFFSET>(),
+            CreateVpnInterfaceId: CreateVpnInterfaceId::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVpnInterfaceIdFactory as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IVpnManagementAgent, IVpnManagementAgent_Vtbl, 0x193696cd_a5c4_4abe_852b_785be4cb3e34);
 impl windows_core::RuntimeType for IVpnManagementAgent {
@@ -719,6 +1006,37 @@ pub struct IVpnNamespaceInfoFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateVpnNamespaceInfo: usize,
 }
+#[cfg(feature = "Foundation_Collections")]
+pub trait IVpnNamespaceInfoFactory_Impl: Sized + windows_core::IUnknownImpl {
+    fn CreateVpnNamespaceInfo(&self, name: &windows_core::HSTRING, dnsserverlist: Option<&super::super::Foundation::Collections::IVector<super::HostName>>, proxyserverlist: Option<&super::super::Foundation::Collections::IVector<super::HostName>>) -> windows_core::Result<VpnNamespaceInfo>;
+}
+#[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeName for IVpnNamespaceInfoFactory {
+    const NAME: &'static str = "Windows.Networking.Vpn.IVpnNamespaceInfoFactory";
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IVpnNamespaceInfoFactory_Vtbl {
+    pub const fn new<Identity: IVpnNamespaceInfoFactory_Impl, const OFFSET: isize>() -> IVpnNamespaceInfoFactory_Vtbl {
+        unsafe extern "system" fn CreateVpnNamespaceInfo<Identity: IVpnNamespaceInfoFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::HSTRING>, dnsserverlist: *mut core::ffi::c_void, proxyserverlist: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnNamespaceInfoFactory_Impl::CreateVpnNamespaceInfo(this, core::mem::transmute(&name), windows_core::from_raw_borrowed(&dnsserverlist), windows_core::from_raw_borrowed(&proxyserverlist)) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVpnNamespaceInfoFactory, OFFSET>(),
+            CreateVpnNamespaceInfo: CreateVpnNamespaceInfo::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVpnNamespaceInfoFactory as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IVpnNativeProfile, IVpnNativeProfile_Vtbl, 0xa4aee29e_6417_4333_9842_f0a66db69802);
 impl windows_core::RuntimeType for IVpnNativeProfile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -814,6 +1132,34 @@ impl windows_core::RuntimeType for IVpnPacketBufferFactory {
 pub struct IVpnPacketBufferFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateVpnPacketBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IVpnPacketBufferFactory_Impl: Sized + windows_core::IUnknownImpl {
+    fn CreateVpnPacketBuffer(&self, parentbuffer: Option<&VpnPacketBuffer>, offset: u32, length: u32) -> windows_core::Result<VpnPacketBuffer>;
+}
+impl windows_core::RuntimeName for IVpnPacketBufferFactory {
+    const NAME: &'static str = "Windows.Networking.Vpn.IVpnPacketBufferFactory";
+}
+impl IVpnPacketBufferFactory_Vtbl {
+    pub const fn new<Identity: IVpnPacketBufferFactory_Impl, const OFFSET: isize>() -> IVpnPacketBufferFactory_Vtbl {
+        unsafe extern "system" fn CreateVpnPacketBuffer<Identity: IVpnPacketBufferFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parentbuffer: *mut core::ffi::c_void, offset: u32, length: u32, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnPacketBufferFactory_Impl::CreateVpnPacketBuffer(this, windows_core::from_raw_borrowed(&parentbuffer), offset, length) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVpnPacketBufferFactory, OFFSET>(),
+            CreateVpnPacketBuffer: CreateVpnPacketBuffer::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVpnPacketBufferFactory as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IVpnPacketBufferList, IVpnPacketBufferList_Vtbl, 0xc2f891fc_4d5c_4a63_b70d_4e307eacce77);
 impl windows_core::RuntimeType for IVpnPacketBufferList {
@@ -922,6 +1268,51 @@ pub struct IVpnPlugIn_Vtbl {
     pub Encapsulate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Decapsulate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IVpnPlugIn_Impl: Sized + windows_core::IUnknownImpl {
+    fn Connect(&self, channel: Option<&VpnChannel>) -> windows_core::Result<()>;
+    fn Disconnect(&self, channel: Option<&VpnChannel>) -> windows_core::Result<()>;
+    fn GetKeepAlivePayload(&self, channel: Option<&VpnChannel>, keepalivepacket: &mut Option<VpnPacketBuffer>) -> windows_core::Result<()>;
+    fn Encapsulate(&self, channel: Option<&VpnChannel>, packets: Option<&VpnPacketBufferList>, encapulatedpackets: Option<&VpnPacketBufferList>) -> windows_core::Result<()>;
+    fn Decapsulate(&self, channel: Option<&VpnChannel>, encapbuffer: Option<&VpnPacketBuffer>, decapsulatedpackets: Option<&VpnPacketBufferList>, controlpacketstosend: Option<&VpnPacketBufferList>) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IVpnPlugIn {
+    const NAME: &'static str = "Windows.Networking.Vpn.IVpnPlugIn";
+}
+impl IVpnPlugIn_Vtbl {
+    pub const fn new<Identity: IVpnPlugIn_Impl, const OFFSET: isize>() -> IVpnPlugIn_Vtbl {
+        unsafe extern "system" fn Connect<Identity: IVpnPlugIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channel: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnPlugIn_Impl::Connect(this, windows_core::from_raw_borrowed(&channel)).into()
+        }
+        unsafe extern "system" fn Disconnect<Identity: IVpnPlugIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channel: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnPlugIn_Impl::Disconnect(this, windows_core::from_raw_borrowed(&channel)).into()
+        }
+        unsafe extern "system" fn GetKeepAlivePayload<Identity: IVpnPlugIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channel: *mut core::ffi::c_void, keepalivepacket: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnPlugIn_Impl::GetKeepAlivePayload(this, windows_core::from_raw_borrowed(&channel), core::mem::transmute_copy(&keepalivepacket)).into()
+        }
+        unsafe extern "system" fn Encapsulate<Identity: IVpnPlugIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channel: *mut core::ffi::c_void, packets: *mut core::ffi::c_void, encapulatedpackets: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnPlugIn_Impl::Encapsulate(this, windows_core::from_raw_borrowed(&channel), windows_core::from_raw_borrowed(&packets), windows_core::from_raw_borrowed(&encapulatedpackets)).into()
+        }
+        unsafe extern "system" fn Decapsulate<Identity: IVpnPlugIn_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channel: *mut core::ffi::c_void, encapbuffer: *mut core::ffi::c_void, decapsulatedpackets: *mut core::ffi::c_void, controlpacketstosend: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnPlugIn_Impl::Decapsulate(this, windows_core::from_raw_borrowed(&channel), windows_core::from_raw_borrowed(&encapbuffer), windows_core::from_raw_borrowed(&decapsulatedpackets), windows_core::from_raw_borrowed(&controlpacketstosend)).into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVpnPlugIn, OFFSET>(),
+            Connect: Connect::<Identity, OFFSET>,
+            Disconnect: Disconnect::<Identity, OFFSET>,
+            GetKeepAlivePayload: GetKeepAlivePayload::<Identity, OFFSET>,
+            Encapsulate: Encapsulate::<Identity, OFFSET>,
+            Decapsulate: Decapsulate::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVpnPlugIn as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IVpnPlugInProfile, IVpnPlugInProfile_Vtbl, 0x0edf0da4_4f00_4589_8d7b_4bf988f6542c);
 impl windows_core::RuntimeType for IVpnPlugInProfile {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -974,6 +1365,27 @@ impl windows_core::RuntimeType for IVpnPlugInReconnectTransport {
 pub struct IVpnPlugInReconnectTransport_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReconnectTransport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IVpnPlugInReconnectTransport_Impl: Sized + windows_core::IUnknownImpl {
+    fn ReconnectTransport(&self, channel: Option<&VpnChannel>, context: Option<&windows_core::IInspectable>) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IVpnPlugInReconnectTransport {
+    const NAME: &'static str = "Windows.Networking.Vpn.IVpnPlugInReconnectTransport";
+}
+impl IVpnPlugInReconnectTransport_Vtbl {
+    pub const fn new<Identity: IVpnPlugInReconnectTransport_Impl, const OFFSET: isize>() -> IVpnPlugInReconnectTransport_Vtbl {
+        unsafe extern "system" fn ReconnectTransport<Identity: IVpnPlugInReconnectTransport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channel: *mut core::ffi::c_void, context: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnPlugInReconnectTransport_Impl::ReconnectTransport(this, windows_core::from_raw_borrowed(&channel), windows_core::from_raw_borrowed(&context)).into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVpnPlugInReconnectTransport, OFFSET>(),
+            ReconnectTransport: ReconnectTransport::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVpnPlugInReconnectTransport as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IVpnProfile, IVpnProfile_Vtbl, 0x7875b751_b0d7_43db_8a93_d3fe2479e56a);
 impl core::ops::Deref for IVpnProfile {
@@ -1079,6 +1491,131 @@ pub struct IVpnProfile_Vtbl {
     pub AlwaysOn: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAlwaysOn: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Foundation_Collections")]
+pub trait IVpnProfile_Impl: Sized + windows_core::IUnknownImpl {
+    fn ProfileName(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn SetProfileName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
+    fn AppTriggers(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnAppId>>;
+    fn Routes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnRoute>>;
+    fn DomainNameInfoList(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnDomainNameInfo>>;
+    fn TrafficFilters(&self) -> windows_core::Result<super::super::Foundation::Collections::IVector<VpnTrafficFilter>>;
+    fn RememberCredentials(&self) -> windows_core::Result<bool>;
+    fn SetRememberCredentials(&self, value: bool) -> windows_core::Result<()>;
+    fn AlwaysOn(&self) -> windows_core::Result<bool>;
+    fn SetAlwaysOn(&self, value: bool) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeName for IVpnProfile {
+    const NAME: &'static str = "Windows.Networking.Vpn.IVpnProfile";
+}
+#[cfg(feature = "Foundation_Collections")]
+impl IVpnProfile_Vtbl {
+    pub const fn new<Identity: IVpnProfile_Impl, const OFFSET: isize>() -> IVpnProfile_Vtbl {
+        unsafe extern "system" fn ProfileName<Identity: IVpnProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnProfile_Impl::ProfileName(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetProfileName<Identity: IVpnProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnProfile_Impl::SetProfileName(this, core::mem::transmute(&value)).into()
+        }
+        unsafe extern "system" fn AppTriggers<Identity: IVpnProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnProfile_Impl::AppTriggers(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Routes<Identity: IVpnProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnProfile_Impl::Routes(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DomainNameInfoList<Identity: IVpnProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnProfile_Impl::DomainNameInfoList(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn TrafficFilters<Identity: IVpnProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnProfile_Impl::TrafficFilters(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RememberCredentials<Identity: IVpnProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnProfile_Impl::RememberCredentials(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetRememberCredentials<Identity: IVpnProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnProfile_Impl::SetRememberCredentials(this, value).into()
+        }
+        unsafe extern "system" fn AlwaysOn<Identity: IVpnProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnProfile_Impl::AlwaysOn(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAlwaysOn<Identity: IVpnProfile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IVpnProfile_Impl::SetAlwaysOn(this, value).into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IVpnProfile, OFFSET>(),
+            ProfileName: ProfileName::<Identity, OFFSET>,
+            SetProfileName: SetProfileName::<Identity, OFFSET>,
+            AppTriggers: AppTriggers::<Identity, OFFSET>,
+            Routes: Routes::<Identity, OFFSET>,
+            DomainNameInfoList: DomainNameInfoList::<Identity, OFFSET>,
+            TrafficFilters: TrafficFilters::<Identity, OFFSET>,
+            RememberCredentials: RememberCredentials::<Identity, OFFSET>,
+            SetRememberCredentials: SetRememberCredentials::<Identity, OFFSET>,
+            AlwaysOn: AlwaysOn::<Identity, OFFSET>,
+            SetAlwaysOn: SetAlwaysOn::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVpnProfile as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IVpnRoute, IVpnRoute_Vtbl, 0xb5731b83_0969_4699_938e_7776db29cfb3);
 impl windows_core::RuntimeType for IVpnRoute {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1160,6 +1697,31 @@ impl windows_core::RuntimeType for IVpnRouteFactory {
 pub struct IVpnRouteFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateVpnRoute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IVpnRouteFactory_Impl: Sized + windows_core::IUnknownImpl {
+    fn CreateVpnRoute(&self, address: Option<&super::HostName>, prefixsize: u8) -> windows_core::Result<VpnRoute>;
+}
+impl windows_core::RuntimeName for IVpnRouteFactory {
+    const NAME: &'static str = "Windows.Networking.Vpn.IVpnRouteFactory";
+}
+impl IVpnRouteFactory_Vtbl {
+    pub const fn new<Identity: IVpnRouteFactory_Impl, const OFFSET: isize>() -> IVpnRouteFactory_Vtbl {
+        unsafe extern "system" fn CreateVpnRoute<Identity: IVpnRouteFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, address: *mut core::ffi::c_void, prefixsize: u8, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IVpnRouteFactory_Impl::CreateVpnRoute(this, windows_core::from_raw_borrowed(&address), prefixsize) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IVpnRouteFactory, OFFSET>(), CreateVpnRoute: CreateVpnRoute::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVpnRouteFactory as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IVpnSystemHealth, IVpnSystemHealth_Vtbl, 0x99a8f8af_c0ee_4e75_817a_f231aee5123d);
 impl windows_core::RuntimeType for IVpnSystemHealth {
@@ -4128,5 +4690,3 @@ impl core::fmt::Debug for VpnRoutingPolicyType {
 impl windows_core::RuntimeType for VpnRoutingPolicyType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnRoutingPolicyType;i4)");
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

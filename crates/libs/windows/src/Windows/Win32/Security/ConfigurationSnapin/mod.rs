@@ -31,6 +31,43 @@ pub struct ISceSvcAttachmentData_Vtbl {
     pub FreeBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CloseHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait ISceSvcAttachmentData_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetData(&self, scesvchandle: *mut core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut core::ffi::c_void, psceenumhandle: *mut u32) -> windows_core::Result<()>;
+    fn Initialize(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: Option<&ISceSvcAttachmentPersistInfo>, pscesvchandle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn FreeBuffer(&self, pvdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CloseHandle(&self, scesvchandle: *mut core::ffi::c_void) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for ISceSvcAttachmentData {}
+impl ISceSvcAttachmentData_Vtbl {
+    pub const fn new<Identity: ISceSvcAttachmentData_Impl, const OFFSET: isize>() -> ISceSvcAttachmentData_Vtbl {
+        unsafe extern "system" fn GetData<Identity: ISceSvcAttachmentData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scesvchandle: *mut core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut core::ffi::c_void, psceenumhandle: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISceSvcAttachmentData_Impl::GetData(this, core::mem::transmute_copy(&scesvchandle), core::mem::transmute_copy(&scetype), core::mem::transmute_copy(&ppvdata), core::mem::transmute_copy(&psceenumhandle)).into()
+        }
+        unsafe extern "system" fn Initialize<Identity: ISceSvcAttachmentData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: *mut core::ffi::c_void, pscesvchandle: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISceSvcAttachmentData_Impl::Initialize(this, core::mem::transmute_copy(&lpservicename), core::mem::transmute_copy(&lptemplatename), windows_core::from_raw_borrowed(&lpscesvcpersistinfo), core::mem::transmute_copy(&pscesvchandle)).into()
+        }
+        unsafe extern "system" fn FreeBuffer<Identity: ISceSvcAttachmentData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISceSvcAttachmentData_Impl::FreeBuffer(this, core::mem::transmute_copy(&pvdata)).into()
+        }
+        unsafe extern "system" fn CloseHandle<Identity: ISceSvcAttachmentData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scesvchandle: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISceSvcAttachmentData_Impl::CloseHandle(this, core::mem::transmute_copy(&scesvchandle)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetData: GetData::<Identity, OFFSET>,
+            Initialize: Initialize::<Identity, OFFSET>,
+            FreeBuffer: FreeBuffer::<Identity, OFFSET>,
+            CloseHandle: CloseHandle::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISceSvcAttachmentData as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(ISceSvcAttachmentPersistInfo, ISceSvcAttachmentPersistInfo_Vtbl, 0x6d90e0d0_200d_11d1_affb_00c04fb984f9);
 impl core::ops::Deref for ISceSvcAttachmentPersistInfo {
     type Target = windows_core::IUnknown;
@@ -56,6 +93,37 @@ pub struct ISceSvcAttachmentPersistInfo_Vtbl {
     pub Save: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i8, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub IsDirty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i8) -> windows_core::HRESULT,
     pub FreeBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait ISceSvcAttachmentPersistInfo_Impl: Sized + windows_core::IUnknownImpl {
+    fn Save(&self, lptemplatename: *mut i8, scesvchandle: *mut *mut core::ffi::c_void, ppvdata: *mut *mut core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn IsDirty(&self, lptemplatename: *mut i8) -> windows_core::HRESULT;
+    fn FreeBuffer(&self, pvdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for ISceSvcAttachmentPersistInfo {}
+impl ISceSvcAttachmentPersistInfo_Vtbl {
+    pub const fn new<Identity: ISceSvcAttachmentPersistInfo_Impl, const OFFSET: isize>() -> ISceSvcAttachmentPersistInfo_Vtbl {
+        unsafe extern "system" fn Save<Identity: ISceSvcAttachmentPersistInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lptemplatename: *mut i8, scesvchandle: *mut *mut core::ffi::c_void, ppvdata: *mut *mut core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISceSvcAttachmentPersistInfo_Impl::Save(this, core::mem::transmute_copy(&lptemplatename), core::mem::transmute_copy(&scesvchandle), core::mem::transmute_copy(&ppvdata), core::mem::transmute_copy(&pboverwriteall)).into()
+        }
+        unsafe extern "system" fn IsDirty<Identity: ISceSvcAttachmentPersistInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lptemplatename: *mut i8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISceSvcAttachmentPersistInfo_Impl::IsDirty(this, core::mem::transmute_copy(&lptemplatename))
+        }
+        unsafe extern "system" fn FreeBuffer<Identity: ISceSvcAttachmentPersistInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISceSvcAttachmentPersistInfo_Impl::FreeBuffer(this, core::mem::transmute_copy(&pvdata)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Save: Save::<Identity, OFFSET>,
+            IsDirty: IsDirty::<Identity, OFFSET>,
+            FreeBuffer: FreeBuffer::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISceSvcAttachmentPersistInfo as windows_core::Interface>::IID
+    }
 }
 pub const CCF_SCESVC_ATTACHMENT: windows_core::PCWSTR = windows_core::w!("CCF_SCESVC_ATTACHMENT");
 pub const CCF_SCESVC_ATTACHMENT_DATA: windows_core::PCWSTR = windows_core::w!("CCF_SCESVC_ATTACHMENT_DATA");
@@ -201,5 +269,3 @@ pub type PFSCE_QUERY_INFO = Option<unsafe extern "system" fn(scehandle: *mut cor
 pub type PFSCE_SET_INFO = Option<unsafe extern "system" fn(scehandle: *mut core::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: super::super::Foundation::BOOL, pvinfo: *mut core::ffi::c_void) -> u32>;
 pub type PF_ConfigAnalyzeService = Option<unsafe extern "system" fn(pscecbinfo: *mut SCESVC_CALLBACK_INFO) -> u32>;
 pub type PF_UpdateService = Option<unsafe extern "system" fn(pscecbinfo: *mut SCESVC_CALLBACK_INFO, serviceinfo: *mut SCESVC_CONFIGURATION_INFO) -> u32>;
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

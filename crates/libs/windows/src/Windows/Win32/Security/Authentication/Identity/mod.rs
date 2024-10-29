@@ -1534,6 +1534,22 @@ pub struct ICcgDomainAuthCredentials_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetPasswordCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut windows_core::PWSTR, *mut windows_core::PWSTR, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
+pub trait ICcgDomainAuthCredentials_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetPasswordCredentials(&self, plugininput: &windows_core::PCWSTR, domainname: *mut windows_core::PWSTR, username: *mut windows_core::PWSTR, password: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for ICcgDomainAuthCredentials {}
+impl ICcgDomainAuthCredentials_Vtbl {
+    pub const fn new<Identity: ICcgDomainAuthCredentials_Impl, const OFFSET: isize>() -> ICcgDomainAuthCredentials_Vtbl {
+        unsafe extern "system" fn GetPasswordCredentials<Identity: ICcgDomainAuthCredentials_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plugininput: windows_core::PCWSTR, domainname: *mut windows_core::PWSTR, username: *mut windows_core::PWSTR, password: *mut windows_core::PWSTR) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ICcgDomainAuthCredentials_Impl::GetPasswordCredentials(this, core::mem::transmute(&plugininput), core::mem::transmute_copy(&domainname), core::mem::transmute_copy(&username), core::mem::transmute_copy(&password)).into()
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPasswordCredentials: GetPasswordCredentials::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICcgDomainAuthCredentials as windows_core::Interface>::IID
+    }
+}
 pub const ACCOUNT_ADJUST_PRIVILEGES: i32 = 2i32;
 pub const ACCOUNT_ADJUST_QUOTAS: i32 = 4i32;
 pub const ACCOUNT_ADJUST_SYSTEM_ACCESS: i32 = 8i32;
@@ -11006,5 +11022,3 @@ pub type SslGetExtensionsFn = Option<unsafe extern "system" fn(clienthello: *con
 pub type SslGetServerIdentityFn = Option<unsafe extern "system" fn(clienthello: *const u8, clienthellosize: u32, serveridentity: *mut *mut u8, serveridentitysize: *mut u32, flags: u32) -> windows_core::HRESULT>;
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type VERIFY_SIGNATURE_FN = Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc, param2: u32, param3: *mut u32) -> windows_core::HRESULT>;
-#[cfg(feature = "implement")]
-core::include!("impl.rs");
