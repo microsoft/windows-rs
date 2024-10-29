@@ -11,7 +11,6 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "implement",
     "Win32_Graphics_Direct3D",
     "Win32_Graphics_Direct3D10",
     "Win32_Graphics_Direct3D12",
