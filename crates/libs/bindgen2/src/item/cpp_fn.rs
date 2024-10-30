@@ -78,7 +78,13 @@ impl CppFn {
 
         // TODO: build wrapper
 
-        quote! {}
+        quote! {
+            #cfg
+            #[inline]
+            pub unsafe fn #name() {
+                #link
+            }
+        }
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {

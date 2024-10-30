@@ -82,9 +82,16 @@ impl CppConst {
                     value = quote! { #value as _ };
                 }
 
-                quote! {
-                    #cfg
-                    pub const #name: #ty = #value;
+                if writer.config.sys {
+                    quote! {
+                        #cfg
+                        pub const #name: #ty = #value;
+                    }
+                } else {
+                    quote! {
+                        #cfg
+                        pub const #name: #ty = #ty(#value);
+                    }
                 }
             }
         } else if let Some(attribute) = self.field.find_attribute("ConstantAttribute") {
