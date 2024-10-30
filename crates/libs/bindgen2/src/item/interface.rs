@@ -338,6 +338,10 @@ impl Interface {
 
             result.combine(quote! {
                 #cfg
+                pub trait #impl_name <#(#generics),*> : #requires where #constraints {
+                    #(#trait_methods)*
+                }
+                #cfg
                 impl<#constraints> #vtbl_name {
                     pub const fn new<Identity: #impl_name <#(#generics,)*>, const OFFSET: isize>() -> Self {
                         #(#impl_methods)*
@@ -350,10 +354,6 @@ impl Interface {
                     pub fn matches(iid: &windows_core::GUID) -> bool {
                         iid == &<#name as windows_core::Interface>::IID
                     }
-                }
-                #cfg
-                pub trait #impl_name <#(#generics),*> : #requires where #constraints {
-                    #(#trait_methods)*
                 }
             });
         }
