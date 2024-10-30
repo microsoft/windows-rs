@@ -55,6 +55,7 @@ impl CppStruct {
     fn write_with_cfg(&self, writer: &Writer, cfg: &TokenStream) -> TokenStream {
         let name = to_ident(self.name());
         let flags = self.def.flags();
+        let is_union = flags.contains(TypeAttributes::ExplicitLayout);
 
         let fields: Vec<_> = self
             .def
@@ -87,7 +88,7 @@ impl CppStruct {
 
         let mut derive = quote! { Clone, Copy, };
 
-        if !writer.config.sys {
+        if !writer.config.sys && !is_union {
             derive.combine(quote! { Debug, PartialEq, });
         }
 
@@ -124,7 +125,7 @@ impl CppStruct {
             }
         };
 
-        let struct_or_union = if flags.contains(TypeAttributes::ExplicitLayout) {
+        let struct_or_union = if is_union {
             quote! { union }
         } else {
             quote! { struct }
