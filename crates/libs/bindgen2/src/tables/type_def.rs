@@ -71,6 +71,34 @@ impl TypeDef {
         }
     }
 
+    pub fn invalid_values(&self) -> Vec<i64> {
+        let mut values = Vec::new();
+        for attribute in self.attributes() {
+            if attribute.name() == "InvalidHandleValueAttribute" {
+                if let Some((_, Value::I64(value))) = attribute.args().first() {
+                    values.push(*value);
+                }
+            }
+        }
+        values
+    }
+
+    pub fn free_function(&self) -> Option<CppFn> {
+        if let Some(attribute) = self.find_attribute("RAIIFreeAttribute") {
+            if let Some((_, Value::String(name))) = attribute.args().first() {
+                if let Some(Item::CppFn(item)) = self
+                    .reader()
+                    .with_full_name(self.namespace(), name.as_str())
+                    .next()
+                {
+                    return Some(item);
+                }
+            }
+        }
+    
+        None
+    }
+
     // pub fn size(&self) -> usize {
     //     match self.kind() {
     //         TypeKind::Struct => {

@@ -42,19 +42,19 @@ pub enum Type {
 }
 
 impl Type {
-    pub fn remap(namespace: &'static str, name: &'static str) -> Option<Type> {
+    pub fn remap(namespace: &'static str, name: &'static str) -> Option<Self> {
         match TypeName(namespace, name) {
-            TypeName::GUID => Some(Type::GUID),
-            TypeName::HResult => Some(Type::HRESULT),
-            TypeName::HRESULT => Some(Type::HRESULT),
-            TypeName::PSTR => Some(Type::PSTR),
-            TypeName::PWSTR => Some(Type::PWSTR),
-            TypeName::HSTRING => Some(Type::String),
-            TypeName::BSTR => Some(Type::BSTR),
-            TypeName::IInspectable => Some(Type::Object),
-            TypeName::CHAR => Some(Type::I8),
-            TypeName::IUnknown => Some(Type::IUnknown),
-            TypeName::Type => Some(Type::Type),
+            TypeName::GUID => Some(Self::GUID),
+            TypeName::HResult => Some(Self::HRESULT),
+            TypeName::HRESULT => Some(Self::HRESULT),
+            TypeName::PSTR => Some(Self::PSTR),
+            TypeName::PWSTR => Some(Self::PWSTR),
+            TypeName::HSTRING => Some(Self::String),
+            TypeName::BSTR => Some(Self::BSTR),
+            TypeName::IInspectable => Some(Self::Object),
+            TypeName::CHAR => Some(Self::I8),
+            TypeName::IUnknown => Some(Self::IUnknown),
+            TypeName::Type => Some(Self::Type),
             _ => None,
         }
     }
@@ -98,18 +98,18 @@ impl Type {
         // TODO: this needs to be deferred via a TypeName's optional nested type name?
         if let Some(outer) = enclosing {
             if namespace.is_empty() {
-                return Type::Item(outer.nested[name].clone());
+                return Self::Item(outer.nested[name].clone());
             }
         }
 
         if let Some(item) = code.reader().with_full_name(namespace, name).next() {
-            Type::Item(item)
+            Self::Item(item)
         } else {
             panic!("windows-bindgen: type not found: {namespace}.{name}")
         }
     }
 
-    pub fn from_blob(blob: &mut Blob, enclosing: Option<&CppStruct>, generics: &[Type]) -> Self {
+    pub fn from_blob(blob: &mut Blob, enclosing: Option<&CppStruct>, generics: &[Self]) -> Self {
         // Used by WinRT to indicate that a struct input parameter is passed by reference rather than by value on the ABI.
         let is_const = blob.read_modifiers().iter().any(|def| {
             let type_name = TypeName(def.namespace(), def.name());
@@ -121,7 +121,7 @@ impl Type {
         let is_ref = blob.try_read(ELEMENT_TYPE_BYREF as usize);
 
         if blob.try_read(ELEMENT_TYPE_VOID as usize) {
-            return Type::Void;
+            return Self::Void;
         }
 
         let is_array = blob.try_read(ELEMENT_TYPE_SZARRAY as usize); // Used by WinRT to indicate an array
@@ -135,24 +135,24 @@ impl Type {
         let kind = Self::from_blob_impl(blob, enclosing, generics);
 
         if pointers > 0 {
-            Type::PtrMut(Box::new(kind), pointers)
+            Self::PtrMut(Box::new(kind), pointers)
         } else if is_const {
-            Type::ConstRef(Box::new(kind))
+            Self::ConstRef(Box::new(kind))
         } else if is_array {
             if is_ref {
-                Type::ArrayRef(Box::new(kind))
+                Self::ArrayRef(Box::new(kind))
             } else {
-                Type::Array(Box::new(kind))
+                Self::Array(Box::new(kind))
             }
         } else {
             kind
         }
     }
 
-    fn from_blob_impl(blob: &mut Blob, enclosing: Option<&CppStruct>, generics: &[Type]) -> Self {
+    fn from_blob_impl(blob: &mut Blob, enclosing: Option<&CppStruct>, generics: &[Self]) -> Self {
         let code = blob.read_usize();
 
-        if let Some(code) = Type::from_element_type(code) {
+        if let Some(code) = Self::from_element_type(code) {
             return code;
         }
 
@@ -162,14 +162,14 @@ impl Type {
             }
             ELEMENT_TYPE_VAR => generics
                 .get(blob.read_usize())
-                .unwrap_or(&Type::Void)
+                .unwrap_or(&Self::Void)
                 .clone(),
             ELEMENT_TYPE_ARRAY => {
                 let kind = Self::from_blob(blob, enclosing, generics);
                 let _rank = blob.read_usize();
                 let _count = blob.read_usize();
                 let bounds = blob.read_usize();
-                Type::ArrayFixed(Box::new(kind), bounds)
+                Self::ArrayFixed(Box::new(kind), bounds)
             }
             ELEMENT_TYPE_GENERICINST => {
                 blob.read_usize(); // ELEMENT_TYPE_VALUETYPE or ELEMENT_TYPE_CLASS
@@ -193,7 +193,7 @@ impl Type {
                 }
 
                 item.set_generics(item_generics);
-                Type::Item(item)
+                Self::Item(item)
             }
             rest => panic!("windows-bindgen: {rest:?}"),
         }
@@ -250,26 +250,26 @@ impl Type {
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
         match self {
-            Type::Void => quote! { core::ffi::c_void },
-            Type::Bool => quote! { bool },
-            Type::Char => quote! { u16 },
-            Type::I8 => quote! { i8 },
-            Type::U8 => quote! { u8 },
-            Type::I16 => quote! { i16 },
-            Type::U16 => quote! { u16 },
-            Type::I32 => quote! { i32 },
-            Type::U32 => quote! { u32 },
-            Type::I64 => quote! { i64 },
-            Type::U64 => quote! { u64 },
-            Type::F32 => quote! { f32 },
-            Type::F64 => quote! { f64 },
-            Type::ISize => quote! { isize },
-            Type::USize => quote! { usize },
-            Type::BSTR => {
+            Self::Void => quote! { core::ffi::c_void },
+            Self::Bool => quote! { bool },
+            Self::Char => quote! { u16 },
+            Self::I8 => quote! { i8 },
+            Self::U8 => quote! { u8 },
+            Self::I16 => quote! { i16 },
+            Self::U16 => quote! { u16 },
+            Self::I32 => quote! { i32 },
+            Self::U32 => quote! { u32 },
+            Self::I64 => quote! { i64 },
+            Self::U64 => quote! { u64 },
+            Self::F32 => quote! { f32 },
+            Self::F64 => quote! { f64 },
+            Self::ISize => quote! { isize },
+            Self::USize => quote! { usize },
+            Self::BSTR => {
                 let name = writer.write_core();
                 quote! { #name BSTR }
             }
-            Type::IUnknown => {
+            Self::IUnknown => {
                 if writer.config.sys {
                     quote! { *mut core::ffi::c_void }
                 } else {
@@ -277,19 +277,19 @@ impl Type {
                     quote! { #name IUnknown }
                 }
             }
-            Type::GUID => {
+            Self::GUID => {
                 let name = writer.write_core();
                 quote! { #name GUID }
             }
-            Type::HRESULT => {
+            Self::HRESULT => {
                 let name = writer.write_core();
                 quote! { #name HRESULT }
             }
-            Type::String => {
+            Self::String => {
                 let name = writer.write_core();
                 quote! { #name HSTRING }
             }
-            Type::Object => {
+            Self::Object => {
                 if writer.config.sys {
                     quote! { *mut core::ffi::c_void }
                 } else {
@@ -297,48 +297,48 @@ impl Type {
                     quote! { #name IInspectable }
                 }
             }
-            Type::PSTR => {
+            Self::PSTR => {
                 let name = writer.write_core();
                 quote! { #name PSTR }
             }
-            Type::PCSTR => {
+            Self::PCSTR => {
                 let name = writer.write_core();
                 quote! { #name PCSTR }
             }
-            Type::PWSTR => {
+            Self::PWSTR => {
                 let name = writer.write_core();
                 quote! { #name PWSTR }
             }
-            Type::PCWSTR => {
+            Self::PCWSTR => {
                 let name = writer.write_core();
                 quote! { #name PCWSTR }
             }
-            Type::Item(item) => item.write_name(writer),
-            Type::Param(param) => to_ident(param),
-            Type::PtrMut(ty, pointers) => {
+            Self::Item(item) => item.write_name(writer),
+            Self::Param(param) => to_ident(param),
+            Self::PtrMut(ty, pointers) => {
                 let pointers = write_ptr_mut(*pointers);
                 let ty = ty.write_default(writer);
                 quote! { #pointers #ty }
             }
-            Type::PtrConst(ty, pointers) => {
+            Self::PtrConst(ty, pointers) => {
                 let pointers = write_ptr_const(*pointers);
                 let ty = ty.write_default(writer);
                 quote! { #pointers #ty }
             }
-            Type::ArrayFixed(ty, len) => {
+            Self::ArrayFixed(ty, len) => {
                 let name = ty.write_default(writer);
                 let len = Literal::usize_unsuffixed(*len);
                 quote! { [#name; #len] }
             }
-            Type::Array(ty) => ty.write(writer),
-            Type::ArrayRef(ty) => ty.write(writer),
-            Type::ConstRef(ty) => ty.write(writer),
+            Self::Array(ty) => ty.write(writer),
+            Self::ArrayRef(ty) => ty.write(writer),
+            Self::ConstRef(ty) => ty.write(writer),
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
 
     pub fn write_default(&self, writer: &Writer) -> TokenStream {
-        if let Type::Array(ty) = self {
+        if let Self::Array(ty) = self {
             ty.write_default(writer)
         } else {
             let tokens = self.write(writer);
@@ -459,50 +459,65 @@ impl Type {
     pub fn is_blittable(&self) -> bool {
         match self {
             Self::Item(item) => item.is_blittable(),
-            Self::String | Type::BSTR | Type::Object | Type::IUnknown | Type::Param(_) => false,
-            Type::ArrayFixed(ty, _) => ty.is_blittable(),
-            Type::Array(ty) => ty.is_blittable(),
+            Self::String | Self::BSTR | Self::Object | Self::IUnknown | Self::Param(_) => false,
+            Self::ArrayFixed(ty, _) => ty.is_blittable(),
+            Self::Array(ty) => ty.is_blittable(),
             _ => true,
         }
     }
 
     pub fn is_borrowed(&self) -> bool {
         match self {
-            Type::Item(item) => !item.is_blittable(),
-            Type::BSTR
-            | Type::PCSTR
-            | Type::PCWSTR
-            | Type::Object
-            | Type::IUnknown
-            | Type::Param(_) => true,
+            Self::Item(item) => !item.is_blittable(),
+            Self::BSTR
+            | Self::PCSTR
+            | Self::PCWSTR
+            | Self::Object
+            | Self::IUnknown
+            | Self::Param(_) => true,
             _ => false,
         }
     }
 
     pub fn is_const_ref(&self) -> bool {
-        matches!(self, Type::ConstRef(_))
+        matches!(self, Self::ConstRef(_))
     }
 
     pub fn is_primitive(&self) -> bool {
         match self {
-            Type::Item(item) => item.is_primitive(),
-            Type::Bool
-            | Type::Char
-            | Type::I8
-            | Type::U8
-            | Type::I16
-            | Type::U16
-            | Type::I32
-            | Type::U32
-            | Type::I64
-            | Type::U64
-            | Type::F32
-            | Type::F64
-            | Type::ISize
-            | Type::USize
-            | Type::HRESULT
-            | Type::PtrConst(_, _)
-            | Type::PtrMut(_, _) => true,
+              Self::Item(item) => item.is_primitive(),
+              Self::Bool
+            | Self::Char
+            | Self::I8
+            | Self::U8
+            | Self::I16
+            | Self::U16
+            | Self::I32
+            | Self::U32
+            | Self::I64
+            | Self::U64
+            | Self::F32
+            | Self::F64
+            | Self::ISize
+            | Self::USize
+            | Self::HRESULT
+            | Self::PtrConst(_, _)
+            | Self::PtrMut(_, _) => true,
+            _ => false,
+        }
+    }
+
+    pub fn is_unsigned(&self) -> bool {
+        matches!(
+            self,
+            Self::U8 | Self::U16 | Self::U32 | Self::U64 | Self::USize
+        )
+    }
+
+    pub fn is_pointer(&self) -> bool {
+        match self {
+             Self::PtrConst(_, _)
+            | Self::PtrMut(_, _) => true,
             _ => false,
         }
     }
