@@ -92,8 +92,6 @@ impl Interface {
                 #cfg
                 windows_core::imp::define_interface!(#name, #vtbl_name, #guid);
                 #cfg
-                windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
-                #cfg
                 impl windows_core::RuntimeType for #name {
                     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
                 }
@@ -125,6 +123,13 @@ impl Interface {
                 }
             }
         };
+
+        if !is_exclusive && self.generics.is_empty() {
+            result.combine(quote! {
+                #cfg
+                windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
+            });
+        }
 
         if !is_exclusive && !interfaces.is_empty() {
             if self.generics.is_empty() {
