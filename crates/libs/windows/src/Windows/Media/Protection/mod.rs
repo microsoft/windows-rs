@@ -116,6 +116,45 @@ pub struct IMediaProtectionServiceRequest_Vtbl {
     pub ProtectionSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
+pub trait IMediaProtectionServiceRequest_Impl: Sized + windows_core::IUnknownImpl {
+    fn ProtectionSystem(&self) -> windows_core::Result<windows_core::GUID>;
+    fn Type(&self) -> windows_core::Result<windows_core::GUID>;
+}
+impl windows_core::RuntimeName for IMediaProtectionServiceRequest {
+    const NAME: &'static str = "Windows.Media.Protection.IMediaProtectionServiceRequest";
+}
+impl IMediaProtectionServiceRequest_Vtbl {
+    pub const fn new<Identity: IMediaProtectionServiceRequest_Impl, const OFFSET: isize>() -> IMediaProtectionServiceRequest_Vtbl {
+        unsafe extern "system" fn ProtectionSystem<Identity: IMediaProtectionServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMediaProtectionServiceRequest_Impl::ProtectionSystem(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Type<Identity: IMediaProtectionServiceRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMediaProtectionServiceRequest_Impl::Type(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMediaProtectionServiceRequest, OFFSET>(),
+            ProtectionSystem: ProtectionSystem::<Identity, OFFSET>,
+            Type: Type::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMediaProtectionServiceRequest as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IProtectionCapabilities, IProtectionCapabilities_Vtbl, 0xc7ac5d7e_7480_4d29_a464_7bcd913dd8e4);
 impl windows_core::RuntimeType for IProtectionCapabilities {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -923,5 +962,3 @@ pub struct ServiceRequestedEventHandler_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

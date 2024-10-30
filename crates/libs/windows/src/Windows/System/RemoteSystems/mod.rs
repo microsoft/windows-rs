@@ -268,6 +268,18 @@ impl windows_core::RuntimeType for IRemoteSystemFilter {
 pub struct IRemoteSystemFilter_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
+pub trait IRemoteSystemFilter_Impl: Sized + windows_core::IUnknownImpl {}
+impl windows_core::RuntimeName for IRemoteSystemFilter {
+    const NAME: &'static str = "Windows.System.RemoteSystems.IRemoteSystemFilter";
+}
+impl IRemoteSystemFilter_Vtbl {
+    pub const fn new<Identity: IRemoteSystemFilter_Impl, const OFFSET: isize>() -> IRemoteSystemFilter_Vtbl {
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IRemoteSystemFilter, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IRemoteSystemFilter as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IRemoteSystemKindFilter, IRemoteSystemKindFilter_Vtbl, 0x38e1c9ec_22c3_4ef6_901a_bbb1c7aad4ed);
 impl windows_core::RuntimeType for IRemoteSystemKindFilter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2842,5 +2854,3 @@ impl core::fmt::Debug for RemoteSystemWatcherError {
 impl windows_core::RuntimeType for RemoteSystemWatcherError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemWatcherError;i4)");
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

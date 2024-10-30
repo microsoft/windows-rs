@@ -133,6 +133,31 @@ pub struct IKsAggregateControl_Vtbl {
     pub KsAddAggregate: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub KsRemoveAggregate: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
+pub trait IKsAggregateControl_Impl: Sized + windows_core::IUnknownImpl {
+    fn KsAddAggregate(&self, aggregateclass: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn KsRemoveAggregate(&self, aggregateclass: *const windows_core::GUID) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IKsAggregateControl {}
+impl IKsAggregateControl_Vtbl {
+    pub const fn new<Identity: IKsAggregateControl_Impl, const OFFSET: isize>() -> IKsAggregateControl_Vtbl {
+        unsafe extern "system" fn KsAddAggregate<Identity: IKsAggregateControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, aggregateclass: *const windows_core::GUID) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsAggregateControl_Impl::KsAddAggregate(this, core::mem::transmute_copy(&aggregateclass)).into()
+        }
+        unsafe extern "system" fn KsRemoveAggregate<Identity: IKsAggregateControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, aggregateclass: *const windows_core::GUID) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsAggregateControl_Impl::KsRemoveAggregate(this, core::mem::transmute_copy(&aggregateclass)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            KsAddAggregate: KsAddAggregate::<Identity, OFFSET>,
+            KsRemoveAggregate: KsRemoveAggregate::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsAggregateControl as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IKsAllocator, IKsAllocator_Vtbl, 0x8da64899_c0d9_11d0_8413_0000f822fe8a);
 impl core::ops::Deref for IKsAllocator {
     type Target = windows_core::IUnknown;
@@ -162,6 +187,43 @@ pub struct IKsAllocator_Vtbl {
     pub KsGetAllocatorMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> KSALLOCATORMODE,
     pub KsGetAllocatorStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSSTREAMALLOCATOR_STATUS) -> windows_core::HRESULT,
     pub KsSetAllocatorMode: unsafe extern "system" fn(*mut core::ffi::c_void, KSALLOCATORMODE),
+}
+pub trait IKsAllocator_Impl: Sized + windows_core::IUnknownImpl {
+    fn KsGetAllocatorHandle(&self) -> super::super::Foundation::HANDLE;
+    fn KsGetAllocatorMode(&self) -> KSALLOCATORMODE;
+    fn KsGetAllocatorStatus(&self, allocatorstatus: *mut KSSTREAMALLOCATOR_STATUS) -> windows_core::Result<()>;
+    fn KsSetAllocatorMode(&self, mode: KSALLOCATORMODE);
+}
+impl windows_core::RuntimeName for IKsAllocator {}
+impl IKsAllocator_Vtbl {
+    pub const fn new<Identity: IKsAllocator_Impl, const OFFSET: isize>() -> IKsAllocator_Vtbl {
+        unsafe extern "system" fn KsGetAllocatorHandle<Identity: IKsAllocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::HANDLE {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsAllocator_Impl::KsGetAllocatorHandle(this)
+        }
+        unsafe extern "system" fn KsGetAllocatorMode<Identity: IKsAllocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> KSALLOCATORMODE {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsAllocator_Impl::KsGetAllocatorMode(this)
+        }
+        unsafe extern "system" fn KsGetAllocatorStatus<Identity: IKsAllocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allocatorstatus: *mut KSSTREAMALLOCATOR_STATUS) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsAllocator_Impl::KsGetAllocatorStatus(this, core::mem::transmute_copy(&allocatorstatus)).into()
+        }
+        unsafe extern "system" fn KsSetAllocatorMode<Identity: IKsAllocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: KSALLOCATORMODE) {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsAllocator_Impl::KsSetAllocatorMode(this, core::mem::transmute_copy(&mode))
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            KsGetAllocatorHandle: KsGetAllocatorHandle::<Identity, OFFSET>,
+            KsGetAllocatorMode: KsGetAllocatorMode::<Identity, OFFSET>,
+            KsGetAllocatorStatus: KsGetAllocatorStatus::<Identity, OFFSET>,
+            KsSetAllocatorMode: KsSetAllocatorMode::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsAllocator as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IKsAllocatorEx, IKsAllocatorEx_Vtbl, 0x091bb63a_603f_11d1_b067_00a0c9062802);
 impl core::ops::Deref for IKsAllocatorEx {
@@ -198,6 +260,43 @@ pub struct IKsAllocatorEx_Vtbl {
     pub KsSetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *const ALLOCATOR_PROPERTIES_EX),
     pub KsSetAllocatorHandle: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE),
     pub KsCreateAllocatorAndGetHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
+}
+pub trait IKsAllocatorEx_Impl: Sized + IKsAllocator_Impl {
+    fn KsGetProperties(&self) -> *mut ALLOCATOR_PROPERTIES_EX;
+    fn KsSetProperties(&self, param0: *const ALLOCATOR_PROPERTIES_EX);
+    fn KsSetAllocatorHandle(&self, allocatorhandle: super::super::Foundation::HANDLE);
+    fn KsCreateAllocatorAndGetHandle(&self, kspin: Option<&IKsPin>) -> super::super::Foundation::HANDLE;
+}
+impl windows_core::RuntimeName for IKsAllocatorEx {}
+impl IKsAllocatorEx_Vtbl {
+    pub const fn new<Identity: IKsAllocatorEx_Impl, const OFFSET: isize>() -> IKsAllocatorEx_Vtbl {
+        unsafe extern "system" fn KsGetProperties<Identity: IKsAllocatorEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> *mut ALLOCATOR_PROPERTIES_EX {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsAllocatorEx_Impl::KsGetProperties(this)
+        }
+        unsafe extern "system" fn KsSetProperties<Identity: IKsAllocatorEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const ALLOCATOR_PROPERTIES_EX) {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsAllocatorEx_Impl::KsSetProperties(this, core::mem::transmute_copy(&param0))
+        }
+        unsafe extern "system" fn KsSetAllocatorHandle<Identity: IKsAllocatorEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, allocatorhandle: super::super::Foundation::HANDLE) {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsAllocatorEx_Impl::KsSetAllocatorHandle(this, core::mem::transmute_copy(&allocatorhandle))
+        }
+        unsafe extern "system" fn KsCreateAllocatorAndGetHandle<Identity: IKsAllocatorEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, kspin: *mut core::ffi::c_void) -> super::super::Foundation::HANDLE {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsAllocatorEx_Impl::KsCreateAllocatorAndGetHandle(this, windows_core::from_raw_borrowed(&kspin))
+        }
+        Self {
+            base__: IKsAllocator_Vtbl::new::<Identity, OFFSET>(),
+            KsGetProperties: KsGetProperties::<Identity, OFFSET>,
+            KsSetProperties: KsSetProperties::<Identity, OFFSET>,
+            KsSetAllocatorHandle: KsSetAllocatorHandle::<Identity, OFFSET>,
+            KsCreateAllocatorAndGetHandle: KsCreateAllocatorAndGetHandle::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsAllocatorEx as windows_core::Interface>::IID || iid == &<IKsAllocator as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IKsClockPropertySet, IKsClockPropertySet_Vtbl, 0x5c5cbd84_e755_11d0_ac18_00a0c9223196);
 impl core::ops::Deref for IKsClockPropertySet {
@@ -259,6 +358,115 @@ pub struct IKsClockPropertySet_Vtbl {
     pub KsGetResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSRESOLUTION) -> windows_core::HRESULT,
     pub KsGetState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSSTATE) -> windows_core::HRESULT,
 }
+pub trait IKsClockPropertySet_Impl: Sized + windows_core::IUnknownImpl {
+    fn KsGetTime(&self) -> windows_core::Result<i64>;
+    fn KsSetTime(&self, time: i64) -> windows_core::Result<()>;
+    fn KsGetPhysicalTime(&self) -> windows_core::Result<i64>;
+    fn KsSetPhysicalTime(&self, time: i64) -> windows_core::Result<()>;
+    fn KsGetCorrelatedTime(&self) -> windows_core::Result<KSCORRELATED_TIME>;
+    fn KsSetCorrelatedTime(&self, correlatedtime: *const KSCORRELATED_TIME) -> windows_core::Result<()>;
+    fn KsGetCorrelatedPhysicalTime(&self) -> windows_core::Result<KSCORRELATED_TIME>;
+    fn KsSetCorrelatedPhysicalTime(&self, correlatedtime: *const KSCORRELATED_TIME) -> windows_core::Result<()>;
+    fn KsGetResolution(&self) -> windows_core::Result<KSRESOLUTION>;
+    fn KsGetState(&self) -> windows_core::Result<KSSTATE>;
+}
+impl windows_core::RuntimeName for IKsClockPropertySet {}
+impl IKsClockPropertySet_Vtbl {
+    pub const fn new<Identity: IKsClockPropertySet_Impl, const OFFSET: isize>() -> IKsClockPropertySet_Vtbl {
+        unsafe extern "system" fn KsGetTime<Identity: IKsClockPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, time: *mut i64) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsClockPropertySet_Impl::KsGetTime(this) {
+                Ok(ok__) => {
+                    time.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn KsSetTime<Identity: IKsClockPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, time: i64) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsClockPropertySet_Impl::KsSetTime(this, core::mem::transmute_copy(&time)).into()
+        }
+        unsafe extern "system" fn KsGetPhysicalTime<Identity: IKsClockPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, time: *mut i64) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsClockPropertySet_Impl::KsGetPhysicalTime(this) {
+                Ok(ok__) => {
+                    time.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn KsSetPhysicalTime<Identity: IKsClockPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, time: i64) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsClockPropertySet_Impl::KsSetPhysicalTime(this, core::mem::transmute_copy(&time)).into()
+        }
+        unsafe extern "system" fn KsGetCorrelatedTime<Identity: IKsClockPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, correlatedtime: *mut KSCORRELATED_TIME) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsClockPropertySet_Impl::KsGetCorrelatedTime(this) {
+                Ok(ok__) => {
+                    correlatedtime.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn KsSetCorrelatedTime<Identity: IKsClockPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, correlatedtime: *const KSCORRELATED_TIME) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsClockPropertySet_Impl::KsSetCorrelatedTime(this, core::mem::transmute_copy(&correlatedtime)).into()
+        }
+        unsafe extern "system" fn KsGetCorrelatedPhysicalTime<Identity: IKsClockPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, correlatedtime: *mut KSCORRELATED_TIME) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsClockPropertySet_Impl::KsGetCorrelatedPhysicalTime(this) {
+                Ok(ok__) => {
+                    correlatedtime.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn KsSetCorrelatedPhysicalTime<Identity: IKsClockPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, correlatedtime: *const KSCORRELATED_TIME) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsClockPropertySet_Impl::KsSetCorrelatedPhysicalTime(this, core::mem::transmute_copy(&correlatedtime)).into()
+        }
+        unsafe extern "system" fn KsGetResolution<Identity: IKsClockPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resolution: *mut KSRESOLUTION) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsClockPropertySet_Impl::KsGetResolution(this) {
+                Ok(ok__) => {
+                    resolution.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn KsGetState<Identity: IKsClockPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: *mut KSSTATE) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsClockPropertySet_Impl::KsGetState(this) {
+                Ok(ok__) => {
+                    state.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            KsGetTime: KsGetTime::<Identity, OFFSET>,
+            KsSetTime: KsSetTime::<Identity, OFFSET>,
+            KsGetPhysicalTime: KsGetPhysicalTime::<Identity, OFFSET>,
+            KsSetPhysicalTime: KsSetPhysicalTime::<Identity, OFFSET>,
+            KsGetCorrelatedTime: KsGetCorrelatedTime::<Identity, OFFSET>,
+            KsSetCorrelatedTime: KsSetCorrelatedTime::<Identity, OFFSET>,
+            KsGetCorrelatedPhysicalTime: KsGetCorrelatedPhysicalTime::<Identity, OFFSET>,
+            KsSetCorrelatedPhysicalTime: KsSetCorrelatedPhysicalTime::<Identity, OFFSET>,
+            KsGetResolution: KsGetResolution::<Identity, OFFSET>,
+            KsGetState: KsGetState::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsClockPropertySet as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IKsControl, IKsControl_Vtbl, 0x28f54685_06fd_11d2_b27a_00a0c9223196);
 impl core::ops::Deref for IKsControl {
     type Target = windows_core::IUnknown;
@@ -285,6 +493,37 @@ pub struct IKsControl_Vtbl {
     pub KsMethod: unsafe extern "system" fn(*mut core::ffi::c_void, *const KSIDENTIFIER, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub KsEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const KSIDENTIFIER, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
+pub trait IKsControl_Impl: Sized + windows_core::IUnknownImpl {
+    fn KsProperty(&self, property: *const KSIDENTIFIER, propertylength: u32, propertydata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::Result<()>;
+    fn KsMethod(&self, method: *const KSIDENTIFIER, methodlength: u32, methoddata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::Result<()>;
+    fn KsEvent(&self, event: *const KSIDENTIFIER, eventlength: u32, eventdata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IKsControl {}
+impl IKsControl_Vtbl {
+    pub const fn new<Identity: IKsControl_Impl, const OFFSET: isize>() -> IKsControl_Vtbl {
+        unsafe extern "system" fn KsProperty<Identity: IKsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, property: *const KSIDENTIFIER, propertylength: u32, propertydata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsControl_Impl::KsProperty(this, core::mem::transmute_copy(&property), core::mem::transmute_copy(&propertylength), core::mem::transmute_copy(&propertydata), core::mem::transmute_copy(&datalength), core::mem::transmute_copy(&bytesreturned)).into()
+        }
+        unsafe extern "system" fn KsMethod<Identity: IKsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, method: *const KSIDENTIFIER, methodlength: u32, methoddata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsControl_Impl::KsMethod(this, core::mem::transmute_copy(&method), core::mem::transmute_copy(&methodlength), core::mem::transmute_copy(&methoddata), core::mem::transmute_copy(&datalength), core::mem::transmute_copy(&bytesreturned)).into()
+        }
+        unsafe extern "system" fn KsEvent<Identity: IKsControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: *const KSIDENTIFIER, eventlength: u32, eventdata: *mut core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsControl_Impl::KsEvent(this, core::mem::transmute_copy(&event), core::mem::transmute_copy(&eventlength), core::mem::transmute_copy(&eventdata), core::mem::transmute_copy(&datalength), core::mem::transmute_copy(&bytesreturned)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            KsProperty: KsProperty::<Identity, OFFSET>,
+            KsMethod: KsMethod::<Identity, OFFSET>,
+            KsEvent: KsEvent::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsControl as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IKsDataTypeCompletion, IKsDataTypeCompletion_Vtbl, 0x827d1a0e_0f73_11d2_b27a_00a0c9223196);
 impl core::ops::Deref for IKsDataTypeCompletion {
     type Target = windows_core::IUnknown;
@@ -309,6 +548,25 @@ pub struct IKsDataTypeCompletion_Vtbl {
     pub KsCompleteMediaType: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HANDLE, u32, *mut super::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]
     KsCompleteMediaType: usize,
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
+pub trait IKsDataTypeCompletion_Impl: Sized + windows_core::IUnknownImpl {
+    fn KsCompleteMediaType(&self, filterhandle: super::super::Foundation::HANDLE, pinfactoryid: u32, ammediatype: *mut super::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
+impl windows_core::RuntimeName for IKsDataTypeCompletion {}
+#[cfg(feature = "Win32_Media_MediaFoundation")]
+impl IKsDataTypeCompletion_Vtbl {
+    pub const fn new<Identity: IKsDataTypeCompletion_Impl, const OFFSET: isize>() -> IKsDataTypeCompletion_Vtbl {
+        unsafe extern "system" fn KsCompleteMediaType<Identity: IKsDataTypeCompletion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filterhandle: super::super::Foundation::HANDLE, pinfactoryid: u32, ammediatype: *mut super::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsDataTypeCompletion_Impl::KsCompleteMediaType(this, core::mem::transmute_copy(&filterhandle), core::mem::transmute_copy(&pinfactoryid), core::mem::transmute_copy(&ammediatype)).into()
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), KsCompleteMediaType: KsCompleteMediaType::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsDataTypeCompletion as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IKsDataTypeHandler, IKsDataTypeHandler_Vtbl, 0x5ffbaa02_49a3_11d0_9f36_00aa00a216a1);
 impl core::ops::Deref for IKsDataTypeHandler {
@@ -364,6 +622,58 @@ pub struct IKsDataTypeHandler_Vtbl {
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))]
     KsSetMediaType: usize,
 }
+#[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_Media_MediaFoundation"))]
+pub trait IKsDataTypeHandler_Impl: Sized + windows_core::IUnknownImpl {
+    fn KsCompleteIoOperation(&self, sample: Option<&super::DirectShow::IMediaSample>, streamheader: *mut core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn KsIsMediaTypeInRanges(&self, dataranges: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn KsPrepareIoOperation(&self, sample: Option<&super::DirectShow::IMediaSample>, streamheader: *mut core::ffi::c_void, iooperation: KSIOOPERATION) -> windows_core::Result<()>;
+    fn KsQueryExtendedSize(&self) -> windows_core::Result<u32>;
+    fn KsSetMediaType(&self, ammediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::Result<()>;
+}
+#[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_Media_MediaFoundation"))]
+impl windows_core::RuntimeName for IKsDataTypeHandler {}
+#[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_Media_MediaFoundation"))]
+impl IKsDataTypeHandler_Vtbl {
+    pub const fn new<Identity: IKsDataTypeHandler_Impl, const OFFSET: isize>() -> IKsDataTypeHandler_Vtbl {
+        unsafe extern "system" fn KsCompleteIoOperation<Identity: IKsDataTypeHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sample: *mut core::ffi::c_void, streamheader: *mut core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsDataTypeHandler_Impl::KsCompleteIoOperation(this, windows_core::from_raw_borrowed(&sample), core::mem::transmute_copy(&streamheader), core::mem::transmute_copy(&iooperation), core::mem::transmute_copy(&cancelled)).into()
+        }
+        unsafe extern "system" fn KsIsMediaTypeInRanges<Identity: IKsDataTypeHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dataranges: *const core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsDataTypeHandler_Impl::KsIsMediaTypeInRanges(this, core::mem::transmute_copy(&dataranges)).into()
+        }
+        unsafe extern "system" fn KsPrepareIoOperation<Identity: IKsDataTypeHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sample: *mut core::ffi::c_void, streamheader: *mut core::ffi::c_void, iooperation: KSIOOPERATION) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsDataTypeHandler_Impl::KsPrepareIoOperation(this, windows_core::from_raw_borrowed(&sample), core::mem::transmute_copy(&streamheader), core::mem::transmute_copy(&iooperation)).into()
+        }
+        unsafe extern "system" fn KsQueryExtendedSize<Identity: IKsDataTypeHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, extendedsize: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsDataTypeHandler_Impl::KsQueryExtendedSize(this) {
+                Ok(ok__) => {
+                    extendedsize.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn KsSetMediaType<Identity: IKsDataTypeHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ammediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsDataTypeHandler_Impl::KsSetMediaType(this, core::mem::transmute_copy(&ammediatype)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            KsCompleteIoOperation: KsCompleteIoOperation::<Identity, OFFSET>,
+            KsIsMediaTypeInRanges: KsIsMediaTypeInRanges::<Identity, OFFSET>,
+            KsPrepareIoOperation: KsPrepareIoOperation::<Identity, OFFSET>,
+            KsQueryExtendedSize: KsQueryExtendedSize::<Identity, OFFSET>,
+            KsSetMediaType: KsSetMediaType::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsDataTypeHandler as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IKsFormatSupport, IKsFormatSupport_Vtbl, 0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5);
 impl core::ops::Deref for IKsFormatSupport {
     type Target = windows_core::IUnknown;
@@ -386,6 +696,37 @@ pub struct IKsFormatSupport_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub IsFormatSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSDATAFORMAT, u32, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub GetDevicePreferredFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut KSDATAFORMAT) -> windows_core::HRESULT,
+}
+pub trait IKsFormatSupport_Impl: Sized + windows_core::IUnknownImpl {
+    fn IsFormatSupported(&self, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetDevicePreferredFormat(&self) -> windows_core::Result<*mut KSDATAFORMAT>;
+}
+impl windows_core::RuntimeName for IKsFormatSupport {}
+impl IKsFormatSupport_Vtbl {
+    pub const fn new<Identity: IKsFormatSupport_Impl, const OFFSET: isize>() -> IKsFormatSupport_Vtbl {
+        unsafe extern "system" fn IsFormatSupported<Identity: IKsFormatSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pksformat: *mut KSDATAFORMAT, cbformat: u32, pbsupported: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsFormatSupport_Impl::IsFormatSupported(this, core::mem::transmute_copy(&pksformat), core::mem::transmute_copy(&cbformat), core::mem::transmute_copy(&pbsupported)).into()
+        }
+        unsafe extern "system" fn GetDevicePreferredFormat<Identity: IKsFormatSupport_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppksformat: *mut *mut KSDATAFORMAT) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsFormatSupport_Impl::GetDevicePreferredFormat(this) {
+                Ok(ok__) => {
+                    ppksformat.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            IsFormatSupported: IsFormatSupported::<Identity, OFFSET>,
+            GetDevicePreferredFormat: GetDevicePreferredFormat::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsFormatSupport as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IKsInterfaceHandler, IKsInterfaceHandler_Vtbl, 0xd3abc7e0_9a61_11d0_a40d_00a0c9223196);
 impl core::ops::Deref for IKsInterfaceHandler {
@@ -423,6 +764,40 @@ pub struct IKsInterfaceHandler_Vtbl {
     KsProcessMediaSamples: usize,
     pub KsCompleteIo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSSTREAM_SEGMENT) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_Media_DirectShow")]
+pub trait IKsInterfaceHandler_Impl: Sized + windows_core::IUnknownImpl {
+    fn KsSetPin(&self, kspin: Option<&IKsPin>) -> windows_core::Result<()>;
+    fn KsProcessMediaSamples(&self, ksdatatypehandler: Option<&IKsDataTypeHandler>, samplelist: *const Option<super::DirectShow::IMediaSample>, samplecount: *mut i32, iooperation: KSIOOPERATION, streamsegment: *mut *mut KSSTREAM_SEGMENT) -> windows_core::Result<()>;
+    fn KsCompleteIo(&self, streamsegment: *mut KSSTREAM_SEGMENT) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_Media_DirectShow")]
+impl windows_core::RuntimeName for IKsInterfaceHandler {}
+#[cfg(feature = "Win32_Media_DirectShow")]
+impl IKsInterfaceHandler_Vtbl {
+    pub const fn new<Identity: IKsInterfaceHandler_Impl, const OFFSET: isize>() -> IKsInterfaceHandler_Vtbl {
+        unsafe extern "system" fn KsSetPin<Identity: IKsInterfaceHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, kspin: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsInterfaceHandler_Impl::KsSetPin(this, windows_core::from_raw_borrowed(&kspin)).into()
+        }
+        unsafe extern "system" fn KsProcessMediaSamples<Identity: IKsInterfaceHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ksdatatypehandler: *mut core::ffi::c_void, samplelist: *const *mut core::ffi::c_void, samplecount: *mut i32, iooperation: KSIOOPERATION, streamsegment: *mut *mut KSSTREAM_SEGMENT) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsInterfaceHandler_Impl::KsProcessMediaSamples(this, windows_core::from_raw_borrowed(&ksdatatypehandler), core::mem::transmute_copy(&samplelist), core::mem::transmute_copy(&samplecount), core::mem::transmute_copy(&iooperation), core::mem::transmute_copy(&streamsegment)).into()
+        }
+        unsafe extern "system" fn KsCompleteIo<Identity: IKsInterfaceHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamsegment: *mut KSSTREAM_SEGMENT) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsInterfaceHandler_Impl::KsCompleteIo(this, core::mem::transmute_copy(&streamsegment)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            KsSetPin: KsSetPin::<Identity, OFFSET>,
+            KsProcessMediaSamples: KsProcessMediaSamples::<Identity, OFFSET>,
+            KsCompleteIo: KsCompleteIo::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsInterfaceHandler as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IKsJackContainerId, IKsJackContainerId_Vtbl, 0xc99af463_d629_4ec4_8c00_e54d68154248);
 impl core::ops::Deref for IKsJackContainerId {
     type Target = windows_core::IUnknown;
@@ -441,6 +816,28 @@ impl IKsJackContainerId {
 pub struct IKsJackContainerId_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetJackContainerId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
+}
+pub trait IKsJackContainerId_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetJackContainerId(&self) -> windows_core::Result<windows_core::GUID>;
+}
+impl windows_core::RuntimeName for IKsJackContainerId {}
+impl IKsJackContainerId_Vtbl {
+    pub const fn new<Identity: IKsJackContainerId_Impl, const OFFSET: isize>() -> IKsJackContainerId_Vtbl {
+        unsafe extern "system" fn GetJackContainerId<Identity: IKsJackContainerId_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pjackcontainerid: *mut windows_core::GUID) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsJackContainerId_Impl::GetJackContainerId(this) {
+                Ok(ok__) => {
+                    pjackcontainerid.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetJackContainerId: GetJackContainerId::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsJackContainerId as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IKsJackDescription, IKsJackDescription_Vtbl, 0x4509f757_2d46_4637_8e62_ce7db944f57b);
 impl core::ops::Deref for IKsJackDescription {
@@ -464,6 +861,37 @@ pub struct IKsJackDescription_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetJackCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetJackDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut KSJACK_DESCRIPTION) -> windows_core::HRESULT,
+}
+pub trait IKsJackDescription_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetJackCount(&self) -> windows_core::Result<u32>;
+    fn GetJackDescription(&self, njack: u32, pdescription: *mut KSJACK_DESCRIPTION) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IKsJackDescription {}
+impl IKsJackDescription_Vtbl {
+    pub const fn new<Identity: IKsJackDescription_Impl, const OFFSET: isize>() -> IKsJackDescription_Vtbl {
+        unsafe extern "system" fn GetJackCount<Identity: IKsJackDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcjacks: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsJackDescription_Impl::GetJackCount(this) {
+                Ok(ok__) => {
+                    pcjacks.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetJackDescription<Identity: IKsJackDescription_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, njack: u32, pdescription: *mut KSJACK_DESCRIPTION) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsJackDescription_Impl::GetJackDescription(this, core::mem::transmute_copy(&njack), core::mem::transmute_copy(&pdescription)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetJackCount: GetJackCount::<Identity, OFFSET>,
+            GetJackDescription: GetJackDescription::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsJackDescription as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IKsJackDescription2, IKsJackDescription2_Vtbl, 0x478f3a9b_e0c9_4827_9228_6f5505ffe76a);
 impl core::ops::Deref for IKsJackDescription2 {
@@ -489,6 +917,43 @@ pub struct IKsJackDescription2_Vtbl {
     pub GetJackCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetJackDescription2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut KSJACK_DESCRIPTION2) -> windows_core::HRESULT,
 }
+pub trait IKsJackDescription2_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetJackCount(&self) -> windows_core::Result<u32>;
+    fn GetJackDescription2(&self, njack: u32) -> windows_core::Result<KSJACK_DESCRIPTION2>;
+}
+impl windows_core::RuntimeName for IKsJackDescription2 {}
+impl IKsJackDescription2_Vtbl {
+    pub const fn new<Identity: IKsJackDescription2_Impl, const OFFSET: isize>() -> IKsJackDescription2_Vtbl {
+        unsafe extern "system" fn GetJackCount<Identity: IKsJackDescription2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcjacks: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsJackDescription2_Impl::GetJackCount(this) {
+                Ok(ok__) => {
+                    pcjacks.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetJackDescription2<Identity: IKsJackDescription2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, njack: u32, pdescription2: *mut KSJACK_DESCRIPTION2) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsJackDescription2_Impl::GetJackDescription2(this, core::mem::transmute_copy(&njack)) {
+                Ok(ok__) => {
+                    pdescription2.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetJackCount: GetJackCount::<Identity, OFFSET>,
+            GetJackDescription2: GetJackDescription2::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsJackDescription2 as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IKsJackDescription3, IKsJackDescription3_Vtbl, 0xe3f6778b_6660_4cc8_a291_ecc4192d9967);
 impl core::ops::Deref for IKsJackDescription3 {
     type Target = windows_core::IUnknown;
@@ -513,6 +978,43 @@ pub struct IKsJackDescription3_Vtbl {
     pub GetJackCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetJackDescription3: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut KSJACK_DESCRIPTION3) -> windows_core::HRESULT,
 }
+pub trait IKsJackDescription3_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetJackCount(&self) -> windows_core::Result<u32>;
+    fn GetJackDescription3(&self, njack: u32) -> windows_core::Result<KSJACK_DESCRIPTION3>;
+}
+impl windows_core::RuntimeName for IKsJackDescription3 {}
+impl IKsJackDescription3_Vtbl {
+    pub const fn new<Identity: IKsJackDescription3_Impl, const OFFSET: isize>() -> IKsJackDescription3_Vtbl {
+        unsafe extern "system" fn GetJackCount<Identity: IKsJackDescription3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcjacks: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsJackDescription3_Impl::GetJackCount(this) {
+                Ok(ok__) => {
+                    pcjacks.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetJackDescription3<Identity: IKsJackDescription3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, njack: u32, pdescription3: *mut KSJACK_DESCRIPTION3) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsJackDescription3_Impl::GetJackDescription3(this, core::mem::transmute_copy(&njack)) {
+                Ok(ok__) => {
+                    pdescription3.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetJackCount: GetJackCount::<Identity, OFFSET>,
+            GetJackDescription3: GetJackDescription3::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsJackDescription3 as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IKsJackSinkInformation, IKsJackSinkInformation_Vtbl, 0xd9bd72ed_290f_4581_9ff3_61027a8fe532);
 impl core::ops::Deref for IKsJackSinkInformation {
     type Target = windows_core::IUnknown;
@@ -530,6 +1032,22 @@ impl IKsJackSinkInformation {
 pub struct IKsJackSinkInformation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetJackSinkInformation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut KSJACK_SINK_INFORMATION) -> windows_core::HRESULT,
+}
+pub trait IKsJackSinkInformation_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetJackSinkInformation(&self, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IKsJackSinkInformation {}
+impl IKsJackSinkInformation_Vtbl {
+    pub const fn new<Identity: IKsJackSinkInformation_Impl, const OFFSET: isize>() -> IKsJackSinkInformation_Vtbl {
+        unsafe extern "system" fn GetJackSinkInformation<Identity: IKsJackSinkInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pjacksinkinformation: *mut KSJACK_SINK_INFORMATION) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsJackSinkInformation_Impl::GetJackSinkInformation(this, core::mem::transmute_copy(&pjacksinkinformation)).into()
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetJackSinkInformation: GetJackSinkInformation::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsJackSinkInformation as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IKsNodeControl, IKsNodeControl_Vtbl, 0x11737c14_24a7_4bb5_81a0_0d003813b0c4);
 impl core::ops::Deref for IKsNodeControl {
@@ -553,6 +1071,31 @@ pub struct IKsNodeControl_Vtbl {
     pub SetNodeId: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetKsControl: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IKsNodeControl_Impl: Sized + windows_core::IUnknownImpl {
+    fn SetNodeId(&self, dwnodeid: u32) -> windows_core::Result<()>;
+    fn SetKsControl(&self, pkscontrol: *const core::ffi::c_void) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IKsNodeControl {}
+impl IKsNodeControl_Vtbl {
+    pub const fn new<Identity: IKsNodeControl_Impl, const OFFSET: isize>() -> IKsNodeControl_Vtbl {
+        unsafe extern "system" fn SetNodeId<Identity: IKsNodeControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwnodeid: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsNodeControl_Impl::SetNodeId(this, core::mem::transmute_copy(&dwnodeid)).into()
+        }
+        unsafe extern "system" fn SetKsControl<Identity: IKsNodeControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pkscontrol: *const core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsNodeControl_Impl::SetKsControl(this, core::mem::transmute_copy(&pkscontrol)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            SetNodeId: SetNodeId::<Identity, OFFSET>,
+            SetKsControl: SetKsControl::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsNodeControl as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IKsNotifyEvent, IKsNotifyEvent_Vtbl, 0x412bd695_f84b_46c1_ac73_54196dbc8fa7);
 impl core::ops::Deref for IKsNotifyEvent {
     type Target = windows_core::IUnknown;
@@ -571,6 +1114,22 @@ pub struct IKsNotifyEvent_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub KsNotifyEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, usize, usize) -> windows_core::HRESULT,
 }
+pub trait IKsNotifyEvent_Impl: Sized + windows_core::IUnknownImpl {
+    fn KsNotifyEvent(&self, event: u32, lparam1: usize, lparam2: usize) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IKsNotifyEvent {}
+impl IKsNotifyEvent_Vtbl {
+    pub const fn new<Identity: IKsNotifyEvent_Impl, const OFFSET: isize>() -> IKsNotifyEvent_Vtbl {
+        unsafe extern "system" fn KsNotifyEvent<Identity: IKsNotifyEvent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, event: u32, lparam1: usize, lparam2: usize) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsNotifyEvent_Impl::KsNotifyEvent(this, core::mem::transmute_copy(&event), core::mem::transmute_copy(&lparam1), core::mem::transmute_copy(&lparam2)).into()
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), KsNotifyEvent: KsNotifyEvent::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsNotifyEvent as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IKsObject, IKsObject_Vtbl, 0x423c13a2_2070_11d0_9ef7_00aa00a216a1);
 impl core::ops::Deref for IKsObject {
     type Target = windows_core::IUnknown;
@@ -588,6 +1147,22 @@ impl IKsObject {
 pub struct IKsObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub KsGetObjectHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::super::Foundation::HANDLE,
+}
+pub trait IKsObject_Impl: Sized + windows_core::IUnknownImpl {
+    fn KsGetObjectHandle(&self) -> super::super::Foundation::HANDLE;
+}
+impl windows_core::RuntimeName for IKsObject {}
+impl IKsObject_Vtbl {
+    pub const fn new<Identity: IKsObject_Impl, const OFFSET: isize>() -> IKsObject_Vtbl {
+        unsafe extern "system" fn KsGetObjectHandle<Identity: IKsObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::super::Foundation::HANDLE {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsObject_Impl::KsGetObjectHandle(this)
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), KsGetObjectHandle: KsGetObjectHandle::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsObject as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IKsPin, IKsPin_Vtbl, 0xb61178d1_a2d9_11cf_9e53_00aa00a216a1);
 impl core::ops::Deref for IKsPin {
@@ -675,6 +1250,112 @@ pub struct IKsPin_Vtbl {
     pub KsDecrementPendingIoCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> i32,
     pub KsQualityNotify: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i64) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_Media_DirectShow")]
+pub trait IKsPin_Impl: Sized + windows_core::IUnknownImpl {
+    fn KsQueryMediums(&self) -> windows_core::Result<*mut KSMULTIPLE_ITEM>;
+    fn KsQueryInterfaces(&self) -> windows_core::Result<*mut KSMULTIPLE_ITEM>;
+    fn KsCreateSinkPinHandle(&self, interface: *const KSIDENTIFIER, medium: *const KSIDENTIFIER) -> windows_core::Result<()>;
+    fn KsGetCurrentCommunication(&self, communication: *mut KSPIN_COMMUNICATION, interface: *mut KSIDENTIFIER, medium: *mut KSIDENTIFIER) -> windows_core::Result<()>;
+    fn KsPropagateAcquire(&self) -> windows_core::Result<()>;
+    fn KsDeliver(&self, sample: Option<&super::DirectShow::IMediaSample>, flags: u32) -> windows_core::Result<()>;
+    fn KsMediaSamplesCompleted(&self, streamsegment: *const KSSTREAM_SEGMENT) -> windows_core::Result<()>;
+    fn KsPeekAllocator(&self, operation: KSPEEKOPERATION) -> Option<super::DirectShow::IMemAllocator>;
+    fn KsReceiveAllocator(&self, memallocator: Option<&super::DirectShow::IMemAllocator>) -> windows_core::Result<()>;
+    fn KsRenegotiateAllocator(&self) -> windows_core::Result<()>;
+    fn KsIncrementPendingIoCount(&self) -> i32;
+    fn KsDecrementPendingIoCount(&self) -> i32;
+    fn KsQualityNotify(&self, proportion: u32, timedelta: i64) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_Media_DirectShow")]
+impl windows_core::RuntimeName for IKsPin {}
+#[cfg(feature = "Win32_Media_DirectShow")]
+impl IKsPin_Vtbl {
+    pub const fn new<Identity: IKsPin_Impl, const OFFSET: isize>() -> IKsPin_Vtbl {
+        unsafe extern "system" fn KsQueryMediums<Identity: IKsPin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mediumlist: *mut *mut KSMULTIPLE_ITEM) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsPin_Impl::KsQueryMediums(this) {
+                Ok(ok__) => {
+                    mediumlist.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn KsQueryInterfaces<Identity: IKsPin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfacelist: *mut *mut KSMULTIPLE_ITEM) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsPin_Impl::KsQueryInterfaces(this) {
+                Ok(ok__) => {
+                    interfacelist.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn KsCreateSinkPinHandle<Identity: IKsPin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interface: *const KSIDENTIFIER, medium: *const KSIDENTIFIER) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPin_Impl::KsCreateSinkPinHandle(this, core::mem::transmute_copy(&interface), core::mem::transmute_copy(&medium)).into()
+        }
+        unsafe extern "system" fn KsGetCurrentCommunication<Identity: IKsPin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, communication: *mut KSPIN_COMMUNICATION, interface: *mut KSIDENTIFIER, medium: *mut KSIDENTIFIER) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPin_Impl::KsGetCurrentCommunication(this, core::mem::transmute_copy(&communication), core::mem::transmute_copy(&interface), core::mem::transmute_copy(&medium)).into()
+        }
+        unsafe extern "system" fn KsPropagateAcquire<Identity: IKsPin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPin_Impl::KsPropagateAcquire(this).into()
+        }
+        unsafe extern "system" fn KsDeliver<Identity: IKsPin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sample: *mut core::ffi::c_void, flags: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPin_Impl::KsDeliver(this, windows_core::from_raw_borrowed(&sample), core::mem::transmute_copy(&flags)).into()
+        }
+        unsafe extern "system" fn KsMediaSamplesCompleted<Identity: IKsPin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, streamsegment: *const KSSTREAM_SEGMENT) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPin_Impl::KsMediaSamplesCompleted(this, core::mem::transmute_copy(&streamsegment)).into()
+        }
+        unsafe extern "system" fn KsPeekAllocator<Identity: IKsPin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operation: KSPEEKOPERATION) -> Option<super::DirectShow::IMemAllocator> {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPin_Impl::KsPeekAllocator(this, core::mem::transmute_copy(&operation))
+        }
+        unsafe extern "system" fn KsReceiveAllocator<Identity: IKsPin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, memallocator: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPin_Impl::KsReceiveAllocator(this, windows_core::from_raw_borrowed(&memallocator)).into()
+        }
+        unsafe extern "system" fn KsRenegotiateAllocator<Identity: IKsPin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPin_Impl::KsRenegotiateAllocator(this).into()
+        }
+        unsafe extern "system" fn KsIncrementPendingIoCount<Identity: IKsPin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> i32 {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPin_Impl::KsIncrementPendingIoCount(this)
+        }
+        unsafe extern "system" fn KsDecrementPendingIoCount<Identity: IKsPin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> i32 {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPin_Impl::KsDecrementPendingIoCount(this)
+        }
+        unsafe extern "system" fn KsQualityNotify<Identity: IKsPin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, proportion: u32, timedelta: i64) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPin_Impl::KsQualityNotify(this, core::mem::transmute_copy(&proportion), core::mem::transmute_copy(&timedelta)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            KsQueryMediums: KsQueryMediums::<Identity, OFFSET>,
+            KsQueryInterfaces: KsQueryInterfaces::<Identity, OFFSET>,
+            KsCreateSinkPinHandle: KsCreateSinkPinHandle::<Identity, OFFSET>,
+            KsGetCurrentCommunication: KsGetCurrentCommunication::<Identity, OFFSET>,
+            KsPropagateAcquire: KsPropagateAcquire::<Identity, OFFSET>,
+            KsDeliver: KsDeliver::<Identity, OFFSET>,
+            KsMediaSamplesCompleted: KsMediaSamplesCompleted::<Identity, OFFSET>,
+            KsPeekAllocator: KsPeekAllocator::<Identity, OFFSET>,
+            KsReceiveAllocator: KsReceiveAllocator::<Identity, OFFSET>,
+            KsRenegotiateAllocator: KsRenegotiateAllocator::<Identity, OFFSET>,
+            KsIncrementPendingIoCount: KsIncrementPendingIoCount::<Identity, OFFSET>,
+            KsDecrementPendingIoCount: KsDecrementPendingIoCount::<Identity, OFFSET>,
+            KsQualityNotify: KsQualityNotify::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsPin as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IKsPinEx, IKsPinEx_Vtbl, 0x7bb38260_d19c_11d2_b38a_00a0c95ec22e);
 impl core::ops::Deref for IKsPinEx {
     type Target = IKsPin;
@@ -700,6 +1381,25 @@ pub struct IKsPinEx_Vtbl {
     #[cfg(not(feature = "Win32_Media_DirectShow"))]
     KsNotifyError: usize,
 }
+#[cfg(feature = "Win32_Media_DirectShow")]
+pub trait IKsPinEx_Impl: Sized + IKsPin_Impl {
+    fn KsNotifyError(&self, sample: Option<&super::DirectShow::IMediaSample>, hr: windows_core::HRESULT);
+}
+#[cfg(feature = "Win32_Media_DirectShow")]
+impl windows_core::RuntimeName for IKsPinEx {}
+#[cfg(feature = "Win32_Media_DirectShow")]
+impl IKsPinEx_Vtbl {
+    pub const fn new<Identity: IKsPinEx_Impl, const OFFSET: isize>() -> IKsPinEx_Vtbl {
+        unsafe extern "system" fn KsNotifyError<Identity: IKsPinEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sample: *mut core::ffi::c_void, hr: windows_core::HRESULT) {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPinEx_Impl::KsNotifyError(this, windows_core::from_raw_borrowed(&sample), core::mem::transmute_copy(&hr))
+        }
+        Self { base__: IKsPin_Vtbl::new::<Identity, OFFSET>(), KsNotifyError: KsNotifyError::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsPinEx as windows_core::Interface>::IID || iid == &<IKsPin as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IKsPinFactory, IKsPinFactory_Vtbl, 0xcd5ebe6b_8b6e_11d1_8ae0_00a0c9223196);
 impl core::ops::Deref for IKsPinFactory {
     type Target = windows_core::IUnknown;
@@ -718,6 +1418,28 @@ impl IKsPinFactory {
 pub struct IKsPinFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub KsPinFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+}
+pub trait IKsPinFactory_Impl: Sized + windows_core::IUnknownImpl {
+    fn KsPinFactory(&self) -> windows_core::Result<u32>;
+}
+impl windows_core::RuntimeName for IKsPinFactory {}
+impl IKsPinFactory_Vtbl {
+    pub const fn new<Identity: IKsPinFactory_Impl, const OFFSET: isize>() -> IKsPinFactory_Vtbl {
+        unsafe extern "system" fn KsPinFactory<Identity: IKsPinFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinfactory: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsPinFactory_Impl::KsPinFactory(this) {
+                Ok(ok__) => {
+                    pinfactory.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), KsPinFactory: KsPinFactory::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsPinFactory as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IKsPinPipe, IKsPinPipe_Vtbl, 0xe539cd90_a8b4_11d1_8189_00a0c9062802);
 impl core::ops::Deref for IKsPinPipe {
@@ -786,6 +1508,88 @@ pub struct IKsPinPipe_Vtbl {
     pub KsGetPinName: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::PWSTR,
     pub KsGetFilterName: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::PWSTR,
 }
+#[cfg(feature = "Win32_Media_DirectShow")]
+pub trait IKsPinPipe_Impl: Sized + windows_core::IUnknownImpl {
+    fn KsGetPinFramingCache(&self, framingex: *mut *mut KSALLOCATOR_FRAMING_EX, framingprop: *mut FRAMING_PROP, option: FRAMING_CACHE_OPS) -> windows_core::Result<()>;
+    fn KsSetPinFramingCache(&self, framingex: *const KSALLOCATOR_FRAMING_EX, framingprop: *const FRAMING_PROP, option: FRAMING_CACHE_OPS) -> windows_core::Result<()>;
+    fn KsGetConnectedPin(&self) -> Option<super::DirectShow::IPin>;
+    fn KsGetPipe(&self, operation: KSPEEKOPERATION) -> Option<IKsAllocatorEx>;
+    fn KsSetPipe(&self, ksallocator: Option<&IKsAllocatorEx>) -> windows_core::Result<()>;
+    fn KsGetPipeAllocatorFlag(&self) -> u32;
+    fn KsSetPipeAllocatorFlag(&self, flag: u32) -> windows_core::Result<()>;
+    fn KsGetPinBusCache(&self) -> windows_core::GUID;
+    fn KsSetPinBusCache(&self, bus: &windows_core::GUID) -> windows_core::Result<()>;
+    fn KsGetPinName(&self) -> windows_core::PWSTR;
+    fn KsGetFilterName(&self) -> windows_core::PWSTR;
+}
+#[cfg(feature = "Win32_Media_DirectShow")]
+impl windows_core::RuntimeName for IKsPinPipe {}
+#[cfg(feature = "Win32_Media_DirectShow")]
+impl IKsPinPipe_Vtbl {
+    pub const fn new<Identity: IKsPinPipe_Impl, const OFFSET: isize>() -> IKsPinPipe_Vtbl {
+        unsafe extern "system" fn KsGetPinFramingCache<Identity: IKsPinPipe_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, framingex: *mut *mut KSALLOCATOR_FRAMING_EX, framingprop: *mut FRAMING_PROP, option: FRAMING_CACHE_OPS) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPinPipe_Impl::KsGetPinFramingCache(this, core::mem::transmute_copy(&framingex), core::mem::transmute_copy(&framingprop), core::mem::transmute_copy(&option)).into()
+        }
+        unsafe extern "system" fn KsSetPinFramingCache<Identity: IKsPinPipe_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, framingex: *const KSALLOCATOR_FRAMING_EX, framingprop: *const FRAMING_PROP, option: FRAMING_CACHE_OPS) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPinPipe_Impl::KsSetPinFramingCache(this, core::mem::transmute_copy(&framingex), core::mem::transmute_copy(&framingprop), core::mem::transmute_copy(&option)).into()
+        }
+        unsafe extern "system" fn KsGetConnectedPin<Identity: IKsPinPipe_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> Option<super::DirectShow::IPin> {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPinPipe_Impl::KsGetConnectedPin(this)
+        }
+        unsafe extern "system" fn KsGetPipe<Identity: IKsPinPipe_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, operation: KSPEEKOPERATION) -> Option<IKsAllocatorEx> {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPinPipe_Impl::KsGetPipe(this, core::mem::transmute_copy(&operation))
+        }
+        unsafe extern "system" fn KsSetPipe<Identity: IKsPinPipe_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ksallocator: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPinPipe_Impl::KsSetPipe(this, windows_core::from_raw_borrowed(&ksallocator)).into()
+        }
+        unsafe extern "system" fn KsGetPipeAllocatorFlag<Identity: IKsPinPipe_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPinPipe_Impl::KsGetPipeAllocatorFlag(this)
+        }
+        unsafe extern "system" fn KsSetPipeAllocatorFlag<Identity: IKsPinPipe_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flag: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPinPipe_Impl::KsSetPipeAllocatorFlag(this, core::mem::transmute_copy(&flag)).into()
+        }
+        unsafe extern "system" fn KsGetPinBusCache<Identity: IKsPinPipe_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut windows_core::GUID) {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            *result__ = IKsPinPipe_Impl::KsGetPinBusCache(this)
+        }
+        unsafe extern "system" fn KsSetPinBusCache<Identity: IKsPinPipe_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bus: windows_core::GUID) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPinPipe_Impl::KsSetPinBusCache(this, core::mem::transmute(&bus)).into()
+        }
+        unsafe extern "system" fn KsGetPinName<Identity: IKsPinPipe_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::PWSTR {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPinPipe_Impl::KsGetPinName(this)
+        }
+        unsafe extern "system" fn KsGetFilterName<Identity: IKsPinPipe_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::PWSTR {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPinPipe_Impl::KsGetFilterName(this)
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            KsGetPinFramingCache: KsGetPinFramingCache::<Identity, OFFSET>,
+            KsSetPinFramingCache: KsSetPinFramingCache::<Identity, OFFSET>,
+            KsGetConnectedPin: KsGetConnectedPin::<Identity, OFFSET>,
+            KsGetPipe: KsGetPipe::<Identity, OFFSET>,
+            KsSetPipe: KsSetPipe::<Identity, OFFSET>,
+            KsGetPipeAllocatorFlag: KsGetPipeAllocatorFlag::<Identity, OFFSET>,
+            KsSetPipeAllocatorFlag: KsSetPipeAllocatorFlag::<Identity, OFFSET>,
+            KsGetPinBusCache: KsGetPinBusCache::<Identity, OFFSET>,
+            KsSetPinBusCache: KsSetPinBusCache::<Identity, OFFSET>,
+            KsGetPinName: KsGetPinName::<Identity, OFFSET>,
+            KsGetFilterName: KsGetFilterName::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsPinPipe as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IKsPropertySet, IKsPropertySet_Vtbl, 0x31efac30_515c_11d0_a9aa_00aa0061be93);
 impl core::ops::Deref for IKsPropertySet {
     type Target = windows_core::IUnknown;
@@ -813,6 +1617,43 @@ pub struct IKsPropertySet_Vtbl {
     pub Get: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *const core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub QuerySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *mut u32) -> windows_core::HRESULT,
 }
+pub trait IKsPropertySet_Impl: Sized + windows_core::IUnknownImpl {
+    fn Set(&self, guidpropset: *const windows_core::GUID, dwpropid: u32, pinstancedata: *const core::ffi::c_void, cbinstancedata: u32, ppropdata: *const core::ffi::c_void, cbpropdata: u32) -> windows_core::Result<()>;
+    fn Get(&self, guidpropset: *const windows_core::GUID, dwpropid: u32, pinstancedata: *const core::ffi::c_void, cbinstancedata: u32, ppropdata: *mut core::ffi::c_void, cbpropdata: u32, pcbreturned: *mut u32) -> windows_core::Result<()>;
+    fn QuerySupported(&self, guidpropset: *const windows_core::GUID, dwpropid: u32) -> windows_core::Result<u32>;
+}
+impl windows_core::RuntimeName for IKsPropertySet {}
+impl IKsPropertySet_Vtbl {
+    pub const fn new<Identity: IKsPropertySet_Impl, const OFFSET: isize>() -> IKsPropertySet_Vtbl {
+        unsafe extern "system" fn Set<Identity: IKsPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidpropset: *const windows_core::GUID, dwpropid: u32, pinstancedata: *const core::ffi::c_void, cbinstancedata: u32, ppropdata: *const core::ffi::c_void, cbpropdata: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPropertySet_Impl::Set(this, core::mem::transmute_copy(&guidpropset), core::mem::transmute_copy(&dwpropid), core::mem::transmute_copy(&pinstancedata), core::mem::transmute_copy(&cbinstancedata), core::mem::transmute_copy(&ppropdata), core::mem::transmute_copy(&cbpropdata)).into()
+        }
+        unsafe extern "system" fn Get<Identity: IKsPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidpropset: *const windows_core::GUID, dwpropid: u32, pinstancedata: *const core::ffi::c_void, cbinstancedata: u32, ppropdata: *mut core::ffi::c_void, cbpropdata: u32, pcbreturned: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsPropertySet_Impl::Get(this, core::mem::transmute_copy(&guidpropset), core::mem::transmute_copy(&dwpropid), core::mem::transmute_copy(&pinstancedata), core::mem::transmute_copy(&cbinstancedata), core::mem::transmute_copy(&ppropdata), core::mem::transmute_copy(&cbpropdata), core::mem::transmute_copy(&pcbreturned)).into()
+        }
+        unsafe extern "system" fn QuerySupported<Identity: IKsPropertySet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guidpropset: *const windows_core::GUID, dwpropid: u32, ptypesupport: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsPropertySet_Impl::QuerySupported(this, core::mem::transmute_copy(&guidpropset), core::mem::transmute_copy(&dwpropid)) {
+                Ok(ok__) => {
+                    ptypesupport.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Set: Set::<Identity, OFFSET>,
+            Get: Get::<Identity, OFFSET>,
+            QuerySupported: QuerySupported::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsPropertySet as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IKsQualityForwarder, IKsQualityForwarder_Vtbl, 0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
 impl core::ops::Deref for IKsQualityForwarder {
     type Target = IKsObject;
@@ -834,6 +1675,22 @@ pub struct IKsQualityForwarder_Vtbl {
     pub base__: IKsObject_Vtbl,
     pub KsFlushClient: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
 }
+pub trait IKsQualityForwarder_Impl: Sized + IKsObject_Impl {
+    fn KsFlushClient(&self, pin: Option<&IKsPin>);
+}
+impl windows_core::RuntimeName for IKsQualityForwarder {}
+impl IKsQualityForwarder_Vtbl {
+    pub const fn new<Identity: IKsQualityForwarder_Impl, const OFFSET: isize>() -> IKsQualityForwarder_Vtbl {
+        unsafe extern "system" fn KsFlushClient<Identity: IKsQualityForwarder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pin: *mut core::ffi::c_void) {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsQualityForwarder_Impl::KsFlushClient(this, windows_core::from_raw_borrowed(&pin))
+        }
+        Self { base__: IKsObject_Vtbl::new::<Identity, OFFSET>(), KsFlushClient: KsFlushClient::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsQualityForwarder as windows_core::Interface>::IID || iid == &<IKsObject as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IKsTopology, IKsTopology_Vtbl, 0x28f54683_06fd_11d2_b27a_00a0c9223196);
 impl core::ops::Deref for IKsTopology {
     type Target = windows_core::IUnknown;
@@ -854,6 +1711,22 @@ impl IKsTopology {
 pub struct IKsTopology_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateNodeInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IKsTopology_Impl: Sized + windows_core::IUnknownImpl {
+    fn CreateNodeInstance(&self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: Option<&windows_core::IUnknown>, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IKsTopology {}
+impl IKsTopology_Vtbl {
+    pub const fn new<Identity: IKsTopology_Impl, const OFFSET: isize>() -> IKsTopology_Vtbl {
+        unsafe extern "system" fn CreateNodeInstance<Identity: IKsTopology_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsTopology_Impl::CreateNodeInstance(this, core::mem::transmute_copy(&nodeid), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&desiredaccess), windows_core::from_raw_borrowed(&unkouter), core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateNodeInstance: CreateNodeInstance::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsTopology as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IKsTopologyInfo, IKsTopologyInfo_Vtbl, 0x720d4ac0_7533_11d0_a5d6_28db04c10000);
 impl core::ops::Deref for IKsTopologyInfo {
@@ -906,6 +1779,103 @@ pub struct IKsTopologyInfo_Vtbl {
     pub NumNodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub get_NodeType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub CreateNodeInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IKsTopologyInfo_Impl: Sized + windows_core::IUnknownImpl {
+    fn NumCategories(&self) -> windows_core::Result<u32>;
+    fn get_Category(&self, dwindex: u32) -> windows_core::Result<windows_core::GUID>;
+    fn NumConnections(&self) -> windows_core::Result<u32>;
+    fn get_ConnectionInfo(&self, dwindex: u32) -> windows_core::Result<KSTOPOLOGY_CONNECTION>;
+    fn get_NodeName(&self, dwnodeid: u32, pwchnodename: windows_core::PWSTR, dwbufsize: u32, pdwnamelen: *mut u32) -> windows_core::Result<()>;
+    fn NumNodes(&self) -> windows_core::Result<u32>;
+    fn get_NodeType(&self, dwnodeid: u32) -> windows_core::Result<windows_core::GUID>;
+    fn CreateNodeInstance(&self, dwnodeid: u32, iid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IKsTopologyInfo {}
+impl IKsTopologyInfo_Vtbl {
+    pub const fn new<Identity: IKsTopologyInfo_Impl, const OFFSET: isize>() -> IKsTopologyInfo_Vtbl {
+        unsafe extern "system" fn NumCategories<Identity: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwnumcategories: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsTopologyInfo_Impl::NumCategories(this) {
+                Ok(ok__) => {
+                    pdwnumcategories.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn get_Category<Identity: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, pcategory: *mut windows_core::GUID) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsTopologyInfo_Impl::get_Category(this, core::mem::transmute_copy(&dwindex)) {
+                Ok(ok__) => {
+                    pcategory.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn NumConnections<Identity: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwnumconnections: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsTopologyInfo_Impl::NumConnections(this) {
+                Ok(ok__) => {
+                    pdwnumconnections.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn get_ConnectionInfo<Identity: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, pconnectioninfo: *mut KSTOPOLOGY_CONNECTION) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsTopologyInfo_Impl::get_ConnectionInfo(this, core::mem::transmute_copy(&dwindex)) {
+                Ok(ok__) => {
+                    pconnectioninfo.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn get_NodeName<Identity: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwnodeid: u32, pwchnodename: windows_core::PWSTR, dwbufsize: u32, pdwnamelen: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsTopologyInfo_Impl::get_NodeName(this, core::mem::transmute_copy(&dwnodeid), core::mem::transmute_copy(&pwchnodename), core::mem::transmute_copy(&dwbufsize), core::mem::transmute_copy(&pdwnamelen)).into()
+        }
+        unsafe extern "system" fn NumNodes<Identity: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwnumnodes: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsTopologyInfo_Impl::NumNodes(this) {
+                Ok(ok__) => {
+                    pdwnumnodes.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn get_NodeType<Identity: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwnodeid: u32, pnodetype: *mut windows_core::GUID) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IKsTopologyInfo_Impl::get_NodeType(this, core::mem::transmute_copy(&dwnodeid)) {
+                Ok(ok__) => {
+                    pnodetype.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CreateNodeInstance<Identity: IKsTopologyInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwnodeid: u32, iid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IKsTopologyInfo_Impl::CreateNodeInstance(this, core::mem::transmute_copy(&dwnodeid), core::mem::transmute_copy(&iid), core::mem::transmute_copy(&ppvobject)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            NumCategories: NumCategories::<Identity, OFFSET>,
+            get_Category: get_Category::<Identity, OFFSET>,
+            NumConnections: NumConnections::<Identity, OFFSET>,
+            get_ConnectionInfo: get_ConnectionInfo::<Identity, OFFSET>,
+            get_NodeName: get_NodeName::<Identity, OFFSET>,
+            NumNodes: NumNodes::<Identity, OFFSET>,
+            get_NodeType: get_NodeType::<Identity, OFFSET>,
+            CreateNodeInstance: CreateNodeInstance::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IKsTopologyInfo as windows_core::Interface>::IID
+    }
 }
 pub const AEC_MODE_FULL_DUPLEX: u32 = 2u32;
 pub const AEC_MODE_HALF_DUPLEX: u32 = 1u32;
@@ -10935,5 +11905,3 @@ impl Default for WST_BUFFER_LINE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

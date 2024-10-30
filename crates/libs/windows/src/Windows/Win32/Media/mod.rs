@@ -98,6 +98,61 @@ pub struct IReferenceClock_Vtbl {
     pub AdvisePeriodic: unsafe extern "system" fn(*mut core::ffi::c_void, i64, i64, super::Foundation::HANDLE, *mut usize) -> windows_core::HRESULT,
     pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
+pub trait IReferenceClock_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetTime(&self) -> windows_core::Result<i64>;
+    fn AdviseTime(&self, basetime: i64, streamtime: i64, hevent: super::Foundation::HANDLE) -> windows_core::Result<usize>;
+    fn AdvisePeriodic(&self, starttime: i64, periodtime: i64, hsemaphore: super::Foundation::HANDLE) -> windows_core::Result<usize>;
+    fn Unadvise(&self, dwadvisecookie: usize) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IReferenceClock {}
+impl IReferenceClock_Vtbl {
+    pub const fn new<Identity: IReferenceClock_Impl, const OFFSET: isize>() -> IReferenceClock_Vtbl {
+        unsafe extern "system" fn GetTime<Identity: IReferenceClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptime: *mut i64) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IReferenceClock_Impl::GetTime(this) {
+                Ok(ok__) => {
+                    ptime.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AdviseTime<Identity: IReferenceClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, basetime: i64, streamtime: i64, hevent: super::Foundation::HANDLE, pdwadvisecookie: *mut usize) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IReferenceClock_Impl::AdviseTime(this, core::mem::transmute_copy(&basetime), core::mem::transmute_copy(&streamtime), core::mem::transmute_copy(&hevent)) {
+                Ok(ok__) => {
+                    pdwadvisecookie.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AdvisePeriodic<Identity: IReferenceClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, starttime: i64, periodtime: i64, hsemaphore: super::Foundation::HANDLE, pdwadvisecookie: *mut usize) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IReferenceClock_Impl::AdvisePeriodic(this, core::mem::transmute_copy(&starttime), core::mem::transmute_copy(&periodtime), core::mem::transmute_copy(&hsemaphore)) {
+                Ok(ok__) => {
+                    pdwadvisecookie.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Unadvise<Identity: IReferenceClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwadvisecookie: usize) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IReferenceClock_Impl::Unadvise(this, core::mem::transmute_copy(&dwadvisecookie)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetTime: GetTime::<Identity, OFFSET>,
+            AdviseTime: AdviseTime::<Identity, OFFSET>,
+            AdvisePeriodic: AdvisePeriodic::<Identity, OFFSET>,
+            Unadvise: Unadvise::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IReferenceClock as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IReferenceClock2, IReferenceClock2_Vtbl, 0x36b73885_c2c8_11cf_8b46_00805f6cef60);
 impl core::ops::Deref for IReferenceClock2 {
     type Target = IReferenceClock;
@@ -110,6 +165,16 @@ impl IReferenceClock2 {}
 #[repr(C)]
 pub struct IReferenceClock2_Vtbl {
     pub base__: IReferenceClock_Vtbl,
+}
+pub trait IReferenceClock2_Impl: Sized + IReferenceClock_Impl {}
+impl windows_core::RuntimeName for IReferenceClock2 {}
+impl IReferenceClock2_Vtbl {
+    pub const fn new<Identity: IReferenceClock2_Impl, const OFFSET: isize>() -> IReferenceClock2_Vtbl {
+        Self { base__: IReferenceClock_Vtbl::new::<Identity, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IReferenceClock2 as windows_core::Interface>::IID || iid == &<IReferenceClock as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IReferenceClockTimerControl, IReferenceClockTimerControl_Vtbl, 0xebec459c_2eca_4d42_a8af_30df557614b8);
 impl core::ops::Deref for IReferenceClockTimerControl {
@@ -133,6 +198,37 @@ pub struct IReferenceClockTimerControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub SetDefaultTimerResolution: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub GetDefaultTimerResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+}
+pub trait IReferenceClockTimerControl_Impl: Sized + windows_core::IUnknownImpl {
+    fn SetDefaultTimerResolution(&self, timerresolution: i64) -> windows_core::Result<()>;
+    fn GetDefaultTimerResolution(&self) -> windows_core::Result<i64>;
+}
+impl windows_core::RuntimeName for IReferenceClockTimerControl {}
+impl IReferenceClockTimerControl_Vtbl {
+    pub const fn new<Identity: IReferenceClockTimerControl_Impl, const OFFSET: isize>() -> IReferenceClockTimerControl_Vtbl {
+        unsafe extern "system" fn SetDefaultTimerResolution<Identity: IReferenceClockTimerControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timerresolution: i64) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IReferenceClockTimerControl_Impl::SetDefaultTimerResolution(this, core::mem::transmute_copy(&timerresolution)).into()
+        }
+        unsafe extern "system" fn GetDefaultTimerResolution<Identity: IReferenceClockTimerControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptimerresolution: *mut i64) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IReferenceClockTimerControl_Impl::GetDefaultTimerResolution(this) {
+                Ok(ok__) => {
+                    ptimerresolution.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            SetDefaultTimerResolution: SetDefaultTimerResolution::<Identity, OFFSET>,
+            GetDefaultTimerResolution: GetDefaultTimerResolution::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IReferenceClockTimerControl as windows_core::Interface>::IID
+    }
 }
 pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5047u32);
 pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5050u32);
@@ -424,5 +520,3 @@ impl Default for TIMECODE_SAMPLE {
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub type LPDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub type LPTIMECALLBACK = Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

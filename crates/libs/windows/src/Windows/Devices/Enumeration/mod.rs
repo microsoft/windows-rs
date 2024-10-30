@@ -92,6 +92,18 @@ impl windows_core::RuntimeType for IDeviceEnumerationSettings {
 pub struct IDeviceEnumerationSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
+pub trait IDeviceEnumerationSettings_Impl: Sized + windows_core::IUnknownImpl {}
+impl windows_core::RuntimeName for IDeviceEnumerationSettings {
+    const NAME: &'static str = "Windows.Devices.Enumeration.IDeviceEnumerationSettings";
+}
+impl IDeviceEnumerationSettings_Vtbl {
+    pub const fn new<Identity: IDeviceEnumerationSettings_Impl, const OFFSET: isize>() -> IDeviceEnumerationSettings_Vtbl {
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IDeviceEnumerationSettings, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IDeviceEnumerationSettings as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IDeviceInformation, IDeviceInformation_Vtbl, 0xaba0fb95_4398_489d_8e44_e6130927011f);
 impl windows_core::RuntimeType for IDeviceInformation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -367,6 +379,18 @@ impl windows_core::RuntimeType for IDevicePairingSettings {
 #[repr(C)]
 pub struct IDevicePairingSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+}
+pub trait IDevicePairingSettings_Impl: Sized + windows_core::IUnknownImpl {}
+impl windows_core::RuntimeName for IDevicePairingSettings {
+    const NAME: &'static str = "Windows.Devices.Enumeration.IDevicePairingSettings";
+}
+impl IDevicePairingSettings_Vtbl {
+    pub const fn new<Identity: IDevicePairingSettings_Impl, const OFFSET: isize>() -> IDevicePairingSettings_Vtbl {
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IDevicePairingSettings, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IDevicePairingSettings as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IDevicePicker, IDevicePicker_Vtbl, 0x84997aa2_034a_4440_8813_7d0bd479bf5a);
 impl windows_core::RuntimeType for IDevicePicker {
@@ -2435,5 +2459,3 @@ impl core::fmt::Debug for Panel {
 impl windows_core::RuntimeType for Panel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.Panel;i4)");
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

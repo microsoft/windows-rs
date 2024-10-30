@@ -26,6 +26,28 @@ pub struct IAccessibleWinSAT_Vtbl {
     pub base__: super::super::UI::Accessibility::IAccessible_Vtbl,
     pub SetAccessiblityData: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Accessibility"))]
+pub trait IAccessibleWinSAT_Impl: Sized + super::super::UI::Accessibility::IAccessible_Impl {
+    fn SetAccessiblityData(&self, wsname: &windows_core::PCWSTR, wsvalue: &windows_core::PCWSTR, wsdesc: &windows_core::PCWSTR) -> windows_core::Result<()>;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Accessibility"))]
+impl windows_core::RuntimeName for IAccessibleWinSAT {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Accessibility"))]
+impl IAccessibleWinSAT_Vtbl {
+    pub const fn new<Identity: IAccessibleWinSAT_Impl, const OFFSET: isize>() -> IAccessibleWinSAT_Vtbl {
+        unsafe extern "system" fn SetAccessiblityData<Identity: IAccessibleWinSAT_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wsname: windows_core::PCWSTR, wsvalue: windows_core::PCWSTR, wsdesc: windows_core::PCWSTR) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IAccessibleWinSAT_Impl::SetAccessiblityData(this, core::mem::transmute(&wsname), core::mem::transmute(&wsvalue), core::mem::transmute(&wsdesc)).into()
+        }
+        Self {
+            base__: super::super::UI::Accessibility::IAccessible_Vtbl::new::<Identity, OFFSET>(),
+            SetAccessiblityData: SetAccessiblityData::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IAccessibleWinSAT as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID || iid == &<super::super::UI::Accessibility::IAccessible as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IInitiateWinSATAssessment, IInitiateWinSATAssessment_Vtbl, 0xd983fc50_f5bf_49d5_b5ed_cccb18aa7fc1);
 impl core::ops::Deref for IInitiateWinSATAssessment {
     type Target = windows_core::IUnknown;
@@ -61,6 +83,37 @@ pub struct IInitiateWinSATAssessment_Vtbl {
     pub InitiateFormalAssessment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::Foundation::HWND) -> windows_core::HRESULT,
     pub CancelAssessment: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IInitiateWinSATAssessment_Impl: Sized + windows_core::IUnknownImpl {
+    fn InitiateAssessment(&self, cmdline: &windows_core::PCWSTR, pcallbacks: Option<&IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
+    fn InitiateFormalAssessment(&self, pcallbacks: Option<&IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
+    fn CancelAssessment(&self) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IInitiateWinSATAssessment {}
+impl IInitiateWinSATAssessment_Vtbl {
+    pub const fn new<Identity: IInitiateWinSATAssessment_Impl, const OFFSET: isize>() -> IInitiateWinSATAssessment_Vtbl {
+        unsafe extern "system" fn InitiateAssessment<Identity: IInitiateWinSATAssessment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cmdline: windows_core::PCWSTR, pcallbacks: *mut core::ffi::c_void, callerhwnd: super::super::Foundation::HWND) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IInitiateWinSATAssessment_Impl::InitiateAssessment(this, core::mem::transmute(&cmdline), windows_core::from_raw_borrowed(&pcallbacks), core::mem::transmute_copy(&callerhwnd)).into()
+        }
+        unsafe extern "system" fn InitiateFormalAssessment<Identity: IInitiateWinSATAssessment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallbacks: *mut core::ffi::c_void, callerhwnd: super::super::Foundation::HWND) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IInitiateWinSATAssessment_Impl::InitiateFormalAssessment(this, windows_core::from_raw_borrowed(&pcallbacks), core::mem::transmute_copy(&callerhwnd)).into()
+        }
+        unsafe extern "system" fn CancelAssessment<Identity: IInitiateWinSATAssessment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IInitiateWinSATAssessment_Impl::CancelAssessment(this).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            InitiateAssessment: InitiateAssessment::<Identity, OFFSET>,
+            InitiateFormalAssessment: InitiateFormalAssessment::<Identity, OFFSET>,
+            CancelAssessment: CancelAssessment::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IInitiateWinSATAssessment as windows_core::Interface>::IID
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IProvideWinSATAssessmentInfo, IProvideWinSATAssessmentInfo_Vtbl, 0x0cd1c380_52d3_4678_ac6f_e929e480be9e);
 #[cfg(feature = "Win32_System_Com")]
@@ -94,6 +147,58 @@ pub struct IProvideWinSATAssessmentInfo_Vtbl {
     pub Score: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub trait IProvideWinSATAssessmentInfo_Impl: Sized + super::Com::IDispatch_Impl {
+    fn Score(&self) -> windows_core::Result<f32>;
+    fn Title(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IProvideWinSATAssessmentInfo {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl IProvideWinSATAssessmentInfo_Vtbl {
+    pub const fn new<Identity: IProvideWinSATAssessmentInfo_Impl, const OFFSET: isize>() -> IProvideWinSATAssessmentInfo_Vtbl {
+        unsafe extern "system" fn Score<Identity: IProvideWinSATAssessmentInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, score: *mut f32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IProvideWinSATAssessmentInfo_Impl::Score(this) {
+                Ok(ok__) => {
+                    score.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Title<Identity: IProvideWinSATAssessmentInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, title: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IProvideWinSATAssessmentInfo_Impl::Title(this) {
+                Ok(ok__) => {
+                    title.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Description<Identity: IProvideWinSATAssessmentInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IProvideWinSATAssessmentInfo_Impl::Description(this) {
+                Ok(ok__) => {
+                    description.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
+            Score: Score::<Identity, OFFSET>,
+            Title: Title::<Identity, OFFSET>,
+            Description: Description::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IProvideWinSATAssessmentInfo as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IProvideWinSATResultsInfo, IProvideWinSATResultsInfo_Vtbl, 0xf8334d5d_568e_4075_875f_9df341506640);
@@ -147,6 +252,82 @@ pub struct IProvideWinSATResultsInfo_Vtbl {
     pub SystemRating: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub RatingStateDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub trait IProvideWinSATResultsInfo_Impl: Sized + super::Com::IDispatch_Impl {
+    fn GetAssessmentInfo(&self, assessment: WINSAT_ASSESSMENT_TYPE) -> windows_core::Result<IProvideWinSATAssessmentInfo>;
+    fn AssessmentState(&self) -> windows_core::Result<WINSAT_ASSESSMENT_STATE>;
+    fn AssessmentDateTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SystemRating(&self) -> windows_core::Result<f32>;
+    fn RatingStateDesc(&self) -> windows_core::Result<windows_core::BSTR>;
+}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IProvideWinSATResultsInfo {}
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl IProvideWinSATResultsInfo_Vtbl {
+    pub const fn new<Identity: IProvideWinSATResultsInfo_Impl, const OFFSET: isize>() -> IProvideWinSATResultsInfo_Vtbl {
+        unsafe extern "system" fn GetAssessmentInfo<Identity: IProvideWinSATResultsInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, assessment: WINSAT_ASSESSMENT_TYPE, ppinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IProvideWinSATResultsInfo_Impl::GetAssessmentInfo(this, core::mem::transmute_copy(&assessment)) {
+                Ok(ok__) => {
+                    ppinfo.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AssessmentState<Identity: IProvideWinSATResultsInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: *mut WINSAT_ASSESSMENT_STATE) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IProvideWinSATResultsInfo_Impl::AssessmentState(this) {
+                Ok(ok__) => {
+                    state.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AssessmentDateTime<Identity: IProvideWinSATResultsInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filetime: *mut core::mem::MaybeUninit<super::Variant::VARIANT>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IProvideWinSATResultsInfo_Impl::AssessmentDateTime(this) {
+                Ok(ok__) => {
+                    filetime.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SystemRating<Identity: IProvideWinSATResultsInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: *mut f32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IProvideWinSATResultsInfo_Impl::SystemRating(this) {
+                Ok(ok__) => {
+                    level.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RatingStateDesc<Identity: IProvideWinSATResultsInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, description: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IProvideWinSATResultsInfo_Impl::RatingStateDesc(this) {
+                Ok(ok__) => {
+                    description.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(),
+            GetAssessmentInfo: GetAssessmentInfo::<Identity, OFFSET>,
+            AssessmentState: AssessmentState::<Identity, OFFSET>,
+            AssessmentDateTime: AssessmentDateTime::<Identity, OFFSET>,
+            SystemRating: SystemRating::<Identity, OFFSET>,
+            RatingStateDesc: RatingStateDesc::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IProvideWinSATResultsInfo as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IProvideWinSATVisuals, IProvideWinSATVisuals_Vtbl, 0xa9f4ade0_871a_42a3_b813_3078d25162c9);
 impl core::ops::Deref for IProvideWinSATVisuals {
     type Target = windows_core::IUnknown;
@@ -169,6 +350,31 @@ pub struct IProvideWinSATVisuals_Vtbl {
     pub get_Bitmap: unsafe extern "system" fn(*mut core::ffi::c_void, WINSAT_BITMAP_SIZE, WINSAT_ASSESSMENT_STATE, f32, *mut super::super::Graphics::Gdi::HBITMAP) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     get_Bitmap: usize,
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub trait IProvideWinSATVisuals_Impl: Sized + windows_core::IUnknownImpl {
+    fn get_Bitmap(&self, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP>;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::RuntimeName for IProvideWinSATVisuals {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl IProvideWinSATVisuals_Vtbl {
+    pub const fn new<Identity: IProvideWinSATVisuals_Impl, const OFFSET: isize>() -> IProvideWinSATVisuals_Vtbl {
+        unsafe extern "system" fn get_Bitmap<Identity: IProvideWinSATVisuals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32, pbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IProvideWinSATVisuals_Impl::get_Bitmap(this, core::mem::transmute_copy(&bitmapsize), core::mem::transmute_copy(&state), core::mem::transmute_copy(&rating)) {
+                Ok(ok__) => {
+                    pbitmap.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), get_Bitmap: get_Bitmap::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IProvideWinSATVisuals as windows_core::Interface>::IID
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IQueryAllWinSATAssessments, IQueryAllWinSATAssessments_Vtbl, 0x0b89ed1d_6398_4fea_87fc_567d8d19176f);
@@ -202,6 +408,31 @@ pub struct IQueryAllWinSATAssessments_Vtbl {
     #[cfg(not(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com")))]
     get_AllXML: usize,
 }
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub trait IQueryAllWinSATAssessments_Impl: Sized + super::Com::IDispatch_Impl {
+    fn get_AllXML(&self, xpath: &windows_core::BSTR, namespaces: &windows_core::BSTR) -> windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>;
+}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IQueryAllWinSATAssessments {}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl IQueryAllWinSATAssessments_Vtbl {
+    pub const fn new<Identity: IQueryAllWinSATAssessments_Impl, const OFFSET: isize>() -> IQueryAllWinSATAssessments_Vtbl {
+        unsafe extern "system" fn get_AllXML<Identity: IQueryAllWinSATAssessments_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: core::mem::MaybeUninit<windows_core::BSTR>, namespaces: core::mem::MaybeUninit<windows_core::BSTR>, ppdomnodelist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IQueryAllWinSATAssessments_Impl::get_AllXML(this, core::mem::transmute(&xpath), core::mem::transmute(&namespaces)) {
+                Ok(ok__) => {
+                    ppdomnodelist.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), get_AllXML: get_AllXML::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IQueryAllWinSATAssessments as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IQueryOEMWinSATCustomization, IQueryOEMWinSATCustomization_Vtbl, 0xbc9a6a9f_ad4e_420e_9953_b34671e9df22);
 impl core::ops::Deref for IQueryOEMWinSATCustomization {
     type Target = windows_core::IUnknown;
@@ -220,6 +451,28 @@ impl IQueryOEMWinSATCustomization {
 pub struct IQueryOEMWinSATCustomization_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetOEMPrePopulationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINSAT_OEM_CUSTOMIZATION_STATE) -> windows_core::HRESULT,
+}
+pub trait IQueryOEMWinSATCustomization_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetOEMPrePopulationInfo(&self) -> windows_core::Result<WINSAT_OEM_CUSTOMIZATION_STATE>;
+}
+impl windows_core::RuntimeName for IQueryOEMWinSATCustomization {}
+impl IQueryOEMWinSATCustomization_Vtbl {
+    pub const fn new<Identity: IQueryOEMWinSATCustomization_Impl, const OFFSET: isize>() -> IQueryOEMWinSATCustomization_Vtbl {
+        unsafe extern "system" fn GetOEMPrePopulationInfo<Identity: IQueryOEMWinSATCustomization_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: *mut WINSAT_OEM_CUSTOMIZATION_STATE) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IQueryOEMWinSATCustomization_Impl::GetOEMPrePopulationInfo(this) {
+                Ok(ok__) => {
+                    state.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetOEMPrePopulationInfo: GetOEMPrePopulationInfo::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IQueryOEMWinSATCustomization as windows_core::Interface>::IID
+    }
 }
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IQueryRecentWinSATAssessment, IQueryRecentWinSATAssessment_Vtbl, 0xf8ad5d1f_3b47_4bdc_9375_7c6b1da4eca7);
@@ -262,6 +515,42 @@ pub struct IQueryRecentWinSATAssessment_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Info: usize,
 }
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub trait IQueryRecentWinSATAssessment_Impl: Sized + super::Com::IDispatch_Impl {
+    fn get_XML(&self, xpath: &windows_core::BSTR, namespaces: &windows_core::BSTR) -> windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>;
+    fn Info(&self) -> windows_core::Result<IProvideWinSATResultsInfo>;
+}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IQueryRecentWinSATAssessment {}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl IQueryRecentWinSATAssessment_Vtbl {
+    pub const fn new<Identity: IQueryRecentWinSATAssessment_Impl, const OFFSET: isize>() -> IQueryRecentWinSATAssessment_Vtbl {
+        unsafe extern "system" fn get_XML<Identity: IQueryRecentWinSATAssessment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpath: core::mem::MaybeUninit<windows_core::BSTR>, namespaces: core::mem::MaybeUninit<windows_core::BSTR>, ppdomnodelist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IQueryRecentWinSATAssessment_Impl::get_XML(this, core::mem::transmute(&xpath), core::mem::transmute(&namespaces)) {
+                Ok(ok__) => {
+                    ppdomnodelist.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Info<Identity: IQueryRecentWinSATAssessment_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwinsatassessmentinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IQueryRecentWinSATAssessment_Impl::Info(this) {
+                Ok(ok__) => {
+                    ppwinsatassessmentinfo.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: super::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), get_XML: get_XML::<Identity, OFFSET>, Info: Info::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IQueryRecentWinSATAssessment as windows_core::Interface>::IID || iid == &<super::Com::IDispatch as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWinSATInitiateEvents, IWinSATInitiateEvents_Vtbl, 0x262a1918_ba0d_41d5_92c2_fab4633ee74f);
 impl core::ops::Deref for IWinSATInitiateEvents {
     type Target = windows_core::IUnknown;
@@ -289,6 +578,31 @@ pub struct IWinSATInitiateEvents_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub WinSATComplete: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, windows_core::PCWSTR) -> windows_core::HRESULT,
     pub WinSATUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
+}
+pub trait IWinSATInitiateEvents_Impl: Sized + windows_core::IUnknownImpl {
+    fn WinSATComplete(&self, hresult: windows_core::HRESULT, strdescription: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn WinSATUpdate(&self, ucurrenttick: u32, uticktotal: u32, strcurrentstate: &windows_core::PCWSTR) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IWinSATInitiateEvents {}
+impl IWinSATInitiateEvents_Vtbl {
+    pub const fn new<Identity: IWinSATInitiateEvents_Impl, const OFFSET: isize>() -> IWinSATInitiateEvents_Vtbl {
+        unsafe extern "system" fn WinSATComplete<Identity: IWinSATInitiateEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hresult: windows_core::HRESULT, strdescription: windows_core::PCWSTR) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWinSATInitiateEvents_Impl::WinSATComplete(this, core::mem::transmute_copy(&hresult), core::mem::transmute(&strdescription)).into()
+        }
+        unsafe extern "system" fn WinSATUpdate<Identity: IWinSATInitiateEvents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ucurrenttick: u32, uticktotal: u32, strcurrentstate: windows_core::PCWSTR) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWinSATInitiateEvents_Impl::WinSATUpdate(this, core::mem::transmute_copy(&ucurrenttick), core::mem::transmute_copy(&uticktotal), core::mem::transmute(&strcurrentstate)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            WinSATComplete: WinSATComplete::<Identity, OFFSET>,
+            WinSATUpdate: WinSATUpdate::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWinSATInitiateEvents as windows_core::Interface>::IID
+    }
 }
 pub const WINSAT_ASSESSMENT_CPU: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(1i32);
 pub const WINSAT_ASSESSMENT_D3D: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(3i32);
@@ -358,5 +672,3 @@ pub const CProvideWinSATVisuals: windows_core::GUID = windows_core::GUID::from_u
 pub const CQueryAllWinSAT: windows_core::GUID = windows_core::GUID::from_u128(0x05df8d13_c355_47f4_a11e_851b338cefb8);
 pub const CQueryOEMWinSATCustomization: windows_core::GUID = windows_core::GUID::from_u128(0xc47a41b7_b729_424f_9af9_5cb3934f2dfa);
 pub const CQueryWinSAT: windows_core::GUID = windows_core::GUID::from_u128(0xf3bdfad3_f276_49e9_9b17_c474f48f0764);
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

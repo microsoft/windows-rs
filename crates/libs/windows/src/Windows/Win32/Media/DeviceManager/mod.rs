@@ -20,6 +20,31 @@ pub struct IComponentAuthenticate_Vtbl {
     pub SACAuth: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u8, u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub SACGetProtocols: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u32, *mut u32) -> windows_core::HRESULT,
 }
+pub trait IComponentAuthenticate_Impl: Sized + windows_core::IUnknownImpl {
+    fn SACAuth(&self, dwprotocolid: u32, dwpass: u32, pbdatain: *const u8, dwdatainlen: u32, ppbdataout: *mut *mut u8, pdwdataoutlen: *mut u32) -> windows_core::Result<()>;
+    fn SACGetProtocols(&self, ppdwprotocols: *mut *mut u32, pdwprotocolcount: *mut u32) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IComponentAuthenticate {}
+impl IComponentAuthenticate_Vtbl {
+    pub const fn new<Identity: IComponentAuthenticate_Impl, const OFFSET: isize>() -> IComponentAuthenticate_Vtbl {
+        unsafe extern "system" fn SACAuth<Identity: IComponentAuthenticate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwprotocolid: u32, dwpass: u32, pbdatain: *const u8, dwdatainlen: u32, ppbdataout: *mut *mut u8, pdwdataoutlen: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IComponentAuthenticate_Impl::SACAuth(this, core::mem::transmute_copy(&dwprotocolid), core::mem::transmute_copy(&dwpass), core::mem::transmute_copy(&pbdatain), core::mem::transmute_copy(&dwdatainlen), core::mem::transmute_copy(&ppbdataout), core::mem::transmute_copy(&pdwdataoutlen)).into()
+        }
+        unsafe extern "system" fn SACGetProtocols<Identity: IComponentAuthenticate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdwprotocols: *mut *mut u32, pdwprotocolcount: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IComponentAuthenticate_Impl::SACGetProtocols(this, core::mem::transmute_copy(&ppdwprotocols), core::mem::transmute_copy(&pdwprotocolcount)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            SACAuth: SACAuth::<Identity, OFFSET>,
+            SACGetProtocols: SACGetProtocols::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IComponentAuthenticate as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IMDSPDevice, IMDSPDevice_Vtbl, 0x1dcb3a12_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IMDSPDevice {
     type Target = windows_core::IUnknown;
@@ -87,6 +112,118 @@ pub struct IMDSPDevice_Vtbl {
     GetFormatSupport: usize,
     pub SendOpaqueCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OPAQUECOMMAND) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_Media_Audio")]
+pub trait IMDSPDevice_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetName(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
+    fn GetManufacturer(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
+    fn GetVersion(&self) -> windows_core::Result<u32>;
+    fn GetType(&self) -> windows_core::Result<u32>;
+    fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> windows_core::Result<()>;
+    fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> windows_core::Result<()>;
+    fn GetStatus(&self) -> windows_core::Result<u32>;
+    fn GetDeviceIcon(&self) -> windows_core::Result<u32>;
+    fn EnumStorage(&self) -> windows_core::Result<IMDSPEnumStorage>;
+    fn GetFormatSupport(&self, pformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut windows_core::PWSTR, pnmimetypecount: *mut u32) -> windows_core::Result<()>;
+    fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::RuntimeName for IMDSPDevice {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl IMDSPDevice_Vtbl {
+    pub const fn new<Identity: IMDSPDevice_Impl, const OFFSET: isize>() -> IMDSPDevice_Vtbl {
+        unsafe extern "system" fn GetName<Identity: IMDSPDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDevice_Impl::GetName(this, core::mem::transmute_copy(&pwszname), core::mem::transmute_copy(&nmaxchars)).into()
+        }
+        unsafe extern "system" fn GetManufacturer<Identity: IMDSPDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDevice_Impl::GetManufacturer(this, core::mem::transmute_copy(&pwszname), core::mem::transmute_copy(&nmaxchars)).into()
+        }
+        unsafe extern "system" fn GetVersion<Identity: IMDSPDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwversion: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPDevice_Impl::GetVersion(this) {
+                Ok(ok__) => {
+                    pdwversion.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetType<Identity: IMDSPDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwtype: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPDevice_Impl::GetType(this) {
+                Ok(ok__) => {
+                    pdwtype.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetSerialNumber<Identity: IMDSPDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pserialnumber: *mut WMDMID, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDevice_Impl::GetSerialNumber(this, core::mem::transmute_copy(&pserialnumber), core::mem::transmute_copy(&abmac)).into()
+        }
+        unsafe extern "system" fn GetPowerSource<Identity: IMDSPDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDevice_Impl::GetPowerSource(this, core::mem::transmute_copy(&pdwpowersource), core::mem::transmute_copy(&pdwpercentremaining)).into()
+        }
+        unsafe extern "system" fn GetStatus<Identity: IMDSPDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstatus: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPDevice_Impl::GetStatus(this) {
+                Ok(ok__) => {
+                    pdwstatus.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeviceIcon<Identity: IMDSPDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hicon: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPDevice_Impl::GetDeviceIcon(this) {
+                Ok(ok__) => {
+                    hicon.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn EnumStorage<Identity: IMDSPDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPDevice_Impl::EnumStorage(this) {
+                Ok(ok__) => {
+                    ppenumstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetFormatSupport<Identity: IMDSPDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut windows_core::PWSTR, pnmimetypecount: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDevice_Impl::GetFormatSupport(this, core::mem::transmute_copy(&pformatex), core::mem::transmute_copy(&pnformatcount), core::mem::transmute_copy(&pppwszmimetype), core::mem::transmute_copy(&pnmimetypecount)).into()
+        }
+        unsafe extern "system" fn SendOpaqueCommand<Identity: IMDSPDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcommand: *mut OPAQUECOMMAND) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDevice_Impl::SendOpaqueCommand(this, core::mem::transmute_copy(&pcommand)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetName: GetName::<Identity, OFFSET>,
+            GetManufacturer: GetManufacturer::<Identity, OFFSET>,
+            GetVersion: GetVersion::<Identity, OFFSET>,
+            GetType: GetType::<Identity, OFFSET>,
+            GetSerialNumber: GetSerialNumber::<Identity, OFFSET>,
+            GetPowerSource: GetPowerSource::<Identity, OFFSET>,
+            GetStatus: GetStatus::<Identity, OFFSET>,
+            GetDeviceIcon: GetDeviceIcon::<Identity, OFFSET>,
+            EnumStorage: EnumStorage::<Identity, OFFSET>,
+            GetFormatSupport: GetFormatSupport::<Identity, OFFSET>,
+            SendOpaqueCommand: SendOpaqueCommand::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDSPDevice as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IMDSPDevice2, IMDSPDevice2_Vtbl, 0x420d16ad_c97d_4e00_82aa_00e9f4335ddd);
 impl core::ops::Deref for IMDSPDevice2 {
     type Target = IMDSPDevice;
@@ -128,6 +265,52 @@ pub struct IMDSPDevice2_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     GetSpecifyPropertyPages: usize,
     pub GetCanonicalName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32) -> windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
+pub trait IMDSPDevice2_Impl: Sized + IMDSPDevice_Impl {
+    fn GetStorage(&self, pszstoragename: &windows_core::PCWSTR) -> windows_core::Result<IMDSPStorage>;
+    fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> windows_core::Result<()>;
+    fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut Option<windows_core::IUnknown>, pcunks: *mut u32) -> windows_core::Result<()>;
+    fn GetCanonicalName(&self, pwszpnpname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
+impl windows_core::RuntimeName for IMDSPDevice2 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
+impl IMDSPDevice2_Vtbl {
+    pub const fn new<Identity: IMDSPDevice2_Impl, const OFFSET: isize>() -> IMDSPDevice2_Vtbl {
+        unsafe extern "system" fn GetStorage<Identity: IMDSPDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszstoragename: windows_core::PCWSTR, ppstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPDevice2_Impl::GetStorage(this, core::mem::transmute(&pszstoragename)) {
+                Ok(ok__) => {
+                    ppstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetFormatSupport2<Identity: IMDSPDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDevice2_Impl::GetFormatSupport2(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ppaudioformatex), core::mem::transmute_copy(&pnaudioformatcount), core::mem::transmute_copy(&ppvideoformatex), core::mem::transmute_copy(&pnvideoformatcount), core::mem::transmute_copy(&ppfiletype), core::mem::transmute_copy(&pnfiletypecount)).into()
+        }
+        unsafe extern "system" fn GetSpecifyPropertyPages<Identity: IMDSPDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppspecifyproppages: *mut *mut core::ffi::c_void, pppunknowns: *mut *mut Option<windows_core::IUnknown>, pcunks: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDevice2_Impl::GetSpecifyPropertyPages(this, core::mem::transmute_copy(&ppspecifyproppages), core::mem::transmute_copy(&pppunknowns), core::mem::transmute_copy(&pcunks)).into()
+        }
+        unsafe extern "system" fn GetCanonicalName<Identity: IMDSPDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpnpname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDevice2_Impl::GetCanonicalName(this, core::mem::transmute_copy(&pwszpnpname), core::mem::transmute_copy(&nmaxchars)).into()
+        }
+        Self {
+            base__: IMDSPDevice_Vtbl::new::<Identity, OFFSET>(),
+            GetStorage: GetStorage::<Identity, OFFSET>,
+            GetFormatSupport2: GetFormatSupport2::<Identity, OFFSET>,
+            GetSpecifyPropertyPages: GetSpecifyPropertyPages::<Identity, OFFSET>,
+            GetCanonicalName: GetCanonicalName::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDSPDevice2 as windows_core::Interface>::IID || iid == &<IMDSPDevice as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IMDSPDevice3, IMDSPDevice3_Vtbl, 0x1a839845_fc55_487c_976f_ee38ac0e8c4e);
 impl core::ops::Deref for IMDSPDevice3 {
@@ -187,6 +370,70 @@ pub struct IMDSPDevice3_Vtbl {
     pub DeviceIoControl: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub FindStorage: unsafe extern "system" fn(*mut core::ffi::c_void, WMDM_FIND_SCOPE, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub trait IMDSPDevice3_Impl: Sized + IMDSPDevice2_Impl {
+    fn GetProperty(&self, pwszpropname: &windows_core::PCWSTR) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn SetProperty(&self, pwszpropname: &windows_core::PCWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> windows_core::Result<WMDM_FORMAT_CAPABILITY>;
+    fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> windows_core::Result<()>;
+    fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<IMDSPStorage>;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IMDSPDevice3 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl IMDSPDevice3_Vtbl {
+    pub const fn new<Identity: IMDSPDevice3_Impl, const OFFSET: isize>() -> IMDSPDevice3_Vtbl {
+        unsafe extern "system" fn GetProperty<Identity: IMDSPDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpropname: windows_core::PCWSTR, pvalue: *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPDevice3_Impl::GetProperty(this, core::mem::transmute(&pwszpropname)) {
+                Ok(ok__) => {
+                    pvalue.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetProperty<Identity: IMDSPDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpropname: windows_core::PCWSTR, pvalue: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDevice3_Impl::SetProperty(this, core::mem::transmute(&pwszpropname), core::mem::transmute_copy(&pvalue)).into()
+        }
+        unsafe extern "system" fn GetFormatCapability<Identity: IMDSPDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: WMDM_FORMATCODE, pformatsupport: *mut WMDM_FORMAT_CAPABILITY) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPDevice3_Impl::GetFormatCapability(this, core::mem::transmute_copy(&format)) {
+                Ok(ok__) => {
+                    pformatsupport.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DeviceIoControl<Identity: IMDSPDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDevice3_Impl::DeviceIoControl(this, core::mem::transmute_copy(&dwiocontrolcode), core::mem::transmute_copy(&lpinbuffer), core::mem::transmute_copy(&ninbuffersize), core::mem::transmute_copy(&lpoutbuffer), core::mem::transmute_copy(&pnoutbuffersize)).into()
+        }
+        unsafe extern "system" fn FindStorage<Identity: IMDSPDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, findscope: WMDM_FIND_SCOPE, pwszuniqueid: windows_core::PCWSTR, ppstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPDevice3_Impl::FindStorage(this, core::mem::transmute_copy(&findscope), core::mem::transmute(&pwszuniqueid)) {
+                Ok(ok__) => {
+                    ppstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: IMDSPDevice2_Vtbl::new::<Identity, OFFSET>(),
+            GetProperty: GetProperty::<Identity, OFFSET>,
+            SetProperty: SetProperty::<Identity, OFFSET>,
+            GetFormatCapability: GetFormatCapability::<Identity, OFFSET>,
+            DeviceIoControl: DeviceIoControl::<Identity, OFFSET>,
+            FindStorage: FindStorage::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDSPDevice3 as windows_core::Interface>::IID || iid == &<IMDSPDevice as windows_core::Interface>::IID || iid == &<IMDSPDevice2 as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IMDSPDeviceControl, IMDSPDeviceControl_Vtbl, 0x1dcb3a14_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IMDSPDeviceControl {
     type Target = windows_core::IUnknown;
@@ -239,6 +486,82 @@ pub struct IMDSPDeviceControl_Vtbl {
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Seek: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_Media_Audio")]
+pub trait IMDSPDeviceControl_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetDCStatus(&self) -> windows_core::Result<u32>;
+    fn GetCapabilities(&self) -> windows_core::Result<u32>;
+    fn Play(&self) -> windows_core::Result<()>;
+    fn Record(&self, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn Pause(&self) -> windows_core::Result<()>;
+    fn Resume(&self) -> windows_core::Result<()>;
+    fn Stop(&self) -> windows_core::Result<()>;
+    fn Seek(&self, fumode: u32, noffset: i32) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::RuntimeName for IMDSPDeviceControl {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl IMDSPDeviceControl_Vtbl {
+    pub const fn new<Identity: IMDSPDeviceControl_Impl, const OFFSET: isize>() -> IMDSPDeviceControl_Vtbl {
+        unsafe extern "system" fn GetDCStatus<Identity: IMDSPDeviceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstatus: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPDeviceControl_Impl::GetDCStatus(this) {
+                Ok(ok__) => {
+                    pdwstatus.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetCapabilities<Identity: IMDSPDeviceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcapabilitiesmask: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPDeviceControl_Impl::GetCapabilities(this) {
+                Ok(ok__) => {
+                    pdwcapabilitiesmask.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Play<Identity: IMDSPDeviceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDeviceControl_Impl::Play(this).into()
+        }
+        unsafe extern "system" fn Record<Identity: IMDSPDeviceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDeviceControl_Impl::Record(this, core::mem::transmute_copy(&pformat)).into()
+        }
+        unsafe extern "system" fn Pause<Identity: IMDSPDeviceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDeviceControl_Impl::Pause(this).into()
+        }
+        unsafe extern "system" fn Resume<Identity: IMDSPDeviceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDeviceControl_Impl::Resume(this).into()
+        }
+        unsafe extern "system" fn Stop<Identity: IMDSPDeviceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDeviceControl_Impl::Stop(this).into()
+        }
+        unsafe extern "system" fn Seek<Identity: IMDSPDeviceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, noffset: i32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPDeviceControl_Impl::Seek(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&noffset)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetDCStatus: GetDCStatus::<Identity, OFFSET>,
+            GetCapabilities: GetCapabilities::<Identity, OFFSET>,
+            Play: Play::<Identity, OFFSET>,
+            Record: Record::<Identity, OFFSET>,
+            Pause: Pause::<Identity, OFFSET>,
+            Resume: Resume::<Identity, OFFSET>,
+            Stop: Stop::<Identity, OFFSET>,
+            Seek: Seek::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDSPDeviceControl as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IMDSPDirectTransfer, IMDSPDirectTransfer_Vtbl, 0xc2fe57a8_9304_478c_9ee4_47e397b912d7);
 impl core::ops::Deref for IMDSPDirectTransfer {
     type Target = windows_core::IUnknown;
@@ -264,6 +587,28 @@ impl IMDSPDirectTransfer {
 pub struct IMDSPDirectTransfer_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub TransferToDevice: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IMDSPDirectTransfer_Impl: Sized + windows_core::IUnknownImpl {
+    fn TransferToDevice(&self, pwszsourcefilepath: &windows_core::PCWSTR, psourceoperation: Option<&IWMDMOperation>, fuflags: u32, pwszdestinationname: &windows_core::PCWSTR, psourcemetadata: Option<&IWMDMMetaData>, ptransferprogress: Option<&IWMDMProgress>) -> windows_core::Result<IMDSPStorage>;
+}
+impl windows_core::RuntimeName for IMDSPDirectTransfer {}
+impl IMDSPDirectTransfer_Vtbl {
+    pub const fn new<Identity: IMDSPDirectTransfer_Impl, const OFFSET: isize>() -> IMDSPDirectTransfer_Vtbl {
+        unsafe extern "system" fn TransferToDevice<Identity: IMDSPDirectTransfer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszsourcefilepath: windows_core::PCWSTR, psourceoperation: *mut core::ffi::c_void, fuflags: u32, pwszdestinationname: windows_core::PCWSTR, psourcemetadata: *mut core::ffi::c_void, ptransferprogress: *mut core::ffi::c_void, ppnewobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPDirectTransfer_Impl::TransferToDevice(this, core::mem::transmute(&pwszsourcefilepath), windows_core::from_raw_borrowed(&psourceoperation), core::mem::transmute_copy(&fuflags), core::mem::transmute(&pwszdestinationname), windows_core::from_raw_borrowed(&psourcemetadata), windows_core::from_raw_borrowed(&ptransferprogress)) {
+                Ok(ok__) => {
+                    ppnewobject.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TransferToDevice: TransferToDevice::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDSPDirectTransfer as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IMDSPEnumDevice, IMDSPEnumDevice_Vtbl, 0x1dcb3a11_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IMDSPEnumDevice {
@@ -297,6 +642,55 @@ pub struct IMDSPEnumDevice_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IMDSPEnumDevice_Impl: Sized + windows_core::IUnknownImpl {
+    fn Next(&self, celt: u32, ppdevice: *mut Option<IMDSPDevice>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Skip(&self, celt: u32) -> windows_core::Result<u32>;
+    fn Reset(&self) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IMDSPEnumDevice>;
+}
+impl windows_core::RuntimeName for IMDSPEnumDevice {}
+impl IMDSPEnumDevice_Vtbl {
+    pub const fn new<Identity: IMDSPEnumDevice_Impl, const OFFSET: isize>() -> IMDSPEnumDevice_Vtbl {
+        unsafe extern "system" fn Next<Identity: IMDSPEnumDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppdevice: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPEnumDevice_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppdevice), core::mem::transmute_copy(&pceltfetched)).into()
+        }
+        unsafe extern "system" fn Skip<Identity: IMDSPEnumDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, pceltfetched: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPEnumDevice_Impl::Skip(this, core::mem::transmute_copy(&celt)) {
+                Ok(ok__) => {
+                    pceltfetched.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Reset<Identity: IMDSPEnumDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPEnumDevice_Impl::Reset(this).into()
+        }
+        unsafe extern "system" fn Clone<Identity: IMDSPEnumDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPEnumDevice_Impl::Clone(this) {
+                Ok(ok__) => {
+                    ppenumdevice.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Next: Next::<Identity, OFFSET>,
+            Skip: Skip::<Identity, OFFSET>,
+            Reset: Reset::<Identity, OFFSET>,
+            Clone: Clone::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDSPEnumDevice as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IMDSPEnumStorage, IMDSPEnumStorage_Vtbl, 0x1dcb3a15_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IMDSPEnumStorage {
     type Target = windows_core::IUnknown;
@@ -328,6 +722,55 @@ pub struct IMDSPEnumStorage_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IMDSPEnumStorage_Impl: Sized + windows_core::IUnknownImpl {
+    fn Next(&self, celt: u32, ppstorage: *mut Option<IMDSPStorage>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Skip(&self, celt: u32) -> windows_core::Result<u32>;
+    fn Reset(&self) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IMDSPEnumStorage>;
+}
+impl windows_core::RuntimeName for IMDSPEnumStorage {}
+impl IMDSPEnumStorage_Vtbl {
+    pub const fn new<Identity: IMDSPEnumStorage_Impl, const OFFSET: isize>() -> IMDSPEnumStorage_Vtbl {
+        unsafe extern "system" fn Next<Identity: IMDSPEnumStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppstorage: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPEnumStorage_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppstorage), core::mem::transmute_copy(&pceltfetched)).into()
+        }
+        unsafe extern "system" fn Skip<Identity: IMDSPEnumStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, pceltfetched: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPEnumStorage_Impl::Skip(this, core::mem::transmute_copy(&celt)) {
+                Ok(ok__) => {
+                    pceltfetched.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Reset<Identity: IMDSPEnumStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPEnumStorage_Impl::Reset(this).into()
+        }
+        unsafe extern "system" fn Clone<Identity: IMDSPEnumStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPEnumStorage_Impl::Clone(this) {
+                Ok(ok__) => {
+                    ppenumstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Next: Next::<Identity, OFFSET>,
+            Skip: Skip::<Identity, OFFSET>,
+            Reset: Reset::<Identity, OFFSET>,
+            Clone: Clone::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDSPEnumStorage as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IMDSPObject, IMDSPObject_Vtbl, 0x1dcb3a18_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IMDSPObject {
@@ -386,6 +829,67 @@ pub struct IMDSPObject_Vtbl {
     pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IMDSPObject_Impl: Sized + windows_core::IUnknownImpl {
+    fn Open(&self, fumode: u32) -> windows_core::Result<()>;
+    fn Read(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
+    fn Write(&self, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
+    fn Delete(&self, fumode: u32, pprogress: Option<&IWMDMProgress>) -> windows_core::Result<()>;
+    fn Seek(&self, fuflags: u32, dwoffset: u32) -> windows_core::Result<()>;
+    fn Rename(&self, pwsznewname: &windows_core::PCWSTR, pprogress: Option<&IWMDMProgress>) -> windows_core::Result<()>;
+    fn Move(&self, fumode: u32, pprogress: Option<&IWMDMProgress>, ptarget: Option<&IMDSPStorage>) -> windows_core::Result<()>;
+    fn Close(&self) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IMDSPObject {}
+impl IMDSPObject_Vtbl {
+    pub const fn new<Identity: IMDSPObject_Impl, const OFFSET: isize>() -> IMDSPObject_Vtbl {
+        unsafe extern "system" fn Open<Identity: IMDSPObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPObject_Impl::Open(this, core::mem::transmute_copy(&fumode)).into()
+        }
+        unsafe extern "system" fn Read<Identity: IMDSPObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPObject_Impl::Read(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize), core::mem::transmute_copy(&abmac)).into()
+        }
+        unsafe extern "system" fn Write<Identity: IMDSPObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPObject_Impl::Write(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize), core::mem::transmute_copy(&abmac)).into()
+        }
+        unsafe extern "system" fn Delete<Identity: IMDSPObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPObject_Impl::Delete(this, core::mem::transmute_copy(&fumode), windows_core::from_raw_borrowed(&pprogress)).into()
+        }
+        unsafe extern "system" fn Seek<Identity: IMDSPObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuflags: u32, dwoffset: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPObject_Impl::Seek(this, core::mem::transmute_copy(&fuflags), core::mem::transmute_copy(&dwoffset)).into()
+        }
+        unsafe extern "system" fn Rename<Identity: IMDSPObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsznewname: windows_core::PCWSTR, pprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPObject_Impl::Rename(this, core::mem::transmute(&pwsznewname), windows_core::from_raw_borrowed(&pprogress)).into()
+        }
+        unsafe extern "system" fn Move<Identity: IMDSPObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pprogress: *mut core::ffi::c_void, ptarget: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPObject_Impl::Move(this, core::mem::transmute_copy(&fumode), windows_core::from_raw_borrowed(&pprogress), windows_core::from_raw_borrowed(&ptarget)).into()
+        }
+        unsafe extern "system" fn Close<Identity: IMDSPObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPObject_Impl::Close(this).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Open: Open::<Identity, OFFSET>,
+            Read: Read::<Identity, OFFSET>,
+            Write: Write::<Identity, OFFSET>,
+            Delete: Delete::<Identity, OFFSET>,
+            Seek: Seek::<Identity, OFFSET>,
+            Rename: Rename::<Identity, OFFSET>,
+            Move: Move::<Identity, OFFSET>,
+            Close: Close::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDSPObject as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IMDSPObject2, IMDSPObject2_Vtbl, 0x3f34cd3e_5907_4341_9af9_97f4187c3aa5);
 impl core::ops::Deref for IMDSPObject2 {
     type Target = IMDSPObject;
@@ -407,6 +911,31 @@ pub struct IMDSPObject2_Vtbl {
     pub base__: IMDSPObject_Vtbl,
     pub ReadOnClearChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub WriteOnClearChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *mut u32) -> windows_core::HRESULT,
+}
+pub trait IMDSPObject2_Impl: Sized + IMDSPObject_Impl {
+    fn ReadOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>;
+    fn WriteOnClearChannel(&self, pdata: *const u8, pdwsize: *mut u32) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IMDSPObject2 {}
+impl IMDSPObject2_Vtbl {
+    pub const fn new<Identity: IMDSPObject2_Impl, const OFFSET: isize>() -> IMDSPObject2_Vtbl {
+        unsafe extern "system" fn ReadOnClearChannel<Identity: IMDSPObject2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPObject2_Impl::ReadOnClearChannel(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize)).into()
+        }
+        unsafe extern "system" fn WriteOnClearChannel<Identity: IMDSPObject2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *const u8, pdwsize: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPObject2_Impl::WriteOnClearChannel(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize)).into()
+        }
+        Self {
+            base__: IMDSPObject_Vtbl::new::<Identity, OFFSET>(),
+            ReadOnClearChannel: ReadOnClearChannel::<Identity, OFFSET>,
+            WriteOnClearChannel: WriteOnClearChannel::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDSPObject2 as windows_core::Interface>::IID || iid == &<IMDSPObject as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IMDSPObjectInfo, IMDSPObjectInfo_Vtbl, 0x1dcb3a19_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IMDSPObjectInfo {
@@ -455,6 +984,91 @@ pub struct IMDSPObjectInfo_Vtbl {
     pub GetLastPlayPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetLongestPlayPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
+pub trait IMDSPObjectInfo_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetPlayLength(&self) -> windows_core::Result<u32>;
+    fn SetPlayLength(&self, dwlength: u32) -> windows_core::Result<()>;
+    fn GetPlayOffset(&self) -> windows_core::Result<u32>;
+    fn SetPlayOffset(&self, dwoffset: u32) -> windows_core::Result<()>;
+    fn GetTotalLength(&self) -> windows_core::Result<u32>;
+    fn GetLastPlayPosition(&self) -> windows_core::Result<u32>;
+    fn GetLongestPlayPosition(&self) -> windows_core::Result<u32>;
+}
+impl windows_core::RuntimeName for IMDSPObjectInfo {}
+impl IMDSPObjectInfo_Vtbl {
+    pub const fn new<Identity: IMDSPObjectInfo_Impl, const OFFSET: isize>() -> IMDSPObjectInfo_Vtbl {
+        unsafe extern "system" fn GetPlayLength<Identity: IMDSPObjectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlength: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPObjectInfo_Impl::GetPlayLength(this) {
+                Ok(ok__) => {
+                    pdwlength.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPlayLength<Identity: IMDSPObjectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlength: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPObjectInfo_Impl::SetPlayLength(this, core::mem::transmute_copy(&dwlength)).into()
+        }
+        unsafe extern "system" fn GetPlayOffset<Identity: IMDSPObjectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwoffset: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPObjectInfo_Impl::GetPlayOffset(this) {
+                Ok(ok__) => {
+                    pdwoffset.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPlayOffset<Identity: IMDSPObjectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoffset: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPObjectInfo_Impl::SetPlayOffset(this, core::mem::transmute_copy(&dwoffset)).into()
+        }
+        unsafe extern "system" fn GetTotalLength<Identity: IMDSPObjectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlength: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPObjectInfo_Impl::GetTotalLength(this) {
+                Ok(ok__) => {
+                    pdwlength.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetLastPlayPosition<Identity: IMDSPObjectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlastpos: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPObjectInfo_Impl::GetLastPlayPosition(this) {
+                Ok(ok__) => {
+                    pdwlastpos.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetLongestPlayPosition<Identity: IMDSPObjectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlongestpos: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPObjectInfo_Impl::GetLongestPlayPosition(this) {
+                Ok(ok__) => {
+                    pdwlongestpos.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetPlayLength: GetPlayLength::<Identity, OFFSET>,
+            SetPlayLength: SetPlayLength::<Identity, OFFSET>,
+            GetPlayOffset: GetPlayOffset::<Identity, OFFSET>,
+            SetPlayOffset: SetPlayOffset::<Identity, OFFSET>,
+            GetTotalLength: GetTotalLength::<Identity, OFFSET>,
+            GetLastPlayPosition: GetLastPlayPosition::<Identity, OFFSET>,
+            GetLongestPlayPosition: GetLongestPlayPosition::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDSPObjectInfo as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IMDSPRevoked, IMDSPRevoked_Vtbl, 0xa4e8f2d4_3f31_464d_b53d_4fc335998184);
 impl core::ops::Deref for IMDSPRevoked {
     type Target = windows_core::IUnknown;
@@ -472,6 +1086,22 @@ impl IMDSPRevoked {
 pub struct IMDSPRevoked_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRevocationURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
+}
+pub trait IMDSPRevoked_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetRevocationURL(&self, ppwszrevocationurl: *mut windows_core::PWSTR, pdwbufferlen: *mut u32) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IMDSPRevoked {}
+impl IMDSPRevoked_Vtbl {
+    pub const fn new<Identity: IMDSPRevoked_Impl, const OFFSET: isize>() -> IMDSPRevoked_Vtbl {
+        unsafe extern "system" fn GetRevocationURL<Identity: IMDSPRevoked_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszrevocationurl: *mut windows_core::PWSTR, pdwbufferlen: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPRevoked_Impl::GetRevocationURL(this, core::mem::transmute_copy(&ppwszrevocationurl), core::mem::transmute_copy(&pdwbufferlen)).into()
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRevocationURL: GetRevocationURL::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDSPRevoked as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IMDSPStorage, IMDSPStorage_Vtbl, 0x1dcb3a16_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IMDSPStorage {
@@ -546,6 +1176,106 @@ pub struct IMDSPStorage_Vtbl {
     pub EnumStorage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendOpaqueCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OPAQUECOMMAND) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_Media_Audio")]
+pub trait IMDSPStorage_Impl: Sized + windows_core::IUnknownImpl {
+    fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn GetStorageGlobals(&self) -> windows_core::Result<IMDSPStorageGlobals>;
+    fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn GetName(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
+    fn GetDate(&self) -> windows_core::Result<WMDMDATETIME>;
+    fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> windows_core::Result<()>;
+    fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
+    fn CreateStorage(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: &windows_core::PCWSTR) -> windows_core::Result<IMDSPStorage>;
+    fn EnumStorage(&self) -> windows_core::Result<IMDSPEnumStorage>;
+    fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::RuntimeName for IMDSPStorage {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl IMDSPStorage_Vtbl {
+    pub const fn new<Identity: IMDSPStorage_Impl, const OFFSET: isize>() -> IMDSPStorage_Vtbl {
+        unsafe extern "system" fn SetAttributes<Identity: IMDSPStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorage_Impl::SetAttributes(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&pformat)).into()
+        }
+        unsafe extern "system" fn GetStorageGlobals<Identity: IMDSPStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstorageglobals: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPStorage_Impl::GetStorageGlobals(this) {
+                Ok(ok__) => {
+                    ppstorageglobals.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetAttributes<Identity: IMDSPStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorage_Impl::GetAttributes(this, core::mem::transmute_copy(&pdwattributes), core::mem::transmute_copy(&pformat)).into()
+        }
+        unsafe extern "system" fn GetName<Identity: IMDSPStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorage_Impl::GetName(this, core::mem::transmute_copy(&pwszname), core::mem::transmute_copy(&nmaxchars)).into()
+        }
+        unsafe extern "system" fn GetDate<Identity: IMDSPStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdatetimeutc: *mut WMDMDATETIME) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPStorage_Impl::GetDate(this) {
+                Ok(ok__) => {
+                    pdatetimeutc.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetSize<Identity: IMDSPStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorage_Impl::GetSize(this, core::mem::transmute_copy(&pdwsizelow), core::mem::transmute_copy(&pdwsizehigh)).into()
+        }
+        unsafe extern "system" fn GetRights<Identity: IMDSPStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorage_Impl::GetRights(this, core::mem::transmute_copy(&pprights), core::mem::transmute_copy(&pnrightscount), core::mem::transmute_copy(&abmac)).into()
+        }
+        unsafe extern "system" fn CreateStorage<Identity: IMDSPStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: windows_core::PCWSTR, ppnewstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPStorage_Impl::CreateStorage(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&pformat), core::mem::transmute(&pwszname)) {
+                Ok(ok__) => {
+                    ppnewstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn EnumStorage<Identity: IMDSPStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPStorage_Impl::EnumStorage(this) {
+                Ok(ok__) => {
+                    ppenumstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SendOpaqueCommand<Identity: IMDSPStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcommand: *mut OPAQUECOMMAND) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorage_Impl::SendOpaqueCommand(this, core::mem::transmute_copy(&pcommand)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            SetAttributes: SetAttributes::<Identity, OFFSET>,
+            GetStorageGlobals: GetStorageGlobals::<Identity, OFFSET>,
+            GetAttributes: GetAttributes::<Identity, OFFSET>,
+            GetName: GetName::<Identity, OFFSET>,
+            GetDate: GetDate::<Identity, OFFSET>,
+            GetSize: GetSize::<Identity, OFFSET>,
+            GetRights: GetRights::<Identity, OFFSET>,
+            CreateStorage: CreateStorage::<Identity, OFFSET>,
+            EnumStorage: EnumStorage::<Identity, OFFSET>,
+            SendOpaqueCommand: SendOpaqueCommand::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDSPStorage as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IMDSPStorage2, IMDSPStorage2_Vtbl, 0x0a5e07a5_6454_4451_9c36_1c6ae7e2b1d6);
 impl core::ops::Deref for IMDSPStorage2 {
     type Target = IMDSPStorage;
@@ -596,6 +1326,58 @@ pub struct IMDSPStorage2_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation")))]
     GetAttributes2: usize,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+pub trait IMDSPStorage2_Impl: Sized + IMDSPStorage_Impl {
+    fn GetStorage(&self, pszstoragename: &windows_core::PCWSTR) -> windows_core::Result<IMDSPStorage>;
+    fn CreateStorage2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER, pwszname: &windows_core::PCWSTR, qwfilesize: u64) -> windows_core::Result<IMDSPStorage>;
+    fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::Result<()>;
+    fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::Result<()>;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+impl windows_core::RuntimeName for IMDSPStorage2 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+impl IMDSPStorage2_Vtbl {
+    pub const fn new<Identity: IMDSPStorage2_Impl, const OFFSET: isize>() -> IMDSPStorage2_Vtbl {
+        unsafe extern "system" fn GetStorage<Identity: IMDSPStorage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszstoragename: windows_core::PCWSTR, ppstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPStorage2_Impl::GetStorage(this, core::mem::transmute(&pszstoragename)) {
+                Ok(ok__) => {
+                    ppstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn CreateStorage2<Identity: IMDSPStorage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER, pwszname: windows_core::PCWSTR, qwfilesize: u64, ppnewstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPStorage2_Impl::CreateStorage2(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&dwattributesex), core::mem::transmute_copy(&paudioformat), core::mem::transmute_copy(&pvideoformat), core::mem::transmute(&pwszname), core::mem::transmute_copy(&qwfilesize)) {
+                Ok(ok__) => {
+                    ppnewstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAttributes2<Identity: IMDSPStorage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorage2_Impl::SetAttributes2(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&dwattributesex), core::mem::transmute_copy(&paudioformat), core::mem::transmute_copy(&pvideoformat)).into()
+        }
+        unsafe extern "system" fn GetAttributes2<Identity: IMDSPStorage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorage2_Impl::GetAttributes2(this, core::mem::transmute_copy(&pdwattributes), core::mem::transmute_copy(&pdwattributesex), core::mem::transmute_copy(&paudioformat), core::mem::transmute_copy(&pvideoformat)).into()
+        }
+        Self {
+            base__: IMDSPStorage_Vtbl::new::<Identity, OFFSET>(),
+            GetStorage: GetStorage::<Identity, OFFSET>,
+            CreateStorage2: CreateStorage2::<Identity, OFFSET>,
+            SetAttributes2: SetAttributes2::<Identity, OFFSET>,
+            GetAttributes2: GetAttributes2::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDSPStorage2 as windows_core::Interface>::IID || iid == &<IMDSPStorage as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IMDSPStorage3, IMDSPStorage3_Vtbl, 0x6c669867_97ed_4a67_9706_1c5529d2a414);
 impl core::ops::Deref for IMDSPStorage3 {
     type Target = IMDSPStorage2;
@@ -623,6 +1405,34 @@ pub struct IMDSPStorage3_Vtbl {
     pub base__: IMDSPStorage2_Vtbl,
     pub GetMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+pub trait IMDSPStorage3_Impl: Sized + IMDSPStorage2_Impl {
+    fn GetMetadata(&self, pmetadata: Option<&IWMDMMetaData>) -> windows_core::Result<()>;
+    fn SetMetadata(&self, pmetadata: Option<&IWMDMMetaData>) -> windows_core::Result<()>;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+impl windows_core::RuntimeName for IMDSPStorage3 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+impl IMDSPStorage3_Vtbl {
+    pub const fn new<Identity: IMDSPStorage3_Impl, const OFFSET: isize>() -> IMDSPStorage3_Vtbl {
+        unsafe extern "system" fn GetMetadata<Identity: IMDSPStorage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmetadata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorage3_Impl::GetMetadata(this, windows_core::from_raw_borrowed(&pmetadata)).into()
+        }
+        unsafe extern "system" fn SetMetadata<Identity: IMDSPStorage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmetadata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorage3_Impl::SetMetadata(this, windows_core::from_raw_borrowed(&pmetadata)).into()
+        }
+        Self {
+            base__: IMDSPStorage2_Vtbl::new::<Identity, OFFSET>(),
+            GetMetadata: GetMetadata::<Identity, OFFSET>,
+            SetMetadata: SetMetadata::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDSPStorage3 as windows_core::Interface>::IID || iid == &<IMDSPStorage as windows_core::Interface>::IID || iid == &<IMDSPStorage2 as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IMDSPStorage4, IMDSPStorage4_Vtbl, 0x3133b2c4_515c_481b_b1ce_39327ecb4f74);
 impl core::ops::Deref for IMDSPStorage4 {
@@ -674,6 +1484,76 @@ pub struct IMDSPStorage4_Vtbl {
     pub GetSpecifiedMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindStorage: unsafe extern "system" fn(*mut core::ffi::c_void, WMDM_FIND_SCOPE, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+pub trait IMDSPStorage4_Impl: Sized + IMDSPStorage3_Impl {
+    fn SetReferences(&self, dwrefs: u32, ppispstorage: *const Option<IMDSPStorage>) -> windows_core::Result<()>;
+    fn GetReferences(&self, pdwrefs: *mut u32, pppispstorage: *mut *mut Option<IMDSPStorage>) -> windows_core::Result<()>;
+    fn CreateStorageWithMetadata(&self, dwattributes: u32, pwszname: &windows_core::PCWSTR, pmetadata: Option<&IWMDMMetaData>, qwfilesize: u64) -> windows_core::Result<IMDSPStorage>;
+    fn GetSpecifiedMetadata(&self, cproperties: u32, ppwszpropnames: *const windows_core::PCWSTR, pmetadata: Option<&IWMDMMetaData>) -> windows_core::Result<()>;
+    fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<IMDSPStorage>;
+    fn GetParent(&self) -> windows_core::Result<IMDSPStorage>;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+impl windows_core::RuntimeName for IMDSPStorage4 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+impl IMDSPStorage4_Vtbl {
+    pub const fn new<Identity: IMDSPStorage4_Impl, const OFFSET: isize>() -> IMDSPStorage4_Vtbl {
+        unsafe extern "system" fn SetReferences<Identity: IMDSPStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrefs: u32, ppispstorage: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorage4_Impl::SetReferences(this, core::mem::transmute_copy(&dwrefs), core::mem::transmute_copy(&ppispstorage)).into()
+        }
+        unsafe extern "system" fn GetReferences<Identity: IMDSPStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwrefs: *mut u32, pppispstorage: *mut *mut Option<IMDSPStorage>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorage4_Impl::GetReferences(this, core::mem::transmute_copy(&pdwrefs), core::mem::transmute_copy(&pppispstorage)).into()
+        }
+        unsafe extern "system" fn CreateStorageWithMetadata<Identity: IMDSPStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwattributes: u32, pwszname: windows_core::PCWSTR, pmetadata: *mut core::ffi::c_void, qwfilesize: u64, ppnewstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPStorage4_Impl::CreateStorageWithMetadata(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute(&pwszname), windows_core::from_raw_borrowed(&pmetadata), core::mem::transmute_copy(&qwfilesize)) {
+                Ok(ok__) => {
+                    ppnewstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetSpecifiedMetadata<Identity: IMDSPStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cproperties: u32, ppwszpropnames: *const windows_core::PCWSTR, pmetadata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorage4_Impl::GetSpecifiedMetadata(this, core::mem::transmute_copy(&cproperties), core::mem::transmute_copy(&ppwszpropnames), windows_core::from_raw_borrowed(&pmetadata)).into()
+        }
+        unsafe extern "system" fn FindStorage<Identity: IMDSPStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, findscope: WMDM_FIND_SCOPE, pwszuniqueid: windows_core::PCWSTR, ppstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPStorage4_Impl::FindStorage(this, core::mem::transmute_copy(&findscope), core::mem::transmute(&pwszuniqueid)) {
+                Ok(ok__) => {
+                    ppstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetParent<Identity: IMDSPStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPStorage4_Impl::GetParent(this) {
+                Ok(ok__) => {
+                    ppstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: IMDSPStorage3_Vtbl::new::<Identity, OFFSET>(),
+            SetReferences: SetReferences::<Identity, OFFSET>,
+            GetReferences: GetReferences::<Identity, OFFSET>,
+            CreateStorageWithMetadata: CreateStorageWithMetadata::<Identity, OFFSET>,
+            GetSpecifiedMetadata: GetSpecifiedMetadata::<Identity, OFFSET>,
+            FindStorage: FindStorage::<Identity, OFFSET>,
+            GetParent: GetParent::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDSPStorage4 as windows_core::Interface>::IID || iid == &<IMDSPStorage as windows_core::Interface>::IID || iid == &<IMDSPStorage2 as windows_core::Interface>::IID || iid == &<IMDSPStorage3 as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IMDSPStorageGlobals, IMDSPStorageGlobals_Vtbl, 0x1dcb3a17_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IMDSPStorageGlobals {
@@ -732,6 +1612,97 @@ pub struct IMDSPStorageGlobals_Vtbl {
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRootStorage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IMDSPStorageGlobals_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetCapabilities(&self) -> windows_core::Result<u32>;
+    fn GetSerialNumber(&self, pserialnum: *mut WMDMID, abmac: *mut u8) -> windows_core::Result<()>;
+    fn GetTotalSize(&self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> windows_core::Result<()>;
+    fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> windows_core::Result<()>;
+    fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> windows_core::Result<()>;
+    fn GetStatus(&self) -> windows_core::Result<u32>;
+    fn Initialize(&self, fumode: u32, pprogress: Option<&IWMDMProgress>) -> windows_core::Result<()>;
+    fn GetDevice(&self) -> windows_core::Result<IMDSPDevice>;
+    fn GetRootStorage(&self) -> windows_core::Result<IMDSPStorage>;
+}
+impl windows_core::RuntimeName for IMDSPStorageGlobals {}
+impl IMDSPStorageGlobals_Vtbl {
+    pub const fn new<Identity: IMDSPStorageGlobals_Impl, const OFFSET: isize>() -> IMDSPStorageGlobals_Vtbl {
+        unsafe extern "system" fn GetCapabilities<Identity: IMDSPStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcapabilities: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPStorageGlobals_Impl::GetCapabilities(this) {
+                Ok(ok__) => {
+                    pdwcapabilities.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetSerialNumber<Identity: IMDSPStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pserialnum: *mut WMDMID, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorageGlobals_Impl::GetSerialNumber(this, core::mem::transmute_copy(&pserialnum), core::mem::transmute_copy(&abmac)).into()
+        }
+        unsafe extern "system" fn GetTotalSize<Identity: IMDSPStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorageGlobals_Impl::GetTotalSize(this, core::mem::transmute_copy(&pdwtotalsizelow), core::mem::transmute_copy(&pdwtotalsizehigh)).into()
+        }
+        unsafe extern "system" fn GetTotalFree<Identity: IMDSPStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorageGlobals_Impl::GetTotalFree(this, core::mem::transmute_copy(&pdwfreelow), core::mem::transmute_copy(&pdwfreehigh)).into()
+        }
+        unsafe extern "system" fn GetTotalBad<Identity: IMDSPStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorageGlobals_Impl::GetTotalBad(this, core::mem::transmute_copy(&pdwbadlow), core::mem::transmute_copy(&pdwbadhigh)).into()
+        }
+        unsafe extern "system" fn GetStatus<Identity: IMDSPStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstatus: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPStorageGlobals_Impl::GetStatus(this) {
+                Ok(ok__) => {
+                    pdwstatus.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Initialize<Identity: IMDSPStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDSPStorageGlobals_Impl::Initialize(this, core::mem::transmute_copy(&fumode), windows_core::from_raw_borrowed(&pprogress)).into()
+        }
+        unsafe extern "system" fn GetDevice<Identity: IMDSPStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPStorageGlobals_Impl::GetDevice(this) {
+                Ok(ok__) => {
+                    ppdevice.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetRootStorage<Identity: IMDSPStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pproot: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDSPStorageGlobals_Impl::GetRootStorage(this) {
+                Ok(ok__) => {
+                    pproot.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetCapabilities: GetCapabilities::<Identity, OFFSET>,
+            GetSerialNumber: GetSerialNumber::<Identity, OFFSET>,
+            GetTotalSize: GetTotalSize::<Identity, OFFSET>,
+            GetTotalFree: GetTotalFree::<Identity, OFFSET>,
+            GetTotalBad: GetTotalBad::<Identity, OFFSET>,
+            GetStatus: GetStatus::<Identity, OFFSET>,
+            Initialize: Initialize::<Identity, OFFSET>,
+            GetDevice: GetDevice::<Identity, OFFSET>,
+            GetRootStorage: GetRootStorage::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDSPStorageGlobals as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IMDServiceProvider, IMDServiceProvider_Vtbl, 0x1dcb3a10_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IMDServiceProvider {
     type Target = windows_core::IUnknown;
@@ -756,6 +1727,43 @@ pub struct IMDServiceProvider_Vtbl {
     pub GetDeviceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IMDServiceProvider_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetDeviceCount(&self) -> windows_core::Result<u32>;
+    fn EnumDevices(&self) -> windows_core::Result<IMDSPEnumDevice>;
+}
+impl windows_core::RuntimeName for IMDServiceProvider {}
+impl IMDServiceProvider_Vtbl {
+    pub const fn new<Identity: IMDServiceProvider_Impl, const OFFSET: isize>() -> IMDServiceProvider_Vtbl {
+        unsafe extern "system" fn GetDeviceCount<Identity: IMDServiceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDServiceProvider_Impl::GetDeviceCount(this) {
+                Ok(ok__) => {
+                    pdwcount.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn EnumDevices<Identity: IMDServiceProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMDServiceProvider_Impl::EnumDevices(this) {
+                Ok(ok__) => {
+                    ppenumdevice.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetDeviceCount: GetDeviceCount::<Identity, OFFSET>,
+            EnumDevices: EnumDevices::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDServiceProvider as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IMDServiceProvider2, IMDServiceProvider2_Vtbl, 0xb2fa24b7_cda3_4694_9862_413ae1a34819);
 impl core::ops::Deref for IMDServiceProvider2 {
     type Target = IMDServiceProvider;
@@ -777,6 +1785,22 @@ pub struct IMDServiceProvider2_Vtbl {
     pub base__: IMDServiceProvider_Vtbl,
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32, *mut *mut Option<IMDSPDevice>) -> windows_core::HRESULT,
 }
+pub trait IMDServiceProvider2_Impl: Sized + IMDServiceProvider_Impl {
+    fn CreateDevice(&self, pwszdevicepath: &windows_core::PCWSTR, pdwcount: *mut u32, pppdevicearray: *mut *mut Option<IMDSPDevice>) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IMDServiceProvider2 {}
+impl IMDServiceProvider2_Vtbl {
+    pub const fn new<Identity: IMDServiceProvider2_Impl, const OFFSET: isize>() -> IMDServiceProvider2_Vtbl {
+        unsafe extern "system" fn CreateDevice<Identity: IMDServiceProvider2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszdevicepath: windows_core::PCWSTR, pdwcount: *mut u32, pppdevicearray: *mut *mut Option<IMDSPDevice>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDServiceProvider2_Impl::CreateDevice(this, core::mem::transmute(&pwszdevicepath), core::mem::transmute_copy(&pdwcount), core::mem::transmute_copy(&pppdevicearray)).into()
+        }
+        Self { base__: IMDServiceProvider_Vtbl::new::<Identity, OFFSET>(), CreateDevice: CreateDevice::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDServiceProvider2 as windows_core::Interface>::IID || iid == &<IMDServiceProvider as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IMDServiceProvider3, IMDServiceProvider3_Vtbl, 0x4ed13ef3_a971_4d19_9f51_0e1826b2da57);
 impl core::ops::Deref for IMDServiceProvider3 {
     type Target = IMDServiceProvider2;
@@ -794,6 +1818,22 @@ impl IMDServiceProvider3 {
 pub struct IMDServiceProvider3_Vtbl {
     pub base__: IMDServiceProvider2_Vtbl,
     pub SetDeviceEnumPreference: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+}
+pub trait IMDServiceProvider3_Impl: Sized + IMDServiceProvider2_Impl {
+    fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IMDServiceProvider3 {}
+impl IMDServiceProvider3_Vtbl {
+    pub const fn new<Identity: IMDServiceProvider3_Impl, const OFFSET: isize>() -> IMDServiceProvider3_Vtbl {
+        unsafe extern "system" fn SetDeviceEnumPreference<Identity: IMDServiceProvider3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwenumpref: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMDServiceProvider3_Impl::SetDeviceEnumPreference(this, core::mem::transmute_copy(&dwenumpref)).into()
+        }
+        Self { base__: IMDServiceProvider2_Vtbl::new::<Identity, OFFSET>(), SetDeviceEnumPreference: SetDeviceEnumPreference::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMDServiceProvider3 as windows_core::Interface>::IID || iid == &<IMDServiceProvider as windows_core::Interface>::IID || iid == &<IMDServiceProvider2 as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(ISCPSecureAuthenticate, ISCPSecureAuthenticate_Vtbl, 0x1dcb3a0f_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for ISCPSecureAuthenticate {
@@ -814,6 +1854,28 @@ pub struct ISCPSecureAuthenticate_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSecureQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait ISCPSecureAuthenticate_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetSecureQuery(&self) -> windows_core::Result<ISCPSecureQuery>;
+}
+impl windows_core::RuntimeName for ISCPSecureAuthenticate {}
+impl ISCPSecureAuthenticate_Vtbl {
+    pub const fn new<Identity: ISCPSecureAuthenticate_Impl, const OFFSET: isize>() -> ISCPSecureAuthenticate_Vtbl {
+        unsafe extern "system" fn GetSecureQuery<Identity: ISCPSecureAuthenticate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsecurequery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match ISCPSecureAuthenticate_Impl::GetSecureQuery(this) {
+                Ok(ok__) => {
+                    ppsecurequery.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetSecureQuery: GetSecureQuery::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISCPSecureAuthenticate as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(ISCPSecureAuthenticate2, ISCPSecureAuthenticate2_Vtbl, 0xb580cfae_1672_47e2_acaa_44bbecbcae5b);
 impl core::ops::Deref for ISCPSecureAuthenticate2 {
     type Target = ISCPSecureAuthenticate;
@@ -832,6 +1894,28 @@ impl ISCPSecureAuthenticate2 {
 pub struct ISCPSecureAuthenticate2_Vtbl {
     pub base__: ISCPSecureAuthenticate_Vtbl,
     pub GetSCPSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait ISCPSecureAuthenticate2_Impl: Sized + ISCPSecureAuthenticate_Impl {
+    fn GetSCPSession(&self) -> windows_core::Result<ISCPSession>;
+}
+impl windows_core::RuntimeName for ISCPSecureAuthenticate2 {}
+impl ISCPSecureAuthenticate2_Vtbl {
+    pub const fn new<Identity: ISCPSecureAuthenticate2_Impl, const OFFSET: isize>() -> ISCPSecureAuthenticate2_Vtbl {
+        unsafe extern "system" fn GetSCPSession<Identity: ISCPSecureAuthenticate2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppscpsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match ISCPSecureAuthenticate2_Impl::GetSCPSession(this) {
+                Ok(ok__) => {
+                    ppscpsession.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: ISCPSecureAuthenticate_Vtbl::new::<Identity, OFFSET>(), GetSCPSession: GetSCPSession::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISCPSecureAuthenticate2 as windows_core::Interface>::IID || iid == &<ISCPSecureAuthenticate as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(ISCPSecureExchange, ISCPSecureExchange_Vtbl, 0x1dcb3a0e_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for ISCPSecureExchange {
@@ -859,6 +1943,37 @@ pub struct ISCPSecureExchange_Vtbl {
     pub ObjectData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32, *mut u8) -> windows_core::HRESULT,
     pub TransferComplete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait ISCPSecureExchange_Impl: Sized + windows_core::IUnknownImpl {
+    fn TransferContainerData(&self, pdata: *const u8, dwsize: u32, pfureadyflags: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
+    fn ObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
+    fn TransferComplete(&self) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for ISCPSecureExchange {}
+impl ISCPSecureExchange_Vtbl {
+    pub const fn new<Identity: ISCPSecureExchange_Impl, const OFFSET: isize>() -> ISCPSecureExchange_Vtbl {
+        unsafe extern "system" fn TransferContainerData<Identity: ISCPSecureExchange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *const u8, dwsize: u32, pfureadyflags: *mut u32, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISCPSecureExchange_Impl::TransferContainerData(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&pfureadyflags), core::mem::transmute_copy(&abmac)).into()
+        }
+        unsafe extern "system" fn ObjectData<Identity: ISCPSecureExchange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISCPSecureExchange_Impl::ObjectData(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize), core::mem::transmute_copy(&abmac)).into()
+        }
+        unsafe extern "system" fn TransferComplete<Identity: ISCPSecureExchange_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISCPSecureExchange_Impl::TransferComplete(this).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            TransferContainerData: TransferContainerData::<Identity, OFFSET>,
+            ObjectData: ObjectData::<Identity, OFFSET>,
+            TransferComplete: TransferComplete::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISCPSecureExchange as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(ISCPSecureExchange2, ISCPSecureExchange2_Vtbl, 0x6c62fc7b_2690_483f_9d44_0a20cb35577c);
 impl core::ops::Deref for ISCPSecureExchange2 {
     type Target = ISCPSecureExchange;
@@ -879,6 +1994,22 @@ impl ISCPSecureExchange2 {
 pub struct ISCPSecureExchange2_Vtbl {
     pub base__: ISCPSecureExchange_Vtbl,
     pub TransferContainerData2: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut core::ffi::c_void, *mut u32, *mut u8) -> windows_core::HRESULT,
+}
+pub trait ISCPSecureExchange2_Impl: Sized + ISCPSecureExchange_Impl {
+    fn TransferContainerData2(&self, pdata: *const u8, dwsize: u32, pprogresscallback: Option<&IWMDMProgress3>, pfureadyflags: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for ISCPSecureExchange2 {}
+impl ISCPSecureExchange2_Vtbl {
+    pub const fn new<Identity: ISCPSecureExchange2_Impl, const OFFSET: isize>() -> ISCPSecureExchange2_Vtbl {
+        unsafe extern "system" fn TransferContainerData2<Identity: ISCPSecureExchange2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *const u8, dwsize: u32, pprogresscallback: *mut core::ffi::c_void, pfureadyflags: *mut u32, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISCPSecureExchange2_Impl::TransferContainerData2(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), windows_core::from_raw_borrowed(&pprogresscallback), core::mem::transmute_copy(&pfureadyflags), core::mem::transmute_copy(&abmac)).into()
+        }
+        Self { base__: ISCPSecureExchange_Vtbl::new::<Identity, OFFSET>(), TransferContainerData2: TransferContainerData2::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISCPSecureExchange2 as windows_core::Interface>::IID || iid == &<ISCPSecureExchange as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(ISCPSecureExchange3, ISCPSecureExchange3_Vtbl, 0xab4e77e4_8908_4b17_bd2a_b1dbe6dd69e1);
 impl core::ops::Deref for ISCPSecureExchange3 {
@@ -916,6 +2047,43 @@ pub struct ISCPSecureExchange3_Vtbl {
     pub TransferContainerDataOnClearChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const u8, u32, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetObjectDataOnClearChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub TransferCompleteForDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait ISCPSecureExchange3_Impl: Sized + ISCPSecureExchange2_Impl {
+    fn TransferContainerDataOnClearChannel(&self, pdevice: Option<&IMDSPDevice>, pdata: *const u8, dwsize: u32, pprogresscallback: Option<&IWMDMProgress3>) -> windows_core::Result<u32>;
+    fn GetObjectDataOnClearChannel(&self, pdevice: Option<&IMDSPDevice>, pdata: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>;
+    fn TransferCompleteForDevice(&self, pdevice: Option<&IMDSPDevice>) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for ISCPSecureExchange3 {}
+impl ISCPSecureExchange3_Vtbl {
+    pub const fn new<Identity: ISCPSecureExchange3_Impl, const OFFSET: isize>() -> ISCPSecureExchange3_Vtbl {
+        unsafe extern "system" fn TransferContainerDataOnClearChannel<Identity: ISCPSecureExchange3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, pdata: *const u8, dwsize: u32, pprogresscallback: *mut core::ffi::c_void, pfureadyflags: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match ISCPSecureExchange3_Impl::TransferContainerDataOnClearChannel(this, windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), windows_core::from_raw_borrowed(&pprogresscallback)) {
+                Ok(ok__) => {
+                    pfureadyflags.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetObjectDataOnClearChannel<Identity: ISCPSecureExchange3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISCPSecureExchange3_Impl::GetObjectDataOnClearChannel(this, windows_core::from_raw_borrowed(&pdevice), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize)).into()
+        }
+        unsafe extern "system" fn TransferCompleteForDevice<Identity: ISCPSecureExchange3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevice: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISCPSecureExchange3_Impl::TransferCompleteForDevice(this, windows_core::from_raw_borrowed(&pdevice)).into()
+        }
+        Self {
+            base__: ISCPSecureExchange2_Vtbl::new::<Identity, OFFSET>(),
+            TransferContainerDataOnClearChannel: TransferContainerDataOnClearChannel::<Identity, OFFSET>,
+            GetObjectDataOnClearChannel: GetObjectDataOnClearChannel::<Identity, OFFSET>,
+            TransferCompleteForDevice: TransferCompleteForDevice::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISCPSecureExchange3 as windows_core::Interface>::IID || iid == &<ISCPSecureExchange as windows_core::Interface>::IID || iid == &<ISCPSecureExchange2 as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(ISCPSecureQuery, ISCPSecureQuery_Vtbl, 0x1dcb3a0d_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for ISCPSecureQuery {
@@ -955,6 +2123,43 @@ pub struct ISCPSecureQuery_Vtbl {
     pub ExamineData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *const u8, u32, *mut u8) -> windows_core::HRESULT,
     pub MakeDecision: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, u32, *const u8, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub GetRights: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *const u8, u32, *mut core::ffi::c_void, *mut *mut WMDMRIGHTS, *mut u32, *mut u8) -> windows_core::HRESULT,
+}
+pub trait ISCPSecureQuery_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetDataDemands(&self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
+    fn ExamineData(&self, fuflags: u32, pwszextension: &windows_core::PCWSTR, pdata: *const u8, dwsize: u32, abmac: *mut u8) -> windows_core::Result<()>;
+    fn MakeDecision(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: Option<&IMDSPStorageGlobals>, ppexchange: *mut Option<ISCPSecureExchange>, abmac: *mut u8) -> windows_core::Result<()>;
+    fn GetRights(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: Option<&IMDSPStorageGlobals>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for ISCPSecureQuery {}
+impl ISCPSecureQuery_Vtbl {
+    pub const fn new<Identity: ISCPSecureQuery_Impl, const OFFSET: isize>() -> ISCPSecureQuery_Vtbl {
+        unsafe extern "system" fn GetDataDemands<Identity: ISCPSecureQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISCPSecureQuery_Impl::GetDataDemands(this, core::mem::transmute_copy(&pfuflags), core::mem::transmute_copy(&pdwminrightsdata), core::mem::transmute_copy(&pdwminexaminedata), core::mem::transmute_copy(&pdwmindecidedata), core::mem::transmute_copy(&abmac)).into()
+        }
+        unsafe extern "system" fn ExamineData<Identity: ISCPSecureQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuflags: u32, pwszextension: windows_core::PCWSTR, pdata: *const u8, dwsize: u32, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISCPSecureQuery_Impl::ExamineData(this, core::mem::transmute_copy(&fuflags), core::mem::transmute(&pwszextension), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&abmac)).into()
+        }
+        unsafe extern "system" fn MakeDecision<Identity: ISCPSecureQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: *mut core::ffi::c_void, ppexchange: *mut *mut core::ffi::c_void, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISCPSecureQuery_Impl::MakeDecision(this, core::mem::transmute_copy(&fuflags), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&dwappsec), core::mem::transmute_copy(&pbspsessionkey), core::mem::transmute_copy(&dwsessionkeylen), windows_core::from_raw_borrowed(&pstorageglobals), core::mem::transmute_copy(&ppexchange), core::mem::transmute_copy(&abmac)).into()
+        }
+        unsafe extern "system" fn GetRights<Identity: ISCPSecureQuery_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: *mut core::ffi::c_void, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISCPSecureQuery_Impl::GetRights(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&pbspsessionkey), core::mem::transmute_copy(&dwsessionkeylen), windows_core::from_raw_borrowed(&pstgglobals), core::mem::transmute_copy(&pprights), core::mem::transmute_copy(&pnrightscount), core::mem::transmute_copy(&abmac)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetDataDemands: GetDataDemands::<Identity, OFFSET>,
+            ExamineData: ExamineData::<Identity, OFFSET>,
+            MakeDecision: MakeDecision::<Identity, OFFSET>,
+            GetRights: GetRights::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISCPSecureQuery as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(ISCPSecureQuery2, ISCPSecureQuery2_Vtbl, 0xebe17e25_4fd7_4632_af46_6d93d4fcc72e);
 impl core::ops::Deref for ISCPSecureQuery2 {
@@ -998,6 +2203,43 @@ impl ISCPSecureQuery2 {
 pub struct ISCPSecureQuery2_Vtbl {
     pub base__: ISCPSecureQuery_Vtbl,
     pub MakeDecision2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, u32, *const u8, u32, *mut core::ffi::c_void, *const u8, u32, *const u8, u32, *mut windows_core::PWSTR, *mut u32, *mut u32, *mut u64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
+}
+pub trait ISCPSecureQuery2_Impl: Sized + ISCPSecureQuery_Impl {
+    fn MakeDecision2(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: Option<&IMDSPStorageGlobals>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: Option<&windows_core::IUnknown>, ppexchange: *mut Option<ISCPSecureExchange>, abmac: *mut u8) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for ISCPSecureQuery2 {}
+impl ISCPSecureQuery2_Vtbl {
+    pub const fn new<Identity: ISCPSecureQuery2_Impl, const OFFSET: isize>() -> ISCPSecureQuery2_Vtbl {
+        unsafe extern "system" fn MakeDecision2<Identity: ISCPSecureQuery2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: *mut core::ffi::c_void, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: *mut core::ffi::c_void, ppexchange: *mut *mut core::ffi::c_void, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISCPSecureQuery2_Impl::MakeDecision2(
+                this,
+                core::mem::transmute_copy(&fuflags),
+                core::mem::transmute_copy(&pdata),
+                core::mem::transmute_copy(&dwsize),
+                core::mem::transmute_copy(&dwappsec),
+                core::mem::transmute_copy(&pbspsessionkey),
+                core::mem::transmute_copy(&dwsessionkeylen),
+                windows_core::from_raw_borrowed(&pstorageglobals),
+                core::mem::transmute_copy(&pappcertapp),
+                core::mem::transmute_copy(&dwappcertapplen),
+                core::mem::transmute_copy(&pappcertsp),
+                core::mem::transmute_copy(&dwappcertsplen),
+                core::mem::transmute_copy(&pszrevocationurl),
+                core::mem::transmute_copy(&pdwrevocationurllen),
+                core::mem::transmute_copy(&pdwrevocationbitflag),
+                core::mem::transmute_copy(&pqwfilesize),
+                windows_core::from_raw_borrowed(&punknown),
+                core::mem::transmute_copy(&ppexchange),
+                core::mem::transmute_copy(&abmac),
+            )
+            .into()
+        }
+        Self { base__: ISCPSecureQuery_Vtbl::new::<Identity, OFFSET>(), MakeDecision2: MakeDecision2::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISCPSecureQuery2 as windows_core::Interface>::IID || iid == &<ISCPSecureQuery as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(ISCPSecureQuery3, ISCPSecureQuery3_Vtbl, 0xb7edd1a2_4dab_484b_b3c5_ad39b8b4c0b1);
 impl core::ops::Deref for ISCPSecureQuery3 {
@@ -1051,6 +2293,52 @@ pub struct ISCPSecureQuery3_Vtbl {
     pub GetRightsOnClearChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *const u8, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut WMDMRIGHTS, *mut u32) -> windows_core::HRESULT,
     pub MakeDecisionOnClearChannel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, u32, *const u8, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *const u8, u32, *const u8, u32, *mut windows_core::PWSTR, *mut u32, *mut u32, *mut u64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait ISCPSecureQuery3_Impl: Sized + ISCPSecureQuery2_Impl {
+    fn GetRightsOnClearChannel(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: Option<&IMDSPStorageGlobals>, pprogresscallback: Option<&IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> windows_core::Result<()>;
+    fn MakeDecisionOnClearChannel(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: Option<&IMDSPStorageGlobals>, pprogresscallback: Option<&IWMDMProgress3>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: Option<&windows_core::IUnknown>, ppexchange: *mut Option<ISCPSecureExchange>) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for ISCPSecureQuery3 {}
+impl ISCPSecureQuery3_Vtbl {
+    pub const fn new<Identity: ISCPSecureQuery3_Impl, const OFFSET: isize>() -> ISCPSecureQuery3_Vtbl {
+        unsafe extern "system" fn GetRightsOnClearChannel<Identity: ISCPSecureQuery3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: *mut core::ffi::c_void, pprogresscallback: *mut core::ffi::c_void, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISCPSecureQuery3_Impl::GetRightsOnClearChannel(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&pbspsessionkey), core::mem::transmute_copy(&dwsessionkeylen), windows_core::from_raw_borrowed(&pstgglobals), windows_core::from_raw_borrowed(&pprogresscallback), core::mem::transmute_copy(&pprights), core::mem::transmute_copy(&pnrightscount)).into()
+        }
+        unsafe extern "system" fn MakeDecisionOnClearChannel<Identity: ISCPSecureQuery3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: *mut core::ffi::c_void, pprogresscallback: *mut core::ffi::c_void, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: *mut core::ffi::c_void, ppexchange: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISCPSecureQuery3_Impl::MakeDecisionOnClearChannel(
+                this,
+                core::mem::transmute_copy(&fuflags),
+                core::mem::transmute_copy(&pdata),
+                core::mem::transmute_copy(&dwsize),
+                core::mem::transmute_copy(&dwappsec),
+                core::mem::transmute_copy(&pbspsessionkey),
+                core::mem::transmute_copy(&dwsessionkeylen),
+                windows_core::from_raw_borrowed(&pstorageglobals),
+                windows_core::from_raw_borrowed(&pprogresscallback),
+                core::mem::transmute_copy(&pappcertapp),
+                core::mem::transmute_copy(&dwappcertapplen),
+                core::mem::transmute_copy(&pappcertsp),
+                core::mem::transmute_copy(&dwappcertsplen),
+                core::mem::transmute_copy(&pszrevocationurl),
+                core::mem::transmute_copy(&pdwrevocationurllen),
+                core::mem::transmute_copy(&pdwrevocationbitflag),
+                core::mem::transmute_copy(&pqwfilesize),
+                windows_core::from_raw_borrowed(&punknown),
+                core::mem::transmute_copy(&ppexchange),
+            )
+            .into()
+        }
+        Self {
+            base__: ISCPSecureQuery2_Vtbl::new::<Identity, OFFSET>(),
+            GetRightsOnClearChannel: GetRightsOnClearChannel::<Identity, OFFSET>,
+            MakeDecisionOnClearChannel: MakeDecisionOnClearChannel::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISCPSecureQuery3 as windows_core::Interface>::IID || iid == &<ISCPSecureQuery as windows_core::Interface>::IID || iid == &<ISCPSecureQuery2 as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(ISCPSession, ISCPSession_Vtbl, 0x88a3e6ed_eee4_4619_bbb3_fd4fb62715d1);
 impl core::ops::Deref for ISCPSession {
     type Target = windows_core::IUnknown;
@@ -1080,6 +2368,43 @@ pub struct ISCPSession_Vtbl {
     pub BeginSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
     pub EndSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32) -> windows_core::HRESULT,
     pub GetSecureQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait ISCPSession_Impl: Sized + windows_core::IUnknownImpl {
+    fn BeginSession(&self, pidevice: Option<&IMDSPDevice>, pctx: *const u8, dwsizectx: u32) -> windows_core::Result<()>;
+    fn EndSession(&self, pctx: *const u8, dwsizectx: u32) -> windows_core::Result<()>;
+    fn GetSecureQuery(&self) -> windows_core::Result<ISCPSecureQuery>;
+}
+impl windows_core::RuntimeName for ISCPSession {}
+impl ISCPSession_Vtbl {
+    pub const fn new<Identity: ISCPSession_Impl, const OFFSET: isize>() -> ISCPSession_Vtbl {
+        unsafe extern "system" fn BeginSession<Identity: ISCPSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidevice: *mut core::ffi::c_void, pctx: *const u8, dwsizectx: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISCPSession_Impl::BeginSession(this, windows_core::from_raw_borrowed(&pidevice), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&dwsizectx)).into()
+        }
+        unsafe extern "system" fn EndSession<Identity: ISCPSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pctx: *const u8, dwsizectx: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISCPSession_Impl::EndSession(this, core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&dwsizectx)).into()
+        }
+        unsafe extern "system" fn GetSecureQuery<Identity: ISCPSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppsecurequery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match ISCPSession_Impl::GetSecureQuery(this) {
+                Ok(ok__) => {
+                    ppsecurequery.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            BeginSession: BeginSession::<Identity, OFFSET>,
+            EndSession: EndSession::<Identity, OFFSET>,
+            GetSecureQuery: GetSecureQuery::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISCPSession as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IWMDMDevice, IWMDMDevice_Vtbl, 0x1dcb3a02_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IWMDMDevice {
@@ -1148,6 +2473,118 @@ pub struct IWMDMDevice_Vtbl {
     GetFormatSupport: usize,
     pub SendOpaqueCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OPAQUECOMMAND) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_Media_Audio")]
+pub trait IWMDMDevice_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetName(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
+    fn GetManufacturer(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
+    fn GetVersion(&self) -> windows_core::Result<u32>;
+    fn GetType(&self) -> windows_core::Result<u32>;
+    fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> windows_core::Result<()>;
+    fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> windows_core::Result<()>;
+    fn GetStatus(&self) -> windows_core::Result<u32>;
+    fn GetDeviceIcon(&self) -> windows_core::Result<u32>;
+    fn EnumStorage(&self) -> windows_core::Result<IWMDMEnumStorage>;
+    fn GetFormatSupport(&self, ppformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut windows_core::PWSTR, pnmimetypecount: *mut u32) -> windows_core::Result<()>;
+    fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::RuntimeName for IWMDMDevice {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl IWMDMDevice_Vtbl {
+    pub const fn new<Identity: IWMDMDevice_Impl, const OFFSET: isize>() -> IWMDMDevice_Vtbl {
+        unsafe extern "system" fn GetName<Identity: IWMDMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDevice_Impl::GetName(this, core::mem::transmute_copy(&pwszname), core::mem::transmute_copy(&nmaxchars)).into()
+        }
+        unsafe extern "system" fn GetManufacturer<Identity: IWMDMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDevice_Impl::GetManufacturer(this, core::mem::transmute_copy(&pwszname), core::mem::transmute_copy(&nmaxchars)).into()
+        }
+        unsafe extern "system" fn GetVersion<Identity: IWMDMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwversion: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMDevice_Impl::GetVersion(this) {
+                Ok(ok__) => {
+                    pdwversion.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetType<Identity: IWMDMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwtype: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMDevice_Impl::GetType(this) {
+                Ok(ok__) => {
+                    pdwtype.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetSerialNumber<Identity: IWMDMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pserialnumber: *mut WMDMID, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDevice_Impl::GetSerialNumber(this, core::mem::transmute_copy(&pserialnumber), core::mem::transmute_copy(&abmac)).into()
+        }
+        unsafe extern "system" fn GetPowerSource<Identity: IWMDMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDevice_Impl::GetPowerSource(this, core::mem::transmute_copy(&pdwpowersource), core::mem::transmute_copy(&pdwpercentremaining)).into()
+        }
+        unsafe extern "system" fn GetStatus<Identity: IWMDMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstatus: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMDevice_Impl::GetStatus(this) {
+                Ok(ok__) => {
+                    pdwstatus.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeviceIcon<Identity: IWMDMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hicon: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMDevice_Impl::GetDeviceIcon(this) {
+                Ok(ok__) => {
+                    hicon.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn EnumStorage<Identity: IWMDMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMDevice_Impl::EnumStorage(this) {
+                Ok(ok__) => {
+                    ppenumstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetFormatSupport<Identity: IWMDMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut windows_core::PWSTR, pnmimetypecount: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDevice_Impl::GetFormatSupport(this, core::mem::transmute_copy(&ppformatex), core::mem::transmute_copy(&pnformatcount), core::mem::transmute_copy(&pppwszmimetype), core::mem::transmute_copy(&pnmimetypecount)).into()
+        }
+        unsafe extern "system" fn SendOpaqueCommand<Identity: IWMDMDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcommand: *mut OPAQUECOMMAND) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDevice_Impl::SendOpaqueCommand(this, core::mem::transmute_copy(&pcommand)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetName: GetName::<Identity, OFFSET>,
+            GetManufacturer: GetManufacturer::<Identity, OFFSET>,
+            GetVersion: GetVersion::<Identity, OFFSET>,
+            GetType: GetType::<Identity, OFFSET>,
+            GetSerialNumber: GetSerialNumber::<Identity, OFFSET>,
+            GetPowerSource: GetPowerSource::<Identity, OFFSET>,
+            GetStatus: GetStatus::<Identity, OFFSET>,
+            GetDeviceIcon: GetDeviceIcon::<Identity, OFFSET>,
+            EnumStorage: EnumStorage::<Identity, OFFSET>,
+            GetFormatSupport: GetFormatSupport::<Identity, OFFSET>,
+            SendOpaqueCommand: SendOpaqueCommand::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMDevice as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWMDMDevice2, IWMDMDevice2_Vtbl, 0xe34f3d37_9d67_4fc1_9252_62d28b2f8b55);
 impl core::ops::Deref for IWMDMDevice2 {
     type Target = IWMDMDevice;
@@ -1189,6 +2626,52 @@ pub struct IWMDMDevice2_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     GetSpecifyPropertyPages: usize,
     pub GetCanonicalName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32) -> windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
+pub trait IWMDMDevice2_Impl: Sized + IWMDMDevice_Impl {
+    fn GetStorage(&self, pszstoragename: &windows_core::PCWSTR) -> windows_core::Result<IWMDMStorage>;
+    fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> windows_core::Result<()>;
+    fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut Option<windows_core::IUnknown>, pcunks: *mut u32) -> windows_core::Result<()>;
+    fn GetCanonicalName(&self, pwszpnpname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
+impl windows_core::RuntimeName for IWMDMDevice2 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
+impl IWMDMDevice2_Vtbl {
+    pub const fn new<Identity: IWMDMDevice2_Impl, const OFFSET: isize>() -> IWMDMDevice2_Vtbl {
+        unsafe extern "system" fn GetStorage<Identity: IWMDMDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszstoragename: windows_core::PCWSTR, ppstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMDevice2_Impl::GetStorage(this, core::mem::transmute(&pszstoragename)) {
+                Ok(ok__) => {
+                    ppstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetFormatSupport2<Identity: IWMDMDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDevice2_Impl::GetFormatSupport2(this, core::mem::transmute_copy(&dwflags), core::mem::transmute_copy(&ppaudioformatex), core::mem::transmute_copy(&pnaudioformatcount), core::mem::transmute_copy(&ppvideoformatex), core::mem::transmute_copy(&pnvideoformatcount), core::mem::transmute_copy(&ppfiletype), core::mem::transmute_copy(&pnfiletypecount)).into()
+        }
+        unsafe extern "system" fn GetSpecifyPropertyPages<Identity: IWMDMDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppspecifyproppages: *mut *mut core::ffi::c_void, pppunknowns: *mut *mut Option<windows_core::IUnknown>, pcunks: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDevice2_Impl::GetSpecifyPropertyPages(this, core::mem::transmute_copy(&ppspecifyproppages), core::mem::transmute_copy(&pppunknowns), core::mem::transmute_copy(&pcunks)).into()
+        }
+        unsafe extern "system" fn GetCanonicalName<Identity: IWMDMDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpnpname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDevice2_Impl::GetCanonicalName(this, core::mem::transmute_copy(&pwszpnpname), core::mem::transmute_copy(&nmaxchars)).into()
+        }
+        Self {
+            base__: IWMDMDevice_Vtbl::new::<Identity, OFFSET>(),
+            GetStorage: GetStorage::<Identity, OFFSET>,
+            GetFormatSupport2: GetFormatSupport2::<Identity, OFFSET>,
+            GetSpecifyPropertyPages: GetSpecifyPropertyPages::<Identity, OFFSET>,
+            GetCanonicalName: GetCanonicalName::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMDevice2 as windows_core::Interface>::IID || iid == &<IWMDMDevice as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IWMDMDevice3, IWMDMDevice3_Vtbl, 0x6c03e4fe_05db_4dda_9e3c_06233a6d5d65);
 impl core::ops::Deref for IWMDMDevice3 {
@@ -1248,6 +2731,70 @@ pub struct IWMDMDevice3_Vtbl {
     pub DeviceIoControl: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub FindStorage: unsafe extern "system" fn(*mut core::ffi::c_void, WMDM_FIND_SCOPE, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+pub trait IWMDMDevice3_Impl: Sized + IWMDMDevice2_Impl {
+    fn GetProperty(&self, pwszpropname: &windows_core::PCWSTR) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn SetProperty(&self, pwszpropname: &windows_core::PCWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
+    fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> windows_core::Result<WMDM_FORMAT_CAPABILITY>;
+    fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> windows_core::Result<()>;
+    fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<IWMDMStorage>;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IWMDMDevice3 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl IWMDMDevice3_Vtbl {
+    pub const fn new<Identity: IWMDMDevice3_Impl, const OFFSET: isize>() -> IWMDMDevice3_Vtbl {
+        unsafe extern "system" fn GetProperty<Identity: IWMDMDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpropname: windows_core::PCWSTR, pvalue: *mut core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMDevice3_Impl::GetProperty(this, core::mem::transmute(&pwszpropname)) {
+                Ok(ok__) => {
+                    pvalue.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetProperty<Identity: IWMDMDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszpropname: windows_core::PCWSTR, pvalue: *const core::mem::MaybeUninit<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDevice3_Impl::SetProperty(this, core::mem::transmute(&pwszpropname), core::mem::transmute_copy(&pvalue)).into()
+        }
+        unsafe extern "system" fn GetFormatCapability<Identity: IWMDMDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, format: WMDM_FORMATCODE, pformatsupport: *mut WMDM_FORMAT_CAPABILITY) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMDevice3_Impl::GetFormatCapability(this, core::mem::transmute_copy(&format)) {
+                Ok(ok__) => {
+                    pformatsupport.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DeviceIoControl<Identity: IWMDMDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDevice3_Impl::DeviceIoControl(this, core::mem::transmute_copy(&dwiocontrolcode), core::mem::transmute_copy(&lpinbuffer), core::mem::transmute_copy(&ninbuffersize), core::mem::transmute_copy(&lpoutbuffer), core::mem::transmute_copy(&pnoutbuffersize)).into()
+        }
+        unsafe extern "system" fn FindStorage<Identity: IWMDMDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, findscope: WMDM_FIND_SCOPE, pwszuniqueid: windows_core::PCWSTR, ppstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMDevice3_Impl::FindStorage(this, core::mem::transmute_copy(&findscope), core::mem::transmute(&pwszuniqueid)) {
+                Ok(ok__) => {
+                    ppstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: IWMDMDevice2_Vtbl::new::<Identity, OFFSET>(),
+            GetProperty: GetProperty::<Identity, OFFSET>,
+            SetProperty: SetProperty::<Identity, OFFSET>,
+            GetFormatCapability: GetFormatCapability::<Identity, OFFSET>,
+            DeviceIoControl: DeviceIoControl::<Identity, OFFSET>,
+            FindStorage: FindStorage::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMDevice3 as windows_core::Interface>::IID || iid == &<IWMDMDevice as windows_core::Interface>::IID || iid == &<IWMDMDevice2 as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWMDMDeviceControl, IWMDMDeviceControl_Vtbl, 0x1dcb3a04_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IWMDMDeviceControl {
     type Target = windows_core::IUnknown;
@@ -1300,6 +2847,82 @@ pub struct IWMDMDeviceControl_Vtbl {
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Seek: unsafe extern "system" fn(*mut core::ffi::c_void, u32, i32) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_Media_Audio")]
+pub trait IWMDMDeviceControl_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetStatus(&self) -> windows_core::Result<u32>;
+    fn GetCapabilities(&self) -> windows_core::Result<u32>;
+    fn Play(&self) -> windows_core::Result<()>;
+    fn Record(&self, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn Pause(&self) -> windows_core::Result<()>;
+    fn Resume(&self) -> windows_core::Result<()>;
+    fn Stop(&self) -> windows_core::Result<()>;
+    fn Seek(&self, fumode: u32, noffset: i32) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::RuntimeName for IWMDMDeviceControl {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl IWMDMDeviceControl_Vtbl {
+    pub const fn new<Identity: IWMDMDeviceControl_Impl, const OFFSET: isize>() -> IWMDMDeviceControl_Vtbl {
+        unsafe extern "system" fn GetStatus<Identity: IWMDMDeviceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstatus: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMDeviceControl_Impl::GetStatus(this) {
+                Ok(ok__) => {
+                    pdwstatus.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetCapabilities<Identity: IWMDMDeviceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcapabilitiesmask: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMDeviceControl_Impl::GetCapabilities(this) {
+                Ok(ok__) => {
+                    pdwcapabilitiesmask.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Play<Identity: IWMDMDeviceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDeviceControl_Impl::Play(this).into()
+        }
+        unsafe extern "system" fn Record<Identity: IWMDMDeviceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDeviceControl_Impl::Record(this, core::mem::transmute_copy(&pformat)).into()
+        }
+        unsafe extern "system" fn Pause<Identity: IWMDMDeviceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDeviceControl_Impl::Pause(this).into()
+        }
+        unsafe extern "system" fn Resume<Identity: IWMDMDeviceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDeviceControl_Impl::Resume(this).into()
+        }
+        unsafe extern "system" fn Stop<Identity: IWMDMDeviceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDeviceControl_Impl::Stop(this).into()
+        }
+        unsafe extern "system" fn Seek<Identity: IWMDMDeviceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, noffset: i32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDeviceControl_Impl::Seek(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&noffset)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetStatus: GetStatus::<Identity, OFFSET>,
+            GetCapabilities: GetCapabilities::<Identity, OFFSET>,
+            Play: Play::<Identity, OFFSET>,
+            Record: Record::<Identity, OFFSET>,
+            Pause: Pause::<Identity, OFFSET>,
+            Resume: Resume::<Identity, OFFSET>,
+            Stop: Stop::<Identity, OFFSET>,
+            Seek: Seek::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMDeviceControl as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWMDMDeviceSession, IWMDMDeviceSession_Vtbl, 0x82af0a65_9d96_412c_83e5_3c43e4b06cc7);
 impl core::ops::Deref for IWMDMDeviceSession {
     type Target = windows_core::IUnknown;
@@ -1321,6 +2944,31 @@ pub struct IWMDMDeviceSession_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub BeginSession: unsafe extern "system" fn(*mut core::ffi::c_void, WMDM_SESSION_TYPE, *const u8, u32) -> windows_core::HRESULT,
     pub EndSession: unsafe extern "system" fn(*mut core::ffi::c_void, WMDM_SESSION_TYPE, *const u8, u32) -> windows_core::HRESULT,
+}
+pub trait IWMDMDeviceSession_Impl: Sized + windows_core::IUnknownImpl {
+    fn BeginSession(&self, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> windows_core::Result<()>;
+    fn EndSession(&self, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IWMDMDeviceSession {}
+impl IWMDMDeviceSession_Vtbl {
+    pub const fn new<Identity: IWMDMDeviceSession_Impl, const OFFSET: isize>() -> IWMDMDeviceSession_Vtbl {
+        unsafe extern "system" fn BeginSession<Identity: IWMDMDeviceSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDeviceSession_Impl::BeginSession(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&dwsizectx)).into()
+        }
+        unsafe extern "system" fn EndSession<Identity: IWMDMDeviceSession_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMDeviceSession_Impl::EndSession(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pctx), core::mem::transmute_copy(&dwsizectx)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            BeginSession: BeginSession::<Identity, OFFSET>,
+            EndSession: EndSession::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMDeviceSession as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IWMDMEnumDevice, IWMDMEnumDevice_Vtbl, 0x1dcb3a01_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IWMDMEnumDevice {
@@ -1354,6 +3002,55 @@ pub struct IWMDMEnumDevice_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IWMDMEnumDevice_Impl: Sized + windows_core::IUnknownImpl {
+    fn Next(&self, celt: u32, ppdevice: *mut Option<IWMDMDevice>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Skip(&self, celt: u32) -> windows_core::Result<u32>;
+    fn Reset(&self) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IWMDMEnumDevice>;
+}
+impl windows_core::RuntimeName for IWMDMEnumDevice {}
+impl IWMDMEnumDevice_Vtbl {
+    pub const fn new<Identity: IWMDMEnumDevice_Impl, const OFFSET: isize>() -> IWMDMEnumDevice_Vtbl {
+        unsafe extern "system" fn Next<Identity: IWMDMEnumDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppdevice: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMEnumDevice_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppdevice), core::mem::transmute_copy(&pceltfetched)).into()
+        }
+        unsafe extern "system" fn Skip<Identity: IWMDMEnumDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, pceltfetched: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMEnumDevice_Impl::Skip(this, core::mem::transmute_copy(&celt)) {
+                Ok(ok__) => {
+                    pceltfetched.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Reset<Identity: IWMDMEnumDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMEnumDevice_Impl::Reset(this).into()
+        }
+        unsafe extern "system" fn Clone<Identity: IWMDMEnumDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMEnumDevice_Impl::Clone(this) {
+                Ok(ok__) => {
+                    ppenumdevice.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Next: Next::<Identity, OFFSET>,
+            Skip: Skip::<Identity, OFFSET>,
+            Reset: Reset::<Identity, OFFSET>,
+            Clone: Clone::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMEnumDevice as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWMDMEnumStorage, IWMDMEnumStorage_Vtbl, 0x1dcb3a05_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IWMDMEnumStorage {
     type Target = windows_core::IUnknown;
@@ -1385,6 +3082,55 @@ pub struct IWMDMEnumStorage_Vtbl {
     pub Skip: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IWMDMEnumStorage_Impl: Sized + windows_core::IUnknownImpl {
+    fn Next(&self, celt: u32, ppstorage: *mut Option<IWMDMStorage>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Skip(&self, celt: u32) -> windows_core::Result<u32>;
+    fn Reset(&self) -> windows_core::Result<()>;
+    fn Clone(&self) -> windows_core::Result<IWMDMEnumStorage>;
+}
+impl windows_core::RuntimeName for IWMDMEnumStorage {}
+impl IWMDMEnumStorage_Vtbl {
+    pub const fn new<Identity: IWMDMEnumStorage_Impl, const OFFSET: isize>() -> IWMDMEnumStorage_Vtbl {
+        unsafe extern "system" fn Next<Identity: IWMDMEnumStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, ppstorage: *mut *mut core::ffi::c_void, pceltfetched: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMEnumStorage_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&ppstorage), core::mem::transmute_copy(&pceltfetched)).into()
+        }
+        unsafe extern "system" fn Skip<Identity: IWMDMEnumStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, pceltfetched: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMEnumStorage_Impl::Skip(this, core::mem::transmute_copy(&celt)) {
+                Ok(ok__) => {
+                    pceltfetched.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Reset<Identity: IWMDMEnumStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMEnumStorage_Impl::Reset(this).into()
+        }
+        unsafe extern "system" fn Clone<Identity: IWMDMEnumStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMEnumStorage_Impl::Clone(this) {
+                Ok(ok__) => {
+                    ppenumstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Next: Next::<Identity, OFFSET>,
+            Skip: Skip::<Identity, OFFSET>,
+            Reset: Reset::<Identity, OFFSET>,
+            Clone: Clone::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMEnumStorage as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IWMDMLogger, IWMDMLogger_Vtbl, 0x110a3200_5a79_11d3_8d78_444553540000);
 impl core::ops::Deref for IWMDMLogger {
@@ -1451,6 +3197,79 @@ pub struct IWMDMLogger_Vtbl {
     pub GetSizeParams: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub SetSizeParams: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
+pub trait IWMDMLogger_Impl: Sized + windows_core::IUnknownImpl {
+    fn IsEnabled(&self) -> windows_core::Result<super::super::Foundation::BOOL>;
+    fn Enable(&self, fenable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
+    fn GetLogFileName(&self, pszfilename: windows_core::PSTR, nmaxchars: u32) -> windows_core::Result<()>;
+    fn SetLogFileName(&self, pszfilename: &windows_core::PCSTR) -> windows_core::Result<()>;
+    fn LogString(&self, dwflags: u32, pszsrcname: &windows_core::PCSTR, pszlog: &windows_core::PCSTR) -> windows_core::Result<()>;
+    fn LogDword(&self, dwflags: u32, pszsrcname: &windows_core::PCSTR, pszlogformat: &windows_core::PCSTR, dwlog: u32) -> windows_core::Result<()>;
+    fn Reset(&self) -> windows_core::Result<()>;
+    fn GetSizeParams(&self, pdwmaxsize: *mut u32, pdwshrinktosize: *mut u32) -> windows_core::Result<()>;
+    fn SetSizeParams(&self, dwmaxsize: u32, dwshrinktosize: u32) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IWMDMLogger {}
+impl IWMDMLogger_Vtbl {
+    pub const fn new<Identity: IWMDMLogger_Impl, const OFFSET: isize>() -> IWMDMLogger_Vtbl {
+        unsafe extern "system" fn IsEnabled<Identity: IWMDMLogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfenabled: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMLogger_Impl::IsEnabled(this) {
+                Ok(ok__) => {
+                    pfenabled.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Enable<Identity: IWMDMLogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fenable: super::super::Foundation::BOOL) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMLogger_Impl::Enable(this, core::mem::transmute_copy(&fenable)).into()
+        }
+        unsafe extern "system" fn GetLogFileName<Identity: IWMDMLogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfilename: windows_core::PSTR, nmaxchars: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMLogger_Impl::GetLogFileName(this, core::mem::transmute_copy(&pszfilename), core::mem::transmute_copy(&nmaxchars)).into()
+        }
+        unsafe extern "system" fn SetLogFileName<Identity: IWMDMLogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszfilename: windows_core::PCSTR) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMLogger_Impl::SetLogFileName(this, core::mem::transmute(&pszfilename)).into()
+        }
+        unsafe extern "system" fn LogString<Identity: IWMDMLogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, pszsrcname: windows_core::PCSTR, pszlog: windows_core::PCSTR) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMLogger_Impl::LogString(this, core::mem::transmute_copy(&dwflags), core::mem::transmute(&pszsrcname), core::mem::transmute(&pszlog)).into()
+        }
+        unsafe extern "system" fn LogDword<Identity: IWMDMLogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32, pszsrcname: windows_core::PCSTR, pszlogformat: windows_core::PCSTR, dwlog: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMLogger_Impl::LogDword(this, core::mem::transmute_copy(&dwflags), core::mem::transmute(&pszsrcname), core::mem::transmute(&pszlogformat), core::mem::transmute_copy(&dwlog)).into()
+        }
+        unsafe extern "system" fn Reset<Identity: IWMDMLogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMLogger_Impl::Reset(this).into()
+        }
+        unsafe extern "system" fn GetSizeParams<Identity: IWMDMLogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwmaxsize: *mut u32, pdwshrinktosize: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMLogger_Impl::GetSizeParams(this, core::mem::transmute_copy(&pdwmaxsize), core::mem::transmute_copy(&pdwshrinktosize)).into()
+        }
+        unsafe extern "system" fn SetSizeParams<Identity: IWMDMLogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmaxsize: u32, dwshrinktosize: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMLogger_Impl::SetSizeParams(this, core::mem::transmute_copy(&dwmaxsize), core::mem::transmute_copy(&dwshrinktosize)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            IsEnabled: IsEnabled::<Identity, OFFSET>,
+            Enable: Enable::<Identity, OFFSET>,
+            GetLogFileName: GetLogFileName::<Identity, OFFSET>,
+            SetLogFileName: SetLogFileName::<Identity, OFFSET>,
+            LogString: LogString::<Identity, OFFSET>,
+            LogDword: LogDword::<Identity, OFFSET>,
+            Reset: Reset::<Identity, OFFSET>,
+            GetSizeParams: GetSizeParams::<Identity, OFFSET>,
+            SetSizeParams: SetSizeParams::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMLogger as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWMDMMetaData, IWMDMMetaData_Vtbl, 0xec3b0663_0951_460a_9a80_0dceed3c043c);
 impl core::ops::Deref for IWMDMMetaData {
     type Target = windows_core::IUnknown;
@@ -1488,6 +3307,49 @@ pub struct IWMDMMetaData_Vtbl {
     pub QueryByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut u16, *mut WMDM_TAG_DATATYPE, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub GetItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
+pub trait IWMDMMetaData_Impl: Sized + windows_core::IUnknownImpl {
+    fn AddItem(&self, r#type: WMDM_TAG_DATATYPE, pwsztagname: &windows_core::PCWSTR, pvalue: *const u8, ilength: u32) -> windows_core::Result<()>;
+    fn QueryByName(&self, pwsztagname: &windows_core::PCWSTR, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> windows_core::Result<()>;
+    fn QueryByIndex(&self, iindex: u32, ppwszname: *mut *mut u16, ptype: *mut WMDM_TAG_DATATYPE, ppvalue: *mut *mut u8, pcblength: *mut u32) -> windows_core::Result<()>;
+    fn GetItemCount(&self) -> windows_core::Result<u32>;
+}
+impl windows_core::RuntimeName for IWMDMMetaData {}
+impl IWMDMMetaData_Vtbl {
+    pub const fn new<Identity: IWMDMMetaData_Impl, const OFFSET: isize>() -> IWMDMMetaData_Vtbl {
+        unsafe extern "system" fn AddItem<Identity: IWMDMMetaData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: WMDM_TAG_DATATYPE, pwsztagname: windows_core::PCWSTR, pvalue: *const u8, ilength: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMMetaData_Impl::AddItem(this, core::mem::transmute_copy(&r#type), core::mem::transmute(&pwsztagname), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&ilength)).into()
+        }
+        unsafe extern "system" fn QueryByName<Identity: IWMDMMetaData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwsztagname: windows_core::PCWSTR, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMMetaData_Impl::QueryByName(this, core::mem::transmute(&pwsztagname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&pvalue), core::mem::transmute_copy(&pcblength)).into()
+        }
+        unsafe extern "system" fn QueryByIndex<Identity: IWMDMMetaData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iindex: u32, ppwszname: *mut *mut u16, ptype: *mut WMDM_TAG_DATATYPE, ppvalue: *mut *mut u8, pcblength: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMMetaData_Impl::QueryByIndex(this, core::mem::transmute_copy(&iindex), core::mem::transmute_copy(&ppwszname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&ppvalue), core::mem::transmute_copy(&pcblength)).into()
+        }
+        unsafe extern "system" fn GetItemCount<Identity: IWMDMMetaData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, icount: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMMetaData_Impl::GetItemCount(this) {
+                Ok(ok__) => {
+                    icount.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            AddItem: AddItem::<Identity, OFFSET>,
+            QueryByName: QueryByName::<Identity, OFFSET>,
+            QueryByIndex: QueryByIndex::<Identity, OFFSET>,
+            GetItemCount: GetItemCount::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMMetaData as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWMDMNotification, IWMDMNotification_Vtbl, 0x3f5e95c0_0f43_4ed4_93d2_c89a45d59b81);
 impl core::ops::Deref for IWMDMNotification {
     type Target = windows_core::IUnknown;
@@ -1508,6 +3370,22 @@ impl IWMDMNotification {
 pub struct IWMDMNotification_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub WMDMMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
+}
+pub trait IWMDMNotification_Impl: Sized + windows_core::IUnknownImpl {
+    fn WMDMMessage(&self, dwmessagetype: u32, pwszcanonicalname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IWMDMNotification {}
+impl IWMDMNotification_Vtbl {
+    pub const fn new<Identity: IWMDMNotification_Impl, const OFFSET: isize>() -> IWMDMNotification_Vtbl {
+        unsafe extern "system" fn WMDMMessage<Identity: IWMDMNotification_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwmessagetype: u32, pwszcanonicalname: windows_core::PCWSTR) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMNotification_Impl::WMDMMessage(this, core::mem::transmute_copy(&dwmessagetype), core::mem::transmute(&pwszcanonicalname)).into()
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), WMDMMessage: WMDMMessage::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMNotification as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IWMDMObjectInfo, IWMDMObjectInfo_Vtbl, 0x1dcb3a09_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IWMDMObjectInfo {
@@ -1555,6 +3433,91 @@ pub struct IWMDMObjectInfo_Vtbl {
     pub GetTotalLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetLastPlayPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetLongestPlayPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+}
+pub trait IWMDMObjectInfo_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetPlayLength(&self) -> windows_core::Result<u32>;
+    fn SetPlayLength(&self, dwlength: u32) -> windows_core::Result<()>;
+    fn GetPlayOffset(&self) -> windows_core::Result<u32>;
+    fn SetPlayOffset(&self, dwoffset: u32) -> windows_core::Result<()>;
+    fn GetTotalLength(&self) -> windows_core::Result<u32>;
+    fn GetLastPlayPosition(&self) -> windows_core::Result<u32>;
+    fn GetLongestPlayPosition(&self) -> windows_core::Result<u32>;
+}
+impl windows_core::RuntimeName for IWMDMObjectInfo {}
+impl IWMDMObjectInfo_Vtbl {
+    pub const fn new<Identity: IWMDMObjectInfo_Impl, const OFFSET: isize>() -> IWMDMObjectInfo_Vtbl {
+        unsafe extern "system" fn GetPlayLength<Identity: IWMDMObjectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlength: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMObjectInfo_Impl::GetPlayLength(this) {
+                Ok(ok__) => {
+                    pdwlength.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPlayLength<Identity: IWMDMObjectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwlength: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMObjectInfo_Impl::SetPlayLength(this, core::mem::transmute_copy(&dwlength)).into()
+        }
+        unsafe extern "system" fn GetPlayOffset<Identity: IWMDMObjectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwoffset: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMObjectInfo_Impl::GetPlayOffset(this) {
+                Ok(ok__) => {
+                    pdwoffset.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetPlayOffset<Identity: IWMDMObjectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwoffset: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMObjectInfo_Impl::SetPlayOffset(this, core::mem::transmute_copy(&dwoffset)).into()
+        }
+        unsafe extern "system" fn GetTotalLength<Identity: IWMDMObjectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlength: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMObjectInfo_Impl::GetTotalLength(this) {
+                Ok(ok__) => {
+                    pdwlength.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetLastPlayPosition<Identity: IWMDMObjectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlastpos: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMObjectInfo_Impl::GetLastPlayPosition(this) {
+                Ok(ok__) => {
+                    pdwlastpos.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetLongestPlayPosition<Identity: IWMDMObjectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwlongestpos: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMObjectInfo_Impl::GetLongestPlayPosition(this) {
+                Ok(ok__) => {
+                    pdwlongestpos.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetPlayLength: GetPlayLength::<Identity, OFFSET>,
+            SetPlayLength: SetPlayLength::<Identity, OFFSET>,
+            GetPlayOffset: GetPlayOffset::<Identity, OFFSET>,
+            SetPlayOffset: SetPlayOffset::<Identity, OFFSET>,
+            GetTotalLength: GetTotalLength::<Identity, OFFSET>,
+            GetLastPlayPosition: GetLastPlayPosition::<Identity, OFFSET>,
+            GetLongestPlayPosition: GetLongestPlayPosition::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMObjectInfo as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IWMDMOperation, IWMDMOperation_Vtbl, 0x1dcb3a0b_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IWMDMOperation {
@@ -1621,6 +3584,82 @@ pub struct IWMDMOperation_Vtbl {
     pub TransferObjectData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32, *mut u8) -> windows_core::HRESULT,
     pub End: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::HRESULT, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_Media_Audio")]
+pub trait IWMDMOperation_Impl: Sized + windows_core::IUnknownImpl {
+    fn BeginRead(&self) -> windows_core::Result<()>;
+    fn BeginWrite(&self) -> windows_core::Result<()>;
+    fn GetObjectName(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
+    fn SetObjectName(&self, pwszname: &windows_core::PCWSTR, nmaxchars: u32) -> windows_core::Result<()>;
+    fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn GetObjectTotalSize(&self, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> windows_core::Result<()>;
+    fn SetObjectTotalSize(&self, dwsize: u32, dwsizehigh: u32) -> windows_core::Result<()>;
+    fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
+    fn End(&self, phcompletioncode: *const windows_core::HRESULT, pnewobject: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::RuntimeName for IWMDMOperation {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl IWMDMOperation_Vtbl {
+    pub const fn new<Identity: IWMDMOperation_Impl, const OFFSET: isize>() -> IWMDMOperation_Vtbl {
+        unsafe extern "system" fn BeginRead<Identity: IWMDMOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMOperation_Impl::BeginRead(this).into()
+        }
+        unsafe extern "system" fn BeginWrite<Identity: IWMDMOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMOperation_Impl::BeginWrite(this).into()
+        }
+        unsafe extern "system" fn GetObjectName<Identity: IWMDMOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMOperation_Impl::GetObjectName(this, core::mem::transmute_copy(&pwszname), core::mem::transmute_copy(&nmaxchars)).into()
+        }
+        unsafe extern "system" fn SetObjectName<Identity: IWMDMOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PCWSTR, nmaxchars: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMOperation_Impl::SetObjectName(this, core::mem::transmute(&pwszname), core::mem::transmute_copy(&nmaxchars)).into()
+        }
+        unsafe extern "system" fn GetObjectAttributes<Identity: IWMDMOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMOperation_Impl::GetObjectAttributes(this, core::mem::transmute_copy(&pdwattributes), core::mem::transmute_copy(&pformat)).into()
+        }
+        unsafe extern "system" fn SetObjectAttributes<Identity: IWMDMOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMOperation_Impl::SetObjectAttributes(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&pformat)).into()
+        }
+        unsafe extern "system" fn GetObjectTotalSize<Identity: IWMDMOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMOperation_Impl::GetObjectTotalSize(this, core::mem::transmute_copy(&pdwsize), core::mem::transmute_copy(&pdwsizehigh)).into()
+        }
+        unsafe extern "system" fn SetObjectTotalSize<Identity: IWMDMOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsize: u32, dwsizehigh: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMOperation_Impl::SetObjectTotalSize(this, core::mem::transmute_copy(&dwsize), core::mem::transmute_copy(&dwsizehigh)).into()
+        }
+        unsafe extern "system" fn TransferObjectData<Identity: IWMDMOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMOperation_Impl::TransferObjectData(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize), core::mem::transmute_copy(&abmac)).into()
+        }
+        unsafe extern "system" fn End<Identity: IWMDMOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phcompletioncode: *const windows_core::HRESULT, pnewobject: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMOperation_Impl::End(this, core::mem::transmute_copy(&phcompletioncode), windows_core::from_raw_borrowed(&pnewobject)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            BeginRead: BeginRead::<Identity, OFFSET>,
+            BeginWrite: BeginWrite::<Identity, OFFSET>,
+            GetObjectName: GetObjectName::<Identity, OFFSET>,
+            SetObjectName: SetObjectName::<Identity, OFFSET>,
+            GetObjectAttributes: GetObjectAttributes::<Identity, OFFSET>,
+            SetObjectAttributes: SetObjectAttributes::<Identity, OFFSET>,
+            GetObjectTotalSize: GetObjectTotalSize::<Identity, OFFSET>,
+            SetObjectTotalSize: SetObjectTotalSize::<Identity, OFFSET>,
+            TransferObjectData: TransferObjectData::<Identity, OFFSET>,
+            End: End::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMOperation as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWMDMOperation2, IWMDMOperation2_Vtbl, 0x33445b48_7df7_425c_ad8f_0fc6d82f9f75);
 impl core::ops::Deref for IWMDMOperation2 {
     type Target = IWMDMOperation;
@@ -1651,6 +3690,34 @@ pub struct IWMDMOperation2_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation")))]
     GetObjectAttributes2: usize,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+pub trait IWMDMOperation2_Impl: Sized + IWMDMOperation_Impl {
+    fn SetObjectAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::Result<()>;
+    fn GetObjectAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::Result<()>;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+impl windows_core::RuntimeName for IWMDMOperation2 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+impl IWMDMOperation2_Vtbl {
+    pub const fn new<Identity: IWMDMOperation2_Impl, const OFFSET: isize>() -> IWMDMOperation2_Vtbl {
+        unsafe extern "system" fn SetObjectAttributes2<Identity: IWMDMOperation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMOperation2_Impl::SetObjectAttributes2(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&dwattributesex), core::mem::transmute_copy(&pformat), core::mem::transmute_copy(&pvideoformat)).into()
+        }
+        unsafe extern "system" fn GetObjectAttributes2<Identity: IWMDMOperation2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMOperation2_Impl::GetObjectAttributes2(this, core::mem::transmute_copy(&pdwattributes), core::mem::transmute_copy(&pdwattributesex), core::mem::transmute_copy(&paudioformat), core::mem::transmute_copy(&pvideoformat)).into()
+        }
+        Self {
+            base__: IWMDMOperation_Vtbl::new::<Identity, OFFSET>(),
+            SetObjectAttributes2: SetObjectAttributes2::<Identity, OFFSET>,
+            GetObjectAttributes2: GetObjectAttributes2::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMOperation2 as windows_core::Interface>::IID || iid == &<IWMDMOperation as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWMDMOperation3, IWMDMOperation3_Vtbl, 0xd1f9b46a_9ca8_46d8_9d0f_1ec9bae54919);
 impl core::ops::Deref for IWMDMOperation3 {
     type Target = IWMDMOperation;
@@ -1668,6 +3735,25 @@ impl IWMDMOperation3 {
 pub struct IWMDMOperation3_Vtbl {
     pub base__: IWMDMOperation_Vtbl,
     pub TransferObjectDataOnClearChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8, *mut u32) -> windows_core::HRESULT,
+}
+#[cfg(feature = "Win32_Media_Audio")]
+pub trait IWMDMOperation3_Impl: Sized + IWMDMOperation_Impl {
+    fn TransferObjectDataOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::RuntimeName for IWMDMOperation3 {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl IWMDMOperation3_Vtbl {
+    pub const fn new<Identity: IWMDMOperation3_Impl, const OFFSET: isize>() -> IWMDMOperation3_Vtbl {
+        unsafe extern "system" fn TransferObjectDataOnClearChannel<Identity: IWMDMOperation3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMOperation3_Impl::TransferObjectDataOnClearChannel(this, core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&pdwsize)).into()
+        }
+        Self { base__: IWMDMOperation_Vtbl::new::<Identity, OFFSET>(), TransferObjectDataOnClearChannel: TransferObjectDataOnClearChannel::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMOperation3 as windows_core::Interface>::IID || iid == &<IWMDMOperation as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IWMDMProgress, IWMDMProgress_Vtbl, 0x1dcb3a0c_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IWMDMProgress {
@@ -1695,6 +3781,37 @@ pub struct IWMDMProgress_Vtbl {
     pub Progress: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub End: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IWMDMProgress_Impl: Sized + windows_core::IUnknownImpl {
+    fn Begin(&self, dwestimatedticks: u32) -> windows_core::Result<()>;
+    fn Progress(&self, dwtranspiredticks: u32) -> windows_core::Result<()>;
+    fn End(&self) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IWMDMProgress {}
+impl IWMDMProgress_Vtbl {
+    pub const fn new<Identity: IWMDMProgress_Impl, const OFFSET: isize>() -> IWMDMProgress_Vtbl {
+        unsafe extern "system" fn Begin<Identity: IWMDMProgress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwestimatedticks: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMProgress_Impl::Begin(this, core::mem::transmute_copy(&dwestimatedticks)).into()
+        }
+        unsafe extern "system" fn Progress<Identity: IWMDMProgress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwtranspiredticks: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMProgress_Impl::Progress(this, core::mem::transmute_copy(&dwtranspiredticks)).into()
+        }
+        unsafe extern "system" fn End<Identity: IWMDMProgress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMProgress_Impl::End(this).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Begin: Begin::<Identity, OFFSET>,
+            Progress: Progress::<Identity, OFFSET>,
+            End: End::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMProgress as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWMDMProgress2, IWMDMProgress2_Vtbl, 0x3a43f550_b383_4e92_b04a_e6bbc660fefc);
 impl core::ops::Deref for IWMDMProgress2 {
     type Target = IWMDMProgress;
@@ -1712,6 +3829,22 @@ impl IWMDMProgress2 {
 pub struct IWMDMProgress2_Vtbl {
     pub base__: IWMDMProgress_Vtbl,
     pub End2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
+}
+pub trait IWMDMProgress2_Impl: Sized + IWMDMProgress_Impl {
+    fn End2(&self, hrcompletioncode: windows_core::HRESULT) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IWMDMProgress2 {}
+impl IWMDMProgress2_Vtbl {
+    pub const fn new<Identity: IWMDMProgress2_Impl, const OFFSET: isize>() -> IWMDMProgress2_Vtbl {
+        unsafe extern "system" fn End2<Identity: IWMDMProgress2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hrcompletioncode: windows_core::HRESULT) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMProgress2_Impl::End2(this, core::mem::transmute_copy(&hrcompletioncode)).into()
+        }
+        Self { base__: IWMDMProgress_Vtbl::new::<Identity, OFFSET>(), End2: End2::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMProgress2 as windows_core::Interface>::IID || iid == &<IWMDMProgress as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IWMDMProgress3, IWMDMProgress3_Vtbl, 0x21de01cb_3bb4_4929_b21a_17af3f80f658);
 impl core::ops::Deref for IWMDMProgress3 {
@@ -1739,6 +3872,37 @@ pub struct IWMDMProgress3_Vtbl {
     pub Progress3: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, u32, *mut OPAQUECOMMAND) -> windows_core::HRESULT,
     pub End3: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, windows_core::HRESULT, *mut OPAQUECOMMAND) -> windows_core::HRESULT,
 }
+pub trait IWMDMProgress3_Impl: Sized + IWMDMProgress2_Impl {
+    fn Begin3(&self, eventid: &windows_core::GUID, dwestimatedticks: u32, pcontext: *mut OPAQUECOMMAND) -> windows_core::Result<()>;
+    fn Progress3(&self, eventid: &windows_core::GUID, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> windows_core::Result<()>;
+    fn End3(&self, eventid: &windows_core::GUID, hrcompletioncode: windows_core::HRESULT, pcontext: *mut OPAQUECOMMAND) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IWMDMProgress3 {}
+impl IWMDMProgress3_Vtbl {
+    pub const fn new<Identity: IWMDMProgress3_Impl, const OFFSET: isize>() -> IWMDMProgress3_Vtbl {
+        unsafe extern "system" fn Begin3<Identity: IWMDMProgress3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventid: windows_core::GUID, dwestimatedticks: u32, pcontext: *mut OPAQUECOMMAND) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMProgress3_Impl::Begin3(this, core::mem::transmute(&eventid), core::mem::transmute_copy(&dwestimatedticks), core::mem::transmute_copy(&pcontext)).into()
+        }
+        unsafe extern "system" fn Progress3<Identity: IWMDMProgress3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventid: windows_core::GUID, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMProgress3_Impl::Progress3(this, core::mem::transmute(&eventid), core::mem::transmute_copy(&dwtranspiredticks), core::mem::transmute_copy(&pcontext)).into()
+        }
+        unsafe extern "system" fn End3<Identity: IWMDMProgress3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventid: windows_core::GUID, hrcompletioncode: windows_core::HRESULT, pcontext: *mut OPAQUECOMMAND) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMProgress3_Impl::End3(this, core::mem::transmute(&eventid), core::mem::transmute_copy(&hrcompletioncode), core::mem::transmute_copy(&pcontext)).into()
+        }
+        Self {
+            base__: IWMDMProgress2_Vtbl::new::<Identity, OFFSET>(),
+            Begin3: Begin3::<Identity, OFFSET>,
+            Progress3: Progress3::<Identity, OFFSET>,
+            End3: End3::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMProgress3 as windows_core::Interface>::IID || iid == &<IWMDMProgress as windows_core::Interface>::IID || iid == &<IWMDMProgress2 as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWMDMRevoked, IWMDMRevoked_Vtbl, 0xebeccedb_88ee_4e55_b6a4_8d9f07d696aa);
 impl core::ops::Deref for IWMDMRevoked {
     type Target = windows_core::IUnknown;
@@ -1756,6 +3920,22 @@ impl IWMDMRevoked {
 pub struct IWMDMRevoked_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetRevocationURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, *mut u32, *mut u32) -> windows_core::HRESULT,
+}
+pub trait IWMDMRevoked_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetRevocationURL(&self, ppwszrevocationurl: *mut windows_core::PWSTR, pdwbufferlen: *mut u32, pdwrevokedbitflag: *mut u32) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IWMDMRevoked {}
+impl IWMDMRevoked_Vtbl {
+    pub const fn new<Identity: IWMDMRevoked_Impl, const OFFSET: isize>() -> IWMDMRevoked_Vtbl {
+        unsafe extern "system" fn GetRevocationURL<Identity: IWMDMRevoked_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppwszrevocationurl: *mut windows_core::PWSTR, pdwbufferlen: *mut u32, pdwrevokedbitflag: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMRevoked_Impl::GetRevocationURL(this, core::mem::transmute_copy(&ppwszrevocationurl), core::mem::transmute_copy(&pdwbufferlen), core::mem::transmute_copy(&pdwrevokedbitflag)).into()
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRevocationURL: GetRevocationURL::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMRevoked as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IWMDMStorage, IWMDMStorage_Vtbl, 0x1dcb3a06_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IWMDMStorage {
@@ -1818,6 +3998,94 @@ pub struct IWMDMStorage_Vtbl {
     pub EnumStorage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SendOpaqueCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OPAQUECOMMAND) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_Media_Audio")]
+pub trait IWMDMStorage_Impl: Sized + windows_core::IUnknownImpl {
+    fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn GetStorageGlobals(&self) -> windows_core::Result<IWMDMStorageGlobals>;
+    fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
+    fn GetName(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
+    fn GetDate(&self) -> windows_core::Result<WMDMDATETIME>;
+    fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> windows_core::Result<()>;
+    fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
+    fn EnumStorage(&self) -> windows_core::Result<IWMDMEnumStorage>;
+    fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_Media_Audio")]
+impl windows_core::RuntimeName for IWMDMStorage {}
+#[cfg(feature = "Win32_Media_Audio")]
+impl IWMDMStorage_Vtbl {
+    pub const fn new<Identity: IWMDMStorage_Impl, const OFFSET: isize>() -> IWMDMStorage_Vtbl {
+        unsafe extern "system" fn SetAttributes<Identity: IWMDMStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorage_Impl::SetAttributes(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&pformat)).into()
+        }
+        unsafe extern "system" fn GetStorageGlobals<Identity: IWMDMStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstorageglobals: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMStorage_Impl::GetStorageGlobals(this) {
+                Ok(ok__) => {
+                    ppstorageglobals.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetAttributes<Identity: IWMDMStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorage_Impl::GetAttributes(this, core::mem::transmute_copy(&pdwattributes), core::mem::transmute_copy(&pformat)).into()
+        }
+        unsafe extern "system" fn GetName<Identity: IWMDMStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorage_Impl::GetName(this, core::mem::transmute_copy(&pwszname), core::mem::transmute_copy(&nmaxchars)).into()
+        }
+        unsafe extern "system" fn GetDate<Identity: IWMDMStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdatetimeutc: *mut WMDMDATETIME) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMStorage_Impl::GetDate(this) {
+                Ok(ok__) => {
+                    pdatetimeutc.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetSize<Identity: IWMDMStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorage_Impl::GetSize(this, core::mem::transmute_copy(&pdwsizelow), core::mem::transmute_copy(&pdwsizehigh)).into()
+        }
+        unsafe extern "system" fn GetRights<Identity: IWMDMStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorage_Impl::GetRights(this, core::mem::transmute_copy(&pprights), core::mem::transmute_copy(&pnrightscount), core::mem::transmute_copy(&abmac)).into()
+        }
+        unsafe extern "system" fn EnumStorage<Identity: IWMDMStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, penumstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMStorage_Impl::EnumStorage(this) {
+                Ok(ok__) => {
+                    penumstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SendOpaqueCommand<Identity: IWMDMStorage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcommand: *mut OPAQUECOMMAND) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorage_Impl::SendOpaqueCommand(this, core::mem::transmute_copy(&pcommand)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            SetAttributes: SetAttributes::<Identity, OFFSET>,
+            GetStorageGlobals: GetStorageGlobals::<Identity, OFFSET>,
+            GetAttributes: GetAttributes::<Identity, OFFSET>,
+            GetName: GetName::<Identity, OFFSET>,
+            GetDate: GetDate::<Identity, OFFSET>,
+            GetSize: GetSize::<Identity, OFFSET>,
+            GetRights: GetRights::<Identity, OFFSET>,
+            EnumStorage: EnumStorage::<Identity, OFFSET>,
+            SendOpaqueCommand: SendOpaqueCommand::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMStorage as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWMDMStorage2, IWMDMStorage2_Vtbl, 0x1ed5a144_5cd5_4683_9eff_72cbdb2d9533);
 impl core::ops::Deref for IWMDMStorage2 {
     type Target = IWMDMStorage;
@@ -1856,6 +4124,46 @@ pub struct IWMDMStorage2_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation")))]
     GetAttributes2: usize,
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+pub trait IWMDMStorage2_Impl: Sized + IWMDMStorage_Impl {
+    fn GetStorage(&self, pszstoragename: &windows_core::PCWSTR) -> windows_core::Result<IWMDMStorage>;
+    fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::Result<()>;
+    fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::Result<()>;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+impl windows_core::RuntimeName for IWMDMStorage2 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+impl IWMDMStorage2_Vtbl {
+    pub const fn new<Identity: IWMDMStorage2_Impl, const OFFSET: isize>() -> IWMDMStorage2_Vtbl {
+        unsafe extern "system" fn GetStorage<Identity: IWMDMStorage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszstoragename: windows_core::PCWSTR, ppstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMStorage2_Impl::GetStorage(this, core::mem::transmute(&pszstoragename)) {
+                Ok(ok__) => {
+                    ppstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetAttributes2<Identity: IWMDMStorage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorage2_Impl::SetAttributes2(this, core::mem::transmute_copy(&dwattributes), core::mem::transmute_copy(&dwattributesex), core::mem::transmute_copy(&pformat), core::mem::transmute_copy(&pvideoformat)).into()
+        }
+        unsafe extern "system" fn GetAttributes2<Identity: IWMDMStorage2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorage2_Impl::GetAttributes2(this, core::mem::transmute_copy(&pdwattributes), core::mem::transmute_copy(&pdwattributesex), core::mem::transmute_copy(&paudioformat), core::mem::transmute_copy(&pvideoformat)).into()
+        }
+        Self {
+            base__: IWMDMStorage_Vtbl::new::<Identity, OFFSET>(),
+            GetStorage: GetStorage::<Identity, OFFSET>,
+            SetAttributes2: SetAttributes2::<Identity, OFFSET>,
+            GetAttributes2: GetAttributes2::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMStorage2 as windows_core::Interface>::IID || iid == &<IWMDMStorage as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWMDMStorage3, IWMDMStorage3_Vtbl, 0x97717eea_926a_464e_96a4_247b0216026e);
 impl core::ops::Deref for IWMDMStorage3 {
     type Target = IWMDMStorage2;
@@ -1890,6 +4198,58 @@ pub struct IWMDMStorage3_Vtbl {
     pub SetMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateEmptyMetadataObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetEnumPreference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WMDM_STORAGE_ENUM_MODE, u32, *const WMDMMetadataView) -> windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+pub trait IWMDMStorage3_Impl: Sized + IWMDMStorage2_Impl {
+    fn GetMetadata(&self) -> windows_core::Result<IWMDMMetaData>;
+    fn SetMetadata(&self, pmetadata: Option<&IWMDMMetaData>) -> windows_core::Result<()>;
+    fn CreateEmptyMetadataObject(&self) -> windows_core::Result<IWMDMMetaData>;
+    fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, nviews: u32, pviews: *const WMDMMetadataView) -> windows_core::Result<()>;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+impl windows_core::RuntimeName for IWMDMStorage3 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+impl IWMDMStorage3_Vtbl {
+    pub const fn new<Identity: IWMDMStorage3_Impl, const OFFSET: isize>() -> IWMDMStorage3_Vtbl {
+        unsafe extern "system" fn GetMetadata<Identity: IWMDMStorage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmetadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMStorage3_Impl::GetMetadata(this) {
+                Ok(ok__) => {
+                    ppmetadata.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetMetadata<Identity: IWMDMStorage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmetadata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorage3_Impl::SetMetadata(this, windows_core::from_raw_borrowed(&pmetadata)).into()
+        }
+        unsafe extern "system" fn CreateEmptyMetadataObject<Identity: IWMDMStorage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmetadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMStorage3_Impl::CreateEmptyMetadataObject(this) {
+                Ok(ok__) => {
+                    ppmetadata.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetEnumPreference<Identity: IWMDMStorage3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmode: *mut WMDM_STORAGE_ENUM_MODE, nviews: u32, pviews: *const WMDMMetadataView) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorage3_Impl::SetEnumPreference(this, core::mem::transmute_copy(&pmode), core::mem::transmute_copy(&nviews), core::mem::transmute_copy(&pviews)).into()
+        }
+        Self {
+            base__: IWMDMStorage2_Vtbl::new::<Identity, OFFSET>(),
+            GetMetadata: GetMetadata::<Identity, OFFSET>,
+            SetMetadata: SetMetadata::<Identity, OFFSET>,
+            CreateEmptyMetadataObject: CreateEmptyMetadataObject::<Identity, OFFSET>,
+            SetEnumPreference: SetEnumPreference::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMStorage3 as windows_core::Interface>::IID || iid == &<IWMDMStorage as windows_core::Interface>::IID || iid == &<IWMDMStorage2 as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IWMDMStorage4, IWMDMStorage4_Vtbl, 0xc225bac5_a03a_40b8_9a23_91cf478c64a6);
 impl core::ops::Deref for IWMDMStorage4 {
@@ -1937,6 +4297,76 @@ pub struct IWMDMStorage4_Vtbl {
     pub GetSpecifiedMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindStorage: unsafe extern "system" fn(*mut core::ffi::c_void, WMDM_FIND_SCOPE, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+pub trait IWMDMStorage4_Impl: Sized + IWMDMStorage3_Impl {
+    fn SetReferences(&self, dwrefs: u32, ppiwmdmstorage: *const Option<IWMDMStorage>) -> windows_core::Result<()>;
+    fn GetReferences(&self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut Option<IWMDMStorage>) -> windows_core::Result<()>;
+    fn GetRightsWithProgress(&self, piprogresscallback: Option<&IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> windows_core::Result<()>;
+    fn GetSpecifiedMetadata(&self, cproperties: u32, ppwszpropnames: *const windows_core::PCWSTR) -> windows_core::Result<IWMDMMetaData>;
+    fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<IWMDMStorage>;
+    fn GetParent(&self) -> windows_core::Result<IWMDMStorage>;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+impl windows_core::RuntimeName for IWMDMStorage4 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
+impl IWMDMStorage4_Vtbl {
+    pub const fn new<Identity: IWMDMStorage4_Impl, const OFFSET: isize>() -> IWMDMStorage4_Vtbl {
+        unsafe extern "system" fn SetReferences<Identity: IWMDMStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwrefs: u32, ppiwmdmstorage: *const *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorage4_Impl::SetReferences(this, core::mem::transmute_copy(&dwrefs), core::mem::transmute_copy(&ppiwmdmstorage)).into()
+        }
+        unsafe extern "system" fn GetReferences<Identity: IWMDMStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut Option<IWMDMStorage>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorage4_Impl::GetReferences(this, core::mem::transmute_copy(&pdwrefs), core::mem::transmute_copy(&pppiwmdmstorage)).into()
+        }
+        unsafe extern "system" fn GetRightsWithProgress<Identity: IWMDMStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piprogresscallback: *mut core::ffi::c_void, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorage4_Impl::GetRightsWithProgress(this, windows_core::from_raw_borrowed(&piprogresscallback), core::mem::transmute_copy(&pprights), core::mem::transmute_copy(&pnrightscount)).into()
+        }
+        unsafe extern "system" fn GetSpecifiedMetadata<Identity: IWMDMStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cproperties: u32, ppwszpropnames: *const windows_core::PCWSTR, ppmetadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMStorage4_Impl::GetSpecifiedMetadata(this, core::mem::transmute_copy(&cproperties), core::mem::transmute_copy(&ppwszpropnames)) {
+                Ok(ok__) => {
+                    ppmetadata.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn FindStorage<Identity: IWMDMStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, findscope: WMDM_FIND_SCOPE, pwszuniqueid: windows_core::PCWSTR, ppstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMStorage4_Impl::FindStorage(this, core::mem::transmute_copy(&findscope), core::mem::transmute(&pwszuniqueid)) {
+                Ok(ok__) => {
+                    ppstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetParent<Identity: IWMDMStorage4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppstorage: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMStorage4_Impl::GetParent(this) {
+                Ok(ok__) => {
+                    ppstorage.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: IWMDMStorage3_Vtbl::new::<Identity, OFFSET>(),
+            SetReferences: SetReferences::<Identity, OFFSET>,
+            GetReferences: GetReferences::<Identity, OFFSET>,
+            GetRightsWithProgress: GetRightsWithProgress::<Identity, OFFSET>,
+            GetSpecifiedMetadata: GetSpecifiedMetadata::<Identity, OFFSET>,
+            FindStorage: FindStorage::<Identity, OFFSET>,
+            GetParent: GetParent::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMStorage4 as windows_core::Interface>::IID || iid == &<IWMDMStorage as windows_core::Interface>::IID || iid == &<IWMDMStorage2 as windows_core::Interface>::IID || iid == &<IWMDMStorage3 as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IWMDMStorageControl, IWMDMStorageControl_Vtbl, 0x1dcb3a08_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IWMDMStorageControl {
@@ -1994,6 +4424,55 @@ pub struct IWMDMStorageControl_Vtbl {
     pub Read: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IWMDMStorageControl_Impl: Sized + windows_core::IUnknownImpl {
+    fn Insert(&self, fumode: u32, pwszfile: &windows_core::PCWSTR, poperation: Option<&IWMDMOperation>, pprogress: Option<&IWMDMProgress>) -> windows_core::Result<IWMDMStorage>;
+    fn Delete(&self, fumode: u32, pprogress: Option<&IWMDMProgress>) -> windows_core::Result<()>;
+    fn Rename(&self, fumode: u32, pwsznewname: &windows_core::PCWSTR, pprogress: Option<&IWMDMProgress>) -> windows_core::Result<()>;
+    fn Read(&self, fumode: u32, pwszfile: &windows_core::PCWSTR, pprogress: Option<&IWMDMProgress>, poperation: Option<&IWMDMOperation>) -> windows_core::Result<()>;
+    fn Move(&self, fumode: u32, ptargetobject: Option<&IWMDMStorage>, pprogress: Option<&IWMDMProgress>) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IWMDMStorageControl {}
+impl IWMDMStorageControl_Vtbl {
+    pub const fn new<Identity: IWMDMStorageControl_Impl, const OFFSET: isize>() -> IWMDMStorageControl_Vtbl {
+        unsafe extern "system" fn Insert<Identity: IWMDMStorageControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pwszfile: windows_core::PCWSTR, poperation: *mut core::ffi::c_void, pprogress: *mut core::ffi::c_void, ppnewobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMStorageControl_Impl::Insert(this, core::mem::transmute_copy(&fumode), core::mem::transmute(&pwszfile), windows_core::from_raw_borrowed(&poperation), windows_core::from_raw_borrowed(&pprogress)) {
+                Ok(ok__) => {
+                    ppnewobject.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Delete<Identity: IWMDMStorageControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorageControl_Impl::Delete(this, core::mem::transmute_copy(&fumode), windows_core::from_raw_borrowed(&pprogress)).into()
+        }
+        unsafe extern "system" fn Rename<Identity: IWMDMStorageControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pwsznewname: windows_core::PCWSTR, pprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorageControl_Impl::Rename(this, core::mem::transmute_copy(&fumode), core::mem::transmute(&pwsznewname), windows_core::from_raw_borrowed(&pprogress)).into()
+        }
+        unsafe extern "system" fn Read<Identity: IWMDMStorageControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pwszfile: windows_core::PCWSTR, pprogress: *mut core::ffi::c_void, poperation: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorageControl_Impl::Read(this, core::mem::transmute_copy(&fumode), core::mem::transmute(&pwszfile), windows_core::from_raw_borrowed(&pprogress), windows_core::from_raw_borrowed(&poperation)).into()
+        }
+        unsafe extern "system" fn Move<Identity: IWMDMStorageControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, ptargetobject: *mut core::ffi::c_void, pprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorageControl_Impl::Move(this, core::mem::transmute_copy(&fumode), windows_core::from_raw_borrowed(&ptargetobject), windows_core::from_raw_borrowed(&pprogress)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Insert: Insert::<Identity, OFFSET>,
+            Delete: Delete::<Identity, OFFSET>,
+            Rename: Rename::<Identity, OFFSET>,
+            Read: Read::<Identity, OFFSET>,
+            Move: Move::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMStorageControl as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWMDMStorageControl2, IWMDMStorageControl2_Vtbl, 0x972c2e88_bd6c_4125_8e09_84f837e637b6);
 impl core::ops::Deref for IWMDMStorageControl2 {
     type Target = IWMDMStorageControl;
@@ -2018,6 +4497,22 @@ impl IWMDMStorageControl2 {
 pub struct IWMDMStorageControl2_Vtbl {
     pub base__: IWMDMStorageControl_Vtbl,
     pub Insert2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IWMDMStorageControl2_Impl: Sized + IWMDMStorageControl_Impl {
+    fn Insert2(&self, fumode: u32, pwszfilesource: &windows_core::PCWSTR, pwszfiledest: &windows_core::PCWSTR, poperation: Option<&IWMDMOperation>, pprogress: Option<&IWMDMProgress>, punknown: Option<&windows_core::IUnknown>, ppnewobject: *mut Option<IWMDMStorage>) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IWMDMStorageControl2 {}
+impl IWMDMStorageControl2_Vtbl {
+    pub const fn new<Identity: IWMDMStorageControl2_Impl, const OFFSET: isize>() -> IWMDMStorageControl2_Vtbl {
+        unsafe extern "system" fn Insert2<Identity: IWMDMStorageControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pwszfilesource: windows_core::PCWSTR, pwszfiledest: windows_core::PCWSTR, poperation: *mut core::ffi::c_void, pprogress: *mut core::ffi::c_void, punknown: *mut core::ffi::c_void, ppnewobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorageControl2_Impl::Insert2(this, core::mem::transmute_copy(&fumode), core::mem::transmute(&pwszfilesource), core::mem::transmute(&pwszfiledest), windows_core::from_raw_borrowed(&poperation), windows_core::from_raw_borrowed(&pprogress), windows_core::from_raw_borrowed(&punknown), core::mem::transmute_copy(&ppnewobject)).into()
+        }
+        Self { base__: IWMDMStorageControl_Vtbl::new::<Identity, OFFSET>(), Insert2: Insert2::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMStorageControl2 as windows_core::Interface>::IID || iid == &<IWMDMStorageControl as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IWMDMStorageControl3, IWMDMStorageControl3_Vtbl, 0xb3266365_d4f3_4696_8d53_bd27ec60993a);
 impl core::ops::Deref for IWMDMStorageControl3 {
@@ -2044,6 +4539,22 @@ impl IWMDMStorageControl3 {
 pub struct IWMDMStorageControl3_Vtbl {
     pub base__: IWMDMStorageControl2_Vtbl,
     pub Insert3: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IWMDMStorageControl3_Impl: Sized + IWMDMStorageControl2_Impl {
+    fn Insert3(&self, fumode: u32, futype: u32, pwszfilesource: &windows_core::PCWSTR, pwszfiledest: &windows_core::PCWSTR, poperation: Option<&IWMDMOperation>, pprogress: Option<&IWMDMProgress>, pmetadata: Option<&IWMDMMetaData>, punknown: Option<&windows_core::IUnknown>, ppnewobject: *mut Option<IWMDMStorage>) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IWMDMStorageControl3 {}
+impl IWMDMStorageControl3_Vtbl {
+    pub const fn new<Identity: IWMDMStorageControl3_Impl, const OFFSET: isize>() -> IWMDMStorageControl3_Vtbl {
+        unsafe extern "system" fn Insert3<Identity: IWMDMStorageControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, futype: u32, pwszfilesource: windows_core::PCWSTR, pwszfiledest: windows_core::PCWSTR, poperation: *mut core::ffi::c_void, pprogress: *mut core::ffi::c_void, pmetadata: *mut core::ffi::c_void, punknown: *mut core::ffi::c_void, ppnewobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorageControl3_Impl::Insert3(this, core::mem::transmute_copy(&fumode), core::mem::transmute_copy(&futype), core::mem::transmute(&pwszfilesource), core::mem::transmute(&pwszfiledest), windows_core::from_raw_borrowed(&poperation), windows_core::from_raw_borrowed(&pprogress), windows_core::from_raw_borrowed(&pmetadata), windows_core::from_raw_borrowed(&punknown), core::mem::transmute_copy(&ppnewobject)).into()
+        }
+        Self { base__: IWMDMStorageControl2_Vtbl::new::<Identity, OFFSET>(), Insert3: Insert3::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMStorageControl3 as windows_core::Interface>::IID || iid == &<IWMDMStorageControl as windows_core::Interface>::IID || iid == &<IWMDMStorageControl2 as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IWMDMStorageGlobals, IWMDMStorageGlobals_Vtbl, 0x1dcb3a07_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IWMDMStorageGlobals {
@@ -2092,6 +4603,73 @@ pub struct IWMDMStorageGlobals_Vtbl {
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IWMDMStorageGlobals_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetCapabilities(&self) -> windows_core::Result<u32>;
+    fn GetSerialNumber(&self, pserialnum: *mut WMDMID, abmac: *mut u8) -> windows_core::Result<()>;
+    fn GetTotalSize(&self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> windows_core::Result<()>;
+    fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> windows_core::Result<()>;
+    fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> windows_core::Result<()>;
+    fn GetStatus(&self) -> windows_core::Result<u32>;
+    fn Initialize(&self, fumode: u32, pprogress: Option<&IWMDMProgress>) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IWMDMStorageGlobals {}
+impl IWMDMStorageGlobals_Vtbl {
+    pub const fn new<Identity: IWMDMStorageGlobals_Impl, const OFFSET: isize>() -> IWMDMStorageGlobals_Vtbl {
+        unsafe extern "system" fn GetCapabilities<Identity: IWMDMStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcapabilities: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMStorageGlobals_Impl::GetCapabilities(this) {
+                Ok(ok__) => {
+                    pdwcapabilities.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetSerialNumber<Identity: IWMDMStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pserialnum: *mut WMDMID, abmac: *mut u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorageGlobals_Impl::GetSerialNumber(this, core::mem::transmute_copy(&pserialnum), core::mem::transmute_copy(&abmac)).into()
+        }
+        unsafe extern "system" fn GetTotalSize<Identity: IWMDMStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorageGlobals_Impl::GetTotalSize(this, core::mem::transmute_copy(&pdwtotalsizelow), core::mem::transmute_copy(&pdwtotalsizehigh)).into()
+        }
+        unsafe extern "system" fn GetTotalFree<Identity: IWMDMStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorageGlobals_Impl::GetTotalFree(this, core::mem::transmute_copy(&pdwfreelow), core::mem::transmute_copy(&pdwfreehigh)).into()
+        }
+        unsafe extern "system" fn GetTotalBad<Identity: IWMDMStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorageGlobals_Impl::GetTotalBad(this, core::mem::transmute_copy(&pdwbadlow), core::mem::transmute_copy(&pdwbadhigh)).into()
+        }
+        unsafe extern "system" fn GetStatus<Identity: IWMDMStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwstatus: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDMStorageGlobals_Impl::GetStatus(this) {
+                Ok(ok__) => {
+                    pdwstatus.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Initialize<Identity: IWMDMStorageGlobals_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fumode: u32, pprogress: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDMStorageGlobals_Impl::Initialize(this, core::mem::transmute_copy(&fumode), windows_core::from_raw_borrowed(&pprogress)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetCapabilities: GetCapabilities::<Identity, OFFSET>,
+            GetSerialNumber: GetSerialNumber::<Identity, OFFSET>,
+            GetTotalSize: GetTotalSize::<Identity, OFFSET>,
+            GetTotalFree: GetTotalFree::<Identity, OFFSET>,
+            GetTotalBad: GetTotalBad::<Identity, OFFSET>,
+            GetStatus: GetStatus::<Identity, OFFSET>,
+            Initialize: Initialize::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDMStorageGlobals as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWMDeviceManager, IWMDeviceManager_Vtbl, 0x1dcb3a00_33ed_11d3_8470_00c04f79dbc0);
 impl core::ops::Deref for IWMDeviceManager {
     type Target = windows_core::IUnknown;
@@ -2120,6 +4698,55 @@ pub struct IWMDeviceManager_Vtbl {
     pub GetRevision: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetDeviceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IWMDeviceManager_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetRevision(&self) -> windows_core::Result<u32>;
+    fn GetDeviceCount(&self) -> windows_core::Result<u32>;
+    fn EnumDevices(&self) -> windows_core::Result<IWMDMEnumDevice>;
+}
+impl windows_core::RuntimeName for IWMDeviceManager {}
+impl IWMDeviceManager_Vtbl {
+    pub const fn new<Identity: IWMDeviceManager_Impl, const OFFSET: isize>() -> IWMDeviceManager_Vtbl {
+        unsafe extern "system" fn GetRevision<Identity: IWMDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwrevision: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDeviceManager_Impl::GetRevision(this) {
+                Ok(ok__) => {
+                    pdwrevision.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetDeviceCount<Identity: IWMDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwcount: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDeviceManager_Impl::GetDeviceCount(this) {
+                Ok(ok__) => {
+                    pdwcount.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn EnumDevices<Identity: IWMDeviceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDeviceManager_Impl::EnumDevices(this) {
+                Ok(ok__) => {
+                    ppenumdevice.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetRevision: GetRevision::<Identity, OFFSET>,
+            GetDeviceCount: GetDeviceCount::<Identity, OFFSET>,
+            EnumDevices: EnumDevices::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDeviceManager as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IWMDeviceManager2, IWMDeviceManager2_Vtbl, 0x923e5249_8731_4c5b_9b1c_b8b60b6e46af);
 impl core::ops::Deref for IWMDeviceManager2 {
@@ -2152,6 +4779,49 @@ pub struct IWMDeviceManager2_Vtbl {
     pub EnumDevices2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Reinitialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IWMDeviceManager2_Impl: Sized + IWMDeviceManager_Impl {
+    fn GetDeviceFromCanonicalName(&self, pwszcanonicalname: &windows_core::PCWSTR) -> windows_core::Result<IWMDMDevice>;
+    fn EnumDevices2(&self) -> windows_core::Result<IWMDMEnumDevice>;
+    fn Reinitialize(&self) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IWMDeviceManager2 {}
+impl IWMDeviceManager2_Vtbl {
+    pub const fn new<Identity: IWMDeviceManager2_Impl, const OFFSET: isize>() -> IWMDeviceManager2_Vtbl {
+        unsafe extern "system" fn GetDeviceFromCanonicalName<Identity: IWMDeviceManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszcanonicalname: windows_core::PCWSTR, ppdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDeviceManager2_Impl::GetDeviceFromCanonicalName(this, core::mem::transmute(&pwszcanonicalname)) {
+                Ok(ok__) => {
+                    ppdevice.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn EnumDevices2<Identity: IWMDeviceManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppenumdevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWMDeviceManager2_Impl::EnumDevices2(this) {
+                Ok(ok__) => {
+                    ppenumdevice.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Reinitialize<Identity: IWMDeviceManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDeviceManager2_Impl::Reinitialize(this).into()
+        }
+        Self {
+            base__: IWMDeviceManager_Vtbl::new::<Identity, OFFSET>(),
+            GetDeviceFromCanonicalName: GetDeviceFromCanonicalName::<Identity, OFFSET>,
+            EnumDevices2: EnumDevices2::<Identity, OFFSET>,
+            Reinitialize: Reinitialize::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDeviceManager2 as windows_core::Interface>::IID || iid == &<IWMDeviceManager as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWMDeviceManager3, IWMDeviceManager3_Vtbl, 0xaf185c41_100d_46ed_be2e_9ce8c44594ef);
 impl core::ops::Deref for IWMDeviceManager3 {
     type Target = IWMDeviceManager2;
@@ -2169,6 +4839,22 @@ impl IWMDeviceManager3 {
 pub struct IWMDeviceManager3_Vtbl {
     pub base__: IWMDeviceManager2_Vtbl,
     pub SetDeviceEnumPreference: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+}
+pub trait IWMDeviceManager3_Impl: Sized + IWMDeviceManager2_Impl {
+    fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IWMDeviceManager3 {}
+impl IWMDeviceManager3_Vtbl {
+    pub const fn new<Identity: IWMDeviceManager3_Impl, const OFFSET: isize>() -> IWMDeviceManager3_Vtbl {
+        unsafe extern "system" fn SetDeviceEnumPreference<Identity: IWMDeviceManager3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwenumpref: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWMDeviceManager3_Impl::SetDeviceEnumPreference(this, core::mem::transmute_copy(&dwenumpref)).into()
+        }
+        Self { base__: IWMDeviceManager2_Vtbl::new::<Identity, OFFSET>(), SetDeviceEnumPreference: SetDeviceEnumPreference::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWMDeviceManager3 as windows_core::Interface>::IID || iid == &<IWMDeviceManager as windows_core::Interface>::IID || iid == &<IWMDeviceManager2 as windows_core::Interface>::IID
+    }
 }
 pub const ALLOW_OUTOFBAND_NOTIFICATION: u32 = 2u32;
 pub const DO_NOT_VIRTUALIZE_STORAGES_AS_DEVICES: u32 = 1u32;
@@ -3013,5 +5699,3 @@ impl Default for WMFILECAPABILITIES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

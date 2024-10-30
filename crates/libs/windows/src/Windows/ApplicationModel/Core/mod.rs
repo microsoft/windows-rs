@@ -133,6 +133,39 @@ pub struct ICoreApplicationUnhandledError_Vtbl {
     pub UnhandledErrorDetected: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
     pub RemoveUnhandledErrorDetected: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT,
 }
+pub trait ICoreApplicationUnhandledError_Impl: Sized + windows_core::IUnknownImpl {
+    fn UnhandledErrorDetected(&self, handler: Option<&super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
+    fn RemoveUnhandledErrorDetected(&self, token: &super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for ICoreApplicationUnhandledError {
+    const NAME: &'static str = "Windows.ApplicationModel.Core.ICoreApplicationUnhandledError";
+}
+impl ICoreApplicationUnhandledError_Vtbl {
+    pub const fn new<Identity: ICoreApplicationUnhandledError_Impl, const OFFSET: isize>() -> ICoreApplicationUnhandledError_Vtbl {
+        unsafe extern "system" fn UnhandledErrorDetected<Identity: ICoreApplicationUnhandledError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match ICoreApplicationUnhandledError_Impl::UnhandledErrorDetected(this, windows_core::from_raw_borrowed(&handler)) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RemoveUnhandledErrorDetected<Identity: ICoreApplicationUnhandledError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ICoreApplicationUnhandledError_Impl::RemoveUnhandledErrorDetected(this, core::mem::transmute(&token)).into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, ICoreApplicationUnhandledError, OFFSET>(),
+            UnhandledErrorDetected: UnhandledErrorDetected::<Identity, OFFSET>,
+            RemoveUnhandledErrorDetected: RemoveUnhandledErrorDetected::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICoreApplicationUnhandledError as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(ICoreApplicationUseCount, ICoreApplicationUseCount_Vtbl, 0x518dc408_c077_475b_809e_0bc0c57e4b74);
 impl windows_core::RuntimeType for ICoreApplicationUseCount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -312,6 +345,54 @@ pub struct IFrameworkView_Vtbl {
     pub Run: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Uninitialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "UI_Core")]
+pub trait IFrameworkView_Impl: Sized + windows_core::IUnknownImpl {
+    fn Initialize(&self, applicationview: Option<&CoreApplicationView>) -> windows_core::Result<()>;
+    fn SetWindow(&self, window: Option<&super::super::UI::Core::CoreWindow>) -> windows_core::Result<()>;
+    fn Load(&self, entrypoint: &windows_core::HSTRING) -> windows_core::Result<()>;
+    fn Run(&self) -> windows_core::Result<()>;
+    fn Uninitialize(&self) -> windows_core::Result<()>;
+}
+#[cfg(feature = "UI_Core")]
+impl windows_core::RuntimeName for IFrameworkView {
+    const NAME: &'static str = "Windows.ApplicationModel.Core.IFrameworkView";
+}
+#[cfg(feature = "UI_Core")]
+impl IFrameworkView_Vtbl {
+    pub const fn new<Identity: IFrameworkView_Impl, const OFFSET: isize>() -> IFrameworkView_Vtbl {
+        unsafe extern "system" fn Initialize<Identity: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, applicationview: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IFrameworkView_Impl::Initialize(this, windows_core::from_raw_borrowed(&applicationview)).into()
+        }
+        unsafe extern "system" fn SetWindow<Identity: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, window: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IFrameworkView_Impl::SetWindow(this, windows_core::from_raw_borrowed(&window)).into()
+        }
+        unsafe extern "system" fn Load<Identity: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, entrypoint: core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IFrameworkView_Impl::Load(this, core::mem::transmute(&entrypoint)).into()
+        }
+        unsafe extern "system" fn Run<Identity: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IFrameworkView_Impl::Run(this).into()
+        }
+        unsafe extern "system" fn Uninitialize<Identity: IFrameworkView_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IFrameworkView_Impl::Uninitialize(this).into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IFrameworkView, OFFSET>(),
+            Initialize: Initialize::<Identity, OFFSET>,
+            SetWindow: SetWindow::<Identity, OFFSET>,
+            Load: Load::<Identity, OFFSET>,
+            Run: Run::<Identity, OFFSET>,
+            Uninitialize: Uninitialize::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IFrameworkView as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IFrameworkViewSource, IFrameworkViewSource_Vtbl, 0xcd770614_65c4_426c_9494_34fc43554862);
 impl core::ops::Deref for IFrameworkViewSource {
     type Target = windows_core::IInspectable;
@@ -336,6 +417,31 @@ impl windows_core::RuntimeType for IFrameworkViewSource {
 pub struct IFrameworkViewSource_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IFrameworkViewSource_Impl: Sized + windows_core::IUnknownImpl {
+    fn CreateView(&self) -> windows_core::Result<IFrameworkView>;
+}
+impl windows_core::RuntimeName for IFrameworkViewSource {
+    const NAME: &'static str = "Windows.ApplicationModel.Core.IFrameworkViewSource";
+}
+impl IFrameworkViewSource_Vtbl {
+    pub const fn new<Identity: IFrameworkViewSource_Impl, const OFFSET: isize>() -> IFrameworkViewSource_Vtbl {
+        unsafe extern "system" fn CreateView<Identity: IFrameworkViewSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IFrameworkViewSource_Impl::CreateView(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IFrameworkViewSource, OFFSET>(), CreateView: CreateView::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IFrameworkViewSource as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IHostedViewClosingEventArgs, IHostedViewClosingEventArgs_Vtbl, 0xd238943c_b24e_4790_acb5_3e4243c4ff87);
 impl windows_core::RuntimeType for IHostedViewClosingEventArgs {
@@ -929,5 +1035,3 @@ impl core::fmt::Debug for AppRestartFailureReason {
 impl windows_core::RuntimeType for AppRestartFailureReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Core.AppRestartFailureReason;i4)");
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

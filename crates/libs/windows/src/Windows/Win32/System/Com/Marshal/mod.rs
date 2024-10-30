@@ -702,6 +702,67 @@ pub struct IMarshal_Vtbl {
     pub ReleaseMarshalData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisconnectObject: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
+pub trait IMarshal_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetUnmarshalClass(&self, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> windows_core::Result<windows_core::GUID>;
+    fn GetMarshalSizeMax(&self, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> windows_core::Result<u32>;
+    fn MarshalInterface(&self, pstm: Option<&super::IStream>, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> windows_core::Result<()>;
+    fn UnmarshalInterface(&self, pstm: Option<&super::IStream>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn ReleaseMarshalData(&self, pstm: Option<&super::IStream>) -> windows_core::Result<()>;
+    fn DisconnectObject(&self, dwreserved: u32) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IMarshal {}
+impl IMarshal_Vtbl {
+    pub const fn new<Identity: IMarshal_Impl, const OFFSET: isize>() -> IMarshal_Vtbl {
+        unsafe extern "system" fn GetUnmarshalClass<Identity: IMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32, pcid: *mut windows_core::GUID) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMarshal_Impl::GetUnmarshalClass(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&dwdestcontext), core::mem::transmute_copy(&pvdestcontext), core::mem::transmute_copy(&mshlflags)) {
+                Ok(ok__) => {
+                    pcid.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetMarshalSizeMax<Identity: IMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32, psize: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMarshal_Impl::GetMarshalSizeMax(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&dwdestcontext), core::mem::transmute_copy(&pvdestcontext), core::mem::transmute_copy(&mshlflags)) {
+                Ok(ok__) => {
+                    psize.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn MarshalInterface<Identity: IMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void, riid: *const windows_core::GUID, pv: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, mshlflags: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMarshal_Impl::MarshalInterface(this, windows_core::from_raw_borrowed(&pstm), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&pv), core::mem::transmute_copy(&dwdestcontext), core::mem::transmute_copy(&pvdestcontext), core::mem::transmute_copy(&mshlflags)).into()
+        }
+        unsafe extern "system" fn UnmarshalInterface<Identity: IMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMarshal_Impl::UnmarshalInterface(this, windows_core::from_raw_borrowed(&pstm), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
+        }
+        unsafe extern "system" fn ReleaseMarshalData<Identity: IMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pstm: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMarshal_Impl::ReleaseMarshalData(this, windows_core::from_raw_borrowed(&pstm)).into()
+        }
+        unsafe extern "system" fn DisconnectObject<Identity: IMarshal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwreserved: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMarshal_Impl::DisconnectObject(this, core::mem::transmute_copy(&dwreserved)).into()
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetUnmarshalClass: GetUnmarshalClass::<Identity, OFFSET>,
+            GetMarshalSizeMax: GetMarshalSizeMax::<Identity, OFFSET>,
+            MarshalInterface: MarshalInterface::<Identity, OFFSET>,
+            UnmarshalInterface: UnmarshalInterface::<Identity, OFFSET>,
+            ReleaseMarshalData: ReleaseMarshalData::<Identity, OFFSET>,
+            DisconnectObject: DisconnectObject::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMarshal as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IMarshal2, IMarshal2_Vtbl, 0x000001cf_0000_0000_c000_000000000046);
 impl core::ops::Deref for IMarshal2 {
     type Target = IMarshal;
@@ -714,6 +775,16 @@ impl IMarshal2 {}
 #[repr(C)]
 pub struct IMarshal2_Vtbl {
     pub base__: IMarshal_Vtbl,
+}
+pub trait IMarshal2_Impl: Sized + IMarshal_Impl {}
+impl windows_core::RuntimeName for IMarshal2 {}
+impl IMarshal2_Vtbl {
+    pub const fn new<Identity: IMarshal2_Impl, const OFFSET: isize>() -> IMarshal2_Vtbl {
+        Self { base__: IMarshal_Vtbl::new::<Identity, OFFSET>() }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMarshal2 as windows_core::Interface>::IID || iid == &<IMarshal as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IMarshalingStream, IMarshalingStream_Vtbl, 0xd8f2f5e6_6102_4863_9f26_389a4676efde);
 impl core::ops::Deref for IMarshalingStream {
@@ -734,6 +805,28 @@ pub struct IMarshalingStream_Vtbl {
     pub base__: super::IStream_Vtbl,
     pub GetMarshalingContextAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, super::CO_MARSHALING_CONTEXT_ATTRIBUTES, *mut usize) -> windows_core::HRESULT,
 }
+pub trait IMarshalingStream_Impl: Sized + super::IStream_Impl {
+    fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> windows_core::Result<usize>;
+}
+impl windows_core::RuntimeName for IMarshalingStream {}
+impl IMarshalingStream_Vtbl {
+    pub const fn new<Identity: IMarshalingStream_Impl, const OFFSET: isize>() -> IMarshalingStream_Vtbl {
+        unsafe extern "system" fn GetMarshalingContextAttribute<Identity: IMarshalingStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES, pattributevalue: *mut usize) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMarshalingStream_Impl::GetMarshalingContextAttribute(this, core::mem::transmute_copy(&attribute)) {
+                Ok(ok__) => {
+                    pattributevalue.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: super::IStream_Vtbl::new::<Identity, OFFSET>(), GetMarshalingContextAttribute: GetMarshalingContextAttribute::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMarshalingStream as windows_core::Interface>::IID || iid == &<super::ISequentialStream as windows_core::Interface>::IID || iid == &<super::IStream as windows_core::Interface>::IID
+    }
+}
 pub const SMEXF_HANDLER: STDMSHLFLAGS = STDMSHLFLAGS(2i32);
 pub const SMEXF_SERVER: STDMSHLFLAGS = STDMSHLFLAGS(1i32);
 #[repr(transparent)]
@@ -747,5 +840,3 @@ impl core::fmt::Debug for STDMSHLFLAGS {
         f.debug_tuple("STDMSHLFLAGS").field(&self.0).finish()
     }
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

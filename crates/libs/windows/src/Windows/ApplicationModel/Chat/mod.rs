@@ -131,6 +131,30 @@ pub struct IChatItem_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ItemKind: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ChatItemKind) -> windows_core::HRESULT,
 }
+pub trait IChatItem_Impl: Sized + windows_core::IUnknownImpl {
+    fn ItemKind(&self) -> windows_core::Result<ChatItemKind>;
+}
+impl windows_core::RuntimeName for IChatItem {
+    const NAME: &'static str = "Windows.ApplicationModel.Chat.IChatItem";
+}
+impl IChatItem_Vtbl {
+    pub const fn new<Identity: IChatItem_Impl, const OFFSET: isize>() -> IChatItem_Vtbl {
+        unsafe extern "system" fn ItemKind<Identity: IChatItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ChatItemKind) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IChatItem_Impl::ItemKind(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IChatItem, OFFSET>(), ItemKind: ItemKind::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IChatItem as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IChatMessage, IChatMessage_Vtbl, 0x4b39052a_1142_5089_76da_f2db3d17cd05);
 impl windows_core::RuntimeType for IChatMessage {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -3347,5 +3371,3 @@ impl core::fmt::Debug for RcsServiceKind {
 impl windows_core::RuntimeType for RcsServiceKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Chat.RcsServiceKind;i4)");
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");
