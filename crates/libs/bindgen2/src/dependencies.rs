@@ -17,7 +17,7 @@ impl Dependencies {
         self.set.insert((namespace, name))
     }
 
-    pub fn combine(&mut self, other: Self) {
+    pub fn combine(&mut self, other: &Self) {
         for (namespace, name) in other.set.iter() {
             self.insert(namespace, name);
         }

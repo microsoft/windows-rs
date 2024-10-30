@@ -31,7 +31,7 @@ impl NameTree {
                         }
 
                         tree.items.insert(name);
-                        dependencies.combine(item_dependencies);
+                        dependencies.combine(&item_dependencies);
                     }
                 }
             }

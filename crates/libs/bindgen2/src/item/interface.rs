@@ -276,6 +276,16 @@ impl Interface {
             let generics: Vec<_> = self.generics.iter().map(|ty| ty.write(writer)).collect();
             let runtime_name = format!("{}.{}", self.def.namespace(), self.def.name(),);
 
+            if writer.config.package {
+                for method in self.methods.iter() {
+                    if let MethodOrName::Method(method) = method {
+                        dependencies.combine(&method.dependencies);
+                    }
+                }
+            }
+
+            let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
+
             result.combine(quote! {
                 #cfg
                 impl<#constraints> windows_core::RuntimeName for #name {
