@@ -379,7 +379,7 @@ impl Interface {
             quote! { #namespace #name }
         } else {
             let generics = self.generics.iter().map(|ty| ty.write(writer));
-            quote! { #namespace #name < #(#generics,)* > }
+            quote! { #namespace #name < #(#generics),* > }
         }
     }
 

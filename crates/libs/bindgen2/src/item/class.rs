@@ -128,6 +128,7 @@ impl Class {
                 pub struct #name(windows_core::IUnknown);
                 #cfg
                 windows_core::imp::interface_hierarchy!(#name, windows_core::IUnknown, windows_core::IInspectable);
+                #cfg
                 windows_core::imp::required_hierarchy!(#name, #(#interfaces),*);
                 #cfg
                 impl #name {
