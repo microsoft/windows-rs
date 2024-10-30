@@ -243,6 +243,31 @@ pub struct IEnteredBackgroundEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IEnteredBackgroundEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetDeferral(&self) -> windows_core::Result<super::Foundation::Deferral>;
+}
+impl windows_core::RuntimeName for IEnteredBackgroundEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.IEnteredBackgroundEventArgs";
+}
+impl IEnteredBackgroundEventArgs_Vtbl {
+    pub const fn new<Identity: IEnteredBackgroundEventArgs_Impl, const OFFSET: isize>() -> IEnteredBackgroundEventArgs_Vtbl {
+        unsafe extern "system" fn GetDeferral<Identity: IEnteredBackgroundEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IEnteredBackgroundEventArgs_Impl::GetDeferral(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IEnteredBackgroundEventArgs, OFFSET>(), GetDeferral: GetDeferral::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IEnteredBackgroundEventArgs as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IFindRelatedPackagesOptions, IFindRelatedPackagesOptions_Vtbl, 0x41dd7eea_b335_521f_b96c_5ea07f5b7329);
 impl windows_core::RuntimeType for IFindRelatedPackagesOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -326,6 +351,31 @@ impl windows_core::RuntimeType for ILeavingBackgroundEventArgs {
 pub struct ILeavingBackgroundEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait ILeavingBackgroundEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetDeferral(&self) -> windows_core::Result<super::Foundation::Deferral>;
+}
+impl windows_core::RuntimeName for ILeavingBackgroundEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.ILeavingBackgroundEventArgs";
+}
+impl ILeavingBackgroundEventArgs_Vtbl {
+    pub const fn new<Identity: ILeavingBackgroundEventArgs_Impl, const OFFSET: isize>() -> ILeavingBackgroundEventArgs_Vtbl {
+        unsafe extern "system" fn GetDeferral<Identity: ILeavingBackgroundEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match ILeavingBackgroundEventArgs_Impl::GetDeferral(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, ILeavingBackgroundEventArgs, OFFSET>(), GetDeferral: GetDeferral::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ILeavingBackgroundEventArgs as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(ILimitedAccessFeatureRequestResult, ILimitedAccessFeatureRequestResult_Vtbl, 0xd45156a6_1e24_5ddd_abb4_6188aba4d5bf);
 impl windows_core::RuntimeType for ILimitedAccessFeatureRequestResult {
@@ -640,6 +690,31 @@ pub struct IPackageCatalogStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub OpenForPackage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IPackageCatalogStatics2_Impl: Sized + windows_core::IUnknownImpl {
+    fn OpenForPackage(&self, package: Option<&Package>) -> windows_core::Result<PackageCatalog>;
+}
+impl windows_core::RuntimeName for IPackageCatalogStatics2 {
+    const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalogStatics2";
+}
+impl IPackageCatalogStatics2_Vtbl {
+    pub const fn new<Identity: IPackageCatalogStatics2_Impl, const OFFSET: isize>() -> IPackageCatalogStatics2_Vtbl {
+        unsafe extern "system" fn OpenForPackage<Identity: IPackageCatalogStatics2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, package: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPackageCatalogStatics2_Impl::OpenForPackage(this, windows_core::from_raw_borrowed(&package)) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IPackageCatalogStatics2, OFFSET>(), OpenForPackage: OpenForPackage::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IPackageCatalogStatics2 as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IPackageContentGroup, IPackageContentGroup_Vtbl, 0x8f62695d_120a_4798_b5e1_5800dda8f2e1);
 impl windows_core::RuntimeType for IPackageContentGroup {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -876,6 +951,24 @@ pub struct ISuspendingDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait ISuspendingDeferral_Impl: Sized + windows_core::IUnknownImpl {
+    fn Complete(&self) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for ISuspendingDeferral {
+    const NAME: &'static str = "Windows.ApplicationModel.ISuspendingDeferral";
+}
+impl ISuspendingDeferral_Vtbl {
+    pub const fn new<Identity: ISuspendingDeferral_Impl, const OFFSET: isize>() -> ISuspendingDeferral_Vtbl {
+        unsafe extern "system" fn Complete<Identity: ISuspendingDeferral_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            ISuspendingDeferral_Impl::Complete(this).into()
+        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, ISuspendingDeferral, OFFSET>(), Complete: Complete::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISuspendingDeferral as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(ISuspendingEventArgs, ISuspendingEventArgs_Vtbl, 0x96061c05_2dba_4d08_b0bd_2b30a131c6aa);
 impl core::ops::Deref for ISuspendingEventArgs {
     type Target = windows_core::IInspectable;
@@ -900,6 +993,34 @@ impl windows_core::RuntimeType for ISuspendingEventArgs {
 pub struct ISuspendingEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub SuspendingOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait ISuspendingEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+    fn SuspendingOperation(&self) -> windows_core::Result<SuspendingOperation>;
+}
+impl windows_core::RuntimeName for ISuspendingEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.ISuspendingEventArgs";
+}
+impl ISuspendingEventArgs_Vtbl {
+    pub const fn new<Identity: ISuspendingEventArgs_Impl, const OFFSET: isize>() -> ISuspendingEventArgs_Vtbl {
+        unsafe extern "system" fn SuspendingOperation<Identity: ISuspendingEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match ISuspendingEventArgs_Impl::SuspendingOperation(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, ISuspendingEventArgs, OFFSET>(),
+            SuspendingOperation: SuspendingOperation::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISuspendingEventArgs as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(ISuspendingOperation, ISuspendingOperation_Vtbl, 0x9da4ca41_20e1_4e9b_9f65_a9f435340c3a);
 impl core::ops::Deref for ISuspendingOperation {
@@ -933,6 +1054,46 @@ pub struct ISuspendingOperation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Deadline: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::Foundation::DateTime) -> windows_core::HRESULT,
+}
+pub trait ISuspendingOperation_Impl: Sized + windows_core::IUnknownImpl {
+    fn GetDeferral(&self) -> windows_core::Result<SuspendingDeferral>;
+    fn Deadline(&self) -> windows_core::Result<super::Foundation::DateTime>;
+}
+impl windows_core::RuntimeName for ISuspendingOperation {
+    const NAME: &'static str = "Windows.ApplicationModel.ISuspendingOperation";
+}
+impl ISuspendingOperation_Vtbl {
+    pub const fn new<Identity: ISuspendingOperation_Impl, const OFFSET: isize>() -> ISuspendingOperation_Vtbl {
+        unsafe extern "system" fn GetDeferral<Identity: ISuspendingOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match ISuspendingOperation_Impl::GetDeferral(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Deadline<Identity: ISuspendingOperation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::Foundation::DateTime) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match ISuspendingOperation_Impl::Deadline(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, ISuspendingOperation, OFFSET>(),
+            GetDeferral: GetDeferral::<Identity, OFFSET>,
+            Deadline: Deadline::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ISuspendingOperation as windows_core::Interface>::IID
+    }
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -3229,5 +3390,3 @@ impl Default for PackageVersion {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

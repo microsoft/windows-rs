@@ -2,8 +2,8 @@ use super::*;
 use metadata::HasAttributes;
 
 pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
-    if def.kind() != metadata::TypeKind::Interface
-        || (!writer.implement && def.has_attribute("ExclusiveToAttribute"))
+    if !(def.kind() == metadata::TypeKind::Interface
+        && (writer.implement || (writer.package && !def.has_attribute("ExclusiveToAttribute"))))
     {
         return quote! {};
     }
@@ -190,12 +190,15 @@ pub fn writer(writer: &Writer, def: metadata::TypeDef) -> TokenStream {
                 }
             }
             #[doc(hidden)]
+            #[cfg(feature = "std")]
             #features
             struct #implvtbl_ident<T: #impl_ident> (core::marker::PhantomData<T>);
+            #[cfg(feature = "std")]
             #features
             impl<T: #impl_ident> #implvtbl_ident<T> {
                 const VTABLE: #vtbl_ident = #vtbl_ident::new::<T>();
             }
+            #[cfg(feature = "std")]
             #features
             impl #type_ident {
                 pub fn new<'a, T: #impl_ident>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {

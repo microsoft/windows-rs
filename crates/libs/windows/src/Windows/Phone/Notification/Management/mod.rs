@@ -168,6 +168,89 @@ pub struct IAccessoryNotificationTriggerDetails_Vtbl {
     pub StartedProcessing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetStartedProcessing: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
+pub trait IAccessoryNotificationTriggerDetails_Impl: Sized + windows_core::IUnknownImpl {
+    fn TimeCreated(&self) -> windows_core::Result<super::super::super::Foundation::DateTime>;
+    fn AppDisplayName(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn AppId(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn AccessoryNotificationType(&self) -> windows_core::Result<AccessoryNotificationType>;
+    fn StartedProcessing(&self) -> windows_core::Result<bool>;
+    fn SetStartedProcessing(&self, value: bool) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IAccessoryNotificationTriggerDetails {
+    const NAME: &'static str = "Windows.Phone.Notification.Management.IAccessoryNotificationTriggerDetails";
+}
+impl IAccessoryNotificationTriggerDetails_Vtbl {
+    pub const fn new<Identity: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>() -> IAccessoryNotificationTriggerDetails_Vtbl {
+        unsafe extern "system" fn TimeCreated<Identity: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IAccessoryNotificationTriggerDetails_Impl::TimeCreated(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AppDisplayName<Identity: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IAccessoryNotificationTriggerDetails_Impl::AppDisplayName(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AppId<Identity: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IAccessoryNotificationTriggerDetails_Impl::AppId(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn AccessoryNotificationType<Identity: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut AccessoryNotificationType) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IAccessoryNotificationTriggerDetails_Impl::AccessoryNotificationType(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StartedProcessing<Identity: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IAccessoryNotificationTriggerDetails_Impl::StartedProcessing(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetStartedProcessing<Identity: IAccessoryNotificationTriggerDetails_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IAccessoryNotificationTriggerDetails_Impl::SetStartedProcessing(this, value).into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IAccessoryNotificationTriggerDetails, OFFSET>(),
+            TimeCreated: TimeCreated::<Identity, OFFSET>,
+            AppDisplayName: AppDisplayName::<Identity, OFFSET>,
+            AppId: AppId::<Identity, OFFSET>,
+            AccessoryNotificationType: AccessoryNotificationType::<Identity, OFFSET>,
+            StartedProcessing: StartedProcessing::<Identity, OFFSET>,
+            SetStartedProcessing: SetStartedProcessing::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IAccessoryNotificationTriggerDetails as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IAlarmNotificationTriggerDetails, IAlarmNotificationTriggerDetails_Vtbl, 0x38f5fa30_c738_4da2_908c_775d83c36abb);
 impl windows_core::RuntimeType for IAlarmNotificationTriggerDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -2425,5 +2508,3 @@ impl core::fmt::Debug for VibrateState {
 impl windows_core::RuntimeType for VibrateState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Notification.Management.VibrateState;i4)");
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

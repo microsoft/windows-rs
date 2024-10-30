@@ -111,6 +111,167 @@ pub struct IClass_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
+pub trait IClass_Impl: Sized + windows_core::IUnknownImpl {
+    fn Property(&self) -> windows_core::Result<i32>;
+    fn SetProperty(&self, value: i32) -> windows_core::Result<()>;
+    fn Flags(&self) -> windows_core::Result<Flags>;
+    fn Int32Array(
+        &self,
+        a: &[i32],
+        b: &mut [i32],
+        c: &mut windows_core::Array<i32>,
+    ) -> windows_core::Result<windows_core::Array<i32>>;
+    fn StringArray(
+        &self,
+        a: &[windows_core::HSTRING],
+        b: &mut [windows_core::HSTRING],
+        c: &mut windows_core::Array<windows_core::HSTRING>,
+    ) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>>;
+    fn Input(
+        &self,
+        a: Option<&windows_core::IInspectable>,
+        b: Option<&Class>,
+        c: Option<&windows::Foundation::IStringable>,
+        d: Option<&Callback>,
+    ) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IClass {
+    const NAME: &'static str = "test_component.IClass";
+}
+impl IClass_Vtbl {
+    pub const fn new<Identity: IClass_Impl, const OFFSET: isize>() -> IClass_Vtbl {
+        unsafe extern "system" fn Property<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut i32,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IClass_Impl::Property(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetProperty<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            value: i32,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IClass_Impl::SetProperty(this, value).into()
+        }
+        unsafe extern "system" fn Flags<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut Flags,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IClass_Impl::Flags(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Int32Array<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            a_array_size: u32,
+            a: *const i32,
+            b_array_size: u32,
+            b: *mut i32,
+            c_array_size: *mut u32,
+            c: *mut *mut i32,
+            result_size__: *mut u32,
+            result__: *mut *mut i32,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IClass_Impl::Int32Array(
+                this,
+                core::slice::from_raw_parts(core::mem::transmute_copy(&a), a_array_size as usize),
+                core::slice::from_raw_parts_mut(
+                    core::mem::transmute_copy(&b),
+                    b_array_size as usize,
+                ),
+                windows_core::ArrayProxy::from_raw_parts(
+                    core::mem::transmute_copy(&c),
+                    c_array_size,
+                )
+                .as_array(),
+            ) {
+                Ok(ok__) => {
+                    let (ok_data__, ok_data_len__) = ok__.into_abi();
+                    result__.write(ok_data__);
+                    result_size__.write(ok_data_len__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn StringArray<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            a_array_size: u32,
+            a: *const core::mem::MaybeUninit<windows_core::HSTRING>,
+            b_array_size: u32,
+            b: *mut core::mem::MaybeUninit<windows_core::HSTRING>,
+            c_array_size: *mut u32,
+            c: *mut *mut core::mem::MaybeUninit<windows_core::HSTRING>,
+            result_size__: *mut u32,
+            result__: *mut *mut core::mem::MaybeUninit<windows_core::HSTRING>,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IClass_Impl::StringArray(
+                this,
+                core::slice::from_raw_parts(core::mem::transmute_copy(&a), a_array_size as usize),
+                core::slice::from_raw_parts_mut(
+                    core::mem::transmute_copy(&b),
+                    b_array_size as usize,
+                ),
+                windows_core::ArrayProxy::from_raw_parts(
+                    core::mem::transmute_copy(&c),
+                    c_array_size,
+                )
+                .as_array(),
+            ) {
+                Ok(ok__) => {
+                    let (ok_data__, ok_data_len__) = ok__.into_abi();
+                    result__.write(ok_data__);
+                    result_size__.write(ok_data_len__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Input<Identity: IClass_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            a: *mut core::ffi::c_void,
+            b: *mut core::ffi::c_void,
+            c: *mut core::ffi::c_void,
+            d: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IClass_Impl::Input(
+                this,
+                windows_core::from_raw_borrowed(&a),
+                windows_core::from_raw_borrowed(&b),
+                windows_core::from_raw_borrowed(&c),
+                windows_core::from_raw_borrowed(&d),
+            )
+            .into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IClass, OFFSET>(),
+            Property: Property::<Identity, OFFSET>,
+            SetProperty: SetProperty::<Identity, OFFSET>,
+            Flags: Flags::<Identity, OFFSET>,
+            Int32Array: Int32Array::<Identity, OFFSET>,
+            StringArray: StringArray::<Identity, OFFSET>,
+            Input: Input::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IClass as windows_core::Interface>::IID
+    }
+}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Class(windows_core::IUnknown);
@@ -395,165 +556,4 @@ pub struct Callback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Invoke:
         unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut i32) -> windows_core::HRESULT,
-}
-pub trait IClass_Impl: Sized + windows_core::IUnknownImpl {
-    fn Property(&self) -> windows_core::Result<i32>;
-    fn SetProperty(&self, value: i32) -> windows_core::Result<()>;
-    fn Flags(&self) -> windows_core::Result<Flags>;
-    fn Int32Array(
-        &self,
-        a: &[i32],
-        b: &mut [i32],
-        c: &mut windows_core::Array<i32>,
-    ) -> windows_core::Result<windows_core::Array<i32>>;
-    fn StringArray(
-        &self,
-        a: &[windows_core::HSTRING],
-        b: &mut [windows_core::HSTRING],
-        c: &mut windows_core::Array<windows_core::HSTRING>,
-    ) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>>;
-    fn Input(
-        &self,
-        a: Option<&windows_core::IInspectable>,
-        b: Option<&Class>,
-        c: Option<&windows::Foundation::IStringable>,
-        d: Option<&Callback>,
-    ) -> windows_core::Result<()>;
-}
-impl windows_core::RuntimeName for IClass {
-    const NAME: &'static str = "test_component.IClass";
-}
-impl IClass_Vtbl {
-    pub const fn new<Identity: IClass_Impl, const OFFSET: isize>() -> IClass_Vtbl {
-        unsafe extern "system" fn Property<Identity: IClass_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            result__: *mut i32,
-        ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IClass_Impl::Property(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn SetProperty<Identity: IClass_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            value: i32,
-        ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IClass_Impl::SetProperty(this, value).into()
-        }
-        unsafe extern "system" fn Flags<Identity: IClass_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            result__: *mut Flags,
-        ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IClass_Impl::Flags(this) {
-                Ok(ok__) => {
-                    result__.write(core::mem::transmute_copy(&ok__));
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn Int32Array<Identity: IClass_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            a_array_size: u32,
-            a: *const i32,
-            b_array_size: u32,
-            b: *mut i32,
-            c_array_size: *mut u32,
-            c: *mut *mut i32,
-            result_size__: *mut u32,
-            result__: *mut *mut i32,
-        ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IClass_Impl::Int32Array(
-                this,
-                core::slice::from_raw_parts(core::mem::transmute_copy(&a), a_array_size as usize),
-                core::slice::from_raw_parts_mut(
-                    core::mem::transmute_copy(&b),
-                    b_array_size as usize,
-                ),
-                windows_core::ArrayProxy::from_raw_parts(
-                    core::mem::transmute_copy(&c),
-                    c_array_size,
-                )
-                .as_array(),
-            ) {
-                Ok(ok__) => {
-                    let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    result__.write(ok_data__);
-                    result_size__.write(ok_data_len__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn StringArray<Identity: IClass_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            a_array_size: u32,
-            a: *const core::mem::MaybeUninit<windows_core::HSTRING>,
-            b_array_size: u32,
-            b: *mut core::mem::MaybeUninit<windows_core::HSTRING>,
-            c_array_size: *mut u32,
-            c: *mut *mut core::mem::MaybeUninit<windows_core::HSTRING>,
-            result_size__: *mut u32,
-            result__: *mut *mut core::mem::MaybeUninit<windows_core::HSTRING>,
-        ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            match IClass_Impl::StringArray(
-                this,
-                core::slice::from_raw_parts(core::mem::transmute_copy(&a), a_array_size as usize),
-                core::slice::from_raw_parts_mut(
-                    core::mem::transmute_copy(&b),
-                    b_array_size as usize,
-                ),
-                windows_core::ArrayProxy::from_raw_parts(
-                    core::mem::transmute_copy(&c),
-                    c_array_size,
-                )
-                .as_array(),
-            ) {
-                Ok(ok__) => {
-                    let (ok_data__, ok_data_len__) = ok__.into_abi();
-                    result__.write(ok_data__);
-                    result_size__.write(ok_data_len__);
-                    windows_core::HRESULT(0)
-                }
-                Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn Input<Identity: IClass_Impl, const OFFSET: isize>(
-            this: *mut core::ffi::c_void,
-            a: *mut core::ffi::c_void,
-            b: *mut core::ffi::c_void,
-            c: *mut core::ffi::c_void,
-            d: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-            IClass_Impl::Input(
-                this,
-                windows_core::from_raw_borrowed(&a),
-                windows_core::from_raw_borrowed(&b),
-                windows_core::from_raw_borrowed(&c),
-                windows_core::from_raw_borrowed(&d),
-            )
-            .into()
-        }
-        Self {
-            base__: windows_core::IInspectable_Vtbl::new::<Identity, IClass, OFFSET>(),
-            Property: Property::<Identity, OFFSET>,
-            SetProperty: SetProperty::<Identity, OFFSET>,
-            Flags: Flags::<Identity, OFFSET>,
-            Int32Array: Int32Array::<Identity, OFFSET>,
-            StringArray: StringArray::<Identity, OFFSET>,
-            Input: Input::<Identity, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IClass as windows_core::Interface>::IID
-    }
 }

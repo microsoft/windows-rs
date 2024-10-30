@@ -23,6 +23,31 @@ pub struct IAdaptiveCard_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ToJson: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
 }
+pub trait IAdaptiveCard_Impl: Sized + windows_core::IUnknownImpl {
+    fn ToJson(&self) -> windows_core::Result<windows_core::HSTRING>;
+}
+impl windows_core::RuntimeName for IAdaptiveCard {
+    const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCard";
+}
+impl IAdaptiveCard_Vtbl {
+    pub const fn new<Identity: IAdaptiveCard_Impl, const OFFSET: isize>() -> IAdaptiveCard_Vtbl {
+        unsafe extern "system" fn ToJson<Identity: IAdaptiveCard_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IAdaptiveCard_Impl::ToJson(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, IAdaptiveCard, OFFSET>(), ToJson: ToJson::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IAdaptiveCard as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IAdaptiveCardBuilderStatics, IAdaptiveCardBuilderStatics_Vtbl, 0x766d8f08_d3fe_4347_a0bc_b9ea9a6dc28e);
 impl core::ops::Deref for IAdaptiveCardBuilderStatics {
     type Target = windows_core::IInspectable;
@@ -47,6 +72,34 @@ impl windows_core::RuntimeType for IAdaptiveCardBuilderStatics {
 pub struct IAdaptiveCardBuilderStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateAdaptiveCardFromJson: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::HSTRING>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IAdaptiveCardBuilderStatics_Impl: Sized + windows_core::IUnknownImpl {
+    fn CreateAdaptiveCardFromJson(&self, value: &windows_core::HSTRING) -> windows_core::Result<IAdaptiveCard>;
+}
+impl windows_core::RuntimeName for IAdaptiveCardBuilderStatics {
+    const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCardBuilderStatics";
+}
+impl IAdaptiveCardBuilderStatics_Vtbl {
+    pub const fn new<Identity: IAdaptiveCardBuilderStatics_Impl, const OFFSET: isize>() -> IAdaptiveCardBuilderStatics_Vtbl {
+        unsafe extern "system" fn CreateAdaptiveCardFromJson<Identity: IAdaptiveCardBuilderStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<windows_core::HSTRING>, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IAdaptiveCardBuilderStatics_Impl::CreateAdaptiveCardFromJson(this, core::mem::transmute(&value)) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IAdaptiveCardBuilderStatics, OFFSET>(),
+            CreateAdaptiveCardFromJson: CreateAdaptiveCardFromJson::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IAdaptiveCardBuilderStatics as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IFocusSession, IFocusSession_Vtbl, 0x069fbab8_0e84_5f2f_8614_9b6544326277);
 impl windows_core::RuntimeType for IFocusSession {
@@ -1370,5 +1423,3 @@ impl core::fmt::Debug for ShareWindowCommand {
 impl windows_core::RuntimeType for ShareWindowCommand {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.ShareWindowCommand;i4)");
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

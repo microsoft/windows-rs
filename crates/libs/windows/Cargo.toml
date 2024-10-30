@@ -39,7 +39,6 @@ path = "../targets"
 default = ["std"]
 docs = []
 deprecated = []
-implement = []
 std = ["windows-core/std"]
 # generated features
 AI = ["Foundation"]

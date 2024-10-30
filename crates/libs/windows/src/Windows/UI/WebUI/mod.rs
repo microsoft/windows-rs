@@ -34,6 +34,34 @@ pub struct IActivatedEventArgsDeferral_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ActivatedOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub trait IActivatedEventArgsDeferral_Impl: Sized + windows_core::IUnknownImpl {
+    fn ActivatedOperation(&self) -> windows_core::Result<ActivatedOperation>;
+}
+impl windows_core::RuntimeName for IActivatedEventArgsDeferral {
+    const NAME: &'static str = "Windows.UI.WebUI.IActivatedEventArgsDeferral";
+}
+impl IActivatedEventArgsDeferral_Vtbl {
+    pub const fn new<Identity: IActivatedEventArgsDeferral_Impl, const OFFSET: isize>() -> IActivatedEventArgsDeferral_Vtbl {
+        unsafe extern "system" fn ActivatedOperation<Identity: IActivatedEventArgsDeferral_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IActivatedEventArgsDeferral_Impl::ActivatedOperation(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IActivatedEventArgsDeferral, OFFSET>(),
+            ActivatedOperation: ActivatedOperation::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IActivatedEventArgsDeferral as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IActivatedOperation, IActivatedOperation_Vtbl, 0xb6a0b4bc_c6ca_42fd_9818_71904e45fed7);
 impl windows_core::RuntimeType for IActivatedOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -186,6 +214,39 @@ pub struct IWebUIBackgroundTaskInstance_Vtbl {
     pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetSucceeded: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
+pub trait IWebUIBackgroundTaskInstance_Impl: Sized + windows_core::IUnknownImpl {
+    fn Succeeded(&self) -> windows_core::Result<bool>;
+    fn SetSucceeded(&self, succeeded: bool) -> windows_core::Result<()>;
+}
+impl windows_core::RuntimeName for IWebUIBackgroundTaskInstance {
+    const NAME: &'static str = "Windows.UI.WebUI.IWebUIBackgroundTaskInstance";
+}
+impl IWebUIBackgroundTaskInstance_Vtbl {
+    pub const fn new<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>() -> IWebUIBackgroundTaskInstance_Vtbl {
+        unsafe extern "system" fn Succeeded<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWebUIBackgroundTaskInstance_Impl::Succeeded(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn SetSucceeded<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, succeeded: bool) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IWebUIBackgroundTaskInstance_Impl::SetSucceeded(this, succeeded).into()
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebUIBackgroundTaskInstance, OFFSET>(),
+            Succeeded: Succeeded::<Identity, OFFSET>,
+            SetSucceeded: SetSucceeded::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWebUIBackgroundTaskInstance as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IWebUIBackgroundTaskInstanceStatics, IWebUIBackgroundTaskInstanceStatics_Vtbl, 0x9c7a5291_19ae_4ca3_b94b_fe4ec744a740);
 impl windows_core::RuntimeType for IWebUIBackgroundTaskInstanceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -228,6 +289,34 @@ impl windows_core::RuntimeType for IWebUINavigatedEventArgs {
 pub struct IWebUINavigatedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub NavigatedOperation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait IWebUINavigatedEventArgs_Impl: Sized + windows_core::IUnknownImpl {
+    fn NavigatedOperation(&self) -> windows_core::Result<WebUINavigatedOperation>;
+}
+impl windows_core::RuntimeName for IWebUINavigatedEventArgs {
+    const NAME: &'static str = "Windows.UI.WebUI.IWebUINavigatedEventArgs";
+}
+impl IWebUINavigatedEventArgs_Vtbl {
+    pub const fn new<Identity: IWebUINavigatedEventArgs_Impl, const OFFSET: isize>() -> IWebUINavigatedEventArgs_Vtbl {
+        unsafe extern "system" fn NavigatedOperation<Identity: IWebUINavigatedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IWebUINavigatedEventArgs_Impl::NavigatedOperation(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IWebUINavigatedEventArgs, OFFSET>(),
+            NavigatedOperation: NavigatedOperation::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IWebUINavigatedEventArgs as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IWebUINavigatedOperation, IWebUINavigatedOperation_Vtbl, 0x7a965f08_8182_4a89_ab67_8492e8750d4b);
 impl windows_core::RuntimeType for IWebUINavigatedOperation {
@@ -5578,5 +5667,3 @@ pub struct SuspendingEventHandler_Vtbl {
     #[cfg(not(feature = "ApplicationModel"))]
     Invoke: usize,
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

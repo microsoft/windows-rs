@@ -103,6 +103,61 @@ pub struct IMidiMessage_Vtbl {
     RawData: usize,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MidiMessageType) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Storage_Streams")]
+pub trait IMidiMessage_Impl: Sized + windows_core::IUnknownImpl {
+    fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan>;
+    fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer>;
+    fn Type(&self) -> windows_core::Result<MidiMessageType>;
+}
+#[cfg(feature = "Storage_Streams")]
+impl windows_core::RuntimeName for IMidiMessage {
+    const NAME: &'static str = "Windows.Devices.Midi.IMidiMessage";
+}
+#[cfg(feature = "Storage_Streams")]
+impl IMidiMessage_Vtbl {
+    pub const fn new<Identity: IMidiMessage_Impl, const OFFSET: isize>() -> IMidiMessage_Vtbl {
+        unsafe extern "system" fn Timestamp<Identity: IMidiMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMidiMessage_Impl::Timestamp(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn RawData<Identity: IMidiMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMidiMessage_Impl::RawData(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Type<Identity: IMidiMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut MidiMessageType) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMidiMessage_Impl::Type(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMidiMessage, OFFSET>(),
+            Timestamp: Timestamp::<Identity, OFFSET>,
+            RawData: RawData::<Identity, OFFSET>,
+            Type: Type::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMidiMessage as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IMidiMessageReceivedEventArgs, IMidiMessageReceivedEventArgs_Vtbl, 0x76566e56_f328_4b51_907d_b3a8ce96bf80);
 impl windows_core::RuntimeType for IMidiMessageReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -201,6 +256,49 @@ pub struct IMidiOutPort_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     SendBuffer: usize,
     pub DeviceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT,
+}
+#[cfg(feature = "Storage_Streams")]
+pub trait IMidiOutPort_Impl: Sized + windows_core::IUnknownImpl + super::super::Foundation::IClosable_Impl {
+    fn SendMessage(&self, midimessage: Option<&IMidiMessage>) -> windows_core::Result<()>;
+    fn SendBuffer(&self, mididata: Option<&super::super::Storage::Streams::IBuffer>) -> windows_core::Result<()>;
+    fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING>;
+}
+#[cfg(feature = "Storage_Streams")]
+impl windows_core::RuntimeName for IMidiOutPort {
+    const NAME: &'static str = "Windows.Devices.Midi.IMidiOutPort";
+}
+#[cfg(feature = "Storage_Streams")]
+impl IMidiOutPort_Vtbl {
+    pub const fn new<Identity: IMidiOutPort_Impl, const OFFSET: isize>() -> IMidiOutPort_Vtbl {
+        unsafe extern "system" fn SendMessage<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, midimessage: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMidiOutPort_Impl::SendMessage(this, windows_core::from_raw_borrowed(&midimessage)).into()
+        }
+        unsafe extern "system" fn SendBuffer<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mididata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IMidiOutPort_Impl::SendBuffer(this, windows_core::from_raw_borrowed(&mididata)).into()
+        }
+        unsafe extern "system" fn DeviceId<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut core::mem::MaybeUninit<windows_core::HSTRING>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IMidiOutPort_Impl::DeviceId(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    core::mem::forget(ok__);
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IMidiOutPort, OFFSET>(),
+            SendMessage: SendMessage::<Identity, OFFSET>,
+            SendBuffer: SendBuffer::<Identity, OFFSET>,
+            DeviceId: DeviceId::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IMidiOutPort as windows_core::Interface>::IID
+    }
 }
 windows_core::imp::define_interface!(IMidiOutPortStatics, IMidiOutPortStatics_Vtbl, 0x065cc3e9_0f88_448b_9b64_a95826c65b8f);
 impl windows_core::RuntimeType for IMidiOutPortStatics {
@@ -1691,5 +1789,3 @@ impl core::fmt::Debug for MidiMessageType {
 impl windows_core::RuntimeType for MidiMessageType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Midi.MidiMessageType;i4)");
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");

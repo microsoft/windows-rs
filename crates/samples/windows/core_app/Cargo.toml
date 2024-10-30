@@ -7,7 +7,6 @@ publish = false
 [dependencies.windows]
 workspace = true
 features = [
-    "implement",
     "ApplicationModel_Core",
     "UI_Core",
     "Win32_Storage_Packaging_Appx",

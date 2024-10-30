@@ -89,6 +89,81 @@ pub struct IIOControlCode_Vtbl {
     pub DeviceType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u16) -> windows_core::HRESULT,
     pub ControlCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
+pub trait IIOControlCode_Impl: Sized + windows_core::IUnknownImpl {
+    fn AccessMode(&self) -> windows_core::Result<IOControlAccessMode>;
+    fn BufferingMethod(&self) -> windows_core::Result<IOControlBufferingMethod>;
+    fn Function(&self) -> windows_core::Result<u16>;
+    fn DeviceType(&self) -> windows_core::Result<u16>;
+    fn ControlCode(&self) -> windows_core::Result<u32>;
+}
+impl windows_core::RuntimeName for IIOControlCode {
+    const NAME: &'static str = "Windows.Devices.Custom.IIOControlCode";
+}
+impl IIOControlCode_Vtbl {
+    pub const fn new<Identity: IIOControlCode_Impl, const OFFSET: isize>() -> IIOControlCode_Vtbl {
+        unsafe extern "system" fn AccessMode<Identity: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut IOControlAccessMode) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IIOControlCode_Impl::AccessMode(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn BufferingMethod<Identity: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut IOControlBufferingMethod) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IIOControlCode_Impl::BufferingMethod(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Function<Identity: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u16) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IIOControlCode_Impl::Function(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn DeviceType<Identity: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u16) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IIOControlCode_Impl::DeviceType(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn ControlCode<Identity: IIOControlCode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IIOControlCode_Impl::ControlCode(this) {
+                Ok(ok__) => {
+                    result__.write(core::mem::transmute_copy(&ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, IIOControlCode, OFFSET>(),
+            AccessMode: AccessMode::<Identity, OFFSET>,
+            BufferingMethod: BufferingMethod::<Identity, OFFSET>,
+            Function: Function::<Identity, OFFSET>,
+            DeviceType: DeviceType::<Identity, OFFSET>,
+            ControlCode: ControlCode::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IIOControlCode as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(IIOControlCodeFactory, IIOControlCodeFactory_Vtbl, 0x856a7cf0_4c11_44ae_afc6_b8d4a212788f);
 impl windows_core::RuntimeType for IIOControlCodeFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -339,5 +414,3 @@ impl core::fmt::Debug for IOControlBufferingMethod {
 impl windows_core::RuntimeType for IOControlBufferingMethod {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Custom.IOControlBufferingMethod;i4)");
 }
-#[cfg(feature = "implement")]
-core::include!("impl.rs");
