@@ -95,7 +95,7 @@ impl TypeDef {
                 }
             }
         }
-    
+
         None
     }
 

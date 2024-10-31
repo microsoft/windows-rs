@@ -70,7 +70,7 @@ impl CppEnum {
 
         let flags = if writer.config.sys || !self.def.has_attribute("FlagsAttribute") {
             quote! {}
-        }  else {
+        } else {
             quote! {
                 impl #name {
                     pub const fn contains(&self, other: Self) -> bool {

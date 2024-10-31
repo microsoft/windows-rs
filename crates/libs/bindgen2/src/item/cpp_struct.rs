@@ -56,6 +56,8 @@ impl CppStruct {
         let name = to_ident(self.name());
         let flags = self.def.flags();
         let is_union = flags.contains(TypeAttributes::ExplicitLayout);
+        let has_explicit_layout = self.has_explicit_layout();
+        let has_packing = self.has_packing();
 
         let fields: Vec<_> = self
             .def
@@ -88,7 +90,7 @@ impl CppStruct {
 
         let mut derive = quote! { Clone, Copy, };
 
-        if !writer.config.sys && !is_union {
+        if !writer.config.sys && !has_explicit_layout && !has_packing {
             derive.combine(quote! { Debug, PartialEq, });
         }
 
@@ -203,5 +205,21 @@ impl CppStruct {
     pub fn is_blittable(&self) -> bool {
         // TODO: for compat may need to return true for VARIANT and PROPVARIANT
         false
+    }
+
+    pub fn has_explicit_layout(&self) -> bool {
+        self.def.flags().contains(TypeAttributes::ExplicitLayout)
+            || self
+                .def
+                .fields()
+                .any(|field| field.ty(Some(self)).has_explicit_layout())
+    }
+
+    pub fn has_packing(&self) -> bool {
+        self.def.class_layout().is_some()
+            || self
+                .def
+                .fields()
+                .any(|field| field.ty(Some(self)).has_packing())
     }
 }

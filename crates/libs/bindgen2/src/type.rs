@@ -485,8 +485,8 @@ impl Type {
 
     pub fn is_primitive(&self) -> bool {
         match self {
-              Self::Item(item) => item.is_primitive(),
-              Self::Bool
+            Self::Item(item) => item.is_primitive(),
+            Self::Bool
             | Self::Char
             | Self::I8
             | Self::U8
@@ -516,8 +516,23 @@ impl Type {
 
     pub fn is_pointer(&self) -> bool {
         match self {
-             Self::PtrConst(_, _)
-            | Self::PtrMut(_, _) => true,
+            Self::PtrConst(_, _) | Self::PtrMut(_, _) => true,
+            _ => false,
+        }
+    }
+
+    pub fn has_explicit_layout(&self) -> bool {
+        match self {
+            Self::Item(Item::CppStruct(item)) => item.has_explicit_layout(),
+            Self::ArrayFixed(ty, _) => ty.has_explicit_layout(),
+            _ => false,
+        }
+    }
+
+    pub fn has_packing(&self) -> bool {
+        match self {
+            Self::Item(Item::CppStruct(item)) => item.has_packing(),
+            Self::ArrayFixed(ty, _) => ty.has_packing(),
             _ => false,
         }
     }

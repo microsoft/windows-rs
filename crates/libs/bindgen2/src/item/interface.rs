@@ -272,7 +272,7 @@ impl Interface {
         }
 
         if writer.config.implement || !is_exclusive {
-            let impl_name : TokenStream = format!("{}_Impl", self.def.name()).into();
+            let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
             let generics: Vec<_> = self.generics.iter().map(|ty| ty.write(writer)).collect();
             let runtime_name = format!("{}.{}", self.def.namespace(), self.def.name(),);
 
@@ -295,18 +295,22 @@ impl Interface {
 
             let mut names = MethodNames::new();
 
-            let field_methods: Vec<_> = self.methods.iter().map(|method| match method {
-                MethodOrName::Method(method) => {
-                    let name = names.add(method.def);
-                    quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
-                }
-                MethodOrName::Name(name) => {
-                    // TODO: test this condition - should cause an AV when method is called
-                    // TODO: does this need to use `MethodNames` for overloading?
-                    let name = to_ident(name);
-                    quote! { #name: 0, }
-                }
-            }).collect();
+            let field_methods: Vec<_> = self
+                .methods
+                .iter()
+                .map(|method| match method {
+                    MethodOrName::Method(method) => {
+                        let name = names.add(method.def);
+                        quote! { #name: #name::<#(#generics,)* Identity, OFFSET>, }
+                    }
+                    MethodOrName::Name(name) => {
+                        // TODO: test this condition - should cause an AV when method is called
+                        // TODO: does this need to use `MethodNames` for overloading?
+                        let name = to_ident(name);
+                        quote! { #name: 0, }
+                    }
+                })
+                .collect();
 
             let mut names = MethodNames::new();
 
@@ -320,7 +324,7 @@ impl Interface {
                     quote! {
                         unsafe extern "system" fn #name<#constraints Identity: #impl_name <#(#generics,)*>, const OFFSET: isize> (#signature) -> windows_core::HRESULT {
                             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                            #upcall        
+                            #upcall
                         }
                     }
                 }
@@ -329,14 +333,18 @@ impl Interface {
 
             let mut names = MethodNames::new();
 
-            let trait_methods: Vec<_> = self.methods.iter().map(|method| match method {
-                MethodOrName::Method(method) => {
-                    let name = names.add(method.def);
-                    let signature = method.write_impl_signature(writer, true, true);
-                    quote! { fn #name #signature; }
-                }
-                _ => quote!{},
-            }).collect();
+            let trait_methods: Vec<_> = self
+                .methods
+                .iter()
+                .map(|method| match method {
+                    MethodOrName::Method(method) => {
+                        let name = names.add(method.def);
+                        let signature = method.write_impl_signature(writer, true, true);
+                        quote! { fn #name #signature; }
+                    }
+                    _ => quote! {},
+                })
+                .collect();
 
             let requires = if interfaces.is_empty() {
                 quote! { Sized + windows_core::IUnknownImpl }
