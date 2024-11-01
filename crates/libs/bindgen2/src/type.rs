@@ -216,13 +216,13 @@ impl Type {
         }
     }
 
-    pub fn deref(self) -> Self {
+    pub fn deref(&self) -> Self {
         match self {
             Self::PtrConst(ty, 1) | Self::PtrMut(ty, 1) => {
-                if *ty == Self::Void {
+                if **ty == Self::Void {
                     Self::U8
                 } else {
-                    *ty
+                    *ty.clone()
                 }
             }
             Self::PtrConst(ty, pointers) => Self::PtrConst(ty.clone(), pointers - 1),
@@ -533,6 +533,30 @@ impl Type {
         match self {
             Self::Item(Item::CppStruct(item)) => item.has_packing(),
             Self::ArrayFixed(ty, _) => ty.has_packing(),
+            _ => false,
+        }
+    }
+
+    pub fn is_byte_size(&self) -> bool {
+        match self {
+            Self::PtrConst(ty, _) | Self::PtrMut(ty, _) => ty.is_byte_size(),
+            Self::I8 | Self::U8 | Self::PSTR | Self::PCSTR => true,
+            _ => false,
+        }
+    }
+
+    pub fn is_trivially_convertible(&self) -> bool {
+        if let Self::Item(Item::CppStruct(item)) = self {
+            item.def.has_attribute("NativeTypedefAttribute")
+        } else {
+            false
+        }
+    }
+
+    pub fn is_void(&self) -> bool {
+        match self {
+            Type::PtrConst(ty, _) | Type::PtrMut(ty, _) => ty.is_void(),
+            Type::Void => true,
             _ => false,
         }
     }

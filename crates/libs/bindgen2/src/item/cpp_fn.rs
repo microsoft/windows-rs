@@ -76,13 +76,81 @@ impl CppFn {
             };
         }
 
-        // TODO: build wrapper
+        let method = CppMethod::new(self.method, self.def.namespace());
+        let args = method.write_args();
+        let params = method.write_params(writer);
+        let generics = quote! {};
 
-        quote! {
-            #cfg
-            #[inline]
-            pub unsafe fn #name() {
-                #link
+        match method.return_hint {
+            ReturnHint::Query(..) => {
+                quote! {
+                    #cfg
+                    #[inline]
+                    pub unsafe fn #name<#generics>(#params) {
+                        #link
+                        #name(#args)
+                    }
+                }
+            }
+            ReturnHint::QueryOptional(..) => {
+                quote! {
+                    #cfg
+                    #[inline]
+                    pub unsafe fn #name<#generics>(#params) {
+                        #link
+                        #name(#args)
+                    }
+                }
+            }
+            ReturnHint::ResultValue => {
+                quote! {
+                    #cfg
+                    #[inline]
+                    pub unsafe fn #name<#generics>(#params) {
+                        #link
+                        #name(#args)
+                    }
+                }
+            }
+            ReturnHint::ResultVoid => {
+                quote! {
+                    #cfg
+                    #[inline]
+                    pub unsafe fn #name<#generics>(#params) {
+                        #link
+                        #name(#args)
+                    }
+                }
+            }
+            ReturnHint::ReturnValue => {
+                quote! {
+                    #cfg
+                    #[inline]
+                    pub unsafe fn #name<#generics>(#params) {
+                        #link
+                        #name(#args)
+                    }
+                }
+            }
+            ReturnHint::ReturnStruct | ReturnHint::None => {
+                quote! {
+                    #cfg
+                    #[inline]
+                    pub unsafe fn #name<#generics>(#params) {
+                        #link
+                        #name(#args)
+                    }
+                }
+            }
+            ReturnHint::ReturnVoid => {
+                quote! {
+                    #cfg
+                    #[inline]
+                    pub unsafe fn #name<#generics>(#params) {
+                        #link
+                        #name(#args)
+                    }
+                }
             }
         }
     }
