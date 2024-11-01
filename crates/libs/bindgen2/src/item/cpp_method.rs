@@ -1,5 +1,6 @@
 use super::*;
 
+#[derive(Debug)]
 pub struct CppMethod {
     pub namespace: &'static str, // for namespace resolution of some attributes
     pub def: MethodDef,
@@ -9,6 +10,7 @@ pub struct CppMethod {
     pub param_hints: Vec<ParamHint>,
 }
 
+#[derive(Debug)]
 pub enum ReturnHint {
     None,
     Query(usize, usize),
@@ -20,7 +22,7 @@ pub enum ReturnHint {
     ReturnVoid,
 }
 
-#[derive(Copy, Clone, PartialEq)]
+#[derive(Copy, Clone, PartialEq, Debug)]
 pub enum ParamHint {
     None,
     ArrayFixed(usize),
@@ -483,11 +485,10 @@ fn is_param_retval(ty: &Type, param: Param, hint: ParamHint) -> bool {
         return false;
     }
 
-    // TODO: need ty.size()
-    // // If it's bigger than 128 bits, best to pass as a reference.
-    // if ty.deref().size() > 16 {
-    //     return false;
-    // }
+    // If it's bigger than 128 bits, best to pass as a reference.
+    if ty.deref().size() > 16 {
+        return false;
+    }
     true
 }
 

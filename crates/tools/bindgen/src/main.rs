@@ -24,6 +24,8 @@ fn main() {
     // Same as 'iota.rs' but without `--sys`.
     test("--out iota_win.rs --filter GetTickCount --flat --no-comment");
 
+    test("--out cpp_fn_return_void.rs --filter GlobalMemoryStatus --flat --no-comment");
+
     // Generate functions and include dependencies automatically.
     test("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --flat --no-deps --no-comment");
 

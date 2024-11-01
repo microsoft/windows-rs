@@ -560,6 +560,31 @@ impl Type {
             _ => false,
         }
     }
+
+    pub fn size(&self) -> usize {
+        match self {
+            Type::I8 | Type::U8 => 1,
+            Type::I16 | Type::U16 => 2,
+            Type::I64 | Type::U64 | Type::F64 => 8,
+            Type::GUID => 16,
+            Type::Item(item) => item.size(),
+            Type::ArrayFixed(ty, len) => ty.size() * len,
+            Type::PrimitiveOrEnum(ty, _) => ty.size(),
+            _ => 4,
+        }
+    }
+
+    pub fn align(&self) -> usize {
+        match self {
+            Type::I8 | Type::U8 => 1,
+            Type::I16 | Type::U16 => 2,
+            Type::I64 | Type::U64 | Type::F64 => 8,
+            Type::GUID => 4,
+            Type::Item(item) => item.align(),
+            Type::ArrayFixed(ty, len) => ty.align() * len,
+            _ => 4,
+        }
+    }
 }
 
 fn write_ptr_mut(pointers: usize) -> TokenStream {

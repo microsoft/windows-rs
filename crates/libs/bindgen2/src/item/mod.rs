@@ -218,6 +218,22 @@ impl Item {
             Self::CppEnum(item) => item.dependencies(dependencies),
         }
     }
+
+    pub fn size(&self) -> usize {
+        match self {
+            Self::CppStruct(item) => item.size(),
+            Self::CppEnum(item) => item.size(),
+            rest => unimplemented!("{rest:?}"),
+        }
+    }
+
+    pub fn align(&self) -> usize {
+        match self {
+            Self::CppStruct(item) => item.align(),
+            Self::CppEnum(item) => item.align(),
+            rest => unimplemented!("{rest:?}"),
+        }
+    }
 }
 
 fn interface_signature(def: TypeDef, generics: &[Type]) -> String {

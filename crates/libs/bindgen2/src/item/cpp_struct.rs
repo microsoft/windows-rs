@@ -226,4 +226,32 @@ impl CppStruct {
                 .fields()
                 .any(|field| field.ty(Some(self)).has_packing())
     }
+
+    pub fn size(&self) -> usize {
+        if self.def.flags().contains(TypeAttributes::ExplicitLayout) {
+            self.def
+                .fields()
+                .map(|field| field.ty(Some(self)).size())
+                .max()
+                .unwrap_or(1)
+        } else {
+            let mut sum = 0;
+            for field in self.def.fields() {
+                let ty = field.ty(Some(self));
+                let size = ty.size();
+                let align = ty.align();
+                sum = (sum + (align - 1)) & !(align - 1);
+                sum += size;
+            }
+            sum
+        }
+    }
+
+    pub fn align(&self) -> usize {
+        self.def
+            .fields()
+            .map(|field| field.ty(Some(self)).align())
+            .max()
+            .unwrap_or(1)
+    }
 }
