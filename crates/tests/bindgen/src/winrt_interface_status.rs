@@ -11,15 +11,15 @@ windows_core::imp::define_interface!(
     IAsyncInfo_Vtbl,
     0x00000036_0000_0000_c000_000000000046
 );
+impl windows_core::RuntimeType for IAsyncInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 windows_core::imp::interface_hierarchy!(
     IAsyncInfo,
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl windows_core::RuntimeType for IAsyncInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IAsyncInfo {
     pub fn Id(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -87,6 +87,13 @@ pub struct IAsyncInfo_Vtbl {
 impl windows_core::RuntimeName for IAsyncInfo {
     const NAME: &'static str = "Windows.Foundation.IAsyncInfo";
 }
+pub trait IAsyncInfo_Impl: Sized + windows_core::IUnknownImpl {
+    fn Id(&self) -> windows_core::Result<u32>;
+    fn Status(&self) -> windows_core::Result<AsyncStatus>;
+    fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT>;
+    fn Cancel(&self) -> windows_core::Result<()>;
+    fn Close(&self) -> windows_core::Result<()>;
+}
 impl IAsyncInfo_Vtbl {
     pub const fn new<Identity: IAsyncInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Id<Identity: IAsyncInfo_Impl, const OFFSET: isize>(
@@ -152,13 +159,6 @@ impl IAsyncInfo_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAsyncInfo as windows_core::Interface>::IID
     }
-}
-pub trait IAsyncInfo_Impl: Sized + windows_core::IUnknownImpl {
-    fn Id(&self) -> windows_core::Result<u32>;
-    fn Status(&self) -> windows_core::Result<AsyncStatus>;
-    fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT>;
-    fn Cancel(&self) -> windows_core::Result<()>;
-    fn Close(&self) -> windows_core::Result<()>;
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Default, PartialEq)]

@@ -29,9 +29,13 @@ impl CppStruct {
         }
     }
 
+    pub fn is_handle(&self) -> bool {
+        self.def.has_attribute("NativeTypedefAttribute")
+    }
+
     pub fn write(&self, writer: &Writer) -> TokenStream {
         // TODO: do we need to ass cfg into this?
-        if self.def.has_attribute("NativeTypedefAttribute") {
+        if self.is_handle() {
             return writer.write_cpp_handle(self.def);
         }
 

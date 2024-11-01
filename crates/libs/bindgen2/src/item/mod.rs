@@ -187,7 +187,7 @@ impl Item {
     pub fn is_primitive(&self) -> bool {
         match self {
             Self::Enum(_) | Self::CppEnum(_) | Self::CppDelegate(_) => true,
-            Self::CppStruct(item) => item.def.has_attribute("NativeTypedefAttribute"),
+            Self::CppStruct(item) => item.is_handle(),
             _ => false,
         }
     }

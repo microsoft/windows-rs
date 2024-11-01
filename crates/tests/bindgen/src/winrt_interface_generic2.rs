@@ -43,6 +43,11 @@ where
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IIterable<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IIterable";
 }
+pub trait IIterable_Impl<T>: Sized + windows_core::IUnknownImpl
+where
+    T: windows_core::RuntimeType + 'static,
+{
+}
 impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
     pub const fn new<Identity: IIterable_Impl<T>, const OFFSET: isize>() -> Self {
         Self {
@@ -54,11 +59,6 @@ impl<T: windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IIterable<T> as windows_core::Interface>::IID
     }
-}
-pub trait IIterable_Impl<T>: Sized + windows_core::IUnknownImpl
-where
-    T: windows_core::RuntimeType + 'static,
-{
 }
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
@@ -280,6 +280,41 @@ where
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IVector<T> {
     const NAME: &'static str = "Windows.Foundation.Collections.IVector";
 }
+pub trait IVector_Impl<T>: IIterable_Impl<T>
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    fn GetAt(&self, index: u32) -> windows_core::Result<T>;
+    fn Size(&self) -> windows_core::Result<u32>;
+    fn IndexOf(
+        &self,
+        value: &<T as windows_core::Type<T>>::Default,
+        index: &mut u32,
+    ) -> windows_core::Result<bool>;
+    fn SetAt(
+        &self,
+        index: u32,
+        value: &<T as windows_core::Type<T>>::Default,
+    ) -> windows_core::Result<()>;
+    fn InsertAt(
+        &self,
+        index: u32,
+        value: &<T as windows_core::Type<T>>::Default,
+    ) -> windows_core::Result<()>;
+    fn RemoveAt(&self, index: u32) -> windows_core::Result<()>;
+    fn Append(&self, value: &<T as windows_core::Type<T>>::Default) -> windows_core::Result<()>;
+    fn RemoveAtEnd(&self) -> windows_core::Result<()>;
+    fn Clear(&self) -> windows_core::Result<()>;
+    fn GetMany(
+        &self,
+        startIndex: u32,
+        items: &mut [<T as windows_core::Type<T>>::Default],
+    ) -> windows_core::Result<u32>;
+    fn ReplaceAll(
+        &self,
+        items: &[<T as windows_core::Type<T>>::Default],
+    ) -> windows_core::Result<()>;
+}
 impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
     pub const fn new<Identity: IVector_Impl<T>, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetAt<
@@ -473,39 +508,4 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IVector<T> as windows_core::Interface>::IID
     }
-}
-pub trait IVector_Impl<T>: IIterable_Impl<T>
-where
-    T: windows_core::RuntimeType + 'static,
-{
-    fn GetAt(&self, index: u32) -> windows_core::Result<T>;
-    fn Size(&self) -> windows_core::Result<u32>;
-    fn IndexOf(
-        &self,
-        value: &<T as windows_core::Type<T>>::Default,
-        index: &mut u32,
-    ) -> windows_core::Result<bool>;
-    fn SetAt(
-        &self,
-        index: u32,
-        value: &<T as windows_core::Type<T>>::Default,
-    ) -> windows_core::Result<()>;
-    fn InsertAt(
-        &self,
-        index: u32,
-        value: &<T as windows_core::Type<T>>::Default,
-    ) -> windows_core::Result<()>;
-    fn RemoveAt(&self, index: u32) -> windows_core::Result<()>;
-    fn Append(&self, value: &<T as windows_core::Type<T>>::Default) -> windows_core::Result<()>;
-    fn RemoveAtEnd(&self) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn GetMany(
-        &self,
-        startIndex: u32,
-        items: &mut [<T as windows_core::Type<T>>::Default],
-    ) -> windows_core::Result<u32>;
-    fn ReplaceAll(
-        &self,
-        items: &[<T as windows_core::Type<T>>::Default],
-    ) -> windows_core::Result<()>;
 }

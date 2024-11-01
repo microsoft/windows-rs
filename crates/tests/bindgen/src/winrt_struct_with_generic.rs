@@ -11,15 +11,15 @@ windows_core::imp::define_interface!(
     IPropertyValue_Vtbl,
     0x4bd682dd_7554_40e9_9a9b_82654ede7e62
 );
+impl windows_core::RuntimeType for IPropertyValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 windows_core::imp::interface_hierarchy!(
     IPropertyValue,
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl windows_core::RuntimeType for IPropertyValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IPropertyValue {
     pub fn IsNumericScalar(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -461,6 +461,45 @@ pub struct IPropertyValue_Vtbl {
 }
 impl windows_core::RuntimeName for IPropertyValue {
     const NAME: &'static str = "Windows.Foundation.IPropertyValue";
+}
+pub trait IPropertyValue_Impl: Sized + windows_core::IUnknownImpl {
+    fn IsNumericScalar(&self) -> windows_core::Result<bool>;
+    fn GetUInt8(&self) -> windows_core::Result<u8>;
+    fn GetInt16(&self) -> windows_core::Result<i16>;
+    fn GetUInt16(&self) -> windows_core::Result<u16>;
+    fn GetInt32(&self) -> windows_core::Result<i32>;
+    fn GetUInt32(&self) -> windows_core::Result<u32>;
+    fn GetInt64(&self) -> windows_core::Result<i64>;
+    fn GetUInt64(&self) -> windows_core::Result<u64>;
+    fn GetSingle(&self) -> windows_core::Result<f32>;
+    fn GetDouble(&self) -> windows_core::Result<f64>;
+    fn GetChar16(&self) -> windows_core::Result<u16>;
+    fn GetBoolean(&self) -> windows_core::Result<bool>;
+    fn GetString(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn GetGuid(&self) -> windows_core::Result<windows_core::GUID>;
+    fn GetUInt8Array(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()>;
+    fn GetInt16Array(&self, value: &mut windows_core::Array<i16>) -> windows_core::Result<()>;
+    fn GetUInt16Array(&self, value: &mut windows_core::Array<u16>) -> windows_core::Result<()>;
+    fn GetInt32Array(&self, value: &mut windows_core::Array<i32>) -> windows_core::Result<()>;
+    fn GetUInt32Array(&self, value: &mut windows_core::Array<u32>) -> windows_core::Result<()>;
+    fn GetInt64Array(&self, value: &mut windows_core::Array<i64>) -> windows_core::Result<()>;
+    fn GetUInt64Array(&self, value: &mut windows_core::Array<u64>) -> windows_core::Result<()>;
+    fn GetSingleArray(&self, value: &mut windows_core::Array<f32>) -> windows_core::Result<()>;
+    fn GetDoubleArray(&self, value: &mut windows_core::Array<f64>) -> windows_core::Result<()>;
+    fn GetChar16Array(&self, value: &mut windows_core::Array<u16>) -> windows_core::Result<()>;
+    fn GetBooleanArray(&self, value: &mut windows_core::Array<bool>) -> windows_core::Result<()>;
+    fn GetStringArray(
+        &self,
+        value: &mut windows_core::Array<windows_core::HSTRING>,
+    ) -> windows_core::Result<()>;
+    fn GetInspectableArray(
+        &self,
+        value: &mut windows_core::Array<windows_core::IInspectable>,
+    ) -> windows_core::Result<()>;
+    fn GetGuidArray(
+        &self,
+        value: &mut windows_core::Array<windows_core::GUID>,
+    ) -> windows_core::Result<()>;
 }
 impl IPropertyValue_Vtbl {
     pub const fn new<Identity: IPropertyValue_Impl, const OFFSET: isize>() -> Self {
@@ -963,45 +1002,6 @@ impl IPropertyValue_Vtbl {
         iid == &<IPropertyValue as windows_core::Interface>::IID
     }
 }
-pub trait IPropertyValue_Impl: Sized + windows_core::IUnknownImpl {
-    fn IsNumericScalar(&self) -> windows_core::Result<bool>;
-    fn GetUInt8(&self) -> windows_core::Result<u8>;
-    fn GetInt16(&self) -> windows_core::Result<i16>;
-    fn GetUInt16(&self) -> windows_core::Result<u16>;
-    fn GetInt32(&self) -> windows_core::Result<i32>;
-    fn GetUInt32(&self) -> windows_core::Result<u32>;
-    fn GetInt64(&self) -> windows_core::Result<i64>;
-    fn GetUInt64(&self) -> windows_core::Result<u64>;
-    fn GetSingle(&self) -> windows_core::Result<f32>;
-    fn GetDouble(&self) -> windows_core::Result<f64>;
-    fn GetChar16(&self) -> windows_core::Result<u16>;
-    fn GetBoolean(&self) -> windows_core::Result<bool>;
-    fn GetString(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn GetGuid(&self) -> windows_core::Result<windows_core::GUID>;
-    fn GetUInt8Array(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()>;
-    fn GetInt16Array(&self, value: &mut windows_core::Array<i16>) -> windows_core::Result<()>;
-    fn GetUInt16Array(&self, value: &mut windows_core::Array<u16>) -> windows_core::Result<()>;
-    fn GetInt32Array(&self, value: &mut windows_core::Array<i32>) -> windows_core::Result<()>;
-    fn GetUInt32Array(&self, value: &mut windows_core::Array<u32>) -> windows_core::Result<()>;
-    fn GetInt64Array(&self, value: &mut windows_core::Array<i64>) -> windows_core::Result<()>;
-    fn GetUInt64Array(&self, value: &mut windows_core::Array<u64>) -> windows_core::Result<()>;
-    fn GetSingleArray(&self, value: &mut windows_core::Array<f32>) -> windows_core::Result<()>;
-    fn GetDoubleArray(&self, value: &mut windows_core::Array<f64>) -> windows_core::Result<()>;
-    fn GetChar16Array(&self, value: &mut windows_core::Array<u16>) -> windows_core::Result<()>;
-    fn GetBooleanArray(&self, value: &mut windows_core::Array<bool>) -> windows_core::Result<()>;
-    fn GetStringArray(
-        &self,
-        value: &mut windows_core::Array<windows_core::HSTRING>,
-    ) -> windows_core::Result<()>;
-    fn GetInspectableArray(
-        &self,
-        value: &mut windows_core::Array<windows_core::IInspectable>,
-    ) -> windows_core::Result<()>;
-    fn GetGuidArray(
-        &self,
-        value: &mut windows_core::Array<windows_core::GUID>,
-    ) -> windows_core::Result<()>;
-}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IReference<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
@@ -1380,6 +1380,12 @@ where
 impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IReference<T> {
     const NAME: &'static str = "Windows.Foundation.IReference";
 }
+pub trait IReference_Impl<T>: IPropertyValue_Impl
+where
+    T: windows_core::RuntimeType + 'static,
+{
+    fn Value(&self) -> windows_core::Result<T>;
+}
 impl<T: windows_core::RuntimeType + 'static> IReference_Vtbl<T> {
     pub const fn new<Identity: IReference_Impl<T>, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Value<
@@ -1409,12 +1415,6 @@ impl<T: windows_core::RuntimeType + 'static> IReference_Vtbl<T> {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IReference<T> as windows_core::Interface>::IID
     }
-}
-pub trait IReference_Impl<T>: IPropertyValue_Impl
-where
-    T: windows_core::RuntimeType + 'static,
-{
-    fn Value(&self) -> windows_core::Result<T>;
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Default, PartialEq)]

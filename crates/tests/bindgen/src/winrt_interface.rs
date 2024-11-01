@@ -11,15 +11,15 @@ windows_core::imp::define_interface!(
     IStringable_Vtbl,
     0x96369f54_8eb6_48f0_abce_c1b211e627c3
 );
+impl windows_core::RuntimeType for IStringable {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 windows_core::imp::interface_hierarchy!(
     IStringable,
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl windows_core::RuntimeType for IStringable {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IStringable {
     pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -43,6 +43,9 @@ pub struct IStringable_Vtbl {
 }
 impl windows_core::RuntimeName for IStringable {
     const NAME: &'static str = "Windows.Foundation.IStringable";
+}
+pub trait IStringable_Impl: Sized + windows_core::IUnknownImpl {
+    fn ToString(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 impl IStringable_Vtbl {
     pub const fn new<Identity: IStringable_Impl, const OFFSET: isize>() -> Self {
@@ -68,7 +71,4 @@ impl IStringable_Vtbl {
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IStringable as windows_core::Interface>::IID
     }
-}
-pub trait IStringable_Impl: Sized + windows_core::IUnknownImpl {
-    fn ToString(&self) -> windows_core::Result<windows_core::HSTRING>;
 }

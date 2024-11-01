@@ -11,15 +11,15 @@ windows_core::imp::define_interface!(
     IClosable_Vtbl,
     0x30d5a829_7fa4_4026_83bb_d75bae4ea99e
 );
+impl windows_core::RuntimeType for IClosable {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 windows_core::imp::interface_hierarchy!(
     IClosable,
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-impl windows_core::RuntimeType for IClosable {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 impl IClosable {
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = self;
@@ -36,6 +36,9 @@ pub struct IClosable_Vtbl {
 }
 impl windows_core::RuntimeName for IClosable {
     const NAME: &'static str = "Windows.Foundation.IClosable";
+}
+pub trait IClosable_Impl: Sized + windows_core::IUnknownImpl {
+    fn Close(&self) -> windows_core::Result<()>;
 }
 impl IClosable_Vtbl {
     pub const fn new<Identity: IClosable_Impl, const OFFSET: isize>() -> Self {
@@ -54,18 +57,10 @@ impl IClosable_Vtbl {
         iid == &<IClosable as windows_core::Interface>::IID
     }
 }
-pub trait IClosable_Impl: Sized + windows_core::IUnknownImpl {
-    fn Close(&self) -> windows_core::Result<()>;
-}
 windows_core::imp::define_interface!(
     IDeferral,
     IDeferral_Vtbl,
     0xd6269732_3b7f_46a7_b40b_4fdca2a2c693
-);
-windows_core::imp::interface_hierarchy!(
-    IDeferral,
-    windows_core::IUnknown,
-    windows_core::IInspectable
 );
 impl windows_core::RuntimeType for IDeferral {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -80,11 +75,6 @@ windows_core::imp::define_interface!(
     IDeferralFactory,
     IDeferralFactory_Vtbl,
     0x65a1ecc5_3fb5_4832_8ca9_f061b281d13a
-);
-windows_core::imp::interface_hierarchy!(
-    IDeferralFactory,
-    windows_core::IUnknown,
-    windows_core::IInspectable
 );
 impl windows_core::RuntimeType for IDeferralFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer =

@@ -547,7 +547,7 @@ impl Type {
 
     pub fn is_trivially_convertible(&self) -> bool {
         if let Self::Item(Item::CppStruct(item)) = self {
-            item.def.has_attribute("NativeTypedefAttribute")
+            item.is_handle()
         } else {
             false
         }

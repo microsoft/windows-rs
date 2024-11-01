@@ -219,9 +219,7 @@ impl CppMethod {
                     return_hint = ReturnHint::ReturnVoid
                 }
                 Type::GUID => return_hint = ReturnHint::ReturnStruct,
-                Type::Item(Item::CppStruct(item))
-                    if !item.def.has_attribute("NativeTypedefAttribute") =>
-                {
+                Type::Item(Item::CppStruct(item)) if !item.is_handle() => {
                     return_hint = ReturnHint::ReturnStruct
                 }
                 _ => {}
@@ -398,6 +396,39 @@ impl CppMethod {
         }
 
         tokens
+    }
+
+    pub fn write_return(&self, writer: &Writer) -> TokenStream {
+        match &self.signature.return_type.0 {
+            Type::Void if self.def.has_attribute("DoesNotReturnAttribute") => quote! {  -> ! },
+            Type::Void => quote! {},
+            ty => {
+                let ty = ty.write_default(writer);
+                quote! { -> #ty }
+            }
+        }
+    }
+
+    pub fn handle_last_error(&self) -> bool {
+        if let Some(map) = self.def.impl_map() {
+            if map.flags().contains(PInvokeAttributes::SupportsLastError) {
+                if let Type::Item(Item::CppStruct(item)) = &self.signature.return_type.0 {
+                    if item.is_handle() {
+                        // https://github.com/microsoft/windows-rs/issues/2392#issuecomment-1477765781
+                        if self.def.name() == "LocalFree" {
+                            return false;
+                        }
+                        if item.def.underlying_type().is_pointer() {
+                            return true;
+                        }
+                        if !item.def.invalid_values().is_empty() {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        false
     }
 }
 

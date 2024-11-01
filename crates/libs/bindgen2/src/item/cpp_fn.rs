@@ -80,6 +80,8 @@ impl CppFn {
         let args = method.write_args();
         let params = method.write_params(writer);
         let generics = quote! {};
+        let where_clause = quote! {};
+        let abi_return_type = method.write_return(writer);
 
         match method.return_hint {
             ReturnHint::Query(..) => {
@@ -133,12 +135,26 @@ impl CppFn {
                 }
             }
             ReturnHint::ReturnStruct | ReturnHint::None => {
-                quote! {
-                    #cfg
-                    #[inline]
-                    pub unsafe fn #name<#generics>(#params) {
-                        #link
-                        #name(#args)
+                if method.handle_last_error() {
+                    let return_type = signature.return_type.0.write(writer);
+
+                    quote! {
+                        #cfg
+                        #[inline]
+                        pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> #where_clause {
+                            #link
+                            let result__ = #name(#args);
+                            (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+                        }
+                    }
+                } else {
+                    quote! {
+                        #cfg
+                        #[inline]
+                        pub unsafe fn #name<#generics>(#params) #abi_return_type #where_clause {
+                            #link
+                            #name(#args)
+                        }
                     }
                 }
             }
