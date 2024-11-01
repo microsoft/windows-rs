@@ -22,7 +22,7 @@ fn main() {
     test("--out iota.rs --filter GetTickCount --sys --flat --no-comment --no-allow");
 
     // Same as 'iota.rs' but without `--sys`.
-    test("--out iota_win.rs --filter GetTickCount --flat --no-comment");
+    test("--out cpp_fn_return_none.rs --filter GetTickCount --flat --no-comment");
 
     test("--out cpp_fn_return_void.rs --filter GlobalMemoryStatus --flat --no-comment");
 
