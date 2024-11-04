@@ -44,7 +44,11 @@ impl CppFn {
 
         let params = signature.params.iter().map(|(ty, param)| {
             let name = to_ident(&param.name().to_lowercase());
-            let ty = if underlying_types { ty.underlying_type().write_abi(writer) } else { ty.write_abi(writer) };
+            let ty = if underlying_types {
+                ty.underlying_type().write_abi(writer)
+            } else {
+                ty.write_abi(writer)
+            };
             quote! { #name: #ty }
         });
 
@@ -94,7 +98,7 @@ impl CppFn {
                 quote! {
                     #cfg
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) windows_core::Result<T> where #where_clause {
+                    pub unsafe fn #name<#generics>(#params) -> windows_core::Result<T> where #where_clause {
                         #link
                         let mut result__ = core::ptr::null_mut();
                         #name(#args).and_then(||windows_core::Type::from_abi(result__))
@@ -112,12 +116,23 @@ impl CppFn {
                 }
             }
             ReturnHint::ResultValue => {
+                let return_type = signature.params[signature.params.len() - 1].0.deref();
+
+                let map = if return_type.is_blittable() {
+                    quote! { map(||result__) }
+                } else {
+                    quote! { and_then(||windows_core::Type::from_abi(result__)) }
+                };
+
+                let return_type = return_type.write(writer);
+
                 quote! {
                     #cfg
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) where #where_clause {
+                    pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> where #where_clause {
                         #link
-                        #name(#args)
+                        let mut result__ = core::mem::zeroed();
+                        #name(#args).#map
                     }
                 }
             }

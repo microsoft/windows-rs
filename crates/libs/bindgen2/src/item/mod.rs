@@ -179,7 +179,7 @@ impl Item {
             Self::Enum(_) => true,
             Self::CppEnum(_) => true,
             Self::Delegate(_) => false,
-            Self::CppDelegate(_) => false,
+            Self::CppDelegate(_) => true,
             _ => false,
         }
     }

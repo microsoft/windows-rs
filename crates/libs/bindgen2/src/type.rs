@@ -594,7 +594,6 @@ impl Type {
             _ => self.clone(),
         }
     }
-    
 }
 
 fn write_ptr_mut(pointers: usize) -> TokenStream {

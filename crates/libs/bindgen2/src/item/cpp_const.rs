@@ -142,4 +142,3 @@ fn is_signed_error(ty: &Type) -> bool {
         _ => false,
     }
 }
-
