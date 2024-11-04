@@ -586,6 +586,15 @@ impl Type {
             _ => 4,
         }
     }
+
+    pub fn underlying_type(&self) -> Self {
+        match self {
+            Type::Item(item) => item.underlying_type(),
+            Type::HRESULT => Type::I32,
+            _ => self.clone(),
+        }
+    }
+    
 }
 
 fn write_ptr_mut(pointers: usize) -> TokenStream {

@@ -68,7 +68,7 @@ impl CppConst {
                     }
                 }
             } else {
-                let underlying_ty = underlying_type(&field_ty);
+                let underlying_ty = field_ty.underlying_type();
                 let ty = field_ty.write(writer);
                 let mut value = constant.value().write();
 
@@ -143,10 +143,3 @@ fn is_signed_error(ty: &Type) -> bool {
     }
 }
 
-fn underlying_type(ty: &Type) -> Type {
-    match ty {
-        Type::Item(item) => item.underlying_type(),
-        Type::HRESULT => Type::I32,
-        _ => ty.clone(),
-    }
-}

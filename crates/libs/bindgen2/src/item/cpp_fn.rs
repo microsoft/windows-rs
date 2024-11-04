@@ -19,7 +19,7 @@ impl PartialOrd for CppFn {
 }
 
 impl CppFn {
-    pub fn write(&self, writer: &Writer) -> TokenStream {
+    pub fn write_link(&self, writer: &Writer, underlying_types: bool) -> TokenStream {
         let name = self.method.name();
         let library = self.method.module_name().to_lowercase();
         let impl_map = self.method.impl_map().expect("ImplMap not found");
@@ -44,17 +44,11 @@ impl CppFn {
 
         let params = signature.params.iter().map(|(ty, param)| {
             let name = to_ident(&param.name().to_lowercase());
-            let ty = ty.write_abi(writer);
+            let ty = if underlying_types { ty.underlying_type().write_abi(writer) } else { ty.write_abi(writer) };
             quote! { #name: #ty }
         });
 
         let return_sig = writer.write_return_sig(self.method, &signature);
-
-        let mut dependencies = Dependencies::new();
-
-        if writer.config.package {
-            self.dependencies(&mut dependencies);
-        }
 
         let vararg =
             if writer.config.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
@@ -63,10 +57,21 @@ impl CppFn {
                 quote! {}
             };
 
-        let link = link_fmt(quote! {
+        link_fmt(quote! {
             windows_targets::link!(#library #abi #symbol fn #name(#(#params),* #vararg) #return_sig);
-        });
+        })
+    }
 
+    pub fn write(&self, writer: &Writer) -> TokenStream {
+        let name = to_ident(self.method.name());
+        let signature = self.method.signature(&[]);
+        let mut dependencies = Dependencies::new();
+
+        if writer.config.package {
+            self.dependencies(&mut dependencies);
+        }
+
+        let link = self.write_link(writer, false);
         let cfg = writer.write_cfg(self.method, self.def.namespace(), &dependencies, false);
 
         if writer.config.sys {

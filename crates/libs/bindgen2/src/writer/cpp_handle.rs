@@ -62,6 +62,7 @@ impl Writer {
                     // TODO: https://github.com/microsoft/win32metadata/issues/1891
                     quote! {}
                 } else {
+                    let link = function.write_link(self, true);
                     let free = to_ident(function.method.name());
                     let signature = function.method.signature(&[]);
 
@@ -72,19 +73,14 @@ impl Writer {
                         quote! {}
                     };
 
-                    let result = if signature.return_type.0 == Type::Void {
-                        quote! {}
-                    } else {
-                        quote! { _ = }
-                    };
-
                     quote! {
                         impl windows_core::Free for #name {
                             #[inline]
                             unsafe fn free(&mut self) {
                                 if !self.is_invalid() {
+                                    #link
                                     // TODO: maybe inline the [link] here to avoid the dependency?
-                                    #result #free(*self #tail);
+                                    #free(self.0 #tail);
                                 }
                             }
                         }
