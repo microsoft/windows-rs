@@ -359,6 +359,7 @@ impl Type {
             | Self::Object
             | Self::Item(Item::Delegate(_))
             | Self::Item(Item::Class(_))
+            | Self::Item(Item::CppInterface(_))
             | Self::Item(Item::Interface(_)) => quote! { *mut core::ffi::c_void },
             Self::String => quote! { core::mem::MaybeUninit<windows_core::HSTRING> },
             Self::BSTR => quote! { core::mem::MaybeUninit<windows_core::BSTR> },

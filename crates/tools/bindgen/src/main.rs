@@ -26,6 +26,8 @@ fn main() {
 
     test("--out cpp_fn_return_void.rs --filter GlobalMemoryStatus --flat --no-comment");
 
+    test("--out cpp_fn_result_void.rs --filter SetComputerNameA --flat --no-comment");    
+
     // Generate functions and include dependencies automatically.
     test("--out deps.rs --filter FreeLibrary GetProcAddress LoadLibraryExA LOAD_LIBRARY_SEARCH_DEFAULT_DIRS --sys --flat --no-deps --no-comment");
 

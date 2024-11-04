@@ -189,6 +189,8 @@ impl CppMethod {
             false
         };
 
+        // TODO: ignore this attribute and just return HRESULT/BOOL/NTSTATUS/whatever and let the caller user `.ok()` if
+        // they want to treat it as a Result with a single success value.
         if !def.has_attribute("CanReturnMultipleSuccessValuesAttribute") {
             match &signature.return_type.0 {
                 Type::Void if is_retval => return_hint = ReturnHint::ReturnValue,
@@ -218,7 +220,7 @@ impl CppMethod {
                     if TypeName(item.def.namespace(), item.def.name()) == TypeName::BOOL
                         && last_error =>
                 {
-                    return_hint = ReturnHint::ReturnVoid
+                    return_hint = ReturnHint::ResultVoid
                 }
                 Type::GUID => return_hint = ReturnHint::ReturnStruct,
                 Type::Item(Item::CppStruct(item)) if !item.is_handle() => {
@@ -236,6 +238,33 @@ impl CppMethod {
             param_hints,
             return_hint,
         }
+    }
+
+    pub fn write_generics(&self) -> TokenStream {
+        let mut tokens = quote! {};
+
+        for (position, hint) in self.param_hints.iter().enumerate() {
+            if *hint == ParamHint::IntoParam {
+                let name: TokenStream = format!("P{position},").into();
+                tokens.combine(name);
+            }
+        }
+
+        tokens
+    }
+
+    pub fn write_where(&self, writer: &Writer) -> TokenStream {
+        let mut tokens = quote! {};
+
+        for (position, (ty, _)) in self.signature.params.iter().enumerate() {
+            if self.param_hints[position] == ParamHint::IntoParam {
+                let name: TokenStream = format!("P{position}").into();
+                let into = ty.write(writer);
+                tokens.combine(quote! { #name: windows_core::Param<#into>, })
+            }
+        }
+
+        tokens
     }
 
     pub fn write_params(&self, writer: &Writer) -> TokenStream {

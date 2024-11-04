@@ -223,6 +223,10 @@ impl Item {
         match self {
             Self::CppStruct(item) => item.size(),
             Self::CppEnum(item) => item.size(),
+            Self::CppInterface(..) => 4,
+            Self::CppDelegate(..) => 4,
+            Self::Interface(..) => 4,
+            Self::Class(..) => 4,
             rest => unimplemented!("{rest:?}"),
         }
     }
@@ -231,6 +235,10 @@ impl Item {
         match self {
             Self::CppStruct(item) => item.align(),
             Self::CppEnum(item) => item.align(),
+            Self::CppInterface(..) => 4,
+            Self::CppDelegate(..) => 4,
+            Self::Interface(..) => 4,
+            Self::Class(..) => 4,
             rest => unimplemented!("{rest:?}"),
         }
     }

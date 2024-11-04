@@ -44,7 +44,7 @@ impl CppFn {
 
         let params = signature.params.iter().map(|(ty, param)| {
             let name = to_ident(&param.name().to_lowercase());
-            let ty = ty.write_default(writer);
+            let ty = ty.write_abi(writer);
             quote! { #name: #ty }
         });
 
@@ -77,10 +77,11 @@ impl CppFn {
         }
 
         let method = CppMethod::new(self.method, self.def.namespace());
+        // dbg!(&method);
         let args = method.write_args();
         let params = method.write_params(writer);
-        let generics = quote! {};
-        let where_clause = quote! {};
+        let generics = method.write_generics();
+        let where_clause = method.write_where(writer);
         let abi_return_type = method.write_return(writer);
 
         match method.return_hint {
@@ -88,9 +89,10 @@ impl CppFn {
                 quote! {
                     #cfg
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) {
+                    pub unsafe fn #name<#generics>(#params) windows_core::Result<T> where #where_clause {
                         #link
-                        #name(#args)
+                        let mut result__ = core::ptr::null_mut();
+                        #name(#args).and_then(||windows_core::Type::from_abi(result__))
                     }
                 }
             }
@@ -98,9 +100,9 @@ impl CppFn {
                 quote! {
                     #cfg
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) {
+                    pub unsafe fn #name<#generics T>(#params result__: *mut Option<T>) -> windows_core::Result<()> where #where_clause  T: windows_core::Interface {
                         #link
-                        #name(#args)
+                        #name(#args).ok()
                     }
                 }
             }
@@ -108,7 +110,7 @@ impl CppFn {
                 quote! {
                     #cfg
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) {
+                    pub unsafe fn #name<#generics>(#params) where #where_clause {
                         #link
                         #name(#args)
                     }
@@ -118,9 +120,9 @@ impl CppFn {
                 quote! {
                     #cfg
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) {
+                    pub unsafe fn #name<#generics>(#params) -> windows_core::Result<()> where #where_clause {
                         #link
-                        #name(#args)
+                        #name(#args).ok()
                     }
                 }
             }
@@ -128,7 +130,7 @@ impl CppFn {
                 quote! {
                     #cfg
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) {
+                    pub unsafe fn #name<#generics>(#params) where #where_clause {
                         #link
                         #name(#args)
                     }
@@ -141,7 +143,7 @@ impl CppFn {
                     quote! {
                         #cfg
                         #[inline]
-                        pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> #where_clause {
+                        pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> where #where_clause {
                             #link
                             let result__ = #name(#args);
                             (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
@@ -151,7 +153,7 @@ impl CppFn {
                     quote! {
                         #cfg
                         #[inline]
-                        pub unsafe fn #name<#generics>(#params) #abi_return_type #where_clause {
+                        pub unsafe fn #name<#generics>(#params) #abi_return_type where #where_clause {
                             #link
                             #name(#args)
                         }
@@ -162,7 +164,7 @@ impl CppFn {
                 quote! {
                     #cfg
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) {
+                    pub unsafe fn #name<#generics>(#params) where #where_clause {
                         #link
                         #name(#args)
                     }
