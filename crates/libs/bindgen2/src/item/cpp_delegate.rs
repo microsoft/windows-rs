@@ -36,7 +36,7 @@ impl CppDelegate {
             quote! { #name: #ty }
         });
 
-        let return_sig = writer.write_return_sig(method, &signature);
+        let return_sig = writer.write_return_sig(method, &signature, false);
 
         // TODO: maybe create Dependencies with config as arg and use a trait to capture depdnencies if "package"
         let mut dependencies = Dependencies::new();

@@ -284,11 +284,12 @@ impl CppMethod {
         let where_clause = self.write_where(writer);
         let abi_return_type = self.write_return(writer);
 
+        // TODO: make sure these are consistent across CppFn and CppInterface -
+        // maybe find a way to consolidate code gen?
         match self.return_hint {
             ReturnHint::Query(..) => {
                 quote! {
-                    #[inline]
-                    pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<T> where #where_clause {
+                    pub unsafe fn #name<#generics T>(&self, #params) -> windows_core::Result<T> where #where_clause T: windows_core::Interface {
                         let mut result__ = core::ptr::null_mut();
                         (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).and_then(||windows_core::Type::from_abi(result__))
                     }
@@ -296,7 +297,6 @@ impl CppMethod {
             }
             ReturnHint::QueryOptional(..) => {
                 quote! {
-                    #[inline]
                     pub unsafe fn #name<#generics T>(&self, #params result__: *mut Option<T>) -> windows_core::Result<()> where #where_clause  T: windows_core::Interface {
                         (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).ok()
                     }
@@ -316,7 +316,6 @@ impl CppMethod {
                 let return_type = return_type.write(writer);
 
                 quote! {
-                    #[inline]
                     pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> where #where_clause {
                         let mut result__ = core::mem::zeroed();
                         (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).#map
@@ -325,17 +324,41 @@ impl CppMethod {
             }
             ReturnHint::ResultVoid => {
                 quote! {
-                    #[inline]
                     pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<()> where #where_clause {
                         (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).ok()
                     }
                 }
             }
             ReturnHint::ReturnValue => {
-                quote! {
-                    #[inline]
-                    pub unsafe fn #name<#generics>(&self, #params) where #where_clause {
-                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args)
+                let return_type = self.signature.params[self.signature.params.len() - 1]
+                    .0
+                    .deref();
+
+                if return_type.is_nullable() {
+                    let return_type = return_type.write(writer);
+
+                    quote! {
+                        pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> #where_clause {
+                            let mut result__ = core::mem::zeroed();
+                            (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
+                            windows_core::Type::from_abi(result__)
+                        }
+                    }
+                } else {
+                    let map = if return_type.is_blittable() {
+                        quote! { result__ }
+                    } else {
+                        quote! { core::mem::transmute(result__) }
+                    };
+
+                    let return_type = return_type.write(writer);
+
+                    quote! {
+                        pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
+                            let mut result__ = core::mem::zeroed();
+                            (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
+                            #map
+                        }
                     }
                 }
             }
@@ -344,7 +367,6 @@ impl CppMethod {
                     let return_type = self.signature.return_type.0.write(writer);
 
                     quote! {
-                        #[inline]
                         pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> where #where_clause {
                             let result__ = (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args);
                             (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
@@ -352,7 +374,6 @@ impl CppMethod {
                     }
                 } else {
                     quote! {
-                        #[inline]
                         pub unsafe fn #name<#generics>(&self, #params) #abi_return_type where #where_clause {
                             (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args)
                         }
@@ -361,7 +382,6 @@ impl CppMethod {
             }
             ReturnHint::ReturnVoid => {
                 quote! {
-                    #[inline]
                     pub unsafe fn #name<#generics>(&self, #params) where #where_clause {
                         (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args)
                     }
@@ -383,7 +403,7 @@ impl CppMethod {
             }
         });
 
-        let return_sig = writer.write_return_sig(self.def, &self.signature);
+        let return_sig = writer.write_return_sig(self.def, &self.signature, false);
 
         let this = if named_params {
             quote! { this: *mut core::ffi::c_void }

@@ -31,7 +31,7 @@ impl CppEnum {
         let mut derive = quote! { Copy, Clone, };
 
         if !writer.config.sys {
-            derive.combine(quote! { Debug, PartialEq, Eq, });
+            derive.combine(quote! { Default, Debug, PartialEq, Eq, });
         }
 
         let fields = if is_scoped {

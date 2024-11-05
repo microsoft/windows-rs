@@ -24,7 +24,7 @@ impl Eq for CppInterface {}
 
 impl Ord for CppInterface {
     fn cmp(&self, other: &Self) -> Ordering {
-        self.def.cmp(&other.def)
+        self.def.name().cmp(other.def.name())
     }
 }
 

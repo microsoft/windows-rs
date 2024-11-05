@@ -353,6 +353,24 @@ impl Type {
         }
     }
 
+    pub fn write_blittable(&self, writer: &Writer) -> TokenStream {
+        if self.is_blittable() {
+            self.write(writer)
+        } else {
+            match self {
+                Self::ArrayFixed(ty, len) => {
+                    let ty = ty.write_default(writer);
+                    let len = Literal::usize_unsuffixed(*len);
+                    quote! { [core::mem::ManuallyDrop<#ty>; #len] }
+                }
+                rest => {
+                    let ty = rest.write_default(writer);
+                    quote! { core::mem::ManuallyDrop<#ty> }
+                }
+            }
+        }
+    }
+
     pub fn write_abi(&self, writer: &Writer) -> TokenStream {
         match self {
             Self::IUnknown
@@ -379,6 +397,16 @@ impl Type {
                 } else {
                     quote! { core::mem::MaybeUninit<#name> }
                 }
+            }
+            Self::PtrMut(ty, pointers) => {
+                let pointers = write_ptr_mut(*pointers);
+                let ty = ty.write_abi(writer);
+                quote! { #pointers #ty }
+            }
+            Self::PtrConst(ty, pointers) => {
+                let pointers = write_ptr_const(*pointers);
+                let ty = ty.write_abi(writer);
+                quote! { #pointers #ty }
             }
             ty => ty.write(writer),
         }

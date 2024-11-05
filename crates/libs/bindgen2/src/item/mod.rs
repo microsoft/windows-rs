@@ -30,17 +30,16 @@ pub use r#struct::*;
 
 #[derive(Clone, Debug, PartialEq, Eq, Ord, PartialOrd)]
 pub enum Item {
-    CppFn(CppFn),
-
     Interface(Interface),
     Class(Class),
     Delegate(Delegate),
     Enum(Enum),
     Struct(Struct),
 
+    CppFn(CppFn),
+    CppInterface(CppInterface),
     CppConst(CppConst),
     CppEnum(CppEnum),
-    CppInterface(CppInterface),
     CppStruct(CppStruct),
     CppDelegate(CppDelegate),
     // TODO: have psuedo items for the core types like PWSTR so that those can be written out for standalone code gen?

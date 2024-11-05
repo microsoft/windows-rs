@@ -71,11 +71,12 @@ impl CppStruct {
             .collect();
 
         let is_copyable = fields.iter().all(|(_, ty)| ty.is_copyable());
+        let is_blittable = fields.iter().all(|(_, ty)| ty.is_blittable());
 
         let fields = {
             let fields = fields.iter().map(|(name, ty)| {
                 let name = to_ident(name);
-                let ty = ty.write_default(writer);
+                let ty = ty.write_blittable(writer);
                 quote! { pub #name: #ty, }
             });
 
@@ -92,7 +93,11 @@ impl CppStruct {
             }
         };
 
-        let mut derive = quote! { Clone, Copy, };
+        let mut derive = quote! {};
+
+        if writer.config.sys || is_blittable {
+            derive.combine(quote! { Copy, Clone, });
+        }
 
         if !writer.config.sys && !has_explicit_layout && !has_packing {
             derive.combine(quote! { Debug, PartialEq, });

@@ -52,7 +52,7 @@ impl CppFn {
             quote! { #name: #ty }
         });
 
-        let return_sig = writer.write_return_sig(self.method, &signature);
+        let return_sig = writer.write_return_sig(self.method, &signature, underlying_types);
 
         let vararg =
             if writer.config.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
@@ -98,7 +98,7 @@ impl CppFn {
                 quote! {
                     #cfg
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) -> windows_core::Result<T> where #where_clause {
+                    pub unsafe fn #name<#generics T>(#params) -> windows_core::Result<T> where #where_clause T: windows_core::Interface {
                         #link
                         let mut result__ = core::ptr::null_mut();
                         #name(#args).and_then(||windows_core::Type::from_abi(result__))
@@ -201,7 +201,12 @@ impl CppFn {
 }
 
 impl Writer {
-    pub fn write_return_sig(&self, method: MethodDef, signature: &Signature) -> TokenStream {
+    pub fn write_return_sig(
+        &self,
+        method: MethodDef,
+        signature: &Signature,
+        underlying_types: bool,
+    ) -> TokenStream {
         match &signature.return_type.0 {
             Type::Void => {
                 if method.has_attribute("DoesNotReturnAttribute") {
@@ -211,7 +216,12 @@ impl Writer {
                 }
             }
             ty => {
-                let ty = ty.write_default(self);
+                let ty = if underlying_types {
+                    ty.underlying_type().write_default(self)
+                } else {
+                    ty.write_default(self)
+                };
+
                 quote! { -> #ty }
             }
         }
