@@ -72,7 +72,7 @@ impl CppInterface {
         }
 
         let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
-        let vtbl_name = self.write_vtbl_name();
+        let vtbl_name = self.write_vtbl_name(writer);
 
         let vtbl = {
             let core = writer.write_core();
@@ -85,9 +85,8 @@ impl CppInterface {
                     quote! { pub base__: #core IInspectable_Vtbl, }
                 }
                 Some(Type::Item(Item::CppInterface(item))) => {
-                    let namespace = writer.write_namespace(item.def.namespace());
-                    let name = item.write_vtbl_name();
-                    quote! { pub base__: #namespace #name, }
+                    let name = item.write_vtbl_name(writer);
+                    quote! { pub base__: #name, }
                 }
                 _ => quote! {},
             };
@@ -174,6 +173,28 @@ impl CppInterface {
                 }
             };
 
+            if let Some(Type::Item(Item::CppInterface(base))) = self.base_interfaces.last() {
+                let base = base.write_name(writer);
+
+                result.combine(quote! {
+                    #cfg
+                    impl core::ops::Deref for #name {
+                        type Target = #base;
+                        fn deref(&self) -> &Self::Target {
+                            unsafe { core::mem::transmute(self) }
+                        }
+                    }
+                });
+            }
+
+            if !self.base_interfaces.is_empty() {
+                let bases = self.base_interfaces.iter().map(|ty|ty.write(writer));
+                result.combine(quote! {
+                    #cfg
+                    windows_core::imp::interface_hierarchy!(#name, #(#bases),*);
+                })
+            }
+
             let method_names = &mut MethodNames::new();
             let virtual_names = &mut MethodNames::new();
             let mut methods = quote! {};
@@ -211,12 +232,16 @@ impl CppInterface {
         }
     }
 
-    fn write_vtbl(&self, _writer: &Writer) -> TokenStream {
-        quote! {}
+    pub fn write_name(&self, writer: &Writer) -> TokenStream {
+        let name = to_ident(self.def.name());
+        let namespace = writer.write_namespace(self.def.namespace());
+        quote! { #namespace #name }
     }
 
-    fn write_vtbl_name(&self) -> TokenStream {
-        format!("{}_Vtbl", self.def.name()).into()
+    fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
+        let name : TokenStream = format!("{}_Vtbl", self.def.name()).into();
+        let namespace = writer.write_namespace(self.def.namespace());
+        quote! { #namespace #name }
     }
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {

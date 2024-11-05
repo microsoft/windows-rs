@@ -15,6 +15,9 @@ pub use weak_ref_count::*;
 
 // TODO: interface_hierarchy should be replaced with Deref and we should get rid of the CanInto stuff altogether
 // at least for Win32 interfaces if not WinRT.
+// This "CanInto" thing is needed for WinRT since it supports multi inheritance but not for COM since it supports only single inheritance
+// So CanInto params should not be used for anything but WinRT types as Deref works just fine there.
+// except for the whole nullable (None) thing 🙄
 #[doc(hidden)]
 #[macro_export]
 macro_rules! interface_hierarchy {
