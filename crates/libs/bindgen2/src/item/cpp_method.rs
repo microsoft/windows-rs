@@ -354,7 +354,7 @@ impl CppMethod {
                     let return_type = return_type.write(writer);
 
                     quote! {
-                        pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
+                        pub unsafe fn #name<#generics>(&self, #params) -> #return_type where #where_clause {
                             let mut result__ = core::mem::zeroed();
                             (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
                             #map

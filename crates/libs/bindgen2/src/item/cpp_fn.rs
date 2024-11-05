@@ -147,12 +147,41 @@ impl CppFn {
                 }
             }
             ReturnHint::ReturnValue => {
-                quote! {
-                    #cfg
-                    #[inline]
-                    pub unsafe fn #name<#generics>(#params) where #where_clause {
-                        #link
-                        #name(#args)
+                let return_type = method.signature.params[method.signature.params.len() - 1]
+                    .0
+                    .deref();
+
+                if return_type.is_nullable() {
+                    let return_type = return_type.write(writer);
+
+                    quote! {
+                        #cfg
+                        #[inline]
+                        pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> #where_clause {
+                            #link
+                            let mut result__ = core::mem::zeroed();
+                            #name(#args);
+                            windows_core::Type::from_abi(result__)
+                        }
+                    }
+                } else {
+                    let map = if return_type.is_blittable() {
+                        quote! { result__ }
+                    } else {
+                        quote! { core::mem::transmute(result__) }
+                    };
+
+                    let return_type = return_type.write(writer);
+
+                    quote! {
+                        #cfg
+                        #[inline]
+                        pub unsafe fn #name<#generics>(#params) -> #return_type where #where_clause {
+                            #link
+                            let mut result__ = core::mem::zeroed();
+                            #name(#args);
+                            #map
+                        }
                     }
                 }
             }

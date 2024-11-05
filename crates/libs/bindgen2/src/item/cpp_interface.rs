@@ -85,8 +85,9 @@ impl CppInterface {
                     quote! { pub base__: #core IInspectable_Vtbl, }
                 }
                 Some(Type::Item(Item::CppInterface(item))) => {
+                    let namespace = writer.write_namespace(item.def.namespace());
                     let name = item.write_vtbl_name();
-                    quote! { pub base__: #name, }
+                    quote! { pub base__: #namespace #name, }
                 }
                 _ => quote! {},
             };
