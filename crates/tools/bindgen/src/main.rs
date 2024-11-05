@@ -27,6 +27,7 @@ fn main() {
     test("--out cpp_fn_return_void.rs --filter GlobalMemoryStatus --flat --no-comment");
 
     test("--out cpp_interface.rs --filter IPersist --flat --no-comment");
+    test("--out cpp_interface2.rs --filter IPersistFile --flat --no-comment");
     // test("--out cpp_interface_sys.rs --filter IPersist --flat --no-comment --sys");
 
     // test("--out cpp_fn_result_void.rs --filter SetComputerNameA --flat --no-comment");

@@ -516,10 +516,7 @@ impl Type {
     }
 
     pub fn is_pointer(&self) -> bool {
-        match self {
-            Self::PtrConst(_, _) | Self::PtrMut(_, _) => true,
-            _ => false,
-        }
+        matches!(self, Self::PtrConst(_, _) | Self::PtrMut(_, _))
     }
 
     pub fn has_explicit_layout(&self) -> bool {

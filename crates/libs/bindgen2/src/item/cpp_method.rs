@@ -151,14 +151,14 @@ impl CppMethod {
             }
         }
 
-        for position in 0..param_hints.len() {
-            if param_hints[position] == ParamHint::None {
+        for (position, hint) in param_hints.iter_mut().enumerate() {
+            if *hint == ParamHint::None {
                 if is_convertible(
                     &signature.params[position].0,
                     signature.params[position].1,
-                    param_hints[position],
+                    *hint,
                 ) {
-                    param_hints[position] = ParamHint::IntoParam;
+                    *hint = ParamHint::IntoParam;
                 } else {
                     let flags = signature.params[position].1.flags();
                     if signature.params[position].0.is_pointer()
@@ -167,14 +167,14 @@ impl CppMethod {
                                 .1
                                 .has_attribute("ReservedAttribute"))
                     {
-                        param_hints[position] = ParamHint::OptionalPointer;
+                        *hint = ParamHint::OptionalPointer;
                     } else if signature.params[position].0.is_primitive()
                         && (!signature.params[position].0.is_pointer()
                             || signature.params[position].0.deref().is_blittable())
                     {
-                        param_hints[position] = ParamHint::ValueType;
+                        *hint = ParamHint::ValueType;
                     } else if signature.params[position].0.is_blittable() {
-                        param_hints[position] = ParamHint::Blittable;
+                        *hint = ParamHint::Blittable;
                     }
                 }
             }

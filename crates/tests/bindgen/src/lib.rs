@@ -3,6 +3,7 @@
 pub mod cpp_fn_return_none;
 pub mod cpp_fn_return_void;
 pub mod cpp_interface;
+pub mod cpp_interface2;
 pub mod deps;
 pub mod deps2;
 pub mod deps3;
