@@ -278,11 +278,16 @@ impl Interface {
             let runtime_name = format!("{}.{}", self.def.namespace(), self.def.name(),);
 
             if writer.config.package {
-                for method in self.methods.iter() {
-                    if let MethodOrName::Method(method) = method {
-                        dependencies.combine(&method.dependencies);
+                fn collect(interface: &Interface, dependencies:&mut Dependencies) {
+                    for method in interface.methods.iter() {
+                        if let MethodOrName::Method(method) = method {
+                            dependencies.combine(&method.dependencies);
+                        }
                     }
                 }
+
+                collect(self, &mut dependencies);
+                self.required_interfaces.iter().for_each(|interface| collect(interface, &mut dependencies));
             }
 
             let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
