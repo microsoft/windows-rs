@@ -1,6 +1,6 @@
 use super::*;
 
-#[derive(Debug)]
+#[derive(Clone, Debug)]
 pub struct CppMethod {
     pub namespace: &'static str, // for namespace resolution of some attributes
     pub def: MethodDef,
@@ -10,7 +10,7 @@ pub struct CppMethod {
     pub param_hints: Vec<ParamHint>,
 }
 
-#[derive(Debug)]
+#[derive(Clone, Debug)]
 pub enum ReturnHint {
     None,
     Query(usize, usize),
@@ -220,6 +220,7 @@ impl CppMethod {
                     if TypeName(item.def.namespace(), item.def.name()) == TypeName::BOOL
                         && last_error =>
                 {
+                    // TODO: maybe use ResultBool here to make the code gen less ambiguous
                     return_hint = ReturnHint::ResultVoid
                 }
                 Type::GUID => return_hint = ReturnHint::ReturnStruct,
@@ -265,6 +266,132 @@ impl CppMethod {
         }
 
         tokens
+    }
+
+    // TODO: this is CppInterface specific so maybe just put it there.
+    pub fn write(
+        &self,
+        writer: &Writer,
+        method_names: &mut MethodNames,
+        virtual_names: &mut MethodNames,
+    ) -> TokenStream {
+        let name = method_names.add(self.def);
+        let vname = virtual_names.add(self.def);
+
+        let args = self.write_args();
+        let params = self.write_params(writer);
+        let generics = self.write_generics();
+        let where_clause = self.write_where(writer);
+        let abi_return_type = self.write_return(writer);
+
+        match self.return_hint {
+            ReturnHint::Query(..) => {
+                quote! {
+                    #[inline]
+                    pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<T> where #where_clause {
+                        let mut result__ = core::ptr::null_mut();
+                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).and_then(||windows_core::Type::from_abi(result__))
+                    }
+                }
+            }
+            ReturnHint::QueryOptional(..) => {
+                quote! {
+                    #[inline]
+                    pub unsafe fn #name<#generics T>(&self, #params result__: *mut Option<T>) -> windows_core::Result<()> where #where_clause  T: windows_core::Interface {
+                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).ok()
+                    }
+                }
+            }
+            ReturnHint::ResultValue => {
+                let return_type = self.signature.params[self.signature.params.len() - 1]
+                    .0
+                    .deref();
+
+                let map = if return_type.is_blittable() {
+                    quote! { map(||result__) }
+                } else {
+                    quote! { and_then(||windows_core::Type::from_abi(result__)) }
+                };
+
+                let return_type = return_type.write(writer);
+
+                quote! {
+                    #[inline]
+                    pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> where #where_clause {
+                        let mut result__ = core::mem::zeroed();
+                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).#map
+                    }
+                }
+            }
+            ReturnHint::ResultVoid => {
+                quote! {
+                    #[inline]
+                    pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<()> where #where_clause {
+                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).ok()
+                    }
+                }
+            }
+            ReturnHint::ReturnValue => {
+                quote! {
+                    #[inline]
+                    pub unsafe fn #name<#generics>(&self, #params) where #where_clause {
+                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args)
+                    }
+                }
+            }
+            ReturnHint::ReturnStruct | ReturnHint::None => {
+                if self.handle_last_error() {
+                    let return_type = self.signature.return_type.0.write(writer);
+
+                    quote! {
+                        #[inline]
+                        pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> where #where_clause {
+                            let result__ = (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args);
+                            (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+                        }
+                    }
+                } else {
+                    quote! {
+                        #[inline]
+                        pub unsafe fn #name<#generics>(&self, #params) #abi_return_type where #where_clause {
+                            (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args)
+                        }
+                    }
+                }
+            }
+            ReturnHint::ReturnVoid => {
+                quote! {
+                    #[inline]
+                    pub unsafe fn #name<#generics>(&self, #params) where #where_clause {
+                        (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args)
+                    }
+                }
+            }
+        }
+    }
+
+    pub fn write_abi(&self, writer: &Writer, named_params: bool) -> TokenStream {
+        let params = self.signature.params.iter().map(|(ty, param)| {
+            // TODO: use ty.underlying_types() ?
+            let ty = ty.write_abi(writer);
+
+            if named_params {
+                let name = to_ident(&param.name().to_lowercase());
+                quote! { #name: #ty }
+            } else {
+                ty
+            }
+        });
+
+        let return_sig = writer.write_return_sig(self.def, &self.signature);
+
+        let this = if named_params {
+            quote! { this: *mut core::ffi::c_void }
+        } else {
+            quote! { *mut core::ffi::c_void }
+        };
+
+        quote! { (#this, #(#params),*) #return_sig }
     }
 
     pub fn write_params(&self, writer: &Writer) -> TokenStream {

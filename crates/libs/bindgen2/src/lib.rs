@@ -175,7 +175,7 @@ where
     // TODO: this is where we need to populate the tree with methods based on whether or not they're included!!
     let items = ItemTree::new(reader, &config.tree);
 
-    //dbg!(&items);
+    // dbg!(&items);
 
     let writer = Writer {
         config,

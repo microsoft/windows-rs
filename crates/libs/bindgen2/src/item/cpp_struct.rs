@@ -208,7 +208,10 @@ impl CppStruct {
 
     pub fn is_blittable(&self) -> bool {
         // TODO: for compat may need to return true for VARIANT and PROPVARIANT
-        !matches!(TypeName(self.def.namespace(), self.def.name()), TypeName::VARIANT | TypeName::PROPVARIANT)
+        !matches!(
+            TypeName(self.def.namespace(), self.def.name()),
+            TypeName::VARIANT | TypeName::PROPVARIANT
+        )
     }
 
     pub fn has_explicit_layout(&self) -> bool {

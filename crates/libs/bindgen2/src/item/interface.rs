@@ -22,6 +22,7 @@ pub struct Interface {
     pub methods: Vec<MethodOrName>,
     pub kind: InterfaceKind,
     pub required_interfaces: Vec<Interface>,
+    // TODO: store dependencies here (in expand) to avoid repeated calls to self.required_interfaces()
 }
 
 impl PartialEq for Interface {
@@ -429,7 +430,7 @@ impl Interface {
     }
 
     // TODO: this is where we can use config.minimal to elide required interfaces that aren't included?
-    pub fn required_interfaces(&self) -> Vec<Interface> {
+    pub fn required_interfaces(&self) -> Vec<Self> {
         fn walk(interface: &Interface, set: &mut Vec<Interface>) {
             for ty in interface
                 .def

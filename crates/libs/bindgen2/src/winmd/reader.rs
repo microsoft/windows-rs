@@ -127,7 +127,15 @@ impl Reader {
                             }
                         }
                         Category::Interface => {
-                            insert(items, name, Item::CppInterface(CppInterface { def }));
+                            insert(
+                                items,
+                                name,
+                                Item::CppInterface(CppInterface {
+                                    def,
+                                    methods: vec![],
+                                    base_interfaces: vec![],
+                                }),
+                            );
                         }
                         Category::Struct => {
                             fn make(

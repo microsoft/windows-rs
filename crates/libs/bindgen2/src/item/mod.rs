@@ -66,7 +66,7 @@ impl Item {
     pub fn expand(&mut self, filter: &NameTree) {
         match self {
             Self::Interface(item) => item.expand(filter),
-            //Self::CppInterface(item) => Self::CppInterface(item.expand(filter)),
+            Self::CppInterface(item) => item.expand(filter),
             Self::Class(item) => item.expand(filter),
             _ => {}
         }

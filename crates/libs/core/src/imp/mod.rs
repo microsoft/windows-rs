@@ -13,6 +13,8 @@ pub use ref_count::*;
 pub use sha1::*;
 pub use weak_ref_count::*;
 
+// TODO: interface_hierarchy should be replaced with Deref and we should get rid of the CanInto stuff altogether
+// at least for Win32 interfaces if not WinRT.
 #[doc(hidden)]
 #[macro_export]
 macro_rules! interface_hierarchy {
