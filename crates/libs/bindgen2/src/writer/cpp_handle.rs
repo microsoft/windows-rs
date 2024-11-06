@@ -64,7 +64,7 @@ impl Writer {
                 } else {
                     let link = function.write_link(self, true);
                     let free = to_ident(function.method.name());
-                    let signature = function.method.signature(&[]);
+                    let signature = function.method.signature(item.namespace(), &[]);
 
                     // BCryptCloseAlgorithmProvider has an unused trailing parameter.
                     let tail = if signature.params.len() > 1 {

@@ -38,7 +38,7 @@ pub enum Type {
     Array(Box<Self>),
     ArrayRef(Box<Self>),
     ConstRef(Box<Self>),
-    PrimitiveOrEnum(Box<Self>, Box<Self>),
+    PrimitiveOrEnum(Box<Self>, Item),
 }
 
 impl Type {
@@ -333,6 +333,7 @@ impl Type {
             Self::Array(ty) => ty.write(writer),
             Self::ArrayRef(ty) => ty.write(writer),
             Self::ConstRef(ty) => ty.write(writer),
+            Self::PrimitiveOrEnum(_, item) => item.write_name(writer),
             rest => panic!("windows-bindgen: {rest:?}"),
         }
     }
@@ -424,6 +425,7 @@ impl Type {
                 let ty = ty.write_abi(writer);
                 quote! { #pointers #ty }
             }
+            Self::PrimitiveOrEnum(ty, _) => ty.write(writer),
             ty => ty.write(writer),
         }
     }

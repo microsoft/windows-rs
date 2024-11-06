@@ -33,7 +33,7 @@ impl MethodDef {
         self.impl_map().map_or("", |map| map.scope().name())
     }
 
-    pub fn signature(&self, generics: &[Type]) -> Signature {
+    pub fn signature(&self, namespace: &str, generics: &[Type]) -> Signature {
         let mut blob = self.blob(4);
         let call_flags = MethodCallAttributes(blob.read_usize() as u8);
         let _param_count = blob.read_usize();
@@ -60,6 +60,16 @@ impl MethodDef {
                     }
                     if !param_is_output {
                         ty = ty.to_const_ptr();
+                    }
+
+                    if !param_is_output {
+                        if let Some(attribute) = param.find_attribute("AssociatedEnumAttribute") {
+                            if let Some((_, Value::String(name))) = attribute.args().first() {
+                                if let Some(item)  = param.reader().with_full_name(namespace, &name).next() {
+                                    ty = Type::PrimitiveOrEnum(Box::new(ty), item);
+                                }
+                            }
+                        }
                     }
 
                     Some((ty, param))

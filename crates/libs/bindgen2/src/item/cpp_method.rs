@@ -76,17 +76,16 @@ impl ParamHint {
 
 impl CppMethod {
     pub fn new(def: MethodDef, namespace: &'static str) -> Self {
-        let signature = def.signature(&[]);
-
-        let mut dependencies = Dependencies::new();
-        signature.dependencies(&mut dependencies);
+        let signature = def.signature(namespace, &[]);
 
         let mut param_hints = vec![ParamHint::None; signature.params.len()];
 
         for (position, (_, param)) in signature.params.iter().enumerate() {
-            // TODO: here's where we resolve PrimitiveOrEnum if needed
             param_hints[position] = ParamHint::from_param(*param);
         }
+
+        let mut dependencies = Dependencies::new();
+        signature.dependencies(&mut dependencies);
 
         for position in 0..signature.params.len() {
             // Point len params back to the corresponding ptr params.

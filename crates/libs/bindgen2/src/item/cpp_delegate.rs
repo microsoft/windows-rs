@@ -28,7 +28,7 @@ impl CppDelegate {
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.def.name());
         let method = self.method();
-        let signature = method.signature(&[]);
+        let signature = method.signature(self.def.namespace(), &[]);
 
         let params = signature.params.iter().map(|(ty, param)| {
             let name = to_ident(&param.name().to_lowercase());
@@ -57,7 +57,7 @@ impl CppDelegate {
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         if dependencies.insert(self.def.namespace(), self.def.name()) {
-            self.method().signature(&[]).dependencies(dependencies);
+            self.method().signature(self.def.namespace(), &[]).dependencies(dependencies);
         }
     }
 }

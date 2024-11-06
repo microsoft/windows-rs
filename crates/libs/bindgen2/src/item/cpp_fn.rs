@@ -40,7 +40,7 @@ impl CppFn {
             unimplemented!()
         };
 
-        let signature = self.method.signature(&[]);
+        let signature = self.method.signature(self.def.namespace(), &[]);
 
         let params = signature.params.iter().map(|(ty, param)| {
             let name = to_ident(&param.name().to_lowercase());
@@ -68,7 +68,7 @@ impl CppFn {
 
     pub fn write(&self, writer: &Writer) -> TokenStream {
         let name = to_ident(self.method.name());
-        let signature = self.method.signature(&[]);
+        let signature = self.method.signature(self.def.namespace(), &[]);
         let mut dependencies = Dependencies::new();
 
         if writer.config.package {
@@ -224,7 +224,7 @@ impl CppFn {
 
     pub fn dependencies(&self, dependencies: &mut Dependencies) {
         if dependencies.insert(self.def.namespace(), self.method.name()) {
-            self.method.signature(&[]).dependencies(dependencies);
+            self.method.signature(self.def.namespace(), &[]).dependencies(dependencies);
         }
     }
 }
