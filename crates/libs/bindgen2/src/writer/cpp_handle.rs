@@ -90,7 +90,7 @@ impl Writer {
                 quote! {}
             };
 
-            quote! {
+            let mut result = quote! {
                 #[repr(transparent)]
                 #[derive(#derive)]
                 pub struct #name(pub #ty_name);
@@ -100,8 +100,26 @@ impl Writer {
                 #is_invalid
                 #free
                 #default
+            };
 
+            if let Some(attribute) = item.find_attribute("AlsoUsableForAttribute") {
+                if let Some((_, Value::String(type_name))) = attribute.args().first() {
+                    if let Some(item)  = item.reader().with_full_name(item.namespace(), &type_name).next() {
+                        let ty = item.write_name(self);
+
+                        result.combine(quote! {
+                            impl windows_core::imp::CanInto<#ty> for #name {}
+                            impl From<#name> for #ty {
+                                fn from(value: #name) -> Self {
+                                    Self(value.0)
+                                }
+                            }
+                        });
+                    }
+                }
             }
+
+            result
         }
     }
 }
