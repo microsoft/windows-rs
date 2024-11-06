@@ -308,14 +308,14 @@ impl CppInterface {
 
             let field_base = self.base_interfaces.last().map(|ty|{
                 match ty {
-                    Type::IUnknown => quote! { windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() },
-                    Type::Object => quote! { windows_core::IInspectable_Vtbl::new::<Identity, #name, OFFSET>() },
+                    Type::IUnknown => quote! { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), },
+                    Type::Object => quote! { base__: windows_core::IInspectable_Vtbl::new::<Identity, #name, OFFSET>(), },
                     Type::Item(Item::CppInterface(item)) => {
                         let ty = item.write_vtbl_name(writer);
                         if self.has_unknown_base () {
-                            quote! { #ty::new::<Identity, OFFSET>() }
+                            quote! { base__: #ty::new::<Identity, OFFSET>(), }
                         } else {
-                            quote! { #ty::new::<Impl>() }
+                            quote! { base__: #ty::new::<Impl>(), }
                         }
                     }
                     rest => unimplemented!("{rest:?}"),
@@ -332,7 +332,7 @@ impl CppInterface {
                     pub const fn new<Identity: #impl_name, const OFFSET: isize>() -> Self {
                         #(#impl_methods)*
                         Self {
-                            base__: #field_base,
+                            #field_base
                             #(#field_methods)*
                         }
                     }

@@ -413,12 +413,13 @@ impl Interface {
 
     pub fn write_impl_name(&self, writer: &Writer) -> TokenStream {
         let name: TokenStream = format!("{}_Impl", self.def.name()).into();
+        let namespace = writer.write_namespace(self.def.namespace());
 
         if self.generics.is_empty() {
-            name
+            quote! { #namespace #name }
         } else {
             let generics = self.generics.iter().map(|ty| ty.write(writer));
-            quote! { #name < #(#generics,)* > }
+            quote! { #namespace #name < #(#generics),* > }
         }
     }
 
