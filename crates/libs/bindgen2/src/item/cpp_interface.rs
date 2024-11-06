@@ -338,7 +338,9 @@ impl CppInterface {
                     pub fn matches(iid: &windows_core::GUID) -> bool {
                         iid == &<#name as windows_core::Interface>::IID
                     }
-                } 
+                }
+                #cfg
+                impl windows_core::RuntimeName for #name {}
             });
 
             result
