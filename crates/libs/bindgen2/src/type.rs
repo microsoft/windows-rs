@@ -371,6 +371,22 @@ impl Type {
         }
     }
 
+    pub fn write_impl_name(&self, writer:& Writer) -> TokenStream {
+        match self {
+            Self::IUnknown => {
+                let name = writer.write_core();
+                quote! { #name IUnknownImpl }
+            }
+            Self::Object => {
+                let name = writer.write_core();
+                quote! { #name IInspectable_Impl }
+            }
+            Self::Item(Item::CppInterface(item)) => item.write_impl_name(writer),
+            Self::Item(Item::Interface(item)) => item.write_impl_name(writer),
+            rest => panic!("windows-bindgen: {rest:?}"),
+        }
+    }
+
     pub fn write_abi(&self, writer: &Writer) -> TokenStream {
         match self {
             Self::IUnknown

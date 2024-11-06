@@ -11,8 +11,8 @@ windows_core::imp::define_interface!(
     IPersist_Vtbl,
     0x0000010c_0000_0000_c000_000000000046
 );
+windows_core::imp::interface_hierarchy!(IPersist, windows_core::IUnknown);
 impl IPersist {
-    #[inline]
     pub unsafe fn GetClassID(&self) -> windows_core::Result<windows_core::GUID> where {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetClassID)(
@@ -30,17 +30,49 @@ pub struct IPersist_Vtbl {
         *mut windows_core::GUID,
     ) -> windows_core::HRESULT,
 }
+pub trait IPersist_Impl: windows_core::IUnknownImpl {
+    fn GetClassID(&self) -> windows_core::Result<windows_core::GUID>;
+}
+impl IPersist_Vtbl {
+    pub const fn new<Identity: IPersist_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetClassID<Identity: IPersist_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            pclassid: *mut windows_core::GUID,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPersist_Impl::GetClassID(this) {
+                Ok(ok__) => {
+                    pclassid.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            GetClassID: GetClassID::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IPersist as windows_core::Interface>::IID
+    }
+}
 windows_core::imp::define_interface!(
     IPersistFile,
     IPersistFile_Vtbl,
     0x0000010b_0000_0000_c000_000000000046
 );
+impl core::ops::Deref for IPersistFile {
+    type Target = IPersist;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(IPersistFile, windows_core::IUnknown, IPersist);
 impl IPersistFile {
-    #[inline]
     pub unsafe fn IsDirty(&self) -> windows_core::HRESULT where {
         (windows_core::Interface::vtable(self).IsDirty)(windows_core::Interface::as_raw(self))
     }
-    #[inline]
     pub unsafe fn SaveCompleted<P0>(&self, pszfilename: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -51,7 +83,6 @@ impl IPersistFile {
         )
         .ok()
     }
-    #[inline]
     pub unsafe fn GetCurFile(&self) -> windows_core::Result<windows_core::PWSTR> where {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetCurFile)(
@@ -75,4 +106,53 @@ pub struct IPersistFile_Vtbl {
         *mut core::ffi::c_void,
         *mut windows_core::PWSTR,
     ) -> windows_core::HRESULT,
+}
+pub trait IPersistFile_Impl: IPersist_Impl {
+    fn IsDirty(&self) -> windows_core::HRESULT;
+    fn SaveCompleted(&self, pszfilename: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn GetCurFile(&self) -> windows_core::Result<windows_core::PWSTR>;
+}
+impl IPersistFile_Vtbl {
+    pub const fn new<Identity: IPersistFile_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn IsDirty<Identity: IPersistFile_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPersistFile_Impl::IsDirty(this)
+        }
+        unsafe extern "system" fn SaveCompleted<
+            Identity: IPersistFile_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            pszfilename: windows_core::PCWSTR,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            IPersistFile_Impl::SaveCompleted(this, core::mem::transmute(&pszfilename)).into()
+        }
+        unsafe extern "system" fn GetCurFile<Identity: IPersistFile_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            ppszfilename: *mut windows_core::PWSTR,
+        ) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+            match IPersistFile_Impl::GetCurFile(this) {
+                Ok(ok__) => {
+                    ppszfilename.write(core::mem::transmute(ok__));
+                    windows_core::HRESULT(0)
+                }
+                Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: IPersist_Vtbl::new::<Identity, OFFSET>(),
+            IsDirty: IsDirty::<Identity, OFFSET>,
+            Load: 0,
+            Save: 0,
+            SaveCompleted: SaveCompleted::<Identity, OFFSET>,
+            GetCurFile: GetCurFile::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IPersistFile as windows_core::Interface>::IID
+    }
 }

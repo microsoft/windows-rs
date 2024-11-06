@@ -60,6 +60,9 @@ struct Config {
 
     // TODO: options to include deprecated APIs - excluded by default?
     // options to include preview APIs - excluded by default?
+
+    /// this provides implementation support for exclusive WinRT types only - other types can always
+    /// be implemented
     pub implement: bool,
 }
 

@@ -12,7 +12,7 @@ pub unsafe fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS) {
     GlobalMemoryStatus(lpbuffer)
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MEMORYSTATUS {
     pub dwLength: u32,
     pub dwMemoryLoad: u32,

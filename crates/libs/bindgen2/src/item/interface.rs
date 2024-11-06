@@ -86,6 +86,8 @@ impl Interface {
 
         let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
 
+        // TODO: have same vtbl/sys representation for WinRT interfaces as for Cpp interfaces
+
         let mut result = if self.generics.is_empty() {
             let guid = writer.write_guid_u128(&self.def.guid_attribute().unwrap());
 
@@ -353,6 +355,7 @@ impl Interface {
                 .collect();
 
             let requires = if interfaces.is_empty() {
+                // TODO: doesn't IUnknownImpl require Sized?
                 quote! { Sized + windows_core::IUnknownImpl }
             } else {
                 let interfaces = interfaces.iter().map(|ty| ty.write_impl_name(writer));
@@ -408,7 +411,7 @@ impl Interface {
         }
     }
 
-    fn write_impl_name(&self, writer: &Writer) -> TokenStream {
+    pub fn write_impl_name(&self, writer: &Writer) -> TokenStream {
         let name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
         if self.generics.is_empty() {

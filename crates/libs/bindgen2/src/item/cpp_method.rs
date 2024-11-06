@@ -10,7 +10,7 @@ pub struct CppMethod {
     pub param_hints: Vec<ParamHint>,
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, PartialEq)]
 pub enum ReturnHint {
     None,
     Query(usize, usize),
@@ -390,6 +390,100 @@ impl CppMethod {
         }
     }
 
+    // TODO: this is only for CppInterface - more it there
+    pub fn write_upcall(&self, parent_impl: &TokenStream, name: &TokenStream) -> TokenStream {
+        match self.return_hint {
+            ReturnHint::ResultValue => {
+                let invoke_args = self.signature.params[..self.signature.params.len() - 1]
+                    .iter()
+                    .enumerate()
+                    .map(|(position, param)| write_invoke_arg(&param.0, param.1, self.param_hints[position]));
+    
+                    let result = to_ident(&self.signature.params[self.signature.params.len() - 1].1.name().to_lowercase());
+    
+                quote! {
+                    match #parent_impl::#name(this, #(#invoke_args,)*) {
+                        Ok(ok__) => {
+                            // use `ptr::write` since the result could be uninitialized
+                            #result.write(core::mem::transmute(ok__));
+                            windows_core::HRESULT(0)
+                        }
+                        Err(err) => err.into()
+                    }
+                }
+            }
+            ReturnHint::Query(..)
+            | ReturnHint::QueryOptional(..)
+            | ReturnHint::ResultVoid => {
+                let invoke_args = self
+                    .signature.params
+                    .iter()
+                    .enumerate()
+                    .map(|(position, param)| write_invoke_arg(&param.0, param.1, self.param_hints[position]));
+    
+                quote! {
+                    #parent_impl::#name(this, #(#invoke_args,)*).into()
+                }
+            }
+            ReturnHint::ReturnStruct => {
+                let invoke_args = self.signature
+                    .params
+                    .iter()
+                    .enumerate()
+                    .map(|(position, param)| write_invoke_arg(&param.0, param.1, self.param_hints[position]));
+    
+                quote! {
+                    *result__ = #parent_impl::#name(this, #(#invoke_args,)*)
+                }
+            }
+            _ => {
+                let invoke_args = self.signature
+                    .params
+                    .iter()
+                    .enumerate()
+                    .map(|(position, param)| write_invoke_arg(&param.0, param.1, self.param_hints[position]));
+    
+                quote! {
+                    #parent_impl::#name(this, #(#invoke_args,)*)
+                }
+            }
+        }
+    }
+
+    pub fn write_impl_signature(
+        &self,
+        writer: &Writer,
+        _named_params: bool,
+    ) -> TokenStream {
+        let mut params = quote! {};
+
+        if self.return_hint == ReturnHint::ResultValue {
+            for (ty, param) in &self.signature.params[..self.signature.params.len() - 1] {
+                params.combine(write_produce_type(writer, ty, *param));
+            }
+        } else {
+            for (ty, param) in &self.signature.params {
+                params.combine(write_produce_type(writer, ty, *param));
+            }
+        }
+
+        let return_type = match self.return_hint {
+            ReturnHint::ReturnVoid => quote! {},
+            ReturnHint::Query(..)
+            | ReturnHint::QueryOptional(..)
+            | ReturnHint::ResultVoid => quote! { -> windows_core::Result<()> },
+            ReturnHint::ResultValue => {
+                let return_type = self.signature.params[self.signature.params.len() - 1].0.deref();
+                let return_type = return_type.write(writer);
+
+                quote! { -> windows_core::Result<#return_type> }
+            }
+            _ => self.write_return(writer),
+        };
+
+        quote! { (&self, #params) #return_type }
+    }
+
     pub fn write_abi(&self, writer: &Writer, named_params: bool) -> TokenStream {
         let params = self.signature.params.iter().map(|(ty, param)| {
             // TODO: use ty.underlying_types() ?
@@ -609,6 +703,42 @@ impl CppMethod {
         false
     }
 }
+
+fn write_produce_type(writer:&Writer, ty: &Type, param: Param) -> TokenStream {
+    let name = to_ident(&param.name().to_lowercase());
+        let kind = ty.write_default(writer);
+
+        if param.flags().contains(ParamAttributes::In) {
+            if ty.is_primitive() {
+                quote! { #name: #kind, }
+            } else if ty.is_nullable() {
+                let kind = ty.write(writer);
+                quote! { #name: Option<&#kind>, }
+            } else {
+                quote! { #name: &#kind, }
+            }
+        } else {
+            quote! { #name: #kind, }
+        }
+    }
+
+fn write_invoke_arg(ty: &Type, param: Param, _hint: ParamHint) -> TokenStream {
+    let name = to_ident(&param.name().to_lowercase());
+
+    if param.flags().contains(ParamAttributes::In)
+        && ty.is_nullable()
+    {
+        quote! { windows_core::from_raw_borrowed(&#name) }
+    } else if (!ty.is_pointer() && ty.is_nullable())
+        || (param.flags().contains(ParamAttributes::In)
+            && !ty.is_primitive())
+    {
+        quote! { core::mem::transmute(&#name) }
+    } else {
+        quote! { core::mem::transmute_copy(&#name) }
+    }
+}
+
 
 fn is_convertible(ty: &Type, param: Param, hint: ParamHint) -> bool {
     !param.flags().contains(ParamAttributes::Out)

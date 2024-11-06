@@ -228,6 +228,119 @@ impl CppInterface {
             }
 
             result.combine(vtbl);
+
+            let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
+
+            // TODO: need to test code gen each time this split happens
+            if writer.config.package {
+                fn collect(interface: &CppInterface, dependencies:&mut Dependencies) {
+                    for method in interface.methods.iter() {
+                        if let CppMethodOrName::Method(method) = method {
+                            dependencies.combine(&method.dependencies);
+                        }
+                    }
+                }
+
+                collect(self, &mut dependencies);
+                self.base_interfaces.iter().for_each(|interface| {
+                    if let Type::Item(Item::CppInterface(item)) = interface {
+                        collect(item, &mut dependencies);
+                    }
+                });
+            }
+
+            let cfg = writer.write_cfg(self.def, self.def.namespace(), &dependencies, false);
+
+            let mut names = MethodNames::new();
+
+            let field_methods: Vec<_> = self
+                .methods
+                .iter()
+                .map(|method| match method {
+                    CppMethodOrName::Method(method) => {
+                        let name = names.add(method.def);
+                        quote! { #name: #name::<Identity, OFFSET>, }
+                    }
+                    CppMethodOrName::Name(name) => {
+                        // TODO: test this condition - should cause an AV when method is called
+                        // TODO: does this need to use `MethodNames` for overloading?
+                        let name = to_ident(name);
+                        quote! { #name: 0, }
+                    }
+                })
+                .collect();
+
+            let mut names = MethodNames::new();
+
+            let impl_methods: Vec<_> = self.methods.iter().map(|method| match method {
+                CppMethodOrName::Method(method) => {
+                    let name = names.add(method.def);
+                    let signature = method.write_abi(writer, true);
+                    let upcall = method.write_upcall(&impl_name, &name);
+
+                    quote! {
+                        unsafe extern "system" fn #name<Identity: #impl_name, const OFFSET: isize> #signature {
+                            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                            #upcall
+                        }
+                    }
+                }
+                _ => quote! {},
+            }).collect();
+
+            let mut names = MethodNames::new();
+
+            let trait_methods: Vec<_> = self
+                .methods
+                .iter()
+                .map(|method| match method {
+                    CppMethodOrName::Method(method) => {
+                        let name = names.add(method.def);
+                        let signature = method.write_impl_signature(writer, true);
+                        quote! { fn #name #signature; }
+                    }
+                    _ => quote! {},
+                })
+                .collect();
+
+            let impl_base = self.base_interfaces.last().map(|ty|ty.write_impl_name(writer));
+
+            let field_base = self.base_interfaces.last().map(|ty|{
+                match ty {
+                    Type::IUnknown => quote! { windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() },
+                    Type::Object => quote! { windows_core::IInspectable_Vtbl::new::<Identity, #name, OFFSET>() },
+                    Type::Item(Item::CppInterface(item)) => {
+                        let ty = item.write_vtbl_name(writer);
+                        if self.has_unknown_base () {
+                            quote! { #ty::new::<Identity, OFFSET>() }
+                        } else {
+                            quote! { #ty::new::<Impl>() }
+                        }
+                    }
+                    rest => unimplemented!("{rest:?}"),
+                }
+            });
+
+            result.combine(quote! {
+                #cfg 
+                pub trait #impl_name: #impl_base {
+                    #(#trait_methods)*
+                }
+                #cfg
+                impl #vtbl_name {
+                    pub const fn new<Identity: #impl_name, const OFFSET: isize>() -> Self {
+                        #(#impl_methods)*
+                        Self {
+                            base__: #field_base,
+                            #(#field_methods)*
+                        }
+                    }
+                    pub fn matches(iid: &windows_core::GUID) -> bool {
+                        iid == &<#name as windows_core::Interface>::IID
+                    }
+                } 
+            });
+
             result
         }
     }
@@ -240,6 +353,12 @@ impl CppInterface {
 
     fn write_vtbl_name(&self, writer: &Writer) -> TokenStream {
         let name : TokenStream = format!("{}_Vtbl", self.def.name()).into();
+        let namespace = writer.write_namespace(self.def.namespace());
+        quote! { #namespace #name }
+    }
+
+    pub fn write_impl_name(&self, writer: &Writer) -> TokenStream {
+        let name: TokenStream = format!("{}_Impl", self.def.name()).into();
         let namespace = writer.write_namespace(self.def.namespace());
         quote! { #namespace #name }
     }
