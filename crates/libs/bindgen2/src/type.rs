@@ -417,13 +417,21 @@ impl Type {
                 }
             }
             Self::PtrMut(ty, pointers) => {
+                let ty = if *pointers > 1 {
+                    ty.write(writer)
+                } else {
+                    ty.write_abi(writer)
+                };
                 let pointers = write_ptr_mut(*pointers);
-                let ty = ty.write_abi(writer);
                 quote! { #pointers #ty }
             }
             Self::PtrConst(ty, pointers) => {
+                let ty = if *pointers > 1 {
+                    ty.write(writer)
+                } else {
+                    ty.write_abi(writer)
+                };
                 let pointers = write_ptr_const(*pointers);
-                let ty = ty.write_abi(writer);
                 quote! { #pointers #ty }
             }
             Self::PrimitiveOrEnum(ty, _) => ty.write(writer),
