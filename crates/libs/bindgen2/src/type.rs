@@ -380,7 +380,8 @@ impl Type {
             }
             Self::Object => {
                 let name = writer.write_core();
-                quote! { #name IInspectable_Impl }
+                // TODO: ideally we can only require RuntimeName tough IInspectable_Impl
+                quote! { #name IUnknownImpl }
             }
             Self::Item(Item::CppInterface(item)) => item.write_impl_name(writer),
             Self::Item(Item::Interface(item)) => item.write_impl_name(writer),
