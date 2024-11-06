@@ -221,6 +221,7 @@ impl CppInterface {
 
             if !methods.is_empty() {
                 result.combine(quote! {
+                    #cfg
                     impl #name {
                         #methods
                     }

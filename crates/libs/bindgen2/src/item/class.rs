@@ -153,7 +153,8 @@ impl Class {
                 pub struct #name;
                 #cfg
                 impl #name {
-                    //#(#methods)*
+                    #methods
+                    #(#factories)*
                 }
                 #runtime_name
             }
