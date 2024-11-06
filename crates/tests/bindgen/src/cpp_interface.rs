@@ -57,3 +57,4 @@ impl IPersist_Vtbl {
         iid == &<IPersist as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IPersist {}

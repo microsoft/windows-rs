@@ -57,6 +57,7 @@ impl IPersist_Vtbl {
         iid == &<IPersist as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IPersist {}
 windows_core::imp::define_interface!(
     IPersistFile,
     IPersistFile_Vtbl,
@@ -156,3 +157,4 @@ impl IPersistFile_Vtbl {
         iid == &<IPersistFile as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IPersistFile {}

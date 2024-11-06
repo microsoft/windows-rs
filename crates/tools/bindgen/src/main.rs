@@ -24,6 +24,9 @@ fn main() {
     // Same as 'iota.rs' but without `--sys`.
     test("--out cpp_fn_return_none.rs --filter GetTickCount --flat --no-comment");
 
+    test("--out cpp_fn_associated_enum_sys.rs --filter CoInitializeEx --sys --flat --no-comment --no-allow");
+    test("--out cpp_fn_associated_enum_win.rs --filter CoInitializeEx --flat --no-comment");
+
     test("--out cpp_fn_return_void.rs --filter GlobalMemoryStatus --flat --no-comment");
 
     test("--out cpp_interface.rs --filter IPersist --flat --no-comment");
