@@ -615,6 +615,7 @@ pub struct ISpatialTappedEventArgs_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialGestureRecognizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialGestureRecognizer, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialGestureRecognizer, ISpatialGestureRecognizer, ISpatialGestureRecognizerFactory);
 impl SpatialGestureRecognizer {
     pub fn RecognitionStarted<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -852,18 +853,17 @@ impl windows_core::RuntimeType for SpatialGestureRecognizer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialGestureRecognizer>();
 }
 unsafe impl windows_core::Interface for SpatialGestureRecognizer {
-    type Vtable = ISpatialGestureRecognizer_Vtbl;
+    type Vtable = <ISpatialGestureRecognizer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialGestureRecognizer as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialGestureRecognizer {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialGestureRecognizer";
 }
-unsafe impl Send for SpatialGestureRecognizer {}
-unsafe impl Sync for SpatialGestureRecognizer {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialHoldCanceledEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialHoldCanceledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialHoldCanceledEventArgs, ISpatialHoldCanceledEventArgs);
 impl SpatialHoldCanceledEventArgs {
     pub fn InteractionSourceKind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
@@ -877,18 +877,17 @@ impl windows_core::RuntimeType for SpatialHoldCanceledEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialHoldCanceledEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialHoldCanceledEventArgs {
-    type Vtable = ISpatialHoldCanceledEventArgs_Vtbl;
+    type Vtable = <ISpatialHoldCanceledEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialHoldCanceledEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialHoldCanceledEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialHoldCanceledEventArgs";
 }
-unsafe impl Send for SpatialHoldCanceledEventArgs {}
-unsafe impl Sync for SpatialHoldCanceledEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialHoldCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialHoldCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialHoldCompletedEventArgs, ISpatialHoldCompletedEventArgs);
 impl SpatialHoldCompletedEventArgs {
     pub fn InteractionSourceKind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
@@ -902,18 +901,17 @@ impl windows_core::RuntimeType for SpatialHoldCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialHoldCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialHoldCompletedEventArgs {
-    type Vtable = ISpatialHoldCompletedEventArgs_Vtbl;
+    type Vtable = <ISpatialHoldCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialHoldCompletedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialHoldCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialHoldCompletedEventArgs";
 }
-unsafe impl Send for SpatialHoldCompletedEventArgs {}
-unsafe impl Sync for SpatialHoldCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialHoldStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialHoldStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialHoldStartedEventArgs, ISpatialHoldStartedEventArgs);
 impl SpatialHoldStartedEventArgs {
     pub fn InteractionSourceKind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
@@ -938,18 +936,17 @@ impl windows_core::RuntimeType for SpatialHoldStartedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialHoldStartedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialHoldStartedEventArgs {
-    type Vtable = ISpatialHoldStartedEventArgs_Vtbl;
+    type Vtable = <ISpatialHoldStartedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialHoldStartedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialHoldStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialHoldStartedEventArgs";
 }
-unsafe impl Send for SpatialHoldStartedEventArgs {}
-unsafe impl Sync for SpatialHoldStartedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteraction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteraction, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialInteraction, ISpatialInteraction);
 impl SpatialInteraction {
     pub fn SourceState(&self) -> windows_core::Result<SpatialInteractionSourceState> {
         let this = self;
@@ -963,28 +960,27 @@ impl windows_core::RuntimeType for SpatialInteraction {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteraction>();
 }
 unsafe impl windows_core::Interface for SpatialInteraction {
-    type Vtable = ISpatialInteraction_Vtbl;
+    type Vtable = <ISpatialInteraction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialInteraction as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialInteraction {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteraction";
 }
-unsafe impl Send for SpatialInteraction {}
-unsafe impl Sync for SpatialInteraction {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionController, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialInteractionController, ISpatialInteractionController, ISpatialInteractionController2, ISpatialInteractionController3);
 impl SpatialInteractionController {
     pub fn HasTouchpad(&self) -> windows_core::Result<bool> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasTouchpad)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn HasThumbstick(&self) -> windows_core::Result<bool> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasThumbstick)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -992,28 +988,28 @@ impl SpatialInteractionController {
     }
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> windows_core::Result<super::super::super::Devices::Haptics::SimpleHapticsController> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SimpleHapticsController)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn VendorId(&self) -> windows_core::Result<u16> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VendorId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ProductId(&self) -> windows_core::Result<u16> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProductId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Version(&self) -> windows_core::Result<u16> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Version)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1040,18 +1036,17 @@ impl windows_core::RuntimeType for SpatialInteractionController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionController>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionController {
-    type Vtable = ISpatialInteractionController_Vtbl;
+    type Vtable = <ISpatialInteractionController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialInteractionController as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialInteractionController {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionController";
 }
-unsafe impl Send for SpatialInteractionController {}
-unsafe impl Sync for SpatialInteractionController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionControllerProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionControllerProperties, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialInteractionControllerProperties, ISpatialInteractionControllerProperties);
 impl SpatialInteractionControllerProperties {
     pub fn IsTouchpadTouched(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -1107,21 +1102,20 @@ impl windows_core::RuntimeType for SpatialInteractionControllerProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionControllerProperties>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionControllerProperties {
-    type Vtable = ISpatialInteractionControllerProperties_Vtbl;
+    type Vtable = <ISpatialInteractionControllerProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialInteractionControllerProperties as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialInteractionControllerProperties {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionControllerProperties";
 }
-unsafe impl Send for SpatialInteractionControllerProperties {}
-unsafe impl Sync for SpatialInteractionControllerProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionDetectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialInteractionDetectedEventArgs, ISpatialInteractionDetectedEventArgs, ISpatialInteractionDetectedEventArgs2);
 impl SpatialInteractionDetectedEventArgs {
     pub fn InteractionSourceKind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionDetectedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InteractionSourceKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1132,14 +1126,14 @@ impl SpatialInteractionDetectedEventArgs {
     where
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionDetectedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Interaction(&self) -> windows_core::Result<SpatialInteraction> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionDetectedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Interaction)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1157,18 +1151,17 @@ impl windows_core::RuntimeType for SpatialInteractionDetectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionDetectedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionDetectedEventArgs {
-    type Vtable = ISpatialInteractionDetectedEventArgs_Vtbl;
+    type Vtable = <ISpatialInteractionDetectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialInteractionDetectedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialInteractionDetectedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionDetectedEventArgs";
 }
-unsafe impl Send for SpatialInteractionDetectedEventArgs {}
-unsafe impl Sync for SpatialInteractionDetectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionManager, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialInteractionManager, ISpatialInteractionManager, ISpatialInteractionManagerStatics, ISpatialInteractionManagerStatics2);
 impl SpatialInteractionManager {
     pub fn SourceDetected<P0>(&self, handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -1290,28 +1283,27 @@ impl windows_core::RuntimeType for SpatialInteractionManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionManager>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionManager {
-    type Vtable = ISpatialInteractionManager_Vtbl;
+    type Vtable = <ISpatialInteractionManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialInteractionManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialInteractionManager {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionManager";
 }
-unsafe impl Send for SpatialInteractionManager {}
-unsafe impl Sync for SpatialInteractionManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSource, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialInteractionSource, ISpatialInteractionSource, ISpatialInteractionSource2, ISpatialInteractionSource3, ISpatialInteractionSource4);
 impl SpatialInteractionSource {
     pub fn Id(&self) -> windows_core::Result<u32> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionSource>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn Kind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionSource>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1384,21 +1376,20 @@ impl windows_core::RuntimeType for SpatialInteractionSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionSource>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionSource {
-    type Vtable = ISpatialInteractionSource_Vtbl;
+    type Vtable = <ISpatialInteractionSource as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialInteractionSource as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialInteractionSource {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSource";
 }
-unsafe impl Send for SpatialInteractionSource {}
-unsafe impl Sync for SpatialInteractionSource {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionSourceEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSourceEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialInteractionSourceEventArgs, ISpatialInteractionSourceEventArgs, ISpatialInteractionSourceEventArgs2);
 impl SpatialInteractionSourceEventArgs {
     pub fn State(&self) -> windows_core::Result<SpatialInteractionSourceState> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionSourceEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1416,18 +1407,17 @@ impl windows_core::RuntimeType for SpatialInteractionSourceEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionSourceEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionSourceEventArgs {
-    type Vtable = ISpatialInteractionSourceEventArgs_Vtbl;
+    type Vtable = <ISpatialInteractionSourceEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialInteractionSourceEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialInteractionSourceEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceEventArgs";
 }
-unsafe impl Send for SpatialInteractionSourceEventArgs {}
-unsafe impl Sync for SpatialInteractionSourceEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionSourceLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSourceLocation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialInteractionSourceLocation, ISpatialInteractionSourceLocation, ISpatialInteractionSourceLocation2, ISpatialInteractionSourceLocation3);
 impl SpatialInteractionSourceLocation {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Position(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
@@ -1480,18 +1470,17 @@ impl windows_core::RuntimeType for SpatialInteractionSourceLocation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionSourceLocation>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionSourceLocation {
-    type Vtable = ISpatialInteractionSourceLocation_Vtbl;
+    type Vtable = <ISpatialInteractionSourceLocation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialInteractionSourceLocation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialInteractionSourceLocation {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceLocation";
 }
-unsafe impl Send for SpatialInteractionSourceLocation {}
-unsafe impl Sync for SpatialInteractionSourceLocation {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionSourceProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSourceProperties, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialInteractionSourceProperties, ISpatialInteractionSourceProperties);
 impl SpatialInteractionSourceProperties {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn TryGetSourceLossMitigationDirection<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>
@@ -1527,35 +1516,34 @@ impl windows_core::RuntimeType for SpatialInteractionSourceProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionSourceProperties>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionSourceProperties {
-    type Vtable = ISpatialInteractionSourceProperties_Vtbl;
+    type Vtable = <ISpatialInteractionSourceProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialInteractionSourceProperties as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialInteractionSourceProperties {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceProperties";
 }
-unsafe impl Send for SpatialInteractionSourceProperties {}
-unsafe impl Sync for SpatialInteractionSourceProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialInteractionSourceState(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialInteractionSourceState, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialInteractionSourceState, ISpatialInteractionSourceState, ISpatialInteractionSourceState2, ISpatialInteractionSourceState3);
 impl SpatialInteractionSourceState {
     pub fn Source(&self) -> windows_core::Result<SpatialInteractionSource> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionSourceState>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Source)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn Properties(&self) -> windows_core::Result<SpatialInteractionSourceProperties> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionSourceState>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn IsPressed(&self) -> windows_core::Result<bool> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionSourceState>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPressed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1563,7 +1551,7 @@ impl SpatialInteractionSourceState {
     }
     #[cfg(feature = "Perception")]
     pub fn Timestamp(&self) -> windows_core::Result<super::super::super::Perception::PerceptionTimestamp> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionSourceState>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1574,7 +1562,7 @@ impl SpatialInteractionSourceState {
     where
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialInteractionSourceState>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetPointerPose)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1628,18 +1616,17 @@ impl windows_core::RuntimeType for SpatialInteractionSourceState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialInteractionSourceState>();
 }
 unsafe impl windows_core::Interface for SpatialInteractionSourceState {
-    type Vtable = ISpatialInteractionSourceState_Vtbl;
+    type Vtable = <ISpatialInteractionSourceState as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialInteractionSourceState as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialInteractionSourceState {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceState";
 }
-unsafe impl Send for SpatialInteractionSourceState {}
-unsafe impl Sync for SpatialInteractionSourceState {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialManipulationCanceledEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialManipulationCanceledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialManipulationCanceledEventArgs, ISpatialManipulationCanceledEventArgs);
 impl SpatialManipulationCanceledEventArgs {
     pub fn InteractionSourceKind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
@@ -1653,18 +1640,17 @@ impl windows_core::RuntimeType for SpatialManipulationCanceledEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialManipulationCanceledEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialManipulationCanceledEventArgs {
-    type Vtable = ISpatialManipulationCanceledEventArgs_Vtbl;
+    type Vtable = <ISpatialManipulationCanceledEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialManipulationCanceledEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialManipulationCanceledEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationCanceledEventArgs";
 }
-unsafe impl Send for SpatialManipulationCanceledEventArgs {}
-unsafe impl Sync for SpatialManipulationCanceledEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialManipulationCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialManipulationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialManipulationCompletedEventArgs, ISpatialManipulationCompletedEventArgs);
 impl SpatialManipulationCompletedEventArgs {
     pub fn InteractionSourceKind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
@@ -1689,18 +1675,17 @@ impl windows_core::RuntimeType for SpatialManipulationCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialManipulationCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialManipulationCompletedEventArgs {
-    type Vtable = ISpatialManipulationCompletedEventArgs_Vtbl;
+    type Vtable = <ISpatialManipulationCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialManipulationCompletedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialManipulationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationCompletedEventArgs";
 }
-unsafe impl Send for SpatialManipulationCompletedEventArgs {}
-unsafe impl Sync for SpatialManipulationCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialManipulationDelta(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialManipulationDelta, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialManipulationDelta, ISpatialManipulationDelta);
 impl SpatialManipulationDelta {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Translation(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
@@ -1715,18 +1700,17 @@ impl windows_core::RuntimeType for SpatialManipulationDelta {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialManipulationDelta>();
 }
 unsafe impl windows_core::Interface for SpatialManipulationDelta {
-    type Vtable = ISpatialManipulationDelta_Vtbl;
+    type Vtable = <ISpatialManipulationDelta as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialManipulationDelta as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialManipulationDelta {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationDelta";
 }
-unsafe impl Send for SpatialManipulationDelta {}
-unsafe impl Sync for SpatialManipulationDelta {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialManipulationStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialManipulationStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialManipulationStartedEventArgs, ISpatialManipulationStartedEventArgs);
 impl SpatialManipulationStartedEventArgs {
     pub fn InteractionSourceKind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
@@ -1751,18 +1735,17 @@ impl windows_core::RuntimeType for SpatialManipulationStartedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialManipulationStartedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialManipulationStartedEventArgs {
-    type Vtable = ISpatialManipulationStartedEventArgs_Vtbl;
+    type Vtable = <ISpatialManipulationStartedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialManipulationStartedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialManipulationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationStartedEventArgs";
 }
-unsafe impl Send for SpatialManipulationStartedEventArgs {}
-unsafe impl Sync for SpatialManipulationStartedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialManipulationUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialManipulationUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialManipulationUpdatedEventArgs, ISpatialManipulationUpdatedEventArgs);
 impl SpatialManipulationUpdatedEventArgs {
     pub fn InteractionSourceKind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
@@ -1787,18 +1770,17 @@ impl windows_core::RuntimeType for SpatialManipulationUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialManipulationUpdatedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialManipulationUpdatedEventArgs {
-    type Vtable = ISpatialManipulationUpdatedEventArgs_Vtbl;
+    type Vtable = <ISpatialManipulationUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialManipulationUpdatedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialManipulationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationUpdatedEventArgs";
 }
-unsafe impl Send for SpatialManipulationUpdatedEventArgs {}
-unsafe impl Sync for SpatialManipulationUpdatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialNavigationCanceledEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialNavigationCanceledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialNavigationCanceledEventArgs, ISpatialNavigationCanceledEventArgs);
 impl SpatialNavigationCanceledEventArgs {
     pub fn InteractionSourceKind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
@@ -1812,18 +1794,17 @@ impl windows_core::RuntimeType for SpatialNavigationCanceledEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialNavigationCanceledEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialNavigationCanceledEventArgs {
-    type Vtable = ISpatialNavigationCanceledEventArgs_Vtbl;
+    type Vtable = <ISpatialNavigationCanceledEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialNavigationCanceledEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialNavigationCanceledEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationCanceledEventArgs";
 }
-unsafe impl Send for SpatialNavigationCanceledEventArgs {}
-unsafe impl Sync for SpatialNavigationCanceledEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialNavigationCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialNavigationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialNavigationCompletedEventArgs, ISpatialNavigationCompletedEventArgs);
 impl SpatialNavigationCompletedEventArgs {
     pub fn InteractionSourceKind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
@@ -1845,18 +1826,17 @@ impl windows_core::RuntimeType for SpatialNavigationCompletedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialNavigationCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialNavigationCompletedEventArgs {
-    type Vtable = ISpatialNavigationCompletedEventArgs_Vtbl;
+    type Vtable = <ISpatialNavigationCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialNavigationCompletedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialNavigationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationCompletedEventArgs";
 }
-unsafe impl Send for SpatialNavigationCompletedEventArgs {}
-unsafe impl Sync for SpatialNavigationCompletedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialNavigationStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialNavigationStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialNavigationStartedEventArgs, ISpatialNavigationStartedEventArgs);
 impl SpatialNavigationStartedEventArgs {
     pub fn InteractionSourceKind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
@@ -1902,18 +1882,17 @@ impl windows_core::RuntimeType for SpatialNavigationStartedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialNavigationStartedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialNavigationStartedEventArgs {
-    type Vtable = ISpatialNavigationStartedEventArgs_Vtbl;
+    type Vtable = <ISpatialNavigationStartedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialNavigationStartedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialNavigationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationStartedEventArgs";
 }
-unsafe impl Send for SpatialNavigationStartedEventArgs {}
-unsafe impl Sync for SpatialNavigationStartedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialNavigationUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialNavigationUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialNavigationUpdatedEventArgs, ISpatialNavigationUpdatedEventArgs);
 impl SpatialNavigationUpdatedEventArgs {
     pub fn InteractionSourceKind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
@@ -1935,22 +1914,21 @@ impl windows_core::RuntimeType for SpatialNavigationUpdatedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialNavigationUpdatedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialNavigationUpdatedEventArgs {
-    type Vtable = ISpatialNavigationUpdatedEventArgs_Vtbl;
+    type Vtable = <ISpatialNavigationUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialNavigationUpdatedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialNavigationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationUpdatedEventArgs";
 }
-unsafe impl Send for SpatialNavigationUpdatedEventArgs {}
-unsafe impl Sync for SpatialNavigationUpdatedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialPointerInteractionSourcePose(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialPointerInteractionSourcePose, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialPointerInteractionSourcePose, ISpatialPointerInteractionSourcePose, ISpatialPointerInteractionSourcePose2);
 impl SpatialPointerInteractionSourcePose {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Position(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialPointerInteractionSourcePose>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1958,7 +1936,7 @@ impl SpatialPointerInteractionSourcePose {
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn ForwardDirection(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialPointerInteractionSourcePose>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForwardDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1966,7 +1944,7 @@ impl SpatialPointerInteractionSourcePose {
     }
     #[cfg(feature = "Foundation_Numerics")]
     pub fn UpDirection(&self) -> windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialPointerInteractionSourcePose>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1992,22 +1970,21 @@ impl windows_core::RuntimeType for SpatialPointerInteractionSourcePose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialPointerInteractionSourcePose>();
 }
 unsafe impl windows_core::Interface for SpatialPointerInteractionSourcePose {
-    type Vtable = ISpatialPointerInteractionSourcePose_Vtbl;
+    type Vtable = <ISpatialPointerInteractionSourcePose as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialPointerInteractionSourcePose as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialPointerInteractionSourcePose {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialPointerInteractionSourcePose";
 }
-unsafe impl Send for SpatialPointerInteractionSourcePose {}
-unsafe impl Sync for SpatialPointerInteractionSourcePose {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialPointerPose(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialPointerPose, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialPointerPose, ISpatialPointerPose, ISpatialPointerPose2, ISpatialPointerPose3, ISpatialPointerPoseStatics);
 impl SpatialPointerPose {
     #[cfg(feature = "Perception")]
     pub fn Timestamp(&self) -> windows_core::Result<super::super::super::Perception::PerceptionTimestamp> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialPointerPose>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2015,7 +1992,7 @@ impl SpatialPointerPose {
     }
     #[cfg(feature = "Perception_People")]
     pub fn Head(&self) -> windows_core::Result<super::super::super::Perception::People::HeadPose> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<ISpatialPointerPose>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Head)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2066,18 +2043,17 @@ impl windows_core::RuntimeType for SpatialPointerPose {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialPointerPose>();
 }
 unsafe impl windows_core::Interface for SpatialPointerPose {
-    type Vtable = ISpatialPointerPose_Vtbl;
+    type Vtable = <ISpatialPointerPose as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialPointerPose as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialPointerPose {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialPointerPose";
 }
-unsafe impl Send for SpatialPointerPose {}
-unsafe impl Sync for SpatialPointerPose {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialRecognitionEndedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialRecognitionEndedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialRecognitionEndedEventArgs, ISpatialRecognitionEndedEventArgs);
 impl SpatialRecognitionEndedEventArgs {
     pub fn InteractionSourceKind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
@@ -2091,18 +2067,17 @@ impl windows_core::RuntimeType for SpatialRecognitionEndedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialRecognitionEndedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialRecognitionEndedEventArgs {
-    type Vtable = ISpatialRecognitionEndedEventArgs_Vtbl;
+    type Vtable = <ISpatialRecognitionEndedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialRecognitionEndedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialRecognitionEndedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialRecognitionEndedEventArgs";
 }
-unsafe impl Send for SpatialRecognitionEndedEventArgs {}
-unsafe impl Sync for SpatialRecognitionEndedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialRecognitionStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialRecognitionStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialRecognitionStartedEventArgs, ISpatialRecognitionStartedEventArgs);
 impl SpatialRecognitionStartedEventArgs {
     pub fn InteractionSourceKind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
@@ -2134,18 +2109,17 @@ impl windows_core::RuntimeType for SpatialRecognitionStartedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialRecognitionStartedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialRecognitionStartedEventArgs {
-    type Vtable = ISpatialRecognitionStartedEventArgs_Vtbl;
+    type Vtable = <ISpatialRecognitionStartedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialRecognitionStartedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialRecognitionStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialRecognitionStartedEventArgs";
 }
-unsafe impl Send for SpatialRecognitionStartedEventArgs {}
-unsafe impl Sync for SpatialRecognitionStartedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialTappedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialTappedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SpatialTappedEventArgs, ISpatialTappedEventArgs);
 impl SpatialTappedEventArgs {
     pub fn InteractionSourceKind(&self) -> windows_core::Result<SpatialInteractionSourceKind> {
         let this = self;
@@ -2177,16 +2151,14 @@ impl windows_core::RuntimeType for SpatialTappedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialTappedEventArgs>();
 }
 unsafe impl windows_core::Interface for SpatialTappedEventArgs {
-    type Vtable = ISpatialTappedEventArgs_Vtbl;
+    type Vtable = <ISpatialTappedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialTappedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SpatialTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialTappedEventArgs";
 }
-unsafe impl Send for SpatialTappedEventArgs {}
-unsafe impl Sync for SpatialTappedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SpatialGestureSettings(pub u32);
 impl SpatialGestureSettings {
     pub const None: Self = Self(0u32);
@@ -2204,49 +2176,11 @@ impl SpatialGestureSettings {
 impl windows_core::TypeKind for SpatialGestureSettings {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SpatialGestureSettings {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SpatialGestureSettings").field(&self.0).finish()
-    }
-}
-impl SpatialGestureSettings {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for SpatialGestureSettings {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for SpatialGestureSettings {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for SpatialGestureSettings {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for SpatialGestureSettings {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for SpatialGestureSettings {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for SpatialGestureSettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialGestureSettings;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SpatialInteractionPressKind(pub i32);
 impl SpatialInteractionPressKind {
     pub const None: Self = Self(0i32);
@@ -2259,16 +2193,11 @@ impl SpatialInteractionPressKind {
 impl windows_core::TypeKind for SpatialInteractionPressKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SpatialInteractionPressKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SpatialInteractionPressKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for SpatialInteractionPressKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionPressKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SpatialInteractionSourceHandedness(pub i32);
 impl SpatialInteractionSourceHandedness {
     pub const Unspecified: Self = Self(0i32);
@@ -2278,16 +2207,11 @@ impl SpatialInteractionSourceHandedness {
 impl windows_core::TypeKind for SpatialInteractionSourceHandedness {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SpatialInteractionSourceHandedness {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SpatialInteractionSourceHandedness").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for SpatialInteractionSourceHandedness {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceHandedness;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SpatialInteractionSourceKind(pub i32);
 impl SpatialInteractionSourceKind {
     pub const Other: Self = Self(0i32);
@@ -2298,16 +2222,11 @@ impl SpatialInteractionSourceKind {
 impl windows_core::TypeKind for SpatialInteractionSourceKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SpatialInteractionSourceKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SpatialInteractionSourceKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for SpatialInteractionSourceKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourceKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SpatialInteractionSourcePositionAccuracy(pub i32);
 impl SpatialInteractionSourcePositionAccuracy {
     pub const High: Self = Self(0i32);
@@ -2315,11 +2234,6 @@ impl SpatialInteractionSourcePositionAccuracy {
 }
 impl windows_core::TypeKind for SpatialInteractionSourcePositionAccuracy {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SpatialInteractionSourcePositionAccuracy {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SpatialInteractionSourcePositionAccuracy").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for SpatialInteractionSourcePositionAccuracy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourcePositionAccuracy;i4)");

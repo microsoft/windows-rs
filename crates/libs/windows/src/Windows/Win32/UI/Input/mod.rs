@@ -105,48 +105,28 @@ pub const RIM_TYPEHID: RID_DEVICE_INFO_TYPE = RID_DEVICE_INFO_TYPE(2u32);
 pub const RIM_TYPEKEYBOARD: RID_DEVICE_INFO_TYPE = RID_DEVICE_INFO_TYPE(1u32);
 pub const RIM_TYPEMOUSE: RID_DEVICE_INFO_TYPE = RID_DEVICE_INFO_TYPE(0u32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct INPUT_MESSAGE_DEVICE_TYPE(pub i32);
 impl windows_core::TypeKind for INPUT_MESSAGE_DEVICE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for INPUT_MESSAGE_DEVICE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INPUT_MESSAGE_DEVICE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct INPUT_MESSAGE_ORIGIN_ID(pub i32);
 impl windows_core::TypeKind for INPUT_MESSAGE_ORIGIN_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for INPUT_MESSAGE_ORIGIN_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INPUT_MESSAGE_ORIGIN_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MOUSE_STATE(pub u16);
 impl windows_core::TypeKind for MOUSE_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MOUSE_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MOUSE_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RAWINPUTDEVICE_FLAGS(pub u32);
 impl windows_core::TypeKind for RAWINPUTDEVICE_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for RAWINPUTDEVICE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RAWINPUTDEVICE_FLAGS").field(&self.0).finish()
-    }
 }
 impl RAWINPUTDEVICE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -182,41 +162,29 @@ impl core::ops::Not for RAWINPUTDEVICE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RAW_INPUT_DATA_COMMAND_FLAGS(pub u32);
 impl windows_core::TypeKind for RAW_INPUT_DATA_COMMAND_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RAW_INPUT_DATA_COMMAND_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RAW_INPUT_DATA_COMMAND_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RAW_INPUT_DEVICE_INFO_COMMAND(pub u32);
 impl windows_core::TypeKind for RAW_INPUT_DEVICE_INFO_COMMAND {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RAW_INPUT_DEVICE_INFO_COMMAND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RAW_INPUT_DEVICE_INFO_COMMAND").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RID_DEVICE_INFO_TYPE(pub u32);
 impl windows_core::TypeKind for RID_DEVICE_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RID_DEVICE_INFO_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RID_DEVICE_INFO_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRAWINPUT(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HRAWINPUT {
+    type TypeKind = windows_core::CopyType;
+}
 impl HRAWINPUT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -227,115 +195,112 @@ impl Default for HRAWINPUT {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HRAWINPUT {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INPUT_MESSAGE_SOURCE {
     pub deviceType: INPUT_MESSAGE_DEVICE_TYPE,
     pub originId: INPUT_MESSAGE_ORIGIN_ID,
-}
-impl windows_core::TypeKind for INPUT_MESSAGE_SOURCE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INPUT_MESSAGE_SOURCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INPUT_MESSAGE_SOURCE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RAWHID {
     pub dwSizeHid: u32,
     pub dwCount: u32,
     pub bRawData: [u8; 1],
-}
-impl windows_core::TypeKind for RAWHID {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RAWHID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RAWHID {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAWINPUT {
     pub header: RAWINPUTHEADER,
     pub data: RAWINPUT_0,
-}
-impl windows_core::TypeKind for RAWINPUT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RAWINPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RAWINPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union RAWINPUT_0 {
     pub mouse: RAWMOUSE,
     pub keyboard: RAWKEYBOARD,
     pub hid: RAWHID,
-}
-impl windows_core::TypeKind for RAWINPUT_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RAWINPUT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RAWINPUT_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RAWINPUTDEVICE {
     pub usUsagePage: u16,
     pub usUsage: u16,
     pub dwFlags: RAWINPUTDEVICE_FLAGS,
     pub hwndTarget: super::super::Foundation::HWND,
 }
-impl windows_core::TypeKind for RAWINPUTDEVICE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for RAWINPUTDEVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RAWINPUTDEVICE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RAWINPUTDEVICELIST {
     pub hDevice: super::super::Foundation::HANDLE,
     pub dwType: RID_DEVICE_INFO_TYPE,
-}
-impl windows_core::TypeKind for RAWINPUTDEVICELIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RAWINPUTDEVICELIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RAWINPUTDEVICELIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RAWINPUTHEADER {
     pub dwType: u32,
     pub dwSize: u32,
     pub hDevice: super::super::Foundation::HANDLE,
     pub wParam: super::super::Foundation::WPARAM,
 }
-impl windows_core::TypeKind for RAWINPUTHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for RAWINPUTHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RAWINPUTHEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RAWKEYBOARD {
     pub MakeCode: u16,
     pub Flags: u16,
@@ -344,16 +309,16 @@ pub struct RAWKEYBOARD {
     pub Message: u32,
     pub ExtraInformation: u32,
 }
-impl windows_core::TypeKind for RAWKEYBOARD {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for RAWKEYBOARD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RAWKEYBOARD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RAWMOUSE {
     pub usFlags: MOUSE_STATE,
     pub Anonymous: RAWMOUSE_0,
@@ -362,74 +327,74 @@ pub struct RAWMOUSE {
     pub lLastY: i32,
     pub ulExtraInformation: u32,
 }
-impl windows_core::TypeKind for RAWMOUSE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for RAWMOUSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RAWMOUSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union RAWMOUSE_0 {
     pub ulButtons: u32,
     pub Anonymous: RAWMOUSE_0_0,
-}
-impl windows_core::TypeKind for RAWMOUSE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RAWMOUSE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RAWMOUSE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RAWMOUSE_0_0 {
     pub usButtonFlags: u16,
     pub usButtonData: u16,
-}
-impl windows_core::TypeKind for RAWMOUSE_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RAWMOUSE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RAWMOUSE_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RID_DEVICE_INFO {
     pub cbSize: u32,
     pub dwType: RID_DEVICE_INFO_TYPE,
     pub Anonymous: RID_DEVICE_INFO_0,
-}
-impl windows_core::TypeKind for RID_DEVICE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RID_DEVICE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RID_DEVICE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union RID_DEVICE_INFO_0 {
     pub mouse: RID_DEVICE_INFO_MOUSE,
     pub keyboard: RID_DEVICE_INFO_KEYBOARD,
     pub hid: RID_DEVICE_INFO_HID,
-}
-impl windows_core::TypeKind for RID_DEVICE_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RID_DEVICE_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RID_DEVICE_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RID_DEVICE_INFO_HID {
     pub dwVendorId: u32,
     pub dwProductId: u32,
@@ -437,16 +402,16 @@ pub struct RID_DEVICE_INFO_HID {
     pub usUsagePage: u16,
     pub usUsage: u16,
 }
-impl windows_core::TypeKind for RID_DEVICE_INFO_HID {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for RID_DEVICE_INFO_HID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RID_DEVICE_INFO_HID {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RID_DEVICE_INFO_KEYBOARD {
     pub dwType: u32,
     pub dwSubType: u32,
@@ -455,27 +420,27 @@ pub struct RID_DEVICE_INFO_KEYBOARD {
     pub dwNumberOfIndicators: u32,
     pub dwNumberOfKeysTotal: u32,
 }
-impl windows_core::TypeKind for RID_DEVICE_INFO_KEYBOARD {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for RID_DEVICE_INFO_KEYBOARD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RID_DEVICE_INFO_KEYBOARD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RID_DEVICE_INFO_MOUSE {
     pub dwId: u32,
     pub dwNumberOfButtons: u32,
     pub dwSampleRate: u32,
     pub fHasHorizontalWheel: super::super::Foundation::BOOL,
 }
-impl windows_core::TypeKind for RID_DEVICE_INFO_MOUSE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for RID_DEVICE_INFO_MOUSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for RID_DEVICE_INFO_MOUSE {
+    type TypeKind = windows_core::CopyType;
 }

@@ -28,7 +28,7 @@ pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> windows_core::Result<()> {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct UAL_DATA_BLOB {
     pub Size: u32,
     pub RoleGuid: windows_core::GUID,
@@ -37,12 +37,12 @@ pub struct UAL_DATA_BLOB {
     pub UserName: [u16; 260],
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for UAL_DATA_BLOB {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for UAL_DATA_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for UAL_DATA_BLOB {
+    type TypeKind = windows_core::CopyType;
 }

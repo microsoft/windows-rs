@@ -219,7 +219,6 @@ impl BackgroundEnergyManager {
     pub fn RemoveRecentEnergyUsageReturnedToLow(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRecentEnergyUsageReturnedToLow)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[cfg(feature = "deprecated")]
     fn IBackgroundEnergyManagerStatics<R, F: FnOnce(&IBackgroundEnergyManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundEnergyManager, IBackgroundEnergyManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -303,7 +302,6 @@ impl ForegroundEnergyManager {
     pub fn RemoveRecentEnergyUsageReturnedToLow(token: super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRecentEnergyUsageReturnedToLow)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    #[cfg(feature = "deprecated")]
     fn IForegroundEnergyManagerStatics<R, F: FnOnce(&IForegroundEnergyManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ForegroundEnergyManager, IForegroundEnergyManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -414,7 +412,7 @@ impl windows_core::RuntimeName for PowerManager {
     const NAME: &'static str = "Windows.System.Power.PowerManager";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct BatteryStatus(pub i32);
 impl BatteryStatus {
     pub const NotPresent: Self = Self(0i32);
@@ -425,16 +423,11 @@ impl BatteryStatus {
 impl windows_core::TypeKind for BatteryStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for BatteryStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BatteryStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for BatteryStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Power.BatteryStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EnergySaverStatus(pub i32);
 impl EnergySaverStatus {
     pub const Disabled: Self = Self(0i32);
@@ -444,16 +437,11 @@ impl EnergySaverStatus {
 impl windows_core::TypeKind for EnergySaverStatus {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EnergySaverStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EnergySaverStatus").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for EnergySaverStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Power.EnergySaverStatus;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PowerSupplyStatus(pub i32);
 impl PowerSupplyStatus {
     pub const NotPresent: Self = Self(0i32);
@@ -462,11 +450,6 @@ impl PowerSupplyStatus {
 }
 impl windows_core::TypeKind for PowerSupplyStatus {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PowerSupplyStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PowerSupplyStatus").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for PowerSupplyStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Power.PowerSupplyStatus;i4)");

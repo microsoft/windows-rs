@@ -665,6 +665,7 @@ pub struct IUserCertificateStore_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Certificate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Certificate, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(Certificate, ICertificate, ICertificate2, ICertificate3, ICertificateFactory);
 impl Certificate {
     #[cfg(feature = "Foundation_Collections")]
     pub fn BuildChainAsync<P0>(&self, certificates: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<CertificateChain>>
@@ -861,18 +862,17 @@ impl windows_core::RuntimeType for Certificate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificate>();
 }
 unsafe impl windows_core::Interface for Certificate {
-    type Vtable = ICertificate_Vtbl;
+    type Vtable = <ICertificate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICertificate as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Certificate {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.Certificate";
 }
-unsafe impl Send for Certificate {}
-unsafe impl Sync for Certificate {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateChain(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CertificateChain, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CertificateChain, ICertificateChain);
 impl CertificateChain {
     pub fn Validate(&self) -> windows_core::Result<ChainValidationResult> {
         let this = self;
@@ -904,14 +904,12 @@ impl windows_core::RuntimeType for CertificateChain {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateChain>();
 }
 unsafe impl windows_core::Interface for CertificateChain {
-    type Vtable = ICertificateChain_Vtbl;
+    type Vtable = <ICertificateChain as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICertificateChain as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CertificateChain {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateChain";
 }
-unsafe impl Send for CertificateChain {}
-unsafe impl Sync for CertificateChain {}
 pub struct CertificateEnrollmentManager;
 impl CertificateEnrollmentManager {
     pub fn CreateRequestAsync<P0>(request: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
@@ -947,9 +945,9 @@ impl CertificateEnrollmentManager {
             (windows_core::Interface::vtable(this).ImportPfxDataToKspAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), exportable, keyprotectionlevel, installoption, core::mem::transmute_copy(friendlyname), core::mem::transmute_copy(keystorageprovider), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ImportPfxDataToKspWithParametersAsync<P0>(pfxdata: &windows_core::HSTRING, password: &windows_core::HSTRING, pfximportparameters: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ImportPfxDataToKspWithParametersAsync<P2>(pfxdata: &windows_core::HSTRING, password: &windows_core::HSTRING, pfximportparameters: P2) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::Param<PfxImportParameters>,
+        P2: windows_core::Param<PfxImportParameters>,
     {
         Self::ICertificateEnrollmentManagerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -976,6 +974,7 @@ impl windows_core::RuntimeName for CertificateEnrollmentManager {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateExtension(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CertificateExtension, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CertificateExtension, ICertificateExtension);
 impl CertificateExtension {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1026,18 +1025,17 @@ impl windows_core::RuntimeType for CertificateExtension {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateExtension>();
 }
 unsafe impl windows_core::Interface for CertificateExtension {
-    type Vtable = ICertificateExtension_Vtbl;
+    type Vtable = <ICertificateExtension as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICertificateExtension as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CertificateExtension {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateExtension";
 }
-unsafe impl Send for CertificateExtension {}
-unsafe impl Sync for CertificateExtension {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateKeyUsages(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CertificateKeyUsages, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CertificateKeyUsages, ICertificateKeyUsages);
 impl CertificateKeyUsages {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1139,18 +1137,17 @@ impl windows_core::RuntimeType for CertificateKeyUsages {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateKeyUsages>();
 }
 unsafe impl windows_core::Interface for CertificateKeyUsages {
-    type Vtable = ICertificateKeyUsages_Vtbl;
+    type Vtable = <ICertificateKeyUsages as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICertificateKeyUsages as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CertificateKeyUsages {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateKeyUsages";
 }
-unsafe impl Send for CertificateKeyUsages {}
-unsafe impl Sync for CertificateKeyUsages {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateQuery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CertificateQuery, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CertificateQuery, ICertificateQuery, ICertificateQuery2);
 impl CertificateQuery {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1249,18 +1246,17 @@ impl windows_core::RuntimeType for CertificateQuery {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateQuery>();
 }
 unsafe impl windows_core::Interface for CertificateQuery {
-    type Vtable = ICertificateQuery_Vtbl;
+    type Vtable = <ICertificateQuery as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICertificateQuery as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CertificateQuery {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateQuery";
 }
-unsafe impl Send for CertificateQuery {}
-unsafe impl Sync for CertificateQuery {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateRequestProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CertificateRequestProperties, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CertificateRequestProperties, ICertificateRequestProperties, ICertificateRequestProperties2, ICertificateRequestProperties3, ICertificateRequestProperties4);
 impl CertificateRequestProperties {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1490,18 +1486,17 @@ impl windows_core::RuntimeType for CertificateRequestProperties {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateRequestProperties>();
 }
 unsafe impl windows_core::Interface for CertificateRequestProperties {
-    type Vtable = ICertificateRequestProperties_Vtbl;
+    type Vtable = <ICertificateRequestProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICertificateRequestProperties as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CertificateRequestProperties {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateRequestProperties";
 }
-unsafe impl Send for CertificateRequestProperties {}
-unsafe impl Sync for CertificateRequestProperties {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CertificateStore, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CertificateStore, ICertificateStore, ICertificateStore2);
 impl CertificateStore {
     pub fn Add<P0>(&self, certificate: P0) -> windows_core::Result<()>
     where
@@ -1529,14 +1524,12 @@ impl windows_core::RuntimeType for CertificateStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateStore>();
 }
 unsafe impl windows_core::Interface for CertificateStore {
-    type Vtable = ICertificateStore_Vtbl;
+    type Vtable = <ICertificateStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICertificateStore as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CertificateStore {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateStore";
 }
-unsafe impl Send for CertificateStore {}
-unsafe impl Sync for CertificateStore {}
 pub struct CertificateStores;
 impl CertificateStores {
     #[cfg(feature = "Foundation_Collections")]
@@ -1596,6 +1589,7 @@ impl windows_core::RuntimeName for CertificateStores {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChainBuildingParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChainBuildingParameters, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ChainBuildingParameters, IChainBuildingParameters);
 impl ChainBuildingParameters {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1680,18 +1674,17 @@ impl windows_core::RuntimeType for ChainBuildingParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChainBuildingParameters>();
 }
 unsafe impl windows_core::Interface for ChainBuildingParameters {
-    type Vtable = IChainBuildingParameters_Vtbl;
+    type Vtable = <IChainBuildingParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChainBuildingParameters as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ChainBuildingParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.ChainBuildingParameters";
 }
-unsafe impl Send for ChainBuildingParameters {}
-unsafe impl Sync for ChainBuildingParameters {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChainValidationParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ChainValidationParameters, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ChainValidationParameters, IChainValidationParameters);
 impl ChainValidationParameters {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1732,18 +1725,17 @@ impl windows_core::RuntimeType for ChainValidationParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChainValidationParameters>();
 }
 unsafe impl windows_core::Interface for ChainValidationParameters {
-    type Vtable = IChainValidationParameters_Vtbl;
+    type Vtable = <IChainValidationParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChainValidationParameters as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ChainValidationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.ChainValidationParameters";
 }
-unsafe impl Send for ChainValidationParameters {}
-unsafe impl Sync for ChainValidationParameters {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CmsAttachedSignature(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CmsAttachedSignature, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CmsAttachedSignature, ICmsAttachedSignature, ICmsAttachedSignatureFactory, ICmsAttachedSignatureStatics);
 impl CmsAttachedSignature {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Certificates(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>> {
@@ -1810,18 +1802,17 @@ impl windows_core::RuntimeType for CmsAttachedSignature {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICmsAttachedSignature>();
 }
 unsafe impl windows_core::Interface for CmsAttachedSignature {
-    type Vtable = ICmsAttachedSignature_Vtbl;
+    type Vtable = <ICmsAttachedSignature as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICmsAttachedSignature as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CmsAttachedSignature {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsAttachedSignature";
 }
-unsafe impl Send for CmsAttachedSignature {}
-unsafe impl Sync for CmsAttachedSignature {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CmsDetachedSignature(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CmsDetachedSignature, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CmsDetachedSignature, ICmsDetachedSignature, ICmsDetachedSignatureFactory, ICmsDetachedSignatureStatics);
 impl CmsDetachedSignature {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Certificates(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IVectorView<Certificate>> {
@@ -1885,18 +1876,17 @@ impl windows_core::RuntimeType for CmsDetachedSignature {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICmsDetachedSignature>();
 }
 unsafe impl windows_core::Interface for CmsDetachedSignature {
-    type Vtable = ICmsDetachedSignature_Vtbl;
+    type Vtable = <ICmsDetachedSignature as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICmsDetachedSignature as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CmsDetachedSignature {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsDetachedSignature";
 }
-unsafe impl Send for CmsDetachedSignature {}
-unsafe impl Sync for CmsDetachedSignature {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CmsSignerInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CmsSignerInfo, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CmsSignerInfo, ICmsSignerInfo);
 impl CmsSignerInfo {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1942,18 +1932,17 @@ impl windows_core::RuntimeType for CmsSignerInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICmsSignerInfo>();
 }
 unsafe impl windows_core::Interface for CmsSignerInfo {
-    type Vtable = ICmsSignerInfo_Vtbl;
+    type Vtable = <ICmsSignerInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICmsSignerInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CmsSignerInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsSignerInfo";
 }
-unsafe impl Send for CmsSignerInfo {}
-unsafe impl Sync for CmsSignerInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CmsTimestampInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CmsTimestampInfo, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CmsTimestampInfo, ICmsTimestampInfo);
 impl CmsTimestampInfo {
     pub fn SigningCertificate(&self) -> windows_core::Result<Certificate> {
         let this = self;
@@ -1982,14 +1971,12 @@ impl windows_core::RuntimeType for CmsTimestampInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICmsTimestampInfo>();
 }
 unsafe impl windows_core::Interface for CmsTimestampInfo {
-    type Vtable = ICmsTimestampInfo_Vtbl;
+    type Vtable = <ICmsTimestampInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICmsTimestampInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CmsTimestampInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsTimestampInfo";
 }
-unsafe impl Send for CmsTimestampInfo {}
-unsafe impl Sync for CmsTimestampInfo {}
 pub struct KeyAlgorithmNames;
 impl KeyAlgorithmNames {
     pub fn Rsa() -> windows_core::Result<windows_core::HSTRING> {
@@ -2138,6 +2125,7 @@ impl windows_core::RuntimeName for KeyStorageProviderNames {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PfxImportParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PfxImportParameters, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PfxImportParameters, IPfxImportParameters);
 impl PfxImportParameters {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2228,14 +2216,12 @@ impl windows_core::RuntimeType for PfxImportParameters {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPfxImportParameters>();
 }
 unsafe impl windows_core::Interface for PfxImportParameters {
-    type Vtable = IPfxImportParameters_Vtbl;
+    type Vtable = <IPfxImportParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPfxImportParameters as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PfxImportParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.PfxImportParameters";
 }
-unsafe impl Send for PfxImportParameters {}
-unsafe impl Sync for PfxImportParameters {}
 pub struct StandardCertificateStoreNames;
 impl StandardCertificateStoreNames {
     pub fn Personal() -> windows_core::Result<windows_core::HSTRING> {
@@ -2268,6 +2254,7 @@ impl windows_core::RuntimeName for StandardCertificateStoreNames {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SubjectAlternativeNameInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SubjectAlternativeNameInfo, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SubjectAlternativeNameInfo, ISubjectAlternativeNameInfo, ISubjectAlternativeNameInfo2);
 impl SubjectAlternativeNameInfo {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2384,18 +2371,17 @@ impl windows_core::RuntimeType for SubjectAlternativeNameInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISubjectAlternativeNameInfo>();
 }
 unsafe impl windows_core::Interface for SubjectAlternativeNameInfo {
-    type Vtable = ISubjectAlternativeNameInfo_Vtbl;
+    type Vtable = <ISubjectAlternativeNameInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISubjectAlternativeNameInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SubjectAlternativeNameInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo";
 }
-unsafe impl Send for SubjectAlternativeNameInfo {}
-unsafe impl Sync for SubjectAlternativeNameInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserCertificateEnrollmentManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserCertificateEnrollmentManager, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UserCertificateEnrollmentManager, IUserCertificateEnrollmentManager, IUserCertificateEnrollmentManager2);
 impl UserCertificateEnrollmentManager {
     pub fn CreateRequestAsync<P0>(&self, request: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<windows_core::HSTRING>>
     where
@@ -2428,9 +2414,9 @@ impl UserCertificateEnrollmentManager {
             (windows_core::Interface::vtable(this).ImportPfxDataToKspAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pfxdata), core::mem::transmute_copy(password), exportable, keyprotectionlevel, installoption, core::mem::transmute_copy(friendlyname), core::mem::transmute_copy(keystorageprovider), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ImportPfxDataToKspWithParametersAsync<P0>(&self, pfxdata: &windows_core::HSTRING, password: &windows_core::HSTRING, pfximportparameters: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    pub fn ImportPfxDataToKspWithParametersAsync<P2>(&self, pfxdata: &windows_core::HSTRING, password: &windows_core::HSTRING, pfximportparameters: P2) -> windows_core::Result<super::super::super::Foundation::IAsyncAction>
     where
-        P0: windows_core::Param<PfxImportParameters>,
+        P2: windows_core::Param<PfxImportParameters>,
     {
         let this = &windows_core::Interface::cast::<IUserCertificateEnrollmentManager2>(self)?;
         unsafe {
@@ -2443,18 +2429,17 @@ impl windows_core::RuntimeType for UserCertificateEnrollmentManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserCertificateEnrollmentManager>();
 }
 unsafe impl windows_core::Interface for UserCertificateEnrollmentManager {
-    type Vtable = IUserCertificateEnrollmentManager_Vtbl;
+    type Vtable = <IUserCertificateEnrollmentManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserCertificateEnrollmentManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserCertificateEnrollmentManager {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.UserCertificateEnrollmentManager";
 }
-unsafe impl Send for UserCertificateEnrollmentManager {}
-unsafe impl Sync for UserCertificateEnrollmentManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserCertificateStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserCertificateStore, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UserCertificateStore, IUserCertificateStore);
 impl UserCertificateStore {
     pub fn RequestAddAsync<P0>(&self, certificate: P0) -> windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -2488,16 +2473,14 @@ impl windows_core::RuntimeType for UserCertificateStore {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserCertificateStore>();
 }
 unsafe impl windows_core::Interface for UserCertificateStore {
-    type Vtable = IUserCertificateStore_Vtbl;
+    type Vtable = <IUserCertificateStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserCertificateStore as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UserCertificateStore {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.UserCertificateStore";
 }
-unsafe impl Send for UserCertificateStore {}
-unsafe impl Sync for UserCertificateStore {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct CertificateChainPolicy(pub i32);
 impl CertificateChainPolicy {
     pub const Base: Self = Self(0i32);
@@ -2508,16 +2491,11 @@ impl CertificateChainPolicy {
 impl windows_core::TypeKind for CertificateChainPolicy {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CertificateChainPolicy {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CertificateChainPolicy").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for CertificateChainPolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.CertificateChainPolicy;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ChainValidationResult(pub i32);
 impl ChainValidationResult {
     pub const Success: Self = Self(0i32);
@@ -2538,16 +2516,11 @@ impl ChainValidationResult {
 impl windows_core::TypeKind for ChainValidationResult {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ChainValidationResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ChainValidationResult").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ChainValidationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ChainValidationResult;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct EnrollKeyUsages(pub u32);
 impl EnrollKeyUsages {
     pub const None: Self = Self(0u32);
@@ -2559,49 +2532,11 @@ impl EnrollKeyUsages {
 impl windows_core::TypeKind for EnrollKeyUsages {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for EnrollKeyUsages {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("EnrollKeyUsages").field(&self.0).finish()
-    }
-}
-impl EnrollKeyUsages {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for EnrollKeyUsages {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for EnrollKeyUsages {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for EnrollKeyUsages {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for EnrollKeyUsages {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for EnrollKeyUsages {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for EnrollKeyUsages {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.EnrollKeyUsages;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ExportOption(pub i32);
 impl ExportOption {
     pub const NotExportable: Self = Self(0i32);
@@ -2610,16 +2545,11 @@ impl ExportOption {
 impl windows_core::TypeKind for ExportOption {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ExportOption {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ExportOption").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for ExportOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.ExportOption;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct InstallOptions(pub u32);
 impl InstallOptions {
     pub const None: Self = Self(0u32);
@@ -2628,49 +2558,11 @@ impl InstallOptions {
 impl windows_core::TypeKind for InstallOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for InstallOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("InstallOptions").field(&self.0).finish()
-    }
-}
-impl InstallOptions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for InstallOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for InstallOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for InstallOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for InstallOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for InstallOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for InstallOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.InstallOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct KeyProtectionLevel(pub i32);
 impl KeyProtectionLevel {
     pub const NoConsent: Self = Self(0i32);
@@ -2681,16 +2573,11 @@ impl KeyProtectionLevel {
 impl windows_core::TypeKind for KeyProtectionLevel {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for KeyProtectionLevel {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KeyProtectionLevel").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for KeyProtectionLevel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeyProtectionLevel;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct KeySize(pub i32);
 impl KeySize {
     pub const Invalid: Self = Self(0i32);
@@ -2700,16 +2587,11 @@ impl KeySize {
 impl windows_core::TypeKind for KeySize {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for KeySize {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KeySize").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for KeySize {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.KeySize;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SignatureValidationResult(pub i32);
 impl SignatureValidationResult {
     pub const Success: Self = Self(0i32);
@@ -2720,11 +2602,6 @@ impl SignatureValidationResult {
 }
 impl windows_core::TypeKind for SignatureValidationResult {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SignatureValidationResult {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SignatureValidationResult").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for SignatureValidationResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.SignatureValidationResult;i4)");

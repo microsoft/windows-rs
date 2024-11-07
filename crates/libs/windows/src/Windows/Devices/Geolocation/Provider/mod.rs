@@ -15,6 +15,7 @@ pub struct IGeolocationProvider_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeolocationProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeolocationProvider, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GeolocationProvider, IGeolocationProvider);
 impl GeolocationProvider {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -60,16 +61,14 @@ impl windows_core::RuntimeType for GeolocationProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeolocationProvider>();
 }
 unsafe impl windows_core::Interface for GeolocationProvider {
-    type Vtable = IGeolocationProvider_Vtbl;
+    type Vtable = <IGeolocationProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeolocationProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GeolocationProvider {
     const NAME: &'static str = "Windows.Devices.Geolocation.Provider.GeolocationProvider";
 }
-unsafe impl Send for GeolocationProvider {}
-unsafe impl Sync for GeolocationProvider {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct LocationOverrideStatus(pub i32);
 impl LocationOverrideStatus {
     pub const Success: Self = Self(0i32);
@@ -79,11 +78,6 @@ impl LocationOverrideStatus {
 }
 impl windows_core::TypeKind for LocationOverrideStatus {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LocationOverrideStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LocationOverrideStatus").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for LocationOverrideStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Provider.LocationOverrideStatus;i4)");

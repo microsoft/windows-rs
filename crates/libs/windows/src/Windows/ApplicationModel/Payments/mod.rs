@@ -447,6 +447,7 @@ pub struct IPaymentTokenFactory_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentAddress(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentAddress, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentAddress, IPaymentAddress);
 impl PaymentAddress {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -594,18 +595,17 @@ impl windows_core::RuntimeType for PaymentAddress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentAddress>();
 }
 unsafe impl windows_core::Interface for PaymentAddress {
-    type Vtable = IPaymentAddress_Vtbl;
+    type Vtable = <IPaymentAddress as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentAddress as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentAddress";
 }
-unsafe impl Send for PaymentAddress {}
-unsafe impl Sync for PaymentAddress {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentCanMakePaymentResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentCanMakePaymentResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentCanMakePaymentResult, IPaymentCanMakePaymentResult, IPaymentCanMakePaymentResultFactory);
 impl PaymentCanMakePaymentResult {
     pub fn Status(&self) -> windows_core::Result<PaymentCanMakePaymentResultStatus> {
         let this = self;
@@ -629,18 +629,17 @@ impl windows_core::RuntimeType for PaymentCanMakePaymentResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentCanMakePaymentResult>();
 }
 unsafe impl windows_core::Interface for PaymentCanMakePaymentResult {
-    type Vtable = IPaymentCanMakePaymentResult_Vtbl;
+    type Vtable = <IPaymentCanMakePaymentResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentCanMakePaymentResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentCanMakePaymentResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentCanMakePaymentResult";
 }
-unsafe impl Send for PaymentCanMakePaymentResult {}
-unsafe impl Sync for PaymentCanMakePaymentResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentCurrencyAmount(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentCurrencyAmount, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentCurrencyAmount, IPaymentCurrencyAmount, IPaymentCurrencyAmountFactory);
 impl PaymentCurrencyAmount {
     pub fn Currency(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -696,18 +695,17 @@ impl windows_core::RuntimeType for PaymentCurrencyAmount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentCurrencyAmount>();
 }
 unsafe impl windows_core::Interface for PaymentCurrencyAmount {
-    type Vtable = IPaymentCurrencyAmount_Vtbl;
+    type Vtable = <IPaymentCurrencyAmount as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentCurrencyAmount as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentCurrencyAmount {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentCurrencyAmount";
 }
-unsafe impl Send for PaymentCurrencyAmount {}
-unsafe impl Sync for PaymentCurrencyAmount {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentDetails, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentDetails, IPaymentDetails, IPaymentDetailsFactory);
 impl PaymentDetails {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -807,18 +805,17 @@ impl windows_core::RuntimeType for PaymentDetails {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentDetails>();
 }
 unsafe impl windows_core::Interface for PaymentDetails {
-    type Vtable = IPaymentDetails_Vtbl;
+    type Vtable = <IPaymentDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentDetails as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentDetails";
 }
-unsafe impl Send for PaymentDetails {}
-unsafe impl Sync for PaymentDetails {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentDetailsModifier(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentDetailsModifier, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentDetailsModifier, IPaymentDetailsModifier, IPaymentDetailsModifierFactory);
 impl PaymentDetailsModifier {
     pub fn JsonData(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -894,18 +891,17 @@ impl windows_core::RuntimeType for PaymentDetailsModifier {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentDetailsModifier>();
 }
 unsafe impl windows_core::Interface for PaymentDetailsModifier {
-    type Vtable = IPaymentDetailsModifier_Vtbl;
+    type Vtable = <IPaymentDetailsModifier as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentDetailsModifier as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentDetailsModifier {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentDetailsModifier";
 }
-unsafe impl Send for PaymentDetailsModifier {}
-unsafe impl Sync for PaymentDetailsModifier {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentItem, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentItem, IPaymentItem, IPaymentItemFactory);
 impl PaymentItem {
     pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -943,9 +939,9 @@ impl PaymentItem {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPending)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Create<P0>(label: &windows_core::HSTRING, amount: P0) -> windows_core::Result<PaymentItem>
+    pub fn Create<P1>(label: &windows_core::HSTRING, amount: P1) -> windows_core::Result<PaymentItem>
     where
-        P0: windows_core::Param<PaymentCurrencyAmount>,
+        P1: windows_core::Param<PaymentCurrencyAmount>,
     {
         Self::IPaymentItemFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -961,18 +957,17 @@ impl windows_core::RuntimeType for PaymentItem {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentItem>();
 }
 unsafe impl windows_core::Interface for PaymentItem {
-    type Vtable = IPaymentItem_Vtbl;
+    type Vtable = <IPaymentItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentItem as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentItem {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentItem";
 }
-unsafe impl Send for PaymentItem {}
-unsafe impl Sync for PaymentItem {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentMediator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentMediator, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentMediator, IPaymentMediator, IPaymentMediator2);
 impl PaymentMediator {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1025,18 +1020,17 @@ impl windows_core::RuntimeType for PaymentMediator {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentMediator>();
 }
 unsafe impl windows_core::Interface for PaymentMediator {
-    type Vtable = IPaymentMediator_Vtbl;
+    type Vtable = <IPaymentMediator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentMediator as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentMediator {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMediator";
 }
-unsafe impl Send for PaymentMediator {}
-unsafe impl Sync for PaymentMediator {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentMerchantInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentMerchantInfo, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentMerchantInfo, IPaymentMerchantInfo, IPaymentMerchantInfoFactory);
 impl PaymentMerchantInfo {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1077,18 +1071,17 @@ impl windows_core::RuntimeType for PaymentMerchantInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentMerchantInfo>();
 }
 unsafe impl windows_core::Interface for PaymentMerchantInfo {
-    type Vtable = IPaymentMerchantInfo_Vtbl;
+    type Vtable = <IPaymentMerchantInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentMerchantInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentMerchantInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMerchantInfo";
 }
-unsafe impl Send for PaymentMerchantInfo {}
-unsafe impl Sync for PaymentMerchantInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentMethodData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentMethodData, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentMethodData, IPaymentMethodData, IPaymentMethodDataFactory);
 impl PaymentMethodData {
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedMethodIds(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
@@ -1134,18 +1127,17 @@ impl windows_core::RuntimeType for PaymentMethodData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentMethodData>();
 }
 unsafe impl windows_core::Interface for PaymentMethodData {
-    type Vtable = IPaymentMethodData_Vtbl;
+    type Vtable = <IPaymentMethodData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentMethodData as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentMethodData {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentMethodData";
 }
-unsafe impl Send for PaymentMethodData {}
-unsafe impl Sync for PaymentMethodData {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentOptions, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentOptions, IPaymentOptions);
 impl PaymentOptions {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1214,18 +1206,17 @@ impl windows_core::RuntimeType for PaymentOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentOptions>();
 }
 unsafe impl windows_core::Interface for PaymentOptions {
-    type Vtable = IPaymentOptions_Vtbl;
+    type Vtable = <IPaymentOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentOptions as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentOptions";
 }
-unsafe impl Send for PaymentOptions {}
-unsafe impl Sync for PaymentOptions {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentRequest, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentRequest, IPaymentRequest, IPaymentRequest2, IPaymentRequestFactory, IPaymentRequestFactory2);
 impl PaymentRequest {
     pub fn MerchantInfo(&self) -> windows_core::Result<PaymentMerchantInfo> {
         let this = self;
@@ -1325,18 +1316,17 @@ impl windows_core::RuntimeType for PaymentRequest {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentRequest>();
 }
 unsafe impl windows_core::Interface for PaymentRequest {
-    type Vtable = IPaymentRequest_Vtbl;
+    type Vtable = <IPaymentRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentRequest as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequest";
 }
-unsafe impl Send for PaymentRequest {}
-unsafe impl Sync for PaymentRequest {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentRequestChangedArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentRequestChangedArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentRequestChangedArgs, IPaymentRequestChangedArgs);
 impl PaymentRequestChangedArgs {
     pub fn ChangeKind(&self) -> windows_core::Result<PaymentRequestChangeKind> {
         let this = self;
@@ -1371,18 +1361,17 @@ impl windows_core::RuntimeType for PaymentRequestChangedArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentRequestChangedArgs>();
 }
 unsafe impl windows_core::Interface for PaymentRequestChangedArgs {
-    type Vtable = IPaymentRequestChangedArgs_Vtbl;
+    type Vtable = <IPaymentRequestChangedArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentRequestChangedArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentRequestChangedArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestChangedArgs";
 }
-unsafe impl Send for PaymentRequestChangedArgs {}
-unsafe impl Sync for PaymentRequestChangedArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentRequestChangedResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentRequestChangedResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentRequestChangedResult, IPaymentRequestChangedResult, IPaymentRequestChangedResultFactory);
 impl PaymentRequestChangedResult {
     pub fn ChangeAcceptedByMerchant(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -1426,9 +1415,9 @@ impl PaymentRequestChangedResult {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), changeacceptedbymerchant, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithPaymentDetails<P0>(changeacceptedbymerchant: bool, updatedpaymentdetails: P0) -> windows_core::Result<PaymentRequestChangedResult>
+    pub fn CreateWithPaymentDetails<P1>(changeacceptedbymerchant: bool, updatedpaymentdetails: P1) -> windows_core::Result<PaymentRequestChangedResult>
     where
-        P0: windows_core::Param<PaymentDetails>,
+        P1: windows_core::Param<PaymentDetails>,
     {
         Self::IPaymentRequestChangedResultFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1444,18 +1433,17 @@ impl windows_core::RuntimeType for PaymentRequestChangedResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentRequestChangedResult>();
 }
 unsafe impl windows_core::Interface for PaymentRequestChangedResult {
-    type Vtable = IPaymentRequestChangedResult_Vtbl;
+    type Vtable = <IPaymentRequestChangedResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentRequestChangedResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentRequestChangedResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestChangedResult";
 }
-unsafe impl Send for PaymentRequestChangedResult {}
-unsafe impl Sync for PaymentRequestChangedResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentRequestSubmitResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentRequestSubmitResult, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentRequestSubmitResult, IPaymentRequestSubmitResult);
 impl PaymentRequestSubmitResult {
     pub fn Status(&self) -> windows_core::Result<PaymentRequestStatus> {
         let this = self;
@@ -1476,18 +1464,17 @@ impl windows_core::RuntimeType for PaymentRequestSubmitResult {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentRequestSubmitResult>();
 }
 unsafe impl windows_core::Interface for PaymentRequestSubmitResult {
-    type Vtable = IPaymentRequestSubmitResult_Vtbl;
+    type Vtable = <IPaymentRequestSubmitResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentRequestSubmitResult as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentRequestSubmitResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentRequestSubmitResult";
 }
-unsafe impl Send for PaymentRequestSubmitResult {}
-unsafe impl Sync for PaymentRequestSubmitResult {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentResponse(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentResponse, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentResponse, IPaymentResponse);
 impl PaymentResponse {
     pub fn PaymentToken(&self) -> windows_core::Result<PaymentToken> {
         let this = self;
@@ -1543,18 +1530,17 @@ impl windows_core::RuntimeType for PaymentResponse {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentResponse>();
 }
 unsafe impl windows_core::Interface for PaymentResponse {
-    type Vtable = IPaymentResponse_Vtbl;
+    type Vtable = <IPaymentResponse as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentResponse as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentResponse {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentResponse";
 }
-unsafe impl Send for PaymentResponse {}
-unsafe impl Sync for PaymentResponse {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentShippingOption(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentShippingOption, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentShippingOption, IPaymentShippingOption, IPaymentShippingOptionFactory);
 impl PaymentShippingOption {
     pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1603,27 +1589,27 @@ impl PaymentShippingOption {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsSelected)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Create<P0>(label: &windows_core::HSTRING, amount: P0) -> windows_core::Result<PaymentShippingOption>
+    pub fn Create<P1>(label: &windows_core::HSTRING, amount: P1) -> windows_core::Result<PaymentShippingOption>
     where
-        P0: windows_core::Param<PaymentCurrencyAmount>,
+        P1: windows_core::Param<PaymentCurrencyAmount>,
     {
         Self::IPaymentShippingOptionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), amount.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithSelected<P0>(label: &windows_core::HSTRING, amount: P0, selected: bool) -> windows_core::Result<PaymentShippingOption>
+    pub fn CreateWithSelected<P1>(label: &windows_core::HSTRING, amount: P1, selected: bool) -> windows_core::Result<PaymentShippingOption>
     where
-        P0: windows_core::Param<PaymentCurrencyAmount>,
+        P1: windows_core::Param<PaymentCurrencyAmount>,
     {
         Self::IPaymentShippingOptionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithSelected)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(label), amount.param().abi(), selected, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithSelectedAndTag<P0>(label: &windows_core::HSTRING, amount: P0, selected: bool, tag: &windows_core::HSTRING) -> windows_core::Result<PaymentShippingOption>
+    pub fn CreateWithSelectedAndTag<P1>(label: &windows_core::HSTRING, amount: P1, selected: bool, tag: &windows_core::HSTRING) -> windows_core::Result<PaymentShippingOption>
     where
-        P0: windows_core::Param<PaymentCurrencyAmount>,
+        P1: windows_core::Param<PaymentCurrencyAmount>,
     {
         Self::IPaymentShippingOptionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1639,18 +1625,17 @@ impl windows_core::RuntimeType for PaymentShippingOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentShippingOption>();
 }
 unsafe impl windows_core::Interface for PaymentShippingOption {
-    type Vtable = IPaymentShippingOption_Vtbl;
+    type Vtable = <IPaymentShippingOption as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentShippingOption as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentShippingOption {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentShippingOption";
 }
-unsafe impl Send for PaymentShippingOption {}
-unsafe impl Sync for PaymentShippingOption {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentToken(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PaymentToken, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PaymentToken, IPaymentToken, IPaymentTokenFactory);
 impl PaymentToken {
     pub fn PaymentMethodId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1687,135 +1672,19 @@ impl windows_core::RuntimeType for PaymentToken {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentToken>();
 }
 unsafe impl windows_core::Interface for PaymentToken {
-    type Vtable = IPaymentToken_Vtbl;
+    type Vtable = <IPaymentToken as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentToken as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PaymentToken {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.PaymentToken";
 }
-unsafe impl Send for PaymentToken {}
-unsafe impl Sync for PaymentToken {}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PaymentCanMakePaymentResultStatus(pub i32);
-impl PaymentCanMakePaymentResultStatus {
-    pub const Unknown: Self = Self(0i32);
-    pub const Yes: Self = Self(1i32);
-    pub const No: Self = Self(2i32);
-    pub const NotAllowed: Self = Self(3i32);
-    pub const UserNotSignedIn: Self = Self(4i32);
-    pub const SpecifiedPaymentMethodIdsNotSupported: Self = Self(5i32);
-    pub const NoQualifyingCardOnFile: Self = Self(6i32);
-}
-impl windows_core::TypeKind for PaymentCanMakePaymentResultStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PaymentCanMakePaymentResultStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PaymentCanMakePaymentResultStatus").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for PaymentCanMakePaymentResultStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentCanMakePaymentResultStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PaymentOptionPresence(pub i32);
-impl PaymentOptionPresence {
-    pub const None: Self = Self(0i32);
-    pub const Optional: Self = Self(1i32);
-    pub const Required: Self = Self(2i32);
-}
-impl windows_core::TypeKind for PaymentOptionPresence {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PaymentOptionPresence {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PaymentOptionPresence").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for PaymentOptionPresence {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentOptionPresence;i4)");
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PaymentRequestChangeKind(pub i32);
-impl PaymentRequestChangeKind {
-    pub const ShippingOption: Self = Self(0i32);
-    pub const ShippingAddress: Self = Self(1i32);
-}
-impl windows_core::TypeKind for PaymentRequestChangeKind {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PaymentRequestChangeKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PaymentRequestChangeKind").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for PaymentRequestChangeKind {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestChangeKind;i4)");
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PaymentRequestCompletionStatus(pub i32);
-impl PaymentRequestCompletionStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
-    pub const Unknown: Self = Self(2i32);
-}
-impl windows_core::TypeKind for PaymentRequestCompletionStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PaymentRequestCompletionStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PaymentRequestCompletionStatus").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for PaymentRequestCompletionStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestCompletionStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PaymentRequestStatus(pub i32);
-impl PaymentRequestStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
-    pub const Canceled: Self = Self(2i32);
-}
-impl windows_core::TypeKind for PaymentRequestStatus {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PaymentRequestStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PaymentRequestStatus").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for PaymentRequestStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestStatus;i4)");
-}
-#[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
-pub struct PaymentShippingType(pub i32);
-impl PaymentShippingType {
-    pub const Shipping: Self = Self(0i32);
-    pub const Delivery: Self = Self(1i32);
-    pub const Pickup: Self = Self(2i32);
-}
-impl windows_core::TypeKind for PaymentShippingType {
-    type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PaymentShippingType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PaymentShippingType").field(&self.0).finish()
-    }
-}
-impl windows_core::RuntimeType for PaymentShippingType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentShippingType;i4)");
-}
 windows_core::imp::define_interface!(PaymentRequestChangedHandler, PaymentRequestChangedHandler_Vtbl, 0x5078b9e1_f398_4f2c_a27e_94d371cf6c7d);
+impl windows_core::RuntimeType for PaymentRequestChangedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl PaymentRequestChangedHandler {
     pub fn new<F: FnMut(Option<&PaymentRequest>, Option<&PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
-        let com = PaymentRequestChangedHandlerBox::<F> { vtable: &PaymentRequestChangedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
+        let com = PaymentRequestChangedHandlerBox { vtable: &PaymentRequestChangedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(Box::new(com)) }
     }
     pub fn Invoke<P0, P1>(&self, paymentrequest: P0, args: P1) -> windows_core::Result<()>
@@ -1826,6 +1695,11 @@ impl PaymentRequestChangedHandler {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this), paymentrequest.param().abi(), args.param().abi()).ok() }
     }
+}
+#[repr(C)]
+pub struct PaymentRequestChangedHandler_Vtbl {
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, paymentrequest: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
 struct PaymentRequestChangedHandlerBox<F: FnMut(Option<&PaymentRequest>, Option<&PaymentRequestChangedArgs>) -> windows_core::Result<()> + Send + 'static> {
@@ -1865,11 +1739,90 @@ impl<F: FnMut(Option<&PaymentRequest>, Option<&PaymentRequestChangedArgs>) -> wi
         (this.invoke)(windows_core::from_raw_borrowed(&paymentrequest), windows_core::from_raw_borrowed(&args)).into()
     }
 }
-impl windows_core::RuntimeType for PaymentRequestChangedHandler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+#[repr(transparent)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct PaymentCanMakePaymentResultStatus(pub i32);
+impl PaymentCanMakePaymentResultStatus {
+    pub const Unknown: Self = Self(0i32);
+    pub const Yes: Self = Self(1i32);
+    pub const No: Self = Self(2i32);
+    pub const NotAllowed: Self = Self(3i32);
+    pub const UserNotSignedIn: Self = Self(4i32);
+    pub const SpecifiedPaymentMethodIdsNotSupported: Self = Self(5i32);
+    pub const NoQualifyingCardOnFile: Self = Self(6i32);
 }
-#[repr(C)]
-pub struct PaymentRequestChangedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+impl windows_core::TypeKind for PaymentCanMakePaymentResultStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PaymentCanMakePaymentResultStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentCanMakePaymentResultStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct PaymentOptionPresence(pub i32);
+impl PaymentOptionPresence {
+    pub const None: Self = Self(0i32);
+    pub const Optional: Self = Self(1i32);
+    pub const Required: Self = Self(2i32);
+}
+impl windows_core::TypeKind for PaymentOptionPresence {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PaymentOptionPresence {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentOptionPresence;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct PaymentRequestChangeKind(pub i32);
+impl PaymentRequestChangeKind {
+    pub const ShippingOption: Self = Self(0i32);
+    pub const ShippingAddress: Self = Self(1i32);
+}
+impl windows_core::TypeKind for PaymentRequestChangeKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PaymentRequestChangeKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestChangeKind;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct PaymentRequestCompletionStatus(pub i32);
+impl PaymentRequestCompletionStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const Failed: Self = Self(1i32);
+    pub const Unknown: Self = Self(2i32);
+}
+impl windows_core::TypeKind for PaymentRequestCompletionStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PaymentRequestCompletionStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestCompletionStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct PaymentRequestStatus(pub i32);
+impl PaymentRequestStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const Failed: Self = Self(1i32);
+    pub const Canceled: Self = Self(2i32);
+}
+impl windows_core::TypeKind for PaymentRequestStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PaymentRequestStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentRequestStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct PaymentShippingType(pub i32);
+impl PaymentShippingType {
+    pub const Shipping: Self = Self(0i32);
+    pub const Delivery: Self = Self(1i32);
+    pub const Pickup: Self = Self(2i32);
+}
+impl windows_core::TypeKind for PaymentShippingType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PaymentShippingType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Payments.PaymentShippingType;i4)");
 }

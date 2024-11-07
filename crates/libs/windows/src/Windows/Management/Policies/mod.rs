@@ -68,6 +68,7 @@ impl windows_core::RuntimeName for NamedPolicy {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NamedPolicyData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NamedPolicyData, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(NamedPolicyData, INamedPolicyData);
 impl NamedPolicyData {
     pub fn Area(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -167,16 +168,14 @@ impl windows_core::RuntimeType for NamedPolicyData {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INamedPolicyData>();
 }
 unsafe impl windows_core::Interface for NamedPolicyData {
-    type Vtable = INamedPolicyData_Vtbl;
+    type Vtable = <INamedPolicyData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INamedPolicyData as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for NamedPolicyData {
     const NAME: &'static str = "Windows.Management.Policies.NamedPolicyData";
 }
-unsafe impl Send for NamedPolicyData {}
-unsafe impl Sync for NamedPolicyData {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct NamedPolicyKind(pub i32);
 impl NamedPolicyKind {
     pub const Invalid: Self = Self(0i32);
@@ -188,11 +187,6 @@ impl NamedPolicyKind {
 }
 impl windows_core::TypeKind for NamedPolicyKind {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NamedPolicyKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NamedPolicyKind").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for NamedPolicyKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Policies.NamedPolicyKind;i4)");

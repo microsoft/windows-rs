@@ -19,6 +19,7 @@ pub struct IWindowManagementPreviewStatics_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowManagementPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowManagementPreview, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(WindowManagementPreview, IWindowManagementPreview, IWindowManagementPreviewStatics);
 impl WindowManagementPreview {
     pub fn SetPreferredMinSize<P0>(window: P0, preferredframeminsize: super::super::super::Foundation::Size) -> windows_core::Result<()>
     where
@@ -35,11 +36,9 @@ impl windows_core::RuntimeType for WindowManagementPreview {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowManagementPreview>();
 }
 unsafe impl windows_core::Interface for WindowManagementPreview {
-    type Vtable = IWindowManagementPreview_Vtbl;
+    type Vtable = <IWindowManagementPreview as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowManagementPreview as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for WindowManagementPreview {
     const NAME: &'static str = "Windows.UI.WindowManagement.Preview.WindowManagementPreview";
 }
-unsafe impl Send for WindowManagementPreview {}
-unsafe impl Sync for WindowManagementPreview {}

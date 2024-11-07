@@ -13,10 +13,10 @@ pub unsafe fn AppCacheCloseHandle(happcache: *const core::ffi::c_void) {
     AppCacheCloseHandle(happcache)
 }
 #[inline]
-pub unsafe fn AppCacheCreateAndCommitFile<P0, P1>(happcache: *const core::ffi::c_void, pwszsourcefilepath: P0, pwszurl: P1, pbresponseheaders: &[u8]) -> u32
+pub unsafe fn AppCacheCreateAndCommitFile<P1, P2>(happcache: *const core::ffi::c_void, pwszsourcefilepath: P1, pwszurl: P2, pbresponseheaders: &[u8]) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn AppCacheCreateAndCommitFile(happcache : *const core::ffi::c_void, pwszsourcefilepath : windows_core::PCWSTR, pwszurl : windows_core::PCWSTR, pbresponseheaders : *const u8, dwresponseheaderssize : u32) -> u32);
     AppCacheCreateAndCommitFile(happcache, pwszsourcefilepath.param().abi(), pwszurl.param().abi(), core::mem::transmute(pbresponseheaders.as_ptr()), pbresponseheaders.len().try_into().unwrap())
@@ -73,9 +73,9 @@ pub unsafe fn AppCacheGetDownloadList(happcache: *const core::ffi::c_void, pdown
     AppCacheGetDownloadList(happcache, pdownloadlist)
 }
 #[inline]
-pub unsafe fn AppCacheGetFallbackUrl<P0>(happcache: *const core::ffi::c_void, pwszurl: P0, ppwszfallbackurl: *mut windows_core::PWSTR) -> u32
+pub unsafe fn AppCacheGetFallbackUrl<P1>(happcache: *const core::ffi::c_void, pwszurl: P1, ppwszfallbackurl: *mut windows_core::PWSTR) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn AppCacheGetFallbackUrl(happcache : *const core::ffi::c_void, pwszurl : windows_core::PCWSTR, ppwszfallbackurl : *mut windows_core::PWSTR) -> u32);
     AppCacheGetFallbackUrl(happcache, pwszurl.param().abi(), ppwszfallbackurl)
@@ -109,12 +109,12 @@ where
     AppCacheLookup(pwszurl.param().abi(), dwflags, phappcache)
 }
 #[inline]
-pub unsafe fn CommitUrlCacheEntryA<P0, P1, P2, P3>(lpszurlname: P0, lpszlocalfilename: P1, expiretime: super::super::Foundation::FILETIME, lastmodifiedtime: super::super::Foundation::FILETIME, cacheentrytype: u32, lpheaderinfo: Option<&[u8]>, lpszfileextension: P2, lpszoriginalurl: P3) -> windows_core::Result<()>
+pub unsafe fn CommitUrlCacheEntryA<P0, P1, P7, P8>(lpszurlname: P0, lpszlocalfilename: P1, expiretime: super::super::Foundation::FILETIME, lastmodifiedtime: super::super::Foundation::FILETIME, cacheentrytype: u32, lpheaderinfo: Option<&[u8]>, lpszfileextension: P7, lpszoriginalurl: P8) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
-    P3: windows_core::Param<windows_core::PCSTR>,
+    P7: windows_core::Param<windows_core::PCSTR>,
+    P8: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn CommitUrlCacheEntryA(lpszurlname : windows_core::PCSTR, lpszlocalfilename : windows_core::PCSTR, expiretime : super::super::Foundation:: FILETIME, lastmodifiedtime : super::super::Foundation:: FILETIME, cacheentrytype : u32, lpheaderinfo : *const u8, cchheaderinfo : u32, lpszfileextension : windows_core::PCSTR, lpszoriginalurl : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     CommitUrlCacheEntryA(lpszurlname.param().abi(), lpszlocalfilename.param().abi(), core::mem::transmute(expiretime), core::mem::transmute(lastmodifiedtime), cacheentrytype, core::mem::transmute(lpheaderinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpheaderinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszfileextension.param().abi(), lpszoriginalurl.param().abi()).ok()
@@ -128,12 +128,12 @@ where
     CommitUrlCacheEntryBinaryBlob(pwszurlname.param().abi(), dwtype, core::mem::transmute(ftexpiretime), core::mem::transmute(ftmodifiedtime), core::mem::transmute(pbblob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbblob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
-pub unsafe fn CommitUrlCacheEntryW<P0, P1, P2, P3>(lpszurlname: P0, lpszlocalfilename: P1, expiretime: super::super::Foundation::FILETIME, lastmodifiedtime: super::super::Foundation::FILETIME, cacheentrytype: u32, lpszheaderinfo: Option<&[u16]>, lpszfileextension: P2, lpszoriginalurl: P3) -> windows_core::Result<()>
+pub unsafe fn CommitUrlCacheEntryW<P0, P1, P7, P8>(lpszurlname: P0, lpszlocalfilename: P1, expiretime: super::super::Foundation::FILETIME, lastmodifiedtime: super::super::Foundation::FILETIME, cacheentrytype: u32, lpszheaderinfo: Option<&[u16]>, lpszfileextension: P7, lpszoriginalurl: P8) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P7: windows_core::Param<windows_core::PCWSTR>,
+    P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn CommitUrlCacheEntryW(lpszurlname : windows_core::PCWSTR, lpszlocalfilename : windows_core::PCWSTR, expiretime : super::super::Foundation:: FILETIME, lastmodifiedtime : super::super::Foundation:: FILETIME, cacheentrytype : u32, lpszheaderinfo : windows_core::PCWSTR, cchheaderinfo : u32, lpszfileextension : windows_core::PCWSTR, lpszoriginalurl : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     CommitUrlCacheEntryW(lpszurlname.param().abi(), lpszlocalfilename.param().abi(), core::mem::transmute(expiretime), core::mem::transmute(lastmodifiedtime), cacheentrytype, core::mem::transmute(lpszheaderinfo.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszheaderinfo.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszfileextension.param().abi(), lpszoriginalurl.param().abi()).ok()
@@ -169,29 +169,29 @@ where
     CreateUrlCacheContainerW(name.param().abi(), lpcacheprefix.param().abi(), lpszcachepath.param().abi(), kbcachelimit, dwcontainertype, dwoptions, core::mem::transmute(pvbuffer.unwrap_or(core::ptr::null())), core::mem::transmute(cbbuffer.unwrap_or(core::ptr::null()))).ok()
 }
 #[inline]
-pub unsafe fn CreateUrlCacheEntryA<P0, P1>(lpszurlname: P0, dwexpectedfilesize: u32, lpszfileextension: P1, lpszfilename: &mut [u8; 260], dwreserved: u32) -> windows_core::Result<()>
+pub unsafe fn CreateUrlCacheEntryA<P0, P2>(lpszurlname: P0, dwexpectedfilesize: u32, lpszfileextension: P2, lpszfilename: &mut [u8; 260], dwreserved: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn CreateUrlCacheEntryA(lpszurlname : windows_core::PCSTR, dwexpectedfilesize : u32, lpszfileextension : windows_core::PCSTR, lpszfilename : windows_core::PSTR, dwreserved : u32) -> super::super::Foundation:: BOOL);
     CreateUrlCacheEntryA(lpszurlname.param().abi(), dwexpectedfilesize, lpszfileextension.param().abi(), core::mem::transmute(lpszfilename.as_ptr()), dwreserved).ok()
 }
 #[inline]
-pub unsafe fn CreateUrlCacheEntryExW<P0, P1, P2>(lpszurlname: P0, dwexpectedfilesize: u32, lpszfileextension: P1, lpszfilename: &mut [u16; 260], dwreserved: u32, fpreserveincomingfilename: P2) -> super::super::Foundation::BOOL
+pub unsafe fn CreateUrlCacheEntryExW<P0, P2, P5>(lpszurlname: P0, dwexpectedfilesize: u32, lpszfileextension: P2, lpszfilename: &mut [u16; 260], dwreserved: u32, fpreserveincomingfilename: P5) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn CreateUrlCacheEntryExW(lpszurlname : windows_core::PCWSTR, dwexpectedfilesize : u32, lpszfileextension : windows_core::PCWSTR, lpszfilename : windows_core::PWSTR, dwreserved : u32, fpreserveincomingfilename : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     CreateUrlCacheEntryExW(lpszurlname.param().abi(), dwexpectedfilesize, lpszfileextension.param().abi(), core::mem::transmute(lpszfilename.as_ptr()), dwreserved, fpreserveincomingfilename.param().abi())
 }
 #[inline]
-pub unsafe fn CreateUrlCacheEntryW<P0, P1>(lpszurlname: P0, dwexpectedfilesize: u32, lpszfileextension: P1, lpszfilename: &mut [u16; 260], dwreserved: u32) -> windows_core::Result<()>
+pub unsafe fn CreateUrlCacheEntryW<P0, P2>(lpszurlname: P0, dwexpectedfilesize: u32, lpszfileextension: P2, lpszfilename: &mut [u16; 260], dwreserved: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn CreateUrlCacheEntryW(lpszurlname : windows_core::PCWSTR, dwexpectedfilesize : u32, lpszfileextension : windows_core::PCWSTR, lpszfilename : windows_core::PWSTR, dwreserved : u32) -> super::super::Foundation:: BOOL);
     CreateUrlCacheEntryW(lpszurlname.param().abi(), dwexpectedfilesize, lpszfileextension.param().abi(), core::mem::transmute(lpszfilename.as_ptr()), dwreserved).ok()
@@ -430,69 +430,69 @@ where
     FreeUrlCacheSpaceW(lpszcachepath.param().abi(), dwsize, dwfilter).ok()
 }
 #[inline]
-pub unsafe fn FtpCommandA<P0, P1>(hconnect: *const core::ffi::c_void, fexpectresponse: P0, dwflags: FTP_FLAGS, lpszcommand: P1, dwcontext: usize, phftpcommand: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn FtpCommandA<P1, P3>(hconnect: *const core::ffi::c_void, fexpectresponse: P1, dwflags: FTP_FLAGS, lpszcommand: P3, dwcontext: usize, phftpcommand: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpCommandA(hconnect : *const core::ffi::c_void, fexpectresponse : super::super::Foundation:: BOOL, dwflags : FTP_FLAGS, lpszcommand : windows_core::PCSTR, dwcontext : usize, phftpcommand : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     FtpCommandA(hconnect, fexpectresponse.param().abi(), dwflags, lpszcommand.param().abi(), dwcontext, core::mem::transmute(phftpcommand.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn FtpCommandW<P0, P1>(hconnect: *const core::ffi::c_void, fexpectresponse: P0, dwflags: FTP_FLAGS, lpszcommand: P1, dwcontext: usize, phftpcommand: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn FtpCommandW<P1, P3>(hconnect: *const core::ffi::c_void, fexpectresponse: P1, dwflags: FTP_FLAGS, lpszcommand: P3, dwcontext: usize, phftpcommand: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpCommandW(hconnect : *const core::ffi::c_void, fexpectresponse : super::super::Foundation:: BOOL, dwflags : FTP_FLAGS, lpszcommand : windows_core::PCWSTR, dwcontext : usize, phftpcommand : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     FtpCommandW(hconnect, fexpectresponse.param().abi(), dwflags, lpszcommand.param().abi(), dwcontext, core::mem::transmute(phftpcommand.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn FtpCreateDirectoryA<P0>(hconnect: *const core::ffi::c_void, lpszdirectory: P0) -> windows_core::Result<()>
+pub unsafe fn FtpCreateDirectoryA<P1>(hconnect: *const core::ffi::c_void, lpszdirectory: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpCreateDirectoryA(hconnect : *const core::ffi::c_void, lpszdirectory : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     FtpCreateDirectoryA(hconnect, lpszdirectory.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn FtpCreateDirectoryW<P0>(hconnect: *const core::ffi::c_void, lpszdirectory: P0) -> windows_core::Result<()>
+pub unsafe fn FtpCreateDirectoryW<P1>(hconnect: *const core::ffi::c_void, lpszdirectory: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpCreateDirectoryW(hconnect : *const core::ffi::c_void, lpszdirectory : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     FtpCreateDirectoryW(hconnect, lpszdirectory.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn FtpDeleteFileA<P0>(hconnect: *const core::ffi::c_void, lpszfilename: P0) -> windows_core::Result<()>
+pub unsafe fn FtpDeleteFileA<P1>(hconnect: *const core::ffi::c_void, lpszfilename: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpDeleteFileA(hconnect : *const core::ffi::c_void, lpszfilename : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     FtpDeleteFileA(hconnect, lpszfilename.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn FtpDeleteFileW<P0>(hconnect: *const core::ffi::c_void, lpszfilename: P0) -> windows_core::Result<()>
+pub unsafe fn FtpDeleteFileW<P1>(hconnect: *const core::ffi::c_void, lpszfilename: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpDeleteFileW(hconnect : *const core::ffi::c_void, lpszfilename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     FtpDeleteFileW(hconnect, lpszfilename.param().abi()).ok()
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[inline]
-pub unsafe fn FtpFindFirstFileA<P0>(hconnect: *const core::ffi::c_void, lpszsearchfile: P0, lpfindfiledata: Option<*mut super::super::Storage::FileSystem::WIN32_FIND_DATAA>, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
+pub unsafe fn FtpFindFirstFileA<P1>(hconnect: *const core::ffi::c_void, lpszsearchfile: P1, lpfindfiledata: Option<*mut super::super::Storage::FileSystem::WIN32_FIND_DATAA>, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpFindFirstFileA(hconnect : *const core::ffi::c_void, lpszsearchfile : windows_core::PCSTR, lpfindfiledata : *mut super::super::Storage::FileSystem:: WIN32_FIND_DATAA, dwflags : u32, dwcontext : usize) -> *mut core::ffi::c_void);
     FtpFindFirstFileA(hconnect, lpszsearchfile.param().abi(), core::mem::transmute(lpfindfiledata.unwrap_or(core::ptr::null_mut())), dwflags, dwcontext)
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[inline]
-pub unsafe fn FtpFindFirstFileW<P0>(hconnect: *const core::ffi::c_void, lpszsearchfile: P0, lpfindfiledata: Option<*mut super::super::Storage::FileSystem::WIN32_FIND_DATAW>, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
+pub unsafe fn FtpFindFirstFileW<P1>(hconnect: *const core::ffi::c_void, lpszsearchfile: P1, lpfindfiledata: Option<*mut super::super::Storage::FileSystem::WIN32_FIND_DATAW>, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpFindFirstFileW(hconnect : *const core::ffi::c_void, lpszsearchfile : windows_core::PCWSTR, lpfindfiledata : *mut super::super::Storage::FileSystem:: WIN32_FIND_DATAW, dwflags : u32, dwcontext : usize) -> *mut core::ffi::c_void);
     FtpFindFirstFileW(hconnect, lpszsearchfile.param().abi(), core::mem::transmute(lpfindfiledata.unwrap_or(core::ptr::null_mut())), dwflags, dwcontext)
@@ -508,21 +508,21 @@ pub unsafe fn FtpGetCurrentDirectoryW(hconnect: *const core::ffi::c_void, lpszcu
     FtpGetCurrentDirectoryW(hconnect, core::mem::transmute(lpszcurrentdirectory), lpdwcurrentdirectory).ok()
 }
 #[inline]
-pub unsafe fn FtpGetFileA<P0, P1, P2>(hconnect: *const core::ffi::c_void, lpszremotefile: P0, lpsznewfile: P1, ffailifexists: P2, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> windows_core::Result<()>
+pub unsafe fn FtpGetFileA<P1, P2, P3>(hconnect: *const core::ffi::c_void, lpszremotefile: P1, lpsznewfile: P2, ffailifexists: P3, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpGetFileA(hconnect : *const core::ffi::c_void, lpszremotefile : windows_core::PCSTR, lpsznewfile : windows_core::PCSTR, ffailifexists : super::super::Foundation:: BOOL, dwflagsandattributes : u32, dwflags : u32, dwcontext : usize) -> super::super::Foundation:: BOOL);
     FtpGetFileA(hconnect, lpszremotefile.param().abi(), lpsznewfile.param().abi(), ffailifexists.param().abi(), dwflagsandattributes, dwflags, dwcontext).ok()
 }
 #[inline]
-pub unsafe fn FtpGetFileEx<P0, P1, P2>(hftpsession: *const core::ffi::c_void, lpszremotefile: P0, lpsznewfile: P1, ffailifexists: P2, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL
+pub unsafe fn FtpGetFileEx<P1, P2, P3>(hftpsession: *const core::ffi::c_void, lpszremotefile: P1, lpsznewfile: P2, ffailifexists: P3, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpGetFileEx(hftpsession : *const core::ffi::c_void, lpszremotefile : windows_core::PCSTR, lpsznewfile : windows_core::PCWSTR, ffailifexists : super::super::Foundation:: BOOL, dwflagsandattributes : u32, dwflags : u32, dwcontext : usize) -> super::super::Foundation:: BOOL);
     FtpGetFileEx(hftpsession, lpszremotefile.param().abi(), lpsznewfile.param().abi(), ffailifexists.param().abi(), dwflagsandattributes, dwflags, dwcontext)
@@ -533,104 +533,104 @@ pub unsafe fn FtpGetFileSize(hfile: *const core::ffi::c_void, lpdwfilesizehigh: 
     FtpGetFileSize(hfile, core::mem::transmute(lpdwfilesizehigh.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn FtpGetFileW<P0, P1, P2>(hconnect: *const core::ffi::c_void, lpszremotefile: P0, lpsznewfile: P1, ffailifexists: P2, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> windows_core::Result<()>
+pub unsafe fn FtpGetFileW<P1, P2, P3>(hconnect: *const core::ffi::c_void, lpszremotefile: P1, lpsznewfile: P2, ffailifexists: P3, dwflagsandattributes: u32, dwflags: u32, dwcontext: usize) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpGetFileW(hconnect : *const core::ffi::c_void, lpszremotefile : windows_core::PCWSTR, lpsznewfile : windows_core::PCWSTR, ffailifexists : super::super::Foundation:: BOOL, dwflagsandattributes : u32, dwflags : u32, dwcontext : usize) -> super::super::Foundation:: BOOL);
     FtpGetFileW(hconnect, lpszremotefile.param().abi(), lpsznewfile.param().abi(), ffailifexists.param().abi(), dwflagsandattributes, dwflags, dwcontext).ok()
 }
 #[inline]
-pub unsafe fn FtpOpenFileA<P0>(hconnect: *const core::ffi::c_void, lpszfilename: P0, dwaccess: u32, dwflags: FTP_FLAGS, dwcontext: usize) -> *mut core::ffi::c_void
+pub unsafe fn FtpOpenFileA<P1>(hconnect: *const core::ffi::c_void, lpszfilename: P1, dwaccess: u32, dwflags: FTP_FLAGS, dwcontext: usize) -> *mut core::ffi::c_void
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpOpenFileA(hconnect : *const core::ffi::c_void, lpszfilename : windows_core::PCSTR, dwaccess : u32, dwflags : FTP_FLAGS, dwcontext : usize) -> *mut core::ffi::c_void);
     FtpOpenFileA(hconnect, lpszfilename.param().abi(), dwaccess, dwflags, dwcontext)
 }
 #[inline]
-pub unsafe fn FtpOpenFileW<P0>(hconnect: *const core::ffi::c_void, lpszfilename: P0, dwaccess: u32, dwflags: FTP_FLAGS, dwcontext: usize) -> *mut core::ffi::c_void
+pub unsafe fn FtpOpenFileW<P1>(hconnect: *const core::ffi::c_void, lpszfilename: P1, dwaccess: u32, dwflags: FTP_FLAGS, dwcontext: usize) -> *mut core::ffi::c_void
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpOpenFileW(hconnect : *const core::ffi::c_void, lpszfilename : windows_core::PCWSTR, dwaccess : u32, dwflags : FTP_FLAGS, dwcontext : usize) -> *mut core::ffi::c_void);
     FtpOpenFileW(hconnect, lpszfilename.param().abi(), dwaccess, dwflags, dwcontext)
 }
 #[inline]
-pub unsafe fn FtpPutFileA<P0, P1>(hconnect: *const core::ffi::c_void, lpszlocalfile: P0, lpsznewremotefile: P1, dwflags: FTP_FLAGS, dwcontext: usize) -> windows_core::Result<()>
+pub unsafe fn FtpPutFileA<P1, P2>(hconnect: *const core::ffi::c_void, lpszlocalfile: P1, lpsznewremotefile: P2, dwflags: FTP_FLAGS, dwcontext: usize) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpPutFileA(hconnect : *const core::ffi::c_void, lpszlocalfile : windows_core::PCSTR, lpsznewremotefile : windows_core::PCSTR, dwflags : FTP_FLAGS, dwcontext : usize) -> super::super::Foundation:: BOOL);
     FtpPutFileA(hconnect, lpszlocalfile.param().abi(), lpsznewremotefile.param().abi(), dwflags, dwcontext).ok()
 }
 #[inline]
-pub unsafe fn FtpPutFileEx<P0, P1>(hftpsession: *const core::ffi::c_void, lpszlocalfile: P0, lpsznewremotefile: P1, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL
+pub unsafe fn FtpPutFileEx<P1, P2>(hftpsession: *const core::ffi::c_void, lpszlocalfile: P1, lpsznewremotefile: P2, dwflags: u32, dwcontext: usize) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpPutFileEx(hftpsession : *const core::ffi::c_void, lpszlocalfile : windows_core::PCWSTR, lpsznewremotefile : windows_core::PCSTR, dwflags : u32, dwcontext : usize) -> super::super::Foundation:: BOOL);
     FtpPutFileEx(hftpsession, lpszlocalfile.param().abi(), lpsznewremotefile.param().abi(), dwflags, dwcontext)
 }
 #[inline]
-pub unsafe fn FtpPutFileW<P0, P1>(hconnect: *const core::ffi::c_void, lpszlocalfile: P0, lpsznewremotefile: P1, dwflags: FTP_FLAGS, dwcontext: usize) -> windows_core::Result<()>
+pub unsafe fn FtpPutFileW<P1, P2>(hconnect: *const core::ffi::c_void, lpszlocalfile: P1, lpsznewremotefile: P2, dwflags: FTP_FLAGS, dwcontext: usize) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpPutFileW(hconnect : *const core::ffi::c_void, lpszlocalfile : windows_core::PCWSTR, lpsznewremotefile : windows_core::PCWSTR, dwflags : FTP_FLAGS, dwcontext : usize) -> super::super::Foundation:: BOOL);
     FtpPutFileW(hconnect, lpszlocalfile.param().abi(), lpsznewremotefile.param().abi(), dwflags, dwcontext).ok()
 }
 #[inline]
-pub unsafe fn FtpRemoveDirectoryA<P0>(hconnect: *const core::ffi::c_void, lpszdirectory: P0) -> windows_core::Result<()>
+pub unsafe fn FtpRemoveDirectoryA<P1>(hconnect: *const core::ffi::c_void, lpszdirectory: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpRemoveDirectoryA(hconnect : *const core::ffi::c_void, lpszdirectory : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     FtpRemoveDirectoryA(hconnect, lpszdirectory.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn FtpRemoveDirectoryW<P0>(hconnect: *const core::ffi::c_void, lpszdirectory: P0) -> windows_core::Result<()>
+pub unsafe fn FtpRemoveDirectoryW<P1>(hconnect: *const core::ffi::c_void, lpszdirectory: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpRemoveDirectoryW(hconnect : *const core::ffi::c_void, lpszdirectory : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     FtpRemoveDirectoryW(hconnect, lpszdirectory.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn FtpRenameFileA<P0, P1>(hconnect: *const core::ffi::c_void, lpszexisting: P0, lpsznew: P1) -> windows_core::Result<()>
+pub unsafe fn FtpRenameFileA<P1, P2>(hconnect: *const core::ffi::c_void, lpszexisting: P1, lpsznew: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpRenameFileA(hconnect : *const core::ffi::c_void, lpszexisting : windows_core::PCSTR, lpsznew : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     FtpRenameFileA(hconnect, lpszexisting.param().abi(), lpsznew.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn FtpRenameFileW<P0, P1>(hconnect: *const core::ffi::c_void, lpszexisting: P0, lpsznew: P1) -> windows_core::Result<()>
+pub unsafe fn FtpRenameFileW<P1, P2>(hconnect: *const core::ffi::c_void, lpszexisting: P1, lpsznew: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpRenameFileW(hconnect : *const core::ffi::c_void, lpszexisting : windows_core::PCWSTR, lpsznew : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     FtpRenameFileW(hconnect, lpszexisting.param().abi(), lpsznew.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn FtpSetCurrentDirectoryA<P0>(hconnect: *const core::ffi::c_void, lpszdirectory: P0) -> windows_core::Result<()>
+pub unsafe fn FtpSetCurrentDirectoryA<P1>(hconnect: *const core::ffi::c_void, lpszdirectory: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpSetCurrentDirectoryA(hconnect : *const core::ffi::c_void, lpszdirectory : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     FtpSetCurrentDirectoryA(hconnect, lpszdirectory.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn FtpSetCurrentDirectoryW<P0>(hconnect: *const core::ffi::c_void, lpszdirectory: P0) -> windows_core::Result<()>
+pub unsafe fn FtpSetCurrentDirectoryW<P1>(hconnect: *const core::ffi::c_void, lpszdirectory: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn FtpSetCurrentDirectoryW(hconnect : *const core::ffi::c_void, lpszdirectory : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     FtpSetCurrentDirectoryW(hconnect, lpszdirectory.param().abi()).ok()
@@ -670,19 +670,19 @@ where
     GetUrlCacheEntryInfoA(lpszurlname.param().abi(), core::mem::transmute(lpcacheentryinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpcbcacheentryinfo.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn GetUrlCacheEntryInfoExA<P0, P1>(lpszurl: P0, lpcacheentryinfo: Option<*mut INTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: Option<*mut u32>, lpszredirecturl: P1, lpcbredirecturl: Option<*const u32>, lpreserved: Option<*const core::ffi::c_void>, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn GetUrlCacheEntryInfoExA<P0, P3>(lpszurl: P0, lpcacheentryinfo: Option<*mut INTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: Option<*mut u32>, lpszredirecturl: P3, lpcbredirecturl: Option<*const u32>, lpreserved: Option<*const core::ffi::c_void>, dwflags: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn GetUrlCacheEntryInfoExA(lpszurl : windows_core::PCSTR, lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : *mut u32, lpszredirecturl : windows_core::PCSTR, lpcbredirecturl : *const u32, lpreserved : *const core::ffi::c_void, dwflags : u32) -> super::super::Foundation:: BOOL);
     GetUrlCacheEntryInfoExA(lpszurl.param().abi(), core::mem::transmute(lpcacheentryinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpcbcacheentryinfo.unwrap_or(core::ptr::null_mut())), lpszredirecturl.param().abi(), core::mem::transmute(lpcbredirecturl.unwrap_or(core::ptr::null())), core::mem::transmute(lpreserved.unwrap_or(core::ptr::null())), dwflags).ok()
 }
 #[inline]
-pub unsafe fn GetUrlCacheEntryInfoExW<P0, P1>(lpszurl: P0, lpcacheentryinfo: Option<*mut INTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: Option<*mut u32>, lpszredirecturl: P1, lpcbredirecturl: Option<*const u32>, lpreserved: Option<*const core::ffi::c_void>, dwflags: u32) -> windows_core::Result<()>
+pub unsafe fn GetUrlCacheEntryInfoExW<P0, P3>(lpszurl: P0, lpcacheentryinfo: Option<*mut INTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: Option<*mut u32>, lpszredirecturl: P3, lpcbredirecturl: Option<*const u32>, lpreserved: Option<*const core::ffi::c_void>, dwflags: u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn GetUrlCacheEntryInfoExW(lpszurl : windows_core::PCWSTR, lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : *mut u32, lpszredirecturl : windows_core::PCWSTR, lpcbredirecturl : *const u32, lpreserved : *const core::ffi::c_void, dwflags : u32) -> super::super::Foundation:: BOOL);
     GetUrlCacheEntryInfoExW(lpszurl.param().abi(), core::mem::transmute(lpcacheentryinfo.unwrap_or(core::ptr::null_mut())), core::mem::transmute(lpcbcacheentryinfo.unwrap_or(core::ptr::null_mut())), lpszredirecturl.param().abi(), core::mem::transmute(lpcbredirecturl.unwrap_or(core::ptr::null())), core::mem::transmute(lpreserved.unwrap_or(core::ptr::null())), dwflags).ok()
@@ -711,57 +711,57 @@ pub unsafe fn GetUrlCacheHeaderData(nidx: u32, lpdwdata: *mut u32) -> super::sup
     GetUrlCacheHeaderData(nidx, lpdwdata)
 }
 #[inline]
-pub unsafe fn GopherCreateLocatorA<P0, P1, P2>(lpszhost: P0, nserverport: u16, lpszdisplaystring: P1, lpszselectorstring: P2, dwgophertype: u32, lpszlocator: windows_core::PSTR, lpdwbufferlength: *mut u32) -> windows_core::Result<()>
+pub unsafe fn GopherCreateLocatorA<P0, P2, P3>(lpszhost: P0, nserverport: u16, lpszdisplaystring: P2, lpszselectorstring: P3, dwgophertype: u32, lpszlocator: windows_core::PSTR, lpdwbufferlength: *mut u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn GopherCreateLocatorA(lpszhost : windows_core::PCSTR, nserverport : u16, lpszdisplaystring : windows_core::PCSTR, lpszselectorstring : windows_core::PCSTR, dwgophertype : u32, lpszlocator : windows_core::PSTR, lpdwbufferlength : *mut u32) -> super::super::Foundation:: BOOL);
     GopherCreateLocatorA(lpszhost.param().abi(), nserverport, lpszdisplaystring.param().abi(), lpszselectorstring.param().abi(), dwgophertype, core::mem::transmute(lpszlocator), lpdwbufferlength).ok()
 }
 #[inline]
-pub unsafe fn GopherCreateLocatorW<P0, P1, P2>(lpszhost: P0, nserverport: u16, lpszdisplaystring: P1, lpszselectorstring: P2, dwgophertype: u32, lpszlocator: windows_core::PWSTR, lpdwbufferlength: *mut u32) -> windows_core::Result<()>
+pub unsafe fn GopherCreateLocatorW<P0, P2, P3>(lpszhost: P0, nserverport: u16, lpszdisplaystring: P2, lpszselectorstring: P3, dwgophertype: u32, lpszlocator: windows_core::PWSTR, lpdwbufferlength: *mut u32) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn GopherCreateLocatorW(lpszhost : windows_core::PCWSTR, nserverport : u16, lpszdisplaystring : windows_core::PCWSTR, lpszselectorstring : windows_core::PCWSTR, dwgophertype : u32, lpszlocator : windows_core::PWSTR, lpdwbufferlength : *mut u32) -> super::super::Foundation:: BOOL);
     GopherCreateLocatorW(lpszhost.param().abi(), nserverport, lpszdisplaystring.param().abi(), lpszselectorstring.param().abi(), dwgophertype, core::mem::transmute(lpszlocator), lpdwbufferlength).ok()
 }
 #[inline]
-pub unsafe fn GopherFindFirstFileA<P0, P1>(hconnect: *const core::ffi::c_void, lpszlocator: P0, lpszsearchstring: P1, lpfinddata: Option<*mut GOPHER_FIND_DATAA>, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
+pub unsafe fn GopherFindFirstFileA<P1, P2>(hconnect: *const core::ffi::c_void, lpszlocator: P1, lpszsearchstring: P2, lpfinddata: Option<*mut GOPHER_FIND_DATAA>, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn GopherFindFirstFileA(hconnect : *const core::ffi::c_void, lpszlocator : windows_core::PCSTR, lpszsearchstring : windows_core::PCSTR, lpfinddata : *mut GOPHER_FIND_DATAA, dwflags : u32, dwcontext : usize) -> *mut core::ffi::c_void);
     GopherFindFirstFileA(hconnect, lpszlocator.param().abi(), lpszsearchstring.param().abi(), core::mem::transmute(lpfinddata.unwrap_or(core::ptr::null_mut())), dwflags, dwcontext)
 }
 #[inline]
-pub unsafe fn GopherFindFirstFileW<P0, P1>(hconnect: *const core::ffi::c_void, lpszlocator: P0, lpszsearchstring: P1, lpfinddata: Option<*mut GOPHER_FIND_DATAW>, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
+pub unsafe fn GopherFindFirstFileW<P1, P2>(hconnect: *const core::ffi::c_void, lpszlocator: P1, lpszsearchstring: P2, lpfinddata: Option<*mut GOPHER_FIND_DATAW>, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn GopherFindFirstFileW(hconnect : *const core::ffi::c_void, lpszlocator : windows_core::PCWSTR, lpszsearchstring : windows_core::PCWSTR, lpfinddata : *mut GOPHER_FIND_DATAW, dwflags : u32, dwcontext : usize) -> *mut core::ffi::c_void);
     GopherFindFirstFileW(hconnect, lpszlocator.param().abi(), lpszsearchstring.param().abi(), core::mem::transmute(lpfinddata.unwrap_or(core::ptr::null_mut())), dwflags, dwcontext)
 }
 #[inline]
-pub unsafe fn GopherGetAttributeA<P0, P1>(hconnect: *const core::ffi::c_void, lpszlocator: P0, lpszattributename: P1, lpbuffer: &mut [u8], lpdwcharactersreturned: *mut u32, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: usize) -> windows_core::Result<()>
+pub unsafe fn GopherGetAttributeA<P1, P2>(hconnect: *const core::ffi::c_void, lpszlocator: P1, lpszattributename: P2, lpbuffer: &mut [u8], lpdwcharactersreturned: *mut u32, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: usize) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn GopherGetAttributeA(hconnect : *const core::ffi::c_void, lpszlocator : windows_core::PCSTR, lpszattributename : windows_core::PCSTR, lpbuffer : *mut u8, dwbufferlength : u32, lpdwcharactersreturned : *mut u32, lpfnenumerator : GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext : usize) -> super::super::Foundation:: BOOL);
     GopherGetAttributeA(hconnect, lpszlocator.param().abi(), lpszattributename.param().abi(), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpdwcharactersreturned, lpfnenumerator, dwcontext).ok()
 }
 #[inline]
-pub unsafe fn GopherGetAttributeW<P0, P1>(hconnect: *const core::ffi::c_void, lpszlocator: P0, lpszattributename: P1, lpbuffer: &mut [u8], lpdwcharactersreturned: *mut u32, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: usize) -> windows_core::Result<()>
+pub unsafe fn GopherGetAttributeW<P1, P2>(hconnect: *const core::ffi::c_void, lpszlocator: P1, lpszattributename: P2, lpbuffer: &mut [u8], lpdwcharactersreturned: *mut u32, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: usize) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn GopherGetAttributeW(hconnect : *const core::ffi::c_void, lpszlocator : windows_core::PCWSTR, lpszattributename : windows_core::PCWSTR, lpbuffer : *mut u8, dwbufferlength : u32, lpdwcharactersreturned : *mut u32, lpfnenumerator : GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext : usize) -> super::super::Foundation:: BOOL);
     GopherGetAttributeW(hconnect, lpszlocator.param().abi(), lpszattributename.param().abi(), core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpdwcharactersreturned, lpfnenumerator, dwcontext).ok()
@@ -783,19 +783,19 @@ where
     GopherGetLocatorTypeW(lpszlocator.param().abi(), lpdwgophertype).ok()
 }
 #[inline]
-pub unsafe fn GopherOpenFileA<P0, P1>(hconnect: *const core::ffi::c_void, lpszlocator: P0, lpszview: P1, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
+pub unsafe fn GopherOpenFileA<P1, P2>(hconnect: *const core::ffi::c_void, lpszlocator: P1, lpszview: P2, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn GopherOpenFileA(hconnect : *const core::ffi::c_void, lpszlocator : windows_core::PCSTR, lpszview : windows_core::PCSTR, dwflags : u32, dwcontext : usize) -> *mut core::ffi::c_void);
     GopherOpenFileA(hconnect, lpszlocator.param().abi(), lpszview.param().abi(), dwflags, dwcontext)
 }
 #[inline]
-pub unsafe fn GopherOpenFileW<P0, P1>(hconnect: *const core::ffi::c_void, lpszlocator: P0, lpszview: P1, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
+pub unsafe fn GopherOpenFileW<P1, P2>(hconnect: *const core::ffi::c_void, lpszlocator: P1, lpszview: P2, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn GopherOpenFileW(hconnect : *const core::ffi::c_void, lpszlocator : windows_core::PCWSTR, lpszview : windows_core::PCWSTR, dwflags : u32, dwcontext : usize) -> *mut core::ffi::c_void);
     GopherOpenFileW(hconnect, lpszlocator.param().abi(), lpszview.param().abi(), dwflags, dwcontext)
@@ -811,21 +811,21 @@ pub unsafe fn HttpAddRequestHeadersW(hrequest: *const core::ffi::c_void, lpszhea
     HttpAddRequestHeadersW(hrequest, core::mem::transmute(lpszheaders.as_ptr()), lpszheaders.len().try_into().unwrap(), dwmodifiers).ok()
 }
 #[inline]
-pub unsafe fn HttpCheckDavComplianceA<P0, P1, P2>(lpszurl: P0, lpszcompliancetoken: P1, lpffound: *mut super::super::Foundation::BOOL, hwnd: P2, lpvreserved: *const core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn HttpCheckDavComplianceA<P0, P1, P3>(lpszurl: P0, lpszcompliancetoken: P1, lpffound: *mut super::super::Foundation::BOOL, hwnd: P3, lpvreserved: *const core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<super::super::Foundation::HWND>,
+    P3: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("wininet.dll" "system" fn HttpCheckDavComplianceA(lpszurl : windows_core::PCSTR, lpszcompliancetoken : windows_core::PCSTR, lpffound : *mut super::super::Foundation:: BOOL, hwnd : super::super::Foundation:: HWND, lpvreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     HttpCheckDavComplianceA(lpszurl.param().abi(), lpszcompliancetoken.param().abi(), lpffound, hwnd.param().abi(), lpvreserved)
 }
 #[inline]
-pub unsafe fn HttpCheckDavComplianceW<P0, P1, P2>(lpszurl: P0, lpszcompliancetoken: P1, lpffound: *mut super::super::Foundation::BOOL, hwnd: P2, lpvreserved: *const core::ffi::c_void) -> super::super::Foundation::BOOL
+pub unsafe fn HttpCheckDavComplianceW<P0, P1, P3>(lpszurl: P0, lpszcompliancetoken: P1, lpffound: *mut super::super::Foundation::BOOL, hwnd: P3, lpvreserved: *const core::ffi::c_void) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<super::super::Foundation::HWND>,
+    P3: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("wininet.dll" "system" fn HttpCheckDavComplianceW(lpszurl : windows_core::PCWSTR, lpszcompliancetoken : windows_core::PCWSTR, lpffound : *mut super::super::Foundation:: BOOL, hwnd : super::super::Foundation:: HWND, lpvreserved : *const core::ffi::c_void) -> super::super::Foundation:: BOOL);
     HttpCheckDavComplianceW(lpszurl.param().abi(), lpszcompliancetoken.param().abi(), lpffound, hwnd.param().abi(), lpvreserved)
@@ -872,31 +872,31 @@ where
     HttpIsHostHstsEnabled(pcwszurl.param().abi(), pfishsts)
 }
 #[inline]
-pub unsafe fn HttpOpenDependencyHandle<P0>(hrequesthandle: *const core::ffi::c_void, fbackground: P0, phdependencyhandle: *mut *mut core::ffi::c_void) -> u32
+pub unsafe fn HttpOpenDependencyHandle<P1>(hrequesthandle: *const core::ffi::c_void, fbackground: P1, phdependencyhandle: *mut *mut core::ffi::c_void) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn HttpOpenDependencyHandle(hrequesthandle : *const core::ffi::c_void, fbackground : super::super::Foundation:: BOOL, phdependencyhandle : *mut *mut core::ffi::c_void) -> u32);
     HttpOpenDependencyHandle(hrequesthandle, fbackground.param().abi(), phdependencyhandle)
 }
 #[inline]
-pub unsafe fn HttpOpenRequestA<P0, P1, P2, P3>(hconnect: *const core::ffi::c_void, lpszverb: P0, lpszobjectname: P1, lpszversion: P2, lpszreferrer: P3, lplpszaccepttypes: Option<*const windows_core::PCSTR>, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
+pub unsafe fn HttpOpenRequestA<P1, P2, P3, P4>(hconnect: *const core::ffi::c_void, lpszverb: P1, lpszobjectname: P2, lpszversion: P3, lpszreferrer: P4, lplpszaccepttypes: Option<*const windows_core::PCSTR>, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
+    P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn HttpOpenRequestA(hconnect : *const core::ffi::c_void, lpszverb : windows_core::PCSTR, lpszobjectname : windows_core::PCSTR, lpszversion : windows_core::PCSTR, lpszreferrer : windows_core::PCSTR, lplpszaccepttypes : *const windows_core::PCSTR, dwflags : u32, dwcontext : usize) -> *mut core::ffi::c_void);
     HttpOpenRequestA(hconnect, lpszverb.param().abi(), lpszobjectname.param().abi(), lpszversion.param().abi(), lpszreferrer.param().abi(), core::mem::transmute(lplpszaccepttypes.unwrap_or(core::ptr::null())), dwflags, dwcontext)
 }
 #[inline]
-pub unsafe fn HttpOpenRequestW<P0, P1, P2, P3>(hconnect: *const core::ffi::c_void, lpszverb: P0, lpszobjectname: P1, lpszversion: P2, lpszreferrer: P3, lplpszaccepttypes: Option<*const windows_core::PCWSTR>, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
+pub unsafe fn HttpOpenRequestW<P1, P2, P3, P4>(hconnect: *const core::ffi::c_void, lpszverb: P1, lpszobjectname: P2, lpszversion: P3, lpszreferrer: P4, lplpszaccepttypes: Option<*const windows_core::PCWSTR>, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn HttpOpenRequestW(hconnect : *const core::ffi::c_void, lpszverb : windows_core::PCWSTR, lpszobjectname : windows_core::PCWSTR, lpszversion : windows_core::PCWSTR, lpszreferrer : windows_core::PCWSTR, lplpszaccepttypes : *const windows_core::PCWSTR, dwflags : u32, dwcontext : usize) -> *mut core::ffi::c_void);
     HttpOpenRequestW(hconnect, lpszverb.param().abi(), lpszobjectname.param().abi(), lpszversion.param().abi(), lpszreferrer.param().abi(), core::mem::transmute(lplpszaccepttypes.unwrap_or(core::ptr::null())), dwflags, dwcontext)
@@ -1029,9 +1029,9 @@ pub unsafe fn InternetAttemptConnect(dwreserved: u32) -> u32 {
     InternetAttemptConnect(dwreserved)
 }
 #[inline]
-pub unsafe fn InternetAutodial<P0>(dwflags: INTERNET_AUTODIAL, hwndparent: P0) -> windows_core::Result<()>
+pub unsafe fn InternetAutodial<P1>(dwflags: INTERNET_AUTODIAL, hwndparent: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("wininet.dll" "system" fn InternetAutodial(dwflags : INTERNET_AUTODIAL, hwndparent : super::super::Foundation:: HWND) -> super::super::Foundation:: BOOL);
     InternetAutodial(dwflags, hwndparent.param().abi()).ok()
@@ -1135,30 +1135,30 @@ where
     InternetConfirmZoneCrossingW(hwnd.param().abi(), szurlprev.param().abi(), szurlnew.param().abi(), bpost.param().abi())
 }
 #[inline]
-pub unsafe fn InternetConnectA<P0, P1, P2>(hinternet: *const core::ffi::c_void, lpszservername: P0, nserverport: u16, lpszusername: P1, lpszpassword: P2, dwservice: u32, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
+pub unsafe fn InternetConnectA<P1, P3, P4>(hinternet: *const core::ffi::c_void, lpszservername: P1, nserverport: u16, lpszusername: P3, lpszpassword: P4, dwservice: u32, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
+    P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn InternetConnectA(hinternet : *const core::ffi::c_void, lpszservername : windows_core::PCSTR, nserverport : u16, lpszusername : windows_core::PCSTR, lpszpassword : windows_core::PCSTR, dwservice : u32, dwflags : u32, dwcontext : usize) -> *mut core::ffi::c_void);
     InternetConnectA(hinternet, lpszservername.param().abi(), nserverport, lpszusername.param().abi(), lpszpassword.param().abi(), dwservice, dwflags, dwcontext)
 }
 #[inline]
-pub unsafe fn InternetConnectW<P0, P1, P2>(hinternet: *const core::ffi::c_void, lpszservername: P0, nserverport: u16, lpszusername: P1, lpszpassword: P2, dwservice: u32, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
+pub unsafe fn InternetConnectW<P1, P3, P4>(hinternet: *const core::ffi::c_void, lpszservername: P1, nserverport: u16, lpszusername: P3, lpszpassword: P4, dwservice: u32, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn InternetConnectW(hinternet : *const core::ffi::c_void, lpszservername : windows_core::PCWSTR, nserverport : u16, lpszusername : windows_core::PCWSTR, lpszpassword : windows_core::PCWSTR, dwservice : u32, dwflags : u32, dwcontext : usize) -> *mut core::ffi::c_void);
     InternetConnectW(hinternet, lpszservername.param().abi(), nserverport, lpszusername.param().abi(), lpszpassword.param().abi(), dwservice, dwflags, dwcontext)
 }
 #[inline]
-pub unsafe fn InternetConvertUrlFromWireToWideChar<P0, P1>(pcszurl: &[u8], pcwszbaseurl: P0, dwcodepagehost: u32, dwcodepagepath: u32, fencodepathextra: P1, dwcodepageextra: u32, ppwszconvertedurl: *mut windows_core::PWSTR) -> u32
+pub unsafe fn InternetConvertUrlFromWireToWideChar<P2, P5>(pcszurl: &[u8], pcwszbaseurl: P2, dwcodepagehost: u32, dwcodepagepath: u32, fencodepathextra: P5, dwcodepageextra: u32, ppwszconvertedurl: *mut windows_core::PWSTR) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn InternetConvertUrlFromWireToWideChar(pcszurl : windows_core::PCSTR, cchurl : u32, pcwszbaseurl : windows_core::PCWSTR, dwcodepagehost : u32, dwcodepagepath : u32, fencodepathextra : super::super::Foundation:: BOOL, dwcodepageextra : u32, ppwszconvertedurl : *mut windows_core::PWSTR) -> u32);
     InternetConvertUrlFromWireToWideChar(core::mem::transmute(pcszurl.as_ptr()), pcszurl.len().try_into().unwrap(), pcwszbaseurl.param().abi(), dwcodepagehost, dwcodepagepath, fencodepathextra.param().abi(), dwcodepageextra, ppwszconvertedurl)
@@ -1241,9 +1241,9 @@ pub unsafe fn InternetFindNextFileW(hfind: *const core::ffi::c_void, lpvfinddata
     InternetFindNextFileW(hfind, lpvfinddata).ok()
 }
 #[inline]
-pub unsafe fn InternetFortezzaCommand<P0>(dwcommand: u32, hwnd: P0, dwreserved: usize) -> super::super::Foundation::BOOL
+pub unsafe fn InternetFortezzaCommand<P1>(dwcommand: u32, hwnd: P1, dwreserved: usize) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<super::super::Foundation::HWND>,
+    P1: windows_core::Param<super::super::Foundation::HWND>,
 {
     windows_targets::link!("wininet.dll" "system" fn InternetFortezzaCommand(dwcommand : u32, hwnd : super::super::Foundation:: HWND, dwreserved : usize) -> super::super::Foundation:: BOOL);
     InternetFortezzaCommand(dwcommand, hwnd.param().abi(), dwreserved)
@@ -1352,9 +1352,9 @@ where
     InternetGetPerSiteCookieDecisionW(pchhostname.param().abi(), presult)
 }
 #[inline]
-pub unsafe fn InternetGetProxyForUrl<P0>(hinternet: *const core::ffi::c_void, pcwszurl: P0, pproxyinfolist: *mut WININET_PROXY_INFO_LIST) -> u32
+pub unsafe fn InternetGetProxyForUrl<P1>(hinternet: *const core::ffi::c_void, pcwszurl: P1, pproxyinfolist: *mut WININET_PROXY_INFO_LIST) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn InternetGetProxyForUrl(hinternet : *const core::ffi::c_void, pcwszurl : windows_core::PCWSTR, pproxyinfolist : *mut WININET_PROXY_INFO_LIST) -> u32);
     InternetGetProxyForUrl(hinternet, pcwszurl.param().abi(), pproxyinfolist)
@@ -1429,37 +1429,37 @@ pub unsafe fn InternetLockRequestFile(hinternet: *const core::ffi::c_void, lphlo
     InternetLockRequestFile(hinternet, lphlockrequestinfo).ok()
 }
 #[inline]
-pub unsafe fn InternetOpenA<P0, P1, P2>(lpszagent: P0, dwaccesstype: u32, lpszproxy: P1, lpszproxybypass: P2, dwflags: u32) -> *mut core::ffi::c_void
+pub unsafe fn InternetOpenA<P0, P2, P3>(lpszagent: P0, dwaccesstype: u32, lpszproxy: P2, lpszproxybypass: P3, dwflags: u32) -> *mut core::ffi::c_void
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn InternetOpenA(lpszagent : windows_core::PCSTR, dwaccesstype : u32, lpszproxy : windows_core::PCSTR, lpszproxybypass : windows_core::PCSTR, dwflags : u32) -> *mut core::ffi::c_void);
     InternetOpenA(lpszagent.param().abi(), dwaccesstype, lpszproxy.param().abi(), lpszproxybypass.param().abi(), dwflags)
 }
 #[inline]
-pub unsafe fn InternetOpenUrlA<P0>(hinternet: *const core::ffi::c_void, lpszurl: P0, lpszheaders: Option<&[u8]>, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
+pub unsafe fn InternetOpenUrlA<P1>(hinternet: *const core::ffi::c_void, lpszurl: P1, lpszheaders: Option<&[u8]>, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn InternetOpenUrlA(hinternet : *const core::ffi::c_void, lpszurl : windows_core::PCSTR, lpszheaders : windows_core::PCSTR, dwheaderslength : u32, dwflags : u32, dwcontext : usize) -> *mut core::ffi::c_void);
     InternetOpenUrlA(hinternet, lpszurl.param().abi(), core::mem::transmute(lpszheaders.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszheaders.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwflags, dwcontext)
 }
 #[inline]
-pub unsafe fn InternetOpenUrlW<P0>(hinternet: *const core::ffi::c_void, lpszurl: P0, lpszheaders: Option<&[u16]>, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
+pub unsafe fn InternetOpenUrlW<P1>(hinternet: *const core::ffi::c_void, lpszurl: P1, lpszheaders: Option<&[u16]>, dwflags: u32, dwcontext: usize) -> *mut core::ffi::c_void
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn InternetOpenUrlW(hinternet : *const core::ffi::c_void, lpszurl : windows_core::PCWSTR, lpszheaders : windows_core::PCWSTR, dwheaderslength : u32, dwflags : u32, dwcontext : usize) -> *mut core::ffi::c_void);
     InternetOpenUrlW(hinternet, lpszurl.param().abi(), core::mem::transmute(lpszheaders.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszheaders.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwflags, dwcontext)
 }
 #[inline]
-pub unsafe fn InternetOpenW<P0, P1, P2>(lpszagent: P0, dwaccesstype: u32, lpszproxy: P1, lpszproxybypass: P2, dwflags: u32) -> *mut core::ffi::c_void
+pub unsafe fn InternetOpenW<P0, P2, P3>(lpszagent: P0, dwaccesstype: u32, lpszproxy: P2, lpszproxybypass: P3, dwflags: u32) -> *mut core::ffi::c_void
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn InternetOpenW(lpszagent : windows_core::PCWSTR, dwaccesstype : u32, lpszproxy : windows_core::PCWSTR, lpszproxybypass : windows_core::PCWSTR, dwflags : u32) -> *mut core::ffi::c_void);
     InternetOpenW(lpszagent.param().abi(), dwaccesstype, lpszproxy.param().abi(), lpszproxybypass.param().abi(), dwflags)
@@ -1520,10 +1520,10 @@ where
     InternetSetCookieA(lpszurl.param().abi(), lpszcookiename.param().abi(), lpszcookiedata.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn InternetSetCookieEx2<P0, P1>(pcwszurl: P0, pcookie: *const INTERNET_COOKIE2, pcwszp3ppolicy: P1, dwflags: u32, pdwcookiestate: *mut u32) -> u32
+pub unsafe fn InternetSetCookieEx2<P0, P2>(pcwszurl: P0, pcookie: *const INTERNET_COOKIE2, pcwszp3ppolicy: P2, dwflags: u32, pdwcookiestate: *mut u32) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn InternetSetCookieEx2(pcwszurl : windows_core::PCWSTR, pcookie : *const INTERNET_COOKIE2, pcwszp3ppolicy : windows_core::PCWSTR, dwflags : u32, pdwcookiestate : *mut u32) -> u32);
     InternetSetCookieEx2(pcwszurl.param().abi(), pcookie, pcwszp3ppolicy.param().abi(), dwflags, pdwcookiestate)
@@ -1792,9 +1792,9 @@ pub unsafe fn PrivacyGetZonePreferenceW(dwzone: u32, dwtype: u32, pdwtemplate: O
     PrivacyGetZonePreferenceW(dwzone, dwtype, core::mem::transmute(pdwtemplate.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pszbuffer), core::mem::transmute(pdwbufferlength.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn PrivacySetZonePreferenceW<P0>(dwzone: u32, dwtype: u32, dwtemplate: u32, pszpreference: P0) -> u32
+pub unsafe fn PrivacySetZonePreferenceW<P3>(dwzone: u32, dwtype: u32, dwtemplate: u32, pszpreference: P3) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn PrivacySetZonePreferenceW(dwzone : u32, dwtype : u32, dwtemplate : u32, pszpreference : windows_core::PCWSTR) -> u32);
     PrivacySetZonePreferenceW(dwzone, dwtype, dwtemplate, pszpreference.param().abi())
@@ -1850,20 +1850,20 @@ where
     RetrieveUrlCacheEntryFileW(lpszurlname.param().abi(), core::mem::transmute(lpcacheentryinfo.unwrap_or(core::ptr::null_mut())), lpcbcacheentryinfo, dwreserved).ok()
 }
 #[inline]
-pub unsafe fn RetrieveUrlCacheEntryStreamA<P0, P1>(lpszurlname: P0, lpcacheentryinfo: Option<*mut INTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: *mut u32, frandomread: P1, dwreserved: u32) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn RetrieveUrlCacheEntryStreamA<P0, P3>(lpszurlname: P0, lpcacheentryinfo: Option<*mut INTERNET_CACHE_ENTRY_INFOA>, lpcbcacheentryinfo: *mut u32, frandomread: P3, dwreserved: u32) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryStreamA(lpszurlname : windows_core::PCSTR, lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : *mut u32, frandomread : super::super::Foundation:: BOOL, dwreserved : u32) -> super::super::Foundation:: HANDLE);
     let result__ = RetrieveUrlCacheEntryStreamA(lpszurlname.param().abi(), core::mem::transmute(lpcacheentryinfo.unwrap_or(core::ptr::null_mut())), lpcbcacheentryinfo, frandomread.param().abi(), dwreserved);
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn RetrieveUrlCacheEntryStreamW<P0, P1>(lpszurlname: P0, lpcacheentryinfo: Option<*mut INTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: *mut u32, frandomread: P1, dwreserved: u32) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn RetrieveUrlCacheEntryStreamW<P0, P3>(lpszurlname: P0, lpcacheentryinfo: Option<*mut INTERNET_CACHE_ENTRY_INFOW>, lpcbcacheentryinfo: *mut u32, frandomread: P3, dwreserved: u32) -> windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryStreamW(lpszurlname : windows_core::PCWSTR, lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : *mut u32, frandomread : super::super::Foundation:: BOOL, dwreserved : u32) -> super::super::Foundation:: HANDLE);
     let result__ = RetrieveUrlCacheEntryStreamW(lpszurlname.param().abi(), core::mem::transmute(lpcacheentryinfo.unwrap_or(core::ptr::null_mut())), lpcbcacheentryinfo, frandomread.param().abi(), dwreserved);
@@ -2069,9 +2069,9 @@ pub unsafe fn UrlCacheGetContentPaths(pppwszdirectories: *mut *mut windows_core:
     UrlCacheGetContentPaths(pppwszdirectories, pcdirectories)
 }
 #[inline]
-pub unsafe fn UrlCacheGetEntryInfo<P0>(happcache: Option<*const core::ffi::c_void>, pcwszurl: P0, pcacheentryinfo: Option<*mut URLCACHE_ENTRY_INFO>) -> u32
+pub unsafe fn UrlCacheGetEntryInfo<P1>(happcache: Option<*const core::ffi::c_void>, pcwszurl: P1, pcacheentryinfo: Option<*mut URLCACHE_ENTRY_INFO>) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn UrlCacheGetEntryInfo(happcache : *const core::ffi::c_void, pcwszurl : windows_core::PCWSTR, pcacheentryinfo : *mut URLCACHE_ENTRY_INFO) -> u32);
     UrlCacheGetEntryInfo(core::mem::transmute(happcache.unwrap_or(core::ptr::null())), pcwszurl.param().abi(), core::mem::transmute(pcacheentryinfo.unwrap_or(core::ptr::null_mut())))
@@ -2097,18 +2097,18 @@ pub unsafe fn UrlCacheReloadSettings() -> u32 {
     UrlCacheReloadSettings()
 }
 #[inline]
-pub unsafe fn UrlCacheRetrieveEntryFile<P0>(happcache: Option<*const core::ffi::c_void>, pcwszurl: P0, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phentryfile: *mut *mut core::ffi::c_void) -> u32
+pub unsafe fn UrlCacheRetrieveEntryFile<P1>(happcache: Option<*const core::ffi::c_void>, pcwszurl: P1, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phentryfile: *mut *mut core::ffi::c_void) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn UrlCacheRetrieveEntryFile(happcache : *const core::ffi::c_void, pcwszurl : windows_core::PCWSTR, pcacheentryinfo : *mut URLCACHE_ENTRY_INFO, phentryfile : *mut *mut core::ffi::c_void) -> u32);
     UrlCacheRetrieveEntryFile(core::mem::transmute(happcache.unwrap_or(core::ptr::null())), pcwszurl.param().abi(), pcacheentryinfo, phentryfile)
 }
 #[inline]
-pub unsafe fn UrlCacheRetrieveEntryStream<P0, P1>(happcache: Option<*const core::ffi::c_void>, pcwszurl: P0, frandomread: P1, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phentrystream: *mut *mut core::ffi::c_void) -> u32
+pub unsafe fn UrlCacheRetrieveEntryStream<P1, P2>(happcache: Option<*const core::ffi::c_void>, pcwszurl: P1, frandomread: P2, pcacheentryinfo: *mut URLCACHE_ENTRY_INFO, phentrystream: *mut *mut core::ffi::c_void) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wininet.dll" "system" fn UrlCacheRetrieveEntryStream(happcache : *const core::ffi::c_void, pcwszurl : windows_core::PCWSTR, frandomread : super::super::Foundation:: BOOL, pcacheentryinfo : *mut URLCACHE_ENTRY_INFO, phentrystream : *mut *mut core::ffi::c_void) -> u32);
     UrlCacheRetrieveEntryStream(core::mem::transmute(happcache.unwrap_or(core::ptr::null())), pcwszurl.param().abi(), frandomread.param().abi(), pcacheentryinfo, phentrystream)
@@ -2124,20 +2124,14 @@ pub unsafe fn UrlCacheSetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, ulllimit: 
     UrlCacheSetGlobalLimit(limittype, ulllimit)
 }
 #[inline]
-pub unsafe fn UrlCacheUpdateEntryExtraData<P0>(happcache: Option<*const core::ffi::c_void>, pcwszurl: P0, pbextradata: &[u8]) -> u32
+pub unsafe fn UrlCacheUpdateEntryExtraData<P1>(happcache: Option<*const core::ffi::c_void>, pcwszurl: P1, pbextradata: &[u8]) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wininet.dll" "system" fn UrlCacheUpdateEntryExtraData(happcache : *const core::ffi::c_void, pcwszurl : windows_core::PCWSTR, pbextradata : *const u8, cbextradata : u32) -> u32);
     UrlCacheUpdateEntryExtraData(core::mem::transmute(happcache.unwrap_or(core::ptr::null())), pcwszurl.param().abi(), core::mem::transmute(pbextradata.as_ptr()), pbextradata.len().try_into().unwrap())
 }
 windows_core::imp::define_interface!(IDialBranding, IDialBranding_Vtbl, 0x8aecafa9_4306_43cc_8c5a_765f2979cc16);
-impl core::ops::Deref for IDialBranding {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDialBranding, windows_core::IUnknown);
 impl IDialBranding {
     pub unsafe fn Initialize<P0>(&self, pwzconnectoid: P0) -> windows_core::Result<()>
@@ -2162,15 +2156,13 @@ pub struct IDialBranding_Vtbl {
     GetBitmap: usize,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub trait IDialBranding_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDialBranding_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, pwzconnectoid: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetBitmap(&self, dwindex: u32) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::RuntimeName for IDialBranding {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDialBranding_Vtbl {
-    pub const fn new<Identity: IDialBranding_Impl, const OFFSET: isize>() -> IDialBranding_Vtbl {
+    pub const fn new<Identity: IDialBranding_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IDialBranding_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzconnectoid: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDialBranding_Impl::Initialize(this, core::mem::transmute(&pwzconnectoid)).into()
@@ -2195,13 +2187,9 @@ impl IDialBranding_Vtbl {
         iid == &<IDialBranding as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::RuntimeName for IDialBranding {}
 windows_core::imp::define_interface!(IDialEngine, IDialEngine_Vtbl, 0x39fd782b_7905_40d5_9148_3c9b190423d5);
-impl core::ops::Deref for IDialEngine {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDialEngine, windows_core::IUnknown);
 impl IDialEngine {
     pub unsafe fn Initialize<P0, P1>(&self, pwzconnectoid: P0, pides: P1) -> windows_core::Result<()>
@@ -2251,7 +2239,7 @@ pub struct IDialEngine_Vtbl {
     pub GetConnectedState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetConnectHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
 }
-pub trait IDialEngine_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDialEngine_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, pwzconnectoid: &windows_core::PCWSTR, pides: Option<&IDialEventSink>) -> windows_core::Result<()>;
     fn GetProperty(&self, pwzproperty: &windows_core::PCWSTR, pwzvalue: &windows_core::PCWSTR, dwbufsize: u32) -> windows_core::Result<()>;
     fn SetProperty(&self, pwzproperty: &windows_core::PCWSTR, pwzvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -2260,9 +2248,8 @@ pub trait IDialEngine_Impl: Sized + windows_core::IUnknownImpl {
     fn GetConnectedState(&self) -> windows_core::Result<u32>;
     fn GetConnectHandle(&self) -> windows_core::Result<usize>;
 }
-impl windows_core::RuntimeName for IDialEngine {}
 impl IDialEngine_Vtbl {
-    pub const fn new<Identity: IDialEngine_Impl, const OFFSET: isize>() -> IDialEngine_Vtbl {
+    pub const fn new<Identity: IDialEngine_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Initialize<Identity: IDialEngine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzconnectoid: windows_core::PCWSTR, pides: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDialEngine_Impl::Initialize(this, core::mem::transmute(&pwzconnectoid), windows_core::from_raw_borrowed(&pides)).into()
@@ -2318,13 +2305,8 @@ impl IDialEngine_Vtbl {
         iid == &<IDialEngine as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDialEngine {}
 windows_core::imp::define_interface!(IDialEventSink, IDialEventSink_Vtbl, 0x2d86f4ff_6e2d_4488_b2e9_6934afd41bea);
-impl core::ops::Deref for IDialEventSink {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDialEventSink, windows_core::IUnknown);
 impl IDialEventSink {
     pub unsafe fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> windows_core::Result<()> {
@@ -2336,12 +2318,11 @@ pub struct IDialEventSink_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub OnEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-pub trait IDialEventSink_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDialEventSink_Impl: windows_core::IUnknownImpl {
     fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IDialEventSink {}
 impl IDialEventSink_Vtbl {
-    pub const fn new<Identity: IDialEventSink_Impl, const OFFSET: isize>() -> IDialEventSink_Vtbl {
+    pub const fn new<Identity: IDialEventSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnEvent<Identity: IDialEventSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwevent: u32, dwstatus: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDialEventSink_Impl::OnEvent(this, core::mem::transmute_copy(&dwevent), core::mem::transmute_copy(&dwstatus)).into()
@@ -2352,13 +2333,8 @@ impl IDialEventSink_Vtbl {
         iid == &<IDialEventSink as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDialEventSink {}
 windows_core::imp::define_interface!(IProofOfPossessionCookieInfoManager, IProofOfPossessionCookieInfoManager_Vtbl, 0xcdaece56_4edf_43df_b113_88e4556fa1bb);
-impl core::ops::Deref for IProofOfPossessionCookieInfoManager {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager, windows_core::IUnknown);
 impl IProofOfPossessionCookieInfoManager {
     pub unsafe fn GetCookieInfoForUri<P0>(&self, uri: P0, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>
@@ -2373,12 +2349,11 @@ pub struct IProofOfPossessionCookieInfoManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCookieInfoForUri: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32, *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT,
 }
-pub trait IProofOfPossessionCookieInfoManager_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IProofOfPossessionCookieInfoManager_Impl: windows_core::IUnknownImpl {
     fn GetCookieInfoForUri(&self, uri: &windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IProofOfPossessionCookieInfoManager {}
 impl IProofOfPossessionCookieInfoManager_Vtbl {
-    pub const fn new<Identity: IProofOfPossessionCookieInfoManager_Impl, const OFFSET: isize>() -> IProofOfPossessionCookieInfoManager_Vtbl {
+    pub const fn new<Identity: IProofOfPossessionCookieInfoManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCookieInfoForUri<Identity: IProofOfPossessionCookieInfoManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IProofOfPossessionCookieInfoManager_Impl::GetCookieInfoForUri(this, core::mem::transmute(&uri), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
@@ -2389,13 +2364,8 @@ impl IProofOfPossessionCookieInfoManager_Vtbl {
         iid == &<IProofOfPossessionCookieInfoManager as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IProofOfPossessionCookieInfoManager {}
 windows_core::imp::define_interface!(IProofOfPossessionCookieInfoManager2, IProofOfPossessionCookieInfoManager2_Vtbl, 0x15e41407_b42f_4ae7_9966_34a087b2d713);
-impl core::ops::Deref for IProofOfPossessionCookieInfoManager2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager2, windows_core::IUnknown);
 impl IProofOfPossessionCookieInfoManager2 {
     pub unsafe fn GetCookieInfoWithUriForAccount<P0, P1>(&self, webaccount: P0, uri: P1, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>
@@ -2411,12 +2381,11 @@ pub struct IProofOfPossessionCookieInfoManager2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetCookieInfoWithUriForAccount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut u32, *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT,
 }
-pub trait IProofOfPossessionCookieInfoManager2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IProofOfPossessionCookieInfoManager2_Impl: windows_core::IUnknownImpl {
     fn GetCookieInfoWithUriForAccount(&self, webaccount: Option<&windows_core::IInspectable>, uri: &windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IProofOfPossessionCookieInfoManager2 {}
 impl IProofOfPossessionCookieInfoManager2_Vtbl {
-    pub const fn new<Identity: IProofOfPossessionCookieInfoManager2_Impl, const OFFSET: isize>() -> IProofOfPossessionCookieInfoManager2_Vtbl {
+    pub const fn new<Identity: IProofOfPossessionCookieInfoManager2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCookieInfoWithUriForAccount<Identity: IProofOfPossessionCookieInfoManager2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, webaccount: *mut core::ffi::c_void, uri: windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IProofOfPossessionCookieInfoManager2_Impl::GetCookieInfoWithUriForAccount(this, windows_core::from_raw_borrowed(&webaccount), core::mem::transmute(&uri), core::mem::transmute_copy(&cookieinfocount), core::mem::transmute_copy(&cookieinfo)).into()
@@ -2430,6 +2399,7 @@ impl IProofOfPossessionCookieInfoManager2_Vtbl {
         iid == &<IProofOfPossessionCookieInfoManager2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IProofOfPossessionCookieInfoManager2 {}
 pub const ANY_CACHE_ENTRY: u32 = 4294967295u32;
 pub const APP_CACHE_ENTRY_TYPE_EXPLICIT: u32 = 2u32;
 pub const APP_CACHE_ENTRY_TYPE_FALLBACK: u32 = 4u32;
@@ -3516,92 +3486,52 @@ pub const WPAD_CACHE_DELETE_ALL: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(1i32);
 pub const WPAD_CACHE_DELETE_CURRENT: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(0i32);
 pub const XDR_CACHE_ENTRY: u32 = 262144u32;
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct APP_CACHE_FINALIZE_STATE(pub i32);
 impl windows_core::TypeKind for APP_CACHE_FINALIZE_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for APP_CACHE_FINALIZE_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("APP_CACHE_FINALIZE_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct APP_CACHE_STATE(pub i32);
 impl windows_core::TypeKind for APP_CACHE_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for APP_CACHE_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("APP_CACHE_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CACHE_CONFIG(pub u32);
 impl windows_core::TypeKind for CACHE_CONFIG {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CACHE_CONFIG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CACHE_CONFIG").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct FORTCMD(pub i32);
 impl windows_core::TypeKind for FORTCMD {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FORTCMD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FORTCMD").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct FORTSTAT(pub i32);
 impl windows_core::TypeKind for FORTSTAT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FORTSTAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FORTSTAT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct FTP_FLAGS(pub u32);
 impl windows_core::TypeKind for FTP_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FTP_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FTP_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct GOPHER_TYPE(pub u32);
 impl windows_core::TypeKind for GOPHER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GOPHER_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GOPHER_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_ADDREQ_FLAG(pub u32);
 impl windows_core::TypeKind for HTTP_ADDREQ_FLAG {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for HTTP_ADDREQ_FLAG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_ADDREQ_FLAG").field(&self.0).finish()
-    }
 }
 impl HTTP_ADDREQ_FLAG {
     pub const fn contains(&self, other: Self) -> bool {
@@ -3637,103 +3567,58 @@ impl core::ops::Not for HTTP_ADDREQ_FLAG {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_POLICY_EXTENSION_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_POLICY_EXTENSION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_POLICY_EXTENSION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_POLICY_EXTENSION_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_POLICY_EXTENSION_VERSION(pub i32);
 impl windows_core::TypeKind for HTTP_POLICY_EXTENSION_VERSION {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_POLICY_EXTENSION_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_POLICY_EXTENSION_VERSION").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_PUSH_WAIT_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_PUSH_WAIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_PUSH_WAIT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_PUSH_WAIT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_WEB_SOCKET_BUFFER_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_WEB_SOCKET_BUFFER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_WEB_SOCKET_BUFFER_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_WEB_SOCKET_BUFFER_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
 impl windows_core::TypeKind for HTTP_WEB_SOCKET_CLOSE_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_WEB_SOCKET_CLOSE_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_WEB_SOCKET_CLOSE_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_WEB_SOCKET_OPERATION(pub i32);
 impl windows_core::TypeKind for HTTP_WEB_SOCKET_OPERATION {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_WEB_SOCKET_OPERATION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_WEB_SOCKET_OPERATION").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct INTERNET_ACCESS_TYPE(pub u32);
 impl windows_core::TypeKind for INTERNET_ACCESS_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for INTERNET_ACCESS_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INTERNET_ACCESS_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct INTERNET_AUTODIAL(pub u32);
 impl windows_core::TypeKind for INTERNET_AUTODIAL {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for INTERNET_AUTODIAL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INTERNET_AUTODIAL").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct INTERNET_CONNECTION(pub u32);
 impl windows_core::TypeKind for INTERNET_CONNECTION {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for INTERNET_CONNECTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INTERNET_CONNECTION").field(&self.0).finish()
-    }
 }
 impl INTERNET_CONNECTION {
     pub const fn contains(&self, other: Self) -> bool {
@@ -3769,70 +3654,40 @@ impl core::ops::Not for INTERNET_CONNECTION {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct INTERNET_COOKIE_FLAGS(pub u32);
 impl windows_core::TypeKind for INTERNET_COOKIE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for INTERNET_COOKIE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INTERNET_COOKIE_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct INTERNET_PER_CONN(pub u32);
 impl windows_core::TypeKind for INTERNET_PER_CONN {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for INTERNET_PER_CONN {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INTERNET_PER_CONN").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct INTERNET_SCHEME(pub i32);
 impl windows_core::TypeKind for INTERNET_SCHEME {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for INTERNET_SCHEME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INTERNET_SCHEME").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct INTERNET_STATE(pub u32);
 impl windows_core::TypeKind for INTERNET_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for INTERNET_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INTERNET_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct InternetCookieState(pub i32);
 impl windows_core::TypeKind for InternetCookieState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for InternetCookieState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("InternetCookieState").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PROXY_AUTO_DETECT_TYPE(pub u32);
 impl windows_core::TypeKind for PROXY_AUTO_DETECT_TYPE {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PROXY_AUTO_DETECT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PROXY_AUTO_DETECT_TYPE").field(&self.0).finish()
-    }
 }
 impl PROXY_AUTO_DETECT_TYPE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -3868,136 +3723,116 @@ impl core::ops::Not for PROXY_AUTO_DETECT_TYPE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct REQUEST_TIMES(pub i32);
 impl windows_core::TypeKind for REQUEST_TIMES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for REQUEST_TIMES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("REQUEST_TIMES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct URL_CACHE_LIMIT_TYPE(pub i32);
 impl windows_core::TypeKind for URL_CACHE_LIMIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for URL_CACHE_LIMIT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("URL_CACHE_LIMIT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct WININET_SYNC_MODE(pub i32);
 impl windows_core::TypeKind for WININET_SYNC_MODE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WININET_SYNC_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WININET_SYNC_MODE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct WPAD_CACHE_DELETE(pub i32);
 impl windows_core::TypeKind for WPAD_CACHE_DELETE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WPAD_CACHE_DELETE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WPAD_CACHE_DELETE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct APP_CACHE_DOWNLOAD_ENTRY {
     pub pwszUrl: windows_core::PWSTR,
     pub dwEntryType: u32,
-}
-impl windows_core::TypeKind for APP_CACHE_DOWNLOAD_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for APP_CACHE_DOWNLOAD_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for APP_CACHE_DOWNLOAD_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct APP_CACHE_DOWNLOAD_LIST {
     pub dwEntryCount: u32,
     pub pEntries: *mut APP_CACHE_DOWNLOAD_ENTRY,
-}
-impl windows_core::TypeKind for APP_CACHE_DOWNLOAD_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for APP_CACHE_DOWNLOAD_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for APP_CACHE_DOWNLOAD_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct APP_CACHE_GROUP_INFO {
     pub pwszManifestUrl: windows_core::PWSTR,
     pub ftLastAccessTime: super::super::Foundation::FILETIME,
     pub ullSize: u64,
-}
-impl windows_core::TypeKind for APP_CACHE_GROUP_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for APP_CACHE_GROUP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for APP_CACHE_GROUP_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct APP_CACHE_GROUP_LIST {
     pub dwAppCacheGroupCount: u32,
     pub pAppCacheGroups: *mut APP_CACHE_GROUP_INFO,
-}
-impl windows_core::TypeKind for APP_CACHE_GROUP_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for APP_CACHE_GROUP_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for APP_CACHE_GROUP_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct AUTO_PROXY_SCRIPT_BUFFER {
     pub dwStructSize: u32,
     pub lpszScriptBuffer: windows_core::PSTR,
     pub dwScriptBufferSize: u32,
-}
-impl windows_core::TypeKind for AUTO_PROXY_SCRIPT_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for AUTO_PROXY_SCRIPT_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for AUTO_PROXY_SCRIPT_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct AutoProxyHelperFunctions {
     pub lpVtbl: *const AutoProxyHelperVtbl,
-}
-impl windows_core::TypeKind for AutoProxyHelperFunctions {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for AutoProxyHelperFunctions {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for AutoProxyHelperFunctions {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct AutoProxyHelperVtbl {
     pub IsResolvable: isize,
     pub GetIPAddress: isize,
@@ -4009,16 +3844,16 @@ pub struct AutoProxyHelperVtbl {
     pub IsInNetEx: isize,
     pub SortIpList: isize,
 }
-impl windows_core::TypeKind for AutoProxyHelperVtbl {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for AutoProxyHelperVtbl {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for AutoProxyHelperVtbl {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct COOKIE_DLG_INFO {
     pub pszServer: windows_core::PWSTR,
     pub pic: *mut INTERNET_COOKIE,
@@ -4028,87 +3863,87 @@ pub struct COOKIE_DLG_INFO {
     pub pszHeader: windows_core::PWSTR,
     pub dwOperation: u32,
 }
-impl windows_core::TypeKind for COOKIE_DLG_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for COOKIE_DLG_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for COOKIE_DLG_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CookieDecision {
     pub dwCookieState: u32,
     pub fAllowSession: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for CookieDecision {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CookieDecision {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CookieDecision {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     pub ShortAbstract: *mut i8,
     pub AbstractFile: *mut i8,
-}
-impl windows_core::TypeKind for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE {
     pub Comment: *mut i8,
     pub EmailAddress: *mut i8,
-}
-impl windows_core::TypeKind for GOPHER_ADMIN_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_ADMIN_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_ADMIN_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_ASK_ATTRIBUTE_TYPE {
     pub QuestionType: *mut i8,
     pub QuestionText: *mut i8,
-}
-impl windows_core::TypeKind for GOPHER_ASK_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_ASK_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_ASK_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct GOPHER_ATTRIBUTE_TYPE {
     pub CategoryId: u32,
     pub AttributeId: u32,
     pub AttributeType: GOPHER_ATTRIBUTE_TYPE_0,
-}
-impl windows_core::TypeKind for GOPHER_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union GOPHER_ATTRIBUTE_TYPE_0 {
     pub Admin: GOPHER_ADMIN_ATTRIBUTE_TYPE,
     pub ModDate: GOPHER_MOD_DATE_ATTRIBUTE_TYPE,
@@ -4128,16 +3963,16 @@ pub union GOPHER_ATTRIBUTE_TYPE_0 {
     pub Ask: GOPHER_ASK_ATTRIBUTE_TYPE,
     pub Unknown: GOPHER_UNKNOWN_ATTRIBUTE_TYPE,
 }
-impl windows_core::TypeKind for GOPHER_ATTRIBUTE_TYPE_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for GOPHER_ATTRIBUTE_TYPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_ATTRIBUTE_TYPE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_FIND_DATAA {
     pub DisplayString: [i8; 129],
     pub GopherType: GOPHER_TYPE,
@@ -4146,16 +3981,16 @@ pub struct GOPHER_FIND_DATAA {
     pub LastModificationTime: super::super::Foundation::FILETIME,
     pub Locator: [i8; 654],
 }
-impl windows_core::TypeKind for GOPHER_FIND_DATAA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for GOPHER_FIND_DATAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_FIND_DATAA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_FIND_DATAW {
     pub DisplayString: [u16; 129],
     pub GopherType: GOPHER_TYPE,
@@ -4164,16 +3999,16 @@ pub struct GOPHER_FIND_DATAW {
     pub LastModificationTime: super::super::Foundation::FILETIME,
     pub Locator: [u16; 654],
 }
-impl windows_core::TypeKind for GOPHER_FIND_DATAW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for GOPHER_FIND_DATAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_FIND_DATAW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
     pub DegreesNorth: i32,
     pub MinutesNorth: i32,
@@ -4182,217 +4017,220 @@ pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
     pub MinutesEast: i32,
     pub SecondsEast: i32,
 }
-impl windows_core::TypeKind for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_LOCATION_ATTRIBUTE_TYPE {
     pub Location: *mut i8,
-}
-impl windows_core::TypeKind for GOPHER_LOCATION_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_LOCATION_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_LOCATION_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
     pub DateAndTime: super::super::Foundation::FILETIME,
-}
-impl windows_core::TypeKind for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     pub Organization: *mut i8,
-}
-impl windows_core::TypeKind for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_PROVIDER_ATTRIBUTE_TYPE {
     pub Provider: *mut i8,
-}
-impl windows_core::TypeKind for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_SCORE_ATTRIBUTE_TYPE {
     pub Score: i32,
-}
-impl windows_core::TypeKind for GOPHER_SCORE_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_SCORE_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_SCORE_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
     pub LowerBound: i32,
     pub UpperBound: i32,
-}
-impl windows_core::TypeKind for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_SITE_ATTRIBUTE_TYPE {
     pub Site: *mut i8,
-}
-impl windows_core::TypeKind for GOPHER_SITE_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_SITE_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_SITE_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
     pub Zone: i32,
-}
-impl windows_core::TypeKind for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_TTL_ATTRIBUTE_TYPE {
     pub Ttl: u32,
-}
-impl windows_core::TypeKind for GOPHER_TTL_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_TTL_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_TTL_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     pub Text: *mut i8,
-}
-impl windows_core::TypeKind for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_VERONICA_ATTRIBUTE_TYPE {
     pub TreeWalk: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for GOPHER_VERONICA_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_VERONICA_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_VERONICA_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_VERSION_ATTRIBUTE_TYPE {
     pub Version: *mut i8,
-}
-impl windows_core::TypeKind for GOPHER_VERSION_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_VERSION_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_VERSION_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GOPHER_VIEW_ATTRIBUTE_TYPE {
     pub ContentType: *mut i8,
     pub Language: *mut i8,
     pub Size: u32,
-}
-impl windows_core::TypeKind for GOPHER_VIEW_ATTRIBUTE_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GOPHER_VIEW_ATTRIBUTE_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GOPHER_VIEW_ATTRIBUTE_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_PUSH_NOTIFICATION_STATUS {
     pub ChannelStatusValid: super::super::Foundation::BOOL,
     pub ChannelStatus: u32,
-}
-impl windows_core::TypeKind for HTTP_PUSH_NOTIFICATION_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_PUSH_NOTIFICATION_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_PUSH_NOTIFICATION_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_PUSH_TRANSPORT_SETTING {
     pub TransportSettingId: windows_core::GUID,
     pub BrokerEventId: windows_core::GUID,
-}
-impl windows_core::TypeKind for HTTP_PUSH_TRANSPORT_SETTING {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_PUSH_TRANSPORT_SETTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_PUSH_TRANSPORT_SETTING {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTTP_PUSH_WAIT_HANDLE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HTTP_PUSH_WAIT_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl HTTP_PUSH_WAIT_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -4403,71 +4241,68 @@ impl Default for HTTP_PUSH_WAIT_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HTTP_PUSH_WAIT_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_REQUEST_TIMES {
     pub cTimes: u32,
     pub rgTimes: [u64; 32],
-}
-impl windows_core::TypeKind for HTTP_REQUEST_TIMES {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_REQUEST_TIMES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_REQUEST_TIMES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_WEB_SOCKET_ASYNC_RESULT {
     pub AsyncResult: INTERNET_ASYNC_RESULT,
     pub Operation: HTTP_WEB_SOCKET_OPERATION,
     pub BufferType: HTTP_WEB_SOCKET_BUFFER_TYPE,
     pub dwBytesTransferred: u32,
 }
-impl windows_core::TypeKind for HTTP_WEB_SOCKET_ASYNC_RESULT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_WEB_SOCKET_ASYNC_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_WEB_SOCKET_ASYNC_RESULT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_ASYNC_RESULT {
     pub dwResult: usize,
     pub dwError: u32,
-}
-impl windows_core::TypeKind for INTERNET_ASYNC_RESULT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_ASYNC_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_ASYNC_RESULT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_AUTH_NOTIFY_DATA {
     pub cbStruct: u32,
     pub dwOptions: u32,
     pub pfnNotify: PFN_AUTH_NOTIFY,
     pub dwContext: usize,
 }
-impl windows_core::TypeKind for INTERNET_AUTH_NOTIFY_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_AUTH_NOTIFY_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_AUTH_NOTIFY_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_BUFFERSA {
     pub dwStructSize: u32,
     pub Next: *mut INTERNET_BUFFERSA,
@@ -4480,16 +4315,16 @@ pub struct INTERNET_BUFFERSA {
     pub dwOffsetLow: u32,
     pub dwOffsetHigh: u32,
 }
-impl windows_core::TypeKind for INTERNET_BUFFERSA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_BUFFERSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_BUFFERSA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_BUFFERSW {
     pub dwStructSize: u32,
     pub Next: *mut INTERNET_BUFFERSW,
@@ -4502,16 +4337,16 @@ pub struct INTERNET_BUFFERSW {
     pub dwOffsetLow: u32,
     pub dwOffsetHigh: u32,
 }
-impl windows_core::TypeKind for INTERNET_BUFFERSW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_BUFFERSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_BUFFERSW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INTERNET_CACHE_CONFIG_INFOA {
     pub dwStructSize: u32,
     pub dwContainer: u32,
@@ -4524,44 +4359,44 @@ pub struct INTERNET_CACHE_CONFIG_INFOA {
     pub dwNormalUsage: u32,
     pub dwExemptUsage: u32,
 }
-impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_CACHE_CONFIG_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union INTERNET_CACHE_CONFIG_INFOA_0 {
     pub Anonymous: INTERNET_CACHE_CONFIG_INFOA_0_0,
     pub CachePaths: [INTERNET_CACHE_CONFIG_PATH_ENTRYA; 1],
-}
-impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_CACHE_CONFIG_INFOA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOA_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONFIG_INFOA_0_0 {
     pub CachePath: [i8; 260],
     pub dwCacheSize: u32,
-}
-impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOA_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_CACHE_CONFIG_INFOA_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOA_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INTERNET_CACHE_CONFIG_INFOW {
     pub dwStructSize: u32,
     pub dwContainer: u32,
@@ -4574,72 +4409,72 @@ pub struct INTERNET_CACHE_CONFIG_INFOW {
     pub dwNormalUsage: u32,
     pub dwExemptUsage: u32,
 }
-impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_CACHE_CONFIG_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union INTERNET_CACHE_CONFIG_INFOW_0 {
     pub Anonymous: INTERNET_CACHE_CONFIG_INFOW_0_0,
     pub CachePaths: [INTERNET_CACHE_CONFIG_PATH_ENTRYW; 1],
-}
-impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOW_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_CACHE_CONFIG_INFOW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOW_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONFIG_INFOW_0_0 {
     pub CachePath: [u16; 260],
     pub dwCacheSize: u32,
-}
-impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOW_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_INFOW_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     pub CachePath: [i8; 260],
     pub dwCacheSize: u32,
-}
-impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYW {
     pub CachePath: [u16; 260],
     pub dwCacheSize: u32,
-}
-impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_CONFIG_PATH_ENTRYW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONTAINER_INFOA {
     pub dwCacheVersion: u32,
     pub lpszName: windows_core::PSTR,
@@ -4647,16 +4482,16 @@ pub struct INTERNET_CACHE_CONTAINER_INFOA {
     pub lpszVolumeLabel: windows_core::PSTR,
     pub lpszVolumeTitle: windows_core::PSTR,
 }
-impl windows_core::TypeKind for INTERNET_CACHE_CONTAINER_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_CACHE_CONTAINER_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_CONTAINER_INFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_CACHE_CONTAINER_INFOW {
     pub dwCacheVersion: u32,
     pub lpszName: windows_core::PWSTR,
@@ -4664,16 +4499,16 @@ pub struct INTERNET_CACHE_CONTAINER_INFOW {
     pub lpszVolumeLabel: windows_core::PWSTR,
     pub lpszVolumeTitle: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for INTERNET_CACHE_CONTAINER_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_CACHE_CONTAINER_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_CONTAINER_INFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INTERNET_CACHE_ENTRY_INFOA {
     pub dwStructSize: u32,
     pub lpszSourceUrlName: windows_core::PSTR,
@@ -4692,30 +4527,30 @@ pub struct INTERNET_CACHE_ENTRY_INFOA {
     pub lpszFileExtension: windows_core::PSTR,
     pub Anonymous: INTERNET_CACHE_ENTRY_INFOA_0,
 }
-impl windows_core::TypeKind for INTERNET_CACHE_ENTRY_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_CACHE_ENTRY_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_ENTRY_INFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union INTERNET_CACHE_ENTRY_INFOA_0 {
     pub dwReserved: u32,
     pub dwExemptDelta: u32,
-}
-impl windows_core::TypeKind for INTERNET_CACHE_ENTRY_INFOA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_CACHE_ENTRY_INFOA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_ENTRY_INFOA_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INTERNET_CACHE_ENTRY_INFOW {
     pub dwStructSize: u32,
     pub lpszSourceUrlName: windows_core::PWSTR,
@@ -4734,30 +4569,30 @@ pub struct INTERNET_CACHE_ENTRY_INFOW {
     pub lpszFileExtension: windows_core::PWSTR,
     pub Anonymous: INTERNET_CACHE_ENTRY_INFOW_0,
 }
-impl windows_core::TypeKind for INTERNET_CACHE_ENTRY_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_CACHE_ENTRY_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_ENTRY_INFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union INTERNET_CACHE_ENTRY_INFOW_0 {
     pub dwReserved: u32,
     pub dwExemptDelta: u32,
-}
-impl windows_core::TypeKind for INTERNET_CACHE_ENTRY_INFOW_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_CACHE_ENTRY_INFOW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_ENTRY_INFOW_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_CACHE_GROUP_INFOA {
     pub dwGroupSize: u32,
     pub dwGroupFlags: u32,
@@ -4767,16 +4602,16 @@ pub struct INTERNET_CACHE_GROUP_INFOA {
     pub dwOwnerStorage: [u32; 4],
     pub szGroupName: [i8; 120],
 }
-impl windows_core::TypeKind for INTERNET_CACHE_GROUP_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_CACHE_GROUP_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_GROUP_INFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_CACHE_GROUP_INFOW {
     pub dwGroupSize: u32,
     pub dwGroupFlags: u32,
@@ -4786,30 +4621,30 @@ pub struct INTERNET_CACHE_GROUP_INFOW {
     pub dwOwnerStorage: [u32; 4],
     pub szGroupName: [u16; 120],
 }
-impl windows_core::TypeKind for INTERNET_CACHE_GROUP_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_CACHE_GROUP_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_GROUP_INFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_CACHE_TIMESTAMPS {
     pub ftExpires: super::super::Foundation::FILETIME,
     pub ftLastModified: super::super::Foundation::FILETIME,
-}
-impl windows_core::TypeKind for INTERNET_CACHE_TIMESTAMPS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_CACHE_TIMESTAMPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CACHE_TIMESTAMPS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_CALLBACK_COOKIE {
     pub pcwszName: windows_core::PCWSTR,
     pub pcwszValue: windows_core::PCWSTR,
@@ -4818,16 +4653,16 @@ pub struct INTERNET_CALLBACK_COOKIE {
     pub ftExpires: super::super::Foundation::FILETIME,
     pub dwFlags: u32,
 }
-impl windows_core::TypeKind for INTERNET_CALLBACK_COOKIE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_CALLBACK_COOKIE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CALLBACK_COOKIE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_CERTIFICATE_INFO {
     pub ftExpiry: super::super::Foundation::FILETIME,
     pub ftStart: super::super::Foundation::FILETIME,
@@ -4838,30 +4673,30 @@ pub struct INTERNET_CERTIFICATE_INFO {
     pub lpszEncryptionAlgName: *mut i8,
     pub dwKeySize: u32,
 }
-impl windows_core::TypeKind for INTERNET_CERTIFICATE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_CERTIFICATE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CERTIFICATE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_CONNECTED_INFO {
     pub dwConnectedState: INTERNET_STATE,
     pub dwFlags: u32,
-}
-impl windows_core::TypeKind for INTERNET_CONNECTED_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_CONNECTED_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CONNECTED_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_COOKIE {
     pub cbSize: u32,
     pub pszName: windows_core::PSTR,
@@ -4873,16 +4708,16 @@ pub struct INTERNET_COOKIE {
     pub pszUrl: windows_core::PSTR,
     pub pszP3PPolicy: windows_core::PSTR,
 }
-impl windows_core::TypeKind for INTERNET_COOKIE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_COOKIE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_COOKIE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_COOKIE2 {
     pub pwszName: windows_core::PWSTR,
     pub pwszValue: windows_core::PWSTR,
@@ -4892,16 +4727,16 @@ pub struct INTERNET_COOKIE2 {
     pub ftExpires: super::super::Foundation::FILETIME,
     pub fExpiresSet: super::super::Foundation::BOOL,
 }
-impl windows_core::TypeKind for INTERNET_COOKIE2 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_COOKIE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_COOKIE2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INTERNET_CREDENTIALS {
     pub lpcwszHostName: windows_core::PCWSTR,
     pub dwPort: u32,
@@ -4911,146 +4746,146 @@ pub struct INTERNET_CREDENTIALS {
     pub fAuthIdentity: super::super::Foundation::BOOL,
     pub Anonymous: INTERNET_CREDENTIALS_0,
 }
-impl windows_core::TypeKind for INTERNET_CREDENTIALS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_CREDENTIALS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CREDENTIALS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union INTERNET_CREDENTIALS_0 {
     pub Anonymous: INTERNET_CREDENTIALS_0_0,
     pub pAuthIdentityOpaque: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for INTERNET_CREDENTIALS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_CREDENTIALS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CREDENTIALS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_CREDENTIALS_0_0 {
     pub lpcwszUserName: windows_core::PCWSTR,
     pub lpcwszPassword: windows_core::PCWSTR,
-}
-impl windows_core::TypeKind for INTERNET_CREDENTIALS_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_CREDENTIALS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_CREDENTIALS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_DIAGNOSTIC_SOCKET_INFO {
     pub Socket: usize,
     pub SourcePort: u32,
     pub DestPort: u32,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for INTERNET_DIAGNOSTIC_SOCKET_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_DIAGNOSTIC_SOCKET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_DIAGNOSTIC_SOCKET_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_DOWNLOAD_MODE_HANDLE {
     pub pcwszFileName: windows_core::PCWSTR,
     pub phFile: *mut super::super::Foundation::HANDLE,
-}
-impl windows_core::TypeKind for INTERNET_DOWNLOAD_MODE_HANDLE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_DOWNLOAD_MODE_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_DOWNLOAD_MODE_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_END_BROWSER_SESSION_DATA {
     pub lpBuffer: *mut core::ffi::c_void,
     pub dwBufferLength: u32,
-}
-impl windows_core::TypeKind for INTERNET_END_BROWSER_SESSION_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_END_BROWSER_SESSION_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_END_BROWSER_SESSION_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INTERNET_PER_CONN_OPTIONA {
     pub dwOption: INTERNET_PER_CONN,
     pub Value: INTERNET_PER_CONN_OPTIONA_0,
-}
-impl windows_core::TypeKind for INTERNET_PER_CONN_OPTIONA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_PER_CONN_OPTIONA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_PER_CONN_OPTIONA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union INTERNET_PER_CONN_OPTIONA_0 {
     pub dwValue: u32,
     pub pszValue: windows_core::PSTR,
     pub ftValue: super::super::Foundation::FILETIME,
-}
-impl windows_core::TypeKind for INTERNET_PER_CONN_OPTIONA_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_PER_CONN_OPTIONA_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_PER_CONN_OPTIONA_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INTERNET_PER_CONN_OPTIONW {
     pub dwOption: INTERNET_PER_CONN,
     pub Value: INTERNET_PER_CONN_OPTIONW_0,
-}
-impl windows_core::TypeKind for INTERNET_PER_CONN_OPTIONW {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_PER_CONN_OPTIONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_PER_CONN_OPTIONW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union INTERNET_PER_CONN_OPTIONW_0 {
     pub dwValue: u32,
     pub pszValue: windows_core::PWSTR,
     pub ftValue: super::super::Foundation::FILETIME,
-}
-impl windows_core::TypeKind for INTERNET_PER_CONN_OPTIONW_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_PER_CONN_OPTIONW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_PER_CONN_OPTIONW_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_PER_CONN_OPTION_LISTA {
     pub dwSize: u32,
     pub pszConnection: windows_core::PSTR,
@@ -5058,16 +4893,16 @@ pub struct INTERNET_PER_CONN_OPTION_LISTA {
     pub dwOptionError: u32,
     pub pOptions: *mut INTERNET_PER_CONN_OPTIONA,
 }
-impl windows_core::TypeKind for INTERNET_PER_CONN_OPTION_LISTA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_PER_CONN_OPTION_LISTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_PER_CONN_OPTION_LISTA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_PER_CONN_OPTION_LISTW {
     pub dwSize: u32,
     pub pszConnection: windows_core::PWSTR,
@@ -5075,46 +4910,46 @@ pub struct INTERNET_PER_CONN_OPTION_LISTW {
     pub dwOptionError: u32,
     pub pOptions: *mut INTERNET_PER_CONN_OPTIONW,
 }
-impl windows_core::TypeKind for INTERNET_PER_CONN_OPTION_LISTW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_PER_CONN_OPTION_LISTW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_PER_CONN_OPTION_LISTW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_PREFETCH_STATUS {
     pub dwStatus: u32,
     pub dwSize: u32,
-}
-impl windows_core::TypeKind for INTERNET_PREFETCH_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_PREFETCH_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_PREFETCH_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_PROXY_INFO {
     pub dwAccessType: INTERNET_ACCESS_TYPE,
     pub lpszProxy: *mut i8,
     pub lpszProxyBypass: *mut i8,
-}
-impl windows_core::TypeKind for INTERNET_PROXY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_PROXY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_PROXY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_SECURITY_CONNECTION_INFO {
     pub dwSize: u32,
     pub fSecure: super::super::Foundation::BOOL,
@@ -5122,18 +4957,18 @@ pub struct INTERNET_SECURITY_CONNECTION_INFO {
     pub cipherInfo: super::super::Security::Authentication::Identity::SecPkgContext_CipherInfo,
 }
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-impl windows_core::TypeKind for INTERNET_SECURITY_CONNECTION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl Default for INTERNET_SECURITY_CONNECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+impl windows_core::TypeKind for INTERNET_SECURITY_CONNECTION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_SECURITY_INFO {
     pub dwSize: u32,
     pub pCertificate: *const super::super::Security::Cryptography::CERT_CONTEXT,
@@ -5144,17 +4979,17 @@ pub struct INTERNET_SECURITY_INFO {
     pub channelBindingToken: super::super::Security::Authentication::Identity::SecPkgContext_Bindings,
 }
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
-impl windows_core::TypeKind for INTERNET_SECURITY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
 impl Default for INTERNET_SECURITY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
+impl windows_core::TypeKind for INTERNET_SECURITY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_SERVER_CONNECTION_STATE {
     pub lpcwszHostName: windows_core::PCWSTR,
     pub fProxy: super::super::Foundation::BOOL,
@@ -5165,30 +5000,30 @@ pub struct INTERNET_SERVER_CONNECTION_STATE {
     pub dwActiveConnections: u32,
     pub dwWaiters: u32,
 }
-impl windows_core::TypeKind for INTERNET_SERVER_CONNECTION_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INTERNET_SERVER_CONNECTION_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_SERVER_CONNECTION_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INTERNET_VERSION_INFO {
     pub dwMajorVersion: u32,
     pub dwMinorVersion: u32,
-}
-impl windows_core::TypeKind for INTERNET_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INTERNET_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INTERNET_VERSION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct IncomingCookieState {
     pub cSession: i32,
     pub cPersistent: i32,
@@ -5198,64 +5033,64 @@ pub struct IncomingCookieState {
     pub cBlocked: i32,
     pub pszLocation: windows_core::PCSTR,
 }
-impl windows_core::TypeKind for IncomingCookieState {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for IncomingCookieState {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for IncomingCookieState {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct InternetCookieHistory {
     pub fAccepted: super::super::Foundation::BOOL,
     pub fLeashed: super::super::Foundation::BOOL,
     pub fDowngraded: super::super::Foundation::BOOL,
     pub fRejected: super::super::Foundation::BOOL,
 }
-impl windows_core::TypeKind for InternetCookieHistory {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for InternetCookieHistory {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for InternetCookieHistory {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct OutgoingCookieState {
     pub cSent: i32,
     pub cSuppressed: i32,
     pub pszLocation: windows_core::PCSTR,
-}
-impl windows_core::TypeKind for OutgoingCookieState {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for OutgoingCookieState {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for OutgoingCookieState {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ProofOfPossessionCookieInfo {
     pub name: windows_core::PWSTR,
     pub data: windows_core::PWSTR,
     pub flags: u32,
     pub p3pHeader: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for ProofOfPossessionCookieInfo {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ProofOfPossessionCookieInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ProofOfPossessionCookieInfo {
+    type TypeKind = windows_core::CopyType;
+}
 pub const ProofOfPossessionCookieInfoManager: windows_core::GUID = windows_core::GUID::from_u128(0xa9927f85_a304_4390_8b23_a75f1c668600);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct URLCACHE_ENTRY_INFO {
     pub pwszSourceUrlName: windows_core::PWSTR,
     pub pwszLocalFileName: windows_core::PWSTR,
@@ -5273,16 +5108,16 @@ pub struct URLCACHE_ENTRY_INFO {
     pub pbExtraData: *mut u8,
     pub cbExtraDataSize: u32,
 }
-impl windows_core::TypeKind for URLCACHE_ENTRY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for URLCACHE_ENTRY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for URLCACHE_ENTRY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct URL_COMPONENTSA {
     pub dwStructSize: u32,
     pub lpszScheme: windows_core::PSTR,
@@ -5300,16 +5135,16 @@ pub struct URL_COMPONENTSA {
     pub lpszExtraInfo: windows_core::PSTR,
     pub dwExtraInfoLength: u32,
 }
-impl windows_core::TypeKind for URL_COMPONENTSA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for URL_COMPONENTSA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for URL_COMPONENTSA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct URL_COMPONENTSW {
     pub dwStructSize: u32,
     pub lpszScheme: windows_core::PWSTR,
@@ -5327,16 +5162,16 @@ pub struct URL_COMPONENTSW {
     pub lpszExtraInfo: windows_core::PWSTR,
     pub dwExtraInfoLength: u32,
 }
-impl windows_core::TypeKind for URL_COMPONENTSW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for URL_COMPONENTSW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for URL_COMPONENTSW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WININET_PROXY_INFO {
     pub fProxy: super::super::Foundation::BOOL,
     pub fBypass: super::super::Foundation::BOOL,
@@ -5344,27 +5179,27 @@ pub struct WININET_PROXY_INFO {
     pub pwszProxy: windows_core::PWSTR,
     pub ProxyPort: u16,
 }
-impl windows_core::TypeKind for WININET_PROXY_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WININET_PROXY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WININET_PROXY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WININET_PROXY_INFO_LIST {
     pub dwProxyInfoCount: u32,
     pub pProxyInfo: *mut WININET_PROXY_INFO,
-}
-impl windows_core::TypeKind for WININET_PROXY_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WININET_PROXY_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for WININET_PROXY_INFO_LIST {
+    type TypeKind = windows_core::CopyType;
 }
 pub type CACHE_OPERATOR = Option<unsafe extern "system" fn(pcei: *mut INTERNET_CACHE_ENTRY_INFOA, pcbcei: *mut u32, popdata: *mut core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type GOPHER_ATTRIBUTE_ENUMERATOR = Option<unsafe extern "system" fn(lpattributeinfo: *const GOPHER_ATTRIBUTE_TYPE, dwerror: u32) -> super::super::Foundation::BOOL>;

@@ -1,7 +1,7 @@
 #[inline]
-pub unsafe fn CallEnclave<P0>(lproutine: isize, lpparameter: *const core::ffi::c_void, fwaitforthread: P0, lpreturnvalue: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn CallEnclave<P2>(lproutine: isize, lpparameter: *const core::ffi::c_void, fwaitforthread: P2, lpreturnvalue: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("vertdll.dll" "system" fn CallEnclave(lproutine : isize, lpparameter : *const core::ffi::c_void, fwaitforthread : super::super::Foundation:: BOOL, lpreturnvalue : *mut *mut core::ffi::c_void) -> super::super::Foundation:: BOOL);
     CallEnclave(lproutine, lpparameter, fwaitforthread.param().abi(), lpreturnvalue).ok()
@@ -15,10 +15,10 @@ where
     CreateEnclave(hprocess.param().abi(), core::mem::transmute(lpaddress.unwrap_or(core::ptr::null())), dwsize, dwinitialcommitment, flenclavetype, lpenclaveinformation, dwinfolength, core::mem::transmute(lpenclaveerror.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn CreateEnvironmentBlock<P0, P1>(lpenvironment: *mut *mut core::ffi::c_void, htoken: P0, binherit: P1) -> windows_core::Result<()>
+pub unsafe fn CreateEnvironmentBlock<P1, P2>(lpenvironment: *mut *mut core::ffi::c_void, htoken: P1, binherit: P2) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("userenv.dll" "system" fn CreateEnvironmentBlock(lpenvironment : *mut *mut core::ffi::c_void, htoken : super::super::Foundation:: HANDLE, binherit : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     CreateEnvironmentBlock(lpenvironment, htoken.param().abi(), binherit.param().abi()).ok()
@@ -176,17 +176,17 @@ where
     LoadEnclaveData(hprocess.param().abi(), lpaddress, lpbuffer, nsize, flprotect, lppageinformation, dwinfolength, lpnumberofbyteswritten, core::mem::transmute(lpenclaveerror.unwrap_or(core::ptr::null_mut()))).ok()
 }
 #[inline]
-pub unsafe fn LoadEnclaveImageA<P0>(lpenclaveaddress: *const core::ffi::c_void, lpimagename: P0) -> super::super::Foundation::BOOL
+pub unsafe fn LoadEnclaveImageA<P1>(lpenclaveaddress: *const core::ffi::c_void, lpimagename: P1) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn LoadEnclaveImageA(lpenclaveaddress : *const core::ffi::c_void, lpimagename : windows_core::PCSTR) -> super::super::Foundation:: BOOL);
     LoadEnclaveImageA(lpenclaveaddress, lpimagename.param().abi())
 }
 #[inline]
-pub unsafe fn LoadEnclaveImageW<P0>(lpenclaveaddress: *const core::ffi::c_void, lpimagename: P0) -> windows_core::Result<()>
+pub unsafe fn LoadEnclaveImageW<P1>(lpenclaveaddress: *const core::ffi::c_void, lpimagename: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn LoadEnclaveImageW(lpenclaveaddress : *const core::ffi::c_void, lpimagename : windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     LoadEnclaveImageW(lpenclaveaddress, lpimagename.param().abi()).ok()
@@ -250,9 +250,9 @@ where
     SetEnvironmentVariableW(lpname.param().abi(), lpvalue.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn TerminateEnclave<P0>(lpaddress: *const core::ffi::c_void, fwait: P0) -> windows_core::Result<()>
+pub unsafe fn TerminateEnclave<P1>(lpaddress: *const core::ffi::c_void, fwait: P1) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("vertdll.dll" "system" fn TerminateEnclave(lpaddress : *const core::ffi::c_void, fwait : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     TerminateEnclave(lpaddress, fwait.param().abi()).ok()
@@ -280,18 +280,13 @@ pub const VBS_ENCLAVE_REPORT_VERSION_CURRENT: u32 = 1u32;
 pub const VBS_ENCLAVE_VARDATA_INVALID: u32 = 0u32;
 pub const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1u32;
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ENCLAVE_SEALING_IDENTITY_POLICY(pub i32);
 impl windows_core::TypeKind for ENCLAVE_SEALING_IDENTITY_POLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ENCLAVE_SEALING_IDENTITY_POLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ENCLAVE_SEALING_IDENTITY_POLICY").field(&self.0).finish()
-    }
-}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ENCLAVE_IDENTITY {
     pub OwnerId: [u8; 32],
     pub UniqueId: [u8; 32],
@@ -305,16 +300,16 @@ pub struct ENCLAVE_IDENTITY {
     pub SigningLevel: u32,
     pub EnclaveType: u32,
 }
-impl windows_core::TypeKind for ENCLAVE_IDENTITY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ENCLAVE_IDENTITY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ENCLAVE_IDENTITY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct ENCLAVE_INFORMATION {
     pub EnclaveType: u32,
     pub Reserved: u32,
@@ -322,16 +317,16 @@ pub struct ENCLAVE_INFORMATION {
     pub Size: usize,
     pub Identity: ENCLAVE_IDENTITY,
 }
-impl windows_core::TypeKind for ENCLAVE_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ENCLAVE_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ENCLAVE_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
     pub RequestSize: u32,
     pub Flags: u32,
@@ -339,16 +334,16 @@ pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
     pub SystemKeyID: u32,
     pub CurrentSystemKeyID: u32,
 }
-impl windows_core::TypeKind for ENCLAVE_VBS_BASIC_KEY_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for ENCLAVE_VBS_BASIC_KEY_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ENCLAVE_VBS_BASIC_KEY_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     pub ExceptionCode: u32,
     pub NumberParameters: u32,
@@ -359,16 +354,16 @@ pub struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     pub ExceptionRFLAGS: usize,
     pub ExceptionRSP: usize,
 }
-impl windows_core::TypeKind for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     pub ReturnFromEnclave: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE,
     pub ReturnFromException: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION,
@@ -384,16 +379,16 @@ pub struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     pub VerifyReport: VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT,
     pub GenerateRandomData: VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA,
 }
-impl windows_core::TypeKind for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     pub ThreadContext: [u32; 4],
     pub EntryPoint: u32,
@@ -402,16 +397,16 @@ pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     pub ExceptionStack: u32,
     pub ExceptionActive: u32,
 }
-impl windows_core::TypeKind for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     pub ThreadContext: [u64; 4],
     pub EntryPoint: u64,
@@ -420,32 +415,32 @@ pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     pub ExceptionStack: u64,
     pub ExceptionActive: u32,
 }
-impl windows_core::TypeKind for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VBS_ENCLAVE_REPORT {
     pub ReportSize: u32,
     pub ReportVersion: u32,
     pub EnclaveData: [u8; 64],
     pub EnclaveIdentity: ENCLAVE_IDENTITY,
 }
-impl windows_core::TypeKind for VBS_ENCLAVE_REPORT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for VBS_ENCLAVE_REPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for VBS_ENCLAVE_REPORT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VBS_ENCLAVE_REPORT_MODULE {
     pub Header: VBS_ENCLAVE_REPORT_VARDATA_HEADER,
     pub UniqueId: [u8; 32],
@@ -455,16 +450,16 @@ pub struct VBS_ENCLAVE_REPORT_MODULE {
     pub Svn: u32,
     pub ModuleName: [u16; 1],
 }
-impl windows_core::TypeKind for VBS_ENCLAVE_REPORT_MODULE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for VBS_ENCLAVE_REPORT_MODULE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for VBS_ENCLAVE_REPORT_MODULE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
     pub PackageSize: u32,
     pub Version: u32,
@@ -473,27 +468,27 @@ pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
     pub SignatureSize: u32,
     pub Reserved: u32,
 }
-impl windows_core::TypeKind for VBS_ENCLAVE_REPORT_PKG_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for VBS_ENCLAVE_REPORT_PKG_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for VBS_ENCLAVE_REPORT_PKG_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     pub DataType: u32,
     pub Size: u32,
-}
-impl windows_core::TypeKind for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
+    type TypeKind = windows_core::CopyType;
 }
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = Option<unsafe extern "system" fn(enclaveaddress: *const core::ffi::c_void, numberofbytes: usize, sourceaddress: *const core::ffi::c_void, pageprotection: u32) -> i32>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]

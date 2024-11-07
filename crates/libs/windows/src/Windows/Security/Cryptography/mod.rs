@@ -135,9 +135,9 @@ impl CryptographicBuffer {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ConvertBinaryToString<P0>(encoding: BinaryStringEncoding, buffer: P0) -> windows_core::Result<windows_core::HSTRING>
+    pub fn ConvertBinaryToString<P1>(encoding: BinaryStringEncoding, buffer: P1) -> windows_core::Result<windows_core::HSTRING>
     where
-        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::ICryptographicBufferStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -153,7 +153,7 @@ impl windows_core::RuntimeName for CryptographicBuffer {
     const NAME: &'static str = "Windows.Security.Cryptography.CryptographicBuffer";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct BinaryStringEncoding(pub i32);
 impl BinaryStringEncoding {
     pub const Utf8: Self = Self(0i32);
@@ -162,11 +162,6 @@ impl BinaryStringEncoding {
 }
 impl windows_core::TypeKind for BinaryStringEncoding {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for BinaryStringEncoding {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("BinaryStringEncoding").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for BinaryStringEncoding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.BinaryStringEncoding;i4)");

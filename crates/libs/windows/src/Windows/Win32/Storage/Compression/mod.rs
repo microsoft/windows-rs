@@ -100,33 +100,35 @@ pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = COMPR
 pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(2i32);
 pub const COMPRESS_RAW: u32 = 536870912u32;
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct COMPRESS_ALGORITHM(pub u32);
 impl windows_core::TypeKind for COMPRESS_ALGORITHM {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for COMPRESS_ALGORITHM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COMPRESS_ALGORITHM").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct COMPRESS_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for COMPRESS_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for COMPRESS_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("COMPRESS_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct COMPRESSOR_HANDLE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for COMPRESSOR_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl COMPRESSOR_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+impl windows_core::Free for COMPRESSOR_HANDLE {
+    #[inline]
+    unsafe fn free(&mut self) {
+        if !self.is_invalid() {
+            windows_targets::link!("cabinet.dll" "system" fn CloseCompressor(compressorhandle : *mut core::ffi::c_void) -> i32);
+            CloseCompressor(self.0);
+        }
     }
 }
 impl Default for COMPRESSOR_HANDLE {
@@ -134,27 +136,27 @@ impl Default for COMPRESSOR_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for COMPRESSOR_HANDLE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct COMPRESS_ALLOCATION_ROUTINES {
     pub Allocate: PFN_COMPRESS_ALLOCATE,
     pub Free: PFN_COMPRESS_FREE,
     pub UserContext: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for COMPRESS_ALLOCATION_ROUTINES {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for COMPRESS_ALLOCATION_ROUTINES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for COMPRESS_ALLOCATION_ROUTINES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct DECOMPRESSOR_HANDLE(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for DECOMPRESSOR_HANDLE {
+    type TypeKind = windows_core::CopyType;
+}
 impl DECOMPRESSOR_HANDLE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -164,7 +166,8 @@ impl windows_core::Free for DECOMPRESSOR_HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = CloseDecompressor(*self);
+            windows_targets::link!("cabinet.dll" "system" fn CloseDecompressor(decompressorhandle : *mut core::ffi::c_void) -> i32);
+            CloseDecompressor(self.0);
         }
     }
 }
@@ -172,9 +175,6 @@ impl Default for DECOMPRESSOR_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for DECOMPRESSOR_HANDLE {
-    type TypeKind = windows_core::CopyType;
 }
 pub type PFN_COMPRESS_ALLOCATE = Option<unsafe extern "system" fn(usercontext: *const core::ffi::c_void, size: usize) -> *mut core::ffi::c_void>;
 pub type PFN_COMPRESS_FREE = Option<unsafe extern "system" fn(usercontext: *const core::ffi::c_void, memory: *const core::ffi::c_void)>;

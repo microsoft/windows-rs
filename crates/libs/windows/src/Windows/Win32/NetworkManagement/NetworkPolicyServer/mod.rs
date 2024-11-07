@@ -18,7 +18,7 @@ impl ISdo {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetProperty(&self, id: i32) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), id, &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PutProperty(&self, id: i32, pvalue: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
@@ -44,11 +44,11 @@ pub struct ISdo_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub GetPropertyInfo: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetProperty: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PutProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub PutProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     PutProperty: usize,
     pub ResetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
@@ -57,7 +57,7 @@ pub struct ISdo_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISdo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISdo_Impl: super::super::System::Com::IDispatch_Impl {
     fn GetPropertyInfo(&self, id: i32) -> windows_core::Result<windows_core::IUnknown>;
     fn GetProperty(&self, id: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn PutProperty(&self, id: i32, pvalue: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
@@ -67,10 +67,8 @@ pub trait ISdo_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISdo {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISdo_Vtbl {
-    pub const fn new<Identity: ISdo_Impl, const OFFSET: isize>() -> ISdo_Vtbl {
+    pub const fn new<Identity: ISdo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPropertyInfo<Identity: ISdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, pppropertyinfo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISdo_Impl::GetPropertyInfo(this, core::mem::transmute_copy(&id)) {
@@ -81,7 +79,7 @@ impl ISdo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetProperty<Identity: ISdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, pvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetProperty<Identity: ISdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, pvalue: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISdo_Impl::GetProperty(this, core::mem::transmute_copy(&id)) {
                 Ok(ok__) => {
@@ -91,7 +89,7 @@ impl ISdo_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PutProperty<Identity: ISdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, pvalue: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PutProperty<Identity: ISdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: i32, pvalue: *const super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISdo_Impl::PutProperty(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&pvalue)).into()
         }
@@ -129,9 +127,11 @@ impl ISdo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISdo as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISdo as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISdo {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdoCollection, ISdoCollection_Vtbl, 0x56bc53e2_96db_11d1_bf3f_000000000000);
 #[cfg(feature = "Win32_System_Com")]
@@ -149,14 +149,12 @@ impl ISdoCollection {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<P0>(&self, bstrname: P0, ppitem: *mut Option<super::super::System::Com::IDispatch>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), bstrname.param().abi(), core::mem::transmute(ppitem)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Remove<P0>(&self, pitem: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
@@ -191,25 +189,19 @@ impl ISdoCollection {
 pub struct ISdoCollection_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub Add: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Add: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub Remove: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Remove: usize,
     pub RemoveAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Reload: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub IsNameUnique: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Item: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Item: usize,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISdoCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISdoCollection_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn Add(&self, bstrname: &windows_core::BSTR, ppitem: *mut Option<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn Remove(&self, pitem: Option<&super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
@@ -220,10 +212,8 @@ pub trait ISdoCollection_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISdoCollection {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISdoCollection_Vtbl {
-    pub const fn new<Identity: ISdoCollection_Impl, const OFFSET: isize>() -> ISdoCollection_Vtbl {
+    pub const fn new<Identity: ISdoCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISdoCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISdoCollection_Impl::Count(this) {
@@ -260,7 +250,7 @@ impl ISdoCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ISdoCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: ISdoCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *const super::super::System::Variant::VARIANT, pitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISdoCollection_Impl::Item(this, core::mem::transmute_copy(&name)) {
                 Ok(ok__) => {
@@ -293,9 +283,11 @@ impl ISdoCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISdoCollection as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISdoCollection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISdoCollection {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdoDictionaryOld, ISdoDictionaryOld_Vtbl, 0xd432e5f4_53d8_11d2_9a3a_00c04fb998ac);
 #[cfg(feature = "Win32_System_Com")]
@@ -312,19 +304,18 @@ impl ISdoDictionaryOld {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn EnumAttributes(&self, id: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumAttributes)(windows_core::Interface::as_raw(self), core::mem::transmute(id), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn GetAttributeInfo(&self, id: ATTRIBUTEID, pinfoids: *const super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAttributeInfo)(windows_core::Interface::as_raw(self), id, core::mem::transmute(pinfoids), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAttributeInfo)(windows_core::Interface::as_raw(self), id, core::mem::transmute(pinfoids), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn EnumAttributeValues(&self, id: ATTRIBUTEID, pvalueids: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).EnumAttributeValues)(windows_core::Interface::as_raw(self), id, core::mem::transmute(pvalueids), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).EnumAttributeValues)(windows_core::Interface::as_raw(self), id, core::mem::transmute(pvalueids), &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAttribute(&self, id: ATTRIBUTEID) -> windows_core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateAttribute)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -342,25 +333,22 @@ impl ISdoDictionaryOld {
 pub struct ISdoDictionaryOld_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub EnumAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub EnumAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     EnumAttributes: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub GetAttributeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, ATTRIBUTEID, *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub GetAttributeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, ATTRIBUTEID, *const super::super::System::Variant::VARIANT, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetAttributeInfo: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub EnumAttributeValues: unsafe extern "system" fn(*mut core::ffi::c_void, ATTRIBUTEID, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub EnumAttributeValues: unsafe extern "system" fn(*mut core::ffi::c_void, ATTRIBUTEID, *mut super::super::System::Variant::VARIANT, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     EnumAttributeValues: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub CreateAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, ATTRIBUTEID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CreateAttribute: usize,
     pub GetAttributeID: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut ATTRIBUTEID) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISdoDictionaryOld_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISdoDictionaryOld_Impl: super::super::System::Com::IDispatch_Impl {
     fn EnumAttributes(&self, id: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetAttributeInfo(&self, id: ATTRIBUTEID, pinfoids: *const super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn EnumAttributeValues(&self, id: ATTRIBUTEID, pvalueids: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
@@ -368,11 +356,9 @@ pub trait ISdoDictionaryOld_Impl: Sized + super::super::System::Com::IDispatch_I
     fn GetAttributeID(&self, bstrattributename: &windows_core::BSTR) -> windows_core::Result<ATTRIBUTEID>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISdoDictionaryOld {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISdoDictionaryOld_Vtbl {
-    pub const fn new<Identity: ISdoDictionaryOld_Impl, const OFFSET: isize>() -> ISdoDictionaryOld_Vtbl {
-        unsafe extern "system" fn EnumAttributes<Identity: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pvalues: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+    pub const fn new<Identity: ISdoDictionaryOld_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn EnumAttributes<Identity: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut super::super::System::Variant::VARIANT, pvalues: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISdoDictionaryOld_Impl::EnumAttributes(this, core::mem::transmute_copy(&id)) {
                 Ok(ok__) => {
@@ -382,7 +368,7 @@ impl ISdoDictionaryOld_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetAttributeInfo<Identity: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: ATTRIBUTEID, pinfoids: *const core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pinfovalues: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAttributeInfo<Identity: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: ATTRIBUTEID, pinfoids: *const super::super::System::Variant::VARIANT, pinfovalues: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISdoDictionaryOld_Impl::GetAttributeInfo(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&pinfoids)) {
                 Ok(ok__) => {
@@ -392,7 +378,7 @@ impl ISdoDictionaryOld_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn EnumAttributeValues<Identity: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: ATTRIBUTEID, pvalueids: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pvaluesdesc: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumAttributeValues<Identity: ISdoDictionaryOld_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: ATTRIBUTEID, pvalueids: *mut super::super::System::Variant::VARIANT, pvaluesdesc: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISdoDictionaryOld_Impl::EnumAttributeValues(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&pvalueids)) {
                 Ok(ok__) => {
@@ -432,9 +418,11 @@ impl ISdoDictionaryOld_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISdoDictionaryOld as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISdoDictionaryOld as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISdoDictionaryOld {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdoMachine, ISdoMachine_Vtbl, 0x479f6e75_49a2_11d2_8eca_00c04fc2f519);
 #[cfg(feature = "Win32_System_Com")]
@@ -458,16 +446,16 @@ impl ISdoMachine {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetDictionarySDO)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetServiceSDO<P0>(&self, edatastore: IASDATASTORE, bstrservicename: P0) -> windows_core::Result<windows_core::IUnknown>
+    pub unsafe fn GetServiceSDO<P1>(&self, edatastore: IASDATASTORE, bstrservicename: P1) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetServiceSDO)(windows_core::Interface::as_raw(self), edatastore, bstrservicename.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn GetUserSDO<P0>(&self, edatastore: IASDATASTORE, bstrusername: P0) -> windows_core::Result<windows_core::IUnknown>
+    pub unsafe fn GetUserSDO<P1>(&self, edatastore: IASDATASTORE, bstrusername: P1) -> windows_core::Result<windows_core::IUnknown>
     where
-        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetUserSDO)(windows_core::Interface::as_raw(self), edatastore, bstrusername.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -486,7 +474,7 @@ impl ISdoMachine {
     }
     pub unsafe fn GetAttachedComputer(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAttachedComputer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAttachedComputer)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn GetSDOSchema(&self) -> windows_core::Result<windows_core::IUnknown> {
         let mut result__ = core::mem::zeroed();
@@ -508,7 +496,7 @@ pub struct ISdoMachine_Vtbl {
     pub GetSDOSchema: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISdoMachine_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISdoMachine_Impl: super::super::System::Com::IDispatch_Impl {
     fn Attach(&self, bstrcomputername: &windows_core::BSTR) -> windows_core::Result<()>;
     fn GetDictionarySDO(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn GetServiceSDO(&self, edatastore: IASDATASTORE, bstrservicename: &windows_core::BSTR) -> windows_core::Result<windows_core::IUnknown>;
@@ -520,10 +508,8 @@ pub trait ISdoMachine_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetSDOSchema(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISdoMachine {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISdoMachine_Vtbl {
-    pub const fn new<Identity: ISdoMachine_Impl, const OFFSET: isize>() -> ISdoMachine_Vtbl {
+    pub const fn new<Identity: ISdoMachine_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Attach<Identity: ISdoMachine_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrcomputername: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISdoMachine_Impl::Attach(this, core::mem::transmute(&bstrcomputername)).into()
@@ -622,9 +608,11 @@ impl ISdoMachine_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISdoMachine as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISdoMachine as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISdoMachine {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdoMachine2, ISdoMachine2_Vtbl, 0x518e5ffe_d8ce_4f7e_a5db_b40a35419d3b);
 #[cfg(feature = "Win32_System_Com")]
@@ -648,10 +636,10 @@ impl ISdoMachine2 {
     pub unsafe fn EnableTemplates(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EnableTemplates)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SyncConfigAgainstTemplates<P0, P1>(&self, bstrservicename: P0, ppconfigroot: *mut Option<windows_core::IUnknown>, pptemplatesroot: *mut Option<windows_core::IUnknown>, bforcedsync: P1) -> windows_core::Result<()>
+    pub unsafe fn SyncConfigAgainstTemplates<P0, P3>(&self, bstrservicename: P0, ppconfigroot: *mut Option<windows_core::IUnknown>, pptemplatesroot: *mut Option<windows_core::IUnknown>, bforcedsync: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
-        P1: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
+        P3: windows_core::Param<super::super::Foundation::VARIANT_BOOL>,
     {
         (windows_core::Interface::vtable(self).SyncConfigAgainstTemplates)(windows_core::Interface::as_raw(self), bstrservicename.param().abi(), core::mem::transmute(ppconfigroot), core::mem::transmute(pptemplatesroot), bforcedsync.param().abi()).ok()
     }
@@ -677,7 +665,7 @@ pub struct ISdoMachine2_Vtbl {
     pub Reload: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISdoMachine2_Impl: Sized + ISdoMachine_Impl {
+pub trait ISdoMachine2_Impl: ISdoMachine_Impl {
     fn GetTemplatesSDO(&self, bstrservicename: &windows_core::BSTR) -> windows_core::Result<windows_core::IUnknown>;
     fn EnableTemplates(&self) -> windows_core::Result<()>;
     fn SyncConfigAgainstTemplates(&self, bstrservicename: &windows_core::BSTR, ppconfigroot: *mut Option<windows_core::IUnknown>, pptemplatesroot: *mut Option<windows_core::IUnknown>, bforcedsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
@@ -685,10 +673,8 @@ pub trait ISdoMachine2_Impl: Sized + ISdoMachine_Impl {
     fn Reload(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISdoMachine2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISdoMachine2_Vtbl {
-    pub const fn new<Identity: ISdoMachine2_Impl, const OFFSET: isize>() -> ISdoMachine2_Vtbl {
+    pub const fn new<Identity: ISdoMachine2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetTemplatesSDO<Identity: ISdoMachine2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrservicename: core::mem::MaybeUninit<windows_core::BSTR>, pptemplatessdo: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISdoMachine2_Impl::GetTemplatesSDO(this, core::mem::transmute(&bstrservicename)) {
@@ -725,9 +711,11 @@ impl ISdoMachine2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISdoMachine2 as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ISdoMachine as windows_core::Interface>::IID
+        iid == &<ISdoMachine2 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISdoMachine2 {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISdoServiceControl, ISdoServiceControl_Vtbl, 0x479f6e74_49a2_11d2_8eca_00c04fc2f519);
 #[cfg(feature = "Win32_System_Com")]
@@ -765,17 +753,15 @@ pub struct ISdoServiceControl_Vtbl {
     pub ResetService: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISdoServiceControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISdoServiceControl_Impl: super::super::System::Com::IDispatch_Impl {
     fn StartService(&self) -> windows_core::Result<()>;
     fn StopService(&self) -> windows_core::Result<()>;
     fn GetServiceStatus(&self) -> windows_core::Result<i32>;
     fn ResetService(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISdoServiceControl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISdoServiceControl_Vtbl {
-    pub const fn new<Identity: ISdoServiceControl_Impl, const OFFSET: isize>() -> ISdoServiceControl_Vtbl {
+    pub const fn new<Identity: ISdoServiceControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StartService<Identity: ISdoServiceControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISdoServiceControl_Impl::StartService(this).into()
@@ -807,9 +793,11 @@ impl ISdoServiceControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISdoServiceControl as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISdoServiceControl as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISdoServiceControl {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ITemplateSdo, ITemplateSdo_Vtbl, 0x8aa85302_d2e2_4e20_8b1f_a571e437d6c9);
 #[cfg(feature = "Win32_System_Com")]
@@ -823,7 +811,6 @@ impl core::ops::Deref for ITemplateSdo {
 windows_core::imp::interface_hierarchy!(ITemplateSdo, windows_core::IUnknown, super::super::System::Com::IDispatch, ISdo);
 #[cfg(feature = "Win32_System_Com")]
 impl ITemplateSdo {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddToCollection<P0, P1>(&self, bstrname: P0, pcollection: P1, ppitem: *mut Option<super::super::System::Com::IDispatch>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -831,7 +818,6 @@ impl ITemplateSdo {
     {
         (windows_core::Interface::vtable(self).AddToCollection)(windows_core::Interface::as_raw(self), bstrname.param().abi(), pcollection.param().abi(), core::mem::transmute(ppitem)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddToSdo<P0, P1>(&self, bstrname: P0, psdotarget: P1, ppitem: *mut Option<super::super::System::Com::IDispatch>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -839,7 +825,6 @@ impl ITemplateSdo {
     {
         (windows_core::Interface::vtable(self).AddToSdo)(windows_core::Interface::as_raw(self), bstrname.param().abi(), psdotarget.param().abi(), core::mem::transmute(ppitem)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddToSdoAsProperty<P0>(&self, psdotarget: P0, id: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::System::Com::IDispatch>,
@@ -851,30 +836,19 @@ impl ITemplateSdo {
 #[repr(C)]
 pub struct ITemplateSdo_Vtbl {
     pub base__: ISdo_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub AddToCollection: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    AddToCollection: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub AddToSdo: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    AddToSdo: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub AddToSdoAsProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    AddToSdoAsProperty: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ITemplateSdo_Impl: Sized + ISdo_Impl {
+pub trait ITemplateSdo_Impl: ISdo_Impl {
     fn AddToCollection(&self, bstrname: &windows_core::BSTR, pcollection: Option<&super::super::System::Com::IDispatch>, ppitem: *mut Option<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn AddToSdo(&self, bstrname: &windows_core::BSTR, psdotarget: Option<&super::super::System::Com::IDispatch>, ppitem: *mut Option<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn AddToSdoAsProperty(&self, psdotarget: Option<&super::super::System::Com::IDispatch>, id: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ITemplateSdo {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITemplateSdo_Vtbl {
-    pub const fn new<Identity: ITemplateSdo_Impl, const OFFSET: isize>() -> ITemplateSdo_Vtbl {
+    pub const fn new<Identity: ITemplateSdo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddToCollection<Identity: ITemplateSdo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, pcollection: *mut core::ffi::c_void, ppitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ITemplateSdo_Impl::AddToCollection(this, core::mem::transmute(&bstrname), windows_core::from_raw_borrowed(&pcollection), core::mem::transmute_copy(&ppitem)).into()
@@ -895,9 +869,11 @@ impl ITemplateSdo_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ITemplateSdo as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ISdo as windows_core::Interface>::IID
+        iid == &<ITemplateSdo as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ITemplateSdo {}
 pub const ALLOWEDIN8021X: ATTRIBUTERESTRICTIONS = ATTRIBUTERESTRICTIONS(64i32);
 pub const ALLOWEDINCONDITION: ATTRIBUTERESTRICTIONS = ATTRIBUTERESTRICTIONS(4i32);
 pub const ALLOWEDINPROFILE: ATTRIBUTERESTRICTIONS = ATTRIBUTERESTRICTIONS(2i32);
@@ -1483,565 +1459,325 @@ pub const rrrcAccountUnknown: RADIUS_REJECT_REASON_CODE = RADIUS_REJECT_REASON_C
 pub const rrrcAuthenticationFailure: RADIUS_REJECT_REASON_CODE = RADIUS_REJECT_REASON_CODE(4i32);
 pub const rrrcUndefined: RADIUS_REJECT_REASON_CODE = RADIUS_REJECT_REASON_CODE(0i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ACCOUNTINGPROPERTIES(pub i32);
 impl windows_core::TypeKind for ACCOUNTINGPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ACCOUNTINGPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ACCOUNTINGPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ATTRIBUTEFILTER(pub i32);
 impl windows_core::TypeKind for ATTRIBUTEFILTER {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ATTRIBUTEFILTER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ATTRIBUTEFILTER").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ATTRIBUTEID(pub u32);
 impl windows_core::TypeKind for ATTRIBUTEID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ATTRIBUTEID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ATTRIBUTEID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ATTRIBUTEINFO(pub i32);
 impl windows_core::TypeKind for ATTRIBUTEINFO {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ATTRIBUTEINFO {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ATTRIBUTEINFO").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ATTRIBUTEPROPERTIES(pub i32);
 impl windows_core::TypeKind for ATTRIBUTEPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ATTRIBUTEPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ATTRIBUTEPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ATTRIBUTERESTRICTIONS(pub i32);
 impl windows_core::TypeKind for ATTRIBUTERESTRICTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ATTRIBUTERESTRICTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ATTRIBUTERESTRICTIONS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct ATTRIBUTESYNTAX(pub i32);
 impl windows_core::TypeKind for ATTRIBUTESYNTAX {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ATTRIBUTESYNTAX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ATTRIBUTESYNTAX").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct AUTHENTICATION_TYPE(pub i32);
 impl windows_core::TypeKind for AUTHENTICATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for AUTHENTICATION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("AUTHENTICATION_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLIENTPROPERTIES(pub i32);
 impl windows_core::TypeKind for CLIENTPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLIENTPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLIENTPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CONDITIONPROPERTIES(pub i32);
 impl windows_core::TypeKind for CONDITIONPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CONDITIONPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CONDITIONPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DICTIONARYPROPERTIES(pub i32);
 impl windows_core::TypeKind for DICTIONARYPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DICTIONARYPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DICTIONARYPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IASCOMMONPROPERTIES(pub i32);
 impl windows_core::TypeKind for IASCOMMONPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IASCOMMONPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IASCOMMONPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IASCOMPONENTPROPERTIES(pub i32);
 impl windows_core::TypeKind for IASCOMPONENTPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IASCOMPONENTPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IASCOMPONENTPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IASDATASTORE(pub i32);
 impl windows_core::TypeKind for IASDATASTORE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IASDATASTORE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IASDATASTORE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IASDOMAINTYPE(pub i32);
 impl windows_core::TypeKind for IASDOMAINTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IASDOMAINTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IASDOMAINTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IASOSTYPE(pub i32);
 impl windows_core::TypeKind for IASOSTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IASOSTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IASOSTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IASPROPERTIES(pub i32);
 impl windows_core::TypeKind for IASPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IASPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IASPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IDENTITY_TYPE(pub i32);
 impl windows_core::TypeKind for IDENTITY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IDENTITY_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IDENTITY_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct IPFILTERPROPERTIES(pub i32);
 impl windows_core::TypeKind for IPFILTERPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for IPFILTERPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("IPFILTERPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NAMESPROPERTIES(pub i32);
 impl windows_core::TypeKind for NAMESPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NAMESPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NAMESPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NAPPROPERTIES(pub i32);
 impl windows_core::TypeKind for NAPPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NAPPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NAPPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NEW_LOG_FILE_FREQUENCY(pub i32);
 impl windows_core::TypeKind for NEW_LOG_FILE_FREQUENCY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NEW_LOG_FILE_FREQUENCY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NEW_LOG_FILE_FREQUENCY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NTEVENTLOGPROPERTIES(pub i32);
 impl windows_core::TypeKind for NTEVENTLOGPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NTEVENTLOGPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NTEVENTLOGPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NTSAMPROPERTIES(pub i32);
 impl windows_core::TypeKind for NTSAMPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NTSAMPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NTSAMPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct POLICYPROPERTIES(pub i32);
 impl windows_core::TypeKind for POLICYPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for POLICYPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("POLICYPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PROFILEPROPERTIES(pub i32);
 impl windows_core::TypeKind for PROFILEPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PROFILEPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PROFILEPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PROTOCOLPROPERTIES(pub i32);
 impl windows_core::TypeKind for PROTOCOLPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PROTOCOLPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PROTOCOLPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RADIUSPROPERTIES(pub i32);
 impl windows_core::TypeKind for RADIUSPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RADIUSPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RADIUSPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RADIUSPROXYPROPERTIES(pub i32);
 impl windows_core::TypeKind for RADIUSPROXYPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RADIUSPROXYPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RADIUSPROXYPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RADIUSSERVERGROUPPROPERTIES(pub i32);
 impl windows_core::TypeKind for RADIUSSERVERGROUPPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RADIUSSERVERGROUPPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RADIUSSERVERGROUPPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RADIUSSERVERPROPERTIES(pub i32);
 impl windows_core::TypeKind for RADIUSSERVERPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RADIUSSERVERPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RADIUSSERVERPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RADIUS_ACTION(pub i32);
 impl windows_core::TypeKind for RADIUS_ACTION {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RADIUS_ACTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RADIUS_ACTION").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RADIUS_ATTRIBUTE_TYPE(pub i32);
 impl windows_core::TypeKind for RADIUS_ATTRIBUTE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RADIUS_ATTRIBUTE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RADIUS_ATTRIBUTE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RADIUS_AUTHENTICATION_PROVIDER(pub i32);
 impl windows_core::TypeKind for RADIUS_AUTHENTICATION_PROVIDER {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RADIUS_AUTHENTICATION_PROVIDER {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RADIUS_AUTHENTICATION_PROVIDER").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RADIUS_CODE(pub i32);
 impl windows_core::TypeKind for RADIUS_CODE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RADIUS_CODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RADIUS_CODE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RADIUS_DATA_TYPE(pub i32);
 impl windows_core::TypeKind for RADIUS_DATA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RADIUS_DATA_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RADIUS_DATA_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RADIUS_EXTENSION_POINT(pub i32);
 impl windows_core::TypeKind for RADIUS_EXTENSION_POINT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RADIUS_EXTENSION_POINT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RADIUS_EXTENSION_POINT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RADIUS_REJECT_REASON_CODE(pub i32);
 impl windows_core::TypeKind for RADIUS_REJECT_REASON_CODE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RADIUS_REJECT_REASON_CODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RADIUS_REJECT_REASON_CODE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct REMEDIATIONSERVERGROUPPROPERTIES(pub i32);
 impl windows_core::TypeKind for REMEDIATIONSERVERGROUPPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for REMEDIATIONSERVERGROUPPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("REMEDIATIONSERVERGROUPPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct REMEDIATIONSERVERPROPERTIES(pub i32);
 impl windows_core::TypeKind for REMEDIATIONSERVERPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for REMEDIATIONSERVERPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("REMEDIATIONSERVERPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct REMEDIATIONSERVERSPROPERTIES(pub i32);
 impl windows_core::TypeKind for REMEDIATIONSERVERSPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for REMEDIATIONSERVERSPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("REMEDIATIONSERVERSPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SERVICE_TYPE(pub i32);
 impl windows_core::TypeKind for SERVICE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SERVICE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SERVICE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SHAREDSECRETPROPERTIES(pub i32);
 impl windows_core::TypeKind for SHAREDSECRETPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SHAREDSECRETPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SHAREDSECRETPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SHVTEMPLATEPROPERTIES(pub i32);
 impl windows_core::TypeKind for SHVTEMPLATEPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SHVTEMPLATEPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SHVTEMPLATEPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SHV_COMBINATION_TYPE(pub i32);
 impl windows_core::TypeKind for SHV_COMBINATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SHV_COMBINATION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SHV_COMBINATION_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct TEMPLATESPROPERTIES(pub i32);
 impl windows_core::TypeKind for TEMPLATESPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for TEMPLATESPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("TEMPLATESPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct USERPROPERTIES(pub i32);
 impl windows_core::TypeKind for USERPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for USERPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("USERPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VENDORPROPERTIES(pub i32);
 impl windows_core::TypeKind for VENDORPROPERTIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VENDORPROPERTIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VENDORPROPERTIES").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RADIUS_ATTRIBUTE {
     pub dwAttrType: u32,
     pub fDataType: RADIUS_DATA_TYPE,
     pub cbDataLength: u32,
     pub Anonymous: RADIUS_ATTRIBUTE_0,
 }
-impl windows_core::TypeKind for RADIUS_ATTRIBUTE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for RADIUS_ATTRIBUTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RADIUS_ATTRIBUTE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union RADIUS_ATTRIBUTE_0 {
     pub dwValue: u32,
     pub lpValue: *const u8,
-}
-impl windows_core::TypeKind for RADIUS_ATTRIBUTE_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RADIUS_ATTRIBUTE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RADIUS_ATTRIBUTE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RADIUS_ATTRIBUTE_ARRAY {
     pub cbSize: u32,
     pub Add: isize,
@@ -2051,16 +1787,16 @@ pub struct RADIUS_ATTRIBUTE_ARRAY {
     pub RemoveAt: isize,
     pub SetAt: isize,
 }
-impl windows_core::TypeKind for RADIUS_ATTRIBUTE_ARRAY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for RADIUS_ATTRIBUTE_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RADIUS_ATTRIBUTE_ARRAY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RADIUS_EXTENSION_CONTROL_BLOCK {
     pub cbSize: u32,
     pub dwVersion: u32,
@@ -2071,29 +1807,29 @@ pub struct RADIUS_EXTENSION_CONTROL_BLOCK {
     pub GetResponse: isize,
     pub SetResponseType: isize,
 }
-impl windows_core::TypeKind for RADIUS_EXTENSION_CONTROL_BLOCK {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for RADIUS_EXTENSION_CONTROL_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RADIUS_EXTENSION_CONTROL_BLOCK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RADIUS_VSA_FORMAT {
     pub VendorId: [u8; 4],
     pub VendorType: u8,
     pub VendorLength: u8,
     pub AttributeSpecific: [u8; 1],
 }
-impl windows_core::TypeKind for RADIUS_VSA_FORMAT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for RADIUS_VSA_FORMAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for RADIUS_VSA_FORMAT {
+    type TypeKind = windows_core::CopyType;
 }
 pub const SdoMachine: windows_core::GUID = windows_core::GUID::from_u128(0xe9218ae7_9e91_11d1_bf60_0080c7846bc0);
 pub type PRADIUS_EXTENSION_FREE_ATTRIBUTES = Option<unsafe extern "system" fn(pattrs: *mut RADIUS_ATTRIBUTE)>;

@@ -35,6 +35,7 @@ pub struct IDataProtectionProviderFactory_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataProtectionProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataProtectionProvider, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(DataProtectionProvider, IDataProtectionProvider, IDataProtectionProviderFactory);
 impl DataProtectionProvider {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -104,11 +105,9 @@ impl windows_core::RuntimeType for DataProtectionProvider {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataProtectionProvider>();
 }
 unsafe impl windows_core::Interface for DataProtectionProvider {
-    type Vtable = IDataProtectionProvider_Vtbl;
+    type Vtable = <IDataProtectionProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataProtectionProvider as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DataProtectionProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.DataProtection.DataProtectionProvider";
 }
-unsafe impl Send for DataProtectionProvider {}
-unsafe impl Sync for DataProtectionProvider {}

@@ -591,7 +591,7 @@ impl Type {
         }
     }
 
-    pub fn is_trivially_convertible(&self) -> bool {
+    pub fn is_handle(&self) -> bool {
         if let Self::Item(Item::CppStruct(item)) = self {
             item.is_handle()
         } else {

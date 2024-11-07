@@ -701,6 +701,7 @@ impl windows_core::RuntimeName for ApplicationLanguages {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Calendar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Calendar, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(Calendar, ICalendar, ICalendarFactory, ICalendarFactory2, ITimeZoneOnCalendar);
 impl Calendar {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1389,14 +1390,12 @@ impl windows_core::RuntimeType for Calendar {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICalendar>();
 }
 unsafe impl windows_core::Interface for Calendar {
-    type Vtable = ICalendar_Vtbl;
+    type Vtable = <ICalendar as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICalendar as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Calendar {
     const NAME: &'static str = "Windows.Globalization.Calendar";
 }
-unsafe impl Send for Calendar {}
-unsafe impl Sync for Calendar {}
 pub struct CalendarIdentifiers;
 impl CalendarIdentifiers {
     pub fn Gregorian() -> windows_core::Result<windows_core::HSTRING> {
@@ -1531,6 +1530,7 @@ impl windows_core::RuntimeName for ClockIdentifiers {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CurrencyAmount(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CurrencyAmount, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CurrencyAmount, ICurrencyAmount, ICurrencyAmountFactory);
 impl CurrencyAmount {
     pub fn Amount(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -1561,14 +1561,12 @@ impl windows_core::RuntimeType for CurrencyAmount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICurrencyAmount>();
 }
 unsafe impl windows_core::Interface for CurrencyAmount {
-    type Vtable = ICurrencyAmount_Vtbl;
+    type Vtable = <ICurrencyAmount as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICurrencyAmount as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CurrencyAmount {
     const NAME: &'static str = "Windows.Globalization.CurrencyAmount";
 }
-unsafe impl Send for CurrencyAmount {}
-unsafe impl Sync for CurrencyAmount {}
 pub struct CurrencyIdentifiers;
 impl CurrencyIdentifiers {
     pub fn AED() -> windows_core::Result<windows_core::HSTRING> {
@@ -2563,6 +2561,7 @@ impl windows_core::RuntimeName for CurrencyIdentifiers {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeographicRegion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GeographicRegion, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(GeographicRegion, IGeographicRegion, IGeographicRegionFactory, IGeographicRegionStatics);
 impl GeographicRegion {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -2646,18 +2645,17 @@ impl windows_core::RuntimeType for GeographicRegion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeographicRegion>();
 }
 unsafe impl windows_core::Interface for GeographicRegion {
-    type Vtable = IGeographicRegion_Vtbl;
+    type Vtable = <IGeographicRegion as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeographicRegion as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for GeographicRegion {
     const NAME: &'static str = "Windows.Globalization.GeographicRegion";
 }
-unsafe impl Send for GeographicRegion {}
-unsafe impl Sync for GeographicRegion {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JapanesePhoneme(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(JapanesePhoneme, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(JapanesePhoneme, IJapanesePhoneme);
 impl JapanesePhoneme {
     pub fn DisplayText(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2685,7 +2683,7 @@ impl windows_core::RuntimeType for JapanesePhoneme {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJapanesePhoneme>();
 }
 unsafe impl windows_core::Interface for JapanesePhoneme {
-    type Vtable = IJapanesePhoneme_Vtbl;
+    type Vtable = <IJapanesePhoneme as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IJapanesePhoneme as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for JapanesePhoneme {
@@ -2719,6 +2717,7 @@ impl windows_core::RuntimeName for JapanesePhoneticAnalyzer {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Language(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Language, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(Language, ILanguage, ILanguage2, ILanguage3, ILanguageExtensionSubtags, ILanguageFactory, ILanguageStatics, ILanguageStatics2, ILanguageStatics3);
 impl Language {
     pub fn LanguageTag(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -2825,14 +2824,12 @@ impl windows_core::RuntimeType for Language {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanguage>();
 }
 unsafe impl windows_core::Interface for Language {
-    type Vtable = ILanguage_Vtbl;
+    type Vtable = <ILanguage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILanguage as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Language {
     const NAME: &'static str = "Windows.Globalization.Language";
 }
-unsafe impl Send for Language {}
-unsafe impl Sync for Language {}
 pub struct NumeralSystemIdentifiers;
 impl NumeralSystemIdentifiers {
     pub fn Arab() -> windows_core::Result<windows_core::HSTRING> {
@@ -3136,7 +3133,7 @@ impl windows_core::RuntimeName for NumeralSystemIdentifiers {
     const NAME: &'static str = "Windows.Globalization.NumeralSystemIdentifiers";
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DayOfWeek(pub i32);
 impl DayOfWeek {
     pub const Sunday: Self = Self(0i32);
@@ -3150,16 +3147,11 @@ impl DayOfWeek {
 impl windows_core::TypeKind for DayOfWeek {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DayOfWeek {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DayOfWeek").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DayOfWeek {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DayOfWeek;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct LanguageLayoutDirection(pub i32);
 impl LanguageLayoutDirection {
     pub const Ltr: Self = Self(0i32);
@@ -3169,11 +3161,6 @@ impl LanguageLayoutDirection {
 }
 impl windows_core::TypeKind for LanguageLayoutDirection {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LanguageLayoutDirection {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LanguageLayoutDirection").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for LanguageLayoutDirection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.LanguageLayoutDirection;i4)");

@@ -56,9 +56,9 @@ impl PlatformDiagnosticActions {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryEscalateScenario<P0>(scenarioid: windows_core::GUID, escalationtype: PlatformDiagnosticEscalationType, outputdirectory: &windows_core::HSTRING, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: P0) -> windows_core::Result<bool>
+    pub fn TryEscalateScenario<P5>(scenarioid: windows_core::GUID, escalationtype: PlatformDiagnosticEscalationType, outputdirectory: &windows_core::HSTRING, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: P5) -> windows_core::Result<bool>
     where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>,
+        P5: windows_core::Param<super::super::super::Foundation::Collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>,
     {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -115,6 +115,7 @@ impl windows_core::RuntimeName for PlatformDiagnosticActions {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlatformDiagnosticTraceInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlatformDiagnosticTraceInfo, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PlatformDiagnosticTraceInfo, IPlatformDiagnosticTraceInfo);
 impl PlatformDiagnosticTraceInfo {
     pub fn ScenarioId(&self) -> windows_core::Result<windows_core::GUID> {
         let this = self;
@@ -163,18 +164,17 @@ impl windows_core::RuntimeType for PlatformDiagnosticTraceInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlatformDiagnosticTraceInfo>();
 }
 unsafe impl windows_core::Interface for PlatformDiagnosticTraceInfo {
-    type Vtable = IPlatformDiagnosticTraceInfo_Vtbl;
+    type Vtable = <IPlatformDiagnosticTraceInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlatformDiagnosticTraceInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PlatformDiagnosticTraceInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo";
 }
-unsafe impl Send for PlatformDiagnosticTraceInfo {}
-unsafe impl Sync for PlatformDiagnosticTraceInfo {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlatformDiagnosticTraceRuntimeInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlatformDiagnosticTraceRuntimeInfo, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PlatformDiagnosticTraceRuntimeInfo, IPlatformDiagnosticTraceRuntimeInfo);
 impl PlatformDiagnosticTraceRuntimeInfo {
     pub fn RuntimeFileTime(&self) -> windows_core::Result<i64> {
         let this = self;
@@ -195,16 +195,14 @@ impl windows_core::RuntimeType for PlatformDiagnosticTraceRuntimeInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlatformDiagnosticTraceRuntimeInfo>();
 }
 unsafe impl windows_core::Interface for PlatformDiagnosticTraceRuntimeInfo {
-    type Vtable = IPlatformDiagnosticTraceRuntimeInfo_Vtbl;
+    type Vtable = <IPlatformDiagnosticTraceRuntimeInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlatformDiagnosticTraceRuntimeInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PlatformDiagnosticTraceRuntimeInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo";
 }
-unsafe impl Send for PlatformDiagnosticTraceRuntimeInfo {}
-unsafe impl Sync for PlatformDiagnosticTraceRuntimeInfo {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PlatformDiagnosticActionState(pub i32);
 impl PlatformDiagnosticActionState {
     pub const Success: Self = Self(0i32);
@@ -214,16 +212,11 @@ impl PlatformDiagnosticActionState {
 impl windows_core::TypeKind for PlatformDiagnosticActionState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PlatformDiagnosticActionState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PlatformDiagnosticActionState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PlatformDiagnosticActionState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActionState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PlatformDiagnosticEscalationType(pub i32);
 impl PlatformDiagnosticEscalationType {
     pub const OnCompletion: Self = Self(0i32);
@@ -232,16 +225,11 @@ impl PlatformDiagnosticEscalationType {
 impl windows_core::TypeKind for PlatformDiagnosticEscalationType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PlatformDiagnosticEscalationType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PlatformDiagnosticEscalationType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PlatformDiagnosticEscalationType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEscalationType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PlatformDiagnosticEventBufferLatencies(pub u32);
 impl PlatformDiagnosticEventBufferLatencies {
     pub const Normal: Self = Self(1u32);
@@ -251,49 +239,11 @@ impl PlatformDiagnosticEventBufferLatencies {
 impl windows_core::TypeKind for PlatformDiagnosticEventBufferLatencies {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PlatformDiagnosticEventBufferLatencies {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PlatformDiagnosticEventBufferLatencies").field(&self.0).finish()
-    }
-}
-impl PlatformDiagnosticEventBufferLatencies {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for PlatformDiagnosticEventBufferLatencies {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for PlatformDiagnosticEventBufferLatencies {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for PlatformDiagnosticEventBufferLatencies {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for PlatformDiagnosticEventBufferLatencies {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for PlatformDiagnosticEventBufferLatencies {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for PlatformDiagnosticEventBufferLatencies {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEventBufferLatencies;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PlatformDiagnosticTracePriority(pub i32);
 impl PlatformDiagnosticTracePriority {
     pub const Normal: Self = Self(0i32);
@@ -302,16 +252,11 @@ impl PlatformDiagnosticTracePriority {
 impl windows_core::TypeKind for PlatformDiagnosticTracePriority {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PlatformDiagnosticTracePriority {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PlatformDiagnosticTracePriority").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PlatformDiagnosticTracePriority {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTracePriority;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PlatformDiagnosticTraceSlotState(pub i32);
 impl PlatformDiagnosticTraceSlotState {
     pub const NotRunning: Self = Self(0i32);
@@ -321,16 +266,11 @@ impl PlatformDiagnosticTraceSlotState {
 impl windows_core::TypeKind for PlatformDiagnosticTraceSlotState {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PlatformDiagnosticTraceSlotState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PlatformDiagnosticTraceSlotState").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for PlatformDiagnosticTraceSlotState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotState;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PlatformDiagnosticTraceSlotType(pub i32);
 impl PlatformDiagnosticTraceSlotType {
     pub const Alternative: Self = Self(0i32);
@@ -339,11 +279,6 @@ impl PlatformDiagnosticTraceSlotType {
 }
 impl windows_core::TypeKind for PlatformDiagnosticTraceSlotType {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PlatformDiagnosticTraceSlotType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PlatformDiagnosticTraceSlotType").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for PlatformDiagnosticTraceSlotType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceSlotType;i4)");

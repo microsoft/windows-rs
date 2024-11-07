@@ -21,11 +21,11 @@ pub unsafe fn DdqCreateSession(accesslevel: DdqAccessLevel) -> windows_core::Res
     DdqCreateSession(accesslevel, &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn DdqExtractDiagnosticReport<P0, P1, P2>(hsession: P0, reportstoretype: u32, reportkey: P1, destinationpath: P2) -> windows_core::Result<()>
+pub unsafe fn DdqExtractDiagnosticReport<P0, P2, P3>(hsession: P0, reportstoretype: u32, reportkey: P2, destinationpath: P3) -> windows_core::Result<()>
 where
     P0: windows_core::Param<HDIAGNOSTIC_DATA_QUERY_SESSION>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqExtractDiagnosticReport(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype : u32, reportkey : windows_core::PCWSTR, destinationpath : windows_core::PCWSTR) -> windows_core::HRESULT);
     DdqExtractDiagnosticReport(hsession.param().abi(), reportstoretype, reportkey.param().abi(), destinationpath.param().abi()).ok()
@@ -280,11 +280,11 @@ where
     DdqGetTranscriptConfiguration(hsession.param().abi(), &mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn DdqIsDiagnosticRecordSampledIn<P0, P1, P2>(hsession: P0, providergroup: *const windows_core::GUID, providerid: Option<*const windows_core::GUID>, providername: P1, eventid: Option<*const u32>, eventname: P2, eventversion: Option<*const u32>, eventkeywords: Option<*const u64>) -> windows_core::Result<super::super::Foundation::BOOL>
+pub unsafe fn DdqIsDiagnosticRecordSampledIn<P0, P3, P5>(hsession: P0, providergroup: *const windows_core::GUID, providerid: Option<*const windows_core::GUID>, providername: P3, eventid: Option<*const u32>, eventname: P5, eventversion: Option<*const u32>, eventkeywords: Option<*const u64>) -> windows_core::Result<super::super::Foundation::BOOL>
 where
     P0: windows_core::Param<HDIAGNOSTIC_DATA_QUERY_SESSION>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqIsDiagnosticRecordSampledIn(hsession : HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup : *const windows_core::GUID, providerid : *const windows_core::GUID, providername : windows_core::PCWSTR, eventid : *const u32, eventname : windows_core::PCWSTR, eventversion : *const u32, eventkeywords : *const u64, issampledin : *mut super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     let mut result__ = core::mem::zeroed();
@@ -302,105 +302,100 @@ pub const AllUserData: DdqAccessLevel = DdqAccessLevel(2i32);
 pub const CurrentUserData: DdqAccessLevel = DdqAccessLevel(1i32);
 pub const NoData: DdqAccessLevel = DdqAccessLevel(0i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DdqAccessLevel(pub i32);
 impl windows_core::TypeKind for DdqAccessLevel {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DdqAccessLevel {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DdqAccessLevel").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
     pub moduleName: windows_core::PWSTR,
     pub friendlyModuleName: windows_core::PWSTR,
     pub eventCount: u32,
     pub uploadSizeBytes: u64,
 }
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
     pub id: i32,
     pub name: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
     pub name: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
     pub privacyTag: i32,
     pub name: windows_core::PWSTR,
     pub description: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DIAGNOSTIC_DATA_EVENT_TAG_STATS {
     pub privacyTag: i32,
     pub eventCount: u32,
-}
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_TAG_STATS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
     pub hoursOfHistoryToKeep: u32,
     pub maxStoreMegabytes: u32,
     pub requestedMaxStoreMegabytes: u32,
-}
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DIAGNOSTIC_DATA_GENERAL_STATS {
     pub optInLevel: u32,
     pub transcriptSizeBytes: u64,
@@ -408,16 +403,16 @@ pub struct DIAGNOSTIC_DATA_GENERAL_STATS {
     pub totalEventCountLast24Hours: u32,
     pub averageDailyEvents: f32,
 }
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_GENERAL_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DIAGNOSTIC_DATA_GENERAL_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DIAGNOSTIC_DATA_GENERAL_STATS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DIAGNOSTIC_DATA_RECORD {
     pub rowId: i64,
     pub timestamp: u64,
@@ -434,16 +429,16 @@ pub struct DIAGNOSTIC_DATA_RECORD {
     pub extra2: windows_core::PWSTR,
     pub extra3: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DIAGNOSTIC_DATA_RECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DIAGNOSTIC_DATA_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     pub producerNames: *const windows_core::PCWSTR,
     pub producerNameCount: u32,
@@ -454,16 +449,16 @@ pub struct DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     pub privacyTagCount: u32,
     pub coreDataOnly: super::super::Foundation::BOOL,
 }
-impl windows_core::TypeKind for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DIAGNOSTIC_DATA_SEARCH_CRITERIA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DIAGNOSTIC_REPORT_DATA {
     pub signature: DIAGNOSTIC_REPORT_SIGNATURE,
     pub bucketId: windows_core::GUID,
@@ -483,45 +478,48 @@ pub struct DIAGNOSTIC_REPORT_DATA {
     pub legacyBucketId: u64,
     pub reportKey: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for DIAGNOSTIC_REPORT_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DIAGNOSTIC_REPORT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DIAGNOSTIC_REPORT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DIAGNOSTIC_REPORT_PARAMETER {
     pub name: [u16; 129],
     pub value: [u16; 260],
-}
-impl windows_core::TypeKind for DIAGNOSTIC_REPORT_PARAMETER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DIAGNOSTIC_REPORT_PARAMETER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DIAGNOSTIC_REPORT_PARAMETER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DIAGNOSTIC_REPORT_SIGNATURE {
     pub eventName: [u16; 65],
     pub parameters: [DIAGNOSTIC_REPORT_PARAMETER; 10],
-}
-impl windows_core::TypeKind for DIAGNOSTIC_REPORT_SIGNATURE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DIAGNOSTIC_REPORT_SIGNATURE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DIAGNOSTIC_REPORT_SIGNATURE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_DATA_QUERY_SESSION(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HDIAGNOSTIC_DATA_QUERY_SESSION {
+    type TypeKind = windows_core::CopyType;
+}
 impl HDIAGNOSTIC_DATA_QUERY_SESSION {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -531,7 +529,8 @@ impl windows_core::Free for HDIAGNOSTIC_DATA_QUERY_SESSION {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = DdqCloseSession(*self);
+            windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqCloseSession(hsession : *mut core::ffi::c_void) -> i32);
+            DdqCloseSession(self.0);
         }
     }
 }
@@ -540,12 +539,12 @@ impl Default for HDIAGNOSTIC_DATA_QUERY_SESSION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HDIAGNOSTIC_DATA_QUERY_SESSION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -555,7 +554,8 @@ impl windows_core::Free for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = DdqFreeDiagnosticRecordProducerCategories(*self);
+            windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqFreeDiagnosticRecordProducerCategories(hcategorydescription : *mut core::ffi::c_void) -> i32);
+            DdqFreeDiagnosticRecordProducerCategories(self.0);
         }
     }
 }
@@ -564,12 +564,12 @@ impl Default for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -579,7 +579,8 @@ impl windows_core::Free for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = DdqFreeDiagnosticRecordProducers(*self);
+            windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqFreeDiagnosticRecordProducers(hproducerdescription : *mut core::ffi::c_void) -> i32);
+            DdqFreeDiagnosticRecordProducers(self.0);
         }
     }
 }
@@ -588,12 +589,12 @@ impl Default for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_EVENT_TAG_DESCRIPTION(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
+    type TypeKind = windows_core::CopyType;
+}
 impl HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -603,7 +604,8 @@ impl windows_core::Free for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = DdqFreeDiagnosticRecordLocaleTags(*self);
+            windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqFreeDiagnosticRecordLocaleTags(htagdescription : *mut core::ffi::c_void) -> i32);
+            DdqFreeDiagnosticRecordLocaleTags(self.0);
         }
     }
 }
@@ -612,12 +614,12 @@ impl Default for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HDIAGNOSTIC_EVENT_TAG_DESCRIPTION {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_RECORD(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HDIAGNOSTIC_RECORD {
+    type TypeKind = windows_core::CopyType;
+}
 impl HDIAGNOSTIC_RECORD {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -627,7 +629,8 @@ impl windows_core::Free for HDIAGNOSTIC_RECORD {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = DdqFreeDiagnosticRecordPage(*self);
+            windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqFreeDiagnosticRecordPage(hrecord : *mut core::ffi::c_void) -> i32);
+            DdqFreeDiagnosticRecordPage(self.0);
         }
     }
 }
@@ -636,12 +639,12 @@ impl Default for HDIAGNOSTIC_RECORD {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HDIAGNOSTIC_RECORD {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDIAGNOSTIC_REPORT(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HDIAGNOSTIC_REPORT {
+    type TypeKind = windows_core::CopyType;
+}
 impl HDIAGNOSTIC_REPORT {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -651,7 +654,8 @@ impl windows_core::Free for HDIAGNOSTIC_REPORT {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = DdqFreeDiagnosticReport(*self);
+            windows_targets::link!("diagnosticdataquery.dll" "system" fn DdqFreeDiagnosticReport(hreport : *mut core::ffi::c_void) -> i32);
+            DdqFreeDiagnosticReport(self.0);
         }
     }
 }
@@ -659,7 +663,4 @@ impl Default for HDIAGNOSTIC_REPORT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for HDIAGNOSTIC_REPORT {
-    type TypeKind = windows_core::CopyType;
 }

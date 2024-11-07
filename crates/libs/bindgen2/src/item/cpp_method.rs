@@ -794,10 +794,8 @@ fn write_invoke_arg(ty: &Type, param: Param, _hint: ParamHint) -> TokenStream {
 
 fn is_convertible(ty: &Type, param: Param, hint: ParamHint) -> bool {
     !param.flags().contains(ParamAttributes::Out)
-        && !ty.is_winrt_array()
-        && !ty.is_pointer()
         && !hint.is_array()
-        && (ty.is_borrowed() || ty.is_trivially_convertible())
+        && (ty.is_borrowed() || ty.is_handle())
 }
 
 fn is_retval(signature: &Signature, param_hints: &[ParamHint]) -> bool {

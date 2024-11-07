@@ -47,25 +47,25 @@ pub unsafe fn WcmGetProfileList(preserved: Option<*const core::ffi::c_void>, ppp
     WcmGetProfileList(core::mem::transmute(preserved.unwrap_or(core::ptr::null())), ppprofilelist)
 }
 #[inline]
-pub unsafe fn WcmQueryProperty<P0>(pinterface: Option<*const windows_core::GUID>, strprofilename: P0, property: WCM_PROPERTY, preserved: Option<*const core::ffi::c_void>, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32
+pub unsafe fn WcmQueryProperty<P1>(pinterface: Option<*const windows_core::GUID>, strprofilename: P1, property: WCM_PROPERTY, preserved: Option<*const core::ffi::c_void>, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wcmapi.dll" "system" fn WcmQueryProperty(pinterface : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, property : WCM_PROPERTY, preserved : *const core::ffi::c_void, pdwdatasize : *mut u32, ppdata : *mut *mut u8) -> u32);
     WcmQueryProperty(core::mem::transmute(pinterface.unwrap_or(core::ptr::null())), strprofilename.param().abi(), property, core::mem::transmute(preserved.unwrap_or(core::ptr::null())), pdwdatasize, ppdata)
 }
 #[inline]
-pub unsafe fn WcmSetProfileList<P0>(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: P0, preserved: Option<*const core::ffi::c_void>) -> u32
+pub unsafe fn WcmSetProfileList<P2>(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: P2, preserved: Option<*const core::ffi::c_void>) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("wcmapi.dll" "system" fn WcmSetProfileList(pprofilelist : *const WCM_PROFILE_INFO_LIST, dwposition : u32, fignoreunknownprofiles : super::super::Foundation:: BOOL, preserved : *const core::ffi::c_void) -> u32);
     WcmSetProfileList(pprofilelist, dwposition, fignoreunknownprofiles.param().abi(), core::mem::transmute(preserved.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn WcmSetProperty<P0>(pinterface: Option<*const windows_core::GUID>, strprofilename: P0, property: WCM_PROPERTY, preserved: Option<*const core::ffi::c_void>, pbdata: Option<&[u8]>) -> u32
+pub unsafe fn WcmSetProperty<P1>(pinterface: Option<*const windows_core::GUID>, strprofilename: P1, property: WCM_PROPERTY, preserved: Option<*const core::ffi::c_void>, pbdata: Option<&[u8]>) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("wcmapi.dll" "system" fn WcmSetProperty(pinterface : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, property : WCM_PROPERTY, preserved : *const core::ffi::c_void, dwdatasize : u32, pbdata : *const u8) -> u32);
     WcmSetProperty(core::mem::transmute(pinterface.unwrap_or(core::ptr::null())), strprofilename.param().abi(), property, core::mem::transmute(preserved.unwrap_or(core::ptr::null())), pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
@@ -102,109 +102,89 @@ pub const wcm_media_mbn: WCM_MEDIA_TYPE = WCM_MEDIA_TYPE(3i32);
 pub const wcm_media_unknown: WCM_MEDIA_TYPE = WCM_MEDIA_TYPE(0i32);
 pub const wcm_media_wlan: WCM_MEDIA_TYPE = WCM_MEDIA_TYPE(2i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct WCM_CONNECTION_COST(pub i32);
 impl windows_core::TypeKind for WCM_CONNECTION_COST {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WCM_CONNECTION_COST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WCM_CONNECTION_COST").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct WCM_CONNECTION_COST_SOURCE(pub i32);
 impl windows_core::TypeKind for WCM_CONNECTION_COST_SOURCE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WCM_CONNECTION_COST_SOURCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WCM_CONNECTION_COST_SOURCE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct WCM_MEDIA_TYPE(pub i32);
 impl windows_core::TypeKind for WCM_MEDIA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WCM_MEDIA_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WCM_MEDIA_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct WCM_PROPERTY(pub i32);
 impl windows_core::TypeKind for WCM_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for WCM_PROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("WCM_PROPERTY").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NET_INTERFACE_CONTEXT {
     pub InterfaceIndex: u32,
     pub ConfigurationName: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for NET_INTERFACE_CONTEXT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NET_INTERFACE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NET_INTERFACE_CONTEXT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NET_INTERFACE_CONTEXT_TABLE {
     pub InterfaceContextHandle: super::super::Foundation::HANDLE,
     pub NumberOfEntries: u32,
     pub InterfaceContextArray: *mut NET_INTERFACE_CONTEXT,
-}
-impl windows_core::TypeKind for NET_INTERFACE_CONTEXT_TABLE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NET_INTERFACE_CONTEXT_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NET_INTERFACE_CONTEXT_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WCM_BILLING_CYCLE_INFO {
     pub StartDate: super::super::Foundation::FILETIME,
     pub Duration: WCM_TIME_INTERVAL,
     pub Reset: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for WCM_BILLING_CYCLE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WCM_BILLING_CYCLE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WCM_BILLING_CYCLE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WCM_CONNECTION_COST_DATA {
     pub ConnectionCost: u32,
     pub CostSource: WCM_CONNECTION_COST_SOURCE,
-}
-impl windows_core::TypeKind for WCM_CONNECTION_COST_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WCM_CONNECTION_COST_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WCM_CONNECTION_COST_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WCM_DATAPLAN_STATUS {
     pub UsageData: WCM_USAGE_DATA,
     pub DataLimitInMegabytes: u32,
@@ -214,59 +194,59 @@ pub struct WCM_DATAPLAN_STATUS {
     pub MaxTransferSizeInMegabytes: u32,
     pub Reserved: u32,
 }
-impl windows_core::TypeKind for WCM_DATAPLAN_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WCM_DATAPLAN_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WCM_DATAPLAN_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WCM_POLICY_VALUE {
     pub fValue: super::super::Foundation::BOOL,
     pub fIsGroupPolicy: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for WCM_POLICY_VALUE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WCM_POLICY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WCM_POLICY_VALUE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WCM_PROFILE_INFO {
     pub strProfileName: [u16; 256],
     pub AdapterGUID: windows_core::GUID,
     pub Media: WCM_MEDIA_TYPE,
-}
-impl windows_core::TypeKind for WCM_PROFILE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WCM_PROFILE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WCM_PROFILE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WCM_PROFILE_INFO_LIST {
     pub dwNumberOfItems: u32,
     pub ProfileInfo: [WCM_PROFILE_INFO; 1],
-}
-impl windows_core::TypeKind for WCM_PROFILE_INFO_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WCM_PROFILE_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WCM_PROFILE_INFO_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WCM_TIME_INTERVAL {
     pub wYear: u16,
     pub wMonth: u16,
@@ -276,26 +256,26 @@ pub struct WCM_TIME_INTERVAL {
     pub wSecond: u16,
     pub wMilliseconds: u16,
 }
-impl windows_core::TypeKind for WCM_TIME_INTERVAL {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WCM_TIME_INTERVAL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WCM_TIME_INTERVAL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WCM_USAGE_DATA {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: super::super::Foundation::FILETIME,
-}
-impl windows_core::TypeKind for WCM_USAGE_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WCM_USAGE_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for WCM_USAGE_DATA {
+    type TypeKind = windows_core::CopyType;
 }
 pub type ONDEMAND_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(param0: *const core::ffi::c_void)>;

@@ -34,13 +34,13 @@ impl IMXAttributes {
     pub unsafe fn removeAttribute(&self, nindex: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).removeAttribute)(windows_core::Interface::as_raw(self), nindex).ok()
     }
-    pub unsafe fn setAttribute<P0, P1, P2, P3, P4>(&self, nindex: i32, struri: P0, strlocalname: P1, strqname: P2, strtype: P3, strvalue: P4) -> windows_core::Result<()>
+    pub unsafe fn setAttribute<P1, P2, P3, P4, P5>(&self, nindex: i32, struri: P1, strlocalname: P2, strqname: P3, strtype: P4, strvalue: P5) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::BSTR>,
         P1: windows_core::Param<windows_core::BSTR>,
         P2: windows_core::Param<windows_core::BSTR>,
         P3: windows_core::Param<windows_core::BSTR>,
         P4: windows_core::Param<windows_core::BSTR>,
+        P5: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).setAttribute)(windows_core::Interface::as_raw(self), nindex, struri.param().abi(), strlocalname.param().abi(), strqname.param().abi(), strtype.param().abi(), strvalue.param().abi()).ok()
     }
@@ -51,33 +51,33 @@ impl IMXAttributes {
     {
         (windows_core::Interface::vtable(self).setAttributes)(windows_core::Interface::as_raw(self), varatts.param().abi()).ok()
     }
-    pub unsafe fn setLocalName<P0>(&self, nindex: i32, strlocalname: P0) -> windows_core::Result<()>
+    pub unsafe fn setLocalName<P1>(&self, nindex: i32, strlocalname: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).setLocalName)(windows_core::Interface::as_raw(self), nindex, strlocalname.param().abi()).ok()
     }
-    pub unsafe fn setQName<P0>(&self, nindex: i32, strqname: P0) -> windows_core::Result<()>
+    pub unsafe fn setQName<P1>(&self, nindex: i32, strqname: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).setQName)(windows_core::Interface::as_raw(self), nindex, strqname.param().abi()).ok()
     }
-    pub unsafe fn setType<P0>(&self, nindex: i32, strtype: P0) -> windows_core::Result<()>
+    pub unsafe fn setType<P1>(&self, nindex: i32, strtype: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).setType)(windows_core::Interface::as_raw(self), nindex, strtype.param().abi()).ok()
     }
-    pub unsafe fn setURI<P0>(&self, nindex: i32, struri: P0) -> windows_core::Result<()>
+    pub unsafe fn setURI<P1>(&self, nindex: i32, struri: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).setURI)(windows_core::Interface::as_raw(self), nindex, struri.param().abi()).ok()
     }
-    pub unsafe fn setValue<P0>(&self, nindex: i32, strvalue: P0) -> windows_core::Result<()>
+    pub unsafe fn setValue<P1>(&self, nindex: i32, strvalue: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).setValue)(windows_core::Interface::as_raw(self), nindex, strvalue.param().abi()).ok()
     }
@@ -88,14 +88,14 @@ pub struct IMXAttributes_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub addAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub addAttributeFromIndex: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, i32) -> windows_core::HRESULT,
+    pub addAttributeFromIndex: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT, i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     addAttributeFromIndex: usize,
     pub clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub removeAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub setAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub setAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub setAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     setAttributes: usize,
     pub setLocalName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
@@ -105,7 +105,7 @@ pub struct IMXAttributes_Vtbl {
     pub setValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IMXAttributes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IMXAttributes_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn addAttribute(&self, struri: &windows_core::BSTR, strlocalname: &windows_core::BSTR, strqname: &windows_core::BSTR, strtype: &windows_core::BSTR, strvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn addAttributeFromIndex(&self, varatts: &super::super::super::System::Variant::VARIANT, nindex: i32) -> windows_core::Result<()>;
     fn clear(&self) -> windows_core::Result<()>;
@@ -119,15 +119,13 @@ pub trait IMXAttributes_Impl: Sized + super::super::super::System::Com::IDispatc
     fn setValue(&self, nindex: i32, strvalue: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IMXAttributes {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMXAttributes_Vtbl {
-    pub const fn new<Identity: IMXAttributes_Impl, const OFFSET: isize>() -> IMXAttributes_Vtbl {
+    pub const fn new<Identity: IMXAttributes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn addAttribute<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, struri: core::mem::MaybeUninit<windows_core::BSTR>, strlocalname: core::mem::MaybeUninit<windows_core::BSTR>, strqname: core::mem::MaybeUninit<windows_core::BSTR>, strtype: core::mem::MaybeUninit<windows_core::BSTR>, strvalue: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMXAttributes_Impl::addAttribute(this, core::mem::transmute(&struri), core::mem::transmute(&strlocalname), core::mem::transmute(&strqname), core::mem::transmute(&strtype), core::mem::transmute(&strvalue)).into()
         }
-        unsafe extern "system" fn addAttributeFromIndex<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varatts: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, nindex: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn addAttributeFromIndex<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varatts: super::super::super::System::Variant::VARIANT, nindex: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMXAttributes_Impl::addAttributeFromIndex(this, core::mem::transmute(&varatts), core::mem::transmute_copy(&nindex)).into()
         }
@@ -143,7 +141,7 @@ impl IMXAttributes_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMXAttributes_Impl::setAttribute(this, core::mem::transmute_copy(&nindex), core::mem::transmute(&struri), core::mem::transmute(&strlocalname), core::mem::transmute(&strqname), core::mem::transmute(&strtype), core::mem::transmute(&strvalue)).into()
         }
-        unsafe extern "system" fn setAttributes<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varatts: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn setAttributes<Identity: IMXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varatts: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMXAttributes_Impl::setAttributes(this, core::mem::transmute(&varatts)).into()
         }
@@ -183,16 +181,12 @@ impl IMXAttributes_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMXAttributes as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IMXAttributes as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IMXAttributes {}
 windows_core::imp::define_interface!(IMXNamespaceManager, IMXNamespaceManager_Vtbl, 0xc90352f6_643c_4fbc_bb23_e996eb2d51fd);
-impl core::ops::Deref for IMXNamespaceManager {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IMXNamespaceManager, windows_core::IUnknown);
 impl IMXNamespaceManager {
     pub unsafe fn putAllowOverride<P0>(&self, foverride: P0) -> windows_core::Result<()>
@@ -268,7 +262,7 @@ pub struct IMXNamespaceManager_Vtbl {
     getURI: usize,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IMXNamespaceManager_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IMXNamespaceManager_Impl: windows_core::IUnknownImpl {
     fn putAllowOverride(&self, foverride: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn getAllowOverride(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn reset(&self) -> windows_core::Result<()>;
@@ -281,10 +275,8 @@ pub trait IMXNamespaceManager_Impl: Sized + windows_core::IUnknownImpl {
     fn getURI(&self, pwchprefix: &windows_core::PCWSTR, pcontextnode: Option<&IXMLDOMNode>, pwchuri: windows_core::PWSTR, pcchuri: *mut i32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IMXNamespaceManager {}
-#[cfg(feature = "Win32_System_Com")]
 impl IMXNamespaceManager_Vtbl {
-    pub const fn new<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>() -> IMXNamespaceManager_Vtbl {
+    pub const fn new<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn putAllowOverride<Identity: IMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, foverride: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMXNamespaceManager_Impl::putAllowOverride(this, core::mem::transmute_copy(&foverride)).into()
@@ -350,6 +342,8 @@ impl IMXNamespaceManager_Vtbl {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IMXNamespaceManager {}
+#[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMXNamespacePrefixes, IMXNamespacePrefixes_Vtbl, 0xc90352f4_643c_4fbc_bb23_e996eb2d51fd);
 #[cfg(feature = "Win32_System_Com")]
 impl core::ops::Deref for IMXNamespacePrefixes {
@@ -364,7 +358,7 @@ windows_core::imp::interface_hierarchy!(IMXNamespacePrefixes, windows_core::IUnk
 impl IMXNamespacePrefixes {
     pub unsafe fn get_item(&self, index: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_item)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn length(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -384,16 +378,14 @@ pub struct IMXNamespacePrefixes_Vtbl {
     pub _newEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IMXNamespacePrefixes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IMXNamespacePrefixes_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn get_item(&self, index: i32) -> windows_core::Result<windows_core::BSTR>;
     fn length(&self) -> windows_core::Result<i32>;
     fn _newEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IMXNamespacePrefixes {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMXNamespacePrefixes_Vtbl {
-    pub const fn new<Identity: IMXNamespacePrefixes_Impl, const OFFSET: isize>() -> IMXNamespacePrefixes_Vtbl {
+    pub const fn new<Identity: IMXNamespacePrefixes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn get_item<Identity: IMXNamespacePrefixes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, prefix: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMXNamespacePrefixes_Impl::get_item(this, core::mem::transmute_copy(&index)) {
@@ -432,9 +424,11 @@ impl IMXNamespacePrefixes_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMXNamespacePrefixes as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IMXNamespacePrefixes as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IMXNamespacePrefixes {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMXReaderControl, IMXReaderControl_Vtbl, 0x808f4e35_8d5a_4fbe_8466_33a41279ed30);
 #[cfg(feature = "Win32_System_Com")]
@@ -467,16 +461,14 @@ pub struct IMXReaderControl_Vtbl {
     pub suspend: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IMXReaderControl_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IMXReaderControl_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn abort(&self) -> windows_core::Result<()>;
     fn resume(&self) -> windows_core::Result<()>;
     fn suspend(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IMXReaderControl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMXReaderControl_Vtbl {
-    pub const fn new<Identity: IMXReaderControl_Impl, const OFFSET: isize>() -> IMXReaderControl_Vtbl {
+    pub const fn new<Identity: IMXReaderControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn abort<Identity: IMXReaderControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMXReaderControl_Impl::abort(this).into()
@@ -497,9 +489,11 @@ impl IMXReaderControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMXReaderControl as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IMXReaderControl as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IMXReaderControl {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMXSchemaDeclHandler, IMXSchemaDeclHandler_Vtbl, 0xfa4bb38c_faf9_4cca_9302_d1dd0fe520db);
 #[cfg(feature = "Win32_System_Com")]
@@ -513,7 +507,6 @@ impl core::ops::Deref for IMXSchemaDeclHandler {
 windows_core::imp::interface_hierarchy!(IMXSchemaDeclHandler, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMXSchemaDeclHandler {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schemaElementDecl<P0>(&self, oschemaelement: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISchemaElement>,
@@ -525,20 +518,15 @@ impl IMXSchemaDeclHandler {
 #[repr(C)]
 pub struct IMXSchemaDeclHandler_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub schemaElementDecl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    schemaElementDecl: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IMXSchemaDeclHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IMXSchemaDeclHandler_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn schemaElementDecl(&self, oschemaelement: Option<&ISchemaElement>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IMXSchemaDeclHandler {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMXSchemaDeclHandler_Vtbl {
-    pub const fn new<Identity: IMXSchemaDeclHandler_Impl, const OFFSET: isize>() -> IMXSchemaDeclHandler_Vtbl {
+    pub const fn new<Identity: IMXSchemaDeclHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn schemaElementDecl<Identity: IMXSchemaDeclHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oschemaelement: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMXSchemaDeclHandler_Impl::schemaElementDecl(this, windows_core::from_raw_borrowed(&oschemaelement)).into()
@@ -546,9 +534,11 @@ impl IMXSchemaDeclHandler_Vtbl {
         Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), schemaElementDecl: schemaElementDecl::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMXSchemaDeclHandler as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IMXSchemaDeclHandler as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IMXSchemaDeclHandler {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMXWriter, IMXWriter_Vtbl, 0x4d7ff4ba_1565_4ea8_94e1_6e724a46f98d);
 #[cfg(feature = "Win32_System_Com")]
@@ -572,7 +562,7 @@ impl IMXWriter {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn output(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).output)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).output)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn Setencoding<P0>(&self, strencoding: P0) -> windows_core::Result<()>
     where
@@ -582,7 +572,7 @@ impl IMXWriter {
     }
     pub unsafe fn encoding(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).encoding)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).encoding)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SetbyteOrderMark<P0>(&self, fwritebyteordermark: P0) -> windows_core::Result<()>
     where
@@ -632,7 +622,7 @@ impl IMXWriter {
     }
     pub unsafe fn version(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).version)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).version)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SetdisableOutputEscaping<P0>(&self, fvalue: P0) -> windows_core::Result<()>
     where
@@ -653,11 +643,11 @@ impl IMXWriter {
 pub struct IMXWriter_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Setoutput: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Setoutput: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Setoutput: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub output: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub output: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     output: usize,
     pub Setencoding: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
@@ -677,7 +667,7 @@ pub struct IMXWriter_Vtbl {
     pub flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IMXWriter_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IMXWriter_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn Setoutput(&self, vardestination: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn output(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn Setencoding(&self, strencoding: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -697,15 +687,13 @@ pub trait IMXWriter_Impl: Sized + super::super::super::System::Com::IDispatch_Im
     fn flush(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IMXWriter {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMXWriter_Vtbl {
-    pub const fn new<Identity: IMXWriter_Impl, const OFFSET: isize>() -> IMXWriter_Vtbl {
-        unsafe extern "system" fn Setoutput<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestination: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+    pub const fn new<Identity: IMXWriter_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Setoutput<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestination: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMXWriter_Impl::Setoutput(this, core::mem::transmute(&vardestination)).into()
         }
-        unsafe extern "system" fn output<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestination: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn output<Identity: IMXWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardestination: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMXWriter_Impl::output(this) {
                 Ok(ok__) => {
@@ -839,9 +827,11 @@ impl IMXWriter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMXWriter as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IMXWriter as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IMXWriter {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IMXXMLFilter, IMXXMLFilter_Vtbl, 0xc90352f7_643c_4fbc_bb23_e996eb2d51fd);
 #[cfg(feature = "Win32_System_Com")]
@@ -875,7 +865,7 @@ impl IMXXMLFilter {
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getProperty)(windows_core::Interface::as_raw(self), strname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getProperty)(windows_core::Interface::as_raw(self), strname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn putProperty<P0, P1>(&self, strname: P0, varvalue: P1) -> windows_core::Result<()>
@@ -933,11 +923,11 @@ pub struct IMXXMLFilter_Vtbl {
     pub getFeature: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub putFeature: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub getProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub getProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     getProperty: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub putProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub putProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     putProperty: usize,
     pub entityResolver: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -950,7 +940,7 @@ pub struct IMXXMLFilter_Vtbl {
     pub putref_errorHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IMXXMLFilter_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IMXXMLFilter_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn getFeature(&self, strname: &windows_core::BSTR) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn putFeature(&self, strname: &windows_core::BSTR, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn getProperty(&self, strname: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
@@ -965,10 +955,8 @@ pub trait IMXXMLFilter_Impl: Sized + super::super::super::System::Com::IDispatch
     fn putref_errorHandler(&self, ohandler: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IMXXMLFilter {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMXXMLFilter_Vtbl {
-    pub const fn new<Identity: IMXXMLFilter_Impl, const OFFSET: isize>() -> IMXXMLFilter_Vtbl {
+    pub const fn new<Identity: IMXXMLFilter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn getFeature<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMXXMLFilter_Impl::getFeature(this, core::mem::transmute(&strname)) {
@@ -983,7 +971,7 @@ impl IMXXMLFilter_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMXXMLFilter_Impl::putFeature(this, core::mem::transmute(&strname), core::mem::transmute_copy(&fvalue)).into()
         }
-        unsafe extern "system" fn getProperty<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, varvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn getProperty<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, varvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IMXXMLFilter_Impl::getProperty(this, core::mem::transmute(&strname)) {
                 Ok(ok__) => {
@@ -993,7 +981,7 @@ impl IMXXMLFilter_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putProperty<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, varvalue: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn putProperty<Identity: IMXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, varvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IMXXMLFilter_Impl::putProperty(this, core::mem::transmute(&strname), core::mem::transmute(&varvalue)).into()
         }
@@ -1070,16 +1058,12 @@ impl IMXXMLFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IMXXMLFilter as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IMXXMLFilter as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IMXXMLFilter {}
 windows_core::imp::define_interface!(ISAXAttributes, ISAXAttributes_Vtbl, 0xf078abe1_45d2_4832_91ea_4466ce2f25c9);
-impl core::ops::Deref for ISAXAttributes {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ISAXAttributes, windows_core::IUnknown);
 impl ISAXAttributes {
     pub unsafe fn getLength(&self) -> windows_core::Result<i32> {
@@ -1098,10 +1082,10 @@ impl ISAXAttributes {
     pub unsafe fn getName(&self, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32, ppwchqname: *mut *mut u16, pcchqname: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).getName)(windows_core::Interface::as_raw(self), nindex, ppwchuri, pcchuri, ppwchlocalname, pcchlocalname, ppwchqname, pcchqname).ok()
     }
-    pub unsafe fn getIndexFromName<P0, P1>(&self, pwchuri: P0, cchuri: i32, pwchlocalname: P1, cchlocalname: i32) -> windows_core::Result<i32>
+    pub unsafe fn getIndexFromName<P0, P2>(&self, pwchuri: P0, cchuri: i32, pwchlocalname: P2, cchlocalname: i32) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).getIndexFromName)(windows_core::Interface::as_raw(self), pwchuri.param().abi(), cchuri, pwchlocalname.param().abi(), cchlocalname, &mut result__).map(|| result__)
@@ -1116,10 +1100,10 @@ impl ISAXAttributes {
     pub unsafe fn getType(&self, nindex: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).getType)(windows_core::Interface::as_raw(self), nindex, ppwchtype, pcchtype).ok()
     }
-    pub unsafe fn getTypeFromName<P0, P1>(&self, pwchuri: P0, cchuri: i32, pwchlocalname: P1, cchlocalname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::Result<()>
+    pub unsafe fn getTypeFromName<P0, P2>(&self, pwchuri: P0, cchuri: i32, pwchlocalname: P2, cchlocalname: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).getTypeFromName)(windows_core::Interface::as_raw(self), pwchuri.param().abi(), cchuri, pwchlocalname.param().abi(), cchlocalname, ppwchtype, pcchtype).ok()
     }
@@ -1132,10 +1116,10 @@ impl ISAXAttributes {
     pub unsafe fn getValue(&self, nindex: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).getValue)(windows_core::Interface::as_raw(self), nindex, ppwchvalue, pcchvalue).ok()
     }
-    pub unsafe fn getValueFromName<P0, P1>(&self, pwchuri: P0, cchuri: i32, pwchlocalname: P1, cchlocalname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::Result<()>
+    pub unsafe fn getValueFromName<P0, P2>(&self, pwchuri: P0, cchuri: i32, pwchlocalname: P2, cchlocalname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).getValueFromName)(windows_core::Interface::as_raw(self), pwchuri.param().abi(), cchuri, pwchlocalname.param().abi(), cchlocalname, ppwchvalue, pcchvalue).ok()
     }
@@ -1163,7 +1147,7 @@ pub struct ISAXAttributes_Vtbl {
     pub getValueFromName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32, *mut *mut u16, *mut i32) -> windows_core::HRESULT,
     pub getValueFromQName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, *mut *mut u16, *mut i32) -> windows_core::HRESULT,
 }
-pub trait ISAXAttributes_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISAXAttributes_Impl: windows_core::IUnknownImpl {
     fn getLength(&self) -> windows_core::Result<i32>;
     fn getURI(&self, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32) -> windows_core::Result<()>;
     fn getLocalName(&self, nindex: i32, ppwchlocalname: *mut *mut u16, pcchlocalname: *mut i32) -> windows_core::Result<()>;
@@ -1178,9 +1162,8 @@ pub trait ISAXAttributes_Impl: Sized + windows_core::IUnknownImpl {
     fn getValueFromName(&self, pwchuri: &windows_core::PCWSTR, cchuri: i32, pwchlocalname: &windows_core::PCWSTR, cchlocalname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::Result<()>;
     fn getValueFromQName(&self, pwchqname: &windows_core::PCWSTR, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ISAXAttributes {}
 impl ISAXAttributes_Vtbl {
-    pub const fn new<Identity: ISAXAttributes_Impl, const OFFSET: isize>() -> ISAXAttributes_Vtbl {
+    pub const fn new<Identity: ISAXAttributes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn getLength<Identity: ISAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnlength: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISAXAttributes_Impl::getLength(this) {
@@ -1272,13 +1255,8 @@ impl ISAXAttributes_Vtbl {
         iid == &<ISAXAttributes as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ISAXAttributes {}
 windows_core::imp::define_interface!(ISAXContentHandler, ISAXContentHandler_Vtbl, 0x1545cdfa_9e4e_4497_a8a4_2bf7d0112c44);
-impl core::ops::Deref for ISAXContentHandler {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ISAXContentHandler, windows_core::IUnknown);
 impl ISAXContentHandler {
     pub unsafe fn putDocumentLocator<P0>(&self, plocator: P0) -> windows_core::Result<()>
@@ -1293,10 +1271,10 @@ impl ISAXContentHandler {
     pub unsafe fn endDocument(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).endDocument)(windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn startPrefixMapping<P0, P1>(&self, pwchprefix: P0, cchprefix: i32, pwchuri: P1, cchuri: i32) -> windows_core::Result<()>
+    pub unsafe fn startPrefixMapping<P0, P2>(&self, pwchprefix: P0, cchprefix: i32, pwchuri: P2, cchuri: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).startPrefixMapping)(windows_core::Interface::as_raw(self), pwchprefix.param().abi(), cchprefix, pwchuri.param().abi(), cchuri).ok()
     }
@@ -1306,20 +1284,20 @@ impl ISAXContentHandler {
     {
         (windows_core::Interface::vtable(self).endPrefixMapping)(windows_core::Interface::as_raw(self), pwchprefix.param().abi(), cchprefix).ok()
     }
-    pub unsafe fn startElement<P0, P1, P2, P3>(&self, pwchnamespaceuri: P0, cchnamespaceuri: i32, pwchlocalname: P1, cchlocalname: i32, pwchqname: P2, cchqname: i32, pattributes: P3) -> windows_core::Result<()>
+    pub unsafe fn startElement<P0, P2, P4, P6>(&self, pwchnamespaceuri: P0, cchnamespaceuri: i32, pwchlocalname: P2, cchlocalname: i32, pwchqname: P4, cchqname: i32, pattributes: P6) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<ISAXAttributes>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
+        P6: windows_core::Param<ISAXAttributes>,
     {
         (windows_core::Interface::vtable(self).startElement)(windows_core::Interface::as_raw(self), pwchnamespaceuri.param().abi(), cchnamespaceuri, pwchlocalname.param().abi(), cchlocalname, pwchqname.param().abi(), cchqname, pattributes.param().abi()).ok()
     }
-    pub unsafe fn endElement<P0, P1, P2>(&self, pwchnamespaceuri: P0, cchnamespaceuri: i32, pwchlocalname: P1, cchlocalname: i32, pwchqname: P2, cchqname: i32) -> windows_core::Result<()>
+    pub unsafe fn endElement<P0, P2, P4>(&self, pwchnamespaceuri: P0, cchnamespaceuri: i32, pwchlocalname: P2, cchlocalname: i32, pwchqname: P4, cchqname: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).endElement)(windows_core::Interface::as_raw(self), pwchnamespaceuri.param().abi(), cchnamespaceuri, pwchlocalname.param().abi(), cchlocalname, pwchqname.param().abi(), cchqname).ok()
     }
@@ -1335,10 +1313,10 @@ impl ISAXContentHandler {
     {
         (windows_core::Interface::vtable(self).ignorableWhitespace)(windows_core::Interface::as_raw(self), pwchchars.param().abi(), cchchars).ok()
     }
-    pub unsafe fn processingInstruction<P0, P1>(&self, pwchtarget: P0, cchtarget: i32, pwchdata: P1, cchdata: i32) -> windows_core::Result<()>
+    pub unsafe fn processingInstruction<P0, P2>(&self, pwchtarget: P0, cchtarget: i32, pwchdata: P2, cchdata: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).processingInstruction)(windows_core::Interface::as_raw(self), pwchtarget.param().abi(), cchtarget, pwchdata.param().abi(), cchdata).ok()
     }
@@ -1364,7 +1342,7 @@ pub struct ISAXContentHandler_Vtbl {
     pub processingInstruction: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
     pub skippedEntity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
-pub trait ISAXContentHandler_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISAXContentHandler_Impl: windows_core::IUnknownImpl {
     fn putDocumentLocator(&self, plocator: Option<&ISAXLocator>) -> windows_core::Result<()>;
     fn startDocument(&self) -> windows_core::Result<()>;
     fn endDocument(&self) -> windows_core::Result<()>;
@@ -1377,9 +1355,8 @@ pub trait ISAXContentHandler_Impl: Sized + windows_core::IUnknownImpl {
     fn processingInstruction(&self, pwchtarget: &windows_core::PCWSTR, cchtarget: i32, pwchdata: &windows_core::PCWSTR, cchdata: i32) -> windows_core::Result<()>;
     fn skippedEntity(&self, pwchname: &windows_core::PCWSTR, cchname: i32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ISAXContentHandler {}
 impl ISAXContentHandler_Vtbl {
-    pub const fn new<Identity: ISAXContentHandler_Impl, const OFFSET: isize>() -> ISAXContentHandler_Vtbl {
+    pub const fn new<Identity: ISAXContentHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn putDocumentLocator<Identity: ISAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocator: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISAXContentHandler_Impl::putDocumentLocator(this, windows_core::from_raw_borrowed(&plocator)).into()
@@ -1443,29 +1420,24 @@ impl ISAXContentHandler_Vtbl {
         iid == &<ISAXContentHandler as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ISAXContentHandler {}
 windows_core::imp::define_interface!(ISAXDTDHandler, ISAXDTDHandler_Vtbl, 0xe15c1baf_afb3_4d60_8c36_19a8c45defed);
-impl core::ops::Deref for ISAXDTDHandler {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ISAXDTDHandler, windows_core::IUnknown);
 impl ISAXDTDHandler {
-    pub unsafe fn notationDecl<P0, P1, P2>(&self, pwchname: P0, cchname: i32, pwchpublicid: P1, cchpublicid: i32, pwchsystemid: P2, cchsystemid: i32) -> windows_core::Result<()>
+    pub unsafe fn notationDecl<P0, P2, P4>(&self, pwchname: P0, cchname: i32, pwchpublicid: P2, cchpublicid: i32, pwchsystemid: P4, cchsystemid: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).notationDecl)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchpublicid.param().abi(), cchpublicid, pwchsystemid.param().abi(), cchsystemid).ok()
     }
-    pub unsafe fn unparsedEntityDecl<P0, P1, P2, P3>(&self, pwchname: P0, cchname: i32, pwchpublicid: P1, cchpublicid: i32, pwchsystemid: P2, cchsystemid: i32, pwchnotationname: P3, cchnotationname: i32) -> windows_core::Result<()>
+    pub unsafe fn unparsedEntityDecl<P0, P2, P4, P6>(&self, pwchname: P0, cchname: i32, pwchpublicid: P2, cchpublicid: i32, pwchsystemid: P4, cchsystemid: i32, pwchnotationname: P6, cchnotationname: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
+        P6: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).unparsedEntityDecl)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchpublicid.param().abi(), cchpublicid, pwchsystemid.param().abi(), cchsystemid, pwchnotationname.param().abi(), cchnotationname).ok()
     }
@@ -1476,13 +1448,12 @@ pub struct ISAXDTDHandler_Vtbl {
     pub notationDecl: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
     pub unparsedEntityDecl: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
-pub trait ISAXDTDHandler_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISAXDTDHandler_Impl: windows_core::IUnknownImpl {
     fn notationDecl(&self, pwchname: &windows_core::PCWSTR, cchname: i32, pwchpublicid: &windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: &windows_core::PCWSTR, cchsystemid: i32) -> windows_core::Result<()>;
     fn unparsedEntityDecl(&self, pwchname: &windows_core::PCWSTR, cchname: i32, pwchpublicid: &windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: &windows_core::PCWSTR, cchsystemid: i32, pwchnotationname: &windows_core::PCWSTR, cchnotationname: i32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ISAXDTDHandler {}
 impl ISAXDTDHandler_Vtbl {
-    pub const fn new<Identity: ISAXDTDHandler_Impl, const OFFSET: isize>() -> ISAXDTDHandler_Vtbl {
+    pub const fn new<Identity: ISAXDTDHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn notationDecl<Identity: ISAXDTDHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32, pwchpublicid: windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: windows_core::PCWSTR, cchsystemid: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISAXDTDHandler_Impl::notationDecl(this, core::mem::transmute(&pwchname), core::mem::transmute_copy(&cchname), core::mem::transmute(&pwchpublicid), core::mem::transmute_copy(&cchpublicid), core::mem::transmute(&pwchsystemid), core::mem::transmute_copy(&cchsystemid)).into()
@@ -1501,44 +1472,39 @@ impl ISAXDTDHandler_Vtbl {
         iid == &<ISAXDTDHandler as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ISAXDTDHandler {}
 windows_core::imp::define_interface!(ISAXDeclHandler, ISAXDeclHandler_Vtbl, 0x862629ac_771a_47b2_8337_4e6843c1be90);
-impl core::ops::Deref for ISAXDeclHandler {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ISAXDeclHandler, windows_core::IUnknown);
 impl ISAXDeclHandler {
-    pub unsafe fn elementDecl<P0, P1>(&self, pwchname: P0, cchname: i32, pwchmodel: P1, cchmodel: i32) -> windows_core::Result<()>
+    pub unsafe fn elementDecl<P0, P2>(&self, pwchname: P0, cchname: i32, pwchmodel: P2, cchmodel: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).elementDecl)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchmodel.param().abi(), cchmodel).ok()
     }
-    pub unsafe fn attributeDecl<P0, P1, P2, P3, P4>(&self, pwchelementname: P0, cchelementname: i32, pwchattributename: P1, cchattributename: i32, pwchtype: P2, cchtype: i32, pwchvaluedefault: P3, cchvaluedefault: i32, pwchvalue: P4, cchvalue: i32) -> windows_core::Result<()>
+    pub unsafe fn attributeDecl<P0, P2, P4, P6, P8>(&self, pwchelementname: P0, cchelementname: i32, pwchattributename: P2, cchattributename: i32, pwchtype: P4, cchtype: i32, pwchvaluedefault: P6, cchvaluedefault: i32, pwchvalue: P8, cchvalue: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
-        P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
+        P6: windows_core::Param<windows_core::PCWSTR>,
+        P8: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).attributeDecl)(windows_core::Interface::as_raw(self), pwchelementname.param().abi(), cchelementname, pwchattributename.param().abi(), cchattributename, pwchtype.param().abi(), cchtype, pwchvaluedefault.param().abi(), cchvaluedefault, pwchvalue.param().abi(), cchvalue).ok()
     }
-    pub unsafe fn internalEntityDecl<P0, P1>(&self, pwchname: P0, cchname: i32, pwchvalue: P1, cchvalue: i32) -> windows_core::Result<()>
+    pub unsafe fn internalEntityDecl<P0, P2>(&self, pwchname: P0, cchname: i32, pwchvalue: P2, cchvalue: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).internalEntityDecl)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchvalue.param().abi(), cchvalue).ok()
     }
-    pub unsafe fn externalEntityDecl<P0, P1, P2>(&self, pwchname: P0, cchname: i32, pwchpublicid: P1, cchpublicid: i32, pwchsystemid: P2, cchsystemid: i32) -> windows_core::Result<()>
+    pub unsafe fn externalEntityDecl<P0, P2, P4>(&self, pwchname: P0, cchname: i32, pwchpublicid: P2, cchpublicid: i32, pwchsystemid: P4, cchsystemid: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).externalEntityDecl)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchpublicid.param().abi(), cchpublicid, pwchsystemid.param().abi(), cchsystemid).ok()
     }
@@ -1551,15 +1517,14 @@ pub struct ISAXDeclHandler_Vtbl {
     pub internalEntityDecl: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
     pub externalEntityDecl: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
-pub trait ISAXDeclHandler_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISAXDeclHandler_Impl: windows_core::IUnknownImpl {
     fn elementDecl(&self, pwchname: &windows_core::PCWSTR, cchname: i32, pwchmodel: &windows_core::PCWSTR, cchmodel: i32) -> windows_core::Result<()>;
     fn attributeDecl(&self, pwchelementname: &windows_core::PCWSTR, cchelementname: i32, pwchattributename: &windows_core::PCWSTR, cchattributename: i32, pwchtype: &windows_core::PCWSTR, cchtype: i32, pwchvaluedefault: &windows_core::PCWSTR, cchvaluedefault: i32, pwchvalue: &windows_core::PCWSTR, cchvalue: i32) -> windows_core::Result<()>;
     fn internalEntityDecl(&self, pwchname: &windows_core::PCWSTR, cchname: i32, pwchvalue: &windows_core::PCWSTR, cchvalue: i32) -> windows_core::Result<()>;
     fn externalEntityDecl(&self, pwchname: &windows_core::PCWSTR, cchname: i32, pwchpublicid: &windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: &windows_core::PCWSTR, cchsystemid: i32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ISAXDeclHandler {}
 impl ISAXDeclHandler_Vtbl {
-    pub const fn new<Identity: ISAXDeclHandler_Impl, const OFFSET: isize>() -> ISAXDeclHandler_Vtbl {
+    pub const fn new<Identity: ISAXDeclHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn elementDecl<Identity: ISAXDeclHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32, pwchmodel: windows_core::PCWSTR, cchmodel: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISAXDeclHandler_Impl::elementDecl(this, core::mem::transmute(&pwchname), core::mem::transmute_copy(&cchname), core::mem::transmute(&pwchmodel), core::mem::transmute_copy(&cchmodel)).into()
@@ -1588,13 +1553,8 @@ impl ISAXDeclHandler_Vtbl {
         iid == &<ISAXDeclHandler as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ISAXDeclHandler {}
 windows_core::imp::define_interface!(ISAXEntityResolver, ISAXEntityResolver_Vtbl, 0x99bca7bd_e8c4_4d5f_a0cf_6d907901ff07);
-impl core::ops::Deref for ISAXEntityResolver {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ISAXEntityResolver, windows_core::IUnknown);
 impl ISAXEntityResolver {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1604,27 +1564,25 @@ impl ISAXEntityResolver {
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).resolveEntity)(windows_core::Interface::as_raw(self), pwchpublicid.param().abi(), pwchsystemid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).resolveEntity)(windows_core::Interface::as_raw(self), pwchpublicid.param().abi(), pwchsystemid.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[repr(C)]
 pub struct ISAXEntityResolver_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub resolveEntity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub resolveEntity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     resolveEntity: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISAXEntityResolver_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISAXEntityResolver_Impl: windows_core::IUnknownImpl {
     fn resolveEntity(&self, pwchpublicid: &windows_core::PCWSTR, pwchsystemid: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISAXEntityResolver {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISAXEntityResolver_Vtbl {
-    pub const fn new<Identity: ISAXEntityResolver_Impl, const OFFSET: isize>() -> ISAXEntityResolver_Vtbl {
-        unsafe extern "system" fn resolveEntity<Identity: ISAXEntityResolver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchpublicid: windows_core::PCWSTR, pwchsystemid: windows_core::PCWSTR, pvarinput: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+    pub const fn new<Identity: ISAXEntityResolver_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn resolveEntity<Identity: ISAXEntityResolver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchpublicid: windows_core::PCWSTR, pwchsystemid: windows_core::PCWSTR, pvarinput: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISAXEntityResolver_Impl::resolveEntity(this, core::mem::transmute(&pwchpublicid), core::mem::transmute(&pwchsystemid)) {
                 Ok(ok__) => {
@@ -1640,13 +1598,9 @@ impl ISAXEntityResolver_Vtbl {
         iid == &<ISAXEntityResolver as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISAXEntityResolver {}
 windows_core::imp::define_interface!(ISAXErrorHandler, ISAXErrorHandler_Vtbl, 0xa60511c4_ccf5_479e_98a3_dc8dc545b7d0);
-impl core::ops::Deref for ISAXErrorHandler {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ISAXErrorHandler, windows_core::IUnknown);
 impl ISAXErrorHandler {
     pub unsafe fn error<P0, P1>(&self, plocator: P0, pwcherrormessage: P1, hrerrorcode: windows_core::HRESULT) -> windows_core::Result<()>
@@ -1678,14 +1632,13 @@ pub struct ISAXErrorHandler_Vtbl {
     pub fatalError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::HRESULT) -> windows_core::HRESULT,
     pub ignorableWarning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, windows_core::HRESULT) -> windows_core::HRESULT,
 }
-pub trait ISAXErrorHandler_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISAXErrorHandler_Impl: windows_core::IUnknownImpl {
     fn error(&self, plocator: Option<&ISAXLocator>, pwcherrormessage: &windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::Result<()>;
     fn fatalError(&self, plocator: Option<&ISAXLocator>, pwcherrormessage: &windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::Result<()>;
     fn ignorableWarning(&self, plocator: Option<&ISAXLocator>, pwcherrormessage: &windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ISAXErrorHandler {}
 impl ISAXErrorHandler_Vtbl {
-    pub const fn new<Identity: ISAXErrorHandler_Impl, const OFFSET: isize>() -> ISAXErrorHandler_Vtbl {
+    pub const fn new<Identity: ISAXErrorHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn error<Identity: ISAXErrorHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plocator: *mut core::ffi::c_void, pwcherrormessage: windows_core::PCWSTR, hrerrorcode: windows_core::HRESULT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISAXErrorHandler_Impl::error(this, windows_core::from_raw_borrowed(&plocator), core::mem::transmute(&pwcherrormessage), core::mem::transmute_copy(&hrerrorcode)).into()
@@ -1709,20 +1662,15 @@ impl ISAXErrorHandler_Vtbl {
         iid == &<ISAXErrorHandler as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ISAXErrorHandler {}
 windows_core::imp::define_interface!(ISAXLexicalHandler, ISAXLexicalHandler_Vtbl, 0x7f85d5f5_47a8_4497_bda5_84ba04819ea6);
-impl core::ops::Deref for ISAXLexicalHandler {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ISAXLexicalHandler, windows_core::IUnknown);
 impl ISAXLexicalHandler {
-    pub unsafe fn startDTD<P0, P1, P2>(&self, pwchname: P0, cchname: i32, pwchpublicid: P1, cchpublicid: i32, pwchsystemid: P2, cchsystemid: i32) -> windows_core::Result<()>
+    pub unsafe fn startDTD<P0, P2, P4>(&self, pwchname: P0, cchname: i32, pwchpublicid: P2, cchpublicid: i32, pwchsystemid: P4, cchsystemid: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).startDTD)(windows_core::Interface::as_raw(self), pwchname.param().abi(), cchname, pwchpublicid.param().abi(), cchpublicid, pwchsystemid.param().abi(), cchsystemid).ok()
     }
@@ -1765,7 +1713,7 @@ pub struct ISAXLexicalHandler_Vtbl {
     pub endCDATA: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub comment: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32) -> windows_core::HRESULT,
 }
-pub trait ISAXLexicalHandler_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISAXLexicalHandler_Impl: windows_core::IUnknownImpl {
     fn startDTD(&self, pwchname: &windows_core::PCWSTR, cchname: i32, pwchpublicid: &windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: &windows_core::PCWSTR, cchsystemid: i32) -> windows_core::Result<()>;
     fn endDTD(&self) -> windows_core::Result<()>;
     fn startEntity(&self, pwchname: &windows_core::PCWSTR, cchname: i32) -> windows_core::Result<()>;
@@ -1774,9 +1722,8 @@ pub trait ISAXLexicalHandler_Impl: Sized + windows_core::IUnknownImpl {
     fn endCDATA(&self) -> windows_core::Result<()>;
     fn comment(&self, pwchchars: &windows_core::PCWSTR, cchchars: i32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for ISAXLexicalHandler {}
 impl ISAXLexicalHandler_Vtbl {
-    pub const fn new<Identity: ISAXLexicalHandler_Impl, const OFFSET: isize>() -> ISAXLexicalHandler_Vtbl {
+    pub const fn new<Identity: ISAXLexicalHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn startDTD<Identity: ISAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, cchname: i32, pwchpublicid: windows_core::PCWSTR, cchpublicid: i32, pwchsystemid: windows_core::PCWSTR, cchsystemid: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISAXLexicalHandler_Impl::startDTD(this, core::mem::transmute(&pwchname), core::mem::transmute_copy(&cchname), core::mem::transmute(&pwchpublicid), core::mem::transmute_copy(&cchpublicid), core::mem::transmute(&pwchsystemid), core::mem::transmute_copy(&cchsystemid)).into()
@@ -1820,13 +1767,8 @@ impl ISAXLexicalHandler_Vtbl {
         iid == &<ISAXLexicalHandler as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ISAXLexicalHandler {}
 windows_core::imp::define_interface!(ISAXLocator, ISAXLocator_Vtbl, 0x9b7e472a_0de4_4640_bff3_84d38a051c31);
-impl core::ops::Deref for ISAXLocator {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ISAXLocator, windows_core::IUnknown);
 impl ISAXLocator {
     pub unsafe fn getColumnNumber(&self) -> windows_core::Result<i32> {
@@ -1854,15 +1796,14 @@ pub struct ISAXLocator_Vtbl {
     pub getPublicId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16) -> windows_core::HRESULT,
     pub getSystemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16) -> windows_core::HRESULT,
 }
-pub trait ISAXLocator_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISAXLocator_Impl: windows_core::IUnknownImpl {
     fn getColumnNumber(&self) -> windows_core::Result<i32>;
     fn getLineNumber(&self) -> windows_core::Result<i32>;
     fn getPublicId(&self) -> windows_core::Result<*mut u16>;
     fn getSystemId(&self) -> windows_core::Result<*mut u16>;
 }
-impl windows_core::RuntimeName for ISAXLocator {}
 impl ISAXLocator_Vtbl {
-    pub const fn new<Identity: ISAXLocator_Impl, const OFFSET: isize>() -> ISAXLocator_Vtbl {
+    pub const fn new<Identity: ISAXLocator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn getColumnNumber<Identity: ISAXLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pncolumn: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISAXLocator_Impl::getColumnNumber(this) {
@@ -1915,6 +1856,7 @@ impl ISAXLocator_Vtbl {
         iid == &<ISAXLocator as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for ISAXLocator {}
 windows_core::imp::define_interface!(ISAXXMLFilter, ISAXXMLFilter_Vtbl, 0x70409222_ca09_4475_acb8_40312fe8d145);
 impl core::ops::Deref for ISAXXMLFilter {
     type Target = ISAXXMLReader;
@@ -1942,15 +1884,13 @@ pub struct ISAXXMLFilter_Vtbl {
     pub putParent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISAXXMLFilter_Impl: Sized + ISAXXMLReader_Impl {
+pub trait ISAXXMLFilter_Impl: ISAXXMLReader_Impl {
     fn getParent(&self) -> windows_core::Result<ISAXXMLReader>;
     fn putParent(&self, preader: Option<&ISAXXMLReader>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISAXXMLFilter {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISAXXMLFilter_Vtbl {
-    pub const fn new<Identity: ISAXXMLFilter_Impl, const OFFSET: isize>() -> ISAXXMLFilter_Vtbl {
+    pub const fn new<Identity: ISAXXMLFilter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn getParent<Identity: ISAXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISAXXMLFilter_Impl::getParent(this) {
@@ -1968,16 +1908,12 @@ impl ISAXXMLFilter_Vtbl {
         Self { base__: ISAXXMLReader_Vtbl::new::<Identity, OFFSET>(), getParent: getParent::<Identity, OFFSET>, putParent: putParent::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISAXXMLFilter as windows_core::Interface>::IID || iid == &<ISAXXMLReader as windows_core::Interface>::IID
+        iid == &<ISAXXMLFilter as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISAXXMLFilter {}
 windows_core::imp::define_interface!(ISAXXMLReader, ISAXXMLReader_Vtbl, 0xa4f96ed0_f829_476e_81c0_cdc7bd2a0802);
-impl core::ops::Deref for ISAXXMLReader {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(ISAXXMLReader, windows_core::IUnknown);
 impl ISAXXMLReader {
     pub unsafe fn getFeature<P0>(&self, pwchname: P0) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>
@@ -2000,7 +1936,7 @@ impl ISAXXMLReader {
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getProperty)(windows_core::Interface::as_raw(self), pwchname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getProperty)(windows_core::Interface::as_raw(self), pwchname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn putProperty<P0, P1>(&self, pwchname: P0, varvalue: P1) -> windows_core::Result<()>
@@ -2090,11 +2026,11 @@ pub struct ISAXXMLReader_Vtbl {
     pub getFeature: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub putFeature: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub getProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub getProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     getProperty: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub putProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub putProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     putProperty: usize,
     pub getEntityResolver: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2110,13 +2046,13 @@ pub struct ISAXXMLReader_Vtbl {
     pub getSecureBaseURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u16) -> windows_core::HRESULT,
     pub putSecureBaseURL: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub parse: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub parse: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     parse: usize,
     pub parseURL: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISAXXMLReader_Impl: Sized + windows_core::IUnknownImpl {
+pub trait ISAXXMLReader_Impl: windows_core::IUnknownImpl {
     fn getFeature(&self, pwchname: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn putFeature(&self, pwchname: &windows_core::PCWSTR, vfvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn getProperty(&self, pwchname: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
@@ -2137,10 +2073,8 @@ pub trait ISAXXMLReader_Impl: Sized + windows_core::IUnknownImpl {
     fn parseURL(&self, pwchurl: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISAXXMLReader {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISAXXMLReader_Vtbl {
-    pub const fn new<Identity: ISAXXMLReader_Impl, const OFFSET: isize>() -> ISAXXMLReader_Vtbl {
+    pub const fn new<Identity: ISAXXMLReader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn getFeature<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, pvfvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISAXXMLReader_Impl::getFeature(this, core::mem::transmute(&pwchname)) {
@@ -2155,7 +2089,7 @@ impl ISAXXMLReader_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISAXXMLReader_Impl::putFeature(this, core::mem::transmute(&pwchname), core::mem::transmute_copy(&vfvalue)).into()
         }
-        unsafe extern "system" fn getProperty<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, pvarvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn getProperty<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, pvarvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISAXXMLReader_Impl::getProperty(this, core::mem::transmute(&pwchname)) {
                 Ok(ok__) => {
@@ -2165,7 +2099,7 @@ impl ISAXXMLReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putProperty<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, varvalue: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn putProperty<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwchname: windows_core::PCWSTR, varvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISAXXMLReader_Impl::putProperty(this, core::mem::transmute(&pwchname), core::mem::transmute(&varvalue)).into()
         }
@@ -2253,7 +2187,7 @@ impl ISAXXMLReader_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISAXXMLReader_Impl::putSecureBaseURL(this, core::mem::transmute(&pwchsecurebaseurl)).into()
         }
-        unsafe extern "system" fn parse<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varinput: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn parse<Identity: ISAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varinput: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISAXXMLReader_Impl::parse(this, core::mem::transmute(&varinput)).into()
         }
@@ -2287,6 +2221,8 @@ impl ISAXXMLReader_Vtbl {
         iid == &<ISAXXMLReader as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISAXXMLReader {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchema, ISchema_Vtbl, 0x50ea08b4_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
@@ -2302,43 +2238,36 @@ windows_core::imp::interface_hierarchy!(ISchema, windows_core::IUnknown, super::
 impl ISchema {
     pub unsafe fn targetNamespace(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).targetNamespace)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).targetNamespace)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn version(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).version)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).version)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn types(&self) -> windows_core::Result<ISchemaItemCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).types)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn elements(&self) -> windows_core::Result<ISchemaItemCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).elements)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> windows_core::Result<ISchemaItemCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).attributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributeGroups(&self) -> windows_core::Result<ISchemaItemCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).attributeGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn modelGroups(&self) -> windows_core::Result<ISchemaItemCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).modelGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn notations(&self) -> windows_core::Result<ISchemaItemCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).notations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schemaLocations(&self) -> windows_core::Result<ISchemaStringCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).schemaLocations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2350,37 +2279,16 @@ pub struct ISchema_Vtbl {
     pub base__: ISchemaItem_Vtbl,
     pub targetNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub version: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub types: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    types: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub elements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    elements: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    attributes: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub attributeGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    attributeGroups: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub modelGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    modelGroups: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub notations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    notations: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub schemaLocations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    schemaLocations: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISchema_Impl: Sized + ISchemaItem_Impl {
+pub trait ISchema_Impl: ISchemaItem_Impl {
     fn targetNamespace(&self) -> windows_core::Result<windows_core::BSTR>;
     fn version(&self) -> windows_core::Result<windows_core::BSTR>;
     fn types(&self) -> windows_core::Result<ISchemaItemCollection>;
@@ -2392,10 +2300,8 @@ pub trait ISchema_Impl: Sized + ISchemaItem_Impl {
     fn schemaLocations(&self) -> windows_core::Result<ISchemaStringCollection>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISchema {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchema_Vtbl {
-    pub const fn new<Identity: ISchema_Impl, const OFFSET: isize>() -> ISchema_Vtbl {
+    pub const fn new<Identity: ISchema_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn targetNamespace<Identity: ISchema_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, targetnamespace: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchema_Impl::targetNamespace(this) {
@@ -2500,9 +2406,11 @@ impl ISchema_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISchema as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ISchemaItem as windows_core::Interface>::IID
+        iid == &<ISchema as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISchema {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaAny, ISchemaAny_Vtbl, 0x50ea08bc_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
@@ -2516,7 +2424,6 @@ impl core::ops::Deref for ISchemaAny {
 windows_core::imp::interface_hierarchy!(ISchemaAny, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaParticle);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaAny {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn namespaces(&self) -> windows_core::Result<ISchemaStringCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).namespaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2530,22 +2437,17 @@ impl ISchemaAny {
 #[repr(C)]
 pub struct ISchemaAny_Vtbl {
     pub base__: ISchemaParticle_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub namespaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    namespaces: usize,
     pub processContents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SCHEMAPROCESSCONTENTS) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISchemaAny_Impl: Sized + ISchemaParticle_Impl {
+pub trait ISchemaAny_Impl: ISchemaParticle_Impl {
     fn namespaces(&self) -> windows_core::Result<ISchemaStringCollection>;
     fn processContents(&self) -> windows_core::Result<SCHEMAPROCESSCONTENTS>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISchemaAny {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaAny_Vtbl {
-    pub const fn new<Identity: ISchemaAny_Impl, const OFFSET: isize>() -> ISchemaAny_Vtbl {
+    pub const fn new<Identity: ISchemaAny_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn namespaces<Identity: ISchemaAny_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaces: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaAny_Impl::namespaces(this) {
@@ -2573,9 +2475,11 @@ impl ISchemaAny_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISchemaAny as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ISchemaItem as windows_core::Interface>::IID || iid == &<ISchemaParticle as windows_core::Interface>::IID
+        iid == &<ISchemaAny as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISchemaAny {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaAttribute, ISchemaAttribute_Vtbl, 0x50ea08b6_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
@@ -2589,23 +2493,21 @@ impl core::ops::Deref for ISchemaAttribute {
 windows_core::imp::interface_hierarchy!(ISchemaAttribute, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaAttribute {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn r#type(&self) -> windows_core::Result<ISchemaType> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).r#type)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn scope(&self) -> windows_core::Result<ISchemaComplexType> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).scope)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn defaultValue(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).defaultValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).defaultValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn fixedValue(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).fixedValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).fixedValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn r#use(&self) -> windows_core::Result<SCHEMAUSE> {
         let mut result__ = core::mem::zeroed();
@@ -2620,21 +2522,15 @@ impl ISchemaAttribute {
 #[repr(C)]
 pub struct ISchemaAttribute_Vtbl {
     pub base__: ISchemaItem_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub r#type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    r#type: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub scope: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    scope: usize,
     pub defaultValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub fixedValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub r#use: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SCHEMAUSE) -> windows_core::HRESULT,
     pub isReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISchemaAttribute_Impl: Sized + ISchemaItem_Impl {
+pub trait ISchemaAttribute_Impl: ISchemaItem_Impl {
     fn r#type(&self) -> windows_core::Result<ISchemaType>;
     fn scope(&self) -> windows_core::Result<ISchemaComplexType>;
     fn defaultValue(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2643,10 +2539,8 @@ pub trait ISchemaAttribute_Impl: Sized + ISchemaItem_Impl {
     fn isReference(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISchemaAttribute {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaAttribute_Vtbl {
-    pub const fn new<Identity: ISchemaAttribute_Impl, const OFFSET: isize>() -> ISchemaAttribute_Vtbl {
+    pub const fn new<Identity: ISchemaAttribute_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn r#type<Identity: ISchemaAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaAttribute_Impl::r#type(this) {
@@ -2718,9 +2612,11 @@ impl ISchemaAttribute_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISchemaAttribute as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ISchemaItem as windows_core::Interface>::IID
+        iid == &<ISchemaAttribute as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISchemaAttribute {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaAttributeGroup, ISchemaAttributeGroup_Vtbl, 0x50ea08ba_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
@@ -2734,12 +2630,10 @@ impl core::ops::Deref for ISchemaAttributeGroup {
 windows_core::imp::interface_hierarchy!(ISchemaAttributeGroup, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaAttributeGroup {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn anyAttribute(&self) -> windows_core::Result<ISchemaAny> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).anyAttribute)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> windows_core::Result<ISchemaItemCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).attributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2749,25 +2643,17 @@ impl ISchemaAttributeGroup {
 #[repr(C)]
 pub struct ISchemaAttributeGroup_Vtbl {
     pub base__: ISchemaItem_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub anyAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    anyAttribute: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    attributes: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISchemaAttributeGroup_Impl: Sized + ISchemaItem_Impl {
+pub trait ISchemaAttributeGroup_Impl: ISchemaItem_Impl {
     fn anyAttribute(&self) -> windows_core::Result<ISchemaAny>;
     fn attributes(&self) -> windows_core::Result<ISchemaItemCollection>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISchemaAttributeGroup {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaAttributeGroup_Vtbl {
-    pub const fn new<Identity: ISchemaAttributeGroup_Impl, const OFFSET: isize>() -> ISchemaAttributeGroup_Vtbl {
+    pub const fn new<Identity: ISchemaAttributeGroup_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn anyAttribute<Identity: ISchemaAttributeGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, anyattribute: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaAttributeGroup_Impl::anyAttribute(this) {
@@ -2791,9 +2677,11 @@ impl ISchemaAttributeGroup_Vtbl {
         Self { base__: ISchemaItem_Vtbl::new::<Identity, OFFSET>(), anyAttribute: anyAttribute::<Identity, OFFSET>, attributes: attributes::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISchemaAttributeGroup as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ISchemaItem as windows_core::Interface>::IID
+        iid == &<ISchemaAttributeGroup as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISchemaAttributeGroup {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaComplexType, ISchemaComplexType_Vtbl, 0x50ea08b9_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
@@ -2811,12 +2699,10 @@ impl ISchemaComplexType {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).isAbstract)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn anyAttribute(&self) -> windows_core::Result<ISchemaAny> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).anyAttribute)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> windows_core::Result<ISchemaItemCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).attributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2825,7 +2711,6 @@ impl ISchemaComplexType {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).contentType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn contentModel(&self) -> windows_core::Result<ISchemaModelGroup> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).contentModel)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2840,23 +2725,14 @@ impl ISchemaComplexType {
 pub struct ISchemaComplexType_Vtbl {
     pub base__: ISchemaType_Vtbl,
     pub isAbstract: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub anyAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    anyAttribute: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    attributes: usize,
     pub contentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SCHEMACONTENTTYPE) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub contentModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    contentModel: usize,
     pub prohibitedSubstitutions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SCHEMADERIVATIONMETHOD) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISchemaComplexType_Impl: Sized + ISchemaType_Impl {
+pub trait ISchemaComplexType_Impl: ISchemaType_Impl {
     fn isAbstract(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn anyAttribute(&self) -> windows_core::Result<ISchemaAny>;
     fn attributes(&self) -> windows_core::Result<ISchemaItemCollection>;
@@ -2865,10 +2741,8 @@ pub trait ISchemaComplexType_Impl: Sized + ISchemaType_Impl {
     fn prohibitedSubstitutions(&self) -> windows_core::Result<SCHEMADERIVATIONMETHOD>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISchemaComplexType {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaComplexType_Vtbl {
-    pub const fn new<Identity: ISchemaComplexType_Impl, const OFFSET: isize>() -> ISchemaComplexType_Vtbl {
+    pub const fn new<Identity: ISchemaComplexType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn isAbstract<Identity: ISchemaComplexType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#abstract: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaComplexType_Impl::isAbstract(this) {
@@ -2940,9 +2814,11 @@ impl ISchemaComplexType_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISchemaComplexType as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ISchemaItem as windows_core::Interface>::IID || iid == &<ISchemaType as windows_core::Interface>::IID
+        iid == &<ISchemaComplexType as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISchemaComplexType {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaElement, ISchemaElement_Vtbl, 0x50ea08b7_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
@@ -2956,34 +2832,30 @@ impl core::ops::Deref for ISchemaElement {
 windows_core::imp::interface_hierarchy!(ISchemaElement, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaParticle);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaElement {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn r#type(&self) -> windows_core::Result<ISchemaType> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).r#type)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn scope(&self) -> windows_core::Result<ISchemaComplexType> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).scope)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn defaultValue(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).defaultValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).defaultValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn fixedValue(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).fixedValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).fixedValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn isNillable(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).isNillable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn identityConstraints(&self) -> windows_core::Result<ISchemaItemCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).identityConstraints)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn substitutionGroup(&self) -> windows_core::Result<ISchemaElement> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).substitutionGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3009,32 +2881,20 @@ impl ISchemaElement {
 #[repr(C)]
 pub struct ISchemaElement_Vtbl {
     pub base__: ISchemaParticle_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub r#type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    r#type: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub scope: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    scope: usize,
     pub defaultValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub fixedValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub isNillable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub identityConstraints: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    identityConstraints: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub substitutionGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    substitutionGroup: usize,
     pub substitutionGroupExclusions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SCHEMADERIVATIONMETHOD) -> windows_core::HRESULT,
     pub disallowedSubstitutions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SCHEMADERIVATIONMETHOD) -> windows_core::HRESULT,
     pub isAbstract: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub isReference: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISchemaElement_Impl: Sized + ISchemaParticle_Impl {
+pub trait ISchemaElement_Impl: ISchemaParticle_Impl {
     fn r#type(&self) -> windows_core::Result<ISchemaType>;
     fn scope(&self) -> windows_core::Result<ISchemaComplexType>;
     fn defaultValue(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -3048,10 +2908,8 @@ pub trait ISchemaElement_Impl: Sized + ISchemaParticle_Impl {
     fn isReference(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISchemaElement {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaElement_Vtbl {
-    pub const fn new<Identity: ISchemaElement_Impl, const OFFSET: isize>() -> ISchemaElement_Vtbl {
+    pub const fn new<Identity: ISchemaElement_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn r#type<Identity: ISchemaElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaElement_Impl::r#type(this) {
@@ -3178,9 +3036,11 @@ impl ISchemaElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISchemaElement as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ISchemaItem as windows_core::Interface>::IID || iid == &<ISchemaParticle as windows_core::Interface>::IID
+        iid == &<ISchemaElement as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISchemaElement {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaIdentityConstraint, ISchemaIdentityConstraint_Vtbl, 0x50ea08bd_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
@@ -3196,14 +3056,12 @@ windows_core::imp::interface_hierarchy!(ISchemaIdentityConstraint, windows_core:
 impl ISchemaIdentityConstraint {
     pub unsafe fn selector(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).selector)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).selector)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn fields(&self) -> windows_core::Result<ISchemaStringCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).fields)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn referencedKey(&self) -> windows_core::Result<ISchemaIdentityConstraint> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).referencedKey)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3214,26 +3072,18 @@ impl ISchemaIdentityConstraint {
 pub struct ISchemaIdentityConstraint_Vtbl {
     pub base__: ISchemaItem_Vtbl,
     pub selector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub fields: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    fields: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub referencedKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    referencedKey: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISchemaIdentityConstraint_Impl: Sized + ISchemaItem_Impl {
+pub trait ISchemaIdentityConstraint_Impl: ISchemaItem_Impl {
     fn selector(&self) -> windows_core::Result<windows_core::BSTR>;
     fn fields(&self) -> windows_core::Result<ISchemaStringCollection>;
     fn referencedKey(&self) -> windows_core::Result<ISchemaIdentityConstraint>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISchemaIdentityConstraint {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaIdentityConstraint_Vtbl {
-    pub const fn new<Identity: ISchemaIdentityConstraint_Impl, const OFFSET: isize>() -> ISchemaIdentityConstraint_Vtbl {
+    pub const fn new<Identity: ISchemaIdentityConstraint_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn selector<Identity: ISchemaIdentityConstraint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, selector: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaIdentityConstraint_Impl::selector(this) {
@@ -3272,9 +3122,11 @@ impl ISchemaIdentityConstraint_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISchemaIdentityConstraint as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ISchemaItem as windows_core::Interface>::IID
+        iid == &<ISchemaIdentityConstraint as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISchemaIdentityConstraint {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaItem, ISchemaItem_Vtbl, 0x50ea08b3_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
@@ -3290,26 +3142,24 @@ windows_core::imp::interface_hierarchy!(ISchemaItem, windows_core::IUnknown, sup
 impl ISchemaItem {
     pub unsafe fn name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn namespaceURI(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).namespaceURI)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).namespaceURI)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> windows_core::Result<ISchema> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).schema)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn id(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).id)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).id)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn itemType(&self) -> windows_core::Result<SOMITEMTYPE> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).itemType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> windows_core::Result<IVBSAXAttributes> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).unhandledAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3328,20 +3178,14 @@ pub struct ISchemaItem_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub namespaceURI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub schema: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    schema: usize,
     pub id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub itemType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SOMITEMTYPE) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub unhandledAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    unhandledAttributes: usize,
     pub writeAnnotation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISchemaItem_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait ISchemaItem_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn namespaceURI(&self) -> windows_core::Result<windows_core::BSTR>;
     fn schema(&self) -> windows_core::Result<ISchema>;
@@ -3351,10 +3195,8 @@ pub trait ISchemaItem_Impl: Sized + super::super::super::System::Com::IDispatch_
     fn writeAnnotation(&self, annotationsink: Option<&windows_core::IUnknown>) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISchemaItem {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaItem_Vtbl {
-    pub const fn new<Identity: ISchemaItem_Impl, const OFFSET: isize>() -> ISchemaItem_Vtbl {
+    pub const fn new<Identity: ISchemaItem_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn name<Identity: ISchemaItem_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaItem_Impl::name(this) {
@@ -3437,9 +3279,11 @@ impl ISchemaItem_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISchemaItem as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISchemaItem as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISchemaItem {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaItemCollection, ISchemaItemCollection_Vtbl, 0x50ea08b2_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
@@ -3453,12 +3297,10 @@ impl core::ops::Deref for ISchemaItemCollection {
 windows_core::imp::interface_hierarchy!(ISchemaItemCollection, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaItemCollection {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_item(&self, index: i32) -> windows_core::Result<ISchemaItem> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn itemByName<P0>(&self, name: P0) -> windows_core::Result<ISchemaItem>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -3466,7 +3308,6 @@ impl ISchemaItemCollection {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).itemByName)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn itemByQName<P0, P1>(&self, name: P0, namespaceuri: P1) -> windows_core::Result<ISchemaItem>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -3488,23 +3329,14 @@ impl ISchemaItemCollection {
 #[repr(C)]
 pub struct ISchemaItemCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub get_item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    get_item: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub itemByName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    itemByName: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub itemByQName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    itemByQName: usize,
     pub length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub _newEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISchemaItemCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait ISchemaItemCollection_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn get_item(&self, index: i32) -> windows_core::Result<ISchemaItem>;
     fn itemByName(&self, name: &windows_core::BSTR) -> windows_core::Result<ISchemaItem>;
     fn itemByQName(&self, name: &windows_core::BSTR, namespaceuri: &windows_core::BSTR) -> windows_core::Result<ISchemaItem>;
@@ -3512,10 +3344,8 @@ pub trait ISchemaItemCollection_Impl: Sized + super::super::super::System::Com::
     fn _newEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISchemaItemCollection {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaItemCollection_Vtbl {
-    pub const fn new<Identity: ISchemaItemCollection_Impl, const OFFSET: isize>() -> ISchemaItemCollection_Vtbl {
+    pub const fn new<Identity: ISchemaItemCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn get_item<Identity: ISchemaItemCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, item: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaItemCollection_Impl::get_item(this, core::mem::transmute_copy(&index)) {
@@ -3576,9 +3406,11 @@ impl ISchemaItemCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISchemaItemCollection as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISchemaItemCollection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISchemaItemCollection {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaModelGroup, ISchemaModelGroup_Vtbl, 0x50ea08bb_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
@@ -3592,7 +3424,6 @@ impl core::ops::Deref for ISchemaModelGroup {
 windows_core::imp::interface_hierarchy!(ISchemaModelGroup, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaParticle);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaModelGroup {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn particles(&self) -> windows_core::Result<ISchemaItemCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).particles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3602,20 +3433,15 @@ impl ISchemaModelGroup {
 #[repr(C)]
 pub struct ISchemaModelGroup_Vtbl {
     pub base__: ISchemaParticle_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub particles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    particles: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISchemaModelGroup_Impl: Sized + ISchemaParticle_Impl {
+pub trait ISchemaModelGroup_Impl: ISchemaParticle_Impl {
     fn particles(&self) -> windows_core::Result<ISchemaItemCollection>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISchemaModelGroup {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaModelGroup_Vtbl {
-    pub const fn new<Identity: ISchemaModelGroup_Impl, const OFFSET: isize>() -> ISchemaModelGroup_Vtbl {
+    pub const fn new<Identity: ISchemaModelGroup_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn particles<Identity: ISchemaModelGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, particles: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaModelGroup_Impl::particles(this) {
@@ -3629,9 +3455,11 @@ impl ISchemaModelGroup_Vtbl {
         Self { base__: ISchemaParticle_Vtbl::new::<Identity, OFFSET>(), particles: particles::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISchemaModelGroup as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ISchemaItem as windows_core::Interface>::IID || iid == &<ISchemaParticle as windows_core::Interface>::IID
+        iid == &<ISchemaModelGroup as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISchemaModelGroup {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaNotation, ISchemaNotation_Vtbl, 0x50ea08be_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
@@ -3647,11 +3475,11 @@ windows_core::imp::interface_hierarchy!(ISchemaNotation, windows_core::IUnknown,
 impl ISchemaNotation {
     pub unsafe fn systemIdentifier(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).systemIdentifier)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).systemIdentifier)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn publicIdentifier(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).publicIdentifier)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).publicIdentifier)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3662,15 +3490,13 @@ pub struct ISchemaNotation_Vtbl {
     pub publicIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISchemaNotation_Impl: Sized + ISchemaItem_Impl {
+pub trait ISchemaNotation_Impl: ISchemaItem_Impl {
     fn systemIdentifier(&self) -> windows_core::Result<windows_core::BSTR>;
     fn publicIdentifier(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISchemaNotation {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaNotation_Vtbl {
-    pub const fn new<Identity: ISchemaNotation_Impl, const OFFSET: isize>() -> ISchemaNotation_Vtbl {
+    pub const fn new<Identity: ISchemaNotation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn systemIdentifier<Identity: ISchemaNotation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaNotation_Impl::systemIdentifier(this) {
@@ -3698,9 +3524,11 @@ impl ISchemaNotation_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISchemaNotation as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ISchemaItem as windows_core::Interface>::IID
+        iid == &<ISchemaNotation as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISchemaNotation {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaParticle, ISchemaParticle_Vtbl, 0x50ea08b5_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
@@ -3717,12 +3545,12 @@ impl ISchemaParticle {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn minOccurs(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).minOccurs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).minOccurs)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn maxOccurs(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).maxOccurs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).maxOccurs)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3730,25 +3558,23 @@ impl ISchemaParticle {
 pub struct ISchemaParticle_Vtbl {
     pub base__: ISchemaItem_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub minOccurs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub minOccurs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     minOccurs: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub maxOccurs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub maxOccurs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     maxOccurs: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISchemaParticle_Impl: Sized + ISchemaItem_Impl {
+pub trait ISchemaParticle_Impl: ISchemaItem_Impl {
     fn minOccurs(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn maxOccurs(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISchemaParticle {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaParticle_Vtbl {
-    pub const fn new<Identity: ISchemaParticle_Impl, const OFFSET: isize>() -> ISchemaParticle_Vtbl {
-        unsafe extern "system" fn minOccurs<Identity: ISchemaParticle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minoccurs: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+    pub const fn new<Identity: ISchemaParticle_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn minOccurs<Identity: ISchemaParticle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minoccurs: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaParticle_Impl::minOccurs(this) {
                 Ok(ok__) => {
@@ -3758,7 +3584,7 @@ impl ISchemaParticle_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn maxOccurs<Identity: ISchemaParticle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxoccurs: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn maxOccurs<Identity: ISchemaParticle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxoccurs: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaParticle_Impl::maxOccurs(this) {
                 Ok(ok__) => {
@@ -3771,9 +3597,11 @@ impl ISchemaParticle_Vtbl {
         Self { base__: ISchemaItem_Vtbl::new::<Identity, OFFSET>(), minOccurs: minOccurs::<Identity, OFFSET>, maxOccurs: maxOccurs::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISchemaParticle as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ISchemaItem as windows_core::Interface>::IID
+        iid == &<ISchemaParticle as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISchemaParticle {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaStringCollection, ISchemaStringCollection_Vtbl, 0x50ea08b1_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
@@ -3789,7 +3617,7 @@ windows_core::imp::interface_hierarchy!(ISchemaStringCollection, windows_core::I
 impl ISchemaStringCollection {
     pub unsafe fn get_item(&self, index: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_item)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn length(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -3809,16 +3637,14 @@ pub struct ISchemaStringCollection_Vtbl {
     pub _newEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISchemaStringCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait ISchemaStringCollection_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn get_item(&self, index: i32) -> windows_core::Result<windows_core::BSTR>;
     fn length(&self) -> windows_core::Result<i32>;
     fn _newEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISchemaStringCollection {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaStringCollection_Vtbl {
-    pub const fn new<Identity: ISchemaStringCollection_Impl, const OFFSET: isize>() -> ISchemaStringCollection_Vtbl {
+    pub const fn new<Identity: ISchemaStringCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn get_item<Identity: ISchemaStringCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, bstr: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaStringCollection_Impl::get_item(this, core::mem::transmute_copy(&index)) {
@@ -3857,9 +3683,11 @@ impl ISchemaStringCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISchemaStringCollection as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISchemaStringCollection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISchemaStringCollection {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISchemaType, ISchemaType_Vtbl, 0x50ea08b8_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
@@ -3873,7 +3701,6 @@ impl core::ops::Deref for ISchemaType {
 windows_core::imp::interface_hierarchy!(ISchemaType, windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaType {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn baseTypes(&self) -> windows_core::Result<ISchemaItemCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).baseTypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3899,46 +3726,45 @@ impl ISchemaType {
     }
     pub unsafe fn minExclusive(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).minExclusive)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).minExclusive)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn minInclusive(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).minInclusive)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).minInclusive)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn maxExclusive(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).maxExclusive)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).maxExclusive)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn maxInclusive(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).maxInclusive)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).maxInclusive)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn totalDigits(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).totalDigits)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).totalDigits)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn fractionDigits(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).fractionDigits)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).fractionDigits)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn length(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).length)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).length)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn minLength(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).minLength)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).minLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn maxLength(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).maxLength)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).maxLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn enumeration(&self) -> windows_core::Result<ISchemaStringCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).enumeration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3947,7 +3773,6 @@ impl ISchemaType {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).whitespace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn patterns(&self) -> windows_core::Result<ISchemaStringCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).patterns)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3957,10 +3782,7 @@ impl ISchemaType {
 #[repr(C)]
 pub struct ISchemaType_Vtbl {
     pub base__: ISchemaItem_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub baseTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    baseTypes: usize,
     pub r#final: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SCHEMADERIVATIONMETHOD) -> windows_core::HRESULT,
     pub variety: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SCHEMATYPEVARIETY) -> windows_core::HRESULT,
     pub derivedBy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SCHEMADERIVATIONMETHOD) -> windows_core::HRESULT,
@@ -3970,37 +3792,31 @@ pub struct ISchemaType_Vtbl {
     pub maxExclusive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub maxInclusive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub totalDigits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub totalDigits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     totalDigits: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub fractionDigits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub fractionDigits: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     fractionDigits: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     length: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub minLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub minLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     minLength: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub maxLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub maxLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     maxLength: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub enumeration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    enumeration: usize,
     pub whitespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut SCHEMAWHITESPACE) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub patterns: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    patterns: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISchemaType_Impl: Sized + ISchemaItem_Impl {
+pub trait ISchemaType_Impl: ISchemaItem_Impl {
     fn baseTypes(&self) -> windows_core::Result<ISchemaItemCollection>;
     fn r#final(&self) -> windows_core::Result<SCHEMADERIVATIONMETHOD>;
     fn variety(&self) -> windows_core::Result<SCHEMATYPEVARIETY>;
@@ -4020,10 +3836,8 @@ pub trait ISchemaType_Impl: Sized + ISchemaItem_Impl {
     fn patterns(&self) -> windows_core::Result<ISchemaStringCollection>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISchemaType {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchemaType_Vtbl {
-    pub const fn new<Identity: ISchemaType_Impl, const OFFSET: isize>() -> ISchemaType_Vtbl {
+    pub const fn new<Identity: ISchemaType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn baseTypes<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, basetypes: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaType_Impl::baseTypes(this) {
@@ -4114,7 +3928,7 @@ impl ISchemaType_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn totalDigits<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, totaldigits: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn totalDigits<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, totaldigits: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaType_Impl::totalDigits(this) {
                 Ok(ok__) => {
@@ -4124,7 +3938,7 @@ impl ISchemaType_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn fractionDigits<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fractiondigits: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn fractionDigits<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fractiondigits: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaType_Impl::fractionDigits(this) {
                 Ok(ok__) => {
@@ -4134,7 +3948,7 @@ impl ISchemaType_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn length<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn length<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaType_Impl::length(this) {
                 Ok(ok__) => {
@@ -4144,7 +3958,7 @@ impl ISchemaType_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn minLength<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minlength: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn minLength<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, minlength: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaType_Impl::minLength(this) {
                 Ok(ok__) => {
@@ -4154,7 +3968,7 @@ impl ISchemaType_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn maxLength<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxlength: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn maxLength<Identity: ISchemaType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, maxlength: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISchemaType_Impl::maxLength(this) {
                 Ok(ok__) => {
@@ -4216,9 +4030,11 @@ impl ISchemaType_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISchemaType as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ISchemaItem as windows_core::Interface>::IID
+        iid == &<ISchemaType as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISchemaType {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IServerXMLHTTPRequest, IServerXMLHTTPRequest_Vtbl, 0x2e9196bf_13ba_4dd4_91ca_6c571f281495);
 #[cfg(feature = "Win32_System_Com")]
@@ -4246,12 +4062,12 @@ impl IServerXMLHTTPRequest {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn getOption(&self, option: SERVERXMLHTTP_OPTION) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getOption)(windows_core::Interface::as_raw(self), option, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getOption)(windows_core::Interface::as_raw(self), option, &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn setOption<P0>(&self, option: SERVERXMLHTTP_OPTION, value: P0) -> windows_core::Result<()>
+    pub unsafe fn setOption<P1>(&self, option: SERVERXMLHTTP_OPTION, value: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::System::Variant::VARIANT>,
+        P1: windows_core::Param<super::super::super::System::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).setOption)(windows_core::Interface::as_raw(self), option, value.param().abi()).ok()
     }
@@ -4262,35 +4078,33 @@ pub struct IServerXMLHTTPRequest_Vtbl {
     pub base__: IXMLHTTPRequest_Vtbl,
     pub setTimeouts: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32, i32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub waitForResponse: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub waitForResponse: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     waitForResponse: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub getOption: unsafe extern "system" fn(*mut core::ffi::c_void, SERVERXMLHTTP_OPTION, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub getOption: unsafe extern "system" fn(*mut core::ffi::c_void, SERVERXMLHTTP_OPTION, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     getOption: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub setOption: unsafe extern "system" fn(*mut core::ffi::c_void, SERVERXMLHTTP_OPTION, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub setOption: unsafe extern "system" fn(*mut core::ffi::c_void, SERVERXMLHTTP_OPTION, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     setOption: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IServerXMLHTTPRequest_Impl: Sized + IXMLHTTPRequest_Impl {
+pub trait IServerXMLHTTPRequest_Impl: IXMLHTTPRequest_Impl {
     fn setTimeouts(&self, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> windows_core::Result<()>;
     fn waitForResponse(&self, timeoutinseconds: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn getOption(&self, option: SERVERXMLHTTP_OPTION) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn setOption(&self, option: SERVERXMLHTTP_OPTION, value: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IServerXMLHTTPRequest {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IServerXMLHTTPRequest_Vtbl {
-    pub const fn new<Identity: IServerXMLHTTPRequest_Impl, const OFFSET: isize>() -> IServerXMLHTTPRequest_Vtbl {
+    pub const fn new<Identity: IServerXMLHTTPRequest_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn setTimeouts<Identity: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resolvetimeout: i32, connecttimeout: i32, sendtimeout: i32, receivetimeout: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IServerXMLHTTPRequest_Impl::setTimeouts(this, core::mem::transmute_copy(&resolvetimeout), core::mem::transmute_copy(&connecttimeout), core::mem::transmute_copy(&sendtimeout), core::mem::transmute_copy(&receivetimeout)).into()
         }
-        unsafe extern "system" fn waitForResponse<Identity: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeoutinseconds: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn waitForResponse<Identity: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, timeoutinseconds: super::super::super::System::Variant::VARIANT, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IServerXMLHTTPRequest_Impl::waitForResponse(this, core::mem::transmute(&timeoutinseconds)) {
                 Ok(ok__) => {
@@ -4300,7 +4114,7 @@ impl IServerXMLHTTPRequest_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getOption<Identity: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn getOption<Identity: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IServerXMLHTTPRequest_Impl::getOption(this, core::mem::transmute_copy(&option)) {
                 Ok(ok__) => {
@@ -4310,7 +4124,7 @@ impl IServerXMLHTTPRequest_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setOption<Identity: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn setOption<Identity: IServerXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IServerXMLHTTPRequest_Impl::setOption(this, core::mem::transmute_copy(&option), core::mem::transmute(&value)).into()
         }
@@ -4323,9 +4137,11 @@ impl IServerXMLHTTPRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IServerXMLHTTPRequest as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLHTTPRequest as windows_core::Interface>::IID
+        iid == &<IServerXMLHTTPRequest as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IServerXMLHTTPRequest {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IServerXMLHTTPRequest2, IServerXMLHTTPRequest2_Vtbl, 0x2e01311b_c322_4b0a_bd77_b90cfdc8dce7);
 #[cfg(feature = "Win32_System_Com")]
@@ -4340,10 +4156,10 @@ windows_core::imp::interface_hierarchy!(IServerXMLHTTPRequest2, windows_core::IU
 #[cfg(feature = "Win32_System_Com")]
 impl IServerXMLHTTPRequest2 {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn setProxy<P0, P1>(&self, proxysetting: SXH_PROXY_SETTING, varproxyserver: P0, varbypasslist: P1) -> windows_core::Result<()>
+    pub unsafe fn setProxy<P1, P2>(&self, proxysetting: SXH_PROXY_SETTING, varproxyserver: P1, varbypasslist: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::super::System::Variant::VARIANT>,
         P1: windows_core::Param<super::super::super::System::Variant::VARIANT>,
+        P2: windows_core::Param<super::super::super::System::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).setProxy)(windows_core::Interface::as_raw(self), proxysetting, varproxyserver.param().abi(), varbypasslist.param().abi()).ok()
     }
@@ -4360,22 +4176,20 @@ impl IServerXMLHTTPRequest2 {
 pub struct IServerXMLHTTPRequest2_Vtbl {
     pub base__: IServerXMLHTTPRequest_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub setProxy: unsafe extern "system" fn(*mut core::ffi::c_void, SXH_PROXY_SETTING, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub setProxy: unsafe extern "system" fn(*mut core::ffi::c_void, SXH_PROXY_SETTING, super::super::super::System::Variant::VARIANT, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     setProxy: usize,
     pub setProxyCredentials: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IServerXMLHTTPRequest2_Impl: Sized + IServerXMLHTTPRequest_Impl {
+pub trait IServerXMLHTTPRequest2_Impl: IServerXMLHTTPRequest_Impl {
     fn setProxy(&self, proxysetting: SXH_PROXY_SETTING, varproxyserver: &super::super::super::System::Variant::VARIANT, varbypasslist: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn setProxyCredentials(&self, bstrusername: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IServerXMLHTTPRequest2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IServerXMLHTTPRequest2_Vtbl {
-    pub const fn new<Identity: IServerXMLHTTPRequest2_Impl, const OFFSET: isize>() -> IServerXMLHTTPRequest2_Vtbl {
-        unsafe extern "system" fn setProxy<Identity: IServerXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, proxysetting: SXH_PROXY_SETTING, varproxyserver: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, varbypasslist: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+    pub const fn new<Identity: IServerXMLHTTPRequest2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn setProxy<Identity: IServerXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, proxysetting: SXH_PROXY_SETTING, varproxyserver: super::super::super::System::Variant::VARIANT, varbypasslist: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IServerXMLHTTPRequest2_Impl::setProxy(this, core::mem::transmute_copy(&proxysetting), core::mem::transmute(&varproxyserver), core::mem::transmute(&varbypasslist)).into()
         }
@@ -4390,9 +4204,11 @@ impl IServerXMLHTTPRequest2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IServerXMLHTTPRequest2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLHTTPRequest as windows_core::Interface>::IID || iid == &<IServerXMLHTTPRequest as windows_core::Interface>::IID
+        iid == &<IServerXMLHTTPRequest2 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IServerXMLHTTPRequest2 {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBMXNamespaceManager, IVBMXNamespaceManager_Vtbl, 0xc90352f5_643c_4fbc_bb23_e996eb2d51fd);
 #[cfg(feature = "Win32_System_Com")]
@@ -4422,7 +4238,6 @@ impl IVBMXNamespaceManager {
     pub unsafe fn pushContext(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).pushContext)(windows_core::Interface::as_raw(self)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn pushNodeContext<P0, P1>(&self, contextnode: P0, fdeep: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXMLDOMNode>,
@@ -4440,12 +4255,10 @@ impl IVBMXNamespaceManager {
     {
         (windows_core::Interface::vtable(self).declarePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi(), namespaceuri.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getDeclaredPrefixes(&self) -> windows_core::Result<IMXNamespacePrefixes> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).getDeclaredPrefixes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getPrefixes<P0>(&self, namespaceuri: P0) -> windows_core::Result<IMXNamespacePrefixes>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -4459,7 +4272,7 @@ impl IVBMXNamespaceManager {
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getURI)(windows_core::Interface::as_raw(self), prefix.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getURI)(windows_core::Interface::as_raw(self), prefix.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn getURIFromNode<P0, P1>(&self, strprefix: P0, contextnode: P1) -> windows_core::Result<super::super::super::System::Variant::VARIANT>
@@ -4468,7 +4281,7 @@ impl IVBMXNamespaceManager {
         P1: windows_core::Param<IXMLDOMNode>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getURIFromNode)(windows_core::Interface::as_raw(self), strprefix.param().abi(), contextnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getURIFromNode)(windows_core::Interface::as_raw(self), strprefix.param().abi(), contextnode.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4479,31 +4292,22 @@ pub struct IVBMXNamespaceManager_Vtbl {
     pub allowOverride: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub pushContext: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub pushNodeContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    pushNodeContext: usize,
     pub popContext: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub declarePrefix: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub getDeclaredPrefixes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    getDeclaredPrefixes: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub getPrefixes: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    getPrefixes: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub getURI: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub getURI: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     getURI: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub getURIFromNode: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub getURIFromNode: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     getURIFromNode: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IVBMXNamespaceManager_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IVBMXNamespaceManager_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn SetallowOverride(&self, foverride: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn allowOverride(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn reset(&self) -> windows_core::Result<()>;
@@ -4517,10 +4321,8 @@ pub trait IVBMXNamespaceManager_Impl: Sized + super::super::super::System::Com::
     fn getURIFromNode(&self, strprefix: &windows_core::BSTR, contextnode: Option<&IXMLDOMNode>) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IVBMXNamespaceManager {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBMXNamespaceManager_Vtbl {
-    pub const fn new<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>() -> IVBMXNamespaceManager_Vtbl {
+    pub const fn new<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetallowOverride<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, foverride: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVBMXNamespaceManager_Impl::SetallowOverride(this, core::mem::transmute_copy(&foverride)).into()
@@ -4575,7 +4377,7 @@ impl IVBMXNamespaceManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getURI<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: core::mem::MaybeUninit<windows_core::BSTR>, uri: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn getURI<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prefix: core::mem::MaybeUninit<windows_core::BSTR>, uri: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVBMXNamespaceManager_Impl::getURI(this, core::mem::transmute(&prefix)) {
                 Ok(ok__) => {
@@ -4585,7 +4387,7 @@ impl IVBMXNamespaceManager_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getURIFromNode<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprefix: core::mem::MaybeUninit<windows_core::BSTR>, contextnode: *mut core::ffi::c_void, uri: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn getURIFromNode<Identity: IVBMXNamespaceManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strprefix: core::mem::MaybeUninit<windows_core::BSTR>, contextnode: *mut core::ffi::c_void, uri: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVBMXNamespaceManager_Impl::getURIFromNode(this, core::mem::transmute(&strprefix), windows_core::from_raw_borrowed(&contextnode)) {
                 Ok(ok__) => {
@@ -4611,9 +4413,11 @@ impl IVBMXNamespaceManager_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVBMXNamespaceManager as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IVBMXNamespaceManager as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IVBMXNamespaceManager {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXAttributes, IVBSAXAttributes_Vtbl, 0x10dc0586_132b_4cac_8bb3_db00ac8b7ee0);
 #[cfg(feature = "Win32_System_Com")]
@@ -4633,15 +4437,15 @@ impl IVBSAXAttributes {
     }
     pub unsafe fn getURI(&self, nindex: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getURI)(windows_core::Interface::as_raw(self), nindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getURI)(windows_core::Interface::as_raw(self), nindex, &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn getLocalName(&self, nindex: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getLocalName)(windows_core::Interface::as_raw(self), nindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getLocalName)(windows_core::Interface::as_raw(self), nindex, &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn getQName(&self, nindex: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getQName)(windows_core::Interface::as_raw(self), nindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getQName)(windows_core::Interface::as_raw(self), nindex, &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn getIndexFromName<P0, P1>(&self, struri: P0, strlocalname: P1) -> windows_core::Result<i32>
     where
@@ -4660,7 +4464,7 @@ impl IVBSAXAttributes {
     }
     pub unsafe fn getType(&self, nindex: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getType)(windows_core::Interface::as_raw(self), nindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getType)(windows_core::Interface::as_raw(self), nindex, &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn getTypeFromName<P0, P1>(&self, struri: P0, strlocalname: P1) -> windows_core::Result<windows_core::BSTR>
     where
@@ -4668,18 +4472,18 @@ impl IVBSAXAttributes {
         P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getTypeFromName)(windows_core::Interface::as_raw(self), struri.param().abi(), strlocalname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getTypeFromName)(windows_core::Interface::as_raw(self), struri.param().abi(), strlocalname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn getTypeFromQName<P0>(&self, strqname: P0) -> windows_core::Result<windows_core::BSTR>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getTypeFromQName)(windows_core::Interface::as_raw(self), strqname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getTypeFromQName)(windows_core::Interface::as_raw(self), strqname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn getValue(&self, nindex: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getValue)(windows_core::Interface::as_raw(self), nindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getValue)(windows_core::Interface::as_raw(self), nindex, &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn getValueFromName<P0, P1>(&self, struri: P0, strlocalname: P1) -> windows_core::Result<windows_core::BSTR>
     where
@@ -4687,14 +4491,14 @@ impl IVBSAXAttributes {
         P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getValueFromName)(windows_core::Interface::as_raw(self), struri.param().abi(), strlocalname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getValueFromName)(windows_core::Interface::as_raw(self), struri.param().abi(), strlocalname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn getValueFromQName<P0>(&self, strqname: P0) -> windows_core::Result<windows_core::BSTR>
     where
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getValueFromQName)(windows_core::Interface::as_raw(self), strqname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getValueFromQName)(windows_core::Interface::as_raw(self), strqname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4715,7 +4519,7 @@ pub struct IVBSAXAttributes_Vtbl {
     pub getValueFromQName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IVBSAXAttributes_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IVBSAXAttributes_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn length(&self) -> windows_core::Result<i32>;
     fn getURI(&self, nindex: i32) -> windows_core::Result<windows_core::BSTR>;
     fn getLocalName(&self, nindex: i32) -> windows_core::Result<windows_core::BSTR>;
@@ -4730,10 +4534,8 @@ pub trait IVBSAXAttributes_Impl: Sized + super::super::super::System::Com::IDisp
     fn getValueFromQName(&self, strqname: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IVBSAXAttributes {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXAttributes_Vtbl {
-    pub const fn new<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>() -> IVBSAXAttributes_Vtbl {
+    pub const fn new<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn length<Identity: IVBSAXAttributes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nlength: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVBSAXAttributes_Impl::length(this) {
@@ -4871,9 +4673,11 @@ impl IVBSAXAttributes_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVBSAXAttributes as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IVBSAXAttributes as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IVBSAXAttributes {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXContentHandler, IVBSAXContentHandler_Vtbl, 0x2ed7290a_4dd5_4b46_bb26_4e4155e77faa);
 #[cfg(feature = "Win32_System_Com")]
@@ -4887,7 +4691,6 @@ impl core::ops::Deref for IVBSAXContentHandler {
 windows_core::imp::interface_hierarchy!(IVBSAXContentHandler, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXContentHandler {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_documentLocator<P0>(&self, olocator: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IVBSAXLocator>,
@@ -4906,10 +4709,9 @@ impl IVBSAXContentHandler {
     pub unsafe fn endPrefixMapping(&self, strprefix: *mut windows_core::BSTR) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).endPrefixMapping)(windows_core::Interface::as_raw(self), core::mem::transmute(strprefix)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn startElement<P0>(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR, oattributes: P0) -> windows_core::Result<()>
+    pub unsafe fn startElement<P3>(&self, strnamespaceuri: *mut windows_core::BSTR, strlocalname: *mut windows_core::BSTR, strqname: *mut windows_core::BSTR, oattributes: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IVBSAXAttributes>,
+        P3: windows_core::Param<IVBSAXAttributes>,
     {
         (windows_core::Interface::vtable(self).startElement)(windows_core::Interface::as_raw(self), core::mem::transmute(strnamespaceuri), core::mem::transmute(strlocalname), core::mem::transmute(strqname), oattributes.param().abi()).ok()
     }
@@ -4933,18 +4735,12 @@ impl IVBSAXContentHandler {
 #[repr(C)]
 pub struct IVBSAXContentHandler_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub putref_documentLocator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    putref_documentLocator: usize,
     pub startDocument: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub endDocument: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub startPrefixMapping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub endPrefixMapping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub startElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    startElement: usize,
     pub endElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub characters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub ignorableWhitespace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
@@ -4952,7 +4748,7 @@ pub struct IVBSAXContentHandler_Vtbl {
     pub skippedEntity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IVBSAXContentHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IVBSAXContentHandler_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn putref_documentLocator(&self, olocator: Option<&IVBSAXLocator>) -> windows_core::Result<()>;
     fn startDocument(&self) -> windows_core::Result<()>;
     fn endDocument(&self) -> windows_core::Result<()>;
@@ -4966,10 +4762,8 @@ pub trait IVBSAXContentHandler_Impl: Sized + super::super::super::System::Com::I
     fn skippedEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IVBSAXContentHandler {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXContentHandler_Vtbl {
-    pub const fn new<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>() -> IVBSAXContentHandler_Vtbl {
+    pub const fn new<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn putref_documentLocator<Identity: IVBSAXContentHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, olocator: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVBSAXContentHandler_Impl::putref_documentLocator(this, windows_core::from_raw_borrowed(&olocator)).into()
@@ -5030,9 +4824,11 @@ impl IVBSAXContentHandler_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVBSAXContentHandler as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IVBSAXContentHandler as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IVBSAXContentHandler {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXDTDHandler, IVBSAXDTDHandler_Vtbl, 0x24fb3297_302d_4620_ba39_3a732d850558);
 #[cfg(feature = "Win32_System_Com")]
@@ -5061,15 +4857,13 @@ pub struct IVBSAXDTDHandler_Vtbl {
     pub unparsedEntityDecl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IVBSAXDTDHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IVBSAXDTDHandler_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn notationDecl(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn unparsedEntityDecl(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR, strnotationname: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IVBSAXDTDHandler {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXDTDHandler_Vtbl {
-    pub const fn new<Identity: IVBSAXDTDHandler_Impl, const OFFSET: isize>() -> IVBSAXDTDHandler_Vtbl {
+    pub const fn new<Identity: IVBSAXDTDHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn notationDecl<Identity: IVBSAXDTDHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::mem::MaybeUninit<windows_core::BSTR>, strpublicid: *mut core::mem::MaybeUninit<windows_core::BSTR>, strsystemid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVBSAXDTDHandler_Impl::notationDecl(this, core::mem::transmute_copy(&strname), core::mem::transmute_copy(&strpublicid), core::mem::transmute_copy(&strsystemid)).into()
@@ -5085,9 +4879,11 @@ impl IVBSAXDTDHandler_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVBSAXDTDHandler as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IVBSAXDTDHandler as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IVBSAXDTDHandler {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXDeclHandler, IVBSAXDeclHandler_Vtbl, 0xe8917260_7579_4be1_b5dd_7afbfa6f077b);
 #[cfg(feature = "Win32_System_Com")]
@@ -5124,17 +4920,15 @@ pub struct IVBSAXDeclHandler_Vtbl {
     pub externalEntityDecl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IVBSAXDeclHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IVBSAXDeclHandler_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn elementDecl(&self, strname: *mut windows_core::BSTR, strmodel: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn attributeDecl(&self, strelementname: *mut windows_core::BSTR, strattributename: *mut windows_core::BSTR, strtype: *mut windows_core::BSTR, strvaluedefault: *mut windows_core::BSTR, strvalue: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn internalEntityDecl(&self, strname: *mut windows_core::BSTR, strvalue: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn externalEntityDecl(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IVBSAXDeclHandler {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXDeclHandler_Vtbl {
-    pub const fn new<Identity: IVBSAXDeclHandler_Impl, const OFFSET: isize>() -> IVBSAXDeclHandler_Vtbl {
+    pub const fn new<Identity: IVBSAXDeclHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn elementDecl<Identity: IVBSAXDeclHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::mem::MaybeUninit<windows_core::BSTR>, strmodel: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVBSAXDeclHandler_Impl::elementDecl(this, core::mem::transmute_copy(&strname), core::mem::transmute_copy(&strmodel)).into()
@@ -5160,9 +4954,11 @@ impl IVBSAXDeclHandler_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVBSAXDeclHandler as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IVBSAXDeclHandler as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IVBSAXDeclHandler {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXEntityResolver, IVBSAXEntityResolver_Vtbl, 0x0c05d096_f45b_4aca_ad1a_aa0bc25518dc);
 #[cfg(feature = "Win32_System_Com")]
@@ -5179,7 +4975,7 @@ impl IVBSAXEntityResolver {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn resolveEntity(&self, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).resolveEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strpublicid), core::mem::transmute(strsystemid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).resolveEntity)(windows_core::Interface::as_raw(self), core::mem::transmute(strpublicid), core::mem::transmute(strsystemid), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5187,20 +4983,18 @@ impl IVBSAXEntityResolver {
 pub struct IVBSAXEntityResolver_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub resolveEntity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub resolveEntity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     resolveEntity: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IVBSAXEntityResolver_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IVBSAXEntityResolver_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn resolveEntity(&self, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IVBSAXEntityResolver {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXEntityResolver_Vtbl {
-    pub const fn new<Identity: IVBSAXEntityResolver_Impl, const OFFSET: isize>() -> IVBSAXEntityResolver_Vtbl {
-        unsafe extern "system" fn resolveEntity<Identity: IVBSAXEntityResolver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpublicid: *mut core::mem::MaybeUninit<windows_core::BSTR>, strsystemid: *mut core::mem::MaybeUninit<windows_core::BSTR>, varinput: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+    pub const fn new<Identity: IVBSAXEntityResolver_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn resolveEntity<Identity: IVBSAXEntityResolver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpublicid: *mut core::mem::MaybeUninit<windows_core::BSTR>, strsystemid: *mut core::mem::MaybeUninit<windows_core::BSTR>, varinput: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVBSAXEntityResolver_Impl::resolveEntity(this, core::mem::transmute_copy(&strpublicid), core::mem::transmute_copy(&strsystemid)) {
                 Ok(ok__) => {
@@ -5213,9 +5007,11 @@ impl IVBSAXEntityResolver_Vtbl {
         Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), resolveEntity: resolveEntity::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVBSAXEntityResolver as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IVBSAXEntityResolver as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IVBSAXEntityResolver {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXErrorHandler, IVBSAXErrorHandler_Vtbl, 0xd963d3fe_173c_4862_9095_b92f66995f52);
 #[cfg(feature = "Win32_System_Com")]
@@ -5229,21 +5025,18 @@ impl core::ops::Deref for IVBSAXErrorHandler {
 windows_core::imp::interface_hierarchy!(IVBSAXErrorHandler, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXErrorHandler {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error<P0>(&self, olocator: P0, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IVBSAXLocator>,
     {
         (windows_core::Interface::vtable(self).error)(windows_core::Interface::as_raw(self), olocator.param().abi(), core::mem::transmute(strerrormessage), nerrorcode).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn fatalError<P0>(&self, olocator: P0, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IVBSAXLocator>,
     {
         (windows_core::Interface::vtable(self).fatalError)(windows_core::Interface::as_raw(self), olocator.param().abi(), core::mem::transmute(strerrormessage), nerrorcode).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ignorableWarning<P0>(&self, olocator: P0, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IVBSAXLocator>,
@@ -5255,30 +5048,19 @@ impl IVBSAXErrorHandler {
 #[repr(C)]
 pub struct IVBSAXErrorHandler_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub error: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    error: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub fatalError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    fatalError: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub ignorableWarning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    ignorableWarning: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IVBSAXErrorHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IVBSAXErrorHandler_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn error(&self, olocator: Option<&IVBSAXLocator>, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::Result<()>;
     fn fatalError(&self, olocator: Option<&IVBSAXLocator>, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::Result<()>;
     fn ignorableWarning(&self, olocator: Option<&IVBSAXLocator>, strerrormessage: *mut windows_core::BSTR, nerrorcode: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IVBSAXErrorHandler {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXErrorHandler_Vtbl {
-    pub const fn new<Identity: IVBSAXErrorHandler_Impl, const OFFSET: isize>() -> IVBSAXErrorHandler_Vtbl {
+    pub const fn new<Identity: IVBSAXErrorHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn error<Identity: IVBSAXErrorHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, olocator: *mut core::ffi::c_void, strerrormessage: *mut core::mem::MaybeUninit<windows_core::BSTR>, nerrorcode: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVBSAXErrorHandler_Impl::error(this, windows_core::from_raw_borrowed(&olocator), core::mem::transmute_copy(&strerrormessage), core::mem::transmute_copy(&nerrorcode)).into()
@@ -5299,9 +5081,11 @@ impl IVBSAXErrorHandler_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVBSAXErrorHandler as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IVBSAXErrorHandler as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IVBSAXErrorHandler {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXLexicalHandler, IVBSAXLexicalHandler_Vtbl, 0x032aac35_8c0e_4d9d_979f_e3b702935576);
 #[cfg(feature = "Win32_System_Com")]
@@ -5350,7 +5134,7 @@ pub struct IVBSAXLexicalHandler_Vtbl {
     pub comment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IVBSAXLexicalHandler_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IVBSAXLexicalHandler_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn startDTD(&self, strname: *mut windows_core::BSTR, strpublicid: *mut windows_core::BSTR, strsystemid: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn endDTD(&self) -> windows_core::Result<()>;
     fn startEntity(&self, strname: *mut windows_core::BSTR) -> windows_core::Result<()>;
@@ -5360,10 +5144,8 @@ pub trait IVBSAXLexicalHandler_Impl: Sized + super::super::super::System::Com::I
     fn comment(&self, strchars: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IVBSAXLexicalHandler {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXLexicalHandler_Vtbl {
-    pub const fn new<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>() -> IVBSAXLexicalHandler_Vtbl {
+    pub const fn new<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn startDTD<Identity: IVBSAXLexicalHandler_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: *mut core::mem::MaybeUninit<windows_core::BSTR>, strpublicid: *mut core::mem::MaybeUninit<windows_core::BSTR>, strsystemid: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVBSAXLexicalHandler_Impl::startDTD(this, core::mem::transmute_copy(&strname), core::mem::transmute_copy(&strpublicid), core::mem::transmute_copy(&strsystemid)).into()
@@ -5404,9 +5186,11 @@ impl IVBSAXLexicalHandler_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVBSAXLexicalHandler as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IVBSAXLexicalHandler as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IVBSAXLexicalHandler {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXLocator, IVBSAXLocator_Vtbl, 0x796e7ac5_5aa2_4eff_acad_3faaf01a3288);
 #[cfg(feature = "Win32_System_Com")]
@@ -5430,11 +5214,11 @@ impl IVBSAXLocator {
     }
     pub unsafe fn publicId(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).publicId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).publicId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn systemId(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).systemId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).systemId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5447,17 +5231,15 @@ pub struct IVBSAXLocator_Vtbl {
     pub systemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IVBSAXLocator_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IVBSAXLocator_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn columnNumber(&self) -> windows_core::Result<i32>;
     fn lineNumber(&self) -> windows_core::Result<i32>;
     fn publicId(&self) -> windows_core::Result<windows_core::BSTR>;
     fn systemId(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IVBSAXLocator {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXLocator_Vtbl {
-    pub const fn new<Identity: IVBSAXLocator_Impl, const OFFSET: isize>() -> IVBSAXLocator_Vtbl {
+    pub const fn new<Identity: IVBSAXLocator_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn columnNumber<Identity: IVBSAXLocator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncolumn: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVBSAXLocator_Impl::columnNumber(this) {
@@ -5507,9 +5289,11 @@ impl IVBSAXLocator_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVBSAXLocator as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IVBSAXLocator as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IVBSAXLocator {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXXMLFilter, IVBSAXXMLFilter_Vtbl, 0x1299eb1b_5b88_433e_82de_82ca75ad4e04);
 #[cfg(feature = "Win32_System_Com")]
@@ -5523,12 +5307,10 @@ impl core::ops::Deref for IVBSAXXMLFilter {
 windows_core::imp::interface_hierarchy!(IVBSAXXMLFilter, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXXMLFilter {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parent(&self) -> windows_core::Result<IVBSAXXMLReader> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_parent<P0>(&self, oreader: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IVBSAXXMLReader>,
@@ -5540,25 +5322,17 @@ impl IVBSAXXMLFilter {
 #[repr(C)]
 pub struct IVBSAXXMLFilter_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub parent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    parent: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub putref_parent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    putref_parent: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IVBSAXXMLFilter_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IVBSAXXMLFilter_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn parent(&self) -> windows_core::Result<IVBSAXXMLReader>;
     fn putref_parent(&self, oreader: Option<&IVBSAXXMLReader>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IVBSAXXMLFilter {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXXMLFilter_Vtbl {
-    pub const fn new<Identity: IVBSAXXMLFilter_Impl, const OFFSET: isize>() -> IVBSAXXMLFilter_Vtbl {
+    pub const fn new<Identity: IVBSAXXMLFilter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn parent<Identity: IVBSAXXMLFilter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, oreader: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVBSAXXMLFilter_Impl::parent(this) {
@@ -5580,9 +5354,11 @@ impl IVBSAXXMLFilter_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVBSAXXMLFilter as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IVBSAXXMLFilter as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IVBSAXXMLFilter {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IVBSAXXMLReader, IVBSAXXMLReader_Vtbl, 0x8c033caa_6cd6_4f73_b728_4531af74945f);
 #[cfg(feature = "Win32_System_Com")]
@@ -5616,7 +5392,7 @@ impl IVBSAXXMLReader {
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getProperty)(windows_core::Interface::as_raw(self), strname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getProperty)(windows_core::Interface::as_raw(self), strname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn putProperty<P0, P1>(&self, strname: P0, varvalue: P1) -> windows_core::Result<()>
@@ -5626,48 +5402,40 @@ impl IVBSAXXMLReader {
     {
         (windows_core::Interface::vtable(self).putProperty)(windows_core::Interface::as_raw(self), strname.param().abi(), varvalue.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn entityResolver(&self) -> windows_core::Result<IVBSAXEntityResolver> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).entityResolver)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_entityResolver<P0>(&self, oresolver: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IVBSAXEntityResolver>,
     {
         (windows_core::Interface::vtable(self).putref_entityResolver)(windows_core::Interface::as_raw(self), oresolver.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn contentHandler(&self) -> windows_core::Result<IVBSAXContentHandler> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).contentHandler)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_contentHandler<P0>(&self, ohandler: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IVBSAXContentHandler>,
     {
         (windows_core::Interface::vtable(self).putref_contentHandler)(windows_core::Interface::as_raw(self), ohandler.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn dtdHandler(&self) -> windows_core::Result<IVBSAXDTDHandler> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).dtdHandler)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_dtdHandler<P0>(&self, ohandler: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IVBSAXDTDHandler>,
     {
         (windows_core::Interface::vtable(self).putref_dtdHandler)(windows_core::Interface::as_raw(self), ohandler.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn errorHandler(&self) -> windows_core::Result<IVBSAXErrorHandler> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).errorHandler)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_errorHandler<P0>(&self, ohandler: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IVBSAXErrorHandler>,
@@ -5676,7 +5444,7 @@ impl IVBSAXXMLReader {
     }
     pub unsafe fn baseURL(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).baseURL)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).baseURL)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SetbaseURL<P0>(&self, strbaseurl: P0) -> windows_core::Result<()>
     where
@@ -5686,7 +5454,7 @@ impl IVBSAXXMLReader {
     }
     pub unsafe fn secureBaseURL(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).secureBaseURL)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).secureBaseURL)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SetsecureBaseURL<P0>(&self, strsecurebaseurl: P0) -> windows_core::Result<()>
     where
@@ -5715,57 +5483,33 @@ pub struct IVBSAXXMLReader_Vtbl {
     pub getFeature: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub putFeature: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub getProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub getProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     getProperty: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub putProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub putProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     putProperty: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub entityResolver: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    entityResolver: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub putref_entityResolver: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    putref_entityResolver: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub contentHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    contentHandler: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub putref_contentHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    putref_contentHandler: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub dtdHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    dtdHandler: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub putref_dtdHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    putref_dtdHandler: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub errorHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    errorHandler: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub putref_errorHandler: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    putref_errorHandler: usize,
     pub baseURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetbaseURL: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub secureBaseURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetsecureBaseURL: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub parse: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub parse: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     parse: usize,
     pub parseURL: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IVBSAXXMLReader_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IVBSAXXMLReader_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn getFeature(&self, strname: &windows_core::BSTR) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn putFeature(&self, strname: &windows_core::BSTR, fvalue: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn getProperty(&self, strname: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
@@ -5786,10 +5530,8 @@ pub trait IVBSAXXMLReader_Impl: Sized + super::super::super::System::Com::IDispa
     fn parseURL(&self, strurl: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IVBSAXXMLReader {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVBSAXXMLReader_Vtbl {
-    pub const fn new<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>() -> IVBSAXXMLReader_Vtbl {
+    pub const fn new<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn getFeature<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, fvalue: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVBSAXXMLReader_Impl::getFeature(this, core::mem::transmute(&strname)) {
@@ -5804,7 +5546,7 @@ impl IVBSAXXMLReader_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVBSAXXMLReader_Impl::putFeature(this, core::mem::transmute(&strname), core::mem::transmute_copy(&fvalue)).into()
         }
-        unsafe extern "system" fn getProperty<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, varvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn getProperty<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, varvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVBSAXXMLReader_Impl::getProperty(this, core::mem::transmute(&strname)) {
                 Ok(ok__) => {
@@ -5814,7 +5556,7 @@ impl IVBSAXXMLReader_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putProperty<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, varvalue: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn putProperty<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strname: core::mem::MaybeUninit<windows_core::BSTR>, varvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVBSAXXMLReader_Impl::putProperty(this, core::mem::transmute(&strname), core::mem::transmute(&varvalue)).into()
         }
@@ -5902,7 +5644,7 @@ impl IVBSAXXMLReader_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVBSAXXMLReader_Impl::SetsecureBaseURL(this, core::mem::transmute(&strsecurebaseurl)).into()
         }
-        unsafe extern "system" fn parse<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varinput: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn parse<Identity: IVBSAXXMLReader_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varinput: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVBSAXXMLReader_Impl::parse(this, core::mem::transmute(&varinput)).into()
         }
@@ -5933,9 +5675,11 @@ impl IVBSAXXMLReader_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVBSAXXMLReader as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IVBSAXXMLReader as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IVBSAXXMLReader {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLAttribute, IXMLAttribute_Vtbl, 0xd4d4a0fc_3b73_11d1_b2b4_00c04fb92596);
 #[cfg(feature = "Win32_System_Com")]
@@ -5951,11 +5695,11 @@ windows_core::imp::interface_hierarchy!(IXMLAttribute, windows_core::IUnknown, s
 impl IXMLAttribute {
     pub unsafe fn name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn value(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5966,15 +5710,13 @@ pub struct IXMLAttribute_Vtbl {
     pub value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLAttribute_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXMLAttribute_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn value(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLAttribute {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLAttribute_Vtbl {
-    pub const fn new<Identity: IXMLAttribute_Impl, const OFFSET: isize>() -> IXMLAttribute_Vtbl {
+    pub const fn new<Identity: IXMLAttribute_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn name<Identity: IXMLAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, n: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLAttribute_Impl::name(this) {
@@ -6002,9 +5744,11 @@ impl IXMLAttribute_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLAttribute as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXMLAttribute as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLAttribute {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMAttribute, IXMLDOMAttribute_Vtbl, 0x2933bf85_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -6020,12 +5764,12 @@ windows_core::imp::interface_hierarchy!(IXMLDOMAttribute, windows_core::IUnknown
 impl IXMLDOMAttribute {
     pub unsafe fn name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn value(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Setvalue<P0>(&self, attributevalue: P0) -> windows_core::Result<()>
@@ -6041,25 +5785,23 @@ pub struct IXMLDOMAttribute_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
     pub name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     value: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Setvalue: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Setvalue: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Setvalue: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMAttribute_Impl: Sized + IXMLDOMNode_Impl {
+pub trait IXMLDOMAttribute_Impl: IXMLDOMNode_Impl {
     fn name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn value(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn Setvalue(&self, attributevalue: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMAttribute {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMAttribute_Vtbl {
-    pub const fn new<Identity: IXMLDOMAttribute_Impl, const OFFSET: isize>() -> IXMLDOMAttribute_Vtbl {
+    pub const fn new<Identity: IXMLDOMAttribute_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn name<Identity: IXMLDOMAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributename: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMAttribute_Impl::name(this) {
@@ -6070,7 +5812,7 @@ impl IXMLDOMAttribute_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn value<Identity: IXMLDOMAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributevalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn value<Identity: IXMLDOMAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributevalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMAttribute_Impl::value(this) {
                 Ok(ok__) => {
@@ -6080,7 +5822,7 @@ impl IXMLDOMAttribute_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Setvalue<Identity: IXMLDOMAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributevalue: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setvalue<Identity: IXMLDOMAttribute_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, attributevalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLDOMAttribute_Impl::Setvalue(this, core::mem::transmute(&attributevalue)).into()
         }
@@ -6092,9 +5834,11 @@ impl IXMLDOMAttribute_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMAttribute as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNode as windows_core::Interface>::IID
+        iid == &<IXMLDOMAttribute as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMAttribute {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMCDATASection, IXMLDOMCDATASection_Vtbl, 0x2933bf8a_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -6107,25 +5851,23 @@ impl core::ops::Deref for IXMLDOMCDATASection {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IXMLDOMCDATASection, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMCharacterData, IXMLDOMText);
 #[cfg(feature = "Win32_System_Com")]
-impl IXMLDOMCDATASection {}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct IXMLDOMCDATASection_Vtbl {
     pub base__: IXMLDOMText_Vtbl,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMCDATASection_Impl: Sized + IXMLDOMText_Impl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMCDATASection {}
+pub trait IXMLDOMCDATASection_Impl: IXMLDOMText_Impl {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMCDATASection_Vtbl {
-    pub const fn new<Identity: IXMLDOMCDATASection_Impl, const OFFSET: isize>() -> IXMLDOMCDATASection_Vtbl {
+    pub const fn new<Identity: IXMLDOMCDATASection_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IXMLDOMText_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMCDATASection as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNode as windows_core::Interface>::IID || iid == &<IXMLDOMCharacterData as windows_core::Interface>::IID || iid == &<IXMLDOMText as windows_core::Interface>::IID
+        iid == &<IXMLDOMCDATASection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMCDATASection {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMCharacterData, IXMLDOMCharacterData_Vtbl, 0x2933bf84_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -6141,7 +5883,7 @@ windows_core::imp::interface_hierarchy!(IXMLDOMCharacterData, windows_core::IUnk
 impl IXMLDOMCharacterData {
     pub unsafe fn data(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).data)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).data)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn Setdata<P0>(&self, data: P0) -> windows_core::Result<()>
     where
@@ -6155,7 +5897,7 @@ impl IXMLDOMCharacterData {
     }
     pub unsafe fn substringData(&self, offset: i32, count: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).substringData)(windows_core::Interface::as_raw(self), offset, count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).substringData)(windows_core::Interface::as_raw(self), offset, count, &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn appendData<P0>(&self, data: P0) -> windows_core::Result<()>
     where
@@ -6163,18 +5905,18 @@ impl IXMLDOMCharacterData {
     {
         (windows_core::Interface::vtable(self).appendData)(windows_core::Interface::as_raw(self), data.param().abi()).ok()
     }
-    pub unsafe fn insertData<P0>(&self, offset: i32, data: P0) -> windows_core::Result<()>
+    pub unsafe fn insertData<P1>(&self, offset: i32, data: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).insertData)(windows_core::Interface::as_raw(self), offset, data.param().abi()).ok()
     }
     pub unsafe fn deleteData(&self, offset: i32, count: i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).deleteData)(windows_core::Interface::as_raw(self), offset, count).ok()
     }
-    pub unsafe fn replaceData<P0>(&self, offset: i32, count: i32, data: P0) -> windows_core::Result<()>
+    pub unsafe fn replaceData<P2>(&self, offset: i32, count: i32, data: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::BSTR>,
+        P2: windows_core::Param<windows_core::BSTR>,
     {
         (windows_core::Interface::vtable(self).replaceData)(windows_core::Interface::as_raw(self), offset, count, data.param().abi()).ok()
     }
@@ -6193,7 +5935,7 @@ pub struct IXMLDOMCharacterData_Vtbl {
     pub replaceData: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMCharacterData_Impl: Sized + IXMLDOMNode_Impl {
+pub trait IXMLDOMCharacterData_Impl: IXMLDOMNode_Impl {
     fn data(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Setdata(&self, data: &windows_core::BSTR) -> windows_core::Result<()>;
     fn length(&self) -> windows_core::Result<i32>;
@@ -6204,10 +5946,8 @@ pub trait IXMLDOMCharacterData_Impl: Sized + IXMLDOMNode_Impl {
     fn replaceData(&self, offset: i32, count: i32, data: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMCharacterData {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMCharacterData_Vtbl {
-    pub const fn new<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>() -> IXMLDOMCharacterData_Vtbl {
+    pub const fn new<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn data<Identity: IXMLDOMCharacterData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, data: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMCharacterData_Impl::data(this) {
@@ -6271,9 +6011,11 @@ impl IXMLDOMCharacterData_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMCharacterData as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNode as windows_core::Interface>::IID
+        iid == &<IXMLDOMCharacterData as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMCharacterData {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMComment, IXMLDOMComment_Vtbl, 0x2933bf88_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -6286,25 +6028,23 @@ impl core::ops::Deref for IXMLDOMComment {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IXMLDOMComment, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMCharacterData);
 #[cfg(feature = "Win32_System_Com")]
-impl IXMLDOMComment {}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct IXMLDOMComment_Vtbl {
     pub base__: IXMLDOMCharacterData_Vtbl,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMComment_Impl: Sized + IXMLDOMCharacterData_Impl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMComment {}
+pub trait IXMLDOMComment_Impl: IXMLDOMCharacterData_Impl {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMComment_Vtbl {
-    pub const fn new<Identity: IXMLDOMComment_Impl, const OFFSET: isize>() -> IXMLDOMComment_Vtbl {
+    pub const fn new<Identity: IXMLDOMComment_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IXMLDOMCharacterData_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMComment as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNode as windows_core::Interface>::IID || iid == &<IXMLDOMCharacterData as windows_core::Interface>::IID
+        iid == &<IXMLDOMComment as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMComment {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMDocument, IXMLDOMDocument_Vtbl, 0x2933bf81_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -6318,29 +6058,24 @@ impl core::ops::Deref for IXMLDOMDocument {
 windows_core::imp::interface_hierarchy!(IXMLDOMDocument, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMDocument {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn doctype(&self) -> windows_core::Result<IXMLDOMDocumentType> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).doctype)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn implementation(&self) -> windows_core::Result<IXMLDOMImplementation> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).implementation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn documentElement(&self) -> windows_core::Result<IXMLDOMElement> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).documentElement)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_documentElement<P0>(&self, domelement: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXMLDOMElement>,
     {
         (windows_core::Interface::vtable(self).putref_documentElement)(windows_core::Interface::as_raw(self), domelement.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createElement<P0>(&self, tagname: P0) -> windows_core::Result<IXMLDOMElement>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -6348,12 +6083,10 @@ impl IXMLDOMDocument {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).createElement)(windows_core::Interface::as_raw(self), tagname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createDocumentFragment(&self) -> windows_core::Result<IXMLDOMDocumentFragment> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).createDocumentFragment)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createTextNode<P0>(&self, data: P0) -> windows_core::Result<IXMLDOMText>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -6361,7 +6094,6 @@ impl IXMLDOMDocument {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).createTextNode)(windows_core::Interface::as_raw(self), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createComment<P0>(&self, data: P0) -> windows_core::Result<IXMLDOMComment>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -6369,7 +6101,6 @@ impl IXMLDOMDocument {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).createComment)(windows_core::Interface::as_raw(self), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createCDATASection<P0>(&self, data: P0) -> windows_core::Result<IXMLDOMCDATASection>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -6377,7 +6108,6 @@ impl IXMLDOMDocument {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).createCDATASection)(windows_core::Interface::as_raw(self), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createProcessingInstruction<P0, P1>(&self, target: P0, data: P1) -> windows_core::Result<IXMLDOMProcessingInstruction>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -6386,7 +6116,6 @@ impl IXMLDOMDocument {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).createProcessingInstruction)(windows_core::Interface::as_raw(self), target.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createAttribute<P0>(&self, name: P0) -> windows_core::Result<IXMLDOMAttribute>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -6394,7 +6123,6 @@ impl IXMLDOMDocument {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).createAttribute)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createEntityReference<P0>(&self, name: P0) -> windows_core::Result<IXMLDOMEntityReference>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -6402,7 +6130,6 @@ impl IXMLDOMDocument {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).createEntityReference)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getElementsByTagName<P0>(&self, tagname: P0) -> windows_core::Result<IXMLDOMNodeList>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -6420,7 +6147,6 @@ impl IXMLDOMDocument {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).createNode)(windows_core::Interface::as_raw(self), r#type.param().abi(), name.param().abi(), namespaceuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nodeFromID<P0>(&self, idstring: P0) -> windows_core::Result<IXMLDOMNode>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -6440,14 +6166,13 @@ impl IXMLDOMDocument {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).readyState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parseError(&self) -> windows_core::Result<IXMLDOMParseError> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).parseError)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn url(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).url)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).url)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn r#async(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -6532,82 +6257,37 @@ impl IXMLDOMDocument {
 #[repr(C)]
 pub struct IXMLDOMDocument_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub doctype: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    doctype: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub implementation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    implementation: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub documentElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    documentElement: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub putref_documentElement: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    putref_documentElement: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub createElement: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    createElement: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub createDocumentFragment: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    createDocumentFragment: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub createTextNode: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    createTextNode: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub createComment: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    createComment: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub createCDATASection: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    createCDATASection: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub createProcessingInstruction: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    createProcessingInstruction: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub createAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    createAttribute: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub createEntityReference: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    createEntityReference: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub getElementsByTagName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    getElementsByTagName: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub createNode: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub createNode: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     createNode: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub nodeFromID: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    nodeFromID: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub load: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
+    pub load: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     load: usize,
     pub readyState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub parseError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    parseError: usize,
     pub url: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub r#async: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub Setasync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub abort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub loadXML: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub save: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub save: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     save: usize,
     pub validateOnParse: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
@@ -6617,20 +6297,20 @@ pub struct IXMLDOMDocument_Vtbl {
     pub preserveWhiteSpace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub SetpreserveWhiteSpace: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Setonreadystatechange: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Setonreadystatechange: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Setonreadystatechange: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Setondataavailable: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Setondataavailable: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Setondataavailable: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Setontransformnode: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Setontransformnode: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Setontransformnode: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMDocument_Impl: Sized + IXMLDOMNode_Impl {
+pub trait IXMLDOMDocument_Impl: IXMLDOMNode_Impl {
     fn doctype(&self) -> windows_core::Result<IXMLDOMDocumentType>;
     fn implementation(&self) -> windows_core::Result<IXMLDOMImplementation>;
     fn documentElement(&self) -> windows_core::Result<IXMLDOMElement>;
@@ -6666,10 +6346,8 @@ pub trait IXMLDOMDocument_Impl: Sized + IXMLDOMNode_Impl {
     fn Setontransformnode(&self, ontransformnodesink: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMDocument {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMDocument_Vtbl {
-    pub const fn new<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>() -> IXMLDOMDocument_Vtbl {
+    pub const fn new<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn doctype<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, documenttype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMDocument_Impl::doctype(this) {
@@ -6794,7 +6472,7 @@ impl IXMLDOMDocument_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn createNode<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, name: core::mem::MaybeUninit<windows_core::BSTR>, namespaceuri: core::mem::MaybeUninit<windows_core::BSTR>, node: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn createNode<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: super::super::super::System::Variant::VARIANT, name: core::mem::MaybeUninit<windows_core::BSTR>, namespaceuri: core::mem::MaybeUninit<windows_core::BSTR>, node: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMDocument_Impl::createNode(this, core::mem::transmute(&r#type), core::mem::transmute(&name), core::mem::transmute(&namespaceuri)) {
                 Ok(ok__) => {
@@ -6814,7 +6492,7 @@ impl IXMLDOMDocument_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn load<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xmlsource: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn load<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xmlsource: super::super::super::System::Variant::VARIANT, issuccessful: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMDocument_Impl::load(this, core::mem::transmute(&xmlsource)) {
                 Ok(ok__) => {
@@ -6882,7 +6560,7 @@ impl IXMLDOMDocument_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn save<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destination: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn save<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, destination: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLDOMDocument_Impl::save(this, core::mem::transmute(&destination)).into()
         }
@@ -6928,15 +6606,15 @@ impl IXMLDOMDocument_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLDOMDocument_Impl::SetpreserveWhiteSpace(this, core::mem::transmute_copy(&ispreserving)).into()
         }
-        unsafe extern "system" fn Setonreadystatechange<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, readystatechangesink: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setonreadystatechange<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, readystatechangesink: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLDOMDocument_Impl::Setonreadystatechange(this, core::mem::transmute(&readystatechangesink)).into()
         }
-        unsafe extern "system" fn Setondataavailable<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ondataavailablesink: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setondataavailable<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ondataavailablesink: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLDOMDocument_Impl::Setondataavailable(this, core::mem::transmute(&ondataavailablesink)).into()
         }
-        unsafe extern "system" fn Setontransformnode<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ontransformnodesink: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setontransformnode<Identity: IXMLDOMDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ontransformnodesink: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLDOMDocument_Impl::Setontransformnode(this, core::mem::transmute(&ontransformnodesink)).into()
         }
@@ -6978,9 +6656,11 @@ impl IXMLDOMDocument_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMDocument as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNode as windows_core::Interface>::IID
+        iid == &<IXMLDOMDocument as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMDocument {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMDocument2, IXMLDOMDocument2_Vtbl, 0x2933bf95_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -6994,7 +6674,6 @@ impl core::ops::Deref for IXMLDOMDocument2 {
 windows_core::imp::interface_hierarchy!(IXMLDOMDocument2, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMDocument);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMDocument2 {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn namespaces(&self) -> windows_core::Result<IXMLDOMSchemaCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).namespaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7002,7 +6681,7 @@ impl IXMLDOMDocument2 {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn schemas(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).schemas)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).schemas)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn putref_schemas<P0>(&self, othercollection: P0) -> windows_core::Result<()>
@@ -7011,7 +6690,6 @@ impl IXMLDOMDocument2 {
     {
         (windows_core::Interface::vtable(self).putref_schemas)(windows_core::Interface::as_raw(self), othercollection.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn validate(&self) -> windows_core::Result<IXMLDOMParseError> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).validate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7030,40 +6708,34 @@ impl IXMLDOMDocument2 {
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getProperty)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getProperty)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct IXMLDOMDocument2_Vtbl {
     pub base__: IXMLDOMDocument_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub namespaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    namespaces: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub schemas: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub schemas: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     schemas: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub putref_schemas: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub putref_schemas: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     putref_schemas: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub validate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    validate: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub setProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub setProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     setProperty: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub getProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub getProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     getProperty: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMDocument2_Impl: Sized + IXMLDOMDocument_Impl {
+pub trait IXMLDOMDocument2_Impl: IXMLDOMDocument_Impl {
     fn namespaces(&self) -> windows_core::Result<IXMLDOMSchemaCollection>;
     fn schemas(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn putref_schemas(&self, othercollection: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
@@ -7072,10 +6744,8 @@ pub trait IXMLDOMDocument2_Impl: Sized + IXMLDOMDocument_Impl {
     fn getProperty(&self, name: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMDocument2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMDocument2_Vtbl {
-    pub const fn new<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>() -> IXMLDOMDocument2_Vtbl {
+    pub const fn new<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn namespaces<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespacecollection: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMDocument2_Impl::namespaces(this) {
@@ -7086,7 +6756,7 @@ impl IXMLDOMDocument2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn schemas<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, othercollection: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn schemas<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, othercollection: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMDocument2_Impl::schemas(this) {
                 Ok(ok__) => {
@@ -7096,7 +6766,7 @@ impl IXMLDOMDocument2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn putref_schemas<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, othercollection: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn putref_schemas<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, othercollection: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLDOMDocument2_Impl::putref_schemas(this, core::mem::transmute(&othercollection)).into()
         }
@@ -7110,11 +6780,11 @@ impl IXMLDOMDocument2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setProperty<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn setProperty<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLDOMDocument2_Impl::setProperty(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
         }
-        unsafe extern "system" fn getProperty<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn getProperty<Identity: IXMLDOMDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMDocument2_Impl::getProperty(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
@@ -7135,9 +6805,11 @@ impl IXMLDOMDocument2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMDocument2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNode as windows_core::Interface>::IID || iid == &<IXMLDOMDocument as windows_core::Interface>::IID
+        iid == &<IXMLDOMDocument2 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMDocument2 {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMDocument3, IXMLDOMDocument3_Vtbl, 0x2933bf96_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -7151,7 +6823,6 @@ impl core::ops::Deref for IXMLDOMDocument3 {
 windows_core::imp::interface_hierarchy!(IXMLDOMDocument3, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMDocument, IXMLDOMDocument2);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMDocument3 {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn validateNode<P0>(&self, node: P0) -> windows_core::Result<IXMLDOMParseError>
     where
         P0: windows_core::Param<IXMLDOMNode>,
@@ -7159,7 +6830,6 @@ impl IXMLDOMDocument3 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).validateNode)(windows_core::Interface::as_raw(self), node.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn importNode<P0, P1>(&self, node: P0, deep: P1) -> windows_core::Result<IXMLDOMNode>
     where
         P0: windows_core::Param<IXMLDOMNode>,
@@ -7173,25 +6843,17 @@ impl IXMLDOMDocument3 {
 #[repr(C)]
 pub struct IXMLDOMDocument3_Vtbl {
     pub base__: IXMLDOMDocument2_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub validateNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    validateNode: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub importNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    importNode: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMDocument3_Impl: Sized + IXMLDOMDocument2_Impl {
+pub trait IXMLDOMDocument3_Impl: IXMLDOMDocument2_Impl {
     fn validateNode(&self, node: Option<&IXMLDOMNode>) -> windows_core::Result<IXMLDOMParseError>;
     fn importNode(&self, node: Option<&IXMLDOMNode>, deep: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IXMLDOMNode>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMDocument3 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMDocument3_Vtbl {
-    pub const fn new<Identity: IXMLDOMDocument3_Impl, const OFFSET: isize>() -> IXMLDOMDocument3_Vtbl {
+    pub const fn new<Identity: IXMLDOMDocument3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn validateNode<Identity: IXMLDOMDocument3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, node: *mut core::ffi::c_void, errorobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMDocument3_Impl::validateNode(this, windows_core::from_raw_borrowed(&node)) {
@@ -7219,9 +6881,11 @@ impl IXMLDOMDocument3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMDocument3 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNode as windows_core::Interface>::IID || iid == &<IXMLDOMDocument as windows_core::Interface>::IID || iid == &<IXMLDOMDocument2 as windows_core::Interface>::IID
+        iid == &<IXMLDOMDocument3 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMDocument3 {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMDocumentFragment, IXMLDOMDocumentFragment_Vtbl, 0x3efaa413_272f_11d2_836f_0000f87a7782);
 #[cfg(feature = "Win32_System_Com")]
@@ -7234,25 +6898,23 @@ impl core::ops::Deref for IXMLDOMDocumentFragment {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IXMLDOMDocumentFragment, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
-impl IXMLDOMDocumentFragment {}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct IXMLDOMDocumentFragment_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMDocumentFragment_Impl: Sized + IXMLDOMNode_Impl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMDocumentFragment {}
+pub trait IXMLDOMDocumentFragment_Impl: IXMLDOMNode_Impl {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMDocumentFragment_Vtbl {
-    pub const fn new<Identity: IXMLDOMDocumentFragment_Impl, const OFFSET: isize>() -> IXMLDOMDocumentFragment_Vtbl {
+    pub const fn new<Identity: IXMLDOMDocumentFragment_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IXMLDOMNode_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMDocumentFragment as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNode as windows_core::Interface>::IID
+        iid == &<IXMLDOMDocumentFragment as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMDocumentFragment {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMDocumentType, IXMLDOMDocumentType_Vtbl, 0x2933bf8b_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -7268,14 +6930,12 @@ windows_core::imp::interface_hierarchy!(IXMLDOMDocumentType, windows_core::IUnkn
 impl IXMLDOMDocumentType {
     pub unsafe fn name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn entities(&self) -> windows_core::Result<IXMLDOMNamedNodeMap> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).entities)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn notations(&self) -> windows_core::Result<IXMLDOMNamedNodeMap> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).notations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7286,26 +6946,18 @@ impl IXMLDOMDocumentType {
 pub struct IXMLDOMDocumentType_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
     pub name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub entities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    entities: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub notations: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    notations: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMDocumentType_Impl: Sized + IXMLDOMNode_Impl {
+pub trait IXMLDOMDocumentType_Impl: IXMLDOMNode_Impl {
     fn name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn entities(&self) -> windows_core::Result<IXMLDOMNamedNodeMap>;
     fn notations(&self) -> windows_core::Result<IXMLDOMNamedNodeMap>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMDocumentType {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMDocumentType_Vtbl {
-    pub const fn new<Identity: IXMLDOMDocumentType_Impl, const OFFSET: isize>() -> IXMLDOMDocumentType_Vtbl {
+    pub const fn new<Identity: IXMLDOMDocumentType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn name<Identity: IXMLDOMDocumentType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rootname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMDocumentType_Impl::name(this) {
@@ -7344,9 +6996,11 @@ impl IXMLDOMDocumentType_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMDocumentType as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNode as windows_core::Interface>::IID
+        iid == &<IXMLDOMDocumentType as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMDocumentType {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMElement, IXMLDOMElement_Vtbl, 0x2933bf86_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -7362,7 +7016,7 @@ windows_core::imp::interface_hierarchy!(IXMLDOMElement, windows_core::IUnknown, 
 impl IXMLDOMElement {
     pub unsafe fn tagName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).tagName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).tagName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn getAttribute<P0>(&self, name: P0) -> windows_core::Result<super::super::super::System::Variant::VARIANT>
@@ -7370,7 +7024,7 @@ impl IXMLDOMElement {
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getAttribute)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getAttribute)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn setAttribute<P0, P1>(&self, name: P0, value: P1) -> windows_core::Result<()>
@@ -7386,7 +7040,6 @@ impl IXMLDOMElement {
     {
         (windows_core::Interface::vtable(self).removeAttribute)(windows_core::Interface::as_raw(self), name.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getAttributeNode<P0>(&self, name: P0) -> windows_core::Result<IXMLDOMAttribute>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -7394,7 +7047,6 @@ impl IXMLDOMElement {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).getAttributeNode)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn setAttributeNode<P0>(&self, domattribute: P0) -> windows_core::Result<IXMLDOMAttribute>
     where
         P0: windows_core::Param<IXMLDOMAttribute>,
@@ -7402,7 +7054,6 @@ impl IXMLDOMElement {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).setAttributeNode)(windows_core::Interface::as_raw(self), domattribute.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeAttributeNode<P0>(&self, domattribute: P0) -> windows_core::Result<IXMLDOMAttribute>
     where
         P0: windows_core::Param<IXMLDOMAttribute>,
@@ -7410,7 +7061,6 @@ impl IXMLDOMElement {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).removeAttributeNode)(windows_core::Interface::as_raw(self), domattribute.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getElementsByTagName<P0>(&self, tagname: P0) -> windows_core::Result<IXMLDOMNodeList>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -7428,34 +7078,22 @@ pub struct IXMLDOMElement_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
     pub tagName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub getAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub getAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     getAttribute: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub setAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub setAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     setAttribute: usize,
     pub removeAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub getAttributeNode: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    getAttributeNode: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub setAttributeNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    setAttributeNode: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub removeAttributeNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    removeAttributeNode: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub getElementsByTagName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    getElementsByTagName: usize,
     pub normalize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMElement_Impl: Sized + IXMLDOMNode_Impl {
+pub trait IXMLDOMElement_Impl: IXMLDOMNode_Impl {
     fn tagName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn getAttribute(&self, name: &windows_core::BSTR) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn setAttribute(&self, name: &windows_core::BSTR, value: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
@@ -7467,10 +7105,8 @@ pub trait IXMLDOMElement_Impl: Sized + IXMLDOMNode_Impl {
     fn normalize(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMElement {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMElement_Vtbl {
-    pub const fn new<Identity: IXMLDOMElement_Impl, const OFFSET: isize>() -> IXMLDOMElement_Vtbl {
+    pub const fn new<Identity: IXMLDOMElement_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn tagName<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, tagname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMElement_Impl::tagName(this) {
@@ -7481,7 +7117,7 @@ impl IXMLDOMElement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getAttribute<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn getAttribute<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMElement_Impl::getAttribute(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
@@ -7491,7 +7127,7 @@ impl IXMLDOMElement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setAttribute<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn setAttribute<Identity: IXMLDOMElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLDOMElement_Impl::setAttribute(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
         }
@@ -7557,9 +7193,11 @@ impl IXMLDOMElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMElement as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNode as windows_core::Interface>::IID
+        iid == &<IXMLDOMElement as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMElement {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMEntity, IXMLDOMEntity_Vtbl, 0x2933bf8d_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -7576,16 +7214,16 @@ impl IXMLDOMEntity {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn publicId(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).publicId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).publicId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn systemId(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).systemId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).systemId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn notationName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).notationName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).notationName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7593,27 +7231,25 @@ impl IXMLDOMEntity {
 pub struct IXMLDOMEntity_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub publicId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub publicId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     publicId: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub systemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub systemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     systemId: usize,
     pub notationName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMEntity_Impl: Sized + IXMLDOMNode_Impl {
+pub trait IXMLDOMEntity_Impl: IXMLDOMNode_Impl {
     fn publicId(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn systemId(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn notationName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMEntity {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMEntity_Vtbl {
-    pub const fn new<Identity: IXMLDOMEntity_Impl, const OFFSET: isize>() -> IXMLDOMEntity_Vtbl {
-        unsafe extern "system" fn publicId<Identity: IXMLDOMEntity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, publicid: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+    pub const fn new<Identity: IXMLDOMEntity_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn publicId<Identity: IXMLDOMEntity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, publicid: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMEntity_Impl::publicId(this) {
                 Ok(ok__) => {
@@ -7623,7 +7259,7 @@ impl IXMLDOMEntity_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn systemId<Identity: IXMLDOMEntity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, systemid: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn systemId<Identity: IXMLDOMEntity_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, systemid: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMEntity_Impl::systemId(this) {
                 Ok(ok__) => {
@@ -7651,9 +7287,11 @@ impl IXMLDOMEntity_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMEntity as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNode as windows_core::Interface>::IID
+        iid == &<IXMLDOMEntity as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMEntity {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMEntityReference, IXMLDOMEntityReference_Vtbl, 0x2933bf8e_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -7666,25 +7304,23 @@ impl core::ops::Deref for IXMLDOMEntityReference {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(IXMLDOMEntityReference, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
-impl IXMLDOMEntityReference {}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct IXMLDOMEntityReference_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMEntityReference_Impl: Sized + IXMLDOMNode_Impl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMEntityReference {}
+pub trait IXMLDOMEntityReference_Impl: IXMLDOMNode_Impl {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMEntityReference_Vtbl {
-    pub const fn new<Identity: IXMLDOMEntityReference_Impl, const OFFSET: isize>() -> IXMLDOMEntityReference_Vtbl {
+    pub const fn new<Identity: IXMLDOMEntityReference_Impl, const OFFSET: isize>() -> Self {
         Self { base__: IXMLDOMNode_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMEntityReference as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNode as windows_core::Interface>::IID
+        iid == &<IXMLDOMEntityReference as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMEntityReference {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMImplementation, IXMLDOMImplementation_Vtbl, 0x2933bf8f_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -7714,14 +7350,12 @@ pub struct IXMLDOMImplementation_Vtbl {
     pub hasFeature: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMImplementation_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXMLDOMImplementation_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn hasFeature(&self, feature: &windows_core::BSTR, version: &windows_core::BSTR) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMImplementation {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMImplementation_Vtbl {
-    pub const fn new<Identity: IXMLDOMImplementation_Impl, const OFFSET: isize>() -> IXMLDOMImplementation_Vtbl {
+    pub const fn new<Identity: IXMLDOMImplementation_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn hasFeature<Identity: IXMLDOMImplementation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, feature: core::mem::MaybeUninit<windows_core::BSTR>, version: core::mem::MaybeUninit<windows_core::BSTR>, hasfeature: *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMImplementation_Impl::hasFeature(this, core::mem::transmute(&feature), core::mem::transmute(&version)) {
@@ -7735,9 +7369,11 @@ impl IXMLDOMImplementation_Vtbl {
         Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), hasFeature: hasFeature::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMImplementation as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXMLDOMImplementation as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMImplementation {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMNamedNodeMap, IXMLDOMNamedNodeMap_Vtbl, 0x2933bf83_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -7751,7 +7387,6 @@ impl core::ops::Deref for IXMLDOMNamedNodeMap {
 windows_core::imp::interface_hierarchy!(IXMLDOMNamedNodeMap, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMNamedNodeMap {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getNamedItem<P0>(&self, name: P0) -> windows_core::Result<IXMLDOMNode>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -7759,7 +7394,6 @@ impl IXMLDOMNamedNodeMap {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).getNamedItem)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn setNamedItem<P0>(&self, newitem: P0) -> windows_core::Result<IXMLDOMNode>
     where
         P0: windows_core::Param<IXMLDOMNode>,
@@ -7767,7 +7401,6 @@ impl IXMLDOMNamedNodeMap {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).setNamedItem)(windows_core::Interface::as_raw(self), newitem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeNamedItem<P0>(&self, name: P0) -> windows_core::Result<IXMLDOMNode>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -7775,7 +7408,6 @@ impl IXMLDOMNamedNodeMap {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).removeNamedItem)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_item(&self, index: i32) -> windows_core::Result<IXMLDOMNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7784,7 +7416,6 @@ impl IXMLDOMNamedNodeMap {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).length)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getQualifiedItem<P0, P1>(&self, basename: P0, namespaceuri: P1) -> windows_core::Result<IXMLDOMNode>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -7793,7 +7424,6 @@ impl IXMLDOMNamedNodeMap {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).getQualifiedItem)(windows_core::Interface::as_raw(self), basename.param().abi(), namespaceuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeQualifiedItem<P0, P1>(&self, basename: P0, namespaceuri: P1) -> windows_core::Result<IXMLDOMNode>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -7802,7 +7432,6 @@ impl IXMLDOMNamedNodeMap {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).removeQualifiedItem)(windows_core::Interface::as_raw(self), basename.param().abi(), namespaceuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextNode(&self) -> windows_core::Result<IXMLDOMNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).nextNode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7819,40 +7448,19 @@ impl IXMLDOMNamedNodeMap {
 #[repr(C)]
 pub struct IXMLDOMNamedNodeMap_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub getNamedItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    getNamedItem: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub setNamedItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    setNamedItem: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub removeNamedItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    removeNamedItem: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub get_item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    get_item: usize,
     pub length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub getQualifiedItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    getQualifiedItem: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub removeQualifiedItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    removeQualifiedItem: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub nextNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    nextNode: usize,
     pub reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub _newEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMNamedNodeMap_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXMLDOMNamedNodeMap_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn getNamedItem(&self, name: &windows_core::BSTR) -> windows_core::Result<IXMLDOMNode>;
     fn setNamedItem(&self, newitem: Option<&IXMLDOMNode>) -> windows_core::Result<IXMLDOMNode>;
     fn removeNamedItem(&self, name: &windows_core::BSTR) -> windows_core::Result<IXMLDOMNode>;
@@ -7865,10 +7473,8 @@ pub trait IXMLDOMNamedNodeMap_Impl: Sized + super::super::super::System::Com::ID
     fn _newEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMNamedNodeMap {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMNamedNodeMap_Vtbl {
-    pub const fn new<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>() -> IXMLDOMNamedNodeMap_Vtbl {
+    pub const fn new<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn getNamedItem<Identity: IXMLDOMNamedNodeMap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, nameditem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMNamedNodeMap_Impl::getNamedItem(this, core::mem::transmute(&name)) {
@@ -7978,9 +7584,11 @@ impl IXMLDOMNamedNodeMap_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMNamedNodeMap as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXMLDOMNamedNodeMap as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMNamedNodeMap {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMNode, IXMLDOMNode_Vtbl, 0x2933bf80_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -7996,12 +7604,12 @@ windows_core::imp::interface_hierarchy!(IXMLDOMNode, windows_core::IUnknown, sup
 impl IXMLDOMNode {
     pub unsafe fn nodeName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).nodeName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).nodeName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn nodeValue(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).nodeValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).nodeValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetnodeValue<P0>(&self, value: P0) -> windows_core::Result<()>
@@ -8014,37 +7622,30 @@ impl IXMLDOMNode {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).nodeType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> windows_core::Result<IXMLDOMNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).parentNode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> windows_core::Result<IXMLDOMNodeList> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).childNodes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> windows_core::Result<IXMLDOMNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).firstChild)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> windows_core::Result<IXMLDOMNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).lastChild)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> windows_core::Result<IXMLDOMNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).previousSibling)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> windows_core::Result<IXMLDOMNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).nextSibling)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> windows_core::Result<IXMLDOMNamedNodeMap> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).attributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8058,7 +7659,6 @@ impl IXMLDOMNode {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).insertBefore)(windows_core::Interface::as_raw(self), newchild.param().abi(), refchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn replaceChild<P0, P1>(&self, newchild: P0, oldchild: P1) -> windows_core::Result<IXMLDOMNode>
     where
         P0: windows_core::Param<IXMLDOMNode>,
@@ -8067,7 +7667,6 @@ impl IXMLDOMNode {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).replaceChild)(windows_core::Interface::as_raw(self), newchild.param().abi(), oldchild.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<P0>(&self, childnode: P0) -> windows_core::Result<IXMLDOMNode>
     where
         P0: windows_core::Param<IXMLDOMNode>,
@@ -8075,7 +7674,6 @@ impl IXMLDOMNode {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).removeChild)(windows_core::Interface::as_raw(self), childnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendChild<P0>(&self, newchild: P0) -> windows_core::Result<IXMLDOMNode>
     where
         P0: windows_core::Param<IXMLDOMNode>,
@@ -8087,12 +7685,10 @@ impl IXMLDOMNode {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).hasChildNodes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> windows_core::Result<IXMLDOMDocument> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ownerDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cloneNode<P0>(&self, deep: P0) -> windows_core::Result<IXMLDOMNode>
     where
         P0: windows_core::Param<super::super::super::Foundation::VARIANT_BOOL>,
@@ -8102,11 +7698,11 @@ impl IXMLDOMNode {
     }
     pub unsafe fn nodeTypeString(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).nodeTypeString)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).nodeTypeString)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn text(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).text)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).text)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn Settext<P0>(&self, text: P0) -> windows_core::Result<()>
     where
@@ -8118,7 +7714,6 @@ impl IXMLDOMNode {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).specified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> windows_core::Result<IXMLDOMNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).definition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8126,7 +7721,7 @@ impl IXMLDOMNode {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn nodeTypedValue(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).nodeTypedValue)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).nodeTypedValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetnodeTypedValue<P0>(&self, typedvalue: P0) -> windows_core::Result<()>
@@ -8138,7 +7733,7 @@ impl IXMLDOMNode {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn dataType(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).dataType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).dataType)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SetdataType<P0>(&self, datatypename: P0) -> windows_core::Result<()>
     where
@@ -8148,17 +7743,15 @@ impl IXMLDOMNode {
     }
     pub unsafe fn xml(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).xml)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).xml)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn transformNode<P0>(&self, stylesheet: P0) -> windows_core::Result<windows_core::BSTR>
     where
         P0: windows_core::Param<IXMLDOMNode>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).transformNode)(windows_core::Interface::as_raw(self), stylesheet.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).transformNode)(windows_core::Interface::as_raw(self), stylesheet.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn selectNodes<P0>(&self, querystring: P0) -> windows_core::Result<IXMLDOMNodeList>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -8166,7 +7759,6 @@ impl IXMLDOMNode {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).selectNodes)(windows_core::Interface::as_raw(self), querystring.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn selectSingleNode<P0>(&self, querystring: P0) -> windows_core::Result<IXMLDOMNode>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -8180,15 +7772,15 @@ impl IXMLDOMNode {
     }
     pub unsafe fn namespaceURI(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).namespaceURI)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).namespaceURI)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn prefix(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).prefix)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).prefix)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn baseName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).baseName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).baseName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn transformNodeToObject<P0, P1>(&self, stylesheet: P0, outputobject: P1) -> windows_core::Result<()>
@@ -8205,112 +7797,64 @@ pub struct IXMLDOMNode_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub nodeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub nodeValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub nodeValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     nodeValue: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetnodeValue: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub SetnodeValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetnodeValue: usize,
     pub nodeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DOMNodeType) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub parentNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    parentNode: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub childNodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    childNodes: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub firstChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    firstChild: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub lastChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    lastChild: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub previousSibling: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    previousSibling: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub nextSibling: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    nextSibling: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    attributes: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub insertBefore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub insertBefore: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     insertBefore: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub replaceChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    replaceChild: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub removeChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    removeChild: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub appendChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    appendChild: usize,
     pub hasChildNodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub ownerDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    ownerDocument: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub cloneNode: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    cloneNode: usize,
     pub nodeTypeString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Settext: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub specified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub definition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    definition: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub nodeTypedValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub nodeTypedValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     nodeTypedValue: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetnodeTypedValue: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub SetnodeTypedValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetnodeTypedValue: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub dataType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub dataType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     dataType: usize,
     pub SetdataType: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub xml: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub transformNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    transformNode: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub selectNodes: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    selectNodes: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub selectSingleNode: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    selectSingleNode: usize,
     pub parsed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub namespaceURI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub prefix: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub baseName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub transformNodeToObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub transformNodeToObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     transformNodeToObject: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMNode_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXMLDOMNode_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn nodeName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn nodeValue(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn SetnodeValue(&self, value: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
@@ -8349,10 +7893,8 @@ pub trait IXMLDOMNode_Impl: Sized + super::super::super::System::Com::IDispatch_
     fn transformNodeToObject(&self, stylesheet: Option<&IXMLDOMNode>, outputobject: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMNode {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMNode_Vtbl {
-    pub const fn new<Identity: IXMLDOMNode_Impl, const OFFSET: isize>() -> IXMLDOMNode_Vtbl {
+    pub const fn new<Identity: IXMLDOMNode_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn nodeName<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMNode_Impl::nodeName(this) {
@@ -8363,7 +7905,7 @@ impl IXMLDOMNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn nodeValue<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn nodeValue<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMNode_Impl::nodeValue(this) {
                 Ok(ok__) => {
@@ -8373,7 +7915,7 @@ impl IXMLDOMNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetnodeValue<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetnodeValue<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLDOMNode_Impl::SetnodeValue(this, core::mem::transmute(&value)).into()
         }
@@ -8457,7 +7999,7 @@ impl IXMLDOMNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn insertBefore<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, refchild: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, outnewchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn insertBefore<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, newchild: *mut core::ffi::c_void, refchild: super::super::super::System::Variant::VARIANT, outnewchild: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMNode_Impl::insertBefore(this, windows_core::from_raw_borrowed(&newchild), core::mem::transmute(&refchild)) {
                 Ok(ok__) => {
@@ -8571,7 +8113,7 @@ impl IXMLDOMNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn nodeTypedValue<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typedvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn nodeTypedValue<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typedvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMNode_Impl::nodeTypedValue(this) {
                 Ok(ok__) => {
@@ -8581,11 +8123,11 @@ impl IXMLDOMNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetnodeTypedValue<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typedvalue: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetnodeTypedValue<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, typedvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLDOMNode_Impl::SetnodeTypedValue(this, core::mem::transmute(&typedvalue)).into()
         }
-        unsafe extern "system" fn dataType<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datatypename: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn dataType<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, datatypename: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMNode_Impl::dataType(this) {
                 Ok(ok__) => {
@@ -8679,7 +8221,7 @@ impl IXMLDOMNode_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn transformNodeToObject<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesheet: *mut core::ffi::c_void, outputobject: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn transformNodeToObject<Identity: IXMLDOMNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesheet: *mut core::ffi::c_void, outputobject: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLDOMNode_Impl::transformNodeToObject(this, windows_core::from_raw_borrowed(&stylesheet), core::mem::transmute(&outputobject)).into()
         }
@@ -8724,9 +8266,11 @@ impl IXMLDOMNode_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMNode as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXMLDOMNode as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMNode {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMNodeList, IXMLDOMNodeList_Vtbl, 0x2933bf82_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -8740,7 +8284,6 @@ impl core::ops::Deref for IXMLDOMNodeList {
 windows_core::imp::interface_hierarchy!(IXMLDOMNodeList, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMNodeList {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_item(&self, index: i32) -> windows_core::Result<IXMLDOMNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8749,7 +8292,6 @@ impl IXMLDOMNodeList {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).length)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextNode(&self) -> windows_core::Result<IXMLDOMNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).nextNode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8766,20 +8308,14 @@ impl IXMLDOMNodeList {
 #[repr(C)]
 pub struct IXMLDOMNodeList_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub get_item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    get_item: usize,
     pub length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub nextNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    nextNode: usize,
     pub reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub _newEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMNodeList_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXMLDOMNodeList_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn get_item(&self, index: i32) -> windows_core::Result<IXMLDOMNode>;
     fn length(&self) -> windows_core::Result<i32>;
     fn nextNode(&self) -> windows_core::Result<IXMLDOMNode>;
@@ -8787,10 +8323,8 @@ pub trait IXMLDOMNodeList_Impl: Sized + super::super::super::System::Com::IDispa
     fn _newEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMNodeList {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMNodeList_Vtbl {
-    pub const fn new<Identity: IXMLDOMNodeList_Impl, const OFFSET: isize>() -> IXMLDOMNodeList_Vtbl {
+    pub const fn new<Identity: IXMLDOMNodeList_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn get_item<Identity: IXMLDOMNodeList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, listitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMNodeList_Impl::get_item(this, core::mem::transmute_copy(&index)) {
@@ -8845,9 +8379,11 @@ impl IXMLDOMNodeList_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMNodeList as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXMLDOMNodeList as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMNodeList {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMNotation, IXMLDOMNotation_Vtbl, 0x2933bf8c_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -8864,12 +8400,12 @@ impl IXMLDOMNotation {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn publicId(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).publicId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).publicId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn systemId(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).systemId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).systemId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8877,25 +8413,23 @@ impl IXMLDOMNotation {
 pub struct IXMLDOMNotation_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub publicId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub publicId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     publicId: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub systemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub systemId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     systemId: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMNotation_Impl: Sized + IXMLDOMNode_Impl {
+pub trait IXMLDOMNotation_Impl: IXMLDOMNode_Impl {
     fn publicId(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn systemId(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMNotation {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMNotation_Vtbl {
-    pub const fn new<Identity: IXMLDOMNotation_Impl, const OFFSET: isize>() -> IXMLDOMNotation_Vtbl {
-        unsafe extern "system" fn publicId<Identity: IXMLDOMNotation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, publicid: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+    pub const fn new<Identity: IXMLDOMNotation_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn publicId<Identity: IXMLDOMNotation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, publicid: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMNotation_Impl::publicId(this) {
                 Ok(ok__) => {
@@ -8905,7 +8439,7 @@ impl IXMLDOMNotation_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn systemId<Identity: IXMLDOMNotation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, systemid: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn systemId<Identity: IXMLDOMNotation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, systemid: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMNotation_Impl::systemId(this) {
                 Ok(ok__) => {
@@ -8918,9 +8452,11 @@ impl IXMLDOMNotation_Vtbl {
         Self { base__: IXMLDOMNode_Vtbl::new::<Identity, OFFSET>(), publicId: publicId::<Identity, OFFSET>, systemId: systemId::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMNotation as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNode as windows_core::Interface>::IID
+        iid == &<IXMLDOMNotation as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMNotation {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMParseError, IXMLDOMParseError_Vtbl, 0x3efaa426_272f_11d2_836f_0000f87a7782);
 #[cfg(feature = "Win32_System_Com")]
@@ -8940,15 +8476,15 @@ impl IXMLDOMParseError {
     }
     pub unsafe fn url(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).url)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).url)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn reason(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).reason)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).reason)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn srcText(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).srcText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).srcText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn line(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -8976,7 +8512,7 @@ pub struct IXMLDOMParseError_Vtbl {
     pub filepos: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMParseError_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXMLDOMParseError_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn errorCode(&self) -> windows_core::Result<i32>;
     fn url(&self) -> windows_core::Result<windows_core::BSTR>;
     fn reason(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -8986,10 +8522,8 @@ pub trait IXMLDOMParseError_Impl: Sized + super::super::super::System::Com::IDis
     fn filepos(&self) -> windows_core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMParseError {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMParseError_Vtbl {
-    pub const fn new<Identity: IXMLDOMParseError_Impl, const OFFSET: isize>() -> IXMLDOMParseError_Vtbl {
+    pub const fn new<Identity: IXMLDOMParseError_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn errorCode<Identity: IXMLDOMParseError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, errorcode: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMParseError_Impl::errorCode(this) {
@@ -9072,9 +8606,11 @@ impl IXMLDOMParseError_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMParseError as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXMLDOMParseError as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMParseError {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMParseError2, IXMLDOMParseError2_Vtbl, 0x3efaa428_272f_11d2_836f_0000f87a7782);
 #[cfg(feature = "Win32_System_Com")]
@@ -9090,16 +8626,15 @@ windows_core::imp::interface_hierarchy!(IXMLDOMParseError2, windows_core::IUnkno
 impl IXMLDOMParseError2 {
     pub unsafe fn errorXPath(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).errorXPath)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).errorXPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn allErrors(&self) -> windows_core::Result<IXMLDOMParseErrorCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).allErrors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn errorParameters(&self, index: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).errorParameters)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).errorParameters)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn errorParametersCount(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -9111,25 +8646,20 @@ impl IXMLDOMParseError2 {
 pub struct IXMLDOMParseError2_Vtbl {
     pub base__: IXMLDOMParseError_Vtbl,
     pub errorXPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub allErrors: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    allErrors: usize,
     pub errorParameters: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub errorParametersCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMParseError2_Impl: Sized + IXMLDOMParseError_Impl {
+pub trait IXMLDOMParseError2_Impl: IXMLDOMParseError_Impl {
     fn errorXPath(&self) -> windows_core::Result<windows_core::BSTR>;
     fn allErrors(&self) -> windows_core::Result<IXMLDOMParseErrorCollection>;
     fn errorParameters(&self, index: i32) -> windows_core::Result<windows_core::BSTR>;
     fn errorParametersCount(&self) -> windows_core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMParseError2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMParseError2_Vtbl {
-    pub const fn new<Identity: IXMLDOMParseError2_Impl, const OFFSET: isize>() -> IXMLDOMParseError2_Vtbl {
+    pub const fn new<Identity: IXMLDOMParseError2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn errorXPath<Identity: IXMLDOMParseError2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, xpathexpr: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMParseError2_Impl::errorXPath(this) {
@@ -9179,9 +8709,11 @@ impl IXMLDOMParseError2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMParseError2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMParseError as windows_core::Interface>::IID
+        iid == &<IXMLDOMParseError2 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMParseError2 {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMParseErrorCollection, IXMLDOMParseErrorCollection_Vtbl, 0x3efaa429_272f_11d2_836f_0000f87a7782);
 #[cfg(feature = "Win32_System_Com")]
@@ -9195,7 +8727,6 @@ impl core::ops::Deref for IXMLDOMParseErrorCollection {
 windows_core::imp::interface_hierarchy!(IXMLDOMParseErrorCollection, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMParseErrorCollection {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_item(&self, index: i32) -> windows_core::Result<IXMLDOMParseError2> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9204,7 +8735,6 @@ impl IXMLDOMParseErrorCollection {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).length)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn next(&self) -> windows_core::Result<IXMLDOMParseError2> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9221,20 +8751,14 @@ impl IXMLDOMParseErrorCollection {
 #[repr(C)]
 pub struct IXMLDOMParseErrorCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub get_item: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    get_item: usize,
     pub length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    next: usize,
     pub reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub _newEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMParseErrorCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXMLDOMParseErrorCollection_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn get_item(&self, index: i32) -> windows_core::Result<IXMLDOMParseError2>;
     fn length(&self) -> windows_core::Result<i32>;
     fn next(&self) -> windows_core::Result<IXMLDOMParseError2>;
@@ -9242,10 +8766,8 @@ pub trait IXMLDOMParseErrorCollection_Impl: Sized + super::super::super::System:
     fn _newEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMParseErrorCollection {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMParseErrorCollection_Vtbl {
-    pub const fn new<Identity: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>() -> IXMLDOMParseErrorCollection_Vtbl {
+    pub const fn new<Identity: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn get_item<Identity: IXMLDOMParseErrorCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: i32, error: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMParseErrorCollection_Impl::get_item(this, core::mem::transmute_copy(&index)) {
@@ -9300,9 +8822,11 @@ impl IXMLDOMParseErrorCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMParseErrorCollection as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXMLDOMParseErrorCollection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMParseErrorCollection {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMProcessingInstruction, IXMLDOMProcessingInstruction_Vtbl, 0x2933bf89_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -9318,11 +8842,11 @@ windows_core::imp::interface_hierarchy!(IXMLDOMProcessingInstruction, windows_co
 impl IXMLDOMProcessingInstruction {
     pub unsafe fn target(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).target)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).target)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn data(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).data)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).data)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn Setdata<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -9340,16 +8864,14 @@ pub struct IXMLDOMProcessingInstruction_Vtbl {
     pub Setdata: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMProcessingInstruction_Impl: Sized + IXMLDOMNode_Impl {
+pub trait IXMLDOMProcessingInstruction_Impl: IXMLDOMNode_Impl {
     fn target(&self) -> windows_core::Result<windows_core::BSTR>;
     fn data(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Setdata(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMProcessingInstruction {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMProcessingInstruction_Vtbl {
-    pub const fn new<Identity: IXMLDOMProcessingInstruction_Impl, const OFFSET: isize>() -> IXMLDOMProcessingInstruction_Vtbl {
+    pub const fn new<Identity: IXMLDOMProcessingInstruction_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn target<Identity: IXMLDOMProcessingInstruction_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMProcessingInstruction_Impl::target(this) {
@@ -9382,9 +8904,11 @@ impl IXMLDOMProcessingInstruction_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMProcessingInstruction as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNode as windows_core::Interface>::IID
+        iid == &<IXMLDOMProcessingInstruction as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMProcessingInstruction {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMSchemaCollection, IXMLDOMSchemaCollection_Vtbl, 0x373984c8_b845_449b_91e7_45ac83036ade);
 #[cfg(feature = "Win32_System_Com")]
@@ -9406,7 +8930,6 @@ impl IXMLDOMSchemaCollection {
     {
         (windows_core::Interface::vtable(self).add)(windows_core::Interface::as_raw(self), namespaceuri.param().abi(), var.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get<P0>(&self, namespaceuri: P0) -> windows_core::Result<IXMLDOMNode>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -9426,9 +8949,8 @@ impl IXMLDOMSchemaCollection {
     }
     pub unsafe fn get_namespaceURI(&self, index: i32) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_namespaceURI)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_namespaceURI)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn addCollection<P0>(&self, othercollection: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXMLDOMSchemaCollection>,
@@ -9445,24 +8967,18 @@ impl IXMLDOMSchemaCollection {
 pub struct IXMLDOMSchemaCollection_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub add: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub add: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     add: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub get: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    get: usize,
     pub remove: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub get_namespaceURI: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub addCollection: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    addCollection: usize,
     pub _newEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMSchemaCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXMLDOMSchemaCollection_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn add(&self, namespaceuri: &windows_core::BSTR, var: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn get(&self, namespaceuri: &windows_core::BSTR) -> windows_core::Result<IXMLDOMNode>;
     fn remove(&self, namespaceuri: &windows_core::BSTR) -> windows_core::Result<()>;
@@ -9472,11 +8988,9 @@ pub trait IXMLDOMSchemaCollection_Impl: Sized + super::super::super::System::Com
     fn _newEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMSchemaCollection {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMSchemaCollection_Vtbl {
-    pub const fn new<Identity: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>() -> IXMLDOMSchemaCollection_Vtbl {
-        unsafe extern "system" fn add<Identity: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: core::mem::MaybeUninit<windows_core::BSTR>, var: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+    pub const fn new<Identity: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn add<Identity: IXMLDOMSchemaCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, namespaceuri: core::mem::MaybeUninit<windows_core::BSTR>, var: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLDOMSchemaCollection_Impl::add(this, core::mem::transmute(&namespaceuri), core::mem::transmute(&var)).into()
         }
@@ -9540,9 +9054,11 @@ impl IXMLDOMSchemaCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMSchemaCollection as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXMLDOMSchemaCollection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMSchemaCollection {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMSchemaCollection2, IXMLDOMSchemaCollection2_Vtbl, 0x50ea08b0_dd1b_4664_9a50_c2f40f4bd79a);
 #[cfg(feature = "Win32_System_Com")]
@@ -9569,7 +9085,6 @@ impl IXMLDOMSchemaCollection2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).validateOnLoad)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getSchema<P0>(&self, namespaceuri: P0) -> windows_core::Result<ISchema>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -9577,7 +9092,6 @@ impl IXMLDOMSchemaCollection2 {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).getSchema)(windows_core::Interface::as_raw(self), namespaceuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getDeclaration<P0>(&self, node: P0) -> windows_core::Result<ISchemaItem>
     where
         P0: windows_core::Param<IXMLDOMNode>,
@@ -9593,17 +9107,11 @@ pub struct IXMLDOMSchemaCollection2_Vtbl {
     pub validate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetvalidateOnLoad: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub validateOnLoad: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub getSchema: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    getSchema: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub getDeclaration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    getDeclaration: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMSchemaCollection2_Impl: Sized + IXMLDOMSchemaCollection_Impl {
+pub trait IXMLDOMSchemaCollection2_Impl: IXMLDOMSchemaCollection_Impl {
     fn validate(&self) -> windows_core::Result<()>;
     fn SetvalidateOnLoad(&self, validateonload: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn validateOnLoad(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
@@ -9611,10 +9119,8 @@ pub trait IXMLDOMSchemaCollection2_Impl: Sized + IXMLDOMSchemaCollection_Impl {
     fn getDeclaration(&self, node: Option<&IXMLDOMNode>) -> windows_core::Result<ISchemaItem>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMSchemaCollection2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMSchemaCollection2_Vtbl {
-    pub const fn new<Identity: IXMLDOMSchemaCollection2_Impl, const OFFSET: isize>() -> IXMLDOMSchemaCollection2_Vtbl {
+    pub const fn new<Identity: IXMLDOMSchemaCollection2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn validate<Identity: IXMLDOMSchemaCollection2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLDOMSchemaCollection2_Impl::validate(this).into()
@@ -9663,9 +9169,11 @@ impl IXMLDOMSchemaCollection2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMSchemaCollection2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMSchemaCollection as windows_core::Interface>::IID
+        iid == &<IXMLDOMSchemaCollection2 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMSchemaCollection2 {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMSelection, IXMLDOMSelection_Vtbl, 0xaa634fc7_5888_44a7_a257_3a47150d3a0e);
 #[cfg(feature = "Win32_System_Com")]
@@ -9681,7 +9189,7 @@ windows_core::imp::interface_hierarchy!(IXMLDOMSelection, windows_core::IUnknown
 impl IXMLDOMSelection {
     pub unsafe fn expr(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).expr)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).expr)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn Setexpr<P0>(&self, expression: P0) -> windows_core::Result<()>
     where
@@ -9689,24 +9197,20 @@ impl IXMLDOMSelection {
     {
         (windows_core::Interface::vtable(self).Setexpr)(windows_core::Interface::as_raw(self), expression.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn context(&self) -> windows_core::Result<IXMLDOMNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).context)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_context<P0>(&self, pnode: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXMLDOMNode>,
     {
         (windows_core::Interface::vtable(self).putref_context)(windows_core::Interface::as_raw(self), pnode.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn peekNode(&self) -> windows_core::Result<IXMLDOMNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).peekNode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn matches<P0>(&self, pnode: P0) -> windows_core::Result<IXMLDOMNode>
     where
         P0: windows_core::Param<IXMLDOMNode>,
@@ -9714,7 +9218,6 @@ impl IXMLDOMSelection {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).matches)(windows_core::Interface::as_raw(self), pnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeNext(&self) -> windows_core::Result<IXMLDOMNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).removeNext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9722,7 +9225,6 @@ impl IXMLDOMSelection {
     pub unsafe fn removeAll(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).removeAll)(windows_core::Interface::as_raw(self)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn clone(&self) -> windows_core::Result<IXMLDOMSelection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9733,7 +9235,7 @@ impl IXMLDOMSelection {
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getProperty)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getProperty)(windows_core::Interface::as_raw(self), name.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn setProperty<P0, P1>(&self, name: P0, value: P1) -> windows_core::Result<()>
@@ -9750,42 +9252,24 @@ pub struct IXMLDOMSelection_Vtbl {
     pub base__: IXMLDOMNodeList_Vtbl,
     pub expr: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Setexpr: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub context: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    context: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub putref_context: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    putref_context: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub peekNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    peekNode: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub matches: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    matches: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub removeNext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    removeNext: usize,
     pub removeAll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    clone: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub getProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub getProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     getProperty: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub setProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub setProperty: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     setProperty: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMSelection_Impl: Sized + IXMLDOMNodeList_Impl {
+pub trait IXMLDOMSelection_Impl: IXMLDOMNodeList_Impl {
     fn expr(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Setexpr(&self, expression: &windows_core::BSTR) -> windows_core::Result<()>;
     fn context(&self) -> windows_core::Result<IXMLDOMNode>;
@@ -9799,10 +9283,8 @@ pub trait IXMLDOMSelection_Impl: Sized + IXMLDOMNodeList_Impl {
     fn setProperty(&self, name: &windows_core::BSTR, value: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMSelection {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMSelection_Vtbl {
-    pub const fn new<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>() -> IXMLDOMSelection_Vtbl {
+    pub const fn new<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn expr<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, expression: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMSelection_Impl::expr(this) {
@@ -9875,7 +9357,7 @@ impl IXMLDOMSelection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn getProperty<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn getProperty<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMSelection_Impl::getProperty(this, core::mem::transmute(&name)) {
                 Ok(ok__) => {
@@ -9885,7 +9367,7 @@ impl IXMLDOMSelection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setProperty<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn setProperty<Identity: IXMLDOMSelection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: core::mem::MaybeUninit<windows_core::BSTR>, value: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLDOMSelection_Impl::setProperty(this, core::mem::transmute(&name), core::mem::transmute(&value)).into()
         }
@@ -9905,9 +9387,11 @@ impl IXMLDOMSelection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMSelection as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNodeList as windows_core::Interface>::IID
+        iid == &<IXMLDOMSelection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMSelection {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDOMText, IXMLDOMText_Vtbl, 0x2933bf87_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -9921,7 +9405,6 @@ impl core::ops::Deref for IXMLDOMText {
 windows_core::imp::interface_hierarchy!(IXMLDOMText, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMCharacterData);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMText {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn splitText(&self, offset: i32) -> windows_core::Result<IXMLDOMText> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).splitText)(windows_core::Interface::as_raw(self), offset, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9931,20 +9414,15 @@ impl IXMLDOMText {
 #[repr(C)]
 pub struct IXMLDOMText_Vtbl {
     pub base__: IXMLDOMCharacterData_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub splitText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    splitText: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDOMText_Impl: Sized + IXMLDOMCharacterData_Impl {
+pub trait IXMLDOMText_Impl: IXMLDOMCharacterData_Impl {
     fn splitText(&self, offset: i32) -> windows_core::Result<IXMLDOMText>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDOMText {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDOMText_Vtbl {
-    pub const fn new<Identity: IXMLDOMText_Impl, const OFFSET: isize>() -> IXMLDOMText_Vtbl {
+    pub const fn new<Identity: IXMLDOMText_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn splitText<Identity: IXMLDOMText_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: i32, righthandtextnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDOMText_Impl::splitText(this, core::mem::transmute_copy(&offset)) {
@@ -9958,9 +9436,11 @@ impl IXMLDOMText_Vtbl {
         Self { base__: IXMLDOMCharacterData_Vtbl::new::<Identity, OFFSET>(), splitText: splitText::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDOMText as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNode as windows_core::Interface>::IID || iid == &<IXMLDOMCharacterData as windows_core::Interface>::IID
+        iid == &<IXMLDOMText as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDOMText {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDSOControl, IXMLDSOControl_Vtbl, 0x310afa62_0575_11d2_9ca9_0060b0ec3d39);
 #[cfg(feature = "Win32_System_Com")]
@@ -9974,12 +9454,10 @@ impl core::ops::Deref for IXMLDSOControl {
 windows_core::imp::interface_hierarchy!(IXMLDSOControl, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDSOControl {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn XMLDocument(&self) -> windows_core::Result<IXMLDOMDocument> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).XMLDocument)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetXMLDocument<P0>(&self, ppdoc: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXMLDOMDocument>,
@@ -10005,20 +9483,14 @@ impl IXMLDSOControl {
 #[repr(C)]
 pub struct IXMLDSOControl_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub XMLDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    XMLDocument: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub SetXMLDocument: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SetXMLDocument: usize,
     pub JavaDSOCompatible: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub SetJavaDSOCompatible: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub readyState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDSOControl_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXMLDSOControl_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn XMLDocument(&self) -> windows_core::Result<IXMLDOMDocument>;
     fn SetXMLDocument(&self, ppdoc: Option<&IXMLDOMDocument>) -> windows_core::Result<()>;
     fn JavaDSOCompatible(&self) -> windows_core::Result<super::super::super::Foundation::BOOL>;
@@ -10026,10 +9498,8 @@ pub trait IXMLDSOControl_Impl: Sized + super::super::super::System::Com::IDispat
     fn readyState(&self) -> windows_core::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDSOControl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDSOControl_Vtbl {
-    pub const fn new<Identity: IXMLDSOControl_Impl, const OFFSET: isize>() -> IXMLDSOControl_Vtbl {
+    pub const fn new<Identity: IXMLDSOControl_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn XMLDocument<Identity: IXMLDSOControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdoc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDSOControl_Impl::XMLDocument(this) {
@@ -10078,9 +9548,11 @@ impl IXMLDSOControl_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDSOControl as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXMLDSOControl as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDSOControl {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDocument, IXMLDocument_Vtbl, 0xf52e2b61_18a1_11d1_b105_00805f49916b);
 #[cfg(feature = "Win32_System_Com")]
@@ -10094,26 +9566,25 @@ impl core::ops::Deref for IXMLDocument {
 windows_core::imp::interface_hierarchy!(IXMLDocument, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDocument {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn root(&self) -> windows_core::Result<IXMLElement> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).root)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn fileSize(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).fileSize)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).fileSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn fileModifiedDate(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).fileModifiedDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).fileModifiedDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn fileUpdatedDate(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).fileUpdatedDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).fileUpdatedDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn URL(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).URL)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).URL)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SetURL<P0>(&self, p: P0) -> windows_core::Result<()>
     where
@@ -10123,7 +9594,7 @@ impl IXMLDocument {
     }
     pub unsafe fn mimeType(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).mimeType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).mimeType)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn readyState(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -10131,7 +9602,7 @@ impl IXMLDocument {
     }
     pub unsafe fn charset(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).charset)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).charset)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn Setcharset<P0>(&self, p: P0) -> windows_core::Result<()>
     where
@@ -10141,15 +9612,15 @@ impl IXMLDocument {
     }
     pub unsafe fn version(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).version)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).version)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn doctype(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).doctype)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).doctype)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn dtdURL(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).dtdURL)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).dtdURL)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn createElement<P0, P1>(&self, vtype: P0, var1: P1) -> windows_core::Result<IXMLElement>
@@ -10165,10 +9636,7 @@ impl IXMLDocument {
 #[repr(C)]
 pub struct IXMLDocument_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub root: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    root: usize,
     pub fileSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub fileModifiedDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub fileUpdatedDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
@@ -10182,12 +9650,12 @@ pub struct IXMLDocument_Vtbl {
     pub doctype: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub dtdURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub createElement: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub createElement: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT, super::super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     createElement: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDocument_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXMLDocument_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn root(&self) -> windows_core::Result<IXMLElement>;
     fn fileSize(&self) -> windows_core::Result<windows_core::BSTR>;
     fn fileModifiedDate(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -10204,10 +9672,8 @@ pub trait IXMLDocument_Impl: Sized + super::super::super::System::Com::IDispatch
     fn createElement(&self, vtype: &super::super::super::System::Variant::VARIANT, var1: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<IXMLElement>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDocument {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDocument_Vtbl {
-    pub const fn new<Identity: IXMLDocument_Impl, const OFFSET: isize>() -> IXMLDocument_Vtbl {
+    pub const fn new<Identity: IXMLDocument_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn root<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDocument_Impl::root(this) {
@@ -10326,7 +9792,7 @@ impl IXMLDocument_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn createElement<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vtype: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, var1: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, ppelem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn createElement<Identity: IXMLDocument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vtype: super::super::super::System::Variant::VARIANT, var1: super::super::super::System::Variant::VARIANT, ppelem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDocument_Impl::createElement(this, core::mem::transmute(&vtype), core::mem::transmute(&var1)) {
                 Ok(ok__) => {
@@ -10355,9 +9821,11 @@ impl IXMLDocument_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDocument as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXMLDocument as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDocument {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLDocument2, IXMLDocument2_Vtbl, 0x2b8de2fe_8d2d_11d1_b2fc_00c04fd915a9);
 #[cfg(feature = "Win32_System_Com")]
@@ -10371,26 +9839,25 @@ impl core::ops::Deref for IXMLDocument2 {
 windows_core::imp::interface_hierarchy!(IXMLDocument2, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDocument2 {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn root(&self) -> windows_core::Result<IXMLElement2> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).root)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn fileSize(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).fileSize)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).fileSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn fileModifiedDate(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).fileModifiedDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).fileModifiedDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn fileUpdatedDate(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).fileUpdatedDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).fileUpdatedDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn URL(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).URL)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).URL)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SetURL<P0>(&self, p: P0) -> windows_core::Result<()>
     where
@@ -10400,7 +9867,7 @@ impl IXMLDocument2 {
     }
     pub unsafe fn mimeType(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).mimeType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).mimeType)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn readyState(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -10408,7 +9875,7 @@ impl IXMLDocument2 {
     }
     pub unsafe fn charset(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).charset)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).charset)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn Setcharset<P0>(&self, p: P0) -> windows_core::Result<()>
     where
@@ -10418,15 +9885,15 @@ impl IXMLDocument2 {
     }
     pub unsafe fn version(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).version)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).version)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn doctype(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).doctype)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).doctype)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn dtdURL(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).dtdURL)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).dtdURL)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn createElement<P0, P1>(&self, vtype: P0, var1: P1) -> windows_core::Result<IXMLElement2>
@@ -10452,10 +9919,7 @@ impl IXMLDocument2 {
 #[repr(C)]
 pub struct IXMLDocument2_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub root: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    root: usize,
     pub fileSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub fileModifiedDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub fileUpdatedDate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
@@ -10469,14 +9933,14 @@ pub struct IXMLDocument2_Vtbl {
     pub doctype: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub dtdURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub createElement: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub createElement: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT, super::super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     createElement: usize,
     pub r#async: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub Setasync: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLDocument2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXMLDocument2_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn root(&self) -> windows_core::Result<IXMLElement2>;
     fn fileSize(&self) -> windows_core::Result<windows_core::BSTR>;
     fn fileModifiedDate(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -10495,10 +9959,8 @@ pub trait IXMLDocument2_Impl: Sized + super::super::super::System::Com::IDispatc
     fn Setasync(&self, f: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLDocument2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLDocument2_Vtbl {
-    pub const fn new<Identity: IXMLDocument2_Impl, const OFFSET: isize>() -> IXMLDocument2_Vtbl {
+    pub const fn new<Identity: IXMLDocument2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn root<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDocument2_Impl::root(this) {
@@ -10617,7 +10079,7 @@ impl IXMLDocument2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn createElement<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vtype: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, var1: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, ppelem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn createElement<Identity: IXMLDocument2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vtype: super::super::super::System::Variant::VARIANT, var1: super::super::super::System::Variant::VARIANT, ppelem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLDocument2_Impl::createElement(this, core::mem::transmute(&vtype), core::mem::transmute(&var1)) {
                 Ok(ok__) => {
@@ -10662,9 +10124,11 @@ impl IXMLDocument2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLDocument2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXMLDocument2 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLDocument2 {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLElement, IXMLElement_Vtbl, 0x3f7f31ac_e15f_11d0_9c25_00c04fc99c8e);
 #[cfg(feature = "Win32_System_Com")]
@@ -10680,7 +10144,7 @@ windows_core::imp::interface_hierarchy!(IXMLElement, windows_core::IUnknown, sup
 impl IXMLElement {
     pub unsafe fn tagName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).tagName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).tagName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SettagName<P0>(&self, p: P0) -> windows_core::Result<()>
     where
@@ -10688,7 +10152,6 @@ impl IXMLElement {
     {
         (windows_core::Interface::vtable(self).SettagName)(windows_core::Interface::as_raw(self), p.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parent(&self) -> windows_core::Result<IXMLElement> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10707,7 +10170,7 @@ impl IXMLElement {
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getAttribute)(windows_core::Interface::as_raw(self), strpropertyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getAttribute)(windows_core::Interface::as_raw(self), strpropertyname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn removeAttribute<P0>(&self, strpropertyname: P0) -> windows_core::Result<()>
     where
@@ -10715,7 +10178,6 @@ impl IXMLElement {
     {
         (windows_core::Interface::vtable(self).removeAttribute)(windows_core::Interface::as_raw(self), strpropertyname.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn children(&self) -> windows_core::Result<IXMLElementCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).children)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10726,7 +10188,7 @@ impl IXMLElement {
     }
     pub unsafe fn text(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).text)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).text)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn Settext<P0>(&self, p: P0) -> windows_core::Result<()>
     where
@@ -10734,14 +10196,12 @@ impl IXMLElement {
     {
         (windows_core::Interface::vtable(self).Settext)(windows_core::Interface::as_raw(self), p.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn addChild<P0>(&self, pchildelem: P0, lindex: i32, lreserved: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXMLElement>,
     {
         (windows_core::Interface::vtable(self).addChild)(windows_core::Interface::as_raw(self), pchildelem.param().abi(), lindex, lreserved).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<P0>(&self, pchildelem: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXMLElement>,
@@ -10755,37 +10215,25 @@ pub struct IXMLElement_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub tagName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SettagName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub parent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    parent: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub setAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub setAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     setAttribute: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub getAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub getAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     getAttribute: usize,
     pub removeAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub children: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    children: usize,
     pub r#type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Settext: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub addChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    addChild: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub removeChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    removeChild: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLElement_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXMLElement_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn tagName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SettagName(&self, p: &windows_core::BSTR) -> windows_core::Result<()>;
     fn parent(&self) -> windows_core::Result<IXMLElement>;
@@ -10800,10 +10248,8 @@ pub trait IXMLElement_Impl: Sized + super::super::super::System::Com::IDispatch_
     fn removeChild(&self, pchildelem: Option<&IXMLElement>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLElement {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLElement_Vtbl {
-    pub const fn new<Identity: IXMLElement_Impl, const OFFSET: isize>() -> IXMLElement_Vtbl {
+    pub const fn new<Identity: IXMLElement_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn tagName<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLElement_Impl::tagName(this) {
@@ -10828,11 +10274,11 @@ impl IXMLElement_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setAttribute<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn setAttribute<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLElement_Impl::setAttribute(this, core::mem::transmute(&strpropertyname), core::mem::transmute(&propertyvalue)).into()
         }
-        unsafe extern "system" fn getAttribute<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn getAttribute<Identity: IXMLElement_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLElement_Impl::getAttribute(this, core::mem::transmute(&strpropertyname)) {
                 Ok(ok__) => {
@@ -10905,9 +10351,11 @@ impl IXMLElement_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLElement as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXMLElement as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLElement {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLElement2, IXMLElement2_Vtbl, 0x2b8de2ff_8d2d_11d1_b2fc_00c04fd915a9);
 #[cfg(feature = "Win32_System_Com")]
@@ -10923,7 +10371,7 @@ windows_core::imp::interface_hierarchy!(IXMLElement2, windows_core::IUnknown, su
 impl IXMLElement2 {
     pub unsafe fn tagName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).tagName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).tagName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SettagName<P0>(&self, p: P0) -> windows_core::Result<()>
     where
@@ -10931,7 +10379,6 @@ impl IXMLElement2 {
     {
         (windows_core::Interface::vtable(self).SettagName)(windows_core::Interface::as_raw(self), p.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parent(&self) -> windows_core::Result<IXMLElement2> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10950,7 +10397,7 @@ impl IXMLElement2 {
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getAttribute)(windows_core::Interface::as_raw(self), strpropertyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getAttribute)(windows_core::Interface::as_raw(self), strpropertyname.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn removeAttribute<P0>(&self, strpropertyname: P0) -> windows_core::Result<()>
     where
@@ -10958,7 +10405,6 @@ impl IXMLElement2 {
     {
         (windows_core::Interface::vtable(self).removeAttribute)(windows_core::Interface::as_raw(self), strpropertyname.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn children(&self) -> windows_core::Result<IXMLElementCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).children)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10969,7 +10415,7 @@ impl IXMLElement2 {
     }
     pub unsafe fn text(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).text)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).text)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn Settext<P0>(&self, p: P0) -> windows_core::Result<()>
     where
@@ -10977,21 +10423,18 @@ impl IXMLElement2 {
     {
         (windows_core::Interface::vtable(self).Settext)(windows_core::Interface::as_raw(self), p.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn addChild<P0>(&self, pchildelem: P0, lindex: i32, lreserved: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXMLElement2>,
     {
         (windows_core::Interface::vtable(self).addChild)(windows_core::Interface::as_raw(self), pchildelem.param().abi(), lindex, lreserved).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeChild<P0>(&self, pchildelem: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXMLElement2>,
     {
         (windows_core::Interface::vtable(self).removeChild)(windows_core::Interface::as_raw(self), pchildelem.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> windows_core::Result<IXMLElementCollection> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).attributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -11003,41 +10446,26 @@ pub struct IXMLElement2_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     pub tagName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SettagName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub parent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    parent: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub setAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub setAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     setAttribute: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub getAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub getAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     getAttribute: usize,
     pub removeAttribute: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub children: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    children: usize,
     pub r#type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Settext: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub addChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    addChild: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub removeChild: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    removeChild: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub attributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    attributes: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLElement2_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXMLElement2_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn tagName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SettagName(&self, p: &windows_core::BSTR) -> windows_core::Result<()>;
     fn parent(&self) -> windows_core::Result<IXMLElement2>;
@@ -11053,10 +10481,8 @@ pub trait IXMLElement2_Impl: Sized + super::super::super::System::Com::IDispatch
     fn attributes(&self) -> windows_core::Result<IXMLElementCollection>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLElement2 {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLElement2_Vtbl {
-    pub const fn new<Identity: IXMLElement2_Impl, const OFFSET: isize>() -> IXMLElement2_Vtbl {
+    pub const fn new<Identity: IXMLElement2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn tagName<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, p: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLElement2_Impl::tagName(this) {
@@ -11081,11 +10507,11 @@ impl IXMLElement2_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn setAttribute<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn setAttribute<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLElement2_Impl::setAttribute(this, core::mem::transmute(&strpropertyname), core::mem::transmute(&propertyvalue)).into()
         }
-        unsafe extern "system" fn getAttribute<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn getAttribute<Identity: IXMLElement2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, strpropertyname: core::mem::MaybeUninit<windows_core::BSTR>, propertyvalue: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLElement2_Impl::getAttribute(this, core::mem::transmute(&strpropertyname)) {
                 Ok(ok__) => {
@@ -11169,9 +10595,11 @@ impl IXMLElement2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLElement2 as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXMLElement2 as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLElement2 {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLElementCollection, IXMLElementCollection_Vtbl, 0x65725580_9b5d_11d0_9bfe_00c04fc99c8e);
 #[cfg(feature = "Win32_System_Com")]
@@ -11214,22 +10642,20 @@ pub struct IXMLElementCollection_Vtbl {
     pub length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub _newEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT, super::super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     item: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLElementCollection_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXMLElementCollection_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn Setlength(&self, v: i32) -> windows_core::Result<()>;
     fn length(&self) -> windows_core::Result<i32>;
     fn _newEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn item(&self, var1: &super::super::super::System::Variant::VARIANT, var2: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::super::System::Com::IDispatch>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLElementCollection {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLElementCollection_Vtbl {
-    pub const fn new<Identity: IXMLElementCollection_Impl, const OFFSET: isize>() -> IXMLElementCollection_Vtbl {
+    pub const fn new<Identity: IXMLElementCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Setlength<Identity: IXMLElementCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, v: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLElementCollection_Impl::Setlength(this, core::mem::transmute_copy(&v)).into()
@@ -11254,7 +10680,7 @@ impl IXMLElementCollection_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn item<Identity: IXMLElementCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, var1: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, var2: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, ppdisp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn item<Identity: IXMLElementCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, var1: super::super::super::System::Variant::VARIANT, var2: super::super::super::System::Variant::VARIANT, ppdisp: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLElementCollection_Impl::item(this, core::mem::transmute(&var1), core::mem::transmute(&var2)) {
                 Ok(ok__) => {
@@ -11273,20 +10699,16 @@ impl IXMLElementCollection_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLElementCollection as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXMLElementCollection as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLElementCollection {}
 windows_core::imp::define_interface!(IXMLError, IXMLError_Vtbl, 0x948c5ad3_c58d_11d0_9c0b_00c04fc99c8e);
-impl core::ops::Deref for IXMLError {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXMLError, windows_core::IUnknown);
 impl IXMLError {
     pub unsafe fn GetErrorInfo(&self, perrorreturn: *mut XML_ERROR) -> windows_core::Result<()> {
-        (windows_core::Interface::vtable(self).GetErrorInfo)(windows_core::Interface::as_raw(self), perrorreturn).ok()
+        (windows_core::Interface::vtable(self).GetErrorInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(perrorreturn)).ok()
     }
 }
 #[repr(C)]
@@ -11294,12 +10716,11 @@ pub struct IXMLError_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetErrorInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut XML_ERROR) -> windows_core::HRESULT,
 }
-pub trait IXMLError_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXMLError_Impl: windows_core::IUnknownImpl {
     fn GetErrorInfo(&self, perrorreturn: *mut XML_ERROR) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IXMLError {}
 impl IXMLError_Vtbl {
-    pub const fn new<Identity: IXMLError_Impl, const OFFSET: isize>() -> IXMLError_Vtbl {
+    pub const fn new<Identity: IXMLError_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetErrorInfo<Identity: IXMLError_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, perrorreturn: *mut XML_ERROR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLError_Impl::GetErrorInfo(this, core::mem::transmute_copy(&perrorreturn)).into()
@@ -11310,6 +10731,7 @@ impl IXMLError_Vtbl {
         iid == &<IXMLError as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IXMLError {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXMLHTTPRequest, IXMLHTTPRequest_Vtbl, 0xed8c108d_4349_11d2_91a4_00c04f7969e8);
 #[cfg(feature = "Win32_System_Com")]
@@ -11346,11 +10768,11 @@ impl IXMLHTTPRequest {
         P0: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getResponseHeader)(windows_core::Interface::as_raw(self), bstrheader.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getResponseHeader)(windows_core::Interface::as_raw(self), bstrheader.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn getAllResponseHeaders(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).getAllResponseHeaders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).getAllResponseHeaders)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn send<P0>(&self, varbody: P0) -> windows_core::Result<()>
@@ -11368,32 +10790,30 @@ impl IXMLHTTPRequest {
     }
     pub unsafe fn statusText(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).statusText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).statusText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn responseXML(&self) -> windows_core::Result<super::super::super::System::Com::IDispatch> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).responseXML)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn responseText(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).responseText)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).responseText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn responseBody(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).responseBody)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).responseBody)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn responseStream(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).responseStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).responseStream)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn readyState(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).readyState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Setonreadystatechange<P0>(&self, preadystatesink: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::System::Com::IDispatch>,
@@ -11406,40 +10826,34 @@ impl IXMLHTTPRequest {
 pub struct IXMLHTTPRequest_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub open: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub open: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, super::super::super::System::Variant::VARIANT, super::super::super::System::Variant::VARIANT, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     open: usize,
     pub setRequestHeader: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub getResponseHeader: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub getAllResponseHeaders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub send: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub send: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     send: usize,
     pub abort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub statusText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub responseXML: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    responseXML: usize,
     pub responseText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub responseBody: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub responseBody: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     responseBody: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub responseStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub responseStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     responseStream: usize,
     pub readyState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub Setonreadystatechange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Setonreadystatechange: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXMLHTTPRequest_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXMLHTTPRequest_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn open(&self, bstrmethod: &windows_core::BSTR, bstrurl: &windows_core::BSTR, varasync: &super::super::super::System::Variant::VARIANT, bstruser: &super::super::super::System::Variant::VARIANT, bstrpassword: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn setRequestHeader(&self, bstrheader: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_core::Result<()>;
     fn getResponseHeader(&self, bstrheader: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
@@ -11456,11 +10870,9 @@ pub trait IXMLHTTPRequest_Impl: Sized + super::super::super::System::Com::IDispa
     fn Setonreadystatechange(&self, preadystatesink: Option<&super::super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXMLHTTPRequest {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXMLHTTPRequest_Vtbl {
-    pub const fn new<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>() -> IXMLHTTPRequest_Vtbl {
-        unsafe extern "system" fn open<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmethod: core::mem::MaybeUninit<windows_core::BSTR>, bstrurl: core::mem::MaybeUninit<windows_core::BSTR>, varasync: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, bstruser: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, bstrpassword: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+    pub const fn new<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn open<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrmethod: core::mem::MaybeUninit<windows_core::BSTR>, bstrurl: core::mem::MaybeUninit<windows_core::BSTR>, varasync: super::super::super::System::Variant::VARIANT, bstruser: super::super::super::System::Variant::VARIANT, bstrpassword: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLHTTPRequest_Impl::open(this, core::mem::transmute(&bstrmethod), core::mem::transmute(&bstrurl), core::mem::transmute(&varasync), core::mem::transmute(&bstruser), core::mem::transmute(&bstrpassword)).into()
         }
@@ -11488,7 +10900,7 @@ impl IXMLHTTPRequest_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn send<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn send<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varbody: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLHTTPRequest_Impl::send(this, core::mem::transmute(&varbody)).into()
         }
@@ -11536,7 +10948,7 @@ impl IXMLHTTPRequest_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn responseBody<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn responseBody<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLHTTPRequest_Impl::responseBody(this) {
                 Ok(ok__) => {
@@ -11546,7 +10958,7 @@ impl IXMLHTTPRequest_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn responseStream<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn responseStream<Identity: IXMLHTTPRequest_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarbody: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXMLHTTPRequest_Impl::responseStream(this) {
                 Ok(ok__) => {
@@ -11589,16 +11001,12 @@ impl IXMLHTTPRequest_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLHTTPRequest as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXMLHTTPRequest as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXMLHTTPRequest {}
 windows_core::imp::define_interface!(IXMLHTTPRequest2, IXMLHTTPRequest2_Vtbl, 0xe5d37dc0_552a_4d52_9cc0_a14d546fbd04);
-impl core::ops::Deref for IXMLHTTPRequest2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXMLHTTPRequest2, windows_core::IUnknown);
 impl IXMLHTTPRequest2 {
     pub unsafe fn Open<P0, P1, P2, P3, P4, P5, P6>(&self, pwszmethod: P0, pwszurl: P1, pstatuscallback: P2, pwszusername: P3, pwszpassword: P4, pwszproxyusername: P5, pwszproxypassword: P6) -> windows_core::Result<()>
@@ -11684,7 +11092,7 @@ pub struct IXMLHTTPRequest2_Vtbl {
     pub GetResponseHeader: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut u16) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IXMLHTTPRequest2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXMLHTTPRequest2_Impl: windows_core::IUnknownImpl {
     fn Open(&self, pwszmethod: &windows_core::PCWSTR, pwszurl: &windows_core::PCWSTR, pstatuscallback: Option<&IXMLHTTPRequest2Callback>, pwszusername: &windows_core::PCWSTR, pwszpassword: &windows_core::PCWSTR, pwszproxyusername: &windows_core::PCWSTR, pwszproxypassword: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Send(&self, pbody: Option<&super::super::super::System::Com::ISequentialStream>, cbbody: u64) -> windows_core::Result<()>;
     fn Abort(&self) -> windows_core::Result<()>;
@@ -11697,10 +11105,8 @@ pub trait IXMLHTTPRequest2_Impl: Sized + windows_core::IUnknownImpl {
     fn GetResponseHeader(&self, pwszheader: &windows_core::PCWSTR) -> windows_core::Result<*mut u16>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IXMLHTTPRequest2 {}
-#[cfg(feature = "Win32_System_Com")]
 impl IXMLHTTPRequest2_Vtbl {
-    pub const fn new<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>() -> IXMLHTTPRequest2_Vtbl {
+    pub const fn new<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: IXMLHTTPRequest2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszmethod: windows_core::PCWSTR, pwszurl: windows_core::PCWSTR, pstatuscallback: *mut core::ffi::c_void, pwszusername: windows_core::PCWSTR, pwszpassword: windows_core::PCWSTR, pwszproxyusername: windows_core::PCWSTR, pwszproxypassword: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLHTTPRequest2_Impl::Open(this, core::mem::transmute(&pwszmethod), core::mem::transmute(&pwszurl), windows_core::from_raw_borrowed(&pstatuscallback), core::mem::transmute(&pwszusername), core::mem::transmute(&pwszpassword), core::mem::transmute(&pwszproxyusername), core::mem::transmute(&pwszproxypassword)).into()
@@ -11777,13 +11183,9 @@ impl IXMLHTTPRequest2_Vtbl {
         iid == &<IXMLHTTPRequest2 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IXMLHTTPRequest2 {}
 windows_core::imp::define_interface!(IXMLHTTPRequest2Callback, IXMLHTTPRequest2Callback_Vtbl, 0xa44a9299_e321_40de_8866_341b41669162);
-impl core::ops::Deref for IXMLHTTPRequest2Callback {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IXMLHTTPRequest2Callback, windows_core::IUnknown);
 impl IXMLHTTPRequest2Callback {
     pub unsafe fn OnRedirect<P0, P1>(&self, pxhr: P0, pwszredirecturl: P1) -> windows_core::Result<()>
@@ -11793,10 +11195,10 @@ impl IXMLHTTPRequest2Callback {
     {
         (windows_core::Interface::vtable(self).OnRedirect)(windows_core::Interface::as_raw(self), pxhr.param().abi(), pwszredirecturl.param().abi()).ok()
     }
-    pub unsafe fn OnHeadersAvailable<P0, P1>(&self, pxhr: P0, dwstatus: u32, pwszstatus: P1) -> windows_core::Result<()>
+    pub unsafe fn OnHeadersAvailable<P0, P2>(&self, pxhr: P0, dwstatus: u32, pwszstatus: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXMLHTTPRequest2>,
-        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).OnHeadersAvailable)(windows_core::Interface::as_raw(self), pxhr.param().abi(), dwstatus, pwszstatus.param().abi()).ok()
     }
@@ -11839,7 +11241,7 @@ pub struct IXMLHTTPRequest2Callback_Vtbl {
     pub OnError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IXMLHTTPRequest2Callback_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IXMLHTTPRequest2Callback_Impl: windows_core::IUnknownImpl {
     fn OnRedirect(&self, pxhr: Option<&IXMLHTTPRequest2>, pwszredirecturl: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OnHeadersAvailable(&self, pxhr: Option<&IXMLHTTPRequest2>, dwstatus: u32, pwszstatus: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OnDataAvailable(&self, pxhr: Option<&IXMLHTTPRequest2>, presponsestream: Option<&super::super::super::System::Com::ISequentialStream>) -> windows_core::Result<()>;
@@ -11847,10 +11249,8 @@ pub trait IXMLHTTPRequest2Callback_Impl: Sized + windows_core::IUnknownImpl {
     fn OnError(&self, pxhr: Option<&IXMLHTTPRequest2>, hrerror: windows_core::HRESULT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IXMLHTTPRequest2Callback {}
-#[cfg(feature = "Win32_System_Com")]
 impl IXMLHTTPRequest2Callback_Vtbl {
-    pub const fn new<Identity: IXMLHTTPRequest2Callback_Impl, const OFFSET: isize>() -> IXMLHTTPRequest2Callback_Vtbl {
+    pub const fn new<Identity: IXMLHTTPRequest2Callback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnRedirect<Identity: IXMLHTTPRequest2Callback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, pwszredirecturl: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLHTTPRequest2Callback_Impl::OnRedirect(this, windows_core::from_raw_borrowed(&pxhr), core::mem::transmute(&pwszredirecturl)).into()
@@ -11884,6 +11284,8 @@ impl IXMLHTTPRequest2Callback_Vtbl {
         iid == &<IXMLHTTPRequest2Callback as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IXMLHTTPRequest2Callback {}
 windows_core::imp::define_interface!(IXMLHTTPRequest3, IXMLHTTPRequest3_Vtbl, 0xa1c9feee_0617_4f23_9d58_8961ea43567c);
 impl core::ops::Deref for IXMLHTTPRequest3 {
     type Target = IXMLHTTPRequest2;
@@ -11893,9 +11295,9 @@ impl core::ops::Deref for IXMLHTTPRequest3 {
 }
 windows_core::imp::interface_hierarchy!(IXMLHTTPRequest3, windows_core::IUnknown, IXMLHTTPRequest2);
 impl IXMLHTTPRequest3 {
-    pub unsafe fn SetClientCertificate<P0>(&self, pbclientcertificatehash: &[u8], pwszpin: P0) -> windows_core::Result<()>
+    pub unsafe fn SetClientCertificate<P2>(&self, pbclientcertificatehash: &[u8], pwszpin: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).SetClientCertificate)(windows_core::Interface::as_raw(self), pbclientcertificatehash.len().try_into().unwrap(), core::mem::transmute(pbclientcertificatehash.as_ptr()), pwszpin.param().abi()).ok()
     }
@@ -11906,14 +11308,12 @@ pub struct IXMLHTTPRequest3_Vtbl {
     pub SetClientCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IXMLHTTPRequest3_Impl: Sized + IXMLHTTPRequest2_Impl {
+pub trait IXMLHTTPRequest3_Impl: IXMLHTTPRequest2_Impl {
     fn SetClientCertificate(&self, cbclientcertificatehash: u32, pbclientcertificatehash: *const u8, pwszpin: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IXMLHTTPRequest3 {}
-#[cfg(feature = "Win32_System_Com")]
 impl IXMLHTTPRequest3_Vtbl {
-    pub const fn new<Identity: IXMLHTTPRequest3_Impl, const OFFSET: isize>() -> IXMLHTTPRequest3_Vtbl {
+    pub const fn new<Identity: IXMLHTTPRequest3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetClientCertificate<Identity: IXMLHTTPRequest3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cbclientcertificatehash: u32, pbclientcertificatehash: *const u8, pwszpin: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLHTTPRequest3_Impl::SetClientCertificate(this, core::mem::transmute_copy(&cbclientcertificatehash), core::mem::transmute_copy(&pbclientcertificatehash), core::mem::transmute(&pwszpin)).into()
@@ -11921,9 +11321,11 @@ impl IXMLHTTPRequest3_Vtbl {
         Self { base__: IXMLHTTPRequest2_Vtbl::new::<Identity, OFFSET>(), SetClientCertificate: SetClientCertificate::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLHTTPRequest3 as windows_core::Interface>::IID || iid == &<IXMLHTTPRequest2 as windows_core::Interface>::IID
+        iid == &<IXMLHTTPRequest3 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IXMLHTTPRequest3 {}
 windows_core::imp::define_interface!(IXMLHTTPRequest3Callback, IXMLHTTPRequest3Callback_Vtbl, 0xb9e57830_8c6c_4a6f_9c13_47772bb047bb);
 impl core::ops::Deref for IXMLHTTPRequest3Callback {
     type Target = IXMLHTTPRequest2Callback;
@@ -11953,15 +11355,13 @@ pub struct IXMLHTTPRequest3Callback_Vtbl {
     pub OnClientCertificateRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const *const u16) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub trait IXMLHTTPRequest3Callback_Impl: Sized + IXMLHTTPRequest2Callback_Impl {
+pub trait IXMLHTTPRequest3Callback_Impl: IXMLHTTPRequest2Callback_Impl {
     fn OnServerCertificateReceived(&self, pxhr: Option<&IXMLHTTPRequest3>, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> windows_core::Result<()>;
     fn OnClientCertificateRequested(&self, pxhr: Option<&IXMLHTTPRequest3>, cissuerlist: u32, rgpwszissuerlist: *const *const u16) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
-impl windows_core::RuntimeName for IXMLHTTPRequest3Callback {}
-#[cfg(feature = "Win32_System_Com")]
 impl IXMLHTTPRequest3Callback_Vtbl {
-    pub const fn new<Identity: IXMLHTTPRequest3Callback_Impl, const OFFSET: isize>() -> IXMLHTTPRequest3Callback_Vtbl {
+    pub const fn new<Identity: IXMLHTTPRequest3Callback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnServerCertificateReceived<Identity: IXMLHTTPRequest3Callback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pxhr: *mut core::ffi::c_void, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXMLHTTPRequest3Callback_Impl::OnServerCertificateReceived(this, windows_core::from_raw_borrowed(&pxhr), core::mem::transmute_copy(&dwcertificateerrors), core::mem::transmute_copy(&cservercertificatechain), core::mem::transmute_copy(&rgservercertificatechain)).into()
@@ -11977,9 +11377,11 @@ impl IXMLHTTPRequest3Callback_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXMLHTTPRequest3Callback as windows_core::Interface>::IID || iid == &<IXMLHTTPRequest2Callback as windows_core::Interface>::IID
+        iid == &<IXMLHTTPRequest3Callback as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Com")]
+impl windows_core::RuntimeName for IXMLHTTPRequest3Callback {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXSLProcessor, IXSLProcessor_Vtbl, 0x2933bf92_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -12003,9 +11405,8 @@ impl IXSLProcessor {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn input(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).input)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).input)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerTemplate(&self) -> windows_core::Result<IXSLTemplate> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ownerTemplate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -12019,11 +11420,11 @@ impl IXSLProcessor {
     }
     pub unsafe fn startMode(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).startMode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).startMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn startModeURI(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).startModeURI)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).startModeURI)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Setoutput<P0>(&self, output: P0) -> windows_core::Result<()>
@@ -12035,7 +11436,7 @@ impl IXSLProcessor {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn output(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).output)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).output)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn transform(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
         let mut result__ = core::mem::zeroed();
@@ -12057,7 +11458,6 @@ impl IXSLProcessor {
     {
         (windows_core::Interface::vtable(self).addParameter)(windows_core::Interface::as_raw(self), basename.param().abi(), parameter.param().abi(), namespaceuri.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn addObject<P0, P1>(&self, obj: P0, namespaceuri: P1) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::System::Com::IDispatch>,
@@ -12065,7 +11465,6 @@ impl IXSLProcessor {
     {
         (windows_core::Interface::vtable(self).addObject)(windows_core::Interface::as_raw(self), obj.param().abi(), namespaceuri.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn stylesheet(&self) -> windows_core::Result<IXMLDOMNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).stylesheet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -12076,46 +11475,37 @@ impl IXSLProcessor {
 pub struct IXSLProcessor_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Setinput: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Setinput: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Setinput: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub input: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub input: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     input: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub ownerTemplate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    ownerTemplate: usize,
     pub setStartMode: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub startMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub startModeURI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Setoutput: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Setoutput: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Setoutput: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub output: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub output: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     output: usize,
     pub transform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
     pub reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub readyState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub addParameter: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub addParameter: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::super::System::Variant::VARIANT, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     addParameter: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub addObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    addObject: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub stylesheet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    stylesheet: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXSLProcessor_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXSLProcessor_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn Setinput(&self, var: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn input(&self) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn ownerTemplate(&self) -> windows_core::Result<IXSLTemplate>;
@@ -12132,15 +11522,13 @@ pub trait IXSLProcessor_Impl: Sized + super::super::super::System::Com::IDispatc
     fn stylesheet(&self) -> windows_core::Result<IXMLDOMNode>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXSLProcessor {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXSLProcessor_Vtbl {
-    pub const fn new<Identity: IXSLProcessor_Impl, const OFFSET: isize>() -> IXSLProcessor_Vtbl {
-        unsafe extern "system" fn Setinput<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, var: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+    pub const fn new<Identity: IXSLProcessor_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Setinput<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, var: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXSLProcessor_Impl::Setinput(this, core::mem::transmute(&var)).into()
         }
-        unsafe extern "system" fn input<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn input<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvar: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXSLProcessor_Impl::input(this) {
                 Ok(ok__) => {
@@ -12184,11 +11572,11 @@ impl IXSLProcessor_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Setoutput<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, output: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Setoutput<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, output: super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXSLProcessor_Impl::Setoutput(this, core::mem::transmute(&output)).into()
         }
-        unsafe extern "system" fn output<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutput: *mut core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn output<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutput: *mut super::super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXSLProcessor_Impl::output(this) {
                 Ok(ok__) => {
@@ -12222,7 +11610,7 @@ impl IXSLProcessor_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn addParameter<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, basename: core::mem::MaybeUninit<windows_core::BSTR>, parameter: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, namespaceuri: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn addParameter<Identity: IXSLProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, basename: core::mem::MaybeUninit<windows_core::BSTR>, parameter: super::super::super::System::Variant::VARIANT, namespaceuri: core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXSLProcessor_Impl::addParameter(this, core::mem::transmute(&basename), core::mem::transmute(&parameter), core::mem::transmute(&namespaceuri)).into()
         }
@@ -12259,9 +11647,11 @@ impl IXSLProcessor_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXSLProcessor as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXSLProcessor as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXSLProcessor {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXSLTemplate, IXSLTemplate_Vtbl, 0x2933bf93_7b36_11d2_b20e_00c04f983e60);
 #[cfg(feature = "Win32_System_Com")]
@@ -12275,19 +11665,16 @@ impl core::ops::Deref for IXSLTemplate {
 windows_core::imp::interface_hierarchy!(IXSLTemplate, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IXSLTemplate {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_stylesheet<P0>(&self, stylesheet: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IXMLDOMNode>,
     {
         (windows_core::Interface::vtable(self).putref_stylesheet)(windows_core::Interface::as_raw(self), stylesheet.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn stylesheet(&self) -> windows_core::Result<IXMLDOMNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).stylesheet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createProcessor(&self) -> windows_core::Result<IXSLProcessor> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).createProcessor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -12297,30 +11684,19 @@ impl IXSLTemplate {
 #[repr(C)]
 pub struct IXSLTemplate_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub putref_stylesheet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    putref_stylesheet: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub stylesheet: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    stylesheet: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub createProcessor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    createProcessor: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXSLTemplate_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {
+pub trait IXSLTemplate_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn putref_stylesheet(&self, stylesheet: Option<&IXMLDOMNode>) -> windows_core::Result<()>;
     fn stylesheet(&self) -> windows_core::Result<IXMLDOMNode>;
     fn createProcessor(&self) -> windows_core::Result<IXSLProcessor>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXSLTemplate {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXSLTemplate_Vtbl {
-    pub const fn new<Identity: IXSLTemplate_Impl, const OFFSET: isize>() -> IXSLTemplate_Vtbl {
+    pub const fn new<Identity: IXSLTemplate_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn putref_stylesheet<Identity: IXSLTemplate_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stylesheet: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IXSLTemplate_Impl::putref_stylesheet(this, windows_core::from_raw_borrowed(&stylesheet)).into()
@@ -12353,9 +11729,11 @@ impl IXSLTemplate_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXSLTemplate as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<IXSLTemplate as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXSLTemplate {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(IXTLRuntime, IXTLRuntime_Vtbl, 0x3efaa425_272f_11d2_836f_0000f87a7782);
 #[cfg(feature = "Win32_System_Com")]
@@ -12369,7 +11747,6 @@ impl core::ops::Deref for IXTLRuntime {
 windows_core::imp::interface_hierarchy!(IXTLRuntime, windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
 impl IXTLRuntime {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn uniqueID<P0>(&self, pnode: P0) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<IXMLDOMNode>,
@@ -12377,7 +11754,6 @@ impl IXTLRuntime {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).uniqueID)(windows_core::Interface::as_raw(self), pnode.param().abi(), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn depth<P0>(&self, pnode: P0) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<IXMLDOMNode>,
@@ -12385,7 +11761,6 @@ impl IXTLRuntime {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).depth)(windows_core::Interface::as_raw(self), pnode.param().abi(), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNumber<P0>(&self, pnode: P0) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<IXMLDOMNode>,
@@ -12393,7 +11768,6 @@ impl IXTLRuntime {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).childNumber)(windows_core::Interface::as_raw(self), pnode.param().abi(), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ancestorChildNumber<P0, P1>(&self, bstrnodename: P0, pnode: P1) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -12402,7 +11776,6 @@ impl IXTLRuntime {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ancestorChildNumber)(windows_core::Interface::as_raw(self), bstrnodename.param().abi(), pnode.param().abi(), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn absoluteChildNumber<P0>(&self, pnode: P0) -> windows_core::Result<i32>
     where
         P0: windows_core::Param<IXMLDOMNode>,
@@ -12410,19 +11783,19 @@ impl IXTLRuntime {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).absoluteChildNumber)(windows_core::Interface::as_raw(self), pnode.param().abi(), &mut result__).map(|| result__)
     }
-    pub unsafe fn formatIndex<P0>(&self, lindex: i32, bstrformat: P0) -> windows_core::Result<windows_core::BSTR>
+    pub unsafe fn formatIndex<P1>(&self, lindex: i32, bstrformat: P1) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).formatIndex)(windows_core::Interface::as_raw(self), lindex, bstrformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).formatIndex)(windows_core::Interface::as_raw(self), lindex, bstrformat.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
-    pub unsafe fn formatNumber<P0>(&self, dblnumber: f64, bstrformat: P0) -> windows_core::Result<windows_core::BSTR>
+    pub unsafe fn formatNumber<P1>(&self, dblnumber: f64, bstrformat: P1) -> windows_core::Result<windows_core::BSTR>
     where
-        P0: windows_core::Param<windows_core::BSTR>,
+        P1: windows_core::Param<windows_core::BSTR>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).formatNumber)(windows_core::Interface::as_raw(self), dblnumber, bstrformat.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).formatNumber)(windows_core::Interface::as_raw(self), dblnumber, bstrformat.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn formatDate<P0, P1, P2>(&self, vardate: P0, bstrformat: P1, vardestlocale: P2) -> windows_core::Result<windows_core::BSTR>
@@ -12432,7 +11805,7 @@ impl IXTLRuntime {
         P2: windows_core::Param<super::super::super::System::Variant::VARIANT>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).formatDate)(windows_core::Interface::as_raw(self), vardate.param().abi(), bstrformat.param().abi(), vardestlocale.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).formatDate)(windows_core::Interface::as_raw(self), vardate.param().abi(), bstrformat.param().abi(), vardestlocale.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn formatTime<P0, P1, P2>(&self, vartime: P0, bstrformat: P1, vardestlocale: P2) -> windows_core::Result<windows_core::BSTR>
@@ -12442,46 +11815,31 @@ impl IXTLRuntime {
         P2: windows_core::Param<super::super::super::System::Variant::VARIANT>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).formatTime)(windows_core::Interface::as_raw(self), vartime.param().abi(), bstrformat.param().abi(), vardestlocale.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).formatTime)(windows_core::Interface::as_raw(self), vartime.param().abi(), bstrformat.param().abi(), vardestlocale.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct IXTLRuntime_Vtbl {
     pub base__: IXMLDOMNode_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub uniqueID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    uniqueID: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub depth: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    depth: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub childNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    childNumber: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub ancestorChildNumber: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    ancestorChildNumber: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub absoluteChildNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    absoluteChildNumber: usize,
     pub formatIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub formatNumber: unsafe extern "system" fn(*mut core::ffi::c_void, f64, core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub formatDate: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub formatDate: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT, core::mem::MaybeUninit<windows_core::BSTR>, super::super::super::System::Variant::VARIANT, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     formatDate: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub formatTime: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub formatTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::System::Variant::VARIANT, core::mem::MaybeUninit<windows_core::BSTR>, super::super::super::System::Variant::VARIANT, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     formatTime: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IXTLRuntime_Impl: Sized + IXMLDOMNode_Impl {
+pub trait IXTLRuntime_Impl: IXMLDOMNode_Impl {
     fn uniqueID(&self, pnode: Option<&IXMLDOMNode>) -> windows_core::Result<i32>;
     fn depth(&self, pnode: Option<&IXMLDOMNode>) -> windows_core::Result<i32>;
     fn childNumber(&self, pnode: Option<&IXMLDOMNode>) -> windows_core::Result<i32>;
@@ -12493,10 +11851,8 @@ pub trait IXTLRuntime_Impl: Sized + IXMLDOMNode_Impl {
     fn formatTime(&self, vartime: &super::super::super::System::Variant::VARIANT, bstrformat: &windows_core::BSTR, vardestlocale: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IXTLRuntime {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IXTLRuntime_Vtbl {
-    pub const fn new<Identity: IXTLRuntime_Impl, const OFFSET: isize>() -> IXTLRuntime_Vtbl {
+    pub const fn new<Identity: IXTLRuntime_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn uniqueID<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnode: *mut core::ffi::c_void, pid: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXTLRuntime_Impl::uniqueID(this, windows_core::from_raw_borrowed(&pnode)) {
@@ -12567,7 +11923,7 @@ impl IXTLRuntime_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn formatDate<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardate: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, bstrformat: core::mem::MaybeUninit<windows_core::BSTR>, vardestlocale: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, pbstrformattedstring: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn formatDate<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vardate: super::super::super::System::Variant::VARIANT, bstrformat: core::mem::MaybeUninit<windows_core::BSTR>, vardestlocale: super::super::super::System::Variant::VARIANT, pbstrformattedstring: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXTLRuntime_Impl::formatDate(this, core::mem::transmute(&vardate), core::mem::transmute(&bstrformat), core::mem::transmute(&vardestlocale)) {
                 Ok(ok__) => {
@@ -12577,7 +11933,7 @@ impl IXTLRuntime_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn formatTime<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vartime: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, bstrformat: core::mem::MaybeUninit<windows_core::BSTR>, vardestlocale: core::mem::MaybeUninit<super::super::super::System::Variant::VARIANT>, pbstrformattedstring: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn formatTime<Identity: IXTLRuntime_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vartime: super::super::super::System::Variant::VARIANT, bstrformat: core::mem::MaybeUninit<windows_core::BSTR>, vardestlocale: super::super::super::System::Variant::VARIANT, pbstrformattedstring: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IXTLRuntime_Impl::formatTime(this, core::mem::transmute(&vartime), core::mem::transmute(&bstrformat), core::mem::transmute(&vardestlocale)) {
                 Ok(ok__) => {
@@ -12601,9 +11957,11 @@ impl IXTLRuntime_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IXTLRuntime as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<IXMLDOMNode as windows_core::Interface>::IID
+        iid == &<IXTLRuntime as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IXTLRuntime {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(XMLDOMDocumentEvents, XMLDOMDocumentEvents_Vtbl, 0x3efaa427_272f_11d2_836f_0000f87a7782);
 #[cfg(feature = "Win32_System_Com")]
@@ -12616,25 +11974,23 @@ impl core::ops::Deref for XMLDOMDocumentEvents {
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::interface_hierarchy!(XMLDOMDocumentEvents, windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl XMLDOMDocumentEvents {}
-#[cfg(feature = "Win32_System_Com")]
 #[repr(C)]
 pub struct XMLDOMDocumentEvents_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait XMLDOMDocumentEvents_Impl: Sized + super::super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for XMLDOMDocumentEvents {}
+pub trait XMLDOMDocumentEvents_Impl: super::super::super::System::Com::IDispatch_Impl {}
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl XMLDOMDocumentEvents_Vtbl {
-    pub const fn new<Identity: XMLDOMDocumentEvents_Impl, const OFFSET: isize>() -> XMLDOMDocumentEvents_Vtbl {
+    pub const fn new<Identity: XMLDOMDocumentEvents_Impl, const OFFSET: isize>() -> Self {
         Self { base__: super::super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<XMLDOMDocumentEvents as windows_core::Interface>::IID || iid == &<super::super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<XMLDOMDocumentEvents as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for XMLDOMDocumentEvents {}
 pub const DISPID_DOM_ATTRIBUTE: u32 = 117u32;
 pub const DISPID_DOM_ATTRIBUTE_GETNAME: u32 = 118u32;
 pub const DISPID_DOM_ATTRIBUTE_SPECIFIED: u32 = 119u32;
@@ -13368,213 +12724,118 @@ pub const XMLELEMTYPE_OTHER: XMLELEM_TYPE = XMLELEM_TYPE(6i32);
 pub const XMLELEMTYPE_PI: XMLELEM_TYPE = XMLELEM_TYPE(5i32);
 pub const XMLELEMTYPE_TEXT: XMLELEM_TYPE = XMLELEM_TYPE(1i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DOMNodeType(pub i32);
 impl windows_core::TypeKind for DOMNodeType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DOMNodeType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DOMNodeType").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SCHEMACONTENTTYPE(pub i32);
 impl windows_core::TypeKind for SCHEMACONTENTTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SCHEMACONTENTTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SCHEMACONTENTTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SCHEMADERIVATIONMETHOD(pub i32);
 impl windows_core::TypeKind for SCHEMADERIVATIONMETHOD {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SCHEMADERIVATIONMETHOD {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SCHEMADERIVATIONMETHOD").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SCHEMAPROCESSCONTENTS(pub i32);
 impl windows_core::TypeKind for SCHEMAPROCESSCONTENTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SCHEMAPROCESSCONTENTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SCHEMAPROCESSCONTENTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SCHEMATYPEVARIETY(pub i32);
 impl windows_core::TypeKind for SCHEMATYPEVARIETY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SCHEMATYPEVARIETY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SCHEMATYPEVARIETY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SCHEMAUSE(pub i32);
 impl windows_core::TypeKind for SCHEMAUSE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SCHEMAUSE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SCHEMAUSE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SCHEMAWHITESPACE(pub i32);
 impl windows_core::TypeKind for SCHEMAWHITESPACE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SCHEMAWHITESPACE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SCHEMAWHITESPACE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SERVERXMLHTTP_OPTION(pub i32);
 impl windows_core::TypeKind for SERVERXMLHTTP_OPTION {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SERVERXMLHTTP_OPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SERVERXMLHTTP_OPTION").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SOMITEMTYPE(pub i32);
 impl windows_core::TypeKind for SOMITEMTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SOMITEMTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SOMITEMTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SXH_PROXY_SETTING(pub i32);
 impl windows_core::TypeKind for SXH_PROXY_SETTING {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SXH_PROXY_SETTING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SXH_PROXY_SETTING").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SXH_SERVER_CERT_OPTION(pub i32);
 impl windows_core::TypeKind for SXH_SERVER_CERT_OPTION {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SXH_SERVER_CERT_OPTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SXH_SERVER_CERT_OPTION").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct XHR_AUTH(pub i32);
 impl windows_core::TypeKind for XHR_AUTH {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for XHR_AUTH {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XHR_AUTH").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct XHR_CERT_ERROR_FLAG(pub u32);
 impl windows_core::TypeKind for XHR_CERT_ERROR_FLAG {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for XHR_CERT_ERROR_FLAG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XHR_CERT_ERROR_FLAG").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct XHR_CERT_IGNORE_FLAG(pub u32);
 impl windows_core::TypeKind for XHR_CERT_IGNORE_FLAG {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for XHR_CERT_IGNORE_FLAG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XHR_CERT_IGNORE_FLAG").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct XHR_COOKIE_FLAG(pub i32);
 impl windows_core::TypeKind for XHR_COOKIE_FLAG {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for XHR_COOKIE_FLAG {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XHR_COOKIE_FLAG").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct XHR_COOKIE_STATE(pub i32);
 impl windows_core::TypeKind for XHR_COOKIE_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for XHR_COOKIE_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XHR_COOKIE_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct XHR_CRED_PROMPT(pub i32);
 impl windows_core::TypeKind for XHR_CRED_PROMPT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for XHR_CRED_PROMPT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XHR_CRED_PROMPT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct XHR_PROPERTY(pub i32);
 impl windows_core::TypeKind for XHR_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for XHR_PROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XHR_PROPERTY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct XMLELEM_TYPE(pub i32);
 impl windows_core::TypeKind for XMLELEM_TYPE {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for XMLELEM_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("XMLELEM_TYPE").field(&self.0).finish()
-    }
 }
 pub const DOMDocument: windows_core::GUID = windows_core::GUID::from_u128(0x2933bf90_7b36_11d2_b20e_00c04f983e60);
 pub const DOMDocument60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a05_f192_11d4_a65f_0040963251e5);
@@ -13588,21 +12849,21 @@ pub const SAXAttributes60: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const SAXXMLReader60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a0c_f192_11d4_a65f_0040963251e5);
 pub const ServerXMLHTTP60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a0b_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct XHR_CERT {
     pub cbCert: u32,
     pub pbCert: *mut u8,
-}
-impl windows_core::TypeKind for XHR_CERT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for XHR_CERT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XHR_CERT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct XHR_COOKIE {
     pub pwszUrl: windows_core::PWSTR,
     pub pwszName: windows_core::PWSTR,
@@ -13611,13 +12872,13 @@ pub struct XHR_COOKIE {
     pub ftExpires: super::super::super::Foundation::FILETIME,
     pub dwFlags: u32,
 }
-impl windows_core::TypeKind for XHR_COOKIE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for XHR_COOKIE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for XHR_COOKIE {
+    type TypeKind = windows_core::CopyType;
 }
 pub const XMLDSOControl: windows_core::GUID = windows_core::GUID::from_u128(0x550dda30_0541_11d2_9ca9_0060b0ec3d39);
 pub const XMLDocument: windows_core::GUID = windows_core::GUID::from_u128(0xcfc399af_d876_11d0_9c10_00c04fc99c8e);
@@ -13625,7 +12886,7 @@ pub const XMLHTTP60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a
 pub const XMLHTTPRequest: windows_core::GUID = windows_core::GUID::from_u128(0xed8c108e_4349_11d2_91a4_00c04f7969e8);
 pub const XMLSchemaCache60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a07_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
-#[derive(Debug, Eq, PartialEq)]
+#[derive(Debug, PartialEq)]
 pub struct XML_ERROR {
     pub _nLine: u32,
     pub _pchBuf: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -13636,22 +12897,17 @@ pub struct XML_ERROR {
     pub _reserved1: u32,
     pub _reserved2: u32,
 }
-impl Clone for XML_ERROR {
-    fn clone(&self) -> Self {
-        unsafe { core::mem::transmute_copy(self) }
-    }
-}
-impl windows_core::TypeKind for XML_ERROR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for XML_ERROR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for XML_ERROR {
+    type TypeKind = windows_core::CloneType;
+}
 pub const XSLTemplate60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a08_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct __msxml6_ReferenceRemainingTypes__ {
     pub __tagDomNodeType__: DOMNodeType,
     pub __domNodeType__: DOMNodeType,
@@ -13676,11 +12932,11 @@ pub struct __msxml6_ReferenceRemainingTypes__ {
     pub __schemaTypeVarietyEnum__: SCHEMATYPEVARIETY,
     pub __schemaTypeVariety__: SCHEMATYPEVARIETY,
 }
-impl windows_core::TypeKind for __msxml6_ReferenceRemainingTypes__ {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for __msxml6_ReferenceRemainingTypes__ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for __msxml6_ReferenceRemainingTypes__ {
+    type TypeKind = windows_core::CopyType;
 }

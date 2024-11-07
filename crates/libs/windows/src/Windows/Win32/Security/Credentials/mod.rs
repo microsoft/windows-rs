@@ -115,19 +115,19 @@ pub unsafe fn CredMarshalCredentialW(credtype: CRED_MARSHAL_TYPE, credential: *c
     CredMarshalCredentialW(credtype, credential, marshaledcredential).ok()
 }
 #[inline]
-pub unsafe fn CredPackAuthenticationBufferA<P0, P1>(dwflags: CRED_PACK_FLAGS, pszusername: P0, pszpassword: P1, ppackedcredentials: Option<*mut u8>, pcbpackedcredentials: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CredPackAuthenticationBufferA<P1, P2>(dwflags: CRED_PACK_FLAGS, pszusername: P1, pszpassword: P2, ppackedcredentials: Option<*mut u8>, pcbpackedcredentials: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("credui.dll" "system" fn CredPackAuthenticationBufferA(dwflags : CRED_PACK_FLAGS, pszusername : windows_core::PCSTR, pszpassword : windows_core::PCSTR, ppackedcredentials : *mut u8, pcbpackedcredentials : *mut u32) -> super::super::Foundation:: BOOL);
     CredPackAuthenticationBufferA(dwflags, pszusername.param().abi(), pszpassword.param().abi(), core::mem::transmute(ppackedcredentials.unwrap_or(core::ptr::null_mut())), pcbpackedcredentials).ok()
 }
 #[inline]
-pub unsafe fn CredPackAuthenticationBufferW<P0, P1>(dwflags: CRED_PACK_FLAGS, pszusername: P0, pszpassword: P1, ppackedcredentials: Option<*mut u8>, pcbpackedcredentials: *mut u32) -> windows_core::Result<()>
+pub unsafe fn CredPackAuthenticationBufferW<P1, P2>(dwflags: CRED_PACK_FLAGS, pszusername: P1, pszpassword: P2, ppackedcredentials: Option<*mut u8>, pcbpackedcredentials: *mut u32) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("credui.dll" "system" fn CredPackAuthenticationBufferW(dwflags : CRED_PACK_FLAGS, pszusername : windows_core::PCWSTR, pszpassword : windows_core::PCWSTR, ppackedcredentials : *mut u8, pcbpackedcredentials : *mut u32) -> super::super::Foundation:: BOOL);
     CredPackAuthenticationBufferW(dwflags, pszusername.param().abi(), pszpassword.param().abi(), core::mem::transmute(ppackedcredentials.unwrap_or(core::ptr::null_mut())), pcbpackedcredentials).ok()
@@ -244,18 +244,18 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CredUIPromptForCredentialsA<P0>(puiinfo: Option<*const CREDUI_INFOA>, psztargetname: P0, pcontext: Option<*const SecHandle>, dwautherror: u32, pszusername: &mut [u8], pszpassword: &mut [u8], save: Option<*mut super::super::Foundation::BOOL>, dwflags: CREDUI_FLAGS) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn CredUIPromptForCredentialsA<P1>(puiinfo: Option<*const CREDUI_INFOA>, psztargetname: P1, pcontext: Option<*const SecHandle>, dwautherror: u32, pszusername: &mut [u8], pszpassword: &mut [u8], save: Option<*mut super::super::Foundation::BOOL>, dwflags: CREDUI_FLAGS) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("credui.dll" "system" fn CredUIPromptForCredentialsA(puiinfo : *const CREDUI_INFOA, psztargetname : windows_core::PCSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : windows_core::PSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, save : *mut super::super::Foundation:: BOOL, dwflags : CREDUI_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
     CredUIPromptForCredentialsA(core::mem::transmute(puiinfo.unwrap_or(core::ptr::null())), psztargetname.param().abi(), core::mem::transmute(pcontext.unwrap_or(core::ptr::null())), dwautherror, core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), core::mem::transmute(save.unwrap_or(core::ptr::null_mut())), dwflags)
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CredUIPromptForCredentialsW<P0>(puiinfo: Option<*const CREDUI_INFOW>, psztargetname: P0, pcontext: Option<*const SecHandle>, dwautherror: u32, pszusername: &mut [u16], pszpassword: &mut [u16], save: Option<*mut super::super::Foundation::BOOL>, dwflags: CREDUI_FLAGS) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn CredUIPromptForCredentialsW<P1>(puiinfo: Option<*const CREDUI_INFOW>, psztargetname: P1, pcontext: Option<*const SecHandle>, dwautherror: u32, pszusername: &mut [u16], pszpassword: &mut [u16], save: Option<*mut super::super::Foundation::BOOL>, dwflags: CREDUI_FLAGS) -> super::super::Foundation::WIN32_ERROR
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("credui.dll" "system" fn CredUIPromptForCredentialsW(puiinfo : *const CREDUI_INFOW, psztargetname : windows_core::PCWSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : windows_core::PWSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, save : *mut super::super::Foundation:: BOOL, dwflags : CREDUI_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
     CredUIPromptForCredentialsW(core::mem::transmute(puiinfo.unwrap_or(core::ptr::null())), psztargetname.param().abi(), core::mem::transmute(pcontext.unwrap_or(core::ptr::null())), dwautherror, core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), core::mem::transmute(save.unwrap_or(core::ptr::null_mut())), dwflags)
@@ -394,19 +394,19 @@ pub unsafe fn SCardAccessStartedEvent() -> windows_core::Result<super::super::Fo
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn SCardAddReaderToGroupA<P0, P1>(hcontext: usize, szreadername: P0, szgroupname: P1) -> i32
+pub unsafe fn SCardAddReaderToGroupA<P1, P2>(hcontext: usize, szreadername: P1, szgroupname: P2) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardAddReaderToGroupA(hcontext : usize, szreadername : windows_core::PCSTR, szgroupname : windows_core::PCSTR) -> i32);
     SCardAddReaderToGroupA(hcontext, szreadername.param().abi(), szgroupname.param().abi())
 }
 #[inline]
-pub unsafe fn SCardAddReaderToGroupW<P0, P1>(hcontext: usize, szreadername: P0, szgroupname: P1) -> i32
+pub unsafe fn SCardAddReaderToGroupW<P1, P2>(hcontext: usize, szreadername: P1, szgroupname: P2) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardAddReaderToGroupW(hcontext : usize, szreadername : windows_core::PCWSTR, szgroupname : windows_core::PCWSTR) -> i32);
     SCardAddReaderToGroupW(hcontext, szreadername.param().abi(), szgroupname.param().abi())
@@ -427,17 +427,17 @@ pub unsafe fn SCardCancel(hcontext: usize) -> i32 {
     SCardCancel(hcontext)
 }
 #[inline]
-pub unsafe fn SCardConnectA<P0>(hcontext: usize, szreader: P0, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32
+pub unsafe fn SCardConnectA<P1>(hcontext: usize, szreader: P1, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardConnectA(hcontext : usize, szreader : windows_core::PCSTR, dwsharemode : u32, dwpreferredprotocols : u32, phcard : *mut usize, pdwactiveprotocol : *mut u32) -> i32);
     SCardConnectA(hcontext, szreader.param().abi(), dwsharemode, dwpreferredprotocols, phcard, pdwactiveprotocol)
 }
 #[inline]
-pub unsafe fn SCardConnectW<P0>(hcontext: usize, szreader: P0, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32
+pub unsafe fn SCardConnectW<P1>(hcontext: usize, szreader: P1, dwsharemode: u32, dwpreferredprotocols: u32, phcard: *mut usize, pdwactiveprotocol: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardConnectW(hcontext : usize, szreader : windows_core::PCWSTR, dwsharemode : u32, dwpreferredprotocols : u32, phcard : *mut usize, pdwactiveprotocol : *mut u32) -> i32);
     SCardConnectW(hcontext, szreader.param().abi(), dwsharemode, dwpreferredprotocols, phcard, pdwactiveprotocol)
@@ -468,49 +468,49 @@ pub unsafe fn SCardEstablishContext(dwscope: SCARD_SCOPE, pvreserved1: Option<*c
     SCardEstablishContext(dwscope, core::mem::transmute(pvreserved1.unwrap_or(core::ptr::null())), core::mem::transmute(pvreserved2.unwrap_or(core::ptr::null())), phcontext)
 }
 #[inline]
-pub unsafe fn SCardForgetCardTypeA<P0>(hcontext: usize, szcardname: P0) -> i32
+pub unsafe fn SCardForgetCardTypeA<P1>(hcontext: usize, szcardname: P1) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardForgetCardTypeA(hcontext : usize, szcardname : windows_core::PCSTR) -> i32);
     SCardForgetCardTypeA(hcontext, szcardname.param().abi())
 }
 #[inline]
-pub unsafe fn SCardForgetCardTypeW<P0>(hcontext: usize, szcardname: P0) -> i32
+pub unsafe fn SCardForgetCardTypeW<P1>(hcontext: usize, szcardname: P1) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardForgetCardTypeW(hcontext : usize, szcardname : windows_core::PCWSTR) -> i32);
     SCardForgetCardTypeW(hcontext, szcardname.param().abi())
 }
 #[inline]
-pub unsafe fn SCardForgetReaderA<P0>(hcontext: usize, szreadername: P0) -> i32
+pub unsafe fn SCardForgetReaderA<P1>(hcontext: usize, szreadername: P1) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardForgetReaderA(hcontext : usize, szreadername : windows_core::PCSTR) -> i32);
     SCardForgetReaderA(hcontext, szreadername.param().abi())
 }
 #[inline]
-pub unsafe fn SCardForgetReaderGroupA<P0>(hcontext: usize, szgroupname: P0) -> i32
+pub unsafe fn SCardForgetReaderGroupA<P1>(hcontext: usize, szgroupname: P1) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardForgetReaderGroupA(hcontext : usize, szgroupname : windows_core::PCSTR) -> i32);
     SCardForgetReaderGroupA(hcontext, szgroupname.param().abi())
 }
 #[inline]
-pub unsafe fn SCardForgetReaderGroupW<P0>(hcontext: usize, szgroupname: P0) -> i32
+pub unsafe fn SCardForgetReaderGroupW<P1>(hcontext: usize, szgroupname: P1) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardForgetReaderGroupW(hcontext : usize, szgroupname : windows_core::PCWSTR) -> i32);
     SCardForgetReaderGroupW(hcontext, szgroupname.param().abi())
 }
 #[inline]
-pub unsafe fn SCardForgetReaderW<P0>(hcontext: usize, szreadername: P0) -> i32
+pub unsafe fn SCardForgetReaderW<P1>(hcontext: usize, szreadername: P1) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardForgetReaderW(hcontext : usize, szreadername : windows_core::PCWSTR) -> i32);
     SCardForgetReaderW(hcontext, szreadername.param().abi())
@@ -526,81 +526,81 @@ pub unsafe fn SCardGetAttrib(hcard: usize, dwattrid: u32, pbattr: Option<*mut u8
     SCardGetAttrib(hcard, dwattrid, core::mem::transmute(pbattr.unwrap_or(core::ptr::null_mut())), pcbattrlen)
 }
 #[inline]
-pub unsafe fn SCardGetCardTypeProviderNameA<P0>(hcontext: usize, szcardname: P0, dwproviderid: u32, szprovider: windows_core::PSTR, pcchprovider: *mut u32) -> i32
+pub unsafe fn SCardGetCardTypeProviderNameA<P1>(hcontext: usize, szcardname: P1, dwproviderid: u32, szprovider: windows_core::PSTR, pcchprovider: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardGetCardTypeProviderNameA(hcontext : usize, szcardname : windows_core::PCSTR, dwproviderid : u32, szprovider : windows_core::PSTR, pcchprovider : *mut u32) -> i32);
     SCardGetCardTypeProviderNameA(hcontext, szcardname.param().abi(), dwproviderid, core::mem::transmute(szprovider), pcchprovider)
 }
 #[inline]
-pub unsafe fn SCardGetCardTypeProviderNameW<P0>(hcontext: usize, szcardname: P0, dwproviderid: u32, szprovider: windows_core::PWSTR, pcchprovider: *mut u32) -> i32
+pub unsafe fn SCardGetCardTypeProviderNameW<P1>(hcontext: usize, szcardname: P1, dwproviderid: u32, szprovider: windows_core::PWSTR, pcchprovider: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardGetCardTypeProviderNameW(hcontext : usize, szcardname : windows_core::PCWSTR, dwproviderid : u32, szprovider : windows_core::PWSTR, pcchprovider : *mut u32) -> i32);
     SCardGetCardTypeProviderNameW(hcontext, szcardname.param().abi(), dwproviderid, core::mem::transmute(szprovider), pcchprovider)
 }
 #[inline]
-pub unsafe fn SCardGetDeviceTypeIdA<P0>(hcontext: usize, szreadername: P0, pdwdevicetypeid: *mut u32) -> i32
+pub unsafe fn SCardGetDeviceTypeIdA<P1>(hcontext: usize, szreadername: P1, pdwdevicetypeid: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardGetDeviceTypeIdA(hcontext : usize, szreadername : windows_core::PCSTR, pdwdevicetypeid : *mut u32) -> i32);
     SCardGetDeviceTypeIdA(hcontext, szreadername.param().abi(), pdwdevicetypeid)
 }
 #[inline]
-pub unsafe fn SCardGetDeviceTypeIdW<P0>(hcontext: usize, szreadername: P0, pdwdevicetypeid: *mut u32) -> i32
+pub unsafe fn SCardGetDeviceTypeIdW<P1>(hcontext: usize, szreadername: P1, pdwdevicetypeid: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardGetDeviceTypeIdW(hcontext : usize, szreadername : windows_core::PCWSTR, pdwdevicetypeid : *mut u32) -> i32);
     SCardGetDeviceTypeIdW(hcontext, szreadername.param().abi(), pdwdevicetypeid)
 }
 #[inline]
-pub unsafe fn SCardGetProviderIdA<P0>(hcontext: usize, szcard: P0, pguidproviderid: *mut windows_core::GUID) -> i32
+pub unsafe fn SCardGetProviderIdA<P1>(hcontext: usize, szcard: P1, pguidproviderid: *mut windows_core::GUID) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardGetProviderIdA(hcontext : usize, szcard : windows_core::PCSTR, pguidproviderid : *mut windows_core::GUID) -> i32);
     SCardGetProviderIdA(hcontext, szcard.param().abi(), pguidproviderid)
 }
 #[inline]
-pub unsafe fn SCardGetProviderIdW<P0>(hcontext: usize, szcard: P0, pguidproviderid: *mut windows_core::GUID) -> i32
+pub unsafe fn SCardGetProviderIdW<P1>(hcontext: usize, szcard: P1, pguidproviderid: *mut windows_core::GUID) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardGetProviderIdW(hcontext : usize, szcard : windows_core::PCWSTR, pguidproviderid : *mut windows_core::GUID) -> i32);
     SCardGetProviderIdW(hcontext, szcard.param().abi(), pguidproviderid)
 }
 #[inline]
-pub unsafe fn SCardGetReaderDeviceInstanceIdA<P0>(hcontext: usize, szreadername: P0, szdeviceinstanceid: windows_core::PSTR, pcchdeviceinstanceid: *mut u32) -> i32
+pub unsafe fn SCardGetReaderDeviceInstanceIdA<P1>(hcontext: usize, szreadername: P1, szdeviceinstanceid: windows_core::PSTR, pcchdeviceinstanceid: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardGetReaderDeviceInstanceIdA(hcontext : usize, szreadername : windows_core::PCSTR, szdeviceinstanceid : windows_core::PSTR, pcchdeviceinstanceid : *mut u32) -> i32);
     SCardGetReaderDeviceInstanceIdA(hcontext, szreadername.param().abi(), core::mem::transmute(szdeviceinstanceid), pcchdeviceinstanceid)
 }
 #[inline]
-pub unsafe fn SCardGetReaderDeviceInstanceIdW<P0>(hcontext: usize, szreadername: P0, szdeviceinstanceid: windows_core::PWSTR, pcchdeviceinstanceid: *mut u32) -> i32
+pub unsafe fn SCardGetReaderDeviceInstanceIdW<P1>(hcontext: usize, szreadername: P1, szdeviceinstanceid: windows_core::PWSTR, pcchdeviceinstanceid: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardGetReaderDeviceInstanceIdW(hcontext : usize, szreadername : windows_core::PCWSTR, szdeviceinstanceid : windows_core::PWSTR, pcchdeviceinstanceid : *mut u32) -> i32);
     SCardGetReaderDeviceInstanceIdW(hcontext, szreadername.param().abi(), core::mem::transmute(szdeviceinstanceid), pcchdeviceinstanceid)
 }
 #[inline]
-pub unsafe fn SCardGetReaderIconA<P0>(hcontext: usize, szreadername: P0, pbicon: *mut u8, pcbicon: *mut u32) -> i32
+pub unsafe fn SCardGetReaderIconA<P1>(hcontext: usize, szreadername: P1, pbicon: *mut u8, pcbicon: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardGetReaderIconA(hcontext : usize, szreadername : windows_core::PCSTR, pbicon : *mut u8, pcbicon : *mut u32) -> i32);
     SCardGetReaderIconA(hcontext, szreadername.param().abi(), pbicon, pcbicon)
 }
 #[inline]
-pub unsafe fn SCardGetReaderIconW<P0>(hcontext: usize, szreadername: P0, pbicon: *mut u8, pcbicon: *mut u32) -> i32
+pub unsafe fn SCardGetReaderIconW<P1>(hcontext: usize, szreadername: P1, pbicon: *mut u8, pcbicon: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardGetReaderIconW(hcontext : usize, szreadername : windows_core::PCWSTR, pbicon : *mut u8, pcbicon : *mut u32) -> i32);
     SCardGetReaderIconW(hcontext, szreadername.param().abi(), pbicon, pcbicon)
@@ -621,51 +621,51 @@ pub unsafe fn SCardGetTransmitCount(hcard: usize, pctransmitcount: *mut u32) -> 
     SCardGetTransmitCount(hcard, pctransmitcount)
 }
 #[inline]
-pub unsafe fn SCardIntroduceCardTypeA<P0>(hcontext: usize, szcardname: P0, pguidprimaryprovider: Option<*const windows_core::GUID>, rgguidinterfaces: Option<*const windows_core::GUID>, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32
+pub unsafe fn SCardIntroduceCardTypeA<P1>(hcontext: usize, szcardname: P1, pguidprimaryprovider: Option<*const windows_core::GUID>, rgguidinterfaces: Option<*const windows_core::GUID>, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardIntroduceCardTypeA(hcontext : usize, szcardname : windows_core::PCSTR, pguidprimaryprovider : *const windows_core::GUID, rgguidinterfaces : *const windows_core::GUID, dwinterfacecount : u32, pbatr : *const u8, pbatrmask : *const u8, cbatrlen : u32) -> i32);
     SCardIntroduceCardTypeA(hcontext, szcardname.param().abi(), core::mem::transmute(pguidprimaryprovider.unwrap_or(core::ptr::null())), core::mem::transmute(rgguidinterfaces.unwrap_or(core::ptr::null())), dwinterfacecount, pbatr, pbatrmask, cbatrlen)
 }
 #[inline]
-pub unsafe fn SCardIntroduceCardTypeW<P0>(hcontext: usize, szcardname: P0, pguidprimaryprovider: Option<*const windows_core::GUID>, rgguidinterfaces: Option<*const windows_core::GUID>, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32
+pub unsafe fn SCardIntroduceCardTypeW<P1>(hcontext: usize, szcardname: P1, pguidprimaryprovider: Option<*const windows_core::GUID>, rgguidinterfaces: Option<*const windows_core::GUID>, dwinterfacecount: u32, pbatr: *const u8, pbatrmask: *const u8, cbatrlen: u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardIntroduceCardTypeW(hcontext : usize, szcardname : windows_core::PCWSTR, pguidprimaryprovider : *const windows_core::GUID, rgguidinterfaces : *const windows_core::GUID, dwinterfacecount : u32, pbatr : *const u8, pbatrmask : *const u8, cbatrlen : u32) -> i32);
     SCardIntroduceCardTypeW(hcontext, szcardname.param().abi(), core::mem::transmute(pguidprimaryprovider.unwrap_or(core::ptr::null())), core::mem::transmute(rgguidinterfaces.unwrap_or(core::ptr::null())), dwinterfacecount, pbatr, pbatrmask, cbatrlen)
 }
 #[inline]
-pub unsafe fn SCardIntroduceReaderA<P0, P1>(hcontext: usize, szreadername: P0, szdevicename: P1) -> i32
+pub unsafe fn SCardIntroduceReaderA<P1, P2>(hcontext: usize, szreadername: P1, szdevicename: P2) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardIntroduceReaderA(hcontext : usize, szreadername : windows_core::PCSTR, szdevicename : windows_core::PCSTR) -> i32);
     SCardIntroduceReaderA(hcontext, szreadername.param().abi(), szdevicename.param().abi())
 }
 #[inline]
-pub unsafe fn SCardIntroduceReaderGroupA<P0>(hcontext: usize, szgroupname: P0) -> i32
+pub unsafe fn SCardIntroduceReaderGroupA<P1>(hcontext: usize, szgroupname: P1) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardIntroduceReaderGroupA(hcontext : usize, szgroupname : windows_core::PCSTR) -> i32);
     SCardIntroduceReaderGroupA(hcontext, szgroupname.param().abi())
 }
 #[inline]
-pub unsafe fn SCardIntroduceReaderGroupW<P0>(hcontext: usize, szgroupname: P0) -> i32
+pub unsafe fn SCardIntroduceReaderGroupW<P1>(hcontext: usize, szgroupname: P1) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardIntroduceReaderGroupW(hcontext : usize, szgroupname : windows_core::PCWSTR) -> i32);
     SCardIntroduceReaderGroupW(hcontext, szgroupname.param().abi())
 }
 #[inline]
-pub unsafe fn SCardIntroduceReaderW<P0, P1>(hcontext: usize, szreadername: P0, szdevicename: P1) -> i32
+pub unsafe fn SCardIntroduceReaderW<P1, P2>(hcontext: usize, szreadername: P1, szdevicename: P2) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardIntroduceReaderW(hcontext : usize, szreadername : windows_core::PCWSTR, szdevicename : windows_core::PCWSTR) -> i32);
     SCardIntroduceReaderW(hcontext, szreadername.param().abi(), szdevicename.param().abi())
@@ -686,17 +686,17 @@ pub unsafe fn SCardListCardsW(hcontext: usize, pbatr: Option<*const u8>, rgquidi
     SCardListCardsW(hcontext, core::mem::transmute(pbatr.unwrap_or(core::ptr::null())), core::mem::transmute(rgquidinterfaces.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), rgquidinterfaces.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(mszcards), pcchcards)
 }
 #[inline]
-pub unsafe fn SCardListInterfacesA<P0>(hcontext: usize, szcard: P0, pguidinterfaces: *mut windows_core::GUID, pcguidinterfaces: *mut u32) -> i32
+pub unsafe fn SCardListInterfacesA<P1>(hcontext: usize, szcard: P1, pguidinterfaces: *mut windows_core::GUID, pcguidinterfaces: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardListInterfacesA(hcontext : usize, szcard : windows_core::PCSTR, pguidinterfaces : *mut windows_core::GUID, pcguidinterfaces : *mut u32) -> i32);
     SCardListInterfacesA(hcontext, szcard.param().abi(), pguidinterfaces, pcguidinterfaces)
 }
 #[inline]
-pub unsafe fn SCardListInterfacesW<P0>(hcontext: usize, szcard: P0, pguidinterfaces: *mut windows_core::GUID, pcguidinterfaces: *mut u32) -> i32
+pub unsafe fn SCardListInterfacesW<P1>(hcontext: usize, szcard: P1, pguidinterfaces: *mut windows_core::GUID, pcguidinterfaces: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardListInterfacesW(hcontext : usize, szcard : windows_core::PCWSTR, pguidinterfaces : *mut windows_core::GUID, pcguidinterfaces : *mut u32) -> i32);
     SCardListInterfacesW(hcontext, szcard.param().abi(), pguidinterfaces, pcguidinterfaces)
@@ -712,41 +712,41 @@ pub unsafe fn SCardListReaderGroupsW(hcontext: usize, mszgroups: windows_core::P
     SCardListReaderGroupsW(hcontext, core::mem::transmute(mszgroups), pcchgroups)
 }
 #[inline]
-pub unsafe fn SCardListReadersA<P0>(hcontext: usize, mszgroups: P0, mszreaders: windows_core::PSTR, pcchreaders: *mut u32) -> i32
+pub unsafe fn SCardListReadersA<P1>(hcontext: usize, mszgroups: P1, mszreaders: windows_core::PSTR, pcchreaders: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardListReadersA(hcontext : usize, mszgroups : windows_core::PCSTR, mszreaders : windows_core::PSTR, pcchreaders : *mut u32) -> i32);
     SCardListReadersA(hcontext, mszgroups.param().abi(), core::mem::transmute(mszreaders), pcchreaders)
 }
 #[inline]
-pub unsafe fn SCardListReadersW<P0>(hcontext: usize, mszgroups: P0, mszreaders: windows_core::PWSTR, pcchreaders: *mut u32) -> i32
+pub unsafe fn SCardListReadersW<P1>(hcontext: usize, mszgroups: P1, mszreaders: windows_core::PWSTR, pcchreaders: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardListReadersW(hcontext : usize, mszgroups : windows_core::PCWSTR, mszreaders : windows_core::PWSTR, pcchreaders : *mut u32) -> i32);
     SCardListReadersW(hcontext, mszgroups.param().abi(), core::mem::transmute(mszreaders), pcchreaders)
 }
 #[inline]
-pub unsafe fn SCardListReadersWithDeviceInstanceIdA<P0>(hcontext: usize, szdeviceinstanceid: P0, mszreaders: windows_core::PSTR, pcchreaders: *mut u32) -> i32
+pub unsafe fn SCardListReadersWithDeviceInstanceIdA<P1>(hcontext: usize, szdeviceinstanceid: P1, mszreaders: windows_core::PSTR, pcchreaders: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardListReadersWithDeviceInstanceIdA(hcontext : usize, szdeviceinstanceid : windows_core::PCSTR, mszreaders : windows_core::PSTR, pcchreaders : *mut u32) -> i32);
     SCardListReadersWithDeviceInstanceIdA(hcontext, szdeviceinstanceid.param().abi(), core::mem::transmute(mszreaders), pcchreaders)
 }
 #[inline]
-pub unsafe fn SCardListReadersWithDeviceInstanceIdW<P0>(hcontext: usize, szdeviceinstanceid: P0, mszreaders: windows_core::PWSTR, pcchreaders: *mut u32) -> i32
+pub unsafe fn SCardListReadersWithDeviceInstanceIdW<P1>(hcontext: usize, szdeviceinstanceid: P1, mszreaders: windows_core::PWSTR, pcchreaders: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardListReadersWithDeviceInstanceIdW(hcontext : usize, szdeviceinstanceid : windows_core::PCWSTR, mszreaders : windows_core::PWSTR, pcchreaders : *mut u32) -> i32);
     SCardListReadersWithDeviceInstanceIdW(hcontext, szdeviceinstanceid.param().abi(), core::mem::transmute(mszreaders), pcchreaders)
 }
 #[inline]
-pub unsafe fn SCardLocateCardsA<P0>(hcontext: usize, mszcards: P0, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32
+pub unsafe fn SCardLocateCardsA<P1>(hcontext: usize, mszcards: P1, rgreaderstates: *mut SCARD_READERSTATEA, creaders: u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardLocateCardsA(hcontext : usize, mszcards : windows_core::PCSTR, rgreaderstates : *mut SCARD_READERSTATEA, creaders : u32) -> i32);
     SCardLocateCardsA(hcontext, mszcards.param().abi(), rgreaderstates, creaders)
@@ -762,25 +762,25 @@ pub unsafe fn SCardLocateCardsByATRW(hcontext: usize, rgatrmasks: *const SCARD_A
     SCardLocateCardsByATRW(hcontext, rgatrmasks, catrs, rgreaderstates, creaders)
 }
 #[inline]
-pub unsafe fn SCardLocateCardsW<P0>(hcontext: usize, mszcards: P0, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32
+pub unsafe fn SCardLocateCardsW<P1>(hcontext: usize, mszcards: P1, rgreaderstates: *mut SCARD_READERSTATEW, creaders: u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardLocateCardsW(hcontext : usize, mszcards : windows_core::PCWSTR, rgreaderstates : *mut SCARD_READERSTATEW, creaders : u32) -> i32);
     SCardLocateCardsW(hcontext, mszcards.param().abi(), rgreaderstates, creaders)
 }
 #[inline]
-pub unsafe fn SCardReadCacheA<P0>(hcontext: usize, cardidentifier: *const windows_core::GUID, freshnesscounter: u32, lookupname: P0, data: *mut u8, datalen: *mut u32) -> i32
+pub unsafe fn SCardReadCacheA<P3>(hcontext: usize, cardidentifier: *const windows_core::GUID, freshnesscounter: u32, lookupname: P3, data: *mut u8, datalen: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardReadCacheA(hcontext : usize, cardidentifier : *const windows_core::GUID, freshnesscounter : u32, lookupname : windows_core::PCSTR, data : *mut u8, datalen : *mut u32) -> i32);
     SCardReadCacheA(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), data, datalen)
 }
 #[inline]
-pub unsafe fn SCardReadCacheW<P0>(hcontext: usize, cardidentifier: *const windows_core::GUID, freshnesscounter: u32, lookupname: P0, data: *mut u8, datalen: *mut u32) -> i32
+pub unsafe fn SCardReadCacheW<P3>(hcontext: usize, cardidentifier: *const windows_core::GUID, freshnesscounter: u32, lookupname: P3, data: *mut u8, datalen: *mut u32) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardReadCacheW(hcontext : usize, cardidentifier : *const windows_core::GUID, freshnesscounter : u32, lookupname : windows_core::PCWSTR, data : *mut u8, datalen : *mut u32) -> i32);
     SCardReadCacheW(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), data, datalen)
@@ -801,19 +801,19 @@ pub unsafe fn SCardReleaseStartedEvent() {
     SCardReleaseStartedEvent()
 }
 #[inline]
-pub unsafe fn SCardRemoveReaderFromGroupA<P0, P1>(hcontext: usize, szreadername: P0, szgroupname: P1) -> i32
+pub unsafe fn SCardRemoveReaderFromGroupA<P1, P2>(hcontext: usize, szreadername: P1, szgroupname: P2) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
+    P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardRemoveReaderFromGroupA(hcontext : usize, szreadername : windows_core::PCSTR, szgroupname : windows_core::PCSTR) -> i32);
     SCardRemoveReaderFromGroupA(hcontext, szreadername.param().abi(), szgroupname.param().abi())
 }
 #[inline]
-pub unsafe fn SCardRemoveReaderFromGroupW<P0, P1>(hcontext: usize, szreadername: P0, szgroupname: P1) -> i32
+pub unsafe fn SCardRemoveReaderFromGroupW<P1, P2>(hcontext: usize, szreadername: P1, szgroupname: P2) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardRemoveReaderFromGroupW(hcontext : usize, szreadername : windows_core::PCWSTR, szgroupname : windows_core::PCWSTR) -> i32);
     SCardRemoveReaderFromGroupW(hcontext, szreadername.param().abi(), szgroupname.param().abi())
@@ -824,19 +824,19 @@ pub unsafe fn SCardSetAttrib(hcard: usize, dwattrid: u32, pbattr: &[u8]) -> i32 
     SCardSetAttrib(hcard, dwattrid, core::mem::transmute(pbattr.as_ptr()), pbattr.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn SCardSetCardTypeProviderNameA<P0, P1>(hcontext: usize, szcardname: P0, dwproviderid: u32, szprovider: P1) -> i32
+pub unsafe fn SCardSetCardTypeProviderNameA<P1, P3>(hcontext: usize, szcardname: P1, dwproviderid: u32, szprovider: P3) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardSetCardTypeProviderNameA(hcontext : usize, szcardname : windows_core::PCSTR, dwproviderid : u32, szprovider : windows_core::PCSTR) -> i32);
     SCardSetCardTypeProviderNameA(hcontext, szcardname.param().abi(), dwproviderid, szprovider.param().abi())
 }
 #[inline]
-pub unsafe fn SCardSetCardTypeProviderNameW<P0, P1>(hcontext: usize, szcardname: P0, dwproviderid: u32, szprovider: P1) -> i32
+pub unsafe fn SCardSetCardTypeProviderNameW<P1, P3>(hcontext: usize, szcardname: P1, dwproviderid: u32, szprovider: P3) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardSetCardTypeProviderNameW(hcontext : usize, szcardname : windows_core::PCWSTR, dwproviderid : u32, szprovider : windows_core::PCWSTR) -> i32);
     SCardSetCardTypeProviderNameW(hcontext, szcardname.param().abi(), dwproviderid, szprovider.param().abi())
@@ -874,17 +874,17 @@ pub unsafe fn SCardUIDlgSelectCardW(param0: *mut OPENCARDNAME_EXW) -> i32 {
     SCardUIDlgSelectCardW(param0)
 }
 #[inline]
-pub unsafe fn SCardWriteCacheA<P0>(hcontext: usize, cardidentifier: *const windows_core::GUID, freshnesscounter: u32, lookupname: P0, data: &[u8]) -> i32
+pub unsafe fn SCardWriteCacheA<P3>(hcontext: usize, cardidentifier: *const windows_core::GUID, freshnesscounter: u32, lookupname: P3, data: &[u8]) -> i32
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardWriteCacheA(hcontext : usize, cardidentifier : *const windows_core::GUID, freshnesscounter : u32, lookupname : windows_core::PCSTR, data : *const u8, datalen : u32) -> i32);
     SCardWriteCacheA(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap())
 }
 #[inline]
-pub unsafe fn SCardWriteCacheW<P0>(hcontext: usize, cardidentifier: *const windows_core::GUID, freshnesscounter: u32, lookupname: P0, data: &[u8]) -> i32
+pub unsafe fn SCardWriteCacheW<P3>(hcontext: usize, cardidentifier: *const windows_core::GUID, freshnesscounter: u32, lookupname: P3, data: &[u8]) -> i32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("winscard.dll" "system" fn SCardWriteCacheW(hcontext : usize, cardidentifier : *const windows_core::GUID, freshnesscounter : u32, lookupname : windows_core::PCWSTR, data : *const u8, datalen : u32) -> i32);
     SCardWriteCacheW(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap())
@@ -1155,26 +1155,16 @@ pub const UsernameForPackedCredentials: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(4i
 pub const UsernameTargetCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(2i32);
 pub const szOID_TS_KP_TS_SERVER_AUTH: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.54.1.2");
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CREDSPP_SUBMIT_TYPE(pub i32);
 impl windows_core::TypeKind for CREDSPP_SUBMIT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CREDSPP_SUBMIT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CREDSPP_SUBMIT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CREDUIWIN_FLAGS(pub u32);
 impl windows_core::TypeKind for CREDUIWIN_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CREDUIWIN_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CREDUIWIN_FLAGS").field(&self.0).finish()
-    }
 }
 impl CREDUIWIN_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1210,15 +1200,10 @@ impl core::ops::Not for CREDUIWIN_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CREDUI_FLAGS(pub u32);
 impl windows_core::TypeKind for CREDUI_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CREDUI_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CREDUI_FLAGS").field(&self.0).finish()
-    }
 }
 impl CREDUI_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1254,15 +1239,10 @@ impl core::ops::Not for CREDUI_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CRED_ENUMERATE_FLAGS(pub u32);
 impl windows_core::TypeKind for CRED_ENUMERATE_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CRED_ENUMERATE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CRED_ENUMERATE_FLAGS").field(&self.0).finish()
-    }
 }
 impl CRED_ENUMERATE_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1298,15 +1278,10 @@ impl core::ops::Not for CRED_ENUMERATE_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CRED_FLAGS(pub u32);
 impl windows_core::TypeKind for CRED_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CRED_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CRED_FLAGS").field(&self.0).finish()
-    }
 }
 impl CRED_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1342,26 +1317,16 @@ impl core::ops::Not for CRED_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CRED_MARSHAL_TYPE(pub i32);
 impl windows_core::TypeKind for CRED_MARSHAL_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CRED_MARSHAL_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CRED_MARSHAL_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CRED_PACK_FLAGS(pub u32);
 impl windows_core::TypeKind for CRED_PACK_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for CRED_PACK_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CRED_PACK_FLAGS").field(&self.0).finish()
-    }
 }
 impl CRED_PACK_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1397,48 +1362,28 @@ impl core::ops::Not for CRED_PACK_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CRED_PERSIST(pub u32);
 impl windows_core::TypeKind for CRED_PERSIST {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CRED_PERSIST {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CRED_PERSIST").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CRED_PROTECTION_TYPE(pub i32);
 impl windows_core::TypeKind for CRED_PROTECTION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CRED_PROTECTION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CRED_PROTECTION_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CRED_TYPE(pub u32);
 impl windows_core::TypeKind for CRED_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CRED_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CRED_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct KeyCredentialManagerOperationErrorStates(pub i32);
 impl windows_core::TypeKind for KeyCredentialManagerOperationErrorStates {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for KeyCredentialManagerOperationErrorStates {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KeyCredentialManagerOperationErrorStates").field(&self.0).finish()
-    }
 }
 impl KeyCredentialManagerOperationErrorStates {
     pub const fn contains(&self, other: Self) -> bool {
@@ -1474,79 +1419,59 @@ impl core::ops::Not for KeyCredentialManagerOperationErrorStates {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct KeyCredentialManagerOperationType(pub i32);
 impl windows_core::TypeKind for KeyCredentialManagerOperationType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for KeyCredentialManagerOperationType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("KeyCredentialManagerOperationType").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct READER_SEL_REQUEST_MATCH_TYPE(pub i32);
 impl windows_core::TypeKind for READER_SEL_REQUEST_MATCH_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for READER_SEL_REQUEST_MATCH_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("READER_SEL_REQUEST_MATCH_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SCARD_SCOPE(pub u32);
 impl windows_core::TypeKind for SCARD_SCOPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SCARD_SCOPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SCARD_SCOPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SCARD_STATE(pub u32);
 impl windows_core::TypeKind for SCARD_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SCARD_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SCARD_STATE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct BINARY_BLOB_CREDENTIAL_INFO {
     pub cbBlob: u32,
     pub pbBlob: *mut u8,
-}
-impl windows_core::TypeKind for BINARY_BLOB_CREDENTIAL_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for BINARY_BLOB_CREDENTIAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for BINARY_BLOB_CREDENTIAL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CERT_CREDENTIAL_INFO {
     pub cbSize: u32,
     pub rgbHashOfCert: [u8; 20],
-}
-impl windows_core::TypeKind for CERT_CREDENTIAL_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CERT_CREDENTIAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CERT_CREDENTIAL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CREDENTIALA {
     pub Flags: CRED_FLAGS,
     pub Type: CRED_TYPE,
@@ -1561,16 +1486,16 @@ pub struct CREDENTIALA {
     pub TargetAlias: windows_core::PSTR,
     pub UserName: windows_core::PSTR,
 }
-impl windows_core::TypeKind for CREDENTIALA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CREDENTIALA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CREDENTIALA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CREDENTIALW {
     pub Flags: CRED_FLAGS,
     pub Type: CRED_TYPE,
@@ -1585,48 +1510,48 @@ pub struct CREDENTIALW {
     pub TargetAlias: windows_core::PWSTR,
     pub UserName: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for CREDENTIALW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CREDENTIALW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CREDENTIALW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CREDENTIAL_ATTRIBUTEA {
     pub Keyword: windows_core::PSTR,
     pub Flags: u32,
     pub ValueSize: u32,
     pub Value: *mut u8,
 }
-impl windows_core::TypeKind for CREDENTIAL_ATTRIBUTEA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CREDENTIAL_ATTRIBUTEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CREDENTIAL_ATTRIBUTEA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CREDENTIAL_ATTRIBUTEW {
     pub Keyword: windows_core::PWSTR,
     pub Flags: u32,
     pub ValueSize: u32,
     pub Value: *mut u8,
 }
-impl windows_core::TypeKind for CREDENTIAL_ATTRIBUTEW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CREDENTIAL_ATTRIBUTEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CREDENTIAL_ATTRIBUTEW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CREDENTIAL_TARGET_INFORMATIONA {
     pub TargetName: windows_core::PSTR,
     pub NetbiosServerName: windows_core::PSTR,
@@ -1639,16 +1564,16 @@ pub struct CREDENTIAL_TARGET_INFORMATIONA {
     pub CredTypeCount: u32,
     pub CredTypes: *mut u32,
 }
-impl windows_core::TypeKind for CREDENTIAL_TARGET_INFORMATIONA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CREDENTIAL_TARGET_INFORMATIONA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CREDENTIAL_TARGET_INFORMATIONA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub TargetName: windows_core::PWSTR,
     pub NetbiosServerName: windows_core::PWSTR,
@@ -1661,31 +1586,31 @@ pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub CredTypeCount: u32,
     pub CredTypes: *mut u32,
 }
-impl windows_core::TypeKind for CREDENTIAL_TARGET_INFORMATIONW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CREDENTIAL_TARGET_INFORMATIONW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CREDENTIAL_TARGET_INFORMATIONW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CREDSSP_CRED {
     pub Type: CREDSPP_SUBMIT_TYPE,
     pub pSchannelCred: *mut core::ffi::c_void,
     pub pSpnegoCred: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for CREDSSP_CRED {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CREDSSP_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CREDSSP_CRED {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CREDSSP_CRED_EX {
     pub Type: CREDSPP_SUBMIT_TYPE,
     pub Version: u32,
@@ -1693,17 +1618,17 @@ pub struct CREDSSP_CRED_EX {
     pub Reserved: u32,
     pub Cred: CREDSSP_CRED,
 }
-impl windows_core::TypeKind for CREDSSP_CRED_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CREDSSP_CRED_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CREDSSP_CRED_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CREDUI_INFOA {
     pub cbSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -1712,18 +1637,18 @@ pub struct CREDUI_INFOA {
     pub hbmBanner: super::super::Graphics::Gdi::HBITMAP,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CREDUI_INFOA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for CREDUI_INFOA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for CREDUI_INFOA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CREDUI_INFOW {
     pub cbSize: u32,
     pub hwndParent: super::super::Foundation::HWND,
@@ -1732,30 +1657,30 @@ pub struct CREDUI_INFOW {
     pub hbmBanner: super::super::Graphics::Gdi::HBITMAP,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for CREDUI_INFOW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for CREDUI_INFOW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for CREDUI_INFOW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct KeyCredentialManagerInfo {
     pub containerId: windows_core::GUID,
-}
-impl windows_core::TypeKind for KeyCredentialManagerInfo {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for KeyCredentialManagerInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for KeyCredentialManagerInfo {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct OPENCARDNAMEA {
     pub dwStructSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -1781,16 +1706,16 @@ pub struct OPENCARDNAMEA {
     pub lpfnDisconnect: LPOCNDSCPROC,
     pub hCardHandle: usize,
 }
-impl windows_core::TypeKind for OPENCARDNAMEA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for OPENCARDNAMEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for OPENCARDNAMEA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct OPENCARDNAMEW {
     pub dwStructSize: u32,
     pub hwndOwner: super::super::Foundation::HWND,
@@ -1816,17 +1741,17 @@ pub struct OPENCARDNAMEW {
     pub lpfnDisconnect: LPOCNDSCPROC,
     pub hCardHandle: usize,
 }
-impl windows_core::TypeKind for OPENCARDNAMEW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for OPENCARDNAMEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for OPENCARDNAMEW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct OPENCARDNAME_EXA {
     pub dwStructSize: u32,
     pub hSCardContext: usize,
@@ -1848,18 +1773,18 @@ pub struct OPENCARDNAME_EXA {
     pub hCardHandle: usize,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for OPENCARDNAME_EXA {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for OPENCARDNAME_EXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for OPENCARDNAME_EXA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct OPENCARDNAME_EXW {
     pub dwStructSize: u32,
     pub hSCardContext: usize,
@@ -1881,17 +1806,17 @@ pub struct OPENCARDNAME_EXW {
     pub hCardHandle: usize,
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl windows_core::TypeKind for OPENCARDNAME_EXW {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl Default for OPENCARDNAME_EXW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl windows_core::TypeKind for OPENCARDNAME_EXW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct OPENCARD_SEARCH_CRITERIAA {
     pub dwStructSize: u32,
     pub lpstrGroupNames: windows_core::PSTR,
@@ -1907,16 +1832,16 @@ pub struct OPENCARD_SEARCH_CRITERIAA {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
 }
-impl windows_core::TypeKind for OPENCARD_SEARCH_CRITERIAA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for OPENCARD_SEARCH_CRITERIAA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for OPENCARD_SEARCH_CRITERIAA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct OPENCARD_SEARCH_CRITERIAW {
     pub dwStructSize: u32,
     pub lpstrGroupNames: windows_core::PWSTR,
@@ -1932,46 +1857,46 @@ pub struct OPENCARD_SEARCH_CRITERIAW {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
 }
-impl windows_core::TypeKind for OPENCARD_SEARCH_CRITERIAW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for OPENCARD_SEARCH_CRITERIAW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for OPENCARD_SEARCH_CRITERIAW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct READER_SEL_REQUEST {
     pub dwShareMode: u32,
     pub dwPreferredProtocols: u32,
     pub MatchType: READER_SEL_REQUEST_MATCH_TYPE,
     pub Anonymous: READER_SEL_REQUEST_0,
 }
-impl windows_core::TypeKind for READER_SEL_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for READER_SEL_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for READER_SEL_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union READER_SEL_REQUEST_0 {
     pub ReaderAndContainerParameter: READER_SEL_REQUEST_0_0,
     pub SerialNumberParameter: READER_SEL_REQUEST_0_1,
-}
-impl windows_core::TypeKind for READER_SEL_REQUEST_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for READER_SEL_REQUEST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for READER_SEL_REQUEST_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct READER_SEL_REQUEST_0_0 {
     pub cbReaderNameOffset: u32,
     pub cchReaderNameLength: u32,
@@ -1980,76 +1905,76 @@ pub struct READER_SEL_REQUEST_0_0 {
     pub dwDesiredCardModuleVersion: u32,
     pub dwCspFlags: u32,
 }
-impl windows_core::TypeKind for READER_SEL_REQUEST_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for READER_SEL_REQUEST_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for READER_SEL_REQUEST_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct READER_SEL_REQUEST_0_1 {
     pub cbSerialNumberOffset: u32,
     pub cbSerialNumberLength: u32,
     pub dwDesiredCardModuleVersion: u32,
-}
-impl windows_core::TypeKind for READER_SEL_REQUEST_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for READER_SEL_REQUEST_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for READER_SEL_REQUEST_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct READER_SEL_RESPONSE {
     pub cbReaderNameOffset: u32,
     pub cchReaderNameLength: u32,
     pub cbCardNameOffset: u32,
     pub cchCardNameLength: u32,
 }
-impl windows_core::TypeKind for READER_SEL_RESPONSE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for READER_SEL_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for READER_SEL_RESPONSE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCARD_ATRMASK {
     pub cbAtr: u32,
     pub rgbAtr: [u8; 36],
     pub rgbMask: [u8; 36],
-}
-impl windows_core::TypeKind for SCARD_ATRMASK {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SCARD_ATRMASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCARD_ATRMASK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCARD_IO_REQUEST {
     pub dwProtocol: u32,
     pub cbPciLength: u32,
-}
-impl windows_core::TypeKind for SCARD_IO_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SCARD_IO_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCARD_IO_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCARD_READERSTATEA {
     pub szReader: windows_core::PCSTR,
     pub pvUserData: *mut core::ffi::c_void,
@@ -2058,16 +1983,16 @@ pub struct SCARD_READERSTATEA {
     pub cbAtr: u32,
     pub rgbAtr: [u8; 36],
 }
-impl windows_core::TypeKind for SCARD_READERSTATEA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SCARD_READERSTATEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCARD_READERSTATEA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCARD_READERSTATEW {
     pub szReader: windows_core::PCWSTR,
     pub pvUserData: *mut core::ffi::c_void,
@@ -2076,16 +2001,16 @@ pub struct SCARD_READERSTATEW {
     pub cbAtr: u32,
     pub rgbAtr: [u8; 36],
 }
-impl windows_core::TypeKind for SCARD_READERSTATEW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SCARD_READERSTATEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCARD_READERSTATEW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCARD_T0_COMMAND {
     pub bCla: u8,
     pub bIns: u8,
@@ -2093,97 +2018,97 @@ pub struct SCARD_T0_COMMAND {
     pub bP2: u8,
     pub bP3: u8,
 }
-impl windows_core::TypeKind for SCARD_T0_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SCARD_T0_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCARD_T0_COMMAND {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct SCARD_T0_REQUEST {
     pub ioRequest: SCARD_IO_REQUEST,
     pub bSw1: u8,
     pub bSw2: u8,
     pub Anonymous: SCARD_T0_REQUEST_0,
 }
-impl windows_core::TypeKind for SCARD_T0_REQUEST {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SCARD_T0_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCARD_T0_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union SCARD_T0_REQUEST_0 {
     pub CmdBytes: SCARD_T0_COMMAND,
     pub rgbHeader: [u8; 5],
-}
-impl windows_core::TypeKind for SCARD_T0_REQUEST_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SCARD_T0_REQUEST_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCARD_T0_REQUEST_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SCARD_T1_REQUEST {
     pub ioRequest: SCARD_IO_REQUEST,
-}
-impl windows_core::TypeKind for SCARD_T1_REQUEST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SCARD_T1_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SCARD_T1_REQUEST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecHandle {
     pub dwLower: usize,
     pub dwUpper: usize,
-}
-impl windows_core::TypeKind for SecHandle {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecHandle {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecHandle {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SecPkgContext_ClientCreds {
     pub AuthBufferLen: u32,
     pub AuthBuffer: *mut u8,
-}
-impl windows_core::TypeKind for SecPkgContext_ClientCreds {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SecPkgContext_ClientCreds {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SecPkgContext_ClientCreds {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct USERNAME_TARGET_CREDENTIAL_INFO {
     pub UserName: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for USERNAME_TARGET_CREDENTIAL_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for USERNAME_TARGET_CREDENTIAL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for USERNAME_TARGET_CREDENTIAL_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 pub type LPOCNCHKPROC = Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const core::ffi::c_void) -> super::super::Foundation::BOOL>;
 pub type LPOCNCONNPROCA = Option<unsafe extern "system" fn(param0: usize, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: *const core::ffi::c_void) -> usize>;

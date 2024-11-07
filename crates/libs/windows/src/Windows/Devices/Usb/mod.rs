@@ -423,6 +423,7 @@ pub struct IUsbSetupPacketFactory_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbBulkInEndpointDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbBulkInEndpointDescriptor, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbBulkInEndpointDescriptor, IUsbBulkInEndpointDescriptor);
 impl UsbBulkInEndpointDescriptor {
     pub fn MaxPacketSize(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -450,18 +451,17 @@ impl windows_core::RuntimeType for UsbBulkInEndpointDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbBulkInEndpointDescriptor>();
 }
 unsafe impl windows_core::Interface for UsbBulkInEndpointDescriptor {
-    type Vtable = IUsbBulkInEndpointDescriptor_Vtbl;
+    type Vtable = <IUsbBulkInEndpointDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbBulkInEndpointDescriptor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbBulkInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkInEndpointDescriptor";
 }
-unsafe impl Send for UsbBulkInEndpointDescriptor {}
-unsafe impl Sync for UsbBulkInEndpointDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbBulkInPipe(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbBulkInPipe, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbBulkInPipe, IUsbBulkInPipe);
 impl UsbBulkInPipe {
     pub fn MaxTransferSizeBytes(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -512,18 +512,17 @@ impl windows_core::RuntimeType for UsbBulkInPipe {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbBulkInPipe>();
 }
 unsafe impl windows_core::Interface for UsbBulkInPipe {
-    type Vtable = IUsbBulkInPipe_Vtbl;
+    type Vtable = <IUsbBulkInPipe as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbBulkInPipe as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbBulkInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkInPipe";
 }
-unsafe impl Send for UsbBulkInPipe {}
-unsafe impl Sync for UsbBulkInPipe {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbBulkOutEndpointDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbBulkOutEndpointDescriptor, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbBulkOutEndpointDescriptor, IUsbBulkOutEndpointDescriptor);
 impl UsbBulkOutEndpointDescriptor {
     pub fn MaxPacketSize(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -551,18 +550,17 @@ impl windows_core::RuntimeType for UsbBulkOutEndpointDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbBulkOutEndpointDescriptor>();
 }
 unsafe impl windows_core::Interface for UsbBulkOutEndpointDescriptor {
-    type Vtable = IUsbBulkOutEndpointDescriptor_Vtbl;
+    type Vtable = <IUsbBulkOutEndpointDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbBulkOutEndpointDescriptor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbBulkOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkOutEndpointDescriptor";
 }
-unsafe impl Send for UsbBulkOutEndpointDescriptor {}
-unsafe impl Sync for UsbBulkOutEndpointDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbBulkOutPipe(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbBulkOutPipe, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbBulkOutPipe, IUsbBulkOutPipe);
 impl UsbBulkOutPipe {
     pub fn EndpointDescriptor(&self) -> windows_core::Result<UsbBulkOutEndpointDescriptor> {
         let this = self;
@@ -602,18 +600,17 @@ impl windows_core::RuntimeType for UsbBulkOutPipe {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbBulkOutPipe>();
 }
 unsafe impl windows_core::Interface for UsbBulkOutPipe {
-    type Vtable = IUsbBulkOutPipe_Vtbl;
+    type Vtable = <IUsbBulkOutPipe as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbBulkOutPipe as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbBulkOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkOutPipe";
 }
-unsafe impl Send for UsbBulkOutPipe {}
-unsafe impl Sync for UsbBulkOutPipe {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbConfiguration, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbConfiguration, IUsbConfiguration);
 impl UsbConfiguration {
     #[cfg(feature = "Foundation_Collections")]
     pub fn UsbInterfaces(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterface>> {
@@ -643,18 +640,17 @@ impl windows_core::RuntimeType for UsbConfiguration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbConfiguration>();
 }
 unsafe impl windows_core::Interface for UsbConfiguration {
-    type Vtable = IUsbConfiguration_Vtbl;
+    type Vtable = <IUsbConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbConfiguration as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbConfiguration {
     const NAME: &'static str = "Windows.Devices.Usb.UsbConfiguration";
 }
-unsafe impl Send for UsbConfiguration {}
-unsafe impl Sync for UsbConfiguration {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbConfigurationDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbConfigurationDescriptor, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbConfigurationDescriptor, IUsbConfigurationDescriptor, IUsbConfigurationDescriptorStatics);
 impl UsbConfigurationDescriptor {
     pub fn ConfigurationValue(&self) -> windows_core::Result<u8> {
         let this = self;
@@ -711,18 +707,17 @@ impl windows_core::RuntimeType for UsbConfigurationDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbConfigurationDescriptor>();
 }
 unsafe impl windows_core::Interface for UsbConfigurationDescriptor {
-    type Vtable = IUsbConfigurationDescriptor_Vtbl;
+    type Vtable = <IUsbConfigurationDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbConfigurationDescriptor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbConfigurationDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbConfigurationDescriptor";
 }
-unsafe impl Send for UsbConfigurationDescriptor {}
-unsafe impl Sync for UsbConfigurationDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbControlRequestType(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbControlRequestType, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbControlRequestType, IUsbControlRequestType);
 impl UsbControlRequestType {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -780,18 +775,17 @@ impl windows_core::RuntimeType for UsbControlRequestType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbControlRequestType>();
 }
 unsafe impl windows_core::Interface for UsbControlRequestType {
-    type Vtable = IUsbControlRequestType_Vtbl;
+    type Vtable = <IUsbControlRequestType as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbControlRequestType as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbControlRequestType {
     const NAME: &'static str = "Windows.Devices.Usb.UsbControlRequestType";
 }
-unsafe impl Send for UsbControlRequestType {}
-unsafe impl Sync for UsbControlRequestType {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbDescriptor, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbDescriptor, IUsbDescriptor);
 impl UsbDescriptor {
     pub fn Length(&self) -> windows_core::Result<u8> {
         let this = self;
@@ -820,24 +814,18 @@ impl windows_core::RuntimeType for UsbDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbDescriptor>();
 }
 unsafe impl windows_core::Interface for UsbDescriptor {
-    type Vtable = IUsbDescriptor_Vtbl;
+    type Vtable = <IUsbDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbDescriptor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDescriptor";
 }
-unsafe impl Send for UsbDescriptor {}
-unsafe impl Sync for UsbDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbDevice, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UsbDevice, super::super::Foundation::IClosable);
+windows_core::imp::required_hierarchy!(UsbDevice, IUsbDevice, IUsbDeviceStatics, super::super::Foundation::IClosable);
 impl UsbDevice {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     #[cfg(feature = "Storage_Streams")]
     pub fn SendControlOutTransferAsync<P0, P1>(&self, setuppacket: P0, buffer: P1) -> windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
     where
@@ -937,6 +925,10 @@ impl UsbDevice {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     fn IUsbDeviceStatics<R, F: FnOnce(&IUsbDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<UsbDevice, IUsbDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -946,18 +938,17 @@ impl windows_core::RuntimeType for UsbDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbDevice>();
 }
 unsafe impl windows_core::Interface for UsbDevice {
-    type Vtable = IUsbDevice_Vtbl;
+    type Vtable = <IUsbDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbDevice {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDevice";
 }
-unsafe impl Send for UsbDevice {}
-unsafe impl Sync for UsbDevice {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbDeviceClass(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbDeviceClass, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbDeviceClass, IUsbDeviceClass);
 impl UsbDeviceClass {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1010,18 +1001,17 @@ impl windows_core::RuntimeType for UsbDeviceClass {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbDeviceClass>();
 }
 unsafe impl windows_core::Interface for UsbDeviceClass {
-    type Vtable = IUsbDeviceClass_Vtbl;
+    type Vtable = <IUsbDeviceClass as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbDeviceClass as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbDeviceClass {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceClass";
 }
-unsafe impl Send for UsbDeviceClass {}
-unsafe impl Sync for UsbDeviceClass {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbDeviceClasses(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbDeviceClasses, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbDeviceClasses, IUsbDeviceClasses, IUsbDeviceClassesStatics);
 impl UsbDeviceClasses {
     pub fn CdcControl() -> windows_core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
@@ -1086,18 +1076,17 @@ impl windows_core::RuntimeType for UsbDeviceClasses {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbDeviceClasses>();
 }
 unsafe impl windows_core::Interface for UsbDeviceClasses {
-    type Vtable = IUsbDeviceClasses_Vtbl;
+    type Vtable = <IUsbDeviceClasses as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbDeviceClasses as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbDeviceClasses {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceClasses";
 }
-unsafe impl Send for UsbDeviceClasses {}
-unsafe impl Sync for UsbDeviceClasses {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbDeviceDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbDeviceDescriptor, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbDeviceDescriptor, IUsbDeviceDescriptor);
 impl UsbDeviceDescriptor {
     pub fn BcdUsb(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -1146,18 +1135,17 @@ impl windows_core::RuntimeType for UsbDeviceDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbDeviceDescriptor>();
 }
 unsafe impl windows_core::Interface for UsbDeviceDescriptor {
-    type Vtable = IUsbDeviceDescriptor_Vtbl;
+    type Vtable = <IUsbDeviceDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbDeviceDescriptor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbDeviceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceDescriptor";
 }
-unsafe impl Send for UsbDeviceDescriptor {}
-unsafe impl Sync for UsbDeviceDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbEndpointDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbEndpointDescriptor, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbEndpointDescriptor, IUsbEndpointDescriptor, IUsbEndpointDescriptorStatics);
 impl UsbEndpointDescriptor {
     pub fn EndpointNumber(&self) -> windows_core::Result<u8> {
         let this = self;
@@ -1235,18 +1223,17 @@ impl windows_core::RuntimeType for UsbEndpointDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbEndpointDescriptor>();
 }
 unsafe impl windows_core::Interface for UsbEndpointDescriptor {
-    type Vtable = IUsbEndpointDescriptor_Vtbl;
+    type Vtable = <IUsbEndpointDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbEndpointDescriptor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbEndpointDescriptor";
 }
-unsafe impl Send for UsbEndpointDescriptor {}
-unsafe impl Sync for UsbEndpointDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterface(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterface, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbInterface, IUsbInterface);
 impl UsbInterface {
     #[cfg(feature = "Foundation_Collections")]
     pub fn BulkInPipes(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkInPipe>> {
@@ -1308,18 +1295,17 @@ impl windows_core::RuntimeType for UsbInterface {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbInterface>();
 }
 unsafe impl windows_core::Interface for UsbInterface {
-    type Vtable = IUsbInterface_Vtbl;
+    type Vtable = <IUsbInterface as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbInterface as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbInterface {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterface";
 }
-unsafe impl Send for UsbInterface {}
-unsafe impl Sync for UsbInterface {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterfaceDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterfaceDescriptor, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbInterfaceDescriptor, IUsbInterfaceDescriptor, IUsbInterfaceDescriptorStatics);
 impl UsbInterfaceDescriptor {
     pub fn ClassCode(&self) -> windows_core::Result<u8> {
         let this = self;
@@ -1383,18 +1369,17 @@ impl windows_core::RuntimeType for UsbInterfaceDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbInterfaceDescriptor>();
 }
 unsafe impl windows_core::Interface for UsbInterfaceDescriptor {
-    type Vtable = IUsbInterfaceDescriptor_Vtbl;
+    type Vtable = <IUsbInterfaceDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbInterfaceDescriptor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbInterfaceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterfaceDescriptor";
 }
-unsafe impl Send for UsbInterfaceDescriptor {}
-unsafe impl Sync for UsbInterfaceDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterfaceSetting(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterfaceSetting, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbInterfaceSetting, IUsbInterfaceSetting);
 impl UsbInterfaceSetting {
     #[cfg(feature = "Foundation_Collections")]
     pub fn BulkInEndpoints(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkInEndpointDescriptor>> {
@@ -1462,18 +1447,17 @@ impl windows_core::RuntimeType for UsbInterfaceSetting {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbInterfaceSetting>();
 }
 unsafe impl windows_core::Interface for UsbInterfaceSetting {
-    type Vtable = IUsbInterfaceSetting_Vtbl;
+    type Vtable = <IUsbInterfaceSetting as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbInterfaceSetting as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbInterfaceSetting {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterfaceSetting";
 }
-unsafe impl Send for UsbInterfaceSetting {}
-unsafe impl Sync for UsbInterfaceSetting {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterruptInEndpointDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterruptInEndpointDescriptor, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbInterruptInEndpointDescriptor, IUsbInterruptInEndpointDescriptor);
 impl UsbInterruptInEndpointDescriptor {
     pub fn MaxPacketSize(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -1508,18 +1492,17 @@ impl windows_core::RuntimeType for UsbInterruptInEndpointDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbInterruptInEndpointDescriptor>();
 }
 unsafe impl windows_core::Interface for UsbInterruptInEndpointDescriptor {
-    type Vtable = IUsbInterruptInEndpointDescriptor_Vtbl;
+    type Vtable = <IUsbInterruptInEndpointDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbInterruptInEndpointDescriptor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbInterruptInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInEndpointDescriptor";
 }
-unsafe impl Send for UsbInterruptInEndpointDescriptor {}
-unsafe impl Sync for UsbInterruptInEndpointDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterruptInEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterruptInEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbInterruptInEventArgs, IUsbInterruptInEventArgs);
 impl UsbInterruptInEventArgs {
     #[cfg(feature = "Storage_Streams")]
     pub fn InterruptData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
@@ -1534,18 +1517,17 @@ impl windows_core::RuntimeType for UsbInterruptInEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbInterruptInEventArgs>();
 }
 unsafe impl windows_core::Interface for UsbInterruptInEventArgs {
-    type Vtable = IUsbInterruptInEventArgs_Vtbl;
+    type Vtable = <IUsbInterruptInEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbInterruptInEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbInterruptInEventArgs {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInEventArgs";
 }
-unsafe impl Send for UsbInterruptInEventArgs {}
-unsafe impl Sync for UsbInterruptInEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterruptInPipe(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterruptInPipe, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbInterruptInPipe, IUsbInterruptInPipe);
 impl UsbInterruptInPipe {
     pub fn EndpointDescriptor(&self) -> windows_core::Result<UsbInterruptInEndpointDescriptor> {
         let this = self;
@@ -1580,18 +1562,17 @@ impl windows_core::RuntimeType for UsbInterruptInPipe {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbInterruptInPipe>();
 }
 unsafe impl windows_core::Interface for UsbInterruptInPipe {
-    type Vtable = IUsbInterruptInPipe_Vtbl;
+    type Vtable = <IUsbInterruptInPipe as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbInterruptInPipe as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbInterruptInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInPipe";
 }
-unsafe impl Send for UsbInterruptInPipe {}
-unsafe impl Sync for UsbInterruptInPipe {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterruptOutEndpointDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterruptOutEndpointDescriptor, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbInterruptOutEndpointDescriptor, IUsbInterruptOutEndpointDescriptor);
 impl UsbInterruptOutEndpointDescriptor {
     pub fn MaxPacketSize(&self) -> windows_core::Result<u32> {
         let this = self;
@@ -1626,18 +1607,17 @@ impl windows_core::RuntimeType for UsbInterruptOutEndpointDescriptor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbInterruptOutEndpointDescriptor>();
 }
 unsafe impl windows_core::Interface for UsbInterruptOutEndpointDescriptor {
-    type Vtable = IUsbInterruptOutEndpointDescriptor_Vtbl;
+    type Vtable = <IUsbInterruptOutEndpointDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbInterruptOutEndpointDescriptor as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbInterruptOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor";
 }
-unsafe impl Send for UsbInterruptOutEndpointDescriptor {}
-unsafe impl Sync for UsbInterruptOutEndpointDescriptor {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbInterruptOutPipe(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbInterruptOutPipe, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbInterruptOutPipe, IUsbInterruptOutPipe);
 impl UsbInterruptOutPipe {
     pub fn EndpointDescriptor(&self) -> windows_core::Result<UsbInterruptOutEndpointDescriptor> {
         let this = self;
@@ -1677,18 +1657,17 @@ impl windows_core::RuntimeType for UsbInterruptOutPipe {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbInterruptOutPipe>();
 }
 unsafe impl windows_core::Interface for UsbInterruptOutPipe {
-    type Vtable = IUsbInterruptOutPipe_Vtbl;
+    type Vtable = <IUsbInterruptOutPipe as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbInterruptOutPipe as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbInterruptOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptOutPipe";
 }
-unsafe impl Send for UsbInterruptOutPipe {}
-unsafe impl Sync for UsbInterruptOutPipe {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UsbSetupPacket(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UsbSetupPacket, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(UsbSetupPacket, IUsbSetupPacket, IUsbSetupPacketFactory);
 impl UsbSetupPacket {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -1774,16 +1753,14 @@ impl windows_core::RuntimeType for UsbSetupPacket {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUsbSetupPacket>();
 }
 unsafe impl windows_core::Interface for UsbSetupPacket {
-    type Vtable = IUsbSetupPacket_Vtbl;
+    type Vtable = <IUsbSetupPacket as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUsbSetupPacket as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UsbSetupPacket {
     const NAME: &'static str = "Windows.Devices.Usb.UsbSetupPacket";
 }
-unsafe impl Send for UsbSetupPacket {}
-unsafe impl Sync for UsbSetupPacket {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct UsbControlRecipient(pub i32);
 impl UsbControlRecipient {
     pub const Device: Self = Self(0i32);
@@ -1795,16 +1772,11 @@ impl UsbControlRecipient {
 impl windows_core::TypeKind for UsbControlRecipient {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UsbControlRecipient {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UsbControlRecipient").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for UsbControlRecipient {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbControlRecipient;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct UsbControlTransferType(pub i32);
 impl UsbControlTransferType {
     pub const Standard: Self = Self(0i32);
@@ -1814,16 +1786,11 @@ impl UsbControlTransferType {
 impl windows_core::TypeKind for UsbControlTransferType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UsbControlTransferType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UsbControlTransferType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for UsbControlTransferType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbControlTransferType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct UsbEndpointType(pub i32);
 impl UsbEndpointType {
     pub const Control: Self = Self(0i32);
@@ -1834,16 +1801,11 @@ impl UsbEndpointType {
 impl windows_core::TypeKind for UsbEndpointType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UsbEndpointType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UsbEndpointType").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for UsbEndpointType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbEndpointType;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct UsbReadOptions(pub u32);
 impl UsbReadOptions {
     pub const None: Self = Self(0u32);
@@ -1855,49 +1817,11 @@ impl UsbReadOptions {
 impl windows_core::TypeKind for UsbReadOptions {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UsbReadOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UsbReadOptions").field(&self.0).finish()
-    }
-}
-impl UsbReadOptions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for UsbReadOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for UsbReadOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for UsbReadOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for UsbReadOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for UsbReadOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for UsbReadOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbReadOptions;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct UsbTransferDirection(pub i32);
 impl UsbTransferDirection {
     pub const Out: Self = Self(0i32);
@@ -1906,16 +1830,11 @@ impl UsbTransferDirection {
 impl windows_core::TypeKind for UsbTransferDirection {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for UsbTransferDirection {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UsbTransferDirection").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for UsbTransferDirection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbTransferDirection;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct UsbWriteOptions(pub u32);
 impl UsbWriteOptions {
     pub const None: Self = Self(0u32);
@@ -1924,44 +1843,6 @@ impl UsbWriteOptions {
 }
 impl windows_core::TypeKind for UsbWriteOptions {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for UsbWriteOptions {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("UsbWriteOptions").field(&self.0).finish()
-    }
-}
-impl UsbWriteOptions {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for UsbWriteOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for UsbWriteOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for UsbWriteOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for UsbWriteOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for UsbWriteOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 impl windows_core::RuntimeType for UsbWriteOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbWriteOptions;u4)");

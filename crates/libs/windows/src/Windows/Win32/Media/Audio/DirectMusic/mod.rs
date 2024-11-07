@@ -1,24 +1,18 @@
 windows_core::imp::define_interface!(IDirectMusic, IDirectMusic_Vtbl, 0x6536115a_7b2d_11d2_ba18_0000f875ac12);
-impl core::ops::Deref for IDirectMusic {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDirectMusic, windows_core::IUnknown);
 impl IDirectMusic {
     pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).EnumPort)(windows_core::Interface::as_raw(self), dwindex, pportcaps).ok()
     }
-    pub unsafe fn CreateMusicBuffer<P0>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut Option<IDirectMusicBuffer>, punkouter: P0) -> windows_core::Result<()>
+    pub unsafe fn CreateMusicBuffer<P2>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut Option<IDirectMusicBuffer>, punkouter: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::IUnknown>,
+        P2: windows_core::Param<windows_core::IUnknown>,
     {
         (windows_core::Interface::vtable(self).CreateMusicBuffer)(windows_core::Interface::as_raw(self), pbufferdesc, core::mem::transmute(ppbuffer), punkouter.param().abi()).ok()
     }
-    pub unsafe fn CreatePort<P0>(&self, rclsidport: *const windows_core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut Option<IDirectMusicPort>, punkouter: P0) -> windows_core::Result<()>
+    pub unsafe fn CreatePort<P3>(&self, rclsidport: *const windows_core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut Option<IDirectMusicPort>, punkouter: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::IUnknown>,
+        P3: windows_core::Param<windows_core::IUnknown>,
     {
         (windows_core::Interface::vtable(self).CreatePort)(windows_core::Interface::as_raw(self), rclsidport, pportparams, core::mem::transmute(ppport), punkouter.param().abi()).ok()
     }
@@ -66,7 +60,7 @@ pub struct IDirectMusic_Vtbl {
     SetDirectSound: usize,
 }
 #[cfg(feature = "Win32_Media_Audio_DirectSound")]
-pub trait IDirectMusic_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDirectMusic_Impl: windows_core::IUnknownImpl {
     fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> windows_core::Result<()>;
     fn CreateMusicBuffer(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut Option<IDirectMusicBuffer>, punkouter: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn CreatePort(&self, rclsidport: *const windows_core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut Option<IDirectMusicPort>, punkouter: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -78,10 +72,8 @@ pub trait IDirectMusic_Impl: Sized + windows_core::IUnknownImpl {
     fn SetDirectSound(&self, pdirectsound: Option<&super::DirectSound::IDirectSound>, hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_Audio_DirectSound")]
-impl windows_core::RuntimeName for IDirectMusic {}
-#[cfg(feature = "Win32_Media_Audio_DirectSound")]
 impl IDirectMusic_Vtbl {
-    pub const fn new<Identity: IDirectMusic_Impl, const OFFSET: isize>() -> IDirectMusic_Vtbl {
+    pub const fn new<Identity: IDirectMusic_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EnumPort<Identity: IDirectMusic_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectMusic_Impl::EnumPort(this, core::mem::transmute_copy(&dwindex), core::mem::transmute_copy(&pportcaps)).into()
@@ -135,6 +127,8 @@ impl IDirectMusic_Vtbl {
         iid == &<IDirectMusic as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Media_Audio_DirectSound")]
+impl windows_core::RuntimeName for IDirectMusic {}
 windows_core::imp::define_interface!(IDirectMusic8, IDirectMusic8_Vtbl, 0x2d3629f7_813d_4939_8508_f05c6b75fd97);
 impl core::ops::Deref for IDirectMusic8 {
     type Target = IDirectMusic;
@@ -157,14 +151,12 @@ pub struct IDirectMusic8_Vtbl {
     pub SetExternalMasterClock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Media_Audio_DirectSound")]
-pub trait IDirectMusic8_Impl: Sized + IDirectMusic_Impl {
+pub trait IDirectMusic8_Impl: IDirectMusic_Impl {
     fn SetExternalMasterClock(&self, pclock: Option<&super::super::IReferenceClock>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_Audio_DirectSound")]
-impl windows_core::RuntimeName for IDirectMusic8 {}
-#[cfg(feature = "Win32_Media_Audio_DirectSound")]
 impl IDirectMusic8_Vtbl {
-    pub const fn new<Identity: IDirectMusic8_Impl, const OFFSET: isize>() -> IDirectMusic8_Vtbl {
+    pub const fn new<Identity: IDirectMusic8_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetExternalMasterClock<Identity: IDirectMusic8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclock: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectMusic8_Impl::SetExternalMasterClock(this, windows_core::from_raw_borrowed(&pclock)).into()
@@ -172,16 +164,12 @@ impl IDirectMusic8_Vtbl {
         Self { base__: IDirectMusic_Vtbl::new::<Identity, OFFSET>(), SetExternalMasterClock: SetExternalMasterClock::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectMusic8 as windows_core::Interface>::IID || iid == &<IDirectMusic as windows_core::Interface>::IID
+        iid == &<IDirectMusic8 as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Media_Audio_DirectSound")]
+impl windows_core::RuntimeName for IDirectMusic8 {}
 windows_core::imp::define_interface!(IDirectMusicBuffer, IDirectMusicBuffer_Vtbl, 0xd2ac2878_b39b_11d1_8704_00600893b1bd);
-impl core::ops::Deref for IDirectMusicBuffer {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDirectMusicBuffer, windows_core::IUnknown);
 impl IDirectMusicBuffer {
     pub unsafe fn Flush(&self) -> windows_core::Result<()> {
@@ -241,7 +229,7 @@ pub struct IDirectMusicBuffer_Vtbl {
     pub SetStartTime: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub SetUsedBytes: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IDirectMusicBuffer_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDirectMusicBuffer_Impl: windows_core::IUnknownImpl {
     fn Flush(&self) -> windows_core::Result<()>;
     fn TotalTime(&self, prttime: *mut i64) -> windows_core::Result<()>;
     fn PackStructured(&self, rt: i64, dwchannelgroup: u32, dwchannelmessage: u32) -> windows_core::Result<()>;
@@ -256,9 +244,8 @@ pub trait IDirectMusicBuffer_Impl: Sized + windows_core::IUnknownImpl {
     fn SetStartTime(&self, rt: i64) -> windows_core::Result<()>;
     fn SetUsedBytes(&self, cb: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IDirectMusicBuffer {}
 impl IDirectMusicBuffer_Vtbl {
-    pub const fn new<Identity: IDirectMusicBuffer_Impl, const OFFSET: isize>() -> IDirectMusicBuffer_Vtbl {
+    pub const fn new<Identity: IDirectMusicBuffer_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Flush<Identity: IDirectMusicBuffer_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectMusicBuffer_Impl::Flush(this).into()
@@ -332,22 +319,17 @@ impl IDirectMusicBuffer_Vtbl {
         iid == &<IDirectMusicBuffer as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDirectMusicBuffer {}
 windows_core::imp::define_interface!(IDirectMusicCollection, IDirectMusicCollection_Vtbl, 0xd2ac287c_b39b_11d1_8704_00600893b1bd);
-impl core::ops::Deref for IDirectMusicCollection {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDirectMusicCollection, windows_core::IUnknown);
 impl IDirectMusicCollection {
     pub unsafe fn GetInstrument(&self, dwpatch: u32) -> windows_core::Result<IDirectMusicInstrument> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).GetInstrument)(windows_core::Interface::as_raw(self), dwpatch, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn EnumInstrument<P0>(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: P0, dwnamelen: u32) -> windows_core::Result<()>
+    pub unsafe fn EnumInstrument<P2>(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: P2, dwnamelen: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).EnumInstrument)(windows_core::Interface::as_raw(self), dwindex, pdwpatch, pwszname.param().abi(), dwnamelen).ok()
     }
@@ -358,13 +340,12 @@ pub struct IDirectMusicCollection_Vtbl {
     pub GetInstrument: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumInstrument: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
 }
-pub trait IDirectMusicCollection_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDirectMusicCollection_Impl: windows_core::IUnknownImpl {
     fn GetInstrument(&self, dwpatch: u32) -> windows_core::Result<IDirectMusicInstrument>;
     fn EnumInstrument(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: &windows_core::PCWSTR, dwnamelen: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IDirectMusicCollection {}
 impl IDirectMusicCollection_Vtbl {
-    pub const fn new<Identity: IDirectMusicCollection_Impl, const OFFSET: isize>() -> IDirectMusicCollection_Vtbl {
+    pub const fn new<Identity: IDirectMusicCollection_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetInstrument<Identity: IDirectMusicCollection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwpatch: u32, ppinstrument: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectMusicCollection_Impl::GetInstrument(this, core::mem::transmute_copy(&dwpatch)) {
@@ -389,13 +370,8 @@ impl IDirectMusicCollection_Vtbl {
         iid == &<IDirectMusicCollection as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDirectMusicCollection {}
 windows_core::imp::define_interface!(IDirectMusicDownload, IDirectMusicDownload_Vtbl, 0xd2ac287b_b39b_11d1_8704_00600893b1bd);
-impl core::ops::Deref for IDirectMusicDownload {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDirectMusicDownload, windows_core::IUnknown);
 impl IDirectMusicDownload {
     pub unsafe fn GetBuffer(&self, ppvbuffer: *mut *mut core::ffi::c_void, pdwsize: *mut u32) -> windows_core::Result<()> {
@@ -407,12 +383,11 @@ pub struct IDirectMusicDownload_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-pub trait IDirectMusicDownload_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDirectMusicDownload_Impl: windows_core::IUnknownImpl {
     fn GetBuffer(&self, ppvbuffer: *mut *mut core::ffi::c_void, pdwsize: *mut u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IDirectMusicDownload {}
 impl IDirectMusicDownload_Vtbl {
-    pub const fn new<Identity: IDirectMusicDownload_Impl, const OFFSET: isize>() -> IDirectMusicDownload_Vtbl {
+    pub const fn new<Identity: IDirectMusicDownload_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBuffer<Identity: IDirectMusicDownload_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppvbuffer: *mut *mut core::ffi::c_void, pdwsize: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectMusicDownload_Impl::GetBuffer(this, core::mem::transmute_copy(&ppvbuffer), core::mem::transmute_copy(&pdwsize)).into()
@@ -423,36 +398,24 @@ impl IDirectMusicDownload_Vtbl {
         iid == &<IDirectMusicDownload as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDirectMusicDownload {}
 windows_core::imp::define_interface!(IDirectMusicDownloadedInstrument, IDirectMusicDownloadedInstrument_Vtbl, 0xd2ac287e_b39b_11d1_8704_00600893b1bd);
-impl core::ops::Deref for IDirectMusicDownloadedInstrument {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDirectMusicDownloadedInstrument, windows_core::IUnknown);
-impl IDirectMusicDownloadedInstrument {}
 #[repr(C)]
 pub struct IDirectMusicDownloadedInstrument_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
 }
-pub trait IDirectMusicDownloadedInstrument_Impl: Sized + windows_core::IUnknownImpl {}
-impl windows_core::RuntimeName for IDirectMusicDownloadedInstrument {}
+pub trait IDirectMusicDownloadedInstrument_Impl: windows_core::IUnknownImpl {}
 impl IDirectMusicDownloadedInstrument_Vtbl {
-    pub const fn new<Identity: IDirectMusicDownloadedInstrument_Impl, const OFFSET: isize>() -> IDirectMusicDownloadedInstrument_Vtbl {
+    pub const fn new<Identity: IDirectMusicDownloadedInstrument_Impl, const OFFSET: isize>() -> Self {
         Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDirectMusicDownloadedInstrument as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDirectMusicDownloadedInstrument {}
 windows_core::imp::define_interface!(IDirectMusicInstrument, IDirectMusicInstrument_Vtbl, 0xd2ac287d_b39b_11d1_8704_00600893b1bd);
-impl core::ops::Deref for IDirectMusicInstrument {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDirectMusicInstrument, windows_core::IUnknown);
 impl IDirectMusicInstrument {
     pub unsafe fn GetPatch(&self, pdwpatch: *mut u32) -> windows_core::Result<()> {
@@ -468,13 +431,12 @@ pub struct IDirectMusicInstrument_Vtbl {
     pub GetPatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub SetPatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-pub trait IDirectMusicInstrument_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDirectMusicInstrument_Impl: windows_core::IUnknownImpl {
     fn GetPatch(&self, pdwpatch: *mut u32) -> windows_core::Result<()>;
     fn SetPatch(&self, dwpatch: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IDirectMusicInstrument {}
 impl IDirectMusicInstrument_Vtbl {
-    pub const fn new<Identity: IDirectMusicInstrument_Impl, const OFFSET: isize>() -> IDirectMusicInstrument_Vtbl {
+    pub const fn new<Identity: IDirectMusicInstrument_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPatch<Identity: IDirectMusicInstrument_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdwpatch: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectMusicInstrument_Impl::GetPatch(this, core::mem::transmute_copy(&pdwpatch)).into()
@@ -489,13 +451,8 @@ impl IDirectMusicInstrument_Vtbl {
         iid == &<IDirectMusicInstrument as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDirectMusicInstrument {}
 windows_core::imp::define_interface!(IDirectMusicPort, IDirectMusicPort_Vtbl, 0x08f2d8c9_37c2_11d2_b9f9_0000f875ac12);
-impl core::ops::Deref for IDirectMusicPort {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDirectMusicPort, windows_core::IUnknown);
 impl IDirectMusicPort {
     pub unsafe fn PlayBuffer<P0>(&self, pbuffer: P0) -> windows_core::Result<()>
@@ -603,7 +560,7 @@ pub struct IDirectMusicPort_Vtbl {
     pub GetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::WAVEFORMATEX, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Media_Audio_DirectSound", feature = "Win32_System_IO"))]
-pub trait IDirectMusicPort_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDirectMusicPort_Impl: windows_core::IUnknownImpl {
     fn PlayBuffer(&self, pbuffer: Option<&IDirectMusicBuffer>) -> windows_core::Result<()>;
     fn SetReadNotificationHandle(&self, hevent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn Read(&self, pbuffer: Option<&IDirectMusicBuffer>) -> windows_core::Result<()>;
@@ -623,10 +580,8 @@ pub trait IDirectMusicPort_Impl: Sized + windows_core::IUnknownImpl {
     fn GetFormat(&self, pwaveformatex: *mut super::WAVEFORMATEX, pdwwaveformatexsize: *mut u32, pdwbuffersize: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Media_Audio_DirectSound", feature = "Win32_System_IO"))]
-impl windows_core::RuntimeName for IDirectMusicPort {}
-#[cfg(all(feature = "Win32_Media_Audio_DirectSound", feature = "Win32_System_IO"))]
 impl IDirectMusicPort_Vtbl {
-    pub const fn new<Identity: IDirectMusicPort_Impl, const OFFSET: isize>() -> IDirectMusicPort_Vtbl {
+    pub const fn new<Identity: IDirectMusicPort_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PlayBuffer<Identity: IDirectMusicPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectMusicPort_Impl::PlayBuffer(this, windows_core::from_raw_borrowed(&pbuffer)).into()
@@ -726,13 +681,9 @@ impl IDirectMusicPort_Vtbl {
         iid == &<IDirectMusicPort as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Media_Audio_DirectSound", feature = "Win32_System_IO"))]
+impl windows_core::RuntimeName for IDirectMusicPort {}
 windows_core::imp::define_interface!(IDirectMusicPortDownload, IDirectMusicPortDownload_Vtbl, 0xd2ac287a_b39b_11d1_8704_00600893b1bd);
-impl core::ops::Deref for IDirectMusicPortDownload {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDirectMusicPortDownload, windows_core::IUnknown);
 impl IDirectMusicPortDownload {
     pub unsafe fn GetBuffer(&self, dwdlid: u32) -> windows_core::Result<IDirectMusicDownload> {
@@ -772,7 +723,7 @@ pub struct IDirectMusicPortDownload_Vtbl {
     pub Download: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Unload: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IDirectMusicPortDownload_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDirectMusicPortDownload_Impl: windows_core::IUnknownImpl {
     fn GetBuffer(&self, dwdlid: u32) -> windows_core::Result<IDirectMusicDownload>;
     fn AllocateBuffer(&self, dwsize: u32) -> windows_core::Result<IDirectMusicDownload>;
     fn GetDLId(&self, pdwstartdlid: *mut u32, dwcount: u32) -> windows_core::Result<()>;
@@ -780,9 +731,8 @@ pub trait IDirectMusicPortDownload_Impl: Sized + windows_core::IUnknownImpl {
     fn Download(&self, pidmdownload: Option<&IDirectMusicDownload>) -> windows_core::Result<()>;
     fn Unload(&self, pidmdownload: Option<&IDirectMusicDownload>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IDirectMusicPortDownload {}
 impl IDirectMusicPortDownload_Vtbl {
-    pub const fn new<Identity: IDirectMusicPortDownload_Impl, const OFFSET: isize>() -> IDirectMusicPortDownload_Vtbl {
+    pub const fn new<Identity: IDirectMusicPortDownload_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetBuffer<Identity: IDirectMusicPortDownload_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwdlid: u32, ppidmdownload: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IDirectMusicPortDownload_Impl::GetBuffer(this, core::mem::transmute_copy(&dwdlid)) {
@@ -833,13 +783,8 @@ impl IDirectMusicPortDownload_Vtbl {
         iid == &<IDirectMusicPortDownload as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDirectMusicPortDownload {}
 windows_core::imp::define_interface!(IDirectMusicSynth, IDirectMusicSynth_Vtbl, 0x09823661_5c85_11d2_afa6_00aa0024d8b6);
-impl core::ops::Deref for IDirectMusicSynth {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDirectMusicSynth, windows_core::IUnknown);
 impl IDirectMusicSynth {
     pub unsafe fn Open(&self, pportparams: *mut DMUS_PORTPARAMS8) -> windows_core::Result<()> {
@@ -854,10 +799,10 @@ impl IDirectMusicSynth {
     pub unsafe fn Download(&self, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut core::ffi::c_void, pbfree: *mut super::super::super::Foundation::BOOL) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Download)(windows_core::Interface::as_raw(self), phdownload, pvdata, pbfree).ok()
     }
-    pub unsafe fn Unload<P0, P1>(&self, hdownload: P0, lpfreehandle: isize, huserdata: P1) -> windows_core::Result<()>
+    pub unsafe fn Unload<P0, P2>(&self, hdownload: P0, lpfreehandle: isize, huserdata: P2) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::HANDLE>,
-        P1: windows_core::Param<super::super::super::Foundation::HANDLE>,
+        P2: windows_core::Param<super::super::super::Foundation::HANDLE>,
     {
         (windows_core::Interface::vtable(self).Unload)(windows_core::Interface::as_raw(self), hdownload.param().abi(), lpfreehandle, huserdata.param().abi()).ok()
     }
@@ -929,7 +874,7 @@ pub struct IDirectMusicSynth_Vtbl {
     pub GetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::WAVEFORMATEX, *mut u32) -> windows_core::HRESULT,
     pub GetAppend: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-pub trait IDirectMusicSynth_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDirectMusicSynth_Impl: windows_core::IUnknownImpl {
     fn Open(&self, pportparams: *mut DMUS_PORTPARAMS8) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
     fn SetNumChannelGroups(&self, dwgroups: u32) -> windows_core::Result<()>;
@@ -948,9 +893,8 @@ pub trait IDirectMusicSynth_Impl: Sized + windows_core::IUnknownImpl {
     fn GetFormat(&self, pwaveformatex: *mut super::WAVEFORMATEX, pdwwaveformatexsize: *mut u32) -> windows_core::Result<()>;
     fn GetAppend(&self, pdwappend: *mut u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IDirectMusicSynth {}
 impl IDirectMusicSynth_Vtbl {
-    pub const fn new<Identity: IDirectMusicSynth_Impl, const OFFSET: isize>() -> IDirectMusicSynth_Vtbl {
+    pub const fn new<Identity: IDirectMusicSynth_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Open<Identity: IDirectMusicSynth_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pportparams: *mut DMUS_PORTPARAMS8) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectMusicSynth_Impl::Open(this, core::mem::transmute_copy(&pportparams)).into()
@@ -1050,6 +994,7 @@ impl IDirectMusicSynth_Vtbl {
         iid == &<IDirectMusicSynth as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDirectMusicSynth {}
 windows_core::imp::define_interface!(IDirectMusicSynth8, IDirectMusicSynth8_Vtbl, 0x53cab625_2711_4c9f_9de7_1b7f925f6fc8);
 impl core::ops::Deref for IDirectMusicSynth8 {
     type Target = IDirectMusicSynth;
@@ -1084,16 +1029,15 @@ pub struct IDirectMusicSynth8_Vtbl {
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub AssignChannelToBuses: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u32, u32) -> windows_core::HRESULT,
 }
-pub trait IDirectMusicSynth8_Impl: Sized + IDirectMusicSynth_Impl {
+pub trait IDirectMusicSynth8_Impl: IDirectMusicSynth_Impl {
     fn PlayVoice(&self, rt: i64, dwvoiceid: u32, dwchannelgroup: u32, dwchannel: u32, dwdlid: u32, prpitch: i32, vrvolume: i32, stvoicestart: u64, stloopstart: u64, stloopend: u64) -> windows_core::Result<()>;
     fn StopVoice(&self, rt: i64, dwvoiceid: u32) -> windows_core::Result<()>;
     fn GetVoiceState(&self, dwvoice: *mut u32, cbvoice: u32, dwvoicestate: *mut DMUS_VOICE_STATE) -> windows_core::Result<()>;
     fn Refresh(&self, dwdownloadid: u32, dwflags: u32) -> windows_core::Result<()>;
     fn AssignChannelToBuses(&self, dwchannelgroup: u32, dwchannel: u32, pdwbuses: *mut u32, cbuses: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IDirectMusicSynth8 {}
 impl IDirectMusicSynth8_Vtbl {
-    pub const fn new<Identity: IDirectMusicSynth8_Impl, const OFFSET: isize>() -> IDirectMusicSynth8_Vtbl {
+    pub const fn new<Identity: IDirectMusicSynth8_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn PlayVoice<Identity: IDirectMusicSynth8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rt: i64, dwvoiceid: u32, dwchannelgroup: u32, dwchannel: u32, dwdlid: u32, prpitch: i32, vrvolume: i32, stvoicestart: u64, stloopstart: u64, stloopend: u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectMusicSynth8_Impl::PlayVoice(this, core::mem::transmute_copy(&rt), core::mem::transmute_copy(&dwvoiceid), core::mem::transmute_copy(&dwchannelgroup), core::mem::transmute_copy(&dwchannel), core::mem::transmute_copy(&dwdlid), core::mem::transmute_copy(&prpitch), core::mem::transmute_copy(&vrvolume), core::mem::transmute_copy(&stvoicestart), core::mem::transmute_copy(&stloopstart), core::mem::transmute_copy(&stloopend)).into()
@@ -1124,16 +1068,11 @@ impl IDirectMusicSynth8_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IDirectMusicSynth8 as windows_core::Interface>::IID || iid == &<IDirectMusicSynth as windows_core::Interface>::IID
+        iid == &<IDirectMusicSynth8 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDirectMusicSynth8 {}
 windows_core::imp::define_interface!(IDirectMusicSynthSink, IDirectMusicSynthSink_Vtbl, 0x09823663_5c85_11d2_afa6_00aa0024d8b6);
-impl core::ops::Deref for IDirectMusicSynthSink {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDirectMusicSynthSink, windows_core::IUnknown);
 impl IDirectMusicSynthSink {
     pub unsafe fn Init<P0>(&self, psynth: P0) -> windows_core::Result<()>
@@ -1192,7 +1131,7 @@ pub struct IDirectMusicSynthSink_Vtbl {
     pub GetDesiredBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Media_Audio_DirectSound")]
-pub trait IDirectMusicSynthSink_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDirectMusicSynthSink_Impl: windows_core::IUnknownImpl {
     fn Init(&self, psynth: Option<&IDirectMusicSynth>) -> windows_core::Result<()>;
     fn SetMasterClock(&self, pclock: Option<&super::super::IReferenceClock>) -> windows_core::Result<()>;
     fn GetLatencyClock(&self) -> windows_core::Result<super::super::IReferenceClock>;
@@ -1203,10 +1142,8 @@ pub trait IDirectMusicSynthSink_Impl: Sized + windows_core::IUnknownImpl {
     fn GetDesiredBufferSize(&self, pdwbuffersizeinsamples: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_Audio_DirectSound")]
-impl windows_core::RuntimeName for IDirectMusicSynthSink {}
-#[cfg(feature = "Win32_Media_Audio_DirectSound")]
 impl IDirectMusicSynthSink_Vtbl {
-    pub const fn new<Identity: IDirectMusicSynthSink_Impl, const OFFSET: isize>() -> IDirectMusicSynthSink_Vtbl {
+    pub const fn new<Identity: IDirectMusicSynthSink_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Init<Identity: IDirectMusicSynthSink_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psynth: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectMusicSynthSink_Impl::Init(this, windows_core::from_raw_borrowed(&psynth)).into()
@@ -1261,18 +1198,14 @@ impl IDirectMusicSynthSink_Vtbl {
         iid == &<IDirectMusicSynthSink as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Media_Audio_DirectSound")]
+impl windows_core::RuntimeName for IDirectMusicSynthSink {}
 windows_core::imp::define_interface!(IDirectMusicThru, IDirectMusicThru_Vtbl, 0xced153e7_3606_11d2_b9f9_0000f875ac12);
-impl core::ops::Deref for IDirectMusicThru {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IDirectMusicThru, windows_core::IUnknown);
 impl IDirectMusicThru {
-    pub unsafe fn ThruChannel<P0>(&self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: P0) -> windows_core::Result<()>
+    pub unsafe fn ThruChannel<P4>(&self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: P4) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<IDirectMusicPort>,
+        P4: windows_core::Param<IDirectMusicPort>,
     {
         (windows_core::Interface::vtable(self).ThruChannel)(windows_core::Interface::as_raw(self), dwsourcechannelgroup, dwsourcechannel, dwdestinationchannelgroup, dwdestinationchannel, pdestinationport.param().abi()).ok()
     }
@@ -1282,12 +1215,11 @@ pub struct IDirectMusicThru_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub ThruChannel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IDirectMusicThru_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IDirectMusicThru_Impl: windows_core::IUnknownImpl {
     fn ThruChannel(&self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: Option<&IDirectMusicPort>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IDirectMusicThru {}
 impl IDirectMusicThru_Vtbl {
-    pub const fn new<Identity: IDirectMusicThru_Impl, const OFFSET: isize>() -> IDirectMusicThru_Vtbl {
+    pub const fn new<Identity: IDirectMusicThru_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ThruChannel<Identity: IDirectMusicThru_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IDirectMusicThru_Impl::ThruChannel(this, core::mem::transmute_copy(&dwsourcechannelgroup), core::mem::transmute_copy(&dwsourcechannel), core::mem::transmute_copy(&dwdestinationchannelgroup), core::mem::transmute_copy(&dwdestinationchannel), windows_core::from_raw_borrowed(&pdestinationport)).into()
@@ -1298,6 +1230,7 @@ impl IDirectMusicThru_Vtbl {
         iid == &<IDirectMusicThru as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IDirectMusicThru {}
 pub const CLSID_DirectMusic: windows_core::GUID = windows_core::GUID::from_u128(0x636b9f10_0c7d_11d1_95b2_0020afdc7421);
 pub const CLSID_DirectMusicCollection: windows_core::GUID = windows_core::GUID::from_u128(0x480ff4b0_28b2_11d1_bef7_00c04fbf8fef);
 pub const CLSID_DirectMusicSynth: windows_core::GUID = windows_core::GUID::from_u128(0x58c2b4d0_46e7_11d1_89ac_00a0c9054129);
@@ -1551,51 +1484,31 @@ pub const WAVELINK_CHANNEL_RIGHT: i32 = 2i32;
 pub const WLOOP_TYPE_FORWARD: u32 = 0u32;
 pub const WLOOP_TYPE_RELEASE: u32 = 2u32;
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DIRECTSOUNDDEVICE_DATAFLOW(pub i32);
 impl windows_core::TypeKind for DIRECTSOUNDDEVICE_DATAFLOW {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DIRECTSOUNDDEVICE_DATAFLOW {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DIRECTSOUNDDEVICE_DATAFLOW").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DIRECTSOUNDDEVICE_TYPE(pub i32);
 impl windows_core::TypeKind for DIRECTSOUNDDEVICE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DIRECTSOUNDDEVICE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DIRECTSOUNDDEVICE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DMUS_CLOCKTYPE(pub i32);
 impl windows_core::TypeKind for DMUS_CLOCKTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DMUS_CLOCKTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DMUS_CLOCKTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE(pub i32);
 impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DSPROPERTY_DIRECTSOUNDDEVICE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CONNECTION {
     pub usSource: u16,
     pub usControl: u16,
@@ -1603,150 +1516,150 @@ pub struct CONNECTION {
     pub usTransform: u16,
     pub lScale: i32,
 }
-impl windows_core::TypeKind for CONNECTION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CONNECTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CONNECTION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CONNECTIONLIST {
     pub cbSize: u32,
     pub cConnections: u32,
-}
-impl windows_core::TypeKind for CONNECTIONLIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CONNECTIONLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CONNECTIONLIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DLSHEADER {
     pub cInstruments: u32,
-}
-impl windows_core::TypeKind for DLSHEADER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DLSHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DLSHEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DLSID {
     pub ulData1: u32,
     pub usData2: u16,
     pub usData3: u16,
     pub abData4: [u8; 8],
 }
-impl windows_core::TypeKind for DLSID {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DLSID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DLSID {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DLSVERSION {
     pub dwVersionMS: u32,
     pub dwVersionLS: u32,
-}
-impl windows_core::TypeKind for DLSVERSION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DLSVERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DLSVERSION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_ARTICPARAMS {
     pub LFO: DMUS_LFOPARAMS,
     pub VolEG: DMUS_VEGPARAMS,
     pub PitchEG: DMUS_PEGPARAMS,
     pub Misc: DMUS_MSCPARAMS,
 }
-impl windows_core::TypeKind for DMUS_ARTICPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_ARTICPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_ARTICPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_ARTICULATION {
     pub ulArt1Idx: u32,
     pub ulFirstExtCkIdx: u32,
-}
-impl windows_core::TypeKind for DMUS_ARTICULATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMUS_ARTICULATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_ARTICULATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_ARTICULATION2 {
     pub ulArtIdx: u32,
     pub ulFirstExtCkIdx: u32,
     pub ulNextArtIdx: u32,
-}
-impl windows_core::TypeKind for DMUS_ARTICULATION2 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMUS_ARTICULATION2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_ARTICULATION2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_BUFFERDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
     pub guidBufferFormat: windows_core::GUID,
     pub cbBuffer: u32,
 }
-impl windows_core::TypeKind for DMUS_BUFFERDESC {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_BUFFERDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_BUFFERDESC {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_CLOCKINFO7 {
     pub dwSize: u32,
     pub ctType: DMUS_CLOCKTYPE,
     pub guidClock: windows_core::GUID,
     pub wszDescription: [u16; 128],
 }
-impl windows_core::TypeKind for DMUS_CLOCKINFO7 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_CLOCKINFO7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_CLOCKINFO7 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_CLOCKINFO8 {
     pub dwSize: u32,
     pub ctType: DMUS_CLOCKTYPE,
@@ -1754,78 +1667,78 @@ pub struct DMUS_CLOCKINFO8 {
     pub wszDescription: [u16; 128],
     pub dwFlags: u32,
 }
-impl windows_core::TypeKind for DMUS_CLOCKINFO8 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_CLOCKINFO8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_CLOCKINFO8 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_COPYRIGHT {
     pub cbSize: u32,
     pub byCopyright: [u8; 4],
-}
-impl windows_core::TypeKind for DMUS_COPYRIGHT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMUS_COPYRIGHT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_COPYRIGHT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_DOWNLOADINFO {
     pub dwDLType: u32,
     pub dwDLId: u32,
     pub dwNumOffsetTableEntries: u32,
     pub cbSize: u32,
 }
-impl windows_core::TypeKind for DMUS_DOWNLOADINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_DOWNLOADINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_DOWNLOADINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(4))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DMUS_EVENTHEADER {
     pub cbEvent: u32,
     pub dwChannelGroup: u32,
     pub rtDelta: i64,
     pub dwFlags: u32,
 }
-impl windows_core::TypeKind for DMUS_EVENTHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_EVENTHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_EVENTHEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_EXTENSIONCHUNK {
     pub cbSize: u32,
     pub ulNextExtCkIdx: u32,
     pub ExtCkID: u32,
     pub byExtCk: [u8; 4],
 }
-impl windows_core::TypeKind for DMUS_EXTENSIONCHUNK {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_EXTENSIONCHUNK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_EXTENSIONCHUNK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_INSTRUMENT {
     pub ulPatch: u32,
     pub ulFirstRegionIdx: u32,
@@ -1834,16 +1747,16 @@ pub struct DMUS_INSTRUMENT {
     pub ulCopyrightIdx: u32,
     pub ulFlags: u32,
 }
-impl windows_core::TypeKind for DMUS_INSTRUMENT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_INSTRUMENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_INSTRUMENT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_LFOPARAMS {
     pub pcFrequency: i32,
     pub tcDelay: i32,
@@ -1852,56 +1765,56 @@ pub struct DMUS_LFOPARAMS {
     pub gcMWToVolume: i32,
     pub pcMWToPitch: i32,
 }
-impl windows_core::TypeKind for DMUS_LFOPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_LFOPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_LFOPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_MSCPARAMS {
     pub ptDefaultPan: i32,
-}
-impl windows_core::TypeKind for DMUS_MSCPARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMUS_MSCPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_MSCPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_NOTERANGE {
     pub dwLowNote: u32,
     pub dwHighNote: u32,
-}
-impl windows_core::TypeKind for DMUS_NOTERANGE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMUS_NOTERANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_NOTERANGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_OFFSETTABLE {
     pub ulOffsetTable: [u32; 1],
-}
-impl windows_core::TypeKind for DMUS_OFFSETTABLE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMUS_OFFSETTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_OFFSETTABLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_PEGPARAMS {
     pub tcAttack: i32,
     pub tcDecay: i32,
@@ -1911,16 +1824,16 @@ pub struct DMUS_PEGPARAMS {
     pub tcKey2Decay: i32,
     pub pcRange: i32,
 }
-impl windows_core::TypeKind for DMUS_PEGPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_PEGPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_PEGPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_PORTCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1934,16 +1847,16 @@ pub struct DMUS_PORTCAPS {
     pub dwEffectFlags: u32,
     pub wszDescription: [u16; 128],
 }
-impl windows_core::TypeKind for DMUS_PORTCAPS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_PORTCAPS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_PORTCAPS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_PORTPARAMS7 {
     pub dwSize: u32,
     pub dwValidParams: u32,
@@ -1954,16 +1867,16 @@ pub struct DMUS_PORTPARAMS7 {
     pub dwEffectFlags: u32,
     pub fShare: super::super::super::Foundation::BOOL,
 }
-impl windows_core::TypeKind for DMUS_PORTPARAMS7 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_PORTPARAMS7 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_PORTPARAMS7 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_PORTPARAMS8 {
     pub dwSize: u32,
     pub dwValidParams: u32,
@@ -1975,16 +1888,16 @@ pub struct DMUS_PORTPARAMS8 {
     pub fShare: super::super::super::Foundation::BOOL,
     pub dwFeatures: u32,
 }
-impl windows_core::TypeKind for DMUS_PORTPARAMS8 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_PORTPARAMS8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_PORTPARAMS8 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_REGION {
     pub RangeKey: RGNRANGE,
     pub RangeVelocity: RGNRANGE,
@@ -1997,16 +1910,16 @@ pub struct DMUS_REGION {
     pub WSMP: WSMPL,
     pub WLOOP: [WLOOP; 1],
 }
-impl windows_core::TypeKind for DMUS_REGION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_REGION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_REGION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_SYNTHSTATS {
     pub dwSize: u32,
     pub dwValidStats: u32,
@@ -2017,16 +1930,16 @@ pub struct DMUS_SYNTHSTATS {
     pub dwFreeMemory: u32,
     pub lPeakVolume: i32,
 }
-impl windows_core::TypeKind for DMUS_SYNTHSTATS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_SYNTHSTATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_SYNTHSTATS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_SYNTHSTATS8 {
     pub dwSize: u32,
     pub dwValidStats: u32,
@@ -2038,16 +1951,16 @@ pub struct DMUS_SYNTHSTATS8 {
     pub lPeakVolume: i32,
     pub dwSynthMemUse: u32,
 }
-impl windows_core::TypeKind for DMUS_SYNTHSTATS8 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_SYNTHSTATS8 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_SYNTHSTATS8 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_VEGPARAMS {
     pub tcAttack: i32,
     pub tcDecay: i32,
@@ -2056,46 +1969,46 @@ pub struct DMUS_VEGPARAMS {
     pub tcVel2Attack: i32,
     pub tcKey2Decay: i32,
 }
-impl windows_core::TypeKind for DMUS_VEGPARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_VEGPARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_VEGPARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_VOICE_STATE {
     pub bExists: super::super::super::Foundation::BOOL,
     pub spPosition: u64,
-}
-impl windows_core::TypeKind for DMUS_VOICE_STATE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMUS_VOICE_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_VOICE_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DMUS_WAVE {
     pub ulFirstExtCkIdx: u32,
     pub ulCopyrightIdx: u32,
     pub ulWaveDataIdx: u32,
     pub WaveformatEx: super::WAVEFORMATEX,
 }
-impl windows_core::TypeKind for DMUS_WAVE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_WAVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_WAVE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_WAVEARTDL {
     pub ulDownloadIdIdx: u32,
     pub ulBus: u32,
@@ -2103,59 +2016,59 @@ pub struct DMUS_WAVEARTDL {
     pub ulMasterDLId: u32,
     pub usOptions: u16,
 }
-impl windows_core::TypeKind for DMUS_WAVEARTDL {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_WAVEARTDL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_WAVEARTDL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_WAVEDATA {
     pub cbSize: u32,
     pub byData: [u8; 4],
-}
-impl windows_core::TypeKind for DMUS_WAVEDATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMUS_WAVEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_WAVEDATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_WAVEDL {
     pub cbWaveData: u32,
-}
-impl windows_core::TypeKind for DMUS_WAVEDL {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DMUS_WAVEDL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_WAVEDL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DMUS_WAVES_REVERB_PARAMS {
     pub fInGain: f32,
     pub fReverbMix: f32,
     pub fReverbTime: f32,
     pub fHighFreqRTRatio: f32,
 }
-impl windows_core::TypeKind for DMUS_WAVES_REVERB_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DMUS_WAVES_REVERB_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DMUS_WAVES_REVERB_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     pub DeviceId: windows_core::GUID,
     pub DescriptionA: [i8; 256],
@@ -2167,16 +2080,16 @@ pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     pub WaveDeviceId: u32,
     pub Devnode: u32,
 }
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     pub Type: DIRECTSOUNDDEVICE_TYPE,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
@@ -2186,16 +2099,16 @@ pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     pub Interface: windows_core::PSTR,
     pub WaveDeviceId: u32,
 }
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     pub Type: DIRECTSOUNDDEVICE_TYPE,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
@@ -2205,88 +2118,88 @@ pub struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     pub Interface: windows_core::PWSTR,
     pub WaveDeviceId: u32,
 }
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1,
     pub Context: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA,
     pub Context: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     pub Callback: LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW,
     pub Context: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
     pub DeviceName: windows_core::PSTR,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
     pub DeviceId: windows_core::GUID,
-}
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     pub DeviceName: windows_core::PWSTR,
     pub DataFlow: DIRECTSOUNDDEVICE_DATAFLOW,
     pub DeviceId: windows_core::GUID,
-}
-impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct DVAudInfo {
     pub bAudStyle: [u8; 2],
     pub bAudQu: [u8; 2],
@@ -2296,59 +2209,59 @@ pub struct DVAudInfo {
     pub wDIFMode: u16,
     pub wBlkDiv: u16,
 }
-impl windows_core::TypeKind for DVAudInfo {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DVAudInfo {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DVAudInfo {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INSTHEADER {
     pub cRegions: u32,
     pub Locale: MIDILOCALE,
-}
-impl windows_core::TypeKind for INSTHEADER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INSTHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INSTHEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MDEVICECAPSEX {
     pub cbSize: u32,
     pub pCaps: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for MDEVICECAPSEX {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MDEVICECAPSEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MDEVICECAPSEX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MIDILOCALE {
     pub ulBank: u32,
     pub ulInstrument: u32,
-}
-impl windows_core::TypeKind for MIDILOCALE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for MIDILOCALE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MIDILOCALE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Media_Multimedia")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MIDIOPENDESC {
     pub hMidi: super::HMIDI,
     pub dwCallback: usize,
@@ -2358,106 +2271,106 @@ pub struct MIDIOPENDESC {
     pub rgIds: [super::super::Multimedia::MIDIOPENSTRMID; 1],
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
-impl windows_core::TypeKind for MIDIOPENDESC {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Media_Multimedia")]
 impl Default for MIDIOPENDESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Media_Multimedia")]
+impl windows_core::TypeKind for MIDIOPENDESC {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POOLCUE {
     pub ulOffset: u32,
-}
-impl windows_core::TypeKind for POOLCUE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POOLCUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POOLCUE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POOLTABLE {
     pub cbSize: u32,
     pub cCues: u32,
-}
-impl windows_core::TypeKind for POOLTABLE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POOLTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POOLTABLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RGNHEADER {
     pub RangeKey: RGNRANGE,
     pub RangeVelocity: RGNRANGE,
     pub fusOptions: u16,
     pub usKeyGroup: u16,
 }
-impl windows_core::TypeKind for RGNHEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for RGNHEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RGNHEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RGNRANGE {
     pub usLow: u16,
     pub usHigh: u16,
-}
-impl windows_core::TypeKind for RGNRANGE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RGNRANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RGNRANGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WAVELINK {
     pub fusOptions: u16,
     pub usPhaseGroup: u16,
     pub ulChannel: u32,
     pub ulTableIndex: u32,
 }
-impl windows_core::TypeKind for WAVELINK {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WAVELINK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WAVELINK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WLOOP {
     pub cbSize: u32,
     pub ulType: u32,
     pub ulStart: u32,
     pub ulLength: u32,
 }
-impl windows_core::TypeKind for WLOOP {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WLOOP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WLOOP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WSMPL {
     pub cbSize: u32,
     pub usUnityNote: u16,
@@ -2466,13 +2379,13 @@ pub struct WSMPL {
     pub fulOptions: u32,
     pub cSampleLoops: u32,
 }
-impl windows_core::TypeKind for WSMPL {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WSMPL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for WSMPL {
+    type TypeKind = windows_core::CopyType;
 }
 pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1 = Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA, param1: *mut core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA = Option<unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA, param1: *mut core::ffi::c_void) -> super::super::super::Foundation::BOOL>;

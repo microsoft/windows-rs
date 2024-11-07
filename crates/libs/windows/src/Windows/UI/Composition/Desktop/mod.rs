@@ -11,18 +11,25 @@ pub struct IDesktopWindowTarget_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DesktopWindowTarget(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DesktopWindowTarget, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(DesktopWindowTarget, super::IAnimationObject, super::super::super::Foundation::IClosable, super::CompositionTarget, super::CompositionObject);
+windows_core::imp::required_hierarchy!(DesktopWindowTarget, super::super::super::Foundation::IClosable, IDesktopWindowTarget, super::IAnimationObject, super::ICompositionObject, super::ICompositionObject2, super::ICompositionObject3, super::ICompositionObject4, super::ICompositionObject5, super::ICompositionTarget);
 impl DesktopWindowTarget {
-    pub fn PopulatePropertyInfo<P0>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::AnimationPropertyInfo>,
-    {
-        let this = &windows_core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
-    }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
+    pub fn IsTopmost(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsTopmost)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn PopulatePropertyInfo<P1>(&self, propertyname: &windows_core::HSTRING, propertyinfo: P1) -> windows_core::Result<()>
+    where
+        P1: windows_core::Param<super::AnimationPropertyInfo>,
+    {
+        let this = &windows_core::Interface::cast::<super::IAnimationObject>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).PopulatePropertyInfo)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), propertyinfo.param().abi()).ok() }
     }
     pub fn Compositor(&self) -> windows_core::Result<super::Compositor> {
         let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
@@ -46,9 +53,9 @@ impl DesktopWindowTarget {
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StartAnimation<P0>(&self, propertyname: &windows_core::HSTRING, animation: P0) -> windows_core::Result<()>
+    pub fn StartAnimation<P1>(&self, propertyname: &windows_core::HSTRING, animation: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::CompositionAnimation>,
+        P1: windows_core::Param<super::CompositionAnimation>,
     {
         let this = &windows_core::Interface::cast::<super::ICompositionObject>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi()).ok() }
@@ -68,6 +75,7 @@ impl DesktopWindowTarget {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetComment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
+    #[cfg(feature = "Foundation_Collections")]
     pub fn ImplicitAnimations(&self) -> windows_core::Result<super::ImplicitAnimationCollection> {
         let this = &windows_core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe {
@@ -75,6 +83,7 @@ impl DesktopWindowTarget {
             (windows_core::Interface::vtable(this).ImplicitAnimations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    #[cfg(feature = "Foundation_Collections")]
     pub fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::ImplicitAnimationCollection>,
@@ -111,10 +120,10 @@ impl DesktopWindowTarget {
             (windows_core::Interface::vtable(this).TryGetAnimationController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StartAnimationWithController<P0, P1>(&self, propertyname: &windows_core::HSTRING, animation: P0, animationcontroller: P1) -> windows_core::Result<()>
+    pub fn StartAnimationWithController<P1, P2>(&self, propertyname: &windows_core::HSTRING, animation: P1, animationcontroller: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::CompositionAnimation>,
-        P1: windows_core::Param<super::AnimationController>,
+        P1: windows_core::Param<super::CompositionAnimation>,
+        P2: windows_core::Param<super::AnimationController>,
     {
         let this = &windows_core::Interface::cast::<super::ICompositionObject5>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
@@ -133,23 +142,14 @@ impl DesktopWindowTarget {
         let this = &windows_core::Interface::cast::<super::ICompositionTarget>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRoot)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn IsTopmost(&self) -> windows_core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsTopmost)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
 }
 impl windows_core::RuntimeType for DesktopWindowTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDesktopWindowTarget>();
 }
 unsafe impl windows_core::Interface for DesktopWindowTarget {
-    type Vtable = IDesktopWindowTarget_Vtbl;
+    type Vtable = <IDesktopWindowTarget as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDesktopWindowTarget as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DesktopWindowTarget {
     const NAME: &'static str = "Windows.UI.Composition.Desktop.DesktopWindowTarget";
 }
-unsafe impl Send for DesktopWindowTarget {}
-unsafe impl Sync for DesktopWindowTarget {}

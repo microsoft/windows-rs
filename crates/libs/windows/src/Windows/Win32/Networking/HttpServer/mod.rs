@@ -18,9 +18,9 @@ where
     HttpAddUrl(requestqueuehandle.param().abi(), fullyqualifiedurl.param().abi(), core::mem::transmute(reserved.unwrap_or(core::ptr::null())))
 }
 #[inline]
-pub unsafe fn HttpAddUrlToUrlGroup<P0>(urlgroupid: u64, pfullyqualifiedurl: P0, urlcontext: u64, reserved: u32) -> u32
+pub unsafe fn HttpAddUrlToUrlGroup<P1>(urlgroupid: u64, pfullyqualifiedurl: P1, urlcontext: u64, reserved: u32) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpAddUrlToUrlGroup(urlgroupid : u64, pfullyqualifiedurl : windows_core::PCWSTR, urlcontext : u64, reserved : u32) -> u32);
     HttpAddUrlToUrlGroup(urlgroupid, pfullyqualifiedurl.param().abi(), urlcontext, reserved)
@@ -59,9 +59,9 @@ pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: *mut super::super::Founda
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn HttpCreateRequestQueue<P0>(version: HTTPAPI_VERSION, name: P0, securityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32
+pub unsafe fn HttpCreateRequestQueue<P1>(version: HTTPAPI_VERSION, name: P1, securityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpCreateRequestQueue(version : HTTPAPI_VERSION, name : windows_core::PCWSTR, securityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, flags : u32, requestqueuehandle : *mut super::super::Foundation:: HANDLE) -> u32);
     HttpCreateRequestQueue(core::mem::transmute(version), name.param().abi(), core::mem::transmute(securityattributes.unwrap_or(core::ptr::null())), flags, requestqueuehandle)
@@ -77,11 +77,11 @@ pub unsafe fn HttpCreateUrlGroup(serversessionid: u64, purlgroupid: *mut u64, re
     HttpCreateUrlGroup(serversessionid, purlgroupid, reserved)
 }
 #[inline]
-pub unsafe fn HttpDeclarePush<P0, P1, P2>(requestqueuehandle: P0, requestid: u64, verb: HTTP_VERB, path: P1, query: P2, headers: Option<*const HTTP_REQUEST_HEADERS>) -> u32
+pub unsafe fn HttpDeclarePush<P0, P3, P4>(requestqueuehandle: P0, requestid: u64, verb: HTTP_VERB, path: P3, query: P4, headers: Option<*const HTTP_REQUEST_HEADERS>) -> u32
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpDeclarePush(requestqueuehandle : super::super::Foundation:: HANDLE, requestid : u64, verb : HTTP_VERB, path : windows_core::PCWSTR, query : windows_core::PCSTR, headers : *const HTTP_REQUEST_HEADERS) -> u32);
     HttpDeclarePush(requestqueuehandle.param().abi(), requestid, verb, path.param().abi(), query.param().abi(), core::mem::transmute(headers.unwrap_or(core::ptr::null())))
@@ -139,9 +139,9 @@ pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super
     HttpIsFeatureSupported(featureid)
 }
 #[inline]
-pub unsafe fn HttpPrepareUrl<P0>(reserved: Option<*const core::ffi::c_void>, flags: u32, url: P0, preparedurl: *mut windows_core::PWSTR) -> u32
+pub unsafe fn HttpPrepareUrl<P2>(reserved: Option<*const core::ffi::c_void>, flags: u32, url: P2, preparedurl: *mut windows_core::PWSTR) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpPrepareUrl(reserved : *const core::ffi::c_void, flags : u32, url : windows_core::PCWSTR, preparedurl : *mut windows_core::PWSTR) -> u32);
     HttpPrepareUrl(core::mem::transmute(reserved.unwrap_or(core::ptr::null())), flags, url.param().abi(), preparedurl)
@@ -199,7 +199,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpReceiveHttpRequest(requestqueuehandle : super::super::Foundation:: HANDLE, requestid : u64, flags : HTTP_RECEIVE_HTTP_REQUEST_FLAGS, requestbuffer : *mut HTTP_REQUEST_V2, requestbufferlength : u32, bytesreturned : *mut u32, overlapped : *mut super::super::System::IO:: OVERLAPPED) -> u32);
-    HttpReceiveHttpRequest(requestqueuehandle.param().abi(), requestid, flags, requestbuffer, requestbufferlength, core::mem::transmute(bytesreturned.unwrap_or(core::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
+    HttpReceiveHttpRequest(requestqueuehandle.param().abi(), requestid, flags, core::mem::transmute(requestbuffer), requestbufferlength, core::mem::transmute(bytesreturned.unwrap_or(core::ptr::null_mut())), core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -220,9 +220,9 @@ where
     HttpRemoveUrl(requestqueuehandle.param().abi(), fullyqualifiedurl.param().abi())
 }
 #[inline]
-pub unsafe fn HttpRemoveUrlFromUrlGroup<P0>(urlgroupid: u64, pfullyqualifiedurl: P0, flags: u32) -> u32
+pub unsafe fn HttpRemoveUrlFromUrlGroup<P1>(urlgroupid: u64, pfullyqualifiedurl: P1, flags: u32) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpRemoveUrlFromUrlGroup(urlgroupid : u64, pfullyqualifiedurl : windows_core::PCWSTR, flags : u32) -> u32);
     HttpRemoveUrlFromUrlGroup(urlgroupid, pfullyqualifiedurl.param().abi(), flags)
@@ -234,7 +234,7 @@ where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("httpapi.dll" "system" fn HttpSendHttpResponse(requestqueuehandle : super::super::Foundation:: HANDLE, requestid : u64, flags : u32, httpresponse : *const HTTP_RESPONSE_V2, cachepolicy : *const HTTP_CACHE_POLICY, bytessent : *mut u32, reserved1 : *const core::ffi::c_void, reserved2 : u32, overlapped : *mut super::super::System::IO:: OVERLAPPED, logdata : *const HTTP_LOG_DATA) -> u32);
-    HttpSendHttpResponse(requestqueuehandle.param().abi(), requestid, flags, httpresponse, core::mem::transmute(cachepolicy.unwrap_or(core::ptr::null())), core::mem::transmute(bytessent.unwrap_or(core::ptr::null_mut())), core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2, core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())), core::mem::transmute(logdata.unwrap_or(core::ptr::null())))
+    HttpSendHttpResponse(requestqueuehandle.param().abi(), requestid, flags, core::mem::transmute(httpresponse), core::mem::transmute(cachepolicy.unwrap_or(core::ptr::null())), core::mem::transmute(bytessent.unwrap_or(core::ptr::null_mut())), core::mem::transmute(reserved1.unwrap_or(core::ptr::null())), reserved2, core::mem::transmute(overlapped.unwrap_or(core::ptr::null_mut())), core::mem::transmute(logdata.unwrap_or(core::ptr::null())))
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
@@ -688,125 +688,70 @@ pub const PerformanceParamMaxReceiveBufferSize: HTTP_PERFORMANCE_PARAM_TYPE = HT
 pub const PerformanceParamMaxSendBufferSize: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(2i32);
 pub const PerformanceParamSendBufferingFlags: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(0i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_503_RESPONSE_VERBOSITY(pub i32);
 impl windows_core::TypeKind for HTTP_503_RESPONSE_VERBOSITY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_503_RESPONSE_VERBOSITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_503_RESPONSE_VERBOSITY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_AUTHENTICATION_HARDENING_LEVELS(pub i32);
 impl windows_core::TypeKind for HTTP_AUTHENTICATION_HARDENING_LEVELS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_AUTHENTICATION_HARDENING_LEVELS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_AUTHENTICATION_HARDENING_LEVELS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_AUTH_STATUS(pub i32);
 impl windows_core::TypeKind for HTTP_AUTH_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_AUTH_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_AUTH_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_CACHE_POLICY_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_CACHE_POLICY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_CACHE_POLICY_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_CACHE_POLICY_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(pub i32);
 impl windows_core::TypeKind for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_DATA_CHUNK_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_DATA_CHUNK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_DATA_CHUNK_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_DATA_CHUNK_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_DELEGATE_REQUEST_PROPERTY_ID(pub i32);
 impl windows_core::TypeKind for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_DELEGATE_REQUEST_PROPERTY_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_ENABLED_STATE(pub i32);
 impl windows_core::TypeKind for HTTP_ENABLED_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_ENABLED_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_ENABLED_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_FEATURE_ID(pub i32);
 impl windows_core::TypeKind for HTTP_FEATURE_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_FEATURE_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_FEATURE_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_HEADER_ID(pub i32);
 impl windows_core::TypeKind for HTTP_HEADER_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_HEADER_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_HEADER_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_INITIALIZE(pub u32);
 impl windows_core::TypeKind for HTTP_INITIALIZE {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for HTTP_INITIALIZE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_INITIALIZE").field(&self.0).finish()
-    }
 }
 impl HTTP_INITIALIZE {
     pub const fn contains(&self, other: Self) -> bool {
@@ -842,387 +787,272 @@ impl core::ops::Not for HTTP_INITIALIZE {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_LOGGING_ROLLOVER_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_LOGGING_ROLLOVER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_LOGGING_ROLLOVER_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_LOGGING_ROLLOVER_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_LOGGING_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_LOGGING_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_LOGGING_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_LOGGING_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_LOG_DATA_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_LOG_DATA_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_LOG_DATA_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_LOG_DATA_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_PERFORMANCE_PARAM_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_PERFORMANCE_PARAM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_PERFORMANCE_PARAM_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_PERFORMANCE_PARAM_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_PROTECTION_LEVEL_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_PROTECTION_LEVEL_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_PROTECTION_LEVEL_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_PROTECTION_LEVEL_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_QOS_SETTING_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_QOS_SETTING_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_QOS_SETTING_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_QOS_SETTING_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_RECEIVE_HTTP_REQUEST_FLAGS(pub u32);
 impl windows_core::TypeKind for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_RECEIVE_HTTP_REQUEST_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_REQUEST_AUTH_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_REQUEST_AUTH_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_REQUEST_AUTH_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_REQUEST_AUTH_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_REQUEST_INFO_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_REQUEST_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_REQUEST_INFO_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_REQUEST_INFO_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_REQUEST_PROPERTY(pub i32);
 impl windows_core::TypeKind for HTTP_REQUEST_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_REQUEST_PROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_REQUEST_PROPERTY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_REQUEST_SIZING_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_REQUEST_SIZING_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_REQUEST_SIZING_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_REQUEST_SIZING_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_REQUEST_TIMING_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_REQUEST_TIMING_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_REQUEST_TIMING_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_REQUEST_TIMING_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_RESPONSE_INFO_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_RESPONSE_INFO_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_RESPONSE_INFO_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_RESPONSE_INFO_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_SCHEME(pub i32);
 impl windows_core::TypeKind for HTTP_SCHEME {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_SCHEME {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_SCHEME").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_SERVER_PROPERTY(pub i32);
 impl windows_core::TypeKind for HTTP_SERVER_PROPERTY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_SERVER_PROPERTY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_SERVER_PROPERTY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_SERVICE_BINDING_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_SERVICE_BINDING_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_SERVICE_BINDING_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_SERVICE_BINDING_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_SERVICE_CONFIG_CACHE_KEY(pub i32);
 impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_CACHE_KEY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_SERVICE_CONFIG_CACHE_KEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_SERVICE_CONFIG_CACHE_KEY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_SERVICE_CONFIG_ID(pub i32);
 impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_SERVICE_CONFIG_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_SERVICE_CONFIG_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_SERVICE_CONFIG_QUERY_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_QUERY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_SERVICE_CONFIG_QUERY_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_SERVICE_CONFIG_QUERY_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_SERVICE_CONFIG_SETTING_KEY(pub i32);
 impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SETTING_KEY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_SERVICE_CONFIG_SETTING_KEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_SERVICE_CONFIG_SETTING_KEY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_SERVICE_CONFIG_TIMEOUT_KEY(pub i32);
 impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_SERVICE_CONFIG_TIMEOUT_KEY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(pub i32);
 impl windows_core::TypeKind for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct HTTP_VERB(pub i32);
 impl windows_core::TypeKind for HTTP_VERB {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HTTP_VERB {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HTTP_VERB").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP2_SETTINGS_LIMITS_PARAM {
     pub Http2MaxSettingsPerFrame: u32,
     pub Http2MaxSettingsPerMinute: u32,
-}
-impl windows_core::TypeKind for HTTP2_SETTINGS_LIMITS_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP2_SETTINGS_LIMITS_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP2_SETTINGS_LIMITS_PARAM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP2_WINDOW_SIZE_PARAM {
     pub Http2ReceiveWindowSize: u32,
-}
-impl windows_core::TypeKind for HTTP2_WINDOW_SIZE_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP2_WINDOW_SIZE_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP2_WINDOW_SIZE_PARAM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTPAPI_VERSION {
     pub HttpApiMajorVersion: u16,
     pub HttpApiMinorVersion: u16,
-}
-impl windows_core::TypeKind for HTTPAPI_VERSION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTPAPI_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTPAPI_VERSION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_BANDWIDTH_LIMIT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub MaxBandwidth: u32,
-}
-impl windows_core::TypeKind for HTTP_BANDWIDTH_LIMIT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_BANDWIDTH_LIMIT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_BANDWIDTH_LIMIT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_BINDING_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub RequestQueueHandle: super::super::Foundation::HANDLE,
-}
-impl windows_core::TypeKind for HTTP_BINDING_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_BINDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_BINDING_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_BYTE_RANGE {
     pub StartingOffset: u64,
     pub Length: u64,
-}
-impl windows_core::TypeKind for HTTP_BYTE_RANGE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_BYTE_RANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_BYTE_RANGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_CACHE_POLICY {
     pub Policy: HTTP_CACHE_POLICY_TYPE,
     pub SecondsToLive: u32,
-}
-impl windows_core::TypeKind for HTTP_CACHE_POLICY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_CACHE_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_CACHE_POLICY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_CHANNEL_BIND_INFO {
     pub Hardening: HTTP_AUTHENTICATION_HARDENING_LEVELS,
     pub Flags: u32,
     pub ServiceNames: *mut *mut HTTP_SERVICE_BINDING_BASE,
     pub NumberOfServiceNames: u32,
 }
-impl windows_core::TypeKind for HTTP_CHANNEL_BIND_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_CHANNEL_BIND_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_CHANNEL_BIND_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_CONNECTION_LIMIT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub MaxConnections: u32,
-}
-impl windows_core::TypeKind for HTTP_CONNECTION_LIMIT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_CONNECTION_LIMIT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_CONNECTION_LIMIT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_COOKED_URL {
     pub FullUrlLength: u16,
     pub HostLength: u16,
@@ -1233,45 +1063,45 @@ pub struct HTTP_COOKED_URL {
     pub pAbsPath: windows_core::PCWSTR,
     pub pQueryString: windows_core::PCWSTR,
 }
-impl windows_core::TypeKind for HTTP_COOKED_URL {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_COOKED_URL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_COOKED_URL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     pub PropertyId: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID,
     pub PropertyInfoLength: u32,
     pub PropertyInfo: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct HTTP_DATA_CHUNK {
     pub DataChunkType: HTTP_DATA_CHUNK_TYPE,
     pub Anonymous: HTTP_DATA_CHUNK_0,
-}
-impl windows_core::TypeKind for HTTP_DATA_CHUNK {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_DATA_CHUNK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_DATA_CHUNK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union HTTP_DATA_CHUNK_0 {
     pub FromMemory: HTTP_DATA_CHUNK_0_0,
     pub FromFileHandle: HTTP_DATA_CHUNK_0_1,
@@ -1279,161 +1109,161 @@ pub union HTTP_DATA_CHUNK_0 {
     pub FromFragmentCacheEx: HTTP_DATA_CHUNK_0_3,
     pub Trailers: HTTP_DATA_CHUNK_0_4,
 }
-impl windows_core::TypeKind for HTTP_DATA_CHUNK_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_DATA_CHUNK_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_DATA_CHUNK_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_DATA_CHUNK_0_1 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub FileHandle: super::super::Foundation::HANDLE,
-}
-impl windows_core::TypeKind for HTTP_DATA_CHUNK_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_DATA_CHUNK_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_DATA_CHUNK_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_DATA_CHUNK_0_3 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub pFragmentName: windows_core::PCWSTR,
-}
-impl windows_core::TypeKind for HTTP_DATA_CHUNK_0_3 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_DATA_CHUNK_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_DATA_CHUNK_0_3 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_DATA_CHUNK_0_2 {
     pub FragmentNameLength: u16,
     pub pFragmentName: windows_core::PCWSTR,
-}
-impl windows_core::TypeKind for HTTP_DATA_CHUNK_0_2 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_DATA_CHUNK_0_2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_DATA_CHUNK_0_2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_DATA_CHUNK_0_0 {
     pub pBuffer: *mut core::ffi::c_void,
     pub BufferLength: u32,
-}
-impl windows_core::TypeKind for HTTP_DATA_CHUNK_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_DATA_CHUNK_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_DATA_CHUNK_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_DATA_CHUNK_0_4 {
     pub TrailerCount: u16,
     pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
-}
-impl windows_core::TypeKind for HTTP_DATA_CHUNK_0_4 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_DATA_CHUNK_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_DATA_CHUNK_0_4 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     pub PropertyId: HTTP_DELEGATE_REQUEST_PROPERTY_ID,
     pub PropertyInfoLength: u32,
     pub PropertyInfo: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_ERROR_HEADERS_PARAM {
     pub StatusCode: u16,
     pub HeaderCount: u16,
     pub Headers: *mut HTTP_UNKNOWN_HEADER,
-}
-impl windows_core::TypeKind for HTTP_ERROR_HEADERS_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_ERROR_HEADERS_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_ERROR_HEADERS_PARAM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_FLOWRATE_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub MaxBandwidth: u32,
     pub MaxPeakBandwidth: u32,
     pub BurstSize: u32,
 }
-impl windows_core::TypeKind for HTTP_FLOWRATE_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_FLOWRATE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_FLOWRATE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_KNOWN_HEADER {
     pub RawValueLength: u16,
     pub pRawValue: windows_core::PCSTR,
-}
-impl windows_core::TypeKind for HTTP_KNOWN_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_KNOWN_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_KNOWN_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_LISTEN_ENDPOINT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub EnableSharing: super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for HTTP_LISTEN_ENDPOINT_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_LISTEN_ENDPOINT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_LISTEN_ENDPOINT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_LOGGING_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub LoggingFlags: u32,
@@ -1451,30 +1281,30 @@ pub struct HTTP_LOGGING_INFO {
     pub pSecurityDescriptor: super::super::Security::PSECURITY_DESCRIPTOR,
 }
 #[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for HTTP_LOGGING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
 impl Default for HTTP_LOGGING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for HTTP_LOGGING_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_LOG_DATA {
     pub Type: HTTP_LOG_DATA_TYPE,
-}
-impl windows_core::TypeKind for HTTP_LOG_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_LOG_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_LOG_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_LOG_FIELDS_DATA {
     pub Base: HTTP_LOG_DATA,
     pub UserNameLength: u16,
@@ -1507,128 +1337,128 @@ pub struct HTTP_LOG_FIELDS_DATA {
     pub MethodNum: HTTP_VERB,
     pub SubStatus: u16,
 }
-impl windows_core::TypeKind for HTTP_LOG_FIELDS_DATA {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_LOG_FIELDS_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_LOG_FIELDS_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_MULTIPLE_KNOWN_HEADERS {
     pub HeaderId: HTTP_HEADER_ID,
     pub Flags: u32,
     pub KnownHeaderCount: u16,
     pub KnownHeaders: *mut HTTP_KNOWN_HEADER,
 }
-impl windows_core::TypeKind for HTTP_MULTIPLE_KNOWN_HEADERS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_MULTIPLE_KNOWN_HEADERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_MULTIPLE_KNOWN_HEADERS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_PERFORMANCE_PARAM {
     pub Type: HTTP_PERFORMANCE_PARAM_TYPE,
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for HTTP_PERFORMANCE_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_PERFORMANCE_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_PERFORMANCE_PARAM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_PROPERTY_FLAGS {
     pub _bitfield: u32,
-}
-impl windows_core::TypeKind for HTTP_PROPERTY_FLAGS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_PROPERTY_FLAGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_PROPERTY_FLAGS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_PROTECTION_LEVEL_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub Level: HTTP_PROTECTION_LEVEL_TYPE,
-}
-impl windows_core::TypeKind for HTTP_PROTECTION_LEVEL_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_PROTECTION_LEVEL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_PROTECTION_LEVEL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_QOS_SETTING_INFO {
     pub QosType: HTTP_QOS_SETTING_TYPE,
     pub QosSetting: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for HTTP_QOS_SETTING_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_QOS_SETTING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_QOS_SETTING_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
     pub Freshness: u64,
-}
-impl windows_core::TypeKind for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_QUERY_REQUEST_QUALIFIER_QUIC {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_QUERY_REQUEST_QUALIFIER_TCP {
     pub Freshness: u64,
-}
-impl windows_core::TypeKind for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_QUERY_REQUEST_QUALIFIER_TCP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_QUIC_API_TIMINGS {
     pub ConnectionTimings: HTTP_QUIC_CONNECTION_API_TIMINGS,
     pub StreamTimings: HTTP_QUIC_STREAM_API_TIMINGS,
-}
-impl windows_core::TypeKind for HTTP_QUIC_API_TIMINGS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_QUIC_API_TIMINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_QUIC_API_TIMINGS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_QUIC_CONNECTION_API_TIMINGS {
     pub OpenTime: u64,
     pub CloseTime: u64,
@@ -1644,16 +1474,16 @@ pub struct HTTP_QUIC_CONNECTION_API_TIMINGS {
     pub SetCallbackHandlerSum: u64,
     pub ControlStreamTimings: HTTP_QUIC_STREAM_API_TIMINGS,
 }
-impl windows_core::TypeKind for HTTP_QUIC_CONNECTION_API_TIMINGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_QUIC_CONNECTION_API_TIMINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_QUIC_CONNECTION_API_TIMINGS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_QUIC_STREAM_API_TIMINGS {
     pub OpenCount: u64,
     pub OpenSum: u64,
@@ -1674,16 +1504,16 @@ pub struct HTTP_QUIC_STREAM_API_TIMINGS {
     pub SetCallbackHandlerCount: u64,
     pub SetCallbackHandlerSum: u64,
 }
-impl windows_core::TypeKind for HTTP_QUIC_STREAM_API_TIMINGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_QUIC_STREAM_API_TIMINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_QUIC_STREAM_API_TIMINGS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_QUIC_STREAM_REQUEST_STATS {
     pub StreamWaitStart: u64,
     pub StreamWaitEnd: u64,
@@ -1694,16 +1524,16 @@ pub struct HTTP_QUIC_STREAM_REQUEST_STATS {
     pub RequestHeadersCompressedSize: u64,
     pub ResponseHeadersCompressedSize: u64,
 }
-impl windows_core::TypeKind for HTTP_QUIC_STREAM_REQUEST_STATS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_QUIC_STREAM_REQUEST_STATS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_QUIC_STREAM_REQUEST_STATS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_REQUEST_AUTH_INFO {
     pub AuthStatus: HTTP_AUTH_STATUS,
     pub SecStatus: windows_core::HRESULT,
@@ -1719,32 +1549,32 @@ pub struct HTTP_REQUEST_AUTH_INFO {
     pub PackageNameLength: u16,
     pub pPackageName: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for HTTP_REQUEST_AUTH_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_REQUEST_AUTH_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_REQUEST_AUTH_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_REQUEST_CHANNEL_BIND_STATUS {
     pub ServiceName: *mut HTTP_SERVICE_BINDING_BASE,
     pub ChannelToken: *mut u8,
     pub ChannelTokenSize: u32,
     pub Flags: u32,
 }
-impl windows_core::TypeKind for HTTP_REQUEST_CHANNEL_BIND_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_REQUEST_CHANNEL_BIND_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_REQUEST_CHANNEL_BIND_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_REQUEST_HEADERS {
     pub UnknownHeaderCount: u16,
     pub pUnknownHeaders: *mut HTTP_UNKNOWN_HEADER,
@@ -1752,88 +1582,88 @@ pub struct HTTP_REQUEST_HEADERS {
     pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
     pub KnownHeaders: [HTTP_KNOWN_HEADER; 41],
 }
-impl windows_core::TypeKind for HTTP_REQUEST_HEADERS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_REQUEST_HEADERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_REQUEST_HEADERS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_REQUEST_INFO {
     pub InfoType: HTTP_REQUEST_INFO_TYPE,
     pub InfoLength: u32,
     pub pInfo: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for HTTP_REQUEST_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_REQUEST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_REQUEST_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_REQUEST_PROPERTY_SNI {
     pub Hostname: [u16; 256],
     pub Flags: u32,
-}
-impl windows_core::TypeKind for HTTP_REQUEST_PROPERTY_SNI {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_REQUEST_PROPERTY_SNI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_REQUEST_PROPERTY_SNI {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_REQUEST_PROPERTY_STREAM_ERROR {
     pub ErrorCode: u32,
-}
-impl windows_core::TypeKind for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_REQUEST_PROPERTY_STREAM_ERROR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_REQUEST_SIZING_INFO {
     pub Flags: u64,
     pub RequestIndex: u32,
     pub RequestSizingCount: u32,
     pub RequestSizing: [u64; 5],
 }
-impl windows_core::TypeKind for HTTP_REQUEST_SIZING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_REQUEST_SIZING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_REQUEST_SIZING_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_REQUEST_TIMING_INFO {
     pub RequestTimingCount: u32,
     pub RequestTiming: [u64; 30],
-}
-impl windows_core::TypeKind for HTTP_REQUEST_TIMING_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_REQUEST_TIMING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_REQUEST_TIMING_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_REQUEST_TOKEN_BINDING_INFO {
     pub TokenBinding: *mut u8,
     pub TokenBindingSize: u32,
@@ -1841,23 +1671,23 @@ pub struct HTTP_REQUEST_TOKEN_BINDING_INFO {
     pub EKMSize: u32,
     pub KeyType: u8,
 }
-impl windows_core::TypeKind for HTTP_REQUEST_TOKEN_BINDING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_REQUEST_TOKEN_BINDING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_REQUEST_TOKEN_BINDING_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Debug, PartialEq)]
 pub struct HTTP_REQUEST_V1 {
     pub Flags: u32,
     pub ConnectionId: u64,
     pub RequestId: u64,
     pub UrlContext: u64,
-    pub Version: HTTP_VERSION,
+    pub Version: core::mem::ManuallyDrop<HTTP_VERSION>,
     pub Verb: HTTP_VERB,
     pub UnknownVerbLength: u16,
     pub RawUrlLength: u16,
@@ -1873,26 +1703,22 @@ pub struct HTTP_REQUEST_V1 {
     pub pSslInfo: *mut HTTP_SSL_INFO,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_REQUEST_V1 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_REQUEST_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_REQUEST_V1 {
+    type TypeKind = windows_core::CloneType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Debug, PartialEq)]
 pub struct HTTP_REQUEST_V2 {
-    pub Base: HTTP_REQUEST_V1,
+    pub Base: core::mem::ManuallyDrop<HTTP_REQUEST_V1>,
     pub RequestInfoCount: u16,
     pub pRequestInfo: *mut HTTP_REQUEST_INFO,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_REQUEST_V2 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_REQUEST_V2 {
@@ -1900,8 +1726,12 @@ impl Default for HTTP_REQUEST_V2 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_REQUEST_V2 {
+    type TypeKind = windows_core::CloneType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_RESPONSE_HEADERS {
     pub UnknownHeaderCount: u16,
     pub pUnknownHeaders: *mut HTTP_UNKNOWN_HEADER,
@@ -1909,34 +1739,34 @@ pub struct HTTP_RESPONSE_HEADERS {
     pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
     pub KnownHeaders: [HTTP_KNOWN_HEADER; 30],
 }
-impl windows_core::TypeKind for HTTP_RESPONSE_HEADERS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_RESPONSE_HEADERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_RESPONSE_HEADERS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_RESPONSE_INFO {
     pub Type: HTTP_RESPONSE_INFO_TYPE,
     pub Length: u32,
     pub pInfo: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for HTTP_RESPONSE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_RESPONSE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_RESPONSE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Debug, PartialEq)]
 pub struct HTTP_RESPONSE_V1 {
     pub Flags: u32,
-    pub Version: HTTP_VERSION,
+    pub Version: core::mem::ManuallyDrop<HTTP_VERSION>,
     pub StatusCode: u16,
     pub ReasonLength: u16,
     pub pReason: windows_core::PCSTR,
@@ -1944,61 +1774,61 @@ pub struct HTTP_RESPONSE_V1 {
     pub EntityChunkCount: u16,
     pub pEntityChunks: *mut HTTP_DATA_CHUNK,
 }
-impl windows_core::TypeKind for HTTP_RESPONSE_V1 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_RESPONSE_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_RESPONSE_V1 {
+    type TypeKind = windows_core::CloneType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Debug, PartialEq)]
 pub struct HTTP_RESPONSE_V2 {
-    pub Base: HTTP_RESPONSE_V1,
+    pub Base: core::mem::ManuallyDrop<HTTP_RESPONSE_V1>,
     pub ResponseInfoCount: u16,
     pub pResponseInfo: *mut HTTP_RESPONSE_INFO,
-}
-impl windows_core::TypeKind for HTTP_RESPONSE_V2 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_RESPONSE_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_RESPONSE_V2 {
+    type TypeKind = windows_core::CloneType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     pub RealmLength: u16,
     pub Realm: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     pub DomainNameLength: u16,
     pub DomainName: windows_core::PWSTR,
     pub RealmLength: u16,
     pub Realm: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVER_AUTHENTICATION_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub AuthSchemes: u32,
@@ -2009,81 +1839,77 @@ pub struct HTTP_SERVER_AUTHENTICATION_INFO {
     pub DigestParams: HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS,
     pub BasicParams: HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS,
 }
-impl windows_core::TypeKind for HTTP_SERVER_AUTHENTICATION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_SERVER_AUTHENTICATION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SERVER_AUTHENTICATION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_BINDING_A {
     pub Base: HTTP_SERVICE_BINDING_BASE,
     pub Buffer: windows_core::PSTR,
     pub BufferSize: u32,
-}
-impl windows_core::TypeKind for HTTP_SERVICE_BINDING_A {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_SERVICE_BINDING_A {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SERVICE_BINDING_A {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_BINDING_BASE {
     pub Type: HTTP_SERVICE_BINDING_TYPE,
-}
-impl windows_core::TypeKind for HTTP_SERVICE_BINDING_BASE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_SERVICE_BINDING_BASE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SERVICE_BINDING_BASE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_BINDING_W {
     pub Base: HTTP_SERVICE_BINDING_BASE,
     pub Buffer: windows_core::PWSTR,
     pub BufferSize: u32,
-}
-impl windows_core::TypeKind for HTTP_SERVICE_BINDING_W {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_SERVICE_BINDING_W {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SERVICE_BINDING_W {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_CACHE_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_CACHE_KEY,
     pub ParamDesc: u32,
-}
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_CACHE_SET {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_SERVICE_CONFIG_CACHE_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_CACHE_SET {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     pub AddrLength: u16,
     pub pAddress: *mut super::WinSock::SOCKADDR,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
@@ -2091,16 +1917,16 @@ impl Default for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     pub AddrCount: u32,
     pub AddrList: [super::WinSock::SOCKADDR_STORAGE; 1],
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
@@ -2108,29 +1934,29 @@ impl Default for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SETTING_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SETTING_KEY,
     pub ParamDesc: u32,
-}
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SETTING_SET {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_SERVICE_CONFIG_SETTING_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SETTING_SET {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
@@ -2138,17 +1964,17 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub dwToken: u32,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
@@ -2156,9 +1982,13 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
@@ -2166,25 +1996,21 @@ pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
@@ -2192,16 +2018,16 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
@@ -2209,15 +2035,15 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY {
     pub pIpPort: *mut super::WinSock::SOCKADDR,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_KEY {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_KEY {
@@ -2225,15 +2051,15 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_KEY {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_KEY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     pub IpPort: super::WinSock::SOCKADDR_STORAGE,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
@@ -2241,8 +2067,12 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_PARAM {
     pub SslHashLength: u32,
     pub pSslHash: *mut core::ffi::c_void,
@@ -2255,31 +2085,31 @@ pub struct HTTP_SERVICE_CONFIG_SSL_PARAM {
     pub pDefaultSslCtlStoreName: windows_core::PWSTR,
     pub DefaultFlags: u32,
 }
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_PARAM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_SERVICE_CONFIG_SSL_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_PARAM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
     pub Flags: u64,
     pub Anonymous: HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0,
-}
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     pub Http2WindowSizeParam: HTTP2_WINDOW_SIZE_PARAM,
     pub Http2SettingsLimitsParam: HTTP2_SETTINGS_LIMITS_PARAM,
@@ -2288,25 +2118,21 @@ pub union HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     pub HttpErrorHeadersParam: HTTP_ERROR_HEADERS_PARAM,
     pub HttpTlsSessionTicketKeysParam: HTTP_TLS_SESSION_TICKET_KEYS_PARAM,
 }
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
     pub dwToken: u32,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_QUERY {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_QUERY {
@@ -2314,9 +2140,13 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_QUERY {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_QUERY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
@@ -2324,25 +2154,21 @@ pub struct HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SET {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_SET {
@@ -2350,16 +2176,16 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_SET {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SET {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SET_EX {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_SET_EX {
@@ -2367,16 +2193,16 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_SET_EX {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SET_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     pub IpPort: super::WinSock::SOCKADDR_STORAGE,
     pub Host: windows_core::PWSTR,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
@@ -2384,17 +2210,17 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub dwToken: u32,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
@@ -2402,9 +2228,13 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
@@ -2412,25 +2242,21 @@ pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
@@ -2438,16 +2264,16 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
@@ -2455,77 +2281,81 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_TIMEOUT_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_TIMEOUT_KEY,
     pub ParamDesc: u16,
-}
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_TIMEOUT_SET {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_URLACL_KEY {
     pub pUrlPrefix: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_URLACL_KEY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_SERVICE_CONFIG_URLACL_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_URLACL_KEY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_URLACL_PARAM {
     pub pStringSecurityDescriptor: windows_core::PWSTR,
-}
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_URLACL_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_SERVICE_CONFIG_URLACL_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_URLACL_PARAM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_URLACL_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_URLACL_KEY,
     pub dwToken: u32,
-}
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_URLACL_QUERY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_SERVICE_CONFIG_URLACL_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_URLACL_QUERY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_URLACL_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_URLACL_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_URLACL_PARAM,
-}
-impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_URLACL_SET {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_SERVICE_CONFIG_URLACL_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SERVICE_CONFIG_URLACL_SET {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SSL_CLIENT_CERT_INFO {
     pub CertFlags: u32,
     pub CertEncodedSize: u32,
@@ -2533,16 +2363,16 @@ pub struct HTTP_SSL_CLIENT_CERT_INFO {
     pub Token: super::super::Foundation::HANDLE,
     pub CertDeniedByMapper: super::super::Foundation::BOOLEAN,
 }
-impl windows_core::TypeKind for HTTP_SSL_CLIENT_CERT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_SSL_CLIENT_CERT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SSL_CLIENT_CERT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SSL_INFO {
     pub ServerCertKeySize: u16,
     pub ConnectionKeySize: u16,
@@ -2553,16 +2383,16 @@ pub struct HTTP_SSL_INFO {
     pub pClientCertInfo: *mut HTTP_SSL_CLIENT_CERT_INFO,
     pub SslClientCertNegotiated: u32,
 }
-impl windows_core::TypeKind for HTTP_SSL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_SSL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SSL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_SSL_PROTOCOL_INFO {
     pub Protocol: u32,
     pub CipherType: u32,
@@ -2572,30 +2402,30 @@ pub struct HTTP_SSL_PROTOCOL_INFO {
     pub KeyExchangeType: u32,
     pub KeyExchangeStrength: u32,
 }
-impl windows_core::TypeKind for HTTP_SSL_PROTOCOL_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_SSL_PROTOCOL_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_SSL_PROTOCOL_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_STATE_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub State: HTTP_ENABLED_STATE,
-}
-impl windows_core::TypeKind for HTTP_STATE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_STATE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_STATE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_TIMEOUT_LIMIT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub EntityBody: u16,
@@ -2605,52 +2435,48 @@ pub struct HTTP_TIMEOUT_LIMIT_INFO {
     pub HeaderWait: u16,
     pub MinSendRate: u32,
 }
-impl windows_core::TypeKind for HTTP_TIMEOUT_LIMIT_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_TIMEOUT_LIMIT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_TIMEOUT_LIMIT_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_TLS_RESTRICTIONS_PARAM {
     pub RestrictionCount: u32,
     pub TlsRestrictions: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for HTTP_TLS_RESTRICTIONS_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_TLS_RESTRICTIONS_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_TLS_RESTRICTIONS_PARAM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     pub SessionTicketKeyCount: u32,
     pub SessionTicketKeys: *mut core::ffi::c_void,
-}
-impl windows_core::TypeKind for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_TRANSPORT_ADDRESS {
     pub pRemoteAddress: *mut super::WinSock::SOCKADDR,
     pub pLocalAddress: *mut super::WinSock::SOCKADDR,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl windows_core::TypeKind for HTTP_TRANSPORT_ADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl Default for HTTP_TRANSPORT_ADDRESS {
@@ -2658,38 +2484,42 @@ impl Default for HTTP_TRANSPORT_ADDRESS {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl windows_core::TypeKind for HTTP_TRANSPORT_ADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_UNKNOWN_HEADER {
     pub NameLength: u16,
     pub RawValueLength: u16,
     pub pName: windows_core::PCSTR,
     pub pRawValue: windows_core::PCSTR,
 }
-impl windows_core::TypeKind for HTTP_UNKNOWN_HEADER {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_UNKNOWN_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_UNKNOWN_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
-}
-impl windows_core::TypeKind for HTTP_VERSION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for HTTP_VERSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for HTTP_VERSION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct HTTP_WSK_API_TIMINGS {
     pub ConnectCount: u64,
     pub ConnectSum: u64,
@@ -2704,11 +2534,11 @@ pub struct HTTP_WSK_API_TIMINGS {
     pub ControlSocketCount: u64,
     pub ControlSocketSum: u64,
 }
-impl windows_core::TypeKind for HTTP_WSK_API_TIMINGS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for HTTP_WSK_API_TIMINGS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for HTTP_WSK_API_TIMINGS {
+    type TypeKind = windows_core::CopyType;
 }

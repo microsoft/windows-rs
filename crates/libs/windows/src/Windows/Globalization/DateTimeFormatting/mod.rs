@@ -82,6 +82,7 @@ pub struct IDateTimeFormatterStatics_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DateTimeFormatter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DateTimeFormatter, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(DateTimeFormatter, IDateTimeFormatter, IDateTimeFormatter2, IDateTimeFormatterFactory, IDateTimeFormatterStatics);
 impl DateTimeFormatter {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<windows_core::HSTRING>> {
@@ -222,9 +223,9 @@ impl DateTimeFormatter {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateDateTimeFormatterLanguages<P0>(formattemplate: &windows_core::HSTRING, languages: P0) -> windows_core::Result<DateTimeFormatter>
+    pub fn CreateDateTimeFormatterLanguages<P1>(formattemplate: &windows_core::HSTRING, languages: P1) -> windows_core::Result<DateTimeFormatter>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -232,9 +233,9 @@ impl DateTimeFormatter {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateDateTimeFormatterContext<P0>(formattemplate: &windows_core::HSTRING, languages: P0, geographicregion: &windows_core::HSTRING, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING) -> windows_core::Result<DateTimeFormatter>
+    pub fn CreateDateTimeFormatterContext<P1>(formattemplate: &windows_core::HSTRING, languages: P1, geographicregion: &windows_core::HSTRING, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING) -> windows_core::Result<DateTimeFormatter>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P1: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -254,9 +255,9 @@ impl DateTimeFormatter {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateDateTimeFormatterDateTimeLanguages<P0>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: P0) -> windows_core::Result<DateTimeFormatter>
+    pub fn CreateDateTimeFormatterDateTimeLanguages<P7>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: P7) -> windows_core::Result<DateTimeFormatter>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P7: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -264,9 +265,9 @@ impl DateTimeFormatter {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateDateTimeFormatterDateTimeContext<P0>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: P0, geographicregion: &windows_core::HSTRING, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING) -> windows_core::Result<DateTimeFormatter>
+    pub fn CreateDateTimeFormatterDateTimeContext<P7>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: P7, geographicregion: &windows_core::HSTRING, calendar: &windows_core::HSTRING, clock: &windows_core::HSTRING) -> windows_core::Result<DateTimeFormatter>
     where
-        P0: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
+        P7: windows_core::Param<super::super::Foundation::Collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IDateTimeFormatterFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -310,16 +311,14 @@ impl windows_core::RuntimeType for DateTimeFormatter {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDateTimeFormatter>();
 }
 unsafe impl windows_core::Interface for DateTimeFormatter {
-    type Vtable = IDateTimeFormatter_Vtbl;
+    type Vtable = <IDateTimeFormatter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDateTimeFormatter as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for DateTimeFormatter {
     const NAME: &'static str = "Windows.Globalization.DateTimeFormatting.DateTimeFormatter";
 }
-unsafe impl Send for DateTimeFormatter {}
-unsafe impl Sync for DateTimeFormatter {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DayFormat(pub i32);
 impl DayFormat {
     pub const None: Self = Self(0i32);
@@ -328,16 +327,11 @@ impl DayFormat {
 impl windows_core::TypeKind for DayFormat {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DayFormat {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DayFormat").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DayFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct DayOfWeekFormat(pub i32);
 impl DayOfWeekFormat {
     pub const None: Self = Self(0i32);
@@ -348,16 +342,11 @@ impl DayOfWeekFormat {
 impl windows_core::TypeKind for DayOfWeekFormat {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DayOfWeekFormat {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DayOfWeekFormat").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for DayOfWeekFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.DayOfWeekFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct HourFormat(pub i32);
 impl HourFormat {
     pub const None: Self = Self(0i32);
@@ -366,16 +355,11 @@ impl HourFormat {
 impl windows_core::TypeKind for HourFormat {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for HourFormat {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("HourFormat").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for HourFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.HourFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MinuteFormat(pub i32);
 impl MinuteFormat {
     pub const None: Self = Self(0i32);
@@ -384,16 +368,11 @@ impl MinuteFormat {
 impl windows_core::TypeKind for MinuteFormat {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MinuteFormat {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MinuteFormat").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for MinuteFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MinuteFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct MonthFormat(pub i32);
 impl MonthFormat {
     pub const None: Self = Self(0i32);
@@ -405,16 +384,11 @@ impl MonthFormat {
 impl windows_core::TypeKind for MonthFormat {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MonthFormat {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MonthFormat").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for MonthFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.MonthFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SecondFormat(pub i32);
 impl SecondFormat {
     pub const None: Self = Self(0i32);
@@ -423,16 +397,11 @@ impl SecondFormat {
 impl windows_core::TypeKind for SecondFormat {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SecondFormat {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SecondFormat").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for SecondFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.SecondFormat;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct YearFormat(pub i32);
 impl YearFormat {
     pub const None: Self = Self(0i32);
@@ -442,11 +411,6 @@ impl YearFormat {
 }
 impl windows_core::TypeKind for YearFormat {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for YearFormat {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("YearFormat").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for YearFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.YearFormat;i4)");

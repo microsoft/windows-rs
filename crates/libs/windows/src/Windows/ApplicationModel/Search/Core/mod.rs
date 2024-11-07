@@ -66,23 +66,23 @@ pub struct ISearchSuggestionsRequestedEventArgs_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RequestingFocusOnKeyboardInputEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RequestingFocusOnKeyboardInputEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(RequestingFocusOnKeyboardInputEventArgs, IRequestingFocusOnKeyboardInputEventArgs);
 impl RequestingFocusOnKeyboardInputEventArgs {}
 impl windows_core::RuntimeType for RequestingFocusOnKeyboardInputEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRequestingFocusOnKeyboardInputEventArgs>();
 }
 unsafe impl windows_core::Interface for RequestingFocusOnKeyboardInputEventArgs {
-    type Vtable = IRequestingFocusOnKeyboardInputEventArgs_Vtbl;
+    type Vtable = <IRequestingFocusOnKeyboardInputEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRequestingFocusOnKeyboardInputEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RequestingFocusOnKeyboardInputEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs";
 }
-unsafe impl Send for RequestingFocusOnKeyboardInputEventArgs {}
-unsafe impl Sync for RequestingFocusOnKeyboardInputEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchSuggestion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchSuggestion, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SearchSuggestion, ISearchSuggestion);
 impl SearchSuggestion {
     pub fn Kind(&self) -> windows_core::Result<SearchSuggestionKind> {
         let this = self;
@@ -132,7 +132,7 @@ impl windows_core::RuntimeType for SearchSuggestion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestion>();
 }
 unsafe impl windows_core::Interface for SearchSuggestion {
-    type Vtable = ISearchSuggestion_Vtbl;
+    type Vtable = <ISearchSuggestion as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchSuggestion as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SearchSuggestion {
@@ -142,6 +142,7 @@ impl windows_core::RuntimeName for SearchSuggestion {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchSuggestionManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchSuggestionManager, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SearchSuggestionManager, ISearchSuggestionManager);
 impl SearchSuggestionManager {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -187,9 +188,9 @@ impl SearchSuggestionManager {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetQueryWithLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(querytext), core::mem::transmute_copy(language)).ok() }
     }
-    pub fn SetQueryWithSearchQueryLinguisticDetails<P0>(&self, querytext: &windows_core::HSTRING, language: &windows_core::HSTRING, linguisticdetails: P0) -> windows_core::Result<()>
+    pub fn SetQueryWithSearchQueryLinguisticDetails<P2>(&self, querytext: &windows_core::HSTRING, language: &windows_core::HSTRING, linguisticdetails: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::SearchQueryLinguisticDetails>,
+        P2: windows_core::Param<super::SearchQueryLinguisticDetails>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetQueryWithSearchQueryLinguisticDetails)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(querytext), core::mem::transmute_copy(language), linguisticdetails.param().abi()).ok() }
@@ -247,7 +248,7 @@ impl windows_core::RuntimeType for SearchSuggestionManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestionManager>();
 }
 unsafe impl windows_core::Interface for SearchSuggestionManager {
-    type Vtable = ISearchSuggestionManager_Vtbl;
+    type Vtable = <ISearchSuggestionManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchSuggestionManager as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SearchSuggestionManager {
@@ -257,6 +258,7 @@ impl windows_core::RuntimeName for SearchSuggestionManager {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchSuggestionsRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SearchSuggestionsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SearchSuggestionsRequestedEventArgs, ISearchSuggestionsRequestedEventArgs);
 impl SearchSuggestionsRequestedEventArgs {
     pub fn QueryText(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -291,16 +293,14 @@ impl windows_core::RuntimeType for SearchSuggestionsRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestionsRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for SearchSuggestionsRequestedEventArgs {
-    type Vtable = ISearchSuggestionsRequestedEventArgs_Vtbl;
+    type Vtable = <ISearchSuggestionsRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchSuggestionsRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SearchSuggestionsRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs";
 }
-unsafe impl Send for SearchSuggestionsRequestedEventArgs {}
-unsafe impl Sync for SearchSuggestionsRequestedEventArgs {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SearchSuggestionKind(pub i32);
 impl SearchSuggestionKind {
     pub const Query: Self = Self(0i32);
@@ -309,11 +309,6 @@ impl SearchSuggestionKind {
 }
 impl windows_core::TypeKind for SearchSuggestionKind {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SearchSuggestionKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SearchSuggestionKind").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for SearchSuggestionKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Search.Core.SearchSuggestionKind;i4)");

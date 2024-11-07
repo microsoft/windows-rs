@@ -199,7 +199,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
     }
     pub fn GetMany(
         &self,
-        startIndex: u32,
+        startindex: u32,
         items: &mut [<T as windows_core::Type<T>>::Default],
     ) -> windows_core::Result<u32> {
         let this = self;
@@ -207,7 +207,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector<T> {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(
                 windows_core::Interface::as_raw(this),
-                startIndex,
+                startindex,
                 items.len().try_into().unwrap(),
                 core::mem::transmute_copy(&items),
                 &mut result__,
@@ -448,7 +448,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            startIndex: u32,
+            startindex: u32,
             items_array_size: u32,
             items: *mut T,
             result__: *mut u32,
@@ -456,7 +456,7 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVector_Impl::GetMany(
                 this,
-                startIndex,
+                startindex,
                 core::slice::from_raw_parts_mut(
                     core::mem::transmute_copy(&items),
                     items_array_size as usize,

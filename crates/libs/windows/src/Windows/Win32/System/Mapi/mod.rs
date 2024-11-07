@@ -59,7 +59,7 @@ pub const MAPI_UNREAD_ONLY: u32 = 32u32;
 pub const MAPI_USER_ABORT: u32 = 1u32;
 pub const SUCCESS_SUCCESS: u32 = 0u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MapiFileDesc {
     pub ulReserved: u32,
     pub flFlags: u32,
@@ -68,16 +68,16 @@ pub struct MapiFileDesc {
     pub lpszFileName: windows_core::PSTR,
     pub lpFileType: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for MapiFileDesc {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MapiFileDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MapiFileDesc {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MapiFileDescW {
     pub ulReserved: u32,
     pub flFlags: u32,
@@ -86,16 +86,16 @@ pub struct MapiFileDescW {
     pub lpszFileName: windows_core::PWSTR,
     pub lpFileType: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for MapiFileDescW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MapiFileDescW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MapiFileDescW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MapiFileTagExt {
     pub ulReserved: u32,
     pub cbTag: u32,
@@ -103,16 +103,16 @@ pub struct MapiFileTagExt {
     pub cbEncoding: u32,
     pub lpEncoding: *mut u8,
 }
-impl windows_core::TypeKind for MapiFileTagExt {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MapiFileTagExt {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MapiFileTagExt {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MapiMessage {
     pub ulReserved: u32,
     pub lpszSubject: windows_core::PSTR,
@@ -127,16 +127,16 @@ pub struct MapiMessage {
     pub nFileCount: u32,
     pub lpFiles: *mut MapiFileDesc,
 }
-impl windows_core::TypeKind for MapiMessage {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MapiMessage {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MapiMessage {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MapiMessageW {
     pub ulReserved: u32,
     pub lpszSubject: windows_core::PWSTR,
@@ -151,16 +151,16 @@ pub struct MapiMessageW {
     pub nFileCount: u32,
     pub lpFiles: *mut MapiFileDescW,
 }
-impl windows_core::TypeKind for MapiMessageW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MapiMessageW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MapiMessageW {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MapiRecipDesc {
     pub ulReserved: u32,
     pub ulRecipClass: u32,
@@ -169,16 +169,16 @@ pub struct MapiRecipDesc {
     pub ulEIDSize: u32,
     pub lpEntryID: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for MapiRecipDesc {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MapiRecipDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MapiRecipDesc {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MapiRecipDescW {
     pub ulReserved: u32,
     pub ulRecipClass: u32,
@@ -187,13 +187,13 @@ pub struct MapiRecipDescW {
     pub ulEIDSize: u32,
     pub lpEntryID: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for MapiRecipDescW {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MapiRecipDescW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for MapiRecipDescW {
+    type TypeKind = windows_core::CopyType;
 }
 pub type LPMAPIADDRESS = Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszcaption: windows_core::PCSTR, neditfields: u32, lpszlabels: windows_core::PCSTR, nrecips: u32, lprecips: *mut MapiRecipDesc, flflags: u32, ulreserved: u32, lpnnewrecips: *mut u32, lppnewrecips: *mut *mut MapiRecipDesc) -> u32>;
 pub type LPMAPIDELETEMAIL = Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszmessageid: windows_core::PCSTR, flflags: u32, ulreserved: u32) -> u32>;

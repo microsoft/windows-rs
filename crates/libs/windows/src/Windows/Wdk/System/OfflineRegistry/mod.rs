@@ -21,12 +21,12 @@ pub unsafe fn ORCreateHive(horkey: *mut ORHKEY) -> super::super::super::Win32::F
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn ORCreateKey<P0, P1, P2, P3>(keyhandle: P0, lpsubkey: P1, lpclass: P2, dwoptions: u32, psecuritydescriptor: P3, phkresult: *mut ORHKEY, pdwdisposition: Option<*mut u32>) -> super::super::super::Win32::Foundation::WIN32_ERROR
+pub unsafe fn ORCreateKey<P0, P1, P2, P4>(keyhandle: P0, lpsubkey: P1, lpclass: P2, dwoptions: u32, psecuritydescriptor: P4, phkresult: *mut ORHKEY, pdwdisposition: Option<*mut u32>) -> super::super::super::Win32::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<ORHKEY>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P4: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("offreg.dll" "system" fn ORCreateKey(keyhandle : ORHKEY, lpsubkey : windows_core::PCWSTR, lpclass : windows_core::PCWSTR, dwoptions : u32, psecuritydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR, phkresult : *mut ORHKEY, pdwdisposition : *mut u32) -> super::super::super::Win32::Foundation:: WIN32_ERROR);
     ORCreateKey(keyhandle.param().abi(), lpsubkey.param().abi(), lpclass.param().abi(), dwoptions, psecuritydescriptor.param().abi(), phkresult, core::mem::transmute(pdwdisposition.unwrap_or(core::ptr::null_mut())))
@@ -167,10 +167,10 @@ where
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn ORSetKeySecurity<P0, P1>(handle: P0, securityinformation: u32, psecuritydescriptor: P1) -> super::super::super::Win32::Foundation::WIN32_ERROR
+pub unsafe fn ORSetKeySecurity<P0, P2>(handle: P0, securityinformation: u32, psecuritydescriptor: P2) -> super::super::super::Win32::Foundation::WIN32_ERROR
 where
     P0: windows_core::Param<ORHKEY>,
-    P1: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
+    P2: windows_core::Param<super::super::super::Win32::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("offreg.dll" "system" fn ORSetKeySecurity(handle : ORHKEY, securityinformation : u32, psecuritydescriptor : super::super::super::Win32::Security:: PSECURITY_DESCRIPTOR) -> super::super::super::Win32::Foundation:: WIN32_ERROR);
     ORSetKeySecurity(handle.param().abi(), securityinformation, psecuritydescriptor.param().abi())
@@ -205,6 +205,9 @@ pub unsafe fn ORStart() -> super::super::super::Win32::Foundation::WIN32_ERROR {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct ORHKEY(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for ORHKEY {
+    type TypeKind = windows_core::CopyType;
+}
 impl ORHKEY {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -214,7 +217,8 @@ impl windows_core::Free for ORHKEY {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = ORCloseKey(*self);
+            windows_targets::link!("offreg.dll" "system" fn ORCloseKey(keyhandle : *mut core::ffi::c_void) -> u32);
+            ORCloseKey(self.0);
         }
     }
 }
@@ -222,7 +226,4 @@ impl Default for ORHKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
-}
-impl windows_core::TypeKind for ORHKEY {
-    type TypeKind = windows_core::CopyType;
 }

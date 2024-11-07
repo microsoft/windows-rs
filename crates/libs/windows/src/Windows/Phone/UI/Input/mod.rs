@@ -44,6 +44,7 @@ pub struct IHardwareButtonsStatics2_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackPressedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackPressedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(BackPressedEventArgs, IBackPressedEventArgs);
 impl BackPressedEventArgs {
     pub fn Handled(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -61,31 +62,28 @@ impl windows_core::RuntimeType for BackPressedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackPressedEventArgs>();
 }
 unsafe impl windows_core::Interface for BackPressedEventArgs {
-    type Vtable = IBackPressedEventArgs_Vtbl;
+    type Vtable = <IBackPressedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackPressedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for BackPressedEventArgs {
     const NAME: &'static str = "Windows.Phone.UI.Input.BackPressedEventArgs";
 }
-unsafe impl Send for BackPressedEventArgs {}
-unsafe impl Sync for BackPressedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CameraEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CameraEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CameraEventArgs, ICameraEventArgs);
 impl CameraEventArgs {}
 impl windows_core::RuntimeType for CameraEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICameraEventArgs>();
 }
 unsafe impl windows_core::Interface for CameraEventArgs {
-    type Vtable = ICameraEventArgs_Vtbl;
+    type Vtable = <ICameraEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICameraEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CameraEventArgs {
     const NAME: &'static str = "Windows.Phone.UI.Input.CameraEventArgs";
 }
-unsafe impl Send for CameraEventArgs {}
-unsafe impl Sync for CameraEventArgs {}
 pub struct HardwareButtons;
 impl HardwareButtons {
     pub fn BackPressed<P0>(handler: P0) -> windows_core::Result<super::super::super::Foundation::EventRegistrationToken>

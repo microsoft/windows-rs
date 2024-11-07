@@ -195,6 +195,7 @@ impl windows_core::RuntimeName for KnownSimpleHapticsControllerWaveforms {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SimpleHapticsController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SimpleHapticsController, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SimpleHapticsController, ISimpleHapticsController);
 impl SimpleHapticsController {
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -276,18 +277,17 @@ impl windows_core::RuntimeType for SimpleHapticsController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISimpleHapticsController>();
 }
 unsafe impl windows_core::Interface for SimpleHapticsController {
-    type Vtable = ISimpleHapticsController_Vtbl;
+    type Vtable = <ISimpleHapticsController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISimpleHapticsController as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SimpleHapticsController {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsController";
 }
-unsafe impl Send for SimpleHapticsController {}
-unsafe impl Sync for SimpleHapticsController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SimpleHapticsControllerFeedback(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SimpleHapticsControllerFeedback, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SimpleHapticsControllerFeedback, ISimpleHapticsControllerFeedback);
 impl SimpleHapticsControllerFeedback {
     pub fn Waveform(&self) -> windows_core::Result<u16> {
         let this = self;
@@ -308,18 +308,17 @@ impl windows_core::RuntimeType for SimpleHapticsControllerFeedback {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISimpleHapticsControllerFeedback>();
 }
 unsafe impl windows_core::Interface for SimpleHapticsControllerFeedback {
-    type Vtable = ISimpleHapticsControllerFeedback_Vtbl;
+    type Vtable = <ISimpleHapticsControllerFeedback as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISimpleHapticsControllerFeedback as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SimpleHapticsControllerFeedback {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsControllerFeedback";
 }
-unsafe impl Send for SimpleHapticsControllerFeedback {}
-unsafe impl Sync for SimpleHapticsControllerFeedback {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VibrationDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VibrationDevice, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VibrationDevice, IVibrationDevice, IVibrationDeviceStatics);
 impl VibrationDevice {
     pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -375,16 +374,14 @@ impl windows_core::RuntimeType for VibrationDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVibrationDevice>();
 }
 unsafe impl windows_core::Interface for VibrationDevice {
-    type Vtable = IVibrationDevice_Vtbl;
+    type Vtable = <IVibrationDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVibrationDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Devices.Haptics.VibrationDevice";
 }
-unsafe impl Send for VibrationDevice {}
-unsafe impl Sync for VibrationDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct VibrationAccessStatus(pub i32);
 impl VibrationAccessStatus {
     pub const Allowed: Self = Self(0i32);
@@ -394,11 +391,6 @@ impl VibrationAccessStatus {
 }
 impl windows_core::TypeKind for VibrationAccessStatus {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for VibrationAccessStatus {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VibrationAccessStatus").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for VibrationAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Haptics.VibrationAccessStatus;i4)");

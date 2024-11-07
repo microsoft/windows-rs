@@ -112,51 +112,31 @@ pub const NS_REQ_ONE_OR_MORE: NS_REQS = NS_REQS(3i32);
 pub const NS_REQ_PRESENT: NS_REQS = NS_REQS(1i32);
 pub const NS_REQ_ZERO: NS_REQS = NS_REQS(0i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NS_CMD_FLAGS(pub i32);
 impl windows_core::TypeKind for NS_CMD_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NS_CMD_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NS_CMD_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NS_EVENTS(pub i32);
 impl windows_core::TypeKind for NS_EVENTS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NS_EVENTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NS_EVENTS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NS_MODE_CHANGE(pub i32);
 impl windows_core::TypeKind for NS_MODE_CHANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NS_MODE_CHANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NS_MODE_CHANGE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NS_REQS(pub i32);
 impl windows_core::TypeKind for NS_REQS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NS_REQS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NS_REQS").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CMD_ENTRY {
     pub pwszCmdToken: windows_core::PCWSTR,
     pub pfnCmdHandler: PFN_HANDLE_CMD,
@@ -166,16 +146,16 @@ pub struct CMD_ENTRY {
     pub pOsVersionCheck: PNS_OSVERSIONCHECK,
     pub pfnCustomHelpFn: PFN_CUSTOM_HELP,
 }
-impl windows_core::TypeKind for CMD_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CMD_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CMD_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CMD_GROUP_ENTRY {
     pub pwszCmdGroupToken: windows_core::PCWSTR,
     pub dwShortCmdHelpToken: u32,
@@ -184,16 +164,16 @@ pub struct CMD_GROUP_ENTRY {
     pub pCmdGroup: *mut CMD_ENTRY,
     pub pOsVersionCheck: PNS_OSVERSIONCHECK,
 }
-impl windows_core::TypeKind for CMD_GROUP_ENTRY {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CMD_GROUP_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CMD_GROUP_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct NS_CONTEXT_ATTRIBUTES {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0,
     pub pwszContext: windows_core::PWSTR,
@@ -210,114 +190,114 @@ pub struct NS_CONTEXT_ATTRIBUTES {
     pub pReserved: *mut core::ffi::c_void,
     pub pfnOsVersionCheck: PNS_OSVERSIONCHECK,
 }
-impl windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NS_CONTEXT_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union NS_CONTEXT_ATTRIBUTES_0 {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0_0,
     pub _ullAlign: u64,
-}
-impl windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NS_CONTEXT_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
-}
-impl windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NS_CONTEXT_ATTRIBUTES_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NS_CONTEXT_ATTRIBUTES_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct NS_HELPER_ATTRIBUTES {
     pub Anonymous: NS_HELPER_ATTRIBUTES_0,
     pub guidHelper: windows_core::GUID,
     pub pfnStart: PNS_HELPER_START_FN,
     pub pfnStop: PNS_HELPER_STOP_FN,
 }
-impl windows_core::TypeKind for NS_HELPER_ATTRIBUTES {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for NS_HELPER_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NS_HELPER_ATTRIBUTES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union NS_HELPER_ATTRIBUTES_0 {
     pub Anonymous: NS_HELPER_ATTRIBUTES_0_0,
     pub _ullAlign: u64,
-}
-impl windows_core::TypeKind for NS_HELPER_ATTRIBUTES_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NS_HELPER_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NS_HELPER_ATTRIBUTES_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NS_HELPER_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
-}
-impl windows_core::TypeKind for NS_HELPER_ATTRIBUTES_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NS_HELPER_ATTRIBUTES_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NS_HELPER_ATTRIBUTES_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TAG_TYPE {
     pub pwszTag: windows_core::PCWSTR,
     pub dwRequired: u32,
     pub bPresent: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for TAG_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TAG_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for TAG_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct TOKEN_VALUE {
     pub pwszToken: windows_core::PCWSTR,
     pub dwValue: u32,
-}
-impl windows_core::TypeKind for TOKEN_VALUE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for TOKEN_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for TOKEN_VALUE {
+    type TypeKind = windows_core::CopyType;
 }
 pub type PFN_CUSTOM_HELP = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HANDLE, pwszcmdtoken: windows_core::PCWSTR)>;
 pub type PFN_HANDLE_CMD = Option<unsafe extern "system" fn(pwszmachine: windows_core::PCWSTR, ppwcarguments: *mut windows_core::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const core::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32>;

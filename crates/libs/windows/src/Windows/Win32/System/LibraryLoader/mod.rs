@@ -203,7 +203,7 @@ where
     FindResourceW(hmodule.param().abi(), lpname.param().abi(), lptype.param().abi())
 }
 #[inline]
-pub unsafe fn FreeLibraryAndExitThread<P0>(hlibmodule: P0, dwexitcode: u32) -> !
+pub unsafe fn FreeLibraryAndExitThread<P0>(hlibmodule: P0, dwexitcode: u32)
 where
     P0: windows_core::Param<super::super::Foundation::HMODULE>,
 {
@@ -254,17 +254,17 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
-pub unsafe fn GetModuleHandleExA<P0>(dwflags: u32, lpmodulename: P0, phmodule: *mut super::super::Foundation::HMODULE) -> windows_core::Result<()>
+pub unsafe fn GetModuleHandleExA<P1>(dwflags: u32, lpmodulename: P1, phmodule: *mut super::super::Foundation::HMODULE) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCSTR>,
+    P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetModuleHandleExA(dwflags : u32, lpmodulename : windows_core::PCSTR, phmodule : *mut super::super::Foundation:: HMODULE) -> super::super::Foundation:: BOOL);
     GetModuleHandleExA(dwflags, lpmodulename.param().abi(), phmodule).ok()
 }
 #[inline]
-pub unsafe fn GetModuleHandleExW<P0>(dwflags: u32, lpmodulename: P0, phmodule: *mut super::super::Foundation::HMODULE) -> windows_core::Result<()>
+pub unsafe fn GetModuleHandleExW<P1>(dwflags: u32, lpmodulename: P1, phmodule: *mut super::super::Foundation::HMODULE) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("kernel32.dll" "system" fn GetModuleHandleExW(dwflags : u32, lpmodulename : windows_core::PCWSTR, phmodule : *mut super::super::Foundation:: HMODULE) -> super::super::Foundation:: BOOL);
     GetModuleHandleExW(dwflags, lpmodulename.param().abi(), phmodule).ok()
@@ -444,15 +444,10 @@ pub const RESOURCE_ENUM_MUI_SYSTEM: u32 = 4u32;
 pub const RESOURCE_ENUM_VALIDATE: u32 = 8u32;
 pub const SUPPORT_LANG_NUMBER: u32 = 32u32;
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct LOAD_LIBRARY_FLAGS(pub u32);
 impl windows_core::TypeKind for LOAD_LIBRARY_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for LOAD_LIBRARY_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LOAD_LIBRARY_FLAGS").field(&self.0).finish()
-    }
 }
 impl LOAD_LIBRARY_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -488,49 +483,49 @@ impl core::ops::Not for LOAD_LIBRARY_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ENUMUILANG {
     pub NumOfEnumUILang: u32,
     pub SizeOfEnumUIBuffer: u32,
     pub pEnumUIBuffer: *mut u16,
-}
-impl windows_core::TypeKind for ENUMUILANG {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ENUMUILANG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ENUMUILANG {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct REDIRECTION_DESCRIPTOR {
     pub Version: u32,
     pub FunctionCount: u32,
     pub Redirections: *mut REDIRECTION_FUNCTION_DESCRIPTOR,
-}
-impl windows_core::TypeKind for REDIRECTION_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for REDIRECTION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for REDIRECTION_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct REDIRECTION_FUNCTION_DESCRIPTOR {
     pub DllName: windows_core::PCSTR,
     pub FunctionName: windows_core::PCSTR,
     pub RedirectionTarget: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for REDIRECTION_FUNCTION_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for REDIRECTION_FUNCTION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for REDIRECTION_FUNCTION_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
 }
 pub type ENUMRESLANGPROCA = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_core::PCSTR, lpname: windows_core::PCSTR, wlanguage: u16, lparam: isize) -> super::super::Foundation::BOOL>;
 pub type ENUMRESLANGPROCW = Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: windows_core::PCWSTR, lpname: windows_core::PCWSTR, wlanguage: u16, lparam: isize) -> super::super::Foundation::BOOL>;

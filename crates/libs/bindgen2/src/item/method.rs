@@ -549,5 +549,5 @@ impl Method {
 }
 
 fn is_convertible(ty: &Type, param: Param) -> bool {
-    param.flags().contains(ParamAttributes::In) && !ty.is_winrt_array() && ty.is_borrowed()
+    param.flags().contains(ParamAttributes::In) && ty.is_borrowed()
 }

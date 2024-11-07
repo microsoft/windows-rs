@@ -112,12 +112,12 @@ where
     AddClusterResourceNodeEx(hresource.param().abi(), hnode.param().abi(), lpszreason.param().abi())
 }
 #[inline]
-pub unsafe fn AddClusterStorageNode<P0, P1, P2, P3>(hcluster: P0, lpsznodename: P1, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>, lpszclusterstoragenodedescription: P2, lpszclusterstoragenodelocation: P3) -> u32
+pub unsafe fn AddClusterStorageNode<P0, P1, P4, P5>(hcluster: P0, lpsznodename: P1, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>, lpszclusterstoragenodedescription: P4, lpszclusterstoragenodelocation: P5) -> u32
 where
     P0: windows_core::Param<HCLUSTER>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn AddClusterStorageNode(hcluster : HCLUSTER, lpsznodename : windows_core::PCWSTR, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void, lpszclusterstoragenodedescription : windows_core::PCWSTR, lpszclusterstoragenodelocation : windows_core::PCWSTR) -> u32);
     AddClusterStorageNode(hcluster.param().abi(), lpsznodename.param().abi(), pfnprogresscallback, core::mem::transmute(pvcallbackarg.unwrap_or(core::ptr::null())), lpszclusterstoragenodedescription.param().abi(), lpszclusterstoragenodelocation.param().abi())
@@ -185,11 +185,11 @@ where
     ChangeClusterResourceGroupEx(hresource.param().abi(), hgroup.param().abi(), flags)
 }
 #[inline]
-pub unsafe fn ChangeClusterResourceGroupEx2<P0, P1, P2>(hresource: P0, hgroup: P1, flags: u64, lpszreason: P2) -> u32
+pub unsafe fn ChangeClusterResourceGroupEx2<P0, P1, P3>(hresource: P0, hgroup: P1, flags: u64, lpszreason: P3) -> u32
 where
     P0: windows_core::Param<HRESOURCE>,
     P1: windows_core::Param<HGROUP>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ChangeClusterResourceGroupEx2(hresource : HRESOURCE, hgroup : HGROUP, flags : u64, lpszreason : windows_core::PCWSTR) -> u32);
     ChangeClusterResourceGroupEx2(hresource.param().abi(), hgroup.param().abi(), flags, lpszreason.param().abi())
@@ -307,17 +307,17 @@ pub unsafe fn ClusWorkerTerminate(lpworker: *const CLUS_WORKER) {
     ClusWorkerTerminate(lpworker)
 }
 #[inline]
-pub unsafe fn ClusWorkerTerminateEx<P0>(clusworker: *mut CLUS_WORKER, timeoutinmilliseconds: u32, waitonly: P0) -> u32
+pub unsafe fn ClusWorkerTerminateEx<P2>(clusworker: *mut CLUS_WORKER, timeoutinmilliseconds: u32, waitonly: P2) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("resutils.dll" "system" fn ClusWorkerTerminateEx(clusworker : *mut CLUS_WORKER, timeoutinmilliseconds : u32, waitonly : super::super::Foundation:: BOOL) -> u32);
     ClusWorkerTerminateEx(clusworker, timeoutinmilliseconds, waitonly.param().abi())
 }
 #[inline]
-pub unsafe fn ClusWorkersTerminate<P0>(clusworkers: &mut [*mut CLUS_WORKER], timeoutinmilliseconds: u32, waitonly: P0) -> u32
+pub unsafe fn ClusWorkersTerminate<P3>(clusworkers: &mut [*mut CLUS_WORKER], timeoutinmilliseconds: u32, waitonly: P3) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("resutils.dll" "system" fn ClusWorkersTerminate(clusworkers : *mut *mut CLUS_WORKER, clusworkerscount : usize, timeoutinmilliseconds : u32, waitonly : super::super::Foundation:: BOOL) -> u32);
     ClusWorkersTerminate(core::mem::transmute(clusworkers.as_ptr()), clusworkers.len().try_into().unwrap(), timeoutinmilliseconds, waitonly.param().abi())
@@ -356,11 +356,11 @@ where
     ClusterAddGroupToGroupSetWithDomains(hgroupset.param().abi(), hgroup.param().abi(), faultdomain, updatedomain)
 }
 #[inline]
-pub unsafe fn ClusterAddGroupToGroupSetWithDomainsEx<P0, P1, P2>(hgroupset: P0, hgroup: P1, faultdomain: u32, updatedomain: u32, lpszreason: P2) -> u32
+pub unsafe fn ClusterAddGroupToGroupSetWithDomainsEx<P0, P1, P4>(hgroupset: P0, hgroup: P1, faultdomain: u32, updatedomain: u32, lpszreason: P4) -> u32
 where
     P0: windows_core::Param<HGROUPSET>,
     P1: windows_core::Param<HGROUP>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterAddGroupToGroupSetWithDomainsEx(hgroupset : HGROUPSET, hgroup : HGROUP, faultdomain : u32, updatedomain : u32, lpszreason : windows_core::PCWSTR) -> u32);
     ClusterAddGroupToGroupSetWithDomainsEx(hgroupset.param().abi(), hgroup.param().abi(), faultdomain, updatedomain, lpszreason.param().abi())
@@ -409,11 +409,11 @@ where
     ClusterControl(hcluster.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn ClusterControlEx<P0, P1, P2>(hcluster: P0, hhostnode: P1, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P2) -> u32
+pub unsafe fn ClusterControlEx<P0, P1, P8>(hcluster: P0, hhostnode: P1, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P8) -> u32
 where
     P0: windows_core::Param<HCLUSTER>,
     P1: windows_core::Param<HNODE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterControlEx(hcluster : HCLUSTER, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
     ClusterControlEx(hcluster.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())), lpszreason.param().abi())
@@ -517,11 +517,11 @@ where
     ClusterGroupControl(hgroup.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn ClusterGroupControlEx<P0, P1, P2>(hgroup: P0, hhostnode: P1, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P2) -> u32
+pub unsafe fn ClusterGroupControlEx<P0, P1, P8>(hgroup: P0, hhostnode: P1, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P8) -> u32
 where
     P0: windows_core::Param<HGROUP>,
     P1: windows_core::Param<HNODE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterGroupControlEx(hgroup : HGROUP, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
     ClusterGroupControlEx(hgroup.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())), lpszreason.param().abi())
@@ -567,11 +567,11 @@ where
     ClusterGroupOpenEnum(hgroup.param().abi(), dwtype)
 }
 #[inline]
-pub unsafe fn ClusterGroupOpenEnumEx<P0, P1, P2>(hcluster: P0, lpszproperties: P1, cbproperties: u32, lpszroproperties: P2, cbroproperties: u32, dwflags: u32) -> HGROUPENUMEX
+pub unsafe fn ClusterGroupOpenEnumEx<P0, P1, P3>(hcluster: P0, lpszproperties: P1, cbproperties: u32, lpszroproperties: P3, cbroproperties: u32, dwflags: u32) -> HGROUPENUMEX
 where
     P0: windows_core::Param<HCLUSTER>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterGroupOpenEnumEx(hcluster : HCLUSTER, lpszproperties : windows_core::PCWSTR, cbproperties : u32, lpszroproperties : windows_core::PCWSTR, cbroproperties : u32, dwflags : u32) -> HGROUPENUMEX);
     ClusterGroupOpenEnumEx(hcluster.param().abi(), lpszproperties.param().abi(), cbproperties, lpszroproperties.param().abi(), cbroproperties, dwflags)
@@ -594,11 +594,11 @@ where
     ClusterGroupSetControl(hgroupset.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), cbinbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), cboutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn ClusterGroupSetControlEx<P0, P1, P2>(hgroupset: P0, hhostnode: P1, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P2) -> u32
+pub unsafe fn ClusterGroupSetControlEx<P0, P1, P8>(hgroupset: P0, hhostnode: P1, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P8) -> u32
 where
     P0: windows_core::Param<HGROUPSET>,
     P1: windows_core::Param<HNODE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterGroupSetControlEx(hgroupset : HGROUPSET, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
     ClusterGroupSetControlEx(hgroupset.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), cbinbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), cboutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())), lpszreason.param().abi())
@@ -653,11 +653,11 @@ where
     ClusterNetInterfaceControl(hnetinterface.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn ClusterNetInterfaceControlEx<P0, P1, P2>(hnetinterface: P0, hhostnode: P1, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P2) -> u32
+pub unsafe fn ClusterNetInterfaceControlEx<P0, P1, P8>(hnetinterface: P0, hhostnode: P1, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P8) -> u32
 where
     P0: windows_core::Param<HNETINTERFACE>,
     P1: windows_core::Param<HNODE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterNetInterfaceControlEx(hnetinterface : HNETINTERFACE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
     ClusterNetInterfaceControlEx(hnetinterface.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())), lpszreason.param().abi())
@@ -698,11 +698,11 @@ where
     ClusterNetworkControl(hnetwork.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn ClusterNetworkControlEx<P0, P1, P2>(hnetwork: P0, hhostnode: P1, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P2) -> u32
+pub unsafe fn ClusterNetworkControlEx<P0, P1, P8>(hnetwork: P0, hhostnode: P1, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P8) -> u32
 where
     P0: windows_core::Param<HNETWORK>,
     P1: windows_core::Param<HNODE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterNetworkControlEx(hnetwork : HNETWORK, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
     ClusterNetworkControlEx(hnetwork.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())), lpszreason.param().abi())
@@ -757,11 +757,11 @@ where
     ClusterNodeControl(hnode.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn ClusterNodeControlEx<P0, P1, P2>(hnode: P0, hhostnode: P1, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P2) -> u32
+pub unsafe fn ClusterNodeControlEx<P0, P1, P8>(hnode: P0, hhostnode: P1, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P8) -> u32
 where
     P0: windows_core::Param<HNODE>,
     P1: windows_core::Param<HNODE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterNodeControlEx(hnode : HNODE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
     ClusterNodeControlEx(hnode.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())), lpszreason.param().abi())
@@ -849,10 +849,10 @@ where
     ClusterPrepareSharedVolumeForBackup(lpszfilename.param().abi(), core::mem::transmute(lpszvolumepathname), lpcchvolumepathname, core::mem::transmute(lpszvolumename), lpcchvolumename)
 }
 #[inline]
-pub unsafe fn ClusterRegBatchAddCommand<P0, P1>(hregbatch: P0, dwcommand: CLUSTER_REG_COMMAND, wzname: P1, dwoptions: u32, lpdata: Option<*const core::ffi::c_void>, cbdata: u32) -> i32
+pub unsafe fn ClusterRegBatchAddCommand<P0, P2>(hregbatch: P0, dwcommand: CLUSTER_REG_COMMAND, wzname: P2, dwoptions: u32, lpdata: Option<*const core::ffi::c_void>, cbdata: u32) -> i32
 where
     P0: windows_core::Param<HREGBATCH>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegBatchAddCommand(hregbatch : HREGBATCH, dwcommand : CLUSTER_REG_COMMAND, wzname : windows_core::PCWSTR, dwoptions : u32, lpdata : *const core::ffi::c_void, cbdata : u32) -> i32);
     ClusterRegBatchAddCommand(hregbatch.param().abi(), dwcommand, wzname.param().abi(), dwoptions, core::mem::transmute(lpdata.unwrap_or(core::ptr::null())), cbdata)
@@ -961,11 +961,11 @@ where
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn ClusterRegCreateKeyEx<P0, P1, P2>(hkey: P0, lpsubkey: P1, dwoptions: u32, samdesired: u32, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: Option<*mut u32>, lpszreason: P2) -> i32
+pub unsafe fn ClusterRegCreateKeyEx<P0, P1, P7>(hkey: P0, lpsubkey: P1, dwoptions: u32, samdesired: u32, lpsecurityattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: Option<*mut u32>, lpszreason: P7) -> i32
 where
     P0: windows_core::Param<super::super::System::Registry::HKEY>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P7: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegCreateKeyEx(hkey : super::super::System::Registry:: HKEY, lpsubkey : windows_core::PCWSTR, dwoptions : u32, samdesired : u32, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, phkresult : *mut super::super::System::Registry:: HKEY, lpdwdisposition : *mut u32, lpszreason : windows_core::PCWSTR) -> i32);
     ClusterRegCreateKeyEx(hkey.param().abi(), lpsubkey.param().abi(), dwoptions, samdesired, core::mem::transmute(lpsecurityattributes.unwrap_or(core::ptr::null())), phkresult, core::mem::transmute(lpdwdisposition.unwrap_or(core::ptr::null_mut())), lpszreason.param().abi())
@@ -1105,21 +1105,21 @@ where
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn ClusterRegSetKeySecurity<P0, P1>(hkey: P0, securityinformation: u32, psecuritydescriptor: P1) -> i32
+pub unsafe fn ClusterRegSetKeySecurity<P0, P2>(hkey: P0, securityinformation: u32, psecuritydescriptor: P2) -> i32
 where
     P0: windows_core::Param<super::super::System::Registry::HKEY>,
-    P1: windows_core::Param<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P2: windows_core::Param<super::super::Security::PSECURITY_DESCRIPTOR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegSetKeySecurity(hkey : super::super::System::Registry:: HKEY, securityinformation : u32, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR) -> i32);
     ClusterRegSetKeySecurity(hkey.param().abi(), securityinformation, psecuritydescriptor.param().abi())
 }
 #[cfg(all(feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn ClusterRegSetKeySecurityEx<P0, P1, P2>(hkey: P0, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P1, lpszreason: P2) -> i32
+pub unsafe fn ClusterRegSetKeySecurityEx<P0, P2, P3>(hkey: P0, securityinformation: super::super::Security::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: P2, lpszreason: P3) -> i32
 where
     P0: windows_core::Param<super::super::System::Registry::HKEY>,
-    P1: windows_core::Param<super::super::Security::PSECURITY_DESCRIPTOR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<super::super::Security::PSECURITY_DESCRIPTOR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegSetKeySecurityEx(hkey : super::super::System::Registry:: HKEY, securityinformation : super::super::Security:: OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, lpszreason : windows_core::PCWSTR) -> i32);
     ClusterRegSetKeySecurityEx(hkey.param().abi(), securityinformation, psecuritydescriptor.param().abi(), lpszreason.param().abi())
@@ -1136,11 +1136,11 @@ where
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn ClusterRegSetValueEx<P0, P1, P2>(hkey: P0, lpszvaluename: P1, dwtype: u32, lpdata: *const u8, cbdata: u32, lpszreason: P2) -> u32
+pub unsafe fn ClusterRegSetValueEx<P0, P1, P5>(hkey: P0, lpszvaluename: P1, dwtype: u32, lpdata: *const u8, cbdata: u32, lpszreason: P5) -> u32
 where
     P0: windows_core::Param<super::super::System::Registry::HKEY>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterRegSetValueEx(hkey : super::super::System::Registry:: HKEY, lpszvaluename : windows_core::PCWSTR, dwtype : u32, lpdata : *const u8, cbdata : u32, lpszreason : windows_core::PCWSTR) -> u32);
     ClusterRegSetValueEx(hkey.param().abi(), lpszvaluename.param().abi(), dwtype, lpdata, cbdata, lpszreason.param().abi())
@@ -1224,21 +1224,21 @@ where
     ClusterResourceControlAsUser(hresource.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), cbinbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), cboutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn ClusterResourceControlAsUserEx<P0, P1, P2>(hresource: P0, hhostnode: P1, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P2) -> u32
+pub unsafe fn ClusterResourceControlAsUserEx<P0, P1, P8>(hresource: P0, hhostnode: P1, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P8) -> u32
 where
     P0: windows_core::Param<HRESOURCE>,
     P1: windows_core::Param<HNODE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterResourceControlAsUserEx(hresource : HRESOURCE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
     ClusterResourceControlAsUserEx(hresource.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), cbinbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), cboutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())), lpszreason.param().abi())
 }
 #[inline]
-pub unsafe fn ClusterResourceControlEx<P0, P1, P2>(hresource: P0, hhostnode: P1, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P2) -> u32
+pub unsafe fn ClusterResourceControlEx<P0, P1, P8>(hresource: P0, hhostnode: P1, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, cbinbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, cboutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P8) -> u32
 where
     P0: windows_core::Param<HRESOURCE>,
     P1: windows_core::Param<HNODE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterResourceControlEx(hresource : HRESOURCE, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, cbinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, cboutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
     ClusterResourceControlEx(hresource.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), cbinbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), cboutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())), lpszreason.param().abi())
@@ -1284,11 +1284,11 @@ where
     ClusterResourceOpenEnum(hresource.param().abi(), dwtype)
 }
 #[inline]
-pub unsafe fn ClusterResourceOpenEnumEx<P0, P1, P2>(hcluster: P0, lpszproperties: P1, cbproperties: u32, lpszroproperties: P2, cbroproperties: u32, dwflags: u32) -> HRESENUMEX
+pub unsafe fn ClusterResourceOpenEnumEx<P0, P1, P3>(hcluster: P0, lpszproperties: P1, cbproperties: u32, lpszroproperties: P3, cbroproperties: u32, dwflags: u32) -> HRESENUMEX
 where
     P0: windows_core::Param<HCLUSTER>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterResourceOpenEnumEx(hcluster : HCLUSTER, lpszproperties : windows_core::PCWSTR, cbproperties : u32, lpszroproperties : windows_core::PCWSTR, cbroproperties : u32, dwflags : u32) -> HRESENUMEX);
     ClusterResourceOpenEnumEx(hcluster.param().abi(), lpszproperties.param().abi(), cbproperties, lpszroproperties.param().abi(), cbroproperties, dwflags)
@@ -1322,23 +1322,23 @@ where
     ClusterResourceTypeControlAsUser(hcluster.param().abi(), lpszresourcetypename.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn ClusterResourceTypeControlAsUserEx<P0, P1, P2, P3>(hcluster: P0, lpszresourcetypename: P1, hhostnode: P2, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P3) -> u32
+pub unsafe fn ClusterResourceTypeControlAsUserEx<P0, P1, P2, P9>(hcluster: P0, lpszresourcetypename: P1, hhostnode: P2, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P9) -> u32
 where
     P0: windows_core::Param<HCLUSTER>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<HNODE>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P9: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterResourceTypeControlAsUserEx(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
     ClusterResourceTypeControlAsUserEx(hcluster.param().abi(), lpszresourcetypename.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())), lpszreason.param().abi())
 }
 #[inline]
-pub unsafe fn ClusterResourceTypeControlEx<P0, P1, P2, P3>(hcluster: P0, lpszresourcetypename: P1, hhostnode: P2, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P3) -> u32
+pub unsafe fn ClusterResourceTypeControlEx<P0, P1, P2, P9>(hcluster: P0, lpszresourcetypename: P1, hhostnode: P2, dwcontrolcode: u32, lpinbuffer: Option<*const core::ffi::c_void>, ninbuffersize: u32, lpoutbuffer: Option<*mut core::ffi::c_void>, noutbuffersize: u32, lpbytesreturned: Option<*mut u32>, lpszreason: P9) -> u32
 where
     P0: windows_core::Param<HCLUSTER>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<HNODE>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P9: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterResourceTypeControlEx(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, hhostnode : HNODE, dwcontrolcode : u32, lpinbuffer : *const core::ffi::c_void, ninbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, noutbuffersize : u32, lpbytesreturned : *mut u32, lpszreason : windows_core::PCWSTR) -> u32);
     ClusterResourceTypeControlEx(hcluster.param().abi(), lpszresourcetypename.param().abi(), hhostnode.param().abi(), dwcontrolcode, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), ninbuffersize, core::mem::transmute(lpoutbuffer.unwrap_or(core::ptr::null_mut())), noutbuffersize, core::mem::transmute(lpbytesreturned.unwrap_or(core::ptr::null_mut())), lpszreason.param().abi())
@@ -1378,9 +1378,9 @@ where
     ClusterSetAccountAccess(hcluster.param().abi(), szaccountsid.param().abi(), dwaccess, dwcontroltype)
 }
 #[inline]
-pub unsafe fn ClusterSharedVolumeSetSnapshotState<P0>(guidsnapshotset: windows_core::GUID, lpszvolumename: P0, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32
+pub unsafe fn ClusterSharedVolumeSetSnapshotState<P1>(guidsnapshotset: windows_core::GUID, lpszvolumename: P1, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ClusterSharedVolumeSetSnapshotState(guidsnapshotset : windows_core::GUID, lpszvolumename : windows_core::PCWSTR, state : CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32);
     ClusterSharedVolumeSetSnapshotState(core::mem::transmute(guidsnapshotset), lpszvolumename.param().abi(), state)
@@ -1472,12 +1472,12 @@ where
     CreateClusterResource(hgroup.param().abi(), lpszresourcename.param().abi(), lpszresourcetype.param().abi(), dwflags)
 }
 #[inline]
-pub unsafe fn CreateClusterResourceEx<P0, P1, P2, P3>(hgroup: P0, lpszresourcename: P1, lpszresourcetype: P2, dwflags: u32, lpszreason: P3) -> HRESOURCE
+pub unsafe fn CreateClusterResourceEx<P0, P1, P2, P4>(hgroup: P0, lpszresourcename: P1, lpszresourcetype: P2, dwflags: u32, lpszreason: P4) -> HRESOURCE
 where
     P0: windows_core::Param<HGROUP>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn CreateClusterResourceEx(hgroup : HGROUP, lpszresourcename : windows_core::PCWSTR, lpszresourcetype : windows_core::PCWSTR, dwflags : u32, lpszreason : windows_core::PCWSTR) -> HRESOURCE);
     CreateClusterResourceEx(hgroup.param().abi(), lpszresourcename.param().abi(), lpszresourcetype.param().abi(), dwflags, lpszreason.param().abi())
@@ -1494,13 +1494,13 @@ where
     CreateClusterResourceType(hcluster.param().abi(), lpszresourcetypename.param().abi(), lpszdisplayname.param().abi(), lpszresourcetypedll.param().abi(), dwlooksalivepollinterval, dwisalivepollinterval)
 }
 #[inline]
-pub unsafe fn CreateClusterResourceTypeEx<P0, P1, P2, P3, P4>(hcluster: P0, lpszresourcetypename: P1, lpszdisplayname: P2, lpszresourcetypedll: P3, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32, lpszreason: P4) -> u32
+pub unsafe fn CreateClusterResourceTypeEx<P0, P1, P2, P3, P6>(hcluster: P0, lpszresourcetypename: P1, lpszdisplayname: P2, lpszresourcetypedll: P3, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32, lpszreason: P6) -> u32
 where
     P0: windows_core::Param<HCLUSTER>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
-    P4: windows_core::Param<windows_core::PCWSTR>,
+    P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn CreateClusterResourceTypeEx(hcluster : HCLUSTER, lpszresourcetypename : windows_core::PCWSTR, lpszdisplayname : windows_core::PCWSTR, lpszresourcetypedll : windows_core::PCWSTR, dwlooksalivepollinterval : u32, dwisalivepollinterval : u32, lpszreason : windows_core::PCWSTR) -> u32);
     CreateClusterResourceTypeEx(hcluster.param().abi(), lpszresourcetypename.param().abi(), lpszdisplayname.param().abi(), lpszresourcetypedll.param().abi(), dwlooksalivepollinterval, dwisalivepollinterval, lpszreason.param().abi())
@@ -1576,10 +1576,10 @@ where
     DeleteClusterResourceTypeEx(hcluster.param().abi(), lpsztypename.param().abi(), lpszreason.param().abi())
 }
 #[inline]
-pub unsafe fn DestroyCluster<P0, P1>(hcluster: P0, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>, fdeletevirtualcomputerobjects: P1) -> u32
+pub unsafe fn DestroyCluster<P0, P3>(hcluster: P0, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>, fdeletevirtualcomputerobjects: P3) -> u32
 where
     P0: windows_core::Param<HCLUSTER>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("clusapi.dll" "system" fn DestroyCluster(hcluster : HCLUSTER, pfnprogresscallback : PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg : *const core::ffi::c_void, fdeletevirtualcomputerobjects : super::super::Foundation:: BOOL) -> u32);
     DestroyCluster(hcluster.param().abi(), pfnprogresscallback, core::mem::transmute(pvcallbackarg.unwrap_or(core::ptr::null())), fdeletevirtualcomputerobjects.param().abi())
@@ -1644,10 +1644,10 @@ where
     EvictClusterNodeEx(hnode.param().abi(), dwtimeout, phrcleanupstatus)
 }
 #[inline]
-pub unsafe fn EvictClusterNodeEx2<P0, P1>(hnode: P0, dwtimeout: u32, phrcleanupstatus: *mut windows_core::HRESULT, lpszreason: P1) -> u32
+pub unsafe fn EvictClusterNodeEx2<P0, P3>(hnode: P0, dwtimeout: u32, phrcleanupstatus: *mut windows_core::HRESULT, lpszreason: P3) -> u32
 where
     P0: windows_core::Param<HNODE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn EvictClusterNodeEx2(hnode : HNODE, dwtimeout : u32, phrcleanupstatus : *mut windows_core::HRESULT, lpszreason : windows_core::PCWSTR) -> u32);
     EvictClusterNodeEx2(hnode.param().abi(), dwtimeout, phrcleanupstatus, lpszreason.param().abi())
@@ -1985,11 +1985,11 @@ where
     MoveClusterGroupEx(hgroup.param().abi(), hdestinationnode.param().abi(), dwmoveflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
-pub unsafe fn MoveClusterGroupEx2<P0, P1, P2>(hgroup: P0, hdestinationnode: P1, dwmoveflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P2) -> u32
+pub unsafe fn MoveClusterGroupEx2<P0, P1, P5>(hgroup: P0, hdestinationnode: P1, dwmoveflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P5) -> u32
 where
     P0: windows_core::Param<HGROUP>,
     P1: windows_core::Param<HNODE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn MoveClusterGroupEx2(hgroup : HGROUP, hdestinationnode : HNODE, dwmoveflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
     MoveClusterGroupEx2(hgroup.param().abi(), hdestinationnode.param().abi(), dwmoveflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi())
@@ -2011,10 +2011,10 @@ where
     OfflineClusterGroupEx(hgroup.param().abi(), dwofflineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
-pub unsafe fn OfflineClusterGroupEx2<P0, P1>(hgroup: P0, dwofflineflags: u32, lpinbuffer: Option<*const u8>, cbinbuffersize: u32, lpszreason: P1) -> u32
+pub unsafe fn OfflineClusterGroupEx2<P0, P4>(hgroup: P0, dwofflineflags: u32, lpinbuffer: Option<*const u8>, cbinbuffersize: u32, lpszreason: P4) -> u32
 where
     P0: windows_core::Param<HGROUP>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn OfflineClusterGroupEx2(hgroup : HGROUP, dwofflineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
     OfflineClusterGroupEx2(hgroup.param().abi(), dwofflineflags, core::mem::transmute(lpinbuffer.unwrap_or(core::ptr::null())), cbinbuffersize, lpszreason.param().abi())
@@ -2036,10 +2036,10 @@ where
     OfflineClusterResourceEx(hresource.param().abi(), dwofflineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
-pub unsafe fn OfflineClusterResourceEx2<P0, P1>(hresource: P0, dwofflineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P1) -> u32
+pub unsafe fn OfflineClusterResourceEx2<P0, P4>(hresource: P0, dwofflineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P4) -> u32
 where
     P0: windows_core::Param<HRESOURCE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn OfflineClusterResourceEx2(hresource : HRESOURCE, dwofflineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
     OfflineClusterResourceEx2(hresource.param().abi(), dwofflineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi())
@@ -2063,11 +2063,11 @@ where
     OnlineClusterGroupEx(hgroup.param().abi(), hdestinationnode.param().abi(), dwonlineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
-pub unsafe fn OnlineClusterGroupEx2<P0, P1, P2>(hgroup: P0, hdestinationnode: P1, dwonlineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P2) -> u32
+pub unsafe fn OnlineClusterGroupEx2<P0, P1, P5>(hgroup: P0, hdestinationnode: P1, dwonlineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P5) -> u32
 where
     P0: windows_core::Param<HGROUP>,
     P1: windows_core::Param<HNODE>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn OnlineClusterGroupEx2(hgroup : HGROUP, hdestinationnode : HNODE, dwonlineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
     OnlineClusterGroupEx2(hgroup.param().abi(), hdestinationnode.param().abi(), dwonlineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi())
@@ -2089,10 +2089,10 @@ where
     OnlineClusterResourceEx(hresource.param().abi(), dwonlineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()))
 }
 #[inline]
-pub unsafe fn OnlineClusterResourceEx2<P0, P1>(hresource: P0, dwonlineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P1) -> u32
+pub unsafe fn OnlineClusterResourceEx2<P0, P4>(hresource: P0, dwonlineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P4) -> u32
 where
     P0: windows_core::Param<HRESOURCE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn OnlineClusterResourceEx2(hresource : HRESOURCE, dwonlineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
     OnlineClusterResourceEx2(hresource.param().abi(), dwonlineflags, core::mem::transmute(lpinbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi())
@@ -2246,22 +2246,22 @@ where
     PauseClusterNode(hnode.param().abi())
 }
 #[inline]
-pub unsafe fn PauseClusterNodeEx<P0, P1, P2>(hnode: P0, bdrainnode: P1, dwpauseflags: u32, hnodedraintarget: P2) -> u32
+pub unsafe fn PauseClusterNodeEx<P0, P1, P3>(hnode: P0, bdrainnode: P1, dwpauseflags: u32, hnodedraintarget: P3) -> u32
 where
     P0: windows_core::Param<HNODE>,
     P1: windows_core::Param<super::super::Foundation::BOOL>,
-    P2: windows_core::Param<HNODE>,
+    P3: windows_core::Param<HNODE>,
 {
     windows_targets::link!("clusapi.dll" "system" fn PauseClusterNodeEx(hnode : HNODE, bdrainnode : super::super::Foundation:: BOOL, dwpauseflags : u32, hnodedraintarget : HNODE) -> u32);
     PauseClusterNodeEx(hnode.param().abi(), bdrainnode.param().abi(), dwpauseflags, hnodedraintarget.param().abi())
 }
 #[inline]
-pub unsafe fn PauseClusterNodeEx2<P0, P1, P2, P3>(hnode: P0, bdrainnode: P1, dwpauseflags: u32, hnodedraintarget: P2, lpszreason: P3) -> u32
+pub unsafe fn PauseClusterNodeEx2<P0, P1, P3, P4>(hnode: P0, bdrainnode: P1, dwpauseflags: u32, hnodedraintarget: P3, lpszreason: P4) -> u32
 where
     P0: windows_core::Param<HNODE>,
     P1: windows_core::Param<super::super::Foundation::BOOL>,
-    P2: windows_core::Param<HNODE>,
-    P3: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<HNODE>,
+    P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn PauseClusterNodeEx2(hnode : HNODE, bdrainnode : super::super::Foundation:: BOOL, dwpauseflags : u32, hnodedraintarget : HNODE, lpszreason : windows_core::PCWSTR) -> u32);
     PauseClusterNodeEx2(hnode.param().abi(), bdrainnode.param().abi(), dwpauseflags, hnodedraintarget.param().abi(), lpszreason.param().abi())
@@ -2272,10 +2272,10 @@ pub unsafe fn QueryAppInstanceVersion(appinstanceid: *const windows_core::GUID, 
     QueryAppInstanceVersion(appinstanceid, instanceversionhigh, instanceversionlow, versionstatus)
 }
 #[inline]
-pub unsafe fn RegisterAppInstance<P0, P1>(processhandle: P0, appinstanceid: *const windows_core::GUID, childreninheritappinstance: P1) -> u32
+pub unsafe fn RegisterAppInstance<P0, P2>(processhandle: P0, appinstanceid: *const windows_core::GUID, childreninheritappinstance: P2) -> u32
 where
     P0: windows_core::Param<super::super::Foundation::HANDLE>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("ntlanman.dll" "system" fn RegisterAppInstance(processhandle : super::super::Foundation:: HANDLE, appinstanceid : *const windows_core::GUID, childreninheritappinstance : super::super::Foundation:: BOOL) -> u32);
     RegisterAppInstance(processhandle.param().abi(), appinstanceid, childreninheritappinstance.param().abi())
@@ -2286,29 +2286,29 @@ pub unsafe fn RegisterAppInstanceVersion(appinstanceid: *const windows_core::GUI
     RegisterAppInstanceVersion(appinstanceid, instanceversionhigh, instanceversionlow)
 }
 #[inline]
-pub unsafe fn RegisterClusterNotify<P0, P1>(hchange: P0, dwfiltertype: u32, hobject: P1, dwnotifykey: usize) -> u32
+pub unsafe fn RegisterClusterNotify<P0, P2>(hchange: P0, dwfiltertype: u32, hobject: P2, dwnotifykey: usize) -> u32
 where
     P0: windows_core::Param<HCHANGE>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clusapi.dll" "system" fn RegisterClusterNotify(hchange : HCHANGE, dwfiltertype : u32, hobject : super::super::Foundation:: HANDLE, dwnotifykey : usize) -> u32);
     RegisterClusterNotify(hchange.param().abi(), dwfiltertype, hobject.param().abi(), dwnotifykey)
 }
 #[inline]
-pub unsafe fn RegisterClusterNotifyV2<P0, P1>(hchange: P0, filter: NOTIFY_FILTER_AND_TYPE, hobject: P1, dwnotifykey: usize) -> u32
+pub unsafe fn RegisterClusterNotifyV2<P0, P2>(hchange: P0, filter: NOTIFY_FILTER_AND_TYPE, hobject: P2, dwnotifykey: usize) -> u32
 where
     P0: windows_core::Param<HCHANGE>,
-    P1: windows_core::Param<super::super::Foundation::HANDLE>,
+    P2: windows_core::Param<super::super::Foundation::HANDLE>,
 {
     windows_targets::link!("clusapi.dll" "system" fn RegisterClusterNotifyV2(hchange : HCHANGE, filter : NOTIFY_FILTER_AND_TYPE, hobject : super::super::Foundation:: HANDLE, dwnotifykey : usize) -> u32);
     RegisterClusterNotifyV2(hchange.param().abi(), core::mem::transmute(filter), hobject.param().abi(), dwnotifykey)
 }
 #[inline]
-pub unsafe fn RegisterClusterResourceTypeNotifyV2<P0, P1, P2>(hchange: P0, hcluster: P1, flags: i64, restypename: P2, dwnotifykey: usize) -> u32
+pub unsafe fn RegisterClusterResourceTypeNotifyV2<P0, P1, P3>(hchange: P0, hcluster: P1, flags: i64, restypename: P3, dwnotifykey: usize) -> u32
 where
     P0: windows_core::Param<HCHANGE>,
     P1: windows_core::Param<HCLUSTER>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn RegisterClusterResourceTypeNotifyV2(hchange : HCHANGE, hcluster : HCLUSTER, flags : i64, restypename : windows_core::PCWSTR, dwnotifykey : usize) -> u32);
     RegisterClusterResourceTypeNotifyV2(hchange.param().abi(), hcluster.param().abi(), flags, restypename.param().abi(), dwnotifykey)
@@ -2560,9 +2560,9 @@ where
     ResUtilExpandEnvironmentStrings(pszsrc.param().abi())
 }
 #[inline]
-pub unsafe fn ResUtilFindBinaryProperty<P0>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, pbpropertyvalue: Option<*mut *mut u8>, pcbpropertyvaluesize: Option<*mut u32>) -> u32
+pub unsafe fn ResUtilFindBinaryProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, pbpropertyvalue: Option<*mut *mut u8>, pcbpropertyvaluesize: Option<*mut u32>) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindBinaryProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, pbpropertyvalue : *mut *mut u8, pcbpropertyvaluesize : *mut u32) -> u32);
     ResUtilFindBinaryProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), core::mem::transmute(pbpropertyvalue.unwrap_or(core::ptr::null_mut())), core::mem::transmute(pcbpropertyvaluesize.unwrap_or(core::ptr::null_mut())))
@@ -2577,65 +2577,65 @@ where
     ResUtilFindDependentDiskResourceDriveLetter(hcluster.param().abi(), hresource.param().abi(), core::mem::transmute(pszdriveletter), pcchdriveletter)
 }
 #[inline]
-pub unsafe fn ResUtilFindDwordProperty<P0>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, pdwpropertyvalue: *mut u32) -> u32
+pub unsafe fn ResUtilFindDwordProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, pdwpropertyvalue: *mut u32) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindDwordProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, pdwpropertyvalue : *mut u32) -> u32);
     ResUtilFindDwordProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), pdwpropertyvalue)
 }
 #[inline]
-pub unsafe fn ResUtilFindExpandSzProperty<P0>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, pszpropertyvalue: Option<*mut windows_core::PWSTR>) -> u32
+pub unsafe fn ResUtilFindExpandSzProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, pszpropertyvalue: Option<*mut windows_core::PWSTR>) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindExpandSzProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, pszpropertyvalue : *mut windows_core::PWSTR) -> u32);
     ResUtilFindExpandSzProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), core::mem::transmute(pszpropertyvalue.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn ResUtilFindExpandedSzProperty<P0>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, pszpropertyvalue: Option<*mut windows_core::PWSTR>) -> u32
+pub unsafe fn ResUtilFindExpandedSzProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, pszpropertyvalue: Option<*mut windows_core::PWSTR>) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindExpandedSzProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, pszpropertyvalue : *mut windows_core::PWSTR) -> u32);
     ResUtilFindExpandedSzProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), core::mem::transmute(pszpropertyvalue.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn ResUtilFindFileTimeProperty<P0>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, pftpropertyvalue: *mut super::super::Foundation::FILETIME) -> u32
+pub unsafe fn ResUtilFindFileTimeProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, pftpropertyvalue: *mut super::super::Foundation::FILETIME) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindFileTimeProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, pftpropertyvalue : *mut super::super::Foundation:: FILETIME) -> u32);
     ResUtilFindFileTimeProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), pftpropertyvalue)
 }
 #[inline]
-pub unsafe fn ResUtilFindLongProperty<P0>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, plpropertyvalue: *mut i32) -> u32
+pub unsafe fn ResUtilFindLongProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, plpropertyvalue: *mut i32) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindLongProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, plpropertyvalue : *mut i32) -> u32);
     ResUtilFindLongProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), plpropertyvalue)
 }
 #[inline]
-pub unsafe fn ResUtilFindMultiSzProperty<P0>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, pszpropertyvalue: *mut windows_core::PWSTR, pcbpropertyvaluesize: *mut u32) -> u32
+pub unsafe fn ResUtilFindMultiSzProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, pszpropertyvalue: *mut windows_core::PWSTR, pcbpropertyvaluesize: *mut u32) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindMultiSzProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, pszpropertyvalue : *mut windows_core::PWSTR, pcbpropertyvaluesize : *mut u32) -> u32);
     ResUtilFindMultiSzProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), pszpropertyvalue, pcbpropertyvaluesize)
 }
 #[inline]
-pub unsafe fn ResUtilFindSzProperty<P0>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, pszpropertyvalue: Option<*mut windows_core::PWSTR>) -> u32
+pub unsafe fn ResUtilFindSzProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, pszpropertyvalue: Option<*mut windows_core::PWSTR>) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindSzProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, pszpropertyvalue : *mut windows_core::PWSTR) -> u32);
     ResUtilFindSzProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), core::mem::transmute(pszpropertyvalue.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn ResUtilFindULargeIntegerProperty<P0>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P0, plpropertyvalue: *mut u64) -> u32
+pub unsafe fn ResUtilFindULargeIntegerProperty<P2>(ppropertylist: *const core::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: P2, plpropertyvalue: *mut u64) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilFindULargeIntegerProperty(ppropertylist : *const core::ffi::c_void, cbpropertylistsize : u32, pszpropertyname : windows_core::PCWSTR, plpropertyvalue : *mut u64) -> u32);
     ResUtilFindULargeIntegerProperty(ppropertylist, cbpropertylistsize, pszpropertyname.param().abi(), plpropertyvalue)
@@ -2756,9 +2756,9 @@ pub unsafe fn ResUtilGetLongProperty(ploutvalue: *mut i32, pvaluestruct: *const 
     ResUtilGetLongProperty(ploutvalue, pvaluestruct, loldvalue, lminimum, lmaximum, pppropertylist, pcbpropertylistsize)
 }
 #[inline]
-pub unsafe fn ResUtilGetMultiSzProperty<P0>(ppszoutvalue: *mut windows_core::PWSTR, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: P0, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32
+pub unsafe fn ResUtilGetMultiSzProperty<P3>(ppszoutvalue: *mut windows_core::PWSTR, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: P3, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetMultiSzProperty(ppszoutvalue : *mut windows_core::PWSTR, pcboutvaluesize : *mut u32, pvaluestruct : *const CLUSPROP_SZ, pszoldvalue : windows_core::PCWSTR, cboldvaluesize : u32, pppropertylist : *mut *mut u8, pcbpropertylistsize : *mut u32) -> u32);
     ResUtilGetMultiSzProperty(ppszoutvalue, pcboutvaluesize, pvaluestruct, pszoldvalue.param().abi(), cboldvaluesize, pppropertylist, pcbpropertylistsize)
@@ -2783,10 +2783,10 @@ where
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn ResUtilGetPropertiesToParameterBlock<P0, P1>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutparams: *mut u8, bcheckforrequiredproperties: P1, psznameofpropinerror: *mut windows_core::PWSTR) -> u32
+pub unsafe fn ResUtilGetPropertiesToParameterBlock<P0, P3>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutparams: *mut u8, bcheckforrequiredproperties: P3, psznameofpropinerror: *mut windows_core::PWSTR) -> u32
 where
     P0: windows_core::Param<super::super::System::Registry::HKEY>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetPropertiesToParameterBlock(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, poutparams : *mut u8, bcheckforrequiredproperties : super::super::Foundation:: BOOL, psznameofpropinerror : *mut windows_core::PWSTR) -> u32);
     ResUtilGetPropertiesToParameterBlock(hkeyclusterkey.param().abi(), ppropertytable, poutparams, bcheckforrequiredproperties.param().abi(), psznameofpropinerror)
@@ -2834,21 +2834,21 @@ where
     ResUtilGetResourceDependency(hself.param().abi(), lpszresourcetype.param().abi())
 }
 #[inline]
-pub unsafe fn ResUtilGetResourceDependencyByClass<P0, P1, P2>(hcluster: P0, hself: P1, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: P2) -> HRESOURCE
+pub unsafe fn ResUtilGetResourceDependencyByClass<P0, P1, P3>(hcluster: P0, hself: P1, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: P3) -> HRESOURCE
 where
     P0: windows_core::Param<HCLUSTER>,
     P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetResourceDependencyByClass(hcluster : HCLUSTER, hself : super::super::Foundation:: HANDLE, prci : *mut CLUS_RESOURCE_CLASS_INFO, brecurse : super::super::Foundation:: BOOL) -> HRESOURCE);
     ResUtilGetResourceDependencyByClass(hcluster.param().abi(), hself.param().abi(), prci, brecurse.param().abi())
 }
 #[inline]
-pub unsafe fn ResUtilGetResourceDependencyByClassEx<P0, P1, P2>(hcluster: P0, hself: P1, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: P2, dwdesiredaccess: u32) -> HRESOURCE
+pub unsafe fn ResUtilGetResourceDependencyByClassEx<P0, P1, P3>(hcluster: P0, hself: P1, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: P3, dwdesiredaccess: u32) -> HRESOURCE
 where
     P0: windows_core::Param<HCLUSTER>,
     P1: windows_core::Param<super::super::Foundation::HANDLE>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetResourceDependencyByClassEx(hcluster : HCLUSTER, hself : super::super::Foundation:: HANDLE, prci : *mut CLUS_RESOURCE_CLASS_INFO, brecurse : super::super::Foundation:: BOOL, dwdesiredaccess : u32) -> HRESOURCE);
     ResUtilGetResourceDependencyByClassEx(hcluster.param().abi(), hself.param().abi(), prci, brecurse.param().abi(), dwdesiredaccess)
@@ -2919,9 +2919,9 @@ where
     ResUtilGetResourceNameDependencyEx(lpszresourcename.param().abi(), lpszresourcetype.param().abi(), dwdesiredaccess)
 }
 #[inline]
-pub unsafe fn ResUtilGetSzProperty<P0>(ppszoutvalue: *mut windows_core::PWSTR, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: P0, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32
+pub unsafe fn ResUtilGetSzProperty<P2>(ppszoutvalue: *mut windows_core::PWSTR, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: P2, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32
 where
-    P0: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilGetSzProperty(ppszoutvalue : *mut windows_core::PWSTR, pvaluestruct : *const CLUSPROP_SZ, pszoldvalue : windows_core::PCWSTR, pppropertylist : *mut *mut u8, pcbpropertylistsize : *mut u32) -> u32);
     ResUtilGetSzProperty(ppszoutvalue, pvaluestruct, pszoldvalue.param().abi(), pppropertylist, pcbpropertylistsize)
@@ -2954,9 +2954,9 @@ where
     ResUtilIsPathValid(pszpath.param().abi())
 }
 #[inline]
-pub unsafe fn ResUtilIsResourceClassEqual<P0>(prci: *mut CLUS_RESOURCE_CLASS_INFO, hresource: P0) -> super::super::Foundation::BOOL
+pub unsafe fn ResUtilIsResourceClassEqual<P1>(prci: *mut CLUS_RESOURCE_CLASS_INFO, hresource: P1) -> super::super::Foundation::BOOL
 where
-    P0: windows_core::Param<HRESOURCE>,
+    P1: windows_core::Param<HRESOURCE>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilIsResourceClassEqual(prci : *mut CLUS_RESOURCE_CLASS_INFO, hresource : HRESOURCE) -> super::super::Foundation:: BOOL);
     ResUtilIsResourceClassEqual(prci, hresource.param().abi())
@@ -3080,31 +3080,31 @@ where
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn ResUtilSetPropertyParameterBlockEx<P0, P1>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: P1, poutparams: *mut u8) -> u32
+pub unsafe fn ResUtilSetPropertyParameterBlockEx<P0, P6>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, pinparams: *const u8, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: P6, poutparams: *mut u8) -> u32
 where
     P0: windows_core::Param<super::super::System::Registry::HKEY>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P6: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetPropertyParameterBlockEx(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *mut core::ffi::c_void, pinparams : *const u8, pinpropertylist : *const core::ffi::c_void, cbinpropertylistsize : u32, bforcewrite : super::super::Foundation:: BOOL, poutparams : *mut u8) -> u32);
     ResUtilSetPropertyParameterBlockEx(hkeyclusterkey.param().abi(), ppropertytable, reserved, pinparams, pinpropertylist, cbinpropertylistsize, bforcewrite.param().abi(), poutparams)
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn ResUtilSetPropertyTable<P0, P1>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: Option<*const core::ffi::c_void>, ballowunknownproperties: P1, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: Option<*mut u8>) -> u32
+pub unsafe fn ResUtilSetPropertyTable<P0, P3>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: Option<*const core::ffi::c_void>, ballowunknownproperties: P3, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: Option<*mut u8>) -> u32
 where
     P0: windows_core::Param<super::super::System::Registry::HKEY>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetPropertyTable(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *const core::ffi::c_void, ballowunknownproperties : super::super::Foundation:: BOOL, pinpropertylist : *const core::ffi::c_void, cbinpropertylistsize : u32, poutparams : *mut u8) -> u32);
     ResUtilSetPropertyTable(hkeyclusterkey.param().abi(), ppropertytable, core::mem::transmute(reserved.unwrap_or(core::ptr::null())), ballowunknownproperties.param().abi(), pinpropertylist, cbinpropertylistsize, core::mem::transmute(poutparams.unwrap_or(core::ptr::null_mut())))
 }
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
-pub unsafe fn ResUtilSetPropertyTableEx<P0, P1, P2>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, ballowunknownproperties: P1, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: P2, poutparams: *mut u8) -> u32
+pub unsafe fn ResUtilSetPropertyTableEx<P0, P3, P6>(hkeyclusterkey: P0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut core::ffi::c_void, ballowunknownproperties: P3, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: P6, poutparams: *mut u8) -> u32
 where
     P0: windows_core::Param<super::super::System::Registry::HKEY>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
-    P2: windows_core::Param<super::super::Foundation::BOOL>,
+    P3: windows_core::Param<super::super::Foundation::BOOL>,
+    P6: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilSetPropertyTableEx(hkeyclusterkey : super::super::System::Registry:: HKEY, ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *mut core::ffi::c_void, ballowunknownproperties : super::super::Foundation:: BOOL, pinpropertylist : *const core::ffi::c_void, cbinpropertylistsize : u32, bforcewrite : super::super::Foundation:: BOOL, poutparams : *mut u8) -> u32);
     ResUtilSetPropertyTableEx(hkeyclusterkey.param().abi(), ppropertytable, reserved, ballowunknownproperties.param().abi(), pinpropertylist, cbinpropertylistsize, bforcewrite.param().abi(), poutparams)
@@ -3205,9 +3205,9 @@ where
     ResUtilStopService(hservicehandle.param().abi())
 }
 #[inline]
-pub unsafe fn ResUtilTerminateServiceProcessFromResDll<P0>(dwservicepid: u32, boffline: P0, pdwresourcestate: *mut u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32
+pub unsafe fn ResUtilTerminateServiceProcessFromResDll<P1>(dwservicepid: u32, boffline: P1, pdwresourcestate: *mut u32, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: isize) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilTerminateServiceProcessFromResDll(dwservicepid : u32, boffline : super::super::Foundation:: BOOL, pdwresourcestate : *mut u32, pfnlogevent : PLOG_EVENT_ROUTINE, hresourcehandle : isize) -> u32);
     ResUtilTerminateServiceProcessFromResDll(dwservicepid, boffline.param().abi(), pdwresourcestate, pfnlogevent, hresourcehandle)
@@ -3218,9 +3218,9 @@ pub unsafe fn ResUtilVerifyPrivatePropertyList(pinpropertylist: *const core::ffi
     ResUtilVerifyPrivatePropertyList(pinpropertylist, cbinpropertylistsize)
 }
 #[inline]
-pub unsafe fn ResUtilVerifyPropertyTable<P0>(ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: Option<*const core::ffi::c_void>, ballowunknownproperties: P0, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: Option<*mut u8>) -> u32
+pub unsafe fn ResUtilVerifyPropertyTable<P2>(ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: Option<*const core::ffi::c_void>, ballowunknownproperties: P2, pinpropertylist: *const core::ffi::c_void, cbinpropertylistsize: u32, poutparams: Option<*mut u8>) -> u32
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("resutils.dll" "system" fn ResUtilVerifyPropertyTable(ppropertytable : *const RESUTIL_PROPERTY_ITEM, reserved : *const core::ffi::c_void, ballowunknownproperties : super::super::Foundation:: BOOL, pinpropertylist : *const core::ffi::c_void, cbinpropertylistsize : u32, poutparams : *mut u8) -> u32);
     ResUtilVerifyPropertyTable(ppropertytable, core::mem::transmute(reserved.unwrap_or(core::ptr::null())), ballowunknownproperties.param().abi(), pinpropertylist, cbinpropertylistsize, core::mem::transmute(poutparams.unwrap_or(core::ptr::null_mut())))
@@ -3272,10 +3272,10 @@ where
     RestartClusterResource(hresource.param().abi(), dwflags)
 }
 #[inline]
-pub unsafe fn RestartClusterResourceEx<P0, P1>(hresource: P0, dwflags: u32, lpszreason: P1) -> u32
+pub unsafe fn RestartClusterResourceEx<P0, P2>(hresource: P0, dwflags: u32, lpszreason: P2) -> u32
 where
     P0: windows_core::Param<HRESOURCE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn RestartClusterResourceEx(hresource : HRESOURCE, dwflags : u32, lpszreason : windows_core::PCWSTR) -> u32);
     RestartClusterResourceEx(hresource.param().abi(), dwflags, lpszreason.param().abi())
@@ -3307,10 +3307,10 @@ where
     ResumeClusterNodeEx(hnode.param().abi(), eresumefailbacktype, dwresumeflagsreserved)
 }
 #[inline]
-pub unsafe fn ResumeClusterNodeEx2<P0, P1>(hnode: P0, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32, lpszreason: P1) -> u32
+pub unsafe fn ResumeClusterNodeEx2<P0, P3>(hnode: P0, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32, lpszreason: P3) -> u32
 where
     P0: windows_core::Param<HNODE>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn ResumeClusterNodeEx2(hnode : HNODE, eresumefailbacktype : CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved : u32, lpszreason : windows_core::PCWSTR) -> u32);
     ResumeClusterNodeEx2(hnode.param().abi(), eresumefailbacktype, dwresumeflagsreserved, lpszreason.param().abi())
@@ -3351,10 +3351,10 @@ where
     SetClusterGroupNodeList(hgroup.param().abi(), nodelist.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(nodelist.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[inline]
-pub unsafe fn SetClusterGroupNodeListEx<P0, P1>(hgroup: P0, nodelist: &[HNODE], lpszreason: P1) -> u32
+pub unsafe fn SetClusterGroupNodeListEx<P0, P3>(hgroup: P0, nodelist: &[HNODE], lpszreason: P3) -> u32
 where
     P0: windows_core::Param<HGROUP>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn SetClusterGroupNodeListEx(hgroup : HGROUP, nodecount : u32, nodelist : *const HNODE, lpszreason : windows_core::PCWSTR) -> u32);
     SetClusterGroupNodeListEx(hgroup.param().abi(), nodelist.len().try_into().unwrap(), core::mem::transmute(nodelist.as_ptr()), lpszreason.param().abi())
@@ -3434,11 +3434,11 @@ where
     SetClusterQuorumResource(hresource.param().abi(), lpszdevicename.param().abi(), dwmaxquologsize)
 }
 #[inline]
-pub unsafe fn SetClusterQuorumResourceEx<P0, P1, P2>(hresource: P0, lpszdevicename: P1, dwmaxquorumlogsize: u32, lpszreason: P2) -> u32
+pub unsafe fn SetClusterQuorumResourceEx<P0, P1, P3>(hresource: P0, lpszdevicename: P1, dwmaxquorumlogsize: u32, lpszreason: P3) -> u32
 where
     P0: windows_core::Param<HRESOURCE>,
     P1: windows_core::Param<windows_core::PCWSTR>,
-    P2: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("clusapi.dll" "system" fn SetClusterQuorumResourceEx(hresource : HRESOURCE, lpszdevicename : windows_core::PCWSTR, dwmaxquorumlogsize : u32, lpszreason : windows_core::PCWSTR) -> u32);
     SetClusterQuorumResourceEx(hresource.param().abi(), lpszdevicename.param().abi(), dwmaxquorumlogsize, lpszreason.param().abi())
@@ -3500,12 +3500,6 @@ where
     SetGroupDependencyExpressionEx(hgroup.param().abi(), lpszdependencyexpression.param().abi(), lpszreason.param().abi())
 }
 windows_core::imp::define_interface!(IGetClusterDataInfo, IGetClusterDataInfo_Vtbl, 0x97dede51_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IGetClusterDataInfo {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IGetClusterDataInfo, windows_core::IUnknown);
 impl IGetClusterDataInfo {
     pub unsafe fn GetClusterName(&self, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()> {
@@ -3525,14 +3519,13 @@ pub struct IGetClusterDataInfo_Vtbl {
     pub GetClusterHandle: unsafe extern "system" fn(*mut core::ffi::c_void) -> HCLUSTER,
     pub GetObjectCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> i32,
 }
-pub trait IGetClusterDataInfo_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGetClusterDataInfo_Impl: windows_core::IUnknownImpl {
     fn GetClusterName(&self, lpszname: windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()>;
     fn GetClusterHandle(&self) -> HCLUSTER;
     fn GetObjectCount(&self) -> i32;
 }
-impl windows_core::RuntimeName for IGetClusterDataInfo {}
 impl IGetClusterDataInfo_Vtbl {
-    pub const fn new<Identity: IGetClusterDataInfo_Impl, const OFFSET: isize>() -> IGetClusterDataInfo_Vtbl {
+    pub const fn new<Identity: IGetClusterDataInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetClusterName<Identity: IGetClusterDataInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszname: core::mem::MaybeUninit<windows_core::BSTR>, pcchname: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IGetClusterDataInfo_Impl::GetClusterName(this, core::mem::transmute_copy(&lpszname), core::mem::transmute_copy(&pcchname)).into()
@@ -3556,13 +3549,8 @@ impl IGetClusterDataInfo_Vtbl {
         iid == &<IGetClusterDataInfo as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IGetClusterDataInfo {}
 windows_core::imp::define_interface!(IGetClusterGroupInfo, IGetClusterGroupInfo_Vtbl, 0x97dede54_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IGetClusterGroupInfo {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IGetClusterGroupInfo, windows_core::IUnknown);
 impl IGetClusterGroupInfo {
     pub unsafe fn GetGroupHandle(&self, lobjindex: i32) -> HGROUP {
@@ -3574,12 +3562,11 @@ pub struct IGetClusterGroupInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetGroupHandle: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> HGROUP,
 }
-pub trait IGetClusterGroupInfo_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGetClusterGroupInfo_Impl: windows_core::IUnknownImpl {
     fn GetGroupHandle(&self, lobjindex: i32) -> HGROUP;
 }
-impl windows_core::RuntimeName for IGetClusterGroupInfo {}
 impl IGetClusterGroupInfo_Vtbl {
-    pub const fn new<Identity: IGetClusterGroupInfo_Impl, const OFFSET: isize>() -> IGetClusterGroupInfo_Vtbl {
+    pub const fn new<Identity: IGetClusterGroupInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetGroupHandle<Identity: IGetClusterGroupInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lobjindex: i32) -> HGROUP {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IGetClusterGroupInfo_Impl::GetGroupHandle(this, core::mem::transmute_copy(&lobjindex))
@@ -3590,13 +3577,8 @@ impl IGetClusterGroupInfo_Vtbl {
         iid == &<IGetClusterGroupInfo as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IGetClusterGroupInfo {}
 windows_core::imp::define_interface!(IGetClusterNetInterfaceInfo, IGetClusterNetInterfaceInfo_Vtbl, 0x97dede57_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IGetClusterNetInterfaceInfo {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IGetClusterNetInterfaceInfo, windows_core::IUnknown);
 impl IGetClusterNetInterfaceInfo {
     pub unsafe fn GetNetInterfaceHandle(&self, lobjindex: i32) -> HNETINTERFACE {
@@ -3608,12 +3590,11 @@ pub struct IGetClusterNetInterfaceInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNetInterfaceHandle: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> HNETINTERFACE,
 }
-pub trait IGetClusterNetInterfaceInfo_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGetClusterNetInterfaceInfo_Impl: windows_core::IUnknownImpl {
     fn GetNetInterfaceHandle(&self, lobjindex: i32) -> HNETINTERFACE;
 }
-impl windows_core::RuntimeName for IGetClusterNetInterfaceInfo {}
 impl IGetClusterNetInterfaceInfo_Vtbl {
-    pub const fn new<Identity: IGetClusterNetInterfaceInfo_Impl, const OFFSET: isize>() -> IGetClusterNetInterfaceInfo_Vtbl {
+    pub const fn new<Identity: IGetClusterNetInterfaceInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNetInterfaceHandle<Identity: IGetClusterNetInterfaceInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lobjindex: i32) -> HNETINTERFACE {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IGetClusterNetInterfaceInfo_Impl::GetNetInterfaceHandle(this, core::mem::transmute_copy(&lobjindex))
@@ -3624,13 +3605,8 @@ impl IGetClusterNetInterfaceInfo_Vtbl {
         iid == &<IGetClusterNetInterfaceInfo as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IGetClusterNetInterfaceInfo {}
 windows_core::imp::define_interface!(IGetClusterNetworkInfo, IGetClusterNetworkInfo_Vtbl, 0x97dede56_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IGetClusterNetworkInfo {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IGetClusterNetworkInfo, windows_core::IUnknown);
 impl IGetClusterNetworkInfo {
     pub unsafe fn GetNetworkHandle(&self, lobjindex: i32) -> HNETWORK {
@@ -3642,12 +3618,11 @@ pub struct IGetClusterNetworkInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNetworkHandle: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> HNETWORK,
 }
-pub trait IGetClusterNetworkInfo_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGetClusterNetworkInfo_Impl: windows_core::IUnknownImpl {
     fn GetNetworkHandle(&self, lobjindex: i32) -> HNETWORK;
 }
-impl windows_core::RuntimeName for IGetClusterNetworkInfo {}
 impl IGetClusterNetworkInfo_Vtbl {
-    pub const fn new<Identity: IGetClusterNetworkInfo_Impl, const OFFSET: isize>() -> IGetClusterNetworkInfo_Vtbl {
+    pub const fn new<Identity: IGetClusterNetworkInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNetworkHandle<Identity: IGetClusterNetworkInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lobjindex: i32) -> HNETWORK {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IGetClusterNetworkInfo_Impl::GetNetworkHandle(this, core::mem::transmute_copy(&lobjindex))
@@ -3658,13 +3633,8 @@ impl IGetClusterNetworkInfo_Vtbl {
         iid == &<IGetClusterNetworkInfo as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IGetClusterNetworkInfo {}
 windows_core::imp::define_interface!(IGetClusterNodeInfo, IGetClusterNodeInfo_Vtbl, 0x97dede53_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IGetClusterNodeInfo {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IGetClusterNodeInfo, windows_core::IUnknown);
 impl IGetClusterNodeInfo {
     pub unsafe fn GetNodeHandle(&self, lobjindex: i32) -> HNODE {
@@ -3676,12 +3646,11 @@ pub struct IGetClusterNodeInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetNodeHandle: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> HNODE,
 }
-pub trait IGetClusterNodeInfo_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGetClusterNodeInfo_Impl: windows_core::IUnknownImpl {
     fn GetNodeHandle(&self, lobjindex: i32) -> HNODE;
 }
-impl windows_core::RuntimeName for IGetClusterNodeInfo {}
 impl IGetClusterNodeInfo_Vtbl {
-    pub const fn new<Identity: IGetClusterNodeInfo_Impl, const OFFSET: isize>() -> IGetClusterNodeInfo_Vtbl {
+    pub const fn new<Identity: IGetClusterNodeInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNodeHandle<Identity: IGetClusterNodeInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lobjindex: i32) -> HNODE {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IGetClusterNodeInfo_Impl::GetNodeHandle(this, core::mem::transmute_copy(&lobjindex))
@@ -3692,13 +3661,8 @@ impl IGetClusterNodeInfo_Vtbl {
         iid == &<IGetClusterNodeInfo as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IGetClusterNodeInfo {}
 windows_core::imp::define_interface!(IGetClusterObjectInfo, IGetClusterObjectInfo_Vtbl, 0x97dede52_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IGetClusterObjectInfo {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IGetClusterObjectInfo, windows_core::IUnknown);
 impl IGetClusterObjectInfo {
     pub unsafe fn GetObjectName(&self, lobjindex: i32, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()> {
@@ -3714,13 +3678,12 @@ pub struct IGetClusterObjectInfo_Vtbl {
     pub GetObjectName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, *mut i32) -> windows_core::HRESULT,
     pub GetObjectType: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> CLUADMEX_OBJECT_TYPE,
 }
-pub trait IGetClusterObjectInfo_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGetClusterObjectInfo_Impl: windows_core::IUnknownImpl {
     fn GetObjectName(&self, lobjindex: i32, lpszname: windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()>;
     fn GetObjectType(&self, lobjindex: i32) -> CLUADMEX_OBJECT_TYPE;
 }
-impl windows_core::RuntimeName for IGetClusterObjectInfo {}
 impl IGetClusterObjectInfo_Vtbl {
-    pub const fn new<Identity: IGetClusterObjectInfo_Impl, const OFFSET: isize>() -> IGetClusterObjectInfo_Vtbl {
+    pub const fn new<Identity: IGetClusterObjectInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetObjectName<Identity: IGetClusterObjectInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lobjindex: i32, lpszname: core::mem::MaybeUninit<windows_core::BSTR>, pcchname: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IGetClusterObjectInfo_Impl::GetObjectName(this, core::mem::transmute_copy(&lobjindex), core::mem::transmute_copy(&lpszname), core::mem::transmute_copy(&pcchname)).into()
@@ -3739,13 +3702,8 @@ impl IGetClusterObjectInfo_Vtbl {
         iid == &<IGetClusterObjectInfo as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IGetClusterObjectInfo {}
 windows_core::imp::define_interface!(IGetClusterResourceInfo, IGetClusterResourceInfo_Vtbl, 0x97dede55_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IGetClusterResourceInfo {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IGetClusterResourceInfo, windows_core::IUnknown);
 impl IGetClusterResourceInfo {
     pub unsafe fn GetResourceHandle(&self, lobjindex: i32) -> HRESOURCE {
@@ -3765,14 +3723,13 @@ pub struct IGetClusterResourceInfo_Vtbl {
     pub GetResourceTypeName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, *mut i32) -> windows_core::HRESULT,
     pub GetResourceNetworkName: unsafe extern "system" fn(*mut core::ffi::c_void, i32, core::mem::MaybeUninit<windows_core::BSTR>, *mut u32) -> super::super::Foundation::BOOL,
 }
-pub trait IGetClusterResourceInfo_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGetClusterResourceInfo_Impl: windows_core::IUnknownImpl {
     fn GetResourceHandle(&self, lobjindex: i32) -> HRESOURCE;
     fn GetResourceTypeName(&self, lobjindex: i32, lpszrestypename: windows_core::BSTR, pcchrestypename: *mut i32) -> windows_core::Result<()>;
     fn GetResourceNetworkName(&self, lobjindex: i32, lpsznetname: windows_core::BSTR, pcchnetname: *mut u32) -> super::super::Foundation::BOOL;
 }
-impl windows_core::RuntimeName for IGetClusterResourceInfo {}
 impl IGetClusterResourceInfo_Vtbl {
-    pub const fn new<Identity: IGetClusterResourceInfo_Impl, const OFFSET: isize>() -> IGetClusterResourceInfo_Vtbl {
+    pub const fn new<Identity: IGetClusterResourceInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetResourceHandle<Identity: IGetClusterResourceInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lobjindex: i32) -> HRESOURCE {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IGetClusterResourceInfo_Impl::GetResourceHandle(this, core::mem::transmute_copy(&lobjindex))
@@ -3796,13 +3753,8 @@ impl IGetClusterResourceInfo_Vtbl {
         iid == &<IGetClusterResourceInfo as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IGetClusterResourceInfo {}
 windows_core::imp::define_interface!(IGetClusterUIInfo, IGetClusterUIInfo_Vtbl, 0x97dede50_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IGetClusterUIInfo {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IGetClusterUIInfo, windows_core::IUnknown);
 impl IGetClusterUIInfo {
     pub unsafe fn GetClusterName(&self, lpszname: &windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()> {
@@ -3835,17 +3787,15 @@ pub struct IGetClusterUIInfo_Vtbl {
     GetIcon: usize,
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-pub trait IGetClusterUIInfo_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IGetClusterUIInfo_Impl: windows_core::IUnknownImpl {
     fn GetClusterName(&self, lpszname: windows_core::BSTR, pcchname: *mut i32) -> windows_core::Result<()>;
     fn GetLocale(&self) -> u32;
     fn GetFont(&self) -> super::super::Graphics::Gdi::HFONT;
     fn GetIcon(&self) -> super::super::UI::WindowsAndMessaging::HICON;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-impl windows_core::RuntimeName for IGetClusterUIInfo {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IGetClusterUIInfo_Vtbl {
-    pub const fn new<Identity: IGetClusterUIInfo_Impl, const OFFSET: isize>() -> IGetClusterUIInfo_Vtbl {
+    pub const fn new<Identity: IGetClusterUIInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetClusterName<Identity: IGetClusterUIInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszname: core::mem::MaybeUninit<windows_core::BSTR>, pcchname: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IGetClusterUIInfo_Impl::GetClusterName(this, core::mem::transmute_copy(&lpszname), core::mem::transmute_copy(&pcchname)).into()
@@ -3874,6 +3824,8 @@ impl IGetClusterUIInfo_Vtbl {
         iid == &<IGetClusterUIInfo as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+impl windows_core::RuntimeName for IGetClusterUIInfo {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusApplication, ISClusApplication_Vtbl, 0xf2e606e6_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -3887,12 +3839,10 @@ impl core::ops::Deref for ISClusApplication {
 windows_core::imp::interface_hierarchy!(ISClusApplication, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusApplication {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DomainNames(&self) -> windows_core::Result<ISDomainNames> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DomainNames)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ClusterNames<P0>(&self, bstrdomainname: P0) -> windows_core::Result<ISClusterNames>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -3900,7 +3850,6 @@ impl ISClusApplication {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_ClusterNames)(windows_core::Interface::as_raw(self), bstrdomainname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenCluster<P0>(&self, bstrclustername: P0) -> windows_core::Result<ISCluster>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -3913,30 +3862,19 @@ impl ISClusApplication {
 #[repr(C)]
 pub struct ISClusApplication_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub DomainNames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    DomainNames: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub get_ClusterNames: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    get_ClusterNames: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub OpenCluster: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    OpenCluster: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusApplication_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusApplication_Impl: super::super::System::Com::IDispatch_Impl {
     fn DomainNames(&self) -> windows_core::Result<ISDomainNames>;
     fn get_ClusterNames(&self, bstrdomainname: &windows_core::BSTR) -> windows_core::Result<ISClusterNames>;
     fn OpenCluster(&self, bstrclustername: &windows_core::BSTR) -> windows_core::Result<ISCluster>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusApplication {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusApplication_Vtbl {
-    pub const fn new<Identity: ISClusApplication_Impl, const OFFSET: isize>() -> ISClusApplication_Vtbl {
+    pub const fn new<Identity: ISClusApplication_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DomainNames<Identity: ISClusApplication_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppdomains: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusApplication_Impl::DomainNames(this) {
@@ -3975,9 +3913,11 @@ impl ISClusApplication_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusApplication as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusApplication as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusApplication {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusCryptoKeys, ISClusCryptoKeys_Vtbl, 0xf2e6072c_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -4008,7 +3948,7 @@ impl ISClusCryptoKeys {
         P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn AddItem<P0>(&self, bstrcryptokey: P0) -> windows_core::Result<()>
     where
@@ -4032,17 +3972,17 @@ pub struct ISClusCryptoKeys_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
     pub AddItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     RemoveItem: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusCryptoKeys_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusCryptoKeys_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
@@ -4051,10 +3991,8 @@ pub trait ISClusCryptoKeys_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusCryptoKeys {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusCryptoKeys_Vtbl {
-    pub const fn new<Identity: ISClusCryptoKeys_Impl, const OFFSET: isize>() -> ISClusCryptoKeys_Vtbl {
+    pub const fn new<Identity: ISClusCryptoKeys_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusCryptoKeys_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusCryptoKeys_Impl::Count(this) {
@@ -4079,7 +4017,7 @@ impl ISClusCryptoKeys_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusCryptoKeys_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusCryptoKeys_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pbstrcyrptokey: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusCryptoKeys_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, pbstrcyrptokey: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusCryptoKeys_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -4093,7 +4031,7 @@ impl ISClusCryptoKeys_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusCryptoKeys_Impl::AddItem(this, core::mem::transmute(&bstrcryptokey)).into()
         }
-        unsafe extern "system" fn RemoveItem<Identity: ISClusCryptoKeys_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveItem<Identity: ISClusCryptoKeys_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusCryptoKeys_Impl::RemoveItem(this, core::mem::transmute(&varindex)).into()
         }
@@ -4108,9 +4046,11 @@ impl ISClusCryptoKeys_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusCryptoKeys as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusCryptoKeys as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusCryptoKeys {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusDisk, ISClusDisk_Vtbl, 0xf2e60724_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -4128,7 +4068,6 @@ impl ISClusDisk {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Signature)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ScsiAddress(&self) -> windows_core::Result<ISClusScsiAddress> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ScsiAddress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4137,7 +4076,6 @@ impl ISClusDisk {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DiskNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Partitions(&self) -> windows_core::Result<ISClusPartitions> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Partitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4148,28 +4086,20 @@ impl ISClusDisk {
 pub struct ISClusDisk_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub Signature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub ScsiAddress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    ScsiAddress: usize,
     pub DiskNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub Partitions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Partitions: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusDisk_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusDisk_Impl: super::super::System::Com::IDispatch_Impl {
     fn Signature(&self) -> windows_core::Result<i32>;
     fn ScsiAddress(&self) -> windows_core::Result<ISClusScsiAddress>;
     fn DiskNumber(&self) -> windows_core::Result<i32>;
     fn Partitions(&self) -> windows_core::Result<ISClusPartitions>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusDisk {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusDisk_Vtbl {
-    pub const fn new<Identity: ISClusDisk_Impl, const OFFSET: isize>() -> ISClusDisk_Vtbl {
+    pub const fn new<Identity: ISClusDisk_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Signature<Identity: ISClusDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plsignature: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusDisk_Impl::Signature(this) {
@@ -4219,9 +4149,11 @@ impl ISClusDisk_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusDisk as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusDisk as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusDisk {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusDisks, ISClusDisks_Vtbl, 0xf2e60726_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -4259,21 +4191,19 @@ pub struct ISClusDisks_Vtbl {
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusDisks_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusDisks_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusDisk>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusDisks {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusDisks_Vtbl {
-    pub const fn new<Identity: ISClusDisks_Impl, const OFFSET: isize>() -> ISClusDisks_Vtbl {
+    pub const fn new<Identity: ISClusDisks_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusDisks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusDisks_Impl::Count(this) {
@@ -4294,7 +4224,7 @@ impl ISClusDisks_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusDisks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppdisk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusDisks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppdisk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusDisks_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -4312,9 +4242,11 @@ impl ISClusDisks_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusDisks as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusDisks as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusDisks {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusNetInterface, ISClusNetInterface_Vtbl, 0xf2e606ee_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -4328,29 +4260,25 @@ impl core::ops::Deref for ISClusNetInterface {
 windows_core::imp::interface_hierarchy!(ISClusNetInterface, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetInterface {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CommonProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PrivateProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CommonROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PrivateROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn Handle(&self) -> windows_core::Result<usize> {
         let mut result__ = core::mem::zeroed();
@@ -4360,7 +4288,6 @@ impl ISClusNetInterface {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> windows_core::Result<ISCluster> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Cluster)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4370,32 +4297,17 @@ impl ISClusNetInterface {
 #[repr(C)]
 pub struct ISClusNetInterface_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub CommonProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CommonProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PrivateProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PrivateProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub CommonROProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CommonROProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PrivateROProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PrivateROProperties: usize,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Handle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CLUSTER_NETINTERFACE_STATE) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub Cluster: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Cluster: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusNetInterface_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusNetInterface_Impl: super::super::System::Com::IDispatch_Impl {
     fn CommonProperties(&self) -> windows_core::Result<ISClusProperties>;
     fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties>;
     fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties>;
@@ -4406,10 +4318,8 @@ pub trait ISClusNetInterface_Impl: Sized + super::super::System::Com::IDispatch_
     fn Cluster(&self) -> windows_core::Result<ISCluster>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusNetInterface {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusNetInterface_Vtbl {
-    pub const fn new<Identity: ISClusNetInterface_Impl, const OFFSET: isize>() -> ISClusNetInterface_Vtbl {
+    pub const fn new<Identity: ISClusNetInterface_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CommonProperties<Identity: ISClusNetInterface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusNetInterface_Impl::CommonProperties(this) {
@@ -4503,9 +4413,11 @@ impl ISClusNetInterface_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusNetInterface as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusNetInterface as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusNetInterface {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusNetInterfaces, ISClusNetInterfaces_Vtbl, 0xf2e606f0_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -4547,22 +4459,20 @@ pub struct ISClusNetInterfaces_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusNetInterfaces_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusNetInterfaces_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNetInterface>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusNetInterfaces {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusNetInterfaces_Vtbl {
-    pub const fn new<Identity: ISClusNetInterfaces_Impl, const OFFSET: isize>() -> ISClusNetInterfaces_Vtbl {
+    pub const fn new<Identity: ISClusNetInterfaces_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusNetInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusNetInterfaces_Impl::Count(this) {
@@ -4587,7 +4497,7 @@ impl ISClusNetInterfaces_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusNetInterfaces_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusNetInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppclusnetinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusNetInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppclusnetinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusNetInterfaces_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -4606,9 +4516,11 @@ impl ISClusNetInterfaces_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusNetInterfaces as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusNetInterfaces as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusNetInterfaces {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusNetwork, ISClusNetwork_Vtbl, 0xf2e606f2_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -4622,22 +4534,18 @@ impl core::ops::Deref for ISClusNetwork {
 windows_core::imp::interface_hierarchy!(ISClusNetwork, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetwork {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CommonProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PrivateProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CommonROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PrivateROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4648,7 +4556,7 @@ impl ISClusNetwork {
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SetName<P0>(&self, bstrnetworkname: P0) -> windows_core::Result<()>
     where
@@ -4658,18 +4566,16 @@ impl ISClusNetwork {
     }
     pub unsafe fn NetworkID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).NetworkID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).NetworkID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn State(&self) -> windows_core::Result<CLUSTER_NETWORK_STATE> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NetInterfaces(&self) -> windows_core::Result<ISClusNetworkNetInterfaces> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).NetInterfaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> windows_core::Result<ISCluster> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Cluster)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4679,38 +4585,20 @@ impl ISClusNetwork {
 #[repr(C)]
 pub struct ISClusNetwork_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub CommonProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CommonProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PrivateProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PrivateProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub CommonROProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CommonROProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PrivateROProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PrivateROProperties: usize,
     pub Handle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub NetworkID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CLUSTER_NETWORK_STATE) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub NetInterfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    NetInterfaces: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub Cluster: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Cluster: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusNetwork_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusNetwork_Impl: super::super::System::Com::IDispatch_Impl {
     fn CommonProperties(&self) -> windows_core::Result<ISClusProperties>;
     fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties>;
     fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties>;
@@ -4724,10 +4612,8 @@ pub trait ISClusNetwork_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn Cluster(&self) -> windows_core::Result<ISCluster>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusNetwork {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusNetwork_Vtbl {
-    pub const fn new<Identity: ISClusNetwork_Impl, const OFFSET: isize>() -> ISClusNetwork_Vtbl {
+    pub const fn new<Identity: ISClusNetwork_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CommonProperties<Identity: ISClusNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusNetwork_Impl::CommonProperties(this) {
@@ -4848,9 +4734,11 @@ impl ISClusNetwork_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusNetwork as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusNetwork as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusNetwork {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusNetworkNetInterfaces, ISClusNetworkNetInterfaces_Vtbl, 0xf2e606f6_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -4892,22 +4780,20 @@ pub struct ISClusNetworkNetInterfaces_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusNetworkNetInterfaces_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusNetworkNetInterfaces_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNetInterface>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusNetworkNetInterfaces {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusNetworkNetInterfaces_Vtbl {
-    pub const fn new<Identity: ISClusNetworkNetInterfaces_Impl, const OFFSET: isize>() -> ISClusNetworkNetInterfaces_Vtbl {
+    pub const fn new<Identity: ISClusNetworkNetInterfaces_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusNetworkNetInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusNetworkNetInterfaces_Impl::Count(this) {
@@ -4932,7 +4818,7 @@ impl ISClusNetworkNetInterfaces_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusNetworkNetInterfaces_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusNetworkNetInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppclusnetinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusNetworkNetInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppclusnetinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusNetworkNetInterfaces_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -4951,9 +4837,11 @@ impl ISClusNetworkNetInterfaces_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusNetworkNetInterfaces as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusNetworkNetInterfaces as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusNetworkNetInterfaces {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusNetworks, ISClusNetworks_Vtbl, 0xf2e606f4_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -4995,22 +4883,20 @@ pub struct ISClusNetworks_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusNetworks_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusNetworks_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNetwork>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusNetworks {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusNetworks_Vtbl {
-    pub const fn new<Identity: ISClusNetworks_Impl, const OFFSET: isize>() -> ISClusNetworks_Vtbl {
+    pub const fn new<Identity: ISClusNetworks_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusNetworks_Impl::Count(this) {
@@ -5035,7 +4921,7 @@ impl ISClusNetworks_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusNetworks_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppclusnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusNetworks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppclusnetwork: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusNetworks_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -5054,9 +4940,11 @@ impl ISClusNetworks_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusNetworks as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusNetworks as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusNetworks {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusNode, ISClusNode_Vtbl, 0xf2e606f8_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -5070,29 +4958,25 @@ impl core::ops::Deref for ISClusNode {
 windows_core::imp::interface_hierarchy!(ISClusNode, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNode {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CommonProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PrivateProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CommonROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PrivateROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn Handle(&self) -> windows_core::Result<usize> {
         let mut result__ = core::mem::zeroed();
@@ -5100,7 +4984,7 @@ impl ISClusNode {
     }
     pub unsafe fn NodeID(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).NodeID)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).NodeID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn State(&self) -> windows_core::Result<CLUSTER_NODE_STATE> {
         let mut result__ = core::mem::zeroed();
@@ -5115,17 +4999,14 @@ impl ISClusNode {
     pub unsafe fn Evict(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Evict)(windows_core::Interface::as_raw(self)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResourceGroups(&self) -> windows_core::Result<ISClusResGroups> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ResourceGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> windows_core::Result<ISCluster> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Cluster)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NetInterfaces(&self) -> windows_core::Result<ISClusNodeNetInterfaces> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).NetInterfaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5135,22 +5016,10 @@ impl ISClusNode {
 #[repr(C)]
 pub struct ISClusNode_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub CommonProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CommonProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PrivateProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PrivateProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub CommonROProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CommonROProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PrivateROProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PrivateROProperties: usize,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Handle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
     pub NodeID: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
@@ -5158,21 +5027,12 @@ pub struct ISClusNode_Vtbl {
     pub Pause: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Resume: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Evict: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub ResourceGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    ResourceGroups: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub Cluster: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Cluster: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub NetInterfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    NetInterfaces: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusNode_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusNode_Impl: super::super::System::Com::IDispatch_Impl {
     fn CommonProperties(&self) -> windows_core::Result<ISClusProperties>;
     fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties>;
     fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties>;
@@ -5189,10 +5049,8 @@ pub trait ISClusNode_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn NetInterfaces(&self) -> windows_core::Result<ISClusNodeNetInterfaces>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusNode {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusNode_Vtbl {
-    pub const fn new<Identity: ISClusNode_Impl, const OFFSET: isize>() -> ISClusNode_Vtbl {
+    pub const fn new<Identity: ISClusNode_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CommonProperties<Identity: ISClusNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusNode_Impl::CommonProperties(this) {
@@ -5334,9 +5192,11 @@ impl ISClusNode_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusNode as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusNode as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusNode {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusNodeNetInterfaces, ISClusNodeNetInterfaces_Vtbl, 0xf2e606fc_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -5378,22 +5238,20 @@ pub struct ISClusNodeNetInterfaces_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusNodeNetInterfaces_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusNodeNetInterfaces_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNetInterface>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusNodeNetInterfaces {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusNodeNetInterfaces_Vtbl {
-    pub const fn new<Identity: ISClusNodeNetInterfaces_Impl, const OFFSET: isize>() -> ISClusNodeNetInterfaces_Vtbl {
+    pub const fn new<Identity: ISClusNodeNetInterfaces_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusNodeNetInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusNodeNetInterfaces_Impl::Count(this) {
@@ -5418,7 +5276,7 @@ impl ISClusNodeNetInterfaces_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusNodeNetInterfaces_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusNodeNetInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppclusnetinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusNodeNetInterfaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppclusnetinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusNodeNetInterfaces_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -5437,9 +5295,11 @@ impl ISClusNodeNetInterfaces_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusNodeNetInterfaces as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusNodeNetInterfaces as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusNodeNetInterfaces {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusNodes, ISClusNodes_Vtbl, 0xf2e606fa_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -5481,22 +5341,20 @@ pub struct ISClusNodes_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusNodes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusNodes_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusNodes {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusNodes_Vtbl {
-    pub const fn new<Identity: ISClusNodes_Impl, const OFFSET: isize>() -> ISClusNodes_Vtbl {
+    pub const fn new<Identity: ISClusNodes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusNodes_Impl::Count(this) {
@@ -5521,7 +5379,7 @@ impl ISClusNodes_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusNodes_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusNodes_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -5540,9 +5398,11 @@ impl ISClusNodes_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusNodes as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusNodes as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusNodes {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusPartition, ISClusPartition_Vtbl, 0xf2e60720_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -5562,11 +5422,11 @@ impl ISClusPartition {
     }
     pub unsafe fn DeviceName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).DeviceName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).DeviceName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn VolumeLabel(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).VolumeLabel)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).VolumeLabel)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SerialNumber(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -5582,7 +5442,7 @@ impl ISClusPartition {
     }
     pub unsafe fn FileSystem(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).FileSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).FileSystem)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5598,7 +5458,7 @@ pub struct ISClusPartition_Vtbl {
     pub FileSystem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusPartition_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusPartition_Impl: super::super::System::Com::IDispatch_Impl {
     fn Flags(&self) -> windows_core::Result<i32>;
     fn DeviceName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn VolumeLabel(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -5608,10 +5468,8 @@ pub trait ISClusPartition_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn FileSystem(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusPartition {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusPartition_Vtbl {
-    pub const fn new<Identity: ISClusPartition_Impl, const OFFSET: isize>() -> ISClusPartition_Vtbl {
+    pub const fn new<Identity: ISClusPartition_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Flags<Identity: ISClusPartition_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plflags: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusPartition_Impl::Flags(this) {
@@ -5694,9 +5552,11 @@ impl ISClusPartition_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusPartition as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusPartition as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusPartition {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusPartitionEx, ISClusPartitionEx_Vtbl, 0x8802d4fe_b32e_4ad1_9dbd_64f18e1166ce);
 #[cfg(feature = "Win32_System_Com")]
@@ -5728,7 +5588,7 @@ impl ISClusPartitionEx {
     }
     pub unsafe fn VolumeGuid(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).VolumeGuid)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).VolumeGuid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5742,7 +5602,7 @@ pub struct ISClusPartitionEx_Vtbl {
     pub VolumeGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusPartitionEx_Impl: Sized + ISClusPartition_Impl {
+pub trait ISClusPartitionEx_Impl: ISClusPartition_Impl {
     fn TotalSize(&self) -> windows_core::Result<i32>;
     fn FreeSpace(&self) -> windows_core::Result<i32>;
     fn DeviceNumber(&self) -> windows_core::Result<i32>;
@@ -5750,10 +5610,8 @@ pub trait ISClusPartitionEx_Impl: Sized + ISClusPartition_Impl {
     fn VolumeGuid(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusPartitionEx {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusPartitionEx_Vtbl {
-    pub const fn new<Identity: ISClusPartitionEx_Impl, const OFFSET: isize>() -> ISClusPartitionEx_Vtbl {
+    pub const fn new<Identity: ISClusPartitionEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TotalSize<Identity: ISClusPartitionEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pltotalsize: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusPartitionEx_Impl::TotalSize(this) {
@@ -5814,9 +5672,11 @@ impl ISClusPartitionEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusPartitionEx as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID || iid == &<ISClusPartition as windows_core::Interface>::IID
+        iid == &<ISClusPartitionEx as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusPartitionEx {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusPartitions, ISClusPartitions_Vtbl, 0xf2e60722_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -5854,21 +5714,19 @@ pub struct ISClusPartitions_Vtbl {
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusPartitions_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusPartitions_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusPartition>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusPartitions {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusPartitions_Vtbl {
-    pub const fn new<Identity: ISClusPartitions_Impl, const OFFSET: isize>() -> ISClusPartitions_Vtbl {
+    pub const fn new<Identity: ISClusPartitions_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusPartitions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusPartitions_Impl::Count(this) {
@@ -5889,7 +5747,7 @@ impl ISClusPartitions_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusPartitions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pppartition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusPartitions_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, pppartition: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusPartitions_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -5907,9 +5765,11 @@ impl ISClusPartitions_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusPartitions as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusPartitions as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusPartitions {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusProperties, ISClusProperties_Vtbl, 0xf2e60700_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -5961,27 +5821,27 @@ impl ISClusProperties {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SaveChanges(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).SaveChanges)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).SaveChanges)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Private(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Private)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Private)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Common(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Common)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Common)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Modified)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Modified)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5992,40 +5852,40 @@ pub struct ISClusProperties_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CreateItem: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub UseDefaultValue: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub UseDefaultValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     UseDefaultValue: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SaveChanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub SaveChanges: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SaveChanges: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub ReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub ReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ReadOnly: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Private: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Private: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Private: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Common: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Common: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Common: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Modified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Modified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Modified: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusProperties_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusProperties_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
@@ -6039,10 +5899,8 @@ pub trait ISClusProperties_Impl: Sized + super::super::System::Com::IDispatch_Im
     fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusProperties {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusProperties_Vtbl {
-    pub const fn new<Identity: ISClusProperties_Impl, const OFFSET: isize>() -> ISClusProperties_Vtbl {
+    pub const fn new<Identity: ISClusProperties_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusProperties_Impl::Count(this) {
@@ -6067,7 +5925,7 @@ impl ISClusProperties_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusProperties_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppclusproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppclusproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusProperties_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -6077,7 +5935,7 @@ impl ISClusProperties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateItem<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, varvalue: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateItem<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, varvalue: super::super::System::Variant::VARIANT, pproperty: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusProperties_Impl::CreateItem(this, core::mem::transmute(&bstrname), core::mem::transmute(&varvalue)) {
                 Ok(ok__) => {
@@ -6087,11 +5945,11 @@ impl ISClusProperties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UseDefaultValue<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn UseDefaultValue<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusProperties_Impl::UseDefaultValue(this, core::mem::transmute(&varindex)).into()
         }
-        unsafe extern "system" fn SaveChanges<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarstatuscode: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SaveChanges<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarstatuscode: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusProperties_Impl::SaveChanges(this) {
                 Ok(ok__) => {
@@ -6101,7 +5959,7 @@ impl ISClusProperties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn ReadOnly<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarreadonly: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadOnly<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarreadonly: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusProperties_Impl::ReadOnly(this) {
                 Ok(ok__) => {
@@ -6111,7 +5969,7 @@ impl ISClusProperties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Private<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprivate: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Private<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprivate: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusProperties_Impl::Private(this) {
                 Ok(ok__) => {
@@ -6121,7 +5979,7 @@ impl ISClusProperties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Common<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcommon: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Common<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcommon: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusProperties_Impl::Common(this) {
                 Ok(ok__) => {
@@ -6131,7 +5989,7 @@ impl ISClusProperties_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Modified<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodified: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Modified<Identity: ISClusProperties_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodified: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusProperties_Impl::Modified(this) {
                 Ok(ok__) => {
@@ -6157,9 +6015,11 @@ impl ISClusProperties_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusProperties as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusProperties as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusProperties {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusProperty, ISClusProperty_Vtbl, 0xf2e606fe_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -6175,7 +6035,7 @@ windows_core::imp::interface_hierarchy!(ISClusProperty, windows_core::IUnknown, 
 impl ISClusProperty {
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn Length(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -6185,7 +6045,6 @@ impl ISClusProperty {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ValueCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Values(&self) -> windows_core::Result<ISClusPropertyValues> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Values)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6193,7 +6052,7 @@ impl ISClusProperty {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Value(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetValue<P0>(&self, varvalue: P0) -> windows_core::Result<()>
@@ -6219,22 +6078,22 @@ impl ISClusProperty {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Private(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Private)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Private)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Common(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Common)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Common)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Modified)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Modified)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn UseDefaultValue(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).UseDefaultValue)(windows_core::Interface::as_raw(self)).ok()
@@ -6247,16 +6106,13 @@ pub struct ISClusProperty_Vtbl {
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub ValueCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub Values: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Values: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Value: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetValue: usize,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CLUSTER_PROPERTY_TYPE) -> windows_core::HRESULT,
@@ -6264,25 +6120,25 @@ pub struct ISClusProperty_Vtbl {
     pub Format: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CLUSTER_PROPERTY_FORMAT) -> windows_core::HRESULT,
     pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, CLUSTER_PROPERTY_FORMAT) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub ReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub ReadOnly: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     ReadOnly: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Private: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Private: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Private: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Common: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Common: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Common: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Modified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Modified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Modified: usize,
     pub UseDefaultValue: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusProperty_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusProperty_Impl: super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Length(&self) -> windows_core::Result<i32>;
     fn ValueCount(&self) -> windows_core::Result<i32>;
@@ -6300,10 +6156,8 @@ pub trait ISClusProperty_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn UseDefaultValue(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusProperty {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusProperty_Vtbl {
-    pub const fn new<Identity: ISClusProperty_Impl, const OFFSET: isize>() -> ISClusProperty_Vtbl {
+    pub const fn new<Identity: ISClusProperty_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: ISClusProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusProperty_Impl::Name(this) {
@@ -6344,7 +6198,7 @@ impl ISClusProperty_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Value<Identity: ISClusProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Value<Identity: ISClusProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusProperty_Impl::Value(this) {
                 Ok(ok__) => {
@@ -6354,7 +6208,7 @@ impl ISClusProperty_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ISClusProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ISClusProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusProperty_Impl::SetValue(this, core::mem::transmute(&varvalue)).into()
         }
@@ -6386,7 +6240,7 @@ impl ISClusProperty_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusProperty_Impl::SetFormat(this, core::mem::transmute_copy(&format)).into()
         }
-        unsafe extern "system" fn ReadOnly<Identity: ISClusProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarreadonly: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadOnly<Identity: ISClusProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarreadonly: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusProperty_Impl::ReadOnly(this) {
                 Ok(ok__) => {
@@ -6396,7 +6250,7 @@ impl ISClusProperty_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Private<Identity: ISClusProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprivate: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Private<Identity: ISClusProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarprivate: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusProperty_Impl::Private(this) {
                 Ok(ok__) => {
@@ -6406,7 +6260,7 @@ impl ISClusProperty_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Common<Identity: ISClusProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcommon: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Common<Identity: ISClusProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarcommon: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusProperty_Impl::Common(this) {
                 Ok(ok__) => {
@@ -6416,7 +6270,7 @@ impl ISClusProperty_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Modified<Identity: ISClusProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodified: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Modified<Identity: ISClusProperty_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodified: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusProperty_Impl::Modified(this) {
                 Ok(ok__) => {
@@ -6450,9 +6304,11 @@ impl ISClusProperty_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusProperty as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusProperty as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusProperty {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusPropertyValue, ISClusPropertyValue_Vtbl, 0xf2e6071a_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -6469,7 +6325,7 @@ impl ISClusPropertyValue {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Value(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn SetValue<P0>(&self, varvalue: P0) -> windows_core::Result<()>
@@ -6500,7 +6356,6 @@ impl ISClusPropertyValue {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).DataCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Data(&self) -> windows_core::Result<ISClusPropertyValueData> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6511,11 +6366,11 @@ impl ISClusPropertyValue {
 pub struct ISClusPropertyValue_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Value: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetValue: usize,
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CLUSTER_PROPERTY_TYPE) -> windows_core::HRESULT,
@@ -6524,13 +6379,10 @@ pub struct ISClusPropertyValue_Vtbl {
     pub SetFormat: unsafe extern "system" fn(*mut core::ffi::c_void, CLUSTER_PROPERTY_FORMAT) -> windows_core::HRESULT,
     pub Length: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub DataCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub Data: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Data: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusPropertyValue_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusPropertyValue_Impl: super::super::System::Com::IDispatch_Impl {
     fn Value(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn SetValue(&self, varvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Type(&self) -> windows_core::Result<CLUSTER_PROPERTY_TYPE>;
@@ -6542,11 +6394,9 @@ pub trait ISClusPropertyValue_Impl: Sized + super::super::System::Com::IDispatch
     fn Data(&self) -> windows_core::Result<ISClusPropertyValueData>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusPropertyValue {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusPropertyValue_Vtbl {
-    pub const fn new<Identity: ISClusPropertyValue_Impl, const OFFSET: isize>() -> ISClusPropertyValue_Vtbl {
-        unsafe extern "system" fn Value<Identity: ISClusPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+    pub const fn new<Identity: ISClusPropertyValue_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Value<Identity: ISClusPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarvalue: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusPropertyValue_Impl::Value(this) {
                 Ok(ok__) => {
@@ -6556,7 +6406,7 @@ impl ISClusPropertyValue_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetValue<Identity: ISClusPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetValue<Identity: ISClusPropertyValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusPropertyValue_Impl::SetValue(this, core::mem::transmute(&varvalue)).into()
         }
@@ -6632,9 +6482,11 @@ impl ISClusPropertyValue_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusPropertyValue as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusPropertyValue as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusPropertyValue {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusPropertyValueData, ISClusPropertyValueData_Vtbl, 0xf2e6071e_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -6662,7 +6514,7 @@ impl ISClusPropertyValueData {
         P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateItem<P0>(&self, varvalue: P0) -> windows_core::Result<super::super::System::Variant::VARIANT>
@@ -6670,7 +6522,7 @@ impl ISClusPropertyValueData {
         P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CreateItem)(windows_core::Interface::as_raw(self), varvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CreateItem)(windows_core::Interface::as_raw(self), varvalue.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn RemoveItem<P0>(&self, varindex: P0) -> windows_core::Result<()>
@@ -6687,20 +6539,20 @@ pub struct ISClusPropertyValueData_Vtbl {
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub CreateItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CreateItem: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     RemoveItem: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusPropertyValueData_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusPropertyValueData_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
@@ -6708,10 +6560,8 @@ pub trait ISClusPropertyValueData_Impl: Sized + super::super::System::Com::IDisp
     fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusPropertyValueData {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusPropertyValueData_Vtbl {
-    pub const fn new<Identity: ISClusPropertyValueData_Impl, const OFFSET: isize>() -> ISClusPropertyValueData_Vtbl {
+    pub const fn new<Identity: ISClusPropertyValueData_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusPropertyValueData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusPropertyValueData_Impl::Count(this) {
@@ -6732,7 +6582,7 @@ impl ISClusPropertyValueData_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusPropertyValueData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pvarvalue: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusPropertyValueData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, pvarvalue: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusPropertyValueData_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -6742,7 +6592,7 @@ impl ISClusPropertyValueData_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateItem<Identity: ISClusPropertyValueData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pvardata: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateItem<Identity: ISClusPropertyValueData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varvalue: super::super::System::Variant::VARIANT, pvardata: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusPropertyValueData_Impl::CreateItem(this, core::mem::transmute(&varvalue)) {
                 Ok(ok__) => {
@@ -6752,7 +6602,7 @@ impl ISClusPropertyValueData_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveItem<Identity: ISClusPropertyValueData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveItem<Identity: ISClusPropertyValueData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusPropertyValueData_Impl::RemoveItem(this, core::mem::transmute(&varindex)).into()
         }
@@ -6766,9 +6616,11 @@ impl ISClusPropertyValueData_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusPropertyValueData as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusPropertyValueData as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusPropertyValueData {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusPropertyValues, ISClusPropertyValues_Vtbl, 0xf2e6071c_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -6822,20 +6674,20 @@ pub struct ISClusPropertyValues_Vtbl {
     pub Count: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CreateItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CreateItem: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     RemoveItem: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusPropertyValues_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusPropertyValues_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusPropertyValue>;
@@ -6843,10 +6695,8 @@ pub trait ISClusPropertyValues_Impl: Sized + super::super::System::Com::IDispatc
     fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusPropertyValues {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusPropertyValues_Vtbl {
-    pub const fn new<Identity: ISClusPropertyValues_Impl, const OFFSET: isize>() -> ISClusPropertyValues_Vtbl {
+    pub const fn new<Identity: ISClusPropertyValues_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusPropertyValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusPropertyValues_Impl::Count(this) {
@@ -6867,7 +6717,7 @@ impl ISClusPropertyValues_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusPropertyValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pppropertyvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusPropertyValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, pppropertyvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusPropertyValues_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -6877,7 +6727,7 @@ impl ISClusPropertyValues_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateItem<Identity: ISClusPropertyValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, varvalue: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pppropertyvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateItem<Identity: ISClusPropertyValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bstrname: core::mem::MaybeUninit<windows_core::BSTR>, varvalue: super::super::System::Variant::VARIANT, pppropertyvalue: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusPropertyValues_Impl::CreateItem(this, core::mem::transmute(&bstrname), core::mem::transmute(&varvalue)) {
                 Ok(ok__) => {
@@ -6887,7 +6737,7 @@ impl ISClusPropertyValues_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn RemoveItem<Identity: ISClusPropertyValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveItem<Identity: ISClusPropertyValues_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusPropertyValues_Impl::RemoveItem(this, core::mem::transmute(&varindex)).into()
         }
@@ -6901,9 +6751,11 @@ impl ISClusPropertyValues_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusPropertyValues as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusPropertyValues as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusPropertyValues {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusRefObject, ISClusRefObject_Vtbl, 0xf2e60702_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -6929,14 +6781,12 @@ pub struct ISClusRefObject_Vtbl {
     pub Handle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusRefObject_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusRefObject_Impl: super::super::System::Com::IDispatch_Impl {
     fn Handle(&self) -> windows_core::Result<usize>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusRefObject {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusRefObject_Vtbl {
-    pub const fn new<Identity: ISClusRefObject_Impl, const OFFSET: isize>() -> ISClusRefObject_Vtbl {
+    pub const fn new<Identity: ISClusRefObject_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Handle<Identity: ISClusRefObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, phandle: *mut usize) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusRefObject_Impl::Handle(this) {
@@ -6950,9 +6800,11 @@ impl ISClusRefObject_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, OFFSET>(), Handle: Handle::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusRefObject as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusRefObject as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusRefObject {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusRegistryKeys, ISClusRegistryKeys_Vtbl, 0xf2e6072a_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -6983,7 +6835,7 @@ impl ISClusRegistryKeys {
         P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn AddItem<P0>(&self, bstrregistrykey: P0) -> windows_core::Result<()>
     where
@@ -7007,17 +6859,17 @@ pub struct ISClusRegistryKeys_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
     pub AddItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     RemoveItem: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusRegistryKeys_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusRegistryKeys_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
@@ -7026,10 +6878,8 @@ pub trait ISClusRegistryKeys_Impl: Sized + super::super::System::Com::IDispatch_
     fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusRegistryKeys {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusRegistryKeys_Vtbl {
-    pub const fn new<Identity: ISClusRegistryKeys_Impl, const OFFSET: isize>() -> ISClusRegistryKeys_Vtbl {
+    pub const fn new<Identity: ISClusRegistryKeys_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusRegistryKeys_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusRegistryKeys_Impl::Count(this) {
@@ -7054,7 +6904,7 @@ impl ISClusRegistryKeys_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusRegistryKeys_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusRegistryKeys_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pbstrregistrykey: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusRegistryKeys_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, pbstrregistrykey: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusRegistryKeys_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -7068,7 +6918,7 @@ impl ISClusRegistryKeys_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusRegistryKeys_Impl::AddItem(this, core::mem::transmute(&bstrregistrykey)).into()
         }
-        unsafe extern "system" fn RemoveItem<Identity: ISClusRegistryKeys_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveItem<Identity: ISClusRegistryKeys_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusRegistryKeys_Impl::RemoveItem(this, core::mem::transmute(&varindex)).into()
         }
@@ -7083,9 +6933,11 @@ impl ISClusRegistryKeys_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusRegistryKeys as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusRegistryKeys as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusRegistryKeys {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResDependencies, ISClusResDependencies_Vtbl, 0xf2e60704_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -7118,7 +6970,6 @@ impl ISClusResDependencies {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateItem<P0, P1>(&self, bstrresourcename: P0, bstrresourcetype: P1, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -7134,7 +6985,6 @@ impl ISClusResDependencies {
     {
         (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), varindex.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddItem<P0>(&self, presource: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISClusResource>,
@@ -7157,28 +7007,22 @@ pub struct ISClusResDependencies_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub CreateItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, CLUSTER_RESOURCE_CREATE_FLAGS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CreateItem: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     DeleteItem: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub AddItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    AddItem: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     RemoveItem: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusResDependencies_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusResDependencies_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
@@ -7189,10 +7033,8 @@ pub trait ISClusResDependencies_Impl: Sized + super::super::System::Com::IDispat
     fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusResDependencies {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResDependencies_Vtbl {
-    pub const fn new<Identity: ISClusResDependencies_Impl, const OFFSET: isize>() -> ISClusResDependencies_Vtbl {
+    pub const fn new<Identity: ISClusResDependencies_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusResDependencies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResDependencies_Impl::Count(this) {
@@ -7217,7 +7059,7 @@ impl ISClusResDependencies_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResDependencies_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusResDependencies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppclusresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusResDependencies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppclusresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResDependencies_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -7237,7 +7079,7 @@ impl ISClusResDependencies_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteItem<Identity: ISClusResDependencies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteItem<Identity: ISClusResDependencies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResDependencies_Impl::DeleteItem(this, core::mem::transmute(&varindex)).into()
         }
@@ -7245,7 +7087,7 @@ impl ISClusResDependencies_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResDependencies_Impl::AddItem(this, windows_core::from_raw_borrowed(&presource)).into()
         }
-        unsafe extern "system" fn RemoveItem<Identity: ISClusResDependencies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveItem<Identity: ISClusResDependencies_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResDependencies_Impl::RemoveItem(this, core::mem::transmute(&varindex)).into()
         }
@@ -7262,9 +7104,11 @@ impl ISClusResDependencies_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusResDependencies as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusResDependencies as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusResDependencies {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResDependents, ISClusResDependents_Vtbl, 0xf2e6072e_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -7297,7 +7141,6 @@ impl ISClusResDependents {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateItem<P0, P1>(&self, bstrresourcename: P0, bstrresourcetype: P1, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -7313,7 +7156,6 @@ impl ISClusResDependents {
     {
         (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), varindex.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddItem<P0>(&self, presource: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISClusResource>,
@@ -7336,28 +7178,22 @@ pub struct ISClusResDependents_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub CreateItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, CLUSTER_RESOURCE_CREATE_FLAGS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CreateItem: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     DeleteItem: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub AddItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    AddItem: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     RemoveItem: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusResDependents_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusResDependents_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
@@ -7368,10 +7204,8 @@ pub trait ISClusResDependents_Impl: Sized + super::super::System::Com::IDispatch
     fn RemoveItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusResDependents {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResDependents_Vtbl {
-    pub const fn new<Identity: ISClusResDependents_Impl, const OFFSET: isize>() -> ISClusResDependents_Vtbl {
+    pub const fn new<Identity: ISClusResDependents_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusResDependents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResDependents_Impl::Count(this) {
@@ -7396,7 +7230,7 @@ impl ISClusResDependents_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResDependents_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusResDependents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppclusresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusResDependents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppclusresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResDependents_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -7416,7 +7250,7 @@ impl ISClusResDependents_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteItem<Identity: ISClusResDependents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteItem<Identity: ISClusResDependents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResDependents_Impl::DeleteItem(this, core::mem::transmute(&varindex)).into()
         }
@@ -7424,7 +7258,7 @@ impl ISClusResDependents_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResDependents_Impl::AddItem(this, windows_core::from_raw_borrowed(&presource)).into()
         }
-        unsafe extern "system" fn RemoveItem<Identity: ISClusResDependents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveItem<Identity: ISClusResDependents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResDependents_Impl::RemoveItem(this, core::mem::transmute(&varindex)).into()
         }
@@ -7441,9 +7275,11 @@ impl ISClusResDependents_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusResDependents as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusResDependents as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusResDependents {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResGroup, ISClusResGroup_Vtbl, 0xf2e60706_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -7457,22 +7293,18 @@ impl core::ops::Deref for ISClusResGroup {
 windows_core::imp::interface_hierarchy!(ISClusResGroup, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroup {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CommonProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PrivateProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CommonROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PrivateROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7483,7 +7315,7 @@ impl ISClusResGroup {
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SetName<P0>(&self, bstrgroupname: P0) -> windows_core::Result<()>
     where
@@ -7495,17 +7327,14 @@ impl ISClusResGroup {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OwnerNode(&self) -> windows_core::Result<ISClusNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OwnerNode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Resources(&self) -> windows_core::Result<ISClusResGroupResources> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Resources)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PreferredOwnerNodes(&self) -> windows_core::Result<ISClusResGroupPreferredOwnerNodes> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PreferredOwnerNodes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7520,7 +7349,7 @@ impl ISClusResGroup {
         P1: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Online)(windows_core::Interface::as_raw(self), vartimeout.param().abi(), varnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Online)(windows_core::Interface::as_raw(self), vartimeout.param().abi(), varnode.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Move<P0, P1>(&self, vartimeout: P0, varnode: P1) -> windows_core::Result<super::super::System::Variant::VARIANT>
@@ -7529,7 +7358,7 @@ impl ISClusResGroup {
         P1: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), vartimeout.param().abi(), varnode.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), vartimeout.param().abi(), varnode.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Offline<P0>(&self, vartimeout: P0) -> windows_core::Result<super::super::System::Variant::VARIANT>
@@ -7537,9 +7366,8 @@ impl ISClusResGroup {
         P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Offline)(windows_core::Interface::as_raw(self), vartimeout.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Offline)(windows_core::Interface::as_raw(self), vartimeout.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> windows_core::Result<ISCluster> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Cluster)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7549,58 +7377,34 @@ impl ISClusResGroup {
 #[repr(C)]
 pub struct ISClusResGroup_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub CommonProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CommonProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PrivateProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PrivateProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub CommonROProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CommonROProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PrivateROProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PrivateROProperties: usize,
     pub Handle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CLUSTER_GROUP_STATE) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub OwnerNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    OwnerNode: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub Resources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Resources: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PreferredOwnerNodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PreferredOwnerNodes: usize,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Online: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Online: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, super::super::System::Variant::VARIANT, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Online: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, super::super::System::Variant::VARIANT, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Move: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Offline: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Offline: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Offline: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub Cluster: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Cluster: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusResGroup_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusResGroup_Impl: super::super::System::Com::IDispatch_Impl {
     fn CommonProperties(&self) -> windows_core::Result<ISClusProperties>;
     fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties>;
     fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties>;
@@ -7619,10 +7423,8 @@ pub trait ISClusResGroup_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Cluster(&self) -> windows_core::Result<ISCluster>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusResGroup {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResGroup_Vtbl {
-    pub const fn new<Identity: ISClusResGroup_Impl, const OFFSET: isize>() -> ISClusResGroup_Vtbl {
+    pub const fn new<Identity: ISClusResGroup_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CommonProperties<Identity: ISClusResGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResGroup_Impl::CommonProperties(this) {
@@ -7731,7 +7533,7 @@ impl ISClusResGroup_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResGroup_Impl::Delete(this).into()
         }
-        unsafe extern "system" fn Online<Identity: ISClusResGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vartimeout: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, varnode: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pvarpending: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Online<Identity: ISClusResGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vartimeout: super::super::System::Variant::VARIANT, varnode: super::super::System::Variant::VARIANT, pvarpending: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResGroup_Impl::Online(this, core::mem::transmute(&vartimeout), core::mem::transmute(&varnode)) {
                 Ok(ok__) => {
@@ -7741,7 +7543,7 @@ impl ISClusResGroup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Move<Identity: ISClusResGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vartimeout: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, varnode: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pvarpending: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Move<Identity: ISClusResGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vartimeout: super::super::System::Variant::VARIANT, varnode: super::super::System::Variant::VARIANT, pvarpending: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResGroup_Impl::Move(this, core::mem::transmute(&vartimeout), core::mem::transmute(&varnode)) {
                 Ok(ok__) => {
@@ -7751,7 +7553,7 @@ impl ISClusResGroup_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Offline<Identity: ISClusResGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vartimeout: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pvarpending: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Offline<Identity: ISClusResGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, vartimeout: super::super::System::Variant::VARIANT, pvarpending: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResGroup_Impl::Offline(this, core::mem::transmute(&vartimeout)) {
                 Ok(ok__) => {
@@ -7792,9 +7594,11 @@ impl ISClusResGroup_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusResGroup as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusResGroup as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusResGroup {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResGroupPreferredOwnerNodes, ISClusResGroupPreferredOwnerNodes_Vtbl, 0xf2e606e8_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -7827,7 +7631,6 @@ impl ISClusResGroupPreferredOwnerNodes {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertItem<P0>(&self, pnode: P0, nposition: i32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISClusNode>,
@@ -7844,12 +7647,11 @@ impl ISClusResGroupPreferredOwnerNodes {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Modified)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Modified)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SaveChanges(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).SaveChanges)(windows_core::Interface::as_raw(self)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddItem<P0>(&self, pnode: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISClusNode>,
@@ -7865,29 +7667,23 @@ pub struct ISClusResGroupPreferredOwnerNodes_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub InsertItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    InsertItem: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     RemoveItem: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Modified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Modified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Modified: usize,
     pub SaveChanges: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub AddItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    AddItem: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusResGroupPreferredOwnerNodes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusResGroupPreferredOwnerNodes_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
@@ -7899,10 +7695,8 @@ pub trait ISClusResGroupPreferredOwnerNodes_Impl: Sized + super::super::System::
     fn AddItem(&self, pnode: Option<&ISClusNode>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusResGroupPreferredOwnerNodes {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResGroupPreferredOwnerNodes_Vtbl {
-    pub const fn new<Identity: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>() -> ISClusResGroupPreferredOwnerNodes_Vtbl {
+    pub const fn new<Identity: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResGroupPreferredOwnerNodes_Impl::Count(this) {
@@ -7927,7 +7721,7 @@ impl ISClusResGroupPreferredOwnerNodes_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResGroupPreferredOwnerNodes_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResGroupPreferredOwnerNodes_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -7941,11 +7735,11 @@ impl ISClusResGroupPreferredOwnerNodes_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResGroupPreferredOwnerNodes_Impl::InsertItem(this, windows_core::from_raw_borrowed(&pnode), core::mem::transmute_copy(&nposition)).into()
         }
-        unsafe extern "system" fn RemoveItem<Identity: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveItem<Identity: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResGroupPreferredOwnerNodes_Impl::RemoveItem(this, core::mem::transmute(&varindex)).into()
         }
-        unsafe extern "system" fn Modified<Identity: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodified: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Modified<Identity: ISClusResGroupPreferredOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodified: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResGroupPreferredOwnerNodes_Impl::Modified(this) {
                 Ok(ok__) => {
@@ -7977,9 +7771,11 @@ impl ISClusResGroupPreferredOwnerNodes_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusResGroupPreferredOwnerNodes as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusResGroupPreferredOwnerNodes as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusResGroupPreferredOwnerNodes {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResGroupResources, ISClusResGroupResources_Vtbl, 0xf2e606ea_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -8012,7 +7808,6 @@ impl ISClusResGroupResources {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateItem<P0, P1>(&self, bstrresourcename: P0, bstrresourcetype: P1, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -8037,20 +7832,17 @@ pub struct ISClusResGroupResources_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub CreateItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, CLUSTER_RESOURCE_CREATE_FLAGS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CreateItem: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     DeleteItem: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusResGroupResources_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusResGroupResources_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
@@ -8059,10 +7851,8 @@ pub trait ISClusResGroupResources_Impl: Sized + super::super::System::Com::IDisp
     fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusResGroupResources {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResGroupResources_Vtbl {
-    pub const fn new<Identity: ISClusResGroupResources_Impl, const OFFSET: isize>() -> ISClusResGroupResources_Vtbl {
+    pub const fn new<Identity: ISClusResGroupResources_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusResGroupResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResGroupResources_Impl::Count(this) {
@@ -8087,7 +7877,7 @@ impl ISClusResGroupResources_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResGroupResources_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusResGroupResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppclusresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusResGroupResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppclusresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResGroupResources_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -8107,7 +7897,7 @@ impl ISClusResGroupResources_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteItem<Identity: ISClusResGroupResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteItem<Identity: ISClusResGroupResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResGroupResources_Impl::DeleteItem(this, core::mem::transmute(&varindex)).into()
         }
@@ -8122,9 +7912,11 @@ impl ISClusResGroupResources_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusResGroupResources as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusResGroupResources as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusResGroupResources {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResGroups, ISClusResGroups_Vtbl, 0xf2e60708_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -8157,7 +7949,6 @@ impl ISClusResGroups {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateItem<P0>(&self, bstrresourcegroupname: P0) -> windows_core::Result<ISClusResGroup>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -8181,20 +7972,17 @@ pub struct ISClusResGroups_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub CreateItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CreateItem: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     DeleteItem: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusResGroups_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusResGroups_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
@@ -8203,10 +7991,8 @@ pub trait ISClusResGroups_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusResGroups {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResGroups_Vtbl {
-    pub const fn new<Identity: ISClusResGroups_Impl, const OFFSET: isize>() -> ISClusResGroups_Vtbl {
+    pub const fn new<Identity: ISClusResGroups_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusResGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResGroups_Impl::Count(this) {
@@ -8231,7 +8017,7 @@ impl ISClusResGroups_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResGroups_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusResGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppclusresgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusResGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppclusresgroup: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResGroups_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -8251,7 +8037,7 @@ impl ISClusResGroups_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteItem<Identity: ISClusResGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteItem<Identity: ISClusResGroups_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResGroups_Impl::DeleteItem(this, core::mem::transmute(&varindex)).into()
         }
@@ -8266,9 +8052,11 @@ impl ISClusResGroups_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusResGroups as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusResGroups as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusResGroups {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResPossibleOwnerNodes, ISClusResPossibleOwnerNodes_Vtbl, 0xf2e6070e_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -8301,7 +8089,6 @@ impl ISClusResPossibleOwnerNodes {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddItem<P0>(&self, pnode: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISClusNode>,
@@ -8318,7 +8105,7 @@ impl ISClusResPossibleOwnerNodes {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Modified)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Modified)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8329,24 +8116,21 @@ pub struct ISClusResPossibleOwnerNodes_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub AddItem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    AddItem: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub RemoveItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     RemoveItem: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Modified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Modified: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Modified: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusResPossibleOwnerNodes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusResPossibleOwnerNodes_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
@@ -8356,10 +8140,8 @@ pub trait ISClusResPossibleOwnerNodes_Impl: Sized + super::super::System::Com::I
     fn Modified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusResPossibleOwnerNodes {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResPossibleOwnerNodes_Vtbl {
-    pub const fn new<Identity: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>() -> ISClusResPossibleOwnerNodes_Vtbl {
+    pub const fn new<Identity: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResPossibleOwnerNodes_Impl::Count(this) {
@@ -8384,7 +8166,7 @@ impl ISClusResPossibleOwnerNodes_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResPossibleOwnerNodes_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResPossibleOwnerNodes_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -8398,11 +8180,11 @@ impl ISClusResPossibleOwnerNodes_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResPossibleOwnerNodes_Impl::AddItem(this, windows_core::from_raw_borrowed(&pnode)).into()
         }
-        unsafe extern "system" fn RemoveItem<Identity: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveItem<Identity: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResPossibleOwnerNodes_Impl::RemoveItem(this, core::mem::transmute(&varindex)).into()
         }
-        unsafe extern "system" fn Modified<Identity: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodified: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Modified<Identity: ISClusResPossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmodified: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResPossibleOwnerNodes_Impl::Modified(this) {
                 Ok(ok__) => {
@@ -8424,9 +8206,11 @@ impl ISClusResPossibleOwnerNodes_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusResPossibleOwnerNodes as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusResPossibleOwnerNodes as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusResPossibleOwnerNodes {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResType, ISClusResType_Vtbl, 0xf2e60710_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -8440,49 +8224,41 @@ impl core::ops::Deref for ISClusResType {
 windows_core::imp::interface_hierarchy!(ISClusResType, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResType {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CommonProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PrivateProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CommonROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PrivateROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> windows_core::Result<ISCluster> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Cluster)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Resources(&self) -> windows_core::Result<ISClusResTypeResources> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Resources)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PossibleOwnerNodes(&self) -> windows_core::Result<ISClusResTypePossibleOwnerNodes> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PossibleOwnerNodes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AvailableDisks(&self) -> windows_core::Result<ISClusDisks> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).AvailableDisks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8492,43 +8268,19 @@ impl ISClusResType {
 #[repr(C)]
 pub struct ISClusResType_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub CommonProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CommonProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PrivateProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PrivateProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub CommonROProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CommonROProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PrivateROProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PrivateROProperties: usize,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub Cluster: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Cluster: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub Resources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Resources: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PossibleOwnerNodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PossibleOwnerNodes: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub AvailableDisks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    AvailableDisks: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusResType_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusResType_Impl: super::super::System::Com::IDispatch_Impl {
     fn CommonProperties(&self) -> windows_core::Result<ISClusProperties>;
     fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties>;
     fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties>;
@@ -8541,10 +8293,8 @@ pub trait ISClusResType_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn AvailableDisks(&self) -> windows_core::Result<ISClusDisks>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusResType {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResType_Vtbl {
-    pub const fn new<Identity: ISClusResType_Impl, const OFFSET: isize>() -> ISClusResType_Vtbl {
+    pub const fn new<Identity: ISClusResType_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CommonProperties<Identity: ISClusResType_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResType_Impl::CommonProperties(this) {
@@ -8654,9 +8404,11 @@ impl ISClusResType_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusResType as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusResType as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusResType {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResTypePossibleOwnerNodes, ISClusResTypePossibleOwnerNodes_Vtbl, 0xf2e60718_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -8698,22 +8450,20 @@ pub struct ISClusResTypePossibleOwnerNodes_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusResTypePossibleOwnerNodes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusResTypePossibleOwnerNodes_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<ISClusNode>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusResTypePossibleOwnerNodes {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResTypePossibleOwnerNodes_Vtbl {
-    pub const fn new<Identity: ISClusResTypePossibleOwnerNodes_Impl, const OFFSET: isize>() -> ISClusResTypePossibleOwnerNodes_Vtbl {
+    pub const fn new<Identity: ISClusResTypePossibleOwnerNodes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusResTypePossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResTypePossibleOwnerNodes_Impl::Count(this) {
@@ -8738,7 +8488,7 @@ impl ISClusResTypePossibleOwnerNodes_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResTypePossibleOwnerNodes_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusResTypePossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusResTypePossibleOwnerNodes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppnode: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResTypePossibleOwnerNodes_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -8757,9 +8507,11 @@ impl ISClusResTypePossibleOwnerNodes_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusResTypePossibleOwnerNodes as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusResTypePossibleOwnerNodes as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusResTypePossibleOwnerNodes {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResTypeResources, ISClusResTypeResources_Vtbl, 0xf2e60714_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -8792,7 +8544,6 @@ impl ISClusResTypeResources {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateItem<P0, P1>(&self, bstrresourcename: P0, bstrgroupname: P1, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -8817,20 +8568,17 @@ pub struct ISClusResTypeResources_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub CreateItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, CLUSTER_RESOURCE_CREATE_FLAGS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CreateItem: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     DeleteItem: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusResTypeResources_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusResTypeResources_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
@@ -8839,10 +8587,8 @@ pub trait ISClusResTypeResources_Impl: Sized + super::super::System::Com::IDispa
     fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusResTypeResources {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResTypeResources_Vtbl {
-    pub const fn new<Identity: ISClusResTypeResources_Impl, const OFFSET: isize>() -> ISClusResTypeResources_Vtbl {
+    pub const fn new<Identity: ISClusResTypeResources_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusResTypeResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResTypeResources_Impl::Count(this) {
@@ -8867,7 +8613,7 @@ impl ISClusResTypeResources_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResTypeResources_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusResTypeResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppclusresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusResTypeResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppclusresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResTypeResources_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -8887,7 +8633,7 @@ impl ISClusResTypeResources_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteItem<Identity: ISClusResTypeResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteItem<Identity: ISClusResTypeResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResTypeResources_Impl::DeleteItem(this, core::mem::transmute(&varindex)).into()
         }
@@ -8902,9 +8648,11 @@ impl ISClusResTypeResources_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusResTypeResources as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusResTypeResources as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusResTypeResources {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResTypes, ISClusResTypes_Vtbl, 0xf2e60712_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -8937,7 +8685,6 @@ impl ISClusResTypes {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateItem<P0, P1, P2>(&self, bstrresourcetypename: P0, bstrdisplayname: P1, bstrresourcetypedll: P2, dwlooksalivepollinterval: i32, dwisalivepollinterval: i32) -> windows_core::Result<ISClusResType>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -8963,20 +8710,17 @@ pub struct ISClusResTypes_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub CreateItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, i32, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CreateItem: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     DeleteItem: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusResTypes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusResTypes_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
@@ -8985,10 +8729,8 @@ pub trait ISClusResTypes_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusResTypes {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResTypes_Vtbl {
-    pub const fn new<Identity: ISClusResTypes_Impl, const OFFSET: isize>() -> ISClusResTypes_Vtbl {
+    pub const fn new<Identity: ISClusResTypes_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusResTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResTypes_Impl::Count(this) {
@@ -9013,7 +8755,7 @@ impl ISClusResTypes_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResTypes_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusResTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppclusrestype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusResTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppclusrestype: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResTypes_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -9033,7 +8775,7 @@ impl ISClusResTypes_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteItem<Identity: ISClusResTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteItem<Identity: ISClusResTypes_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResTypes_Impl::DeleteItem(this, core::mem::transmute(&varindex)).into()
         }
@@ -9048,9 +8790,11 @@ impl ISClusResTypes_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusResTypes as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusResTypes as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusResTypes {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResource, ISClusResource_Vtbl, 0xf2e6070a_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -9064,22 +8808,18 @@ impl core::ops::Deref for ISClusResource {
 windows_core::imp::interface_hierarchy!(ISClusResource, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResource {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CommonProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PrivateProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CommonROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PrivateROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9090,7 +8830,7 @@ impl ISClusResource {
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SetName<P0>(&self, bstrresourcename: P0) -> windows_core::Result<()>
     where
@@ -9121,28 +8861,25 @@ impl ISClusResource {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Online(&self, ntimeout: i32) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Online)(windows_core::Interface::as_raw(self), ntimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Online)(windows_core::Interface::as_raw(self), ntimeout, &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Offline(&self, ntimeout: i32) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Offline)(windows_core::Interface::as_raw(self), ntimeout, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Offline)(windows_core::Interface::as_raw(self), ntimeout, &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ChangeResourceGroup<P0>(&self, presourcegroup: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISClusResGroup>,
     {
         (windows_core::Interface::vtable(self).ChangeResourceGroup)(windows_core::Interface::as_raw(self), presourcegroup.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddResourceNode<P0>(&self, pnode: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISClusNode>,
     {
         (windows_core::Interface::vtable(self).AddResourceNode)(windows_core::Interface::as_raw(self), pnode.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveResourceNode<P0>(&self, pnode: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISClusNode>,
@@ -9155,34 +8892,28 @@ impl ISClusResource {
         P0: windows_core::Param<ISClusResource>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CanResourceBeDependent)(windows_core::Interface::as_raw(self), presource.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CanResourceBeDependent)(windows_core::Interface::as_raw(self), presource.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PossibleOwnerNodes(&self) -> windows_core::Result<ISClusResPossibleOwnerNodes> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PossibleOwnerNodes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Dependencies(&self) -> windows_core::Result<ISClusResDependencies> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Dependencies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Dependents(&self) -> windows_core::Result<ISClusResDependents> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Dependents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Group(&self) -> windows_core::Result<ISClusResGroup> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Group)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OwnerNode(&self) -> windows_core::Result<ISClusNode> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).OwnerNode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> windows_core::Result<ISCluster> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Cluster)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9191,26 +8922,22 @@ impl ISClusResource {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ClassInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Disk(&self) -> windows_core::Result<ISClusDisk> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Disk)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RegistryKeys(&self) -> windows_core::Result<ISClusRegistryKeys> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).RegistryKeys)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptoKeys(&self) -> windows_core::Result<ISClusCryptoKeys> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CryptoKeys)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
     pub unsafe fn TypeName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).TypeName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).TypeName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Type(&self) -> windows_core::Result<ISClusResType> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9230,22 +8957,10 @@ impl ISClusResource {
 #[repr(C)]
 pub struct ISClusResource_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub CommonProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CommonProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PrivateProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PrivateProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub CommonROProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CommonROProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PrivateROProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PrivateROProperties: usize,
     pub Handle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
@@ -9255,76 +8970,37 @@ pub struct ISClusResource_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Fail: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Online: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Online: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Online: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Offline: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Offline: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Offline: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub ChangeResourceGroup: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    ChangeResourceGroup: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub AddResourceNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    AddResourceNode: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub RemoveResourceNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    RemoveResourceNode: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub CanResourceBeDependent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub CanResourceBeDependent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     CanResourceBeDependent: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PossibleOwnerNodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PossibleOwnerNodes: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub Dependencies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Dependencies: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub Dependents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Dependents: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub Group: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Group: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub OwnerNode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    OwnerNode: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub Cluster: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Cluster: usize,
     pub ClassInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CLUSTER_RESOURCE_CLASS) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub Disk: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Disk: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub RegistryKeys: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    RegistryKeys: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub CryptoKeys: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CryptoKeys: usize,
     pub TypeName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Type: usize,
     pub MaintenanceMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub SetMaintenanceMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusResource_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusResource_Impl: super::super::System::Com::IDispatch_Impl {
     fn CommonProperties(&self) -> windows_core::Result<ISClusProperties>;
     fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties>;
     fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties>;
@@ -9359,10 +9035,8 @@ pub trait ISClusResource_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn SetMaintenanceMode(&self, bmaintenancemode: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusResource {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResource_Vtbl {
-    pub const fn new<Identity: ISClusResource_Impl, const OFFSET: isize>() -> ISClusResource_Vtbl {
+    pub const fn new<Identity: ISClusResource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CommonProperties<Identity: ISClusResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResource_Impl::CommonProperties(this) {
@@ -9459,7 +9133,7 @@ impl ISClusResource_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResource_Impl::Fail(this).into()
         }
-        unsafe extern "system" fn Online<Identity: ISClusResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ntimeout: i32, pvarpending: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Online<Identity: ISClusResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ntimeout: i32, pvarpending: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResource_Impl::Online(this, core::mem::transmute_copy(&ntimeout)) {
                 Ok(ok__) => {
@@ -9469,7 +9143,7 @@ impl ISClusResource_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Offline<Identity: ISClusResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ntimeout: i32, pvarpending: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Offline<Identity: ISClusResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ntimeout: i32, pvarpending: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResource_Impl::Offline(this, core::mem::transmute_copy(&ntimeout)) {
                 Ok(ok__) => {
@@ -9491,7 +9165,7 @@ impl ISClusResource_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResource_Impl::RemoveResourceNode(this, windows_core::from_raw_borrowed(&pnode)).into()
         }
-        unsafe extern "system" fn CanResourceBeDependent<Identity: ISClusResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pvardependent: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn CanResourceBeDependent<Identity: ISClusResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pvardependent: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResource_Impl::CanResourceBeDependent(this, windows_core::from_raw_borrowed(&presource)) {
                 Ok(ok__) => {
@@ -9672,9 +9346,11 @@ impl ISClusResource_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusResource as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusResource as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusResource {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusResources, ISClusResources_Vtbl, 0xf2e6070c_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -9707,7 +9383,6 @@ impl ISClusResources {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateItem<P0, P1, P2>(&self, bstrresourcename: P0, bstrresourcetype: P1, bstrgroupname: P2, dwflags: CLUSTER_RESOURCE_CREATE_FLAGS) -> windows_core::Result<ISClusResource>
     where
         P0: windows_core::Param<windows_core::BSTR>,
@@ -9733,20 +9408,17 @@ pub struct ISClusResources_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub CreateItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, CLUSTER_RESOURCE_CREATE_FLAGS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CreateItem: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub DeleteItem: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     DeleteItem: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusResources_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusResources_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
@@ -9755,10 +9427,8 @@ pub trait ISClusResources_Impl: Sized + super::super::System::Com::IDispatch_Imp
     fn DeleteItem(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusResources {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusResources_Vtbl {
-    pub const fn new<Identity: ISClusResources_Impl, const OFFSET: isize>() -> ISClusResources_Vtbl {
+    pub const fn new<Identity: ISClusResources_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResources_Impl::Count(this) {
@@ -9783,7 +9453,7 @@ impl ISClusResources_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResources_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, ppclusresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, ppclusresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusResources_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -9803,7 +9473,7 @@ impl ISClusResources_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn DeleteItem<Identity: ISClusResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeleteItem<Identity: ISClusResources_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusResources_Impl::DeleteItem(this, core::mem::transmute(&varindex)).into()
         }
@@ -9818,9 +9488,11 @@ impl ISClusResources_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusResources as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusResources as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusResources {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusScsiAddress, ISClusScsiAddress_Vtbl, 0xf2e60728_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -9837,22 +9509,22 @@ impl ISClusScsiAddress {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PortNumber(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).PortNumber)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).PortNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn PathId(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).PathId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).PathId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn TargetId(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).TargetId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).TargetId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn Lun(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Lun)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Lun)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9860,35 +9532,33 @@ impl ISClusScsiAddress {
 pub struct ISClusScsiAddress_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PortNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub PortNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     PortNumber: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub PathId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub PathId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     PathId: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub TargetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub TargetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     TargetId: usize,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub Lun: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub Lun: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Lun: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusScsiAddress_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusScsiAddress_Impl: super::super::System::Com::IDispatch_Impl {
     fn PortNumber(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn PathId(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn TargetId(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn Lun(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusScsiAddress {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusScsiAddress_Vtbl {
-    pub const fn new<Identity: ISClusScsiAddress_Impl, const OFFSET: isize>() -> ISClusScsiAddress_Vtbl {
-        unsafe extern "system" fn PortNumber<Identity: ISClusScsiAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarportnumber: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+    pub const fn new<Identity: ISClusScsiAddress_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn PortNumber<Identity: ISClusScsiAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarportnumber: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusScsiAddress_Impl::PortNumber(this) {
                 Ok(ok__) => {
@@ -9898,7 +9568,7 @@ impl ISClusScsiAddress_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PathId<Identity: ISClusScsiAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarpathid: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn PathId<Identity: ISClusScsiAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarpathid: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusScsiAddress_Impl::PathId(this) {
                 Ok(ok__) => {
@@ -9908,7 +9578,7 @@ impl ISClusScsiAddress_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn TargetId<Identity: ISClusScsiAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvartargetid: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn TargetId<Identity: ISClusScsiAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvartargetid: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusScsiAddress_Impl::TargetId(this) {
                 Ok(ok__) => {
@@ -9918,7 +9588,7 @@ impl ISClusScsiAddress_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Lun<Identity: ISClusScsiAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarlun: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn Lun<Identity: ISClusScsiAddress_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarlun: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusScsiAddress_Impl::Lun(this) {
                 Ok(ok__) => {
@@ -9937,9 +9607,11 @@ impl ISClusScsiAddress_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusScsiAddress as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusScsiAddress as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusScsiAddress {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusVersion, ISClusVersion_Vtbl, 0xf2e60716_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -9955,7 +9627,7 @@ windows_core::imp::interface_hierarchy!(ISClusVersion, windows_core::IUnknown, s
 impl ISClusVersion {
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn MajorVersion(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -9971,11 +9643,11 @@ impl ISClusVersion {
     }
     pub unsafe fn VendorId(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).VendorId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).VendorId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn CSDVersion(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).CSDVersion)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).CSDVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn ClusterHighestVersion(&self) -> windows_core::Result<i32> {
         let mut result__ = core::mem::zeroed();
@@ -9992,7 +9664,7 @@ impl ISClusVersion {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
     pub unsafe fn MixedVersion(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).MixedVersion)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).MixedVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10009,12 +9681,12 @@ pub struct ISClusVersion_Vtbl {
     pub ClusterLowestVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub Flags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub MixedVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub MixedVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     MixedVersion: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusVersion_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusVersion_Impl: super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn MajorVersion(&self) -> windows_core::Result<i32>;
     fn MinorVersion(&self) -> windows_core::Result<i32>;
@@ -10027,10 +9699,8 @@ pub trait ISClusVersion_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn MixedVersion(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusVersion {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusVersion_Vtbl {
-    pub const fn new<Identity: ISClusVersion_Impl, const OFFSET: isize>() -> ISClusVersion_Vtbl {
+    pub const fn new<Identity: ISClusVersion_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Name<Identity: ISClusVersion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrclustername: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusVersion_Impl::Name(this) {
@@ -10121,7 +9791,7 @@ impl ISClusVersion_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn MixedVersion<Identity: ISClusVersion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmixedversion: *mut core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn MixedVersion<Identity: ISClusVersion_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvarmixedversion: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusVersion_Impl::MixedVersion(this) {
                 Ok(ok__) => {
@@ -10146,9 +9816,11 @@ impl ISClusVersion_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusVersion as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusVersion as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusVersion {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISCluster, ISCluster_Vtbl, 0xf2e606e4_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -10162,22 +9834,18 @@ impl core::ops::Deref for ISCluster {
 windows_core::imp::interface_hierarchy!(ISCluster, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISCluster {
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CommonProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PrivateProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CommonROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> windows_core::Result<ISClusProperties> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).PrivateROProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10194,7 +9862,7 @@ impl ISCluster {
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SetName<P0>(&self, bstrclustername: P0) -> windows_core::Result<()>
     where
@@ -10202,19 +9870,16 @@ impl ISCluster {
     {
         (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), bstrclustername.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Version(&self) -> windows_core::Result<ISClusVersion> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Version)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetQuorumResource<P0>(&self, pclusterresource: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ISClusResource>,
     {
         (windows_core::Interface::vtable(self).SetQuorumResource)(windows_core::Interface::as_raw(self), pclusterresource.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QuorumResource(&self) -> windows_core::Result<ISClusResource> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).QuorumResource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10228,7 +9893,7 @@ impl ISCluster {
     }
     pub unsafe fn QuorumPath(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).QuorumPath)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).QuorumPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn SetQuorumPath<P0>(&self, ppath: P0) -> windows_core::Result<()>
     where
@@ -10236,32 +9901,26 @@ impl ISCluster {
     {
         (windows_core::Interface::vtable(self).SetQuorumPath)(windows_core::Interface::as_raw(self), ppath.param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Nodes(&self) -> windows_core::Result<ISClusNodes> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Nodes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResourceGroups(&self) -> windows_core::Result<ISClusResGroups> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ResourceGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Resources(&self) -> windows_core::Result<ISClusResources> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Resources)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResourceTypes(&self) -> windows_core::Result<ISClusResTypes> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).ResourceTypes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Networks(&self) -> windows_core::Result<ISClusNetworks> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Networks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NetInterfaces(&self) -> windows_core::Result<ISClusNetInterfaces> {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).NetInterfaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10271,69 +9930,30 @@ impl ISCluster {
 #[repr(C)]
 pub struct ISCluster_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(feature = "Win32_System_Com")]
     pub CommonProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CommonProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PrivateProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PrivateProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub CommonROProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    CommonROProperties: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub PrivateROProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    PrivateROProperties: usize,
     pub Handle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetName: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub Version: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Version: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub SetQuorumResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    SetQuorumResource: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub QuorumResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    QuorumResource: usize,
     pub QuorumLogSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetQuorumLogSize: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub QuorumPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub SetQuorumPath: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
     pub Nodes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Nodes: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub ResourceGroups: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    ResourceGroups: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub Resources: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Resources: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub ResourceTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    ResourceTypes: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub Networks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    Networks: usize,
-    #[cfg(feature = "Win32_System_Com")]
     pub NetInterfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com"))]
-    NetInterfaces: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISCluster_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISCluster_Impl: super::super::System::Com::IDispatch_Impl {
     fn CommonProperties(&self) -> windows_core::Result<ISClusProperties>;
     fn PrivateProperties(&self) -> windows_core::Result<ISClusProperties>;
     fn CommonROProperties(&self) -> windows_core::Result<ISClusProperties>;
@@ -10357,10 +9977,8 @@ pub trait ISCluster_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn NetInterfaces(&self) -> windows_core::Result<ISClusNetInterfaces>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISCluster {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISCluster_Vtbl {
-    pub const fn new<Identity: ISCluster_Impl, const OFFSET: isize>() -> ISCluster_Vtbl {
+    pub const fn new<Identity: ISCluster_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CommonProperties<Identity: ISCluster_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppproperties: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISCluster_Impl::CommonProperties(this) {
@@ -10567,9 +10185,11 @@ impl ISCluster_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISCluster as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISCluster as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISCluster {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISClusterNames, ISClusterNames_Vtbl, 0xf2e606ec_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -10600,11 +10220,11 @@ impl ISClusterNames {
         P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn DomainName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).DomainName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).DomainName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10615,13 +10235,13 @@ pub struct ISClusterNames_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
     pub DomainName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISClusterNames_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISClusterNames_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
@@ -10629,10 +10249,8 @@ pub trait ISClusterNames_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn DomainName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISClusterNames {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISClusterNames_Vtbl {
-    pub const fn new<Identity: ISClusterNames_Impl, const OFFSET: isize>() -> ISClusterNames_Vtbl {
+    pub const fn new<Identity: ISClusterNames_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISClusterNames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusterNames_Impl::Count(this) {
@@ -10657,7 +10275,7 @@ impl ISClusterNames_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISClusterNames_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISClusterNames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pbstrclustername: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISClusterNames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, pbstrclustername: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISClusterNames_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -10687,9 +10305,11 @@ impl ISClusterNames_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISClusterNames as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISClusterNames as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISClusterNames {}
 #[cfg(feature = "Win32_System_Com")]
 windows_core::imp::define_interface!(ISDomainNames, ISDomainNames_Vtbl, 0xf2e606e2_2631_11d1_89f1_00a0c90d061e);
 #[cfg(feature = "Win32_System_Com")]
@@ -10720,7 +10340,7 @@ impl ISDomainNames {
         P0: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), varindex.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10731,22 +10351,20 @@ pub struct ISDomainNames_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
+    pub get_Item: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::System::Variant::VARIANT, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     get_Item: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait ISDomainNames_Impl: Sized + super::super::System::Com::IDispatch_Impl {
+pub trait ISDomainNames_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn Refresh(&self) -> windows_core::Result<()>;
     fn get_Item(&self, varindex: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for ISDomainNames {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISDomainNames_Vtbl {
-    pub const fn new<Identity: ISDomainNames_Impl, const OFFSET: isize>() -> ISDomainNames_Vtbl {
+    pub const fn new<Identity: ISDomainNames_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Count<Identity: ISDomainNames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plcount: *mut i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISDomainNames_Impl::Count(this) {
@@ -10771,7 +10389,7 @@ impl ISDomainNames_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             ISDomainNames_Impl::Refresh(this).into()
         }
-        unsafe extern "system" fn get_Item<Identity: ISDomainNames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>, pbstrdomainname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+        unsafe extern "system" fn get_Item<Identity: ISDomainNames_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, varindex: super::super::System::Variant::VARIANT, pbstrdomainname: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match ISDomainNames_Impl::get_Item(this, core::mem::transmute(&varindex)) {
                 Ok(ok__) => {
@@ -10790,16 +10408,12 @@ impl ISDomainNames_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ISDomainNames as windows_core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as windows_core::Interface>::IID
+        iid == &<ISDomainNames as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for ISDomainNames {}
 windows_core::imp::define_interface!(IWCContextMenuCallback, IWCContextMenuCallback_Vtbl, 0x97dede64_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IWCContextMenuCallback {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IWCContextMenuCallback, windows_core::IUnknown);
 impl IWCContextMenuCallback {
     pub unsafe fn AddExtensionMenuItem<P0, P1>(&self, lpszname: P0, lpszstatusbartext: P1, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> windows_core::Result<()>
@@ -10815,12 +10429,11 @@ pub struct IWCContextMenuCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddExtensionMenuItem: unsafe extern "system" fn(*mut core::ffi::c_void, core::mem::MaybeUninit<windows_core::BSTR>, core::mem::MaybeUninit<windows_core::BSTR>, u32, u32, u32) -> windows_core::HRESULT,
 }
-pub trait IWCContextMenuCallback_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWCContextMenuCallback_Impl: windows_core::IUnknownImpl {
     fn AddExtensionMenuItem(&self, lpszname: &windows_core::BSTR, lpszstatusbartext: &windows_core::BSTR, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IWCContextMenuCallback {}
 impl IWCContextMenuCallback_Vtbl {
-    pub const fn new<Identity: IWCContextMenuCallback_Impl, const OFFSET: isize>() -> IWCContextMenuCallback_Vtbl {
+    pub const fn new<Identity: IWCContextMenuCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddExtensionMenuItem<Identity: IWCContextMenuCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpszname: core::mem::MaybeUninit<windows_core::BSTR>, lpszstatusbartext: core::mem::MaybeUninit<windows_core::BSTR>, ncommandid: u32, nsubmenucommandid: u32, uflags: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWCContextMenuCallback_Impl::AddExtensionMenuItem(this, core::mem::transmute(&lpszname), core::mem::transmute(&lpszstatusbartext), core::mem::transmute_copy(&ncommandid), core::mem::transmute_copy(&nsubmenucommandid), core::mem::transmute_copy(&uflags)).into()
@@ -10831,13 +10444,8 @@ impl IWCContextMenuCallback_Vtbl {
         iid == &<IWCContextMenuCallback as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IWCContextMenuCallback {}
 windows_core::imp::define_interface!(IWCPropertySheetCallback, IWCPropertySheetCallback_Vtbl, 0x97dede60_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IWCPropertySheetCallback {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IWCPropertySheetCallback, windows_core::IUnknown);
 impl IWCPropertySheetCallback {
     pub unsafe fn AddPropertySheetPage(&self, hpage: *const i32) -> windows_core::Result<()> {
@@ -10849,12 +10457,11 @@ pub struct IWCPropertySheetCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddPropertySheetPage: unsafe extern "system" fn(*mut core::ffi::c_void, *const i32) -> windows_core::HRESULT,
 }
-pub trait IWCPropertySheetCallback_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWCPropertySheetCallback_Impl: windows_core::IUnknownImpl {
     fn AddPropertySheetPage(&self, hpage: *const i32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IWCPropertySheetCallback {}
 impl IWCPropertySheetCallback_Vtbl {
-    pub const fn new<Identity: IWCPropertySheetCallback_Impl, const OFFSET: isize>() -> IWCPropertySheetCallback_Vtbl {
+    pub const fn new<Identity: IWCPropertySheetCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddPropertySheetPage<Identity: IWCPropertySheetCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hpage: *const i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWCPropertySheetCallback_Impl::AddPropertySheetPage(this, core::mem::transmute_copy(&hpage)).into()
@@ -10865,21 +10472,16 @@ impl IWCPropertySheetCallback_Vtbl {
         iid == &<IWCPropertySheetCallback as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IWCPropertySheetCallback {}
 windows_core::imp::define_interface!(IWCWizard97Callback, IWCWizard97Callback_Vtbl, 0x97dede67_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IWCWizard97Callback {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IWCWizard97Callback, windows_core::IUnknown);
 impl IWCWizard97Callback {
     pub unsafe fn AddWizard97Page(&self, hpage: *const i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AddWizard97Page)(windows_core::Interface::as_raw(self), hpage).ok()
     }
-    pub unsafe fn EnableNext<P0>(&self, hpage: *const i32, benable: P0) -> windows_core::Result<()>
+    pub unsafe fn EnableNext<P1>(&self, hpage: *const i32, benable: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).EnableNext)(windows_core::Interface::as_raw(self), hpage, benable.param().abi()).ok()
     }
@@ -10890,13 +10492,12 @@ pub struct IWCWizard97Callback_Vtbl {
     pub AddWizard97Page: unsafe extern "system" fn(*mut core::ffi::c_void, *const i32) -> windows_core::HRESULT,
     pub EnableNext: unsafe extern "system" fn(*mut core::ffi::c_void, *const i32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait IWCWizard97Callback_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWCWizard97Callback_Impl: windows_core::IUnknownImpl {
     fn AddWizard97Page(&self, hpage: *const i32) -> windows_core::Result<()>;
     fn EnableNext(&self, hpage: *const i32, benable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IWCWizard97Callback {}
 impl IWCWizard97Callback_Vtbl {
-    pub const fn new<Identity: IWCWizard97Callback_Impl, const OFFSET: isize>() -> IWCWizard97Callback_Vtbl {
+    pub const fn new<Identity: IWCWizard97Callback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddWizard97Page<Identity: IWCWizard97Callback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hpage: *const i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWCWizard97Callback_Impl::AddWizard97Page(this, core::mem::transmute_copy(&hpage)).into()
@@ -10915,21 +10516,16 @@ impl IWCWizard97Callback_Vtbl {
         iid == &<IWCWizard97Callback as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IWCWizard97Callback {}
 windows_core::imp::define_interface!(IWCWizardCallback, IWCWizardCallback_Vtbl, 0x97dede62_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IWCWizardCallback {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IWCWizardCallback, windows_core::IUnknown);
 impl IWCWizardCallback {
     pub unsafe fn AddWizardPage(&self, hpage: *const i32) -> windows_core::Result<()> {
         (windows_core::Interface::vtable(self).AddWizardPage)(windows_core::Interface::as_raw(self), hpage).ok()
     }
-    pub unsafe fn EnableNext<P0>(&self, hpage: *const i32, benable: P0) -> windows_core::Result<()>
+    pub unsafe fn EnableNext<P1>(&self, hpage: *const i32, benable: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P1: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).EnableNext)(windows_core::Interface::as_raw(self), hpage, benable.param().abi()).ok()
     }
@@ -10940,13 +10536,12 @@ pub struct IWCWizardCallback_Vtbl {
     pub AddWizardPage: unsafe extern "system" fn(*mut core::ffi::c_void, *const i32) -> windows_core::HRESULT,
     pub EnableNext: unsafe extern "system" fn(*mut core::ffi::c_void, *const i32, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait IWCWizardCallback_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWCWizardCallback_Impl: windows_core::IUnknownImpl {
     fn AddWizardPage(&self, hpage: *const i32) -> windows_core::Result<()>;
     fn EnableNext(&self, hpage: *const i32, benable: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IWCWizardCallback {}
 impl IWCWizardCallback_Vtbl {
-    pub const fn new<Identity: IWCWizardCallback_Impl, const OFFSET: isize>() -> IWCWizardCallback_Vtbl {
+    pub const fn new<Identity: IWCWizardCallback_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddWizardPage<Identity: IWCWizardCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hpage: *const i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWCWizardCallback_Impl::AddWizardPage(this, core::mem::transmute_copy(&hpage)).into()
@@ -10965,13 +10560,8 @@ impl IWCWizardCallback_Vtbl {
         iid == &<IWCWizardCallback as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IWCWizardCallback {}
 windows_core::imp::define_interface!(IWEExtendContextMenu, IWEExtendContextMenu_Vtbl, 0x97dede65_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IWEExtendContextMenu {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IWEExtendContextMenu, windows_core::IUnknown);
 impl IWEExtendContextMenu {
     pub unsafe fn AddContextMenuItems<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::Result<()>
@@ -10987,12 +10577,11 @@ pub struct IWEExtendContextMenu_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub AddContextMenuItems: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IWEExtendContextMenu_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWEExtendContextMenu_Impl: windows_core::IUnknownImpl {
     fn AddContextMenuItems(&self, pidata: Option<&windows_core::IUnknown>, picallback: Option<&IWCContextMenuCallback>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IWEExtendContextMenu {}
 impl IWEExtendContextMenu_Vtbl {
-    pub const fn new<Identity: IWEExtendContextMenu_Impl, const OFFSET: isize>() -> IWEExtendContextMenu_Vtbl {
+    pub const fn new<Identity: IWEExtendContextMenu_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddContextMenuItems<Identity: IWEExtendContextMenu_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidata: *mut core::ffi::c_void, picallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWEExtendContextMenu_Impl::AddContextMenuItems(this, windows_core::from_raw_borrowed(&pidata), windows_core::from_raw_borrowed(&picallback)).into()
@@ -11003,13 +10592,8 @@ impl IWEExtendContextMenu_Vtbl {
         iid == &<IWEExtendContextMenu as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IWEExtendContextMenu {}
 windows_core::imp::define_interface!(IWEExtendPropertySheet, IWEExtendPropertySheet_Vtbl, 0x97dede61_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IWEExtendPropertySheet {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IWEExtendPropertySheet, windows_core::IUnknown);
 impl IWEExtendPropertySheet {
     pub unsafe fn CreatePropertySheetPages<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::Result<()>
@@ -11025,12 +10609,11 @@ pub struct IWEExtendPropertySheet_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreatePropertySheetPages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IWEExtendPropertySheet_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWEExtendPropertySheet_Impl: windows_core::IUnknownImpl {
     fn CreatePropertySheetPages(&self, pidata: Option<&windows_core::IUnknown>, picallback: Option<&IWCPropertySheetCallback>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IWEExtendPropertySheet {}
 impl IWEExtendPropertySheet_Vtbl {
-    pub const fn new<Identity: IWEExtendPropertySheet_Impl, const OFFSET: isize>() -> IWEExtendPropertySheet_Vtbl {
+    pub const fn new<Identity: IWEExtendPropertySheet_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreatePropertySheetPages<Identity: IWEExtendPropertySheet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidata: *mut core::ffi::c_void, picallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWEExtendPropertySheet_Impl::CreatePropertySheetPages(this, windows_core::from_raw_borrowed(&pidata), windows_core::from_raw_borrowed(&picallback)).into()
@@ -11041,13 +10624,8 @@ impl IWEExtendPropertySheet_Vtbl {
         iid == &<IWEExtendPropertySheet as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IWEExtendPropertySheet {}
 windows_core::imp::define_interface!(IWEExtendWizard, IWEExtendWizard_Vtbl, 0x97dede63_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IWEExtendWizard {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IWEExtendWizard, windows_core::IUnknown);
 impl IWEExtendWizard {
     pub unsafe fn CreateWizardPages<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::Result<()>
@@ -11063,12 +10641,11 @@ pub struct IWEExtendWizard_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateWizardPages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IWEExtendWizard_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWEExtendWizard_Impl: windows_core::IUnknownImpl {
     fn CreateWizardPages(&self, pidata: Option<&windows_core::IUnknown>, picallback: Option<&IWCWizardCallback>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IWEExtendWizard {}
 impl IWEExtendWizard_Vtbl {
-    pub const fn new<Identity: IWEExtendWizard_Impl, const OFFSET: isize>() -> IWEExtendWizard_Vtbl {
+    pub const fn new<Identity: IWEExtendWizard_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateWizardPages<Identity: IWEExtendWizard_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidata: *mut core::ffi::c_void, picallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWEExtendWizard_Impl::CreateWizardPages(this, windows_core::from_raw_borrowed(&pidata), windows_core::from_raw_borrowed(&picallback)).into()
@@ -11079,13 +10656,8 @@ impl IWEExtendWizard_Vtbl {
         iid == &<IWEExtendWizard as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IWEExtendWizard {}
 windows_core::imp::define_interface!(IWEExtendWizard97, IWEExtendWizard97_Vtbl, 0x97dede68_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IWEExtendWizard97 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IWEExtendWizard97, windows_core::IUnknown);
 impl IWEExtendWizard97 {
     pub unsafe fn CreateWizard97Pages<P0, P1>(&self, pidata: P0, picallback: P1) -> windows_core::Result<()>
@@ -11101,12 +10673,11 @@ pub struct IWEExtendWizard97_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateWizard97Pages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IWEExtendWizard97_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWEExtendWizard97_Impl: windows_core::IUnknownImpl {
     fn CreateWizard97Pages(&self, pidata: Option<&windows_core::IUnknown>, picallback: Option<&IWCWizard97Callback>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IWEExtendWizard97 {}
 impl IWEExtendWizard97_Vtbl {
-    pub const fn new<Identity: IWEExtendWizard97_Impl, const OFFSET: isize>() -> IWEExtendWizard97_Vtbl {
+    pub const fn new<Identity: IWEExtendWizard97_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateWizard97Pages<Identity: IWEExtendWizard97_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidata: *mut core::ffi::c_void, picallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWEExtendWizard97_Impl::CreateWizard97Pages(this, windows_core::from_raw_borrowed(&pidata), windows_core::from_raw_borrowed(&picallback)).into()
@@ -11117,18 +10688,13 @@ impl IWEExtendWizard97_Vtbl {
         iid == &<IWEExtendWizard97 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IWEExtendWizard97 {}
 windows_core::imp::define_interface!(IWEInvokeCommand, IWEInvokeCommand_Vtbl, 0x97dede66_fc6b_11cf_b5f5_00a0c90ab505);
-impl core::ops::Deref for IWEInvokeCommand {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IWEInvokeCommand, windows_core::IUnknown);
 impl IWEInvokeCommand {
-    pub unsafe fn InvokeCommand<P0>(&self, ncommandid: u32, pidata: P0) -> windows_core::Result<()>
+    pub unsafe fn InvokeCommand<P1>(&self, ncommandid: u32, pidata: P1) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::IUnknown>,
+        P1: windows_core::Param<windows_core::IUnknown>,
     {
         (windows_core::Interface::vtable(self).InvokeCommand)(windows_core::Interface::as_raw(self), ncommandid, pidata.param().abi()).ok()
     }
@@ -11138,12 +10704,11 @@ pub struct IWEInvokeCommand_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub InvokeCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IWEInvokeCommand_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IWEInvokeCommand_Impl: windows_core::IUnknownImpl {
     fn InvokeCommand(&self, ncommandid: u32, pidata: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IWEInvokeCommand {}
 impl IWEInvokeCommand_Vtbl {
-    pub const fn new<Identity: IWEInvokeCommand_Impl, const OFFSET: isize>() -> IWEInvokeCommand_Vtbl {
+    pub const fn new<Identity: IWEInvokeCommand_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn InvokeCommand<Identity: IWEInvokeCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ncommandid: u32, pidata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IWEInvokeCommand_Impl::InvokeCommand(this, core::mem::transmute_copy(&ncommandid), windows_core::from_raw_borrowed(&pidata)).into()
@@ -11154,6 +10719,7 @@ impl IWEInvokeCommand_Vtbl {
         iid == &<IWEInvokeCommand as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IWEInvokeCommand {}
 pub const BitLockerDecrypted: i32 = 4i32;
 pub const BitLockerDecrypting: i32 = 16i32;
 pub const BitLockerEnabled: i32 = 1i32;
@@ -12921,1063 +12487,583 @@ pub const eResourceStateChangeReasonRundown: CLUSTER_RESOURCE_STATE_CHANGE_REASO
 pub const eResourceStateChangeReasonShutdown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(4i32);
 pub const eResourceStateChangeReasonUnknown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(0i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLCTL_CODES(pub i32);
 impl windows_core::TypeKind for CLCTL_CODES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLCTL_CODES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLCTL_CODES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUADMEX_OBJECT_TYPE(pub i32);
 impl windows_core::TypeKind for CLUADMEX_OBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUADMEX_OBJECT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUADMEX_OBJECT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSCTL_AFFINITYRULE_CODES(pub i32);
 impl windows_core::TypeKind for CLUSCTL_AFFINITYRULE_CODES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSCTL_AFFINITYRULE_CODES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSCTL_AFFINITYRULE_CODES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSCTL_CLUSTER_CODES(pub i32);
 impl windows_core::TypeKind for CLUSCTL_CLUSTER_CODES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSCTL_CLUSTER_CODES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSCTL_CLUSTER_CODES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSCTL_GROUPSET_CODES(pub i32);
 impl windows_core::TypeKind for CLUSCTL_GROUPSET_CODES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSCTL_GROUPSET_CODES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSCTL_GROUPSET_CODES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSCTL_GROUP_CODES(pub i32);
 impl windows_core::TypeKind for CLUSCTL_GROUP_CODES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSCTL_GROUP_CODES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSCTL_GROUP_CODES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSCTL_NETINTERFACE_CODES(pub i32);
 impl windows_core::TypeKind for CLUSCTL_NETINTERFACE_CODES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSCTL_NETINTERFACE_CODES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSCTL_NETINTERFACE_CODES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSCTL_NETWORK_CODES(pub i32);
 impl windows_core::TypeKind for CLUSCTL_NETWORK_CODES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSCTL_NETWORK_CODES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSCTL_NETWORK_CODES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSCTL_NODE_CODES(pub i32);
 impl windows_core::TypeKind for CLUSCTL_NODE_CODES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSCTL_NODE_CODES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSCTL_NODE_CODES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSCTL_RESOURCE_CODES(pub i32);
 impl windows_core::TypeKind for CLUSCTL_RESOURCE_CODES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSCTL_RESOURCE_CODES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSCTL_RESOURCE_CODES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSCTL_RESOURCE_TYPE_CODES(pub i32);
 impl windows_core::TypeKind for CLUSCTL_RESOURCE_TYPE_CODES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSCTL_RESOURCE_TYPE_CODES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSCTL_RESOURCE_TYPE_CODES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSGROUP_TYPE(pub i32);
 impl windows_core::TypeKind for CLUSGROUP_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSGROUP_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSGROUP_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSPROP_IPADDR_ENABLENETBIOS(pub i32);
 impl windows_core::TypeKind for CLUSPROP_IPADDR_ENABLENETBIOS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSPROP_IPADDR_ENABLENETBIOS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSPROP_IPADDR_ENABLENETBIOS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSPROP_PIFLAGS(pub i32);
 impl windows_core::TypeKind for CLUSPROP_PIFLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSPROP_PIFLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSPROP_PIFLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTERSET_OBJECT_TYPE(pub i32);
 impl windows_core::TypeKind for CLUSTERSET_OBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTERSET_OBJECT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTERSET_OBJECT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CHANGE(pub i32);
 impl windows_core::TypeKind for CLUSTER_CHANGE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CHANGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CHANGE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CHANGE_CLUSTER_V2(pub i32);
 impl windows_core::TypeKind for CLUSTER_CHANGE_CLUSTER_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CHANGE_CLUSTER_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CHANGE_CLUSTER_V2").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CHANGE_GROUPSET_V2(pub i32);
 impl windows_core::TypeKind for CLUSTER_CHANGE_GROUPSET_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CHANGE_GROUPSET_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CHANGE_GROUPSET_V2").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CHANGE_GROUP_V2(pub i32);
 impl windows_core::TypeKind for CLUSTER_CHANGE_GROUP_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CHANGE_GROUP_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CHANGE_GROUP_V2").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CHANGE_NETINTERFACE_V2(pub i32);
 impl windows_core::TypeKind for CLUSTER_CHANGE_NETINTERFACE_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CHANGE_NETINTERFACE_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CHANGE_NETINTERFACE_V2").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CHANGE_NETWORK_V2(pub i32);
 impl windows_core::TypeKind for CLUSTER_CHANGE_NETWORK_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CHANGE_NETWORK_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CHANGE_NETWORK_V2").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(pub i32);
 impl windows_core::TypeKind for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CHANGE_NODE_V2(pub i32);
 impl windows_core::TypeKind for CLUSTER_CHANGE_NODE_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CHANGE_NODE_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CHANGE_NODE_V2").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CHANGE_QUORUM_V2(pub i32);
 impl windows_core::TypeKind for CLUSTER_CHANGE_QUORUM_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CHANGE_QUORUM_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CHANGE_QUORUM_V2").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CHANGE_REGISTRY_V2(pub i32);
 impl windows_core::TypeKind for CLUSTER_CHANGE_REGISTRY_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CHANGE_REGISTRY_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CHANGE_REGISTRY_V2").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CHANGE_RESOURCE_TYPE_V2(pub i32);
 impl windows_core::TypeKind for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CHANGE_RESOURCE_TYPE_V2").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CHANGE_RESOURCE_V2(pub i32);
 impl windows_core::TypeKind for CLUSTER_CHANGE_RESOURCE_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CHANGE_RESOURCE_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CHANGE_RESOURCE_V2").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CHANGE_SHARED_VOLUME_V2(pub i32);
 impl windows_core::TypeKind for CLUSTER_CHANGE_SHARED_VOLUME_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CHANGE_SHARED_VOLUME_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CHANGE_SHARED_VOLUME_V2").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CHANGE_SPACEPORT_V2(pub i32);
 impl windows_core::TypeKind for CLUSTER_CHANGE_SPACEPORT_V2 {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CHANGE_SPACEPORT_V2 {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CHANGE_SPACEPORT_V2").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CLOUD_TYPE(pub i32);
 impl windows_core::TypeKind for CLUSTER_CLOUD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CLOUD_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CLOUD_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CONTROL_OBJECT(pub i32);
 impl windows_core::TypeKind for CLUSTER_CONTROL_OBJECT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CONTROL_OBJECT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CONTROL_OBJECT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_CSV_VOLUME_FAULT_STATE(pub i32);
 impl windows_core::TypeKind for CLUSTER_CSV_VOLUME_FAULT_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_CSV_VOLUME_FAULT_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_CSV_VOLUME_FAULT_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_ENUM(pub i32);
 impl windows_core::TypeKind for CLUSTER_ENUM {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_ENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_ENUM").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_GROUP_AUTOFAILBACK_TYPE(pub i32);
 impl windows_core::TypeKind for CLUSTER_GROUP_AUTOFAILBACK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_GROUP_AUTOFAILBACK_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_GROUP_AUTOFAILBACK_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_GROUP_ENUM(pub i32);
 impl windows_core::TypeKind for CLUSTER_GROUP_ENUM {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_GROUP_ENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_GROUP_ENUM").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_GROUP_PRIORITY(pub i32);
 impl windows_core::TypeKind for CLUSTER_GROUP_PRIORITY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_GROUP_PRIORITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_GROUP_PRIORITY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_GROUP_STATE(pub i32);
 impl windows_core::TypeKind for CLUSTER_GROUP_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_GROUP_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_GROUP_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_MGMT_POINT_RESTYPE(pub i32);
 impl windows_core::TypeKind for CLUSTER_MGMT_POINT_RESTYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_MGMT_POINT_RESTYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_MGMT_POINT_RESTYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_MGMT_POINT_TYPE(pub i32);
 impl windows_core::TypeKind for CLUSTER_MGMT_POINT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_MGMT_POINT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_MGMT_POINT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_NETINTERFACE_STATE(pub i32);
 impl windows_core::TypeKind for CLUSTER_NETINTERFACE_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_NETINTERFACE_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_NETINTERFACE_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_NETWORK_ENUM(pub i32);
 impl windows_core::TypeKind for CLUSTER_NETWORK_ENUM {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_NETWORK_ENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_NETWORK_ENUM").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_NETWORK_ROLE(pub i32);
 impl windows_core::TypeKind for CLUSTER_NETWORK_ROLE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_NETWORK_ROLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_NETWORK_ROLE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_NETWORK_STATE(pub i32);
 impl windows_core::TypeKind for CLUSTER_NETWORK_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_NETWORK_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_NETWORK_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_NODE_DRAIN_STATUS(pub i32);
 impl windows_core::TypeKind for CLUSTER_NODE_DRAIN_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_NODE_DRAIN_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_NODE_DRAIN_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_NODE_ENUM(pub i32);
 impl windows_core::TypeKind for CLUSTER_NODE_ENUM {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_NODE_ENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_NODE_ENUM").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_NODE_RESUME_FAILBACK_TYPE(pub i32);
 impl windows_core::TypeKind for CLUSTER_NODE_RESUME_FAILBACK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_NODE_RESUME_FAILBACK_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_NODE_RESUME_FAILBACK_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_NODE_STATE(pub i32);
 impl windows_core::TypeKind for CLUSTER_NODE_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_NODE_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_NODE_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_NODE_STATUS(pub i32);
 impl windows_core::TypeKind for CLUSTER_NODE_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_NODE_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_NODE_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_NOTIFICATIONS_VERSION(pub i32);
 impl windows_core::TypeKind for CLUSTER_NOTIFICATIONS_VERSION {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_NOTIFICATIONS_VERSION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_NOTIFICATIONS_VERSION").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_OBJECT_TYPE(pub i32);
 impl windows_core::TypeKind for CLUSTER_OBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_OBJECT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_OBJECT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_PROPERTY_FORMAT(pub i32);
 impl windows_core::TypeKind for CLUSTER_PROPERTY_FORMAT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_PROPERTY_FORMAT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_PROPERTY_FORMAT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_PROPERTY_SYNTAX(pub u32);
 impl windows_core::TypeKind for CLUSTER_PROPERTY_SYNTAX {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_PROPERTY_SYNTAX {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_PROPERTY_SYNTAX").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_PROPERTY_TYPE(pub i32);
 impl windows_core::TypeKind for CLUSTER_PROPERTY_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_PROPERTY_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_PROPERTY_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_QUORUM_TYPE(pub i32);
 impl windows_core::TypeKind for CLUSTER_QUORUM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_QUORUM_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_QUORUM_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_QUORUM_VALUE(pub i32);
 impl windows_core::TypeKind for CLUSTER_QUORUM_VALUE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_QUORUM_VALUE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_QUORUM_VALUE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_REG_COMMAND(pub i32);
 impl windows_core::TypeKind for CLUSTER_REG_COMMAND {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_REG_COMMAND {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_REG_COMMAND").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_RESOURCE_APPLICATION_STATE(pub i32);
 impl windows_core::TypeKind for CLUSTER_RESOURCE_APPLICATION_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_RESOURCE_APPLICATION_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_RESOURCE_APPLICATION_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_RESOURCE_CLASS(pub i32);
 impl windows_core::TypeKind for CLUSTER_RESOURCE_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_RESOURCE_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_RESOURCE_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_RESOURCE_CREATE_FLAGS(pub i32);
 impl windows_core::TypeKind for CLUSTER_RESOURCE_CREATE_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_RESOURCE_CREATE_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_RESOURCE_CREATE_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(pub i32);
 impl windows_core::TypeKind for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_RESOURCE_ENUM(pub i32);
 impl windows_core::TypeKind for CLUSTER_RESOURCE_ENUM {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_RESOURCE_ENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_RESOURCE_ENUM").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_RESOURCE_RESTART_ACTION(pub i32);
 impl windows_core::TypeKind for CLUSTER_RESOURCE_RESTART_ACTION {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_RESOURCE_RESTART_ACTION {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_RESOURCE_RESTART_ACTION").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_RESOURCE_STATE(pub i32);
 impl windows_core::TypeKind for CLUSTER_RESOURCE_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_RESOURCE_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_RESOURCE_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_RESOURCE_STATE_CHANGE_REASON(pub i32);
 impl windows_core::TypeKind for CLUSTER_RESOURCE_STATE_CHANGE_REASON {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_RESOURCE_STATE_CHANGE_REASON {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_RESOURCE_STATE_CHANGE_REASON").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_RESOURCE_TYPE_ENUM(pub i32);
 impl windows_core::TypeKind for CLUSTER_RESOURCE_TYPE_ENUM {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_RESOURCE_TYPE_ENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_RESOURCE_TYPE_ENUM").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_ROLE(pub i32);
 impl windows_core::TypeKind for CLUSTER_ROLE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_ROLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_ROLE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_ROLE_STATE(pub i32);
 impl windows_core::TypeKind for CLUSTER_ROLE_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_ROLE_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_ROLE_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_SETUP_PHASE(pub i32);
 impl windows_core::TypeKind for CLUSTER_SETUP_PHASE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_SETUP_PHASE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_SETUP_PHASE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_SETUP_PHASE_SEVERITY(pub i32);
 impl windows_core::TypeKind for CLUSTER_SETUP_PHASE_SEVERITY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_SETUP_PHASE_SEVERITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_SETUP_PHASE_SEVERITY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_SETUP_PHASE_TYPE(pub i32);
 impl windows_core::TypeKind for CLUSTER_SETUP_PHASE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_SETUP_PHASE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_SETUP_PHASE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_SHARED_VOLUME_BACKUP_STATE(pub i32);
 impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_BACKUP_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_SHARED_VOLUME_BACKUP_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_SHARED_VOLUME_BACKUP_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(pub i32);
 impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(pub i32);
 impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_SHARED_VOLUME_STATE(pub i32);
 impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_SHARED_VOLUME_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_SHARED_VOLUME_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_STORAGENODE_STATE(pub i32);
 impl windows_core::TypeKind for CLUSTER_STORAGENODE_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_STORAGENODE_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_STORAGENODE_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUSTER_UPGRADE_PHASE(pub i32);
 impl windows_core::TypeKind for CLUSTER_UPGRADE_PHASE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUSTER_UPGRADE_PHASE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUSTER_UPGRADE_PHASE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUS_AFFINITY_RULE_TYPE(pub i32);
 impl windows_core::TypeKind for CLUS_AFFINITY_RULE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUS_AFFINITY_RULE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUS_AFFINITY_RULE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUS_CHARACTERISTICS(pub i32);
 impl windows_core::TypeKind for CLUS_CHARACTERISTICS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUS_CHARACTERISTICS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUS_CHARACTERISTICS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUS_FLAGS(pub i32);
 impl windows_core::TypeKind for CLUS_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUS_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUS_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUS_GROUP_START_SETTING(pub i32);
 impl windows_core::TypeKind for CLUS_GROUP_START_SETTING {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUS_GROUP_START_SETTING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUS_GROUP_START_SETTING").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUS_RESSUBCLASS(pub i32);
 impl windows_core::TypeKind for CLUS_RESSUBCLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUS_RESSUBCLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUS_RESSUBCLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUS_RESSUBCLASS_NETWORK(pub i32);
 impl windows_core::TypeKind for CLUS_RESSUBCLASS_NETWORK {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUS_RESSUBCLASS_NETWORK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUS_RESSUBCLASS_NETWORK").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct CLUS_RESSUBCLASS_STORAGE(pub i32);
 impl windows_core::TypeKind for CLUS_RESSUBCLASS_STORAGE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for CLUS_RESSUBCLASS_STORAGE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("CLUS_RESSUBCLASS_STORAGE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct FAILURE_TYPE(pub i32);
 impl windows_core::TypeKind for FAILURE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FAILURE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FAILURE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct FILESHARE_CHANGE_ENUM(pub i32);
 impl windows_core::TypeKind for FILESHARE_CHANGE_ENUM {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FILESHARE_CHANGE_ENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILESHARE_CHANGE_ENUM").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct GRP_PLACEMENT_OPTIONS(pub i32);
 impl windows_core::TypeKind for GRP_PLACEMENT_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GRP_PLACEMENT_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GRP_PLACEMENT_OPTIONS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct LOG_LEVEL(pub i32);
 impl windows_core::TypeKind for LOG_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for LOG_LEVEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("LOG_LEVEL").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct MAINTENANCE_MODE_TYPE_ENUM(pub i32);
 impl windows_core::TypeKind for MAINTENANCE_MODE_TYPE_ENUM {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for MAINTENANCE_MODE_TYPE_ENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("MAINTENANCE_MODE_TYPE_ENUM").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NODE_CLUSTER_STATE(pub i32);
 impl windows_core::TypeKind for NODE_CLUSTER_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for NODE_CLUSTER_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NODE_CLUSTER_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PLACEMENT_OPTIONS(pub i32);
 impl windows_core::TypeKind for PLACEMENT_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PLACEMENT_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PLACEMENT_OPTIONS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RESDLL_CONTEXT_OPERATION_TYPE(pub i32);
 impl windows_core::TypeKind for RESDLL_CONTEXT_OPERATION_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RESDLL_CONTEXT_OPERATION_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RESDLL_CONTEXT_OPERATION_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RESOURCE_EXIT_STATE(pub i32);
 impl windows_core::TypeKind for RESOURCE_EXIT_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RESOURCE_EXIT_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RESOURCE_EXIT_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct RESOURCE_MONITOR_STATE(pub i32);
 impl windows_core::TypeKind for RESOURCE_MONITOR_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RESOURCE_MONITOR_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RESOURCE_MONITOR_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SR_DISK_REPLICATION_ELIGIBLE(pub i32);
 impl windows_core::TypeKind for SR_DISK_REPLICATION_ELIGIBLE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SR_DISK_REPLICATION_ELIGIBLE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SR_DISK_REPLICATION_ELIGIBLE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct SR_REPLICATED_DISK_TYPE(pub i32);
 impl windows_core::TypeKind for SR_REPLICATED_DISK_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SR_REPLICATED_DISK_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SR_REPLICATED_DISK_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VM_RESDLL_CONTEXT(pub i32);
 impl windows_core::TypeKind for VM_RESDLL_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VM_RESDLL_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VM_RESDLL_CONTEXT").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLRES_CALLBACK_FUNCTION_TABLE {
     pub LogEvent: PLOG_EVENT_ROUTINE,
     pub SetResourceStatusEx: PSET_RESOURCE_STATUS_ROUTINE_EX,
@@ -13997,25 +13083,21 @@ pub struct CLRES_CALLBACK_FUNCTION_TABLE {
     pub SetResourceWprPolicy: PSET_RESOURCE_WPR_POLICY_ROUTINE,
     pub ArmWprWatchdogForCurrentResourceCall: PARM_WPR_WATCHDOG_FOR_CURRENT_RESOURCE_CALL_ROUTINE,
 }
-impl windows_core::TypeKind for CLRES_CALLBACK_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLRES_CALLBACK_FUNCTION_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLRES_CALLBACK_FUNCTION_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLRES_FUNCTION_TABLE {
     pub TableSize: u32,
     pub Version: u32,
     pub Anonymous: CLRES_FUNCTION_TABLE_0,
-}
-#[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CLRES_FUNCTION_TABLE {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl Default for CLRES_FUNCTION_TABLE {
@@ -14023,9 +13105,13 @@ impl Default for CLRES_FUNCTION_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Registry")]
+impl windows_core::TypeKind for CLRES_FUNCTION_TABLE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CLRES_FUNCTION_TABLE_0 {
     pub V1Functions: CLRES_V1_FUNCTIONS,
     pub V2Functions: CLRES_V2_FUNCTIONS,
@@ -14033,18 +13119,18 @@ pub union CLRES_FUNCTION_TABLE_0 {
     pub V4Functions: CLRES_V4_FUNCTIONS,
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CLRES_FUNCTION_TABLE_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Registry")]
 impl Default for CLRES_FUNCTION_TABLE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Registry")]
+impl windows_core::TypeKind for CLRES_FUNCTION_TABLE_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLRES_V1_FUNCTIONS {
     pub Open: POPEN_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -14059,18 +13145,18 @@ pub struct CLRES_V1_FUNCTIONS {
     pub ResourceTypeControl: PRESOURCE_TYPE_CONTROL_ROUTINE,
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CLRES_V1_FUNCTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Registry")]
 impl Default for CLRES_V1_FUNCTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Registry")]
+impl windows_core::TypeKind for CLRES_V1_FUNCTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLRES_V2_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -14086,18 +13172,18 @@ pub struct CLRES_V2_FUNCTIONS {
     pub Cancel: PCANCEL_ROUTINE,
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CLRES_V2_FUNCTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Registry")]
 impl Default for CLRES_V2_FUNCTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Registry")]
+impl windows_core::TypeKind for CLRES_V2_FUNCTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLRES_V3_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -14113,18 +13199,18 @@ pub struct CLRES_V3_FUNCTIONS {
     pub Cancel: PCANCEL_ROUTINE,
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CLRES_V3_FUNCTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Registry")]
 impl Default for CLRES_V3_FUNCTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Registry")]
+impl windows_core::TypeKind for CLRES_V3_FUNCTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_System_Registry")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLRES_V4_FUNCTIONS {
     pub Open: POPEN_V2_ROUTINE,
     pub Close: PCLOSE_ROUTINE,
@@ -14142,90 +13228,90 @@ pub struct CLRES_V4_FUNCTIONS {
     pub BeginResourceTypeControlAsUser: PBEGIN_RESTYPECALL_AS_USER_ROUTINE,
 }
 #[cfg(feature = "Win32_System_Registry")]
-impl windows_core::TypeKind for CLRES_V4_FUNCTIONS {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_System_Registry")]
 impl Default for CLRES_V4_FUNCTIONS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Registry")]
+impl windows_core::TypeKind for CLRES_V4_FUNCTIONS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSAPI_REASON_HANDLER {
     pub lpParameter: *mut core::ffi::c_void,
     pub pfnHandler: PCLUSAPI_PFN_REASON_HANDLER,
-}
-impl windows_core::TypeKind for CLUSAPI_REASON_HANDLER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSAPI_REASON_HANDLER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSAPI_REASON_HANDLER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
     pub GetTickCount64: u64,
     pub GetSystemTime: super::super::Foundation::SYSTEMTIME,
     pub NodeId: u32,
-}
-impl windows_core::TypeKind for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
     pub dwSize: u32,
     pub dwVersion: u32,
     pub eReason: CLUSTER_RESOURCE_STATE_CHANGE_REASON,
-}
-impl windows_core::TypeKind for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
     pub dwFlags: u32,
     pub guidPoolFilter: windows_core::GUID,
-}
-impl windows_core::TypeKind for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_BINARY {
     pub Base: CLUSPROP_VALUE,
     pub rgb: [u8; 1],
-}
-impl windows_core::TypeKind for CLUSPROP_BINARY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_BINARY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_BINARY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CLUSPROP_BUFFER_HELPER {
     pub pb: *mut u8,
     pub pw: *mut u16,
@@ -14257,208 +13343,204 @@ pub union CLUSPROP_BUFFER_HELPER {
     pub pFileTimeValue: *mut CLUSPROP_FILETIME,
 }
 #[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for CLUSPROP_BUFFER_HELPER {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Security")]
 impl Default for CLUSPROP_BUFFER_HELPER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for CLUSPROP_BUFFER_HELPER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_DWORD {
     pub Base: CLUSPROP_VALUE,
     pub dw: u32,
-}
-impl windows_core::TypeKind for CLUSPROP_DWORD {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_DWORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_DWORD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_FILETIME {
     pub Base: CLUSPROP_VALUE,
     pub ft: super::super::Foundation::FILETIME,
-}
-impl windows_core::TypeKind for CLUSPROP_FILETIME {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_FILETIME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_FILETIME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_FTSET_INFO {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_FTSET_INFO,
-}
-impl windows_core::TypeKind for CLUSPROP_FTSET_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_FTSET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_FTSET_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_LARGE_INTEGER {
     pub Base: CLUSPROP_VALUE,
     pub li: i64,
-}
-impl windows_core::TypeKind for CLUSPROP_LARGE_INTEGER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_LARGE_INTEGER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_LARGE_INTEGER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_LIST {
     pub nPropertyCount: u32,
     pub PropertyName: CLUSPROP_SZ,
-}
-impl windows_core::TypeKind for CLUSPROP_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_LONG {
     pub Base: CLUSPROP_VALUE,
     pub l: i32,
-}
-impl windows_core::TypeKind for CLUSPROP_LONG {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_LONG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_LONG {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_PARTITION_INFO {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_PARTITION_INFO,
-}
-impl windows_core::TypeKind for CLUSPROP_PARTITION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_PARTITION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_PARTITION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_PARTITION_INFO_EX {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_PARTITION_INFO_EX,
-}
-impl windows_core::TypeKind for CLUSPROP_PARTITION_INFO_EX {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_PARTITION_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_PARTITION_INFO_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_PARTITION_INFO_EX2 {
     pub Base: CLUSPROP_PARTITION_INFO_EX,
     pub Base2: CLUS_PARTITION_INFO_EX2,
-}
-impl windows_core::TypeKind for CLUSPROP_PARTITION_INFO_EX2 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_PARTITION_INFO_EX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_PARTITION_INFO_EX2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CLUSPROP_REQUIRED_DEPENDENCY {
     pub Value: CLUSPROP_VALUE,
     pub ResClass: CLUSPROP_RESOURCE_CLASS,
     pub ResTypeName: CLUSPROP_SZ,
-}
-impl windows_core::TypeKind for CLUSPROP_REQUIRED_DEPENDENCY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_REQUIRED_DEPENDENCY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_REQUIRED_DEPENDENCY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_RESOURCE_CLASS {
     pub Base: CLUSPROP_VALUE,
     pub rc: CLUSTER_RESOURCE_CLASS,
-}
-impl windows_core::TypeKind for CLUSPROP_RESOURCE_CLASS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_RESOURCE_CLASS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_RESOURCE_CLASS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_RESOURCE_CLASS_INFO {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_RESOURCE_CLASS_INFO,
-}
-impl windows_core::TypeKind for CLUSPROP_RESOURCE_CLASS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_RESOURCE_CLASS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_RESOURCE_CLASS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_SCSI_ADDRESS {
     pub Base: CLUSPROP_VALUE,
     pub Base2: CLUS_SCSI_ADDRESS,
-}
-impl windows_core::TypeKind for CLUSPROP_SCSI_ADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_SCSI_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_SCSI_ADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_SECURITY_DESCRIPTOR {
     pub Base: CLUSPROP_VALUE,
     pub Anonymous: CLUSPROP_SECURITY_DESCRIPTOR_0,
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for CLUSPROP_SECURITY_DESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl Default for CLUSPROP_SECURITY_DESCRIPTOR {
@@ -14466,16 +13548,16 @@ impl Default for CLUSPROP_SECURITY_DESCRIPTOR {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for CLUSPROP_SECURITY_DESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
 #[cfg(feature = "Win32_Security")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CLUSPROP_SECURITY_DESCRIPTOR_0 {
     pub sd: super::super::Security::SECURITY_DESCRIPTOR_RELATIVE,
     pub rgbSecurityDescriptor: [u8; 1],
-}
-#[cfg(feature = "Win32_Security")]
-impl windows_core::TypeKind for CLUSPROP_SECURITY_DESCRIPTOR_0 {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Security")]
 impl Default for CLUSPROP_SECURITY_DESCRIPTOR_0 {
@@ -14483,92 +13565,96 @@ impl Default for CLUSPROP_SECURITY_DESCRIPTOR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Security")]
+impl windows_core::TypeKind for CLUSPROP_SECURITY_DESCRIPTOR_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CLUSPROP_SYNTAX {
     pub dw: u32,
     pub Anonymous: CLUSPROP_SYNTAX_0,
-}
-impl windows_core::TypeKind for CLUSPROP_SYNTAX {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_SYNTAX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_SYNTAX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSPROP_SYNTAX_0 {
     pub wFormat: u16,
     pub wType: u16,
-}
-impl windows_core::TypeKind for CLUSPROP_SYNTAX_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_SYNTAX_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_SYNTAX_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_SZ {
     pub Base: CLUSPROP_VALUE,
     pub sz: [u16; 1],
-}
-impl windows_core::TypeKind for CLUSPROP_SZ {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_SZ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_SZ {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_ULARGE_INTEGER {
     pub Base: CLUSPROP_VALUE,
     pub li: u64,
-}
-impl windows_core::TypeKind for CLUSPROP_ULARGE_INTEGER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_ULARGE_INTEGER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_ULARGE_INTEGER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_VALUE {
     pub Syntax: CLUSPROP_SYNTAX,
     pub cbLength: u32,
-}
-impl windows_core::TypeKind for CLUSPROP_VALUE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_VALUE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSPROP_WORD {
     pub Base: CLUSPROP_VALUE,
     pub w: u16,
-}
-impl windows_core::TypeKind for CLUSPROP_WORD {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSPROP_WORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSPROP_WORD {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTERVERSIONINFO {
     pub dwVersionInfoSize: u32,
     pub MajorVersion: u16,
@@ -14581,16 +13667,16 @@ pub struct CLUSTERVERSIONINFO {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
-impl windows_core::TypeKind for CLUSTERVERSIONINFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUSTERVERSIONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTERVERSIONINFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTERVERSIONINFO_NT4 {
     pub dwVersionInfoSize: u32,
     pub MajorVersion: u16,
@@ -14599,32 +13685,32 @@ pub struct CLUSTERVERSIONINFO_NT4 {
     pub szVendorId: [u16; 64],
     pub szCSDVersion: [u16; 64],
 }
-impl windows_core::TypeKind for CLUSTERVERSIONINFO_NT4 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUSTERVERSIONINFO_NT4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTERVERSIONINFO_NT4 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_AVAILABILITY_SET_CONFIG {
     pub dwVersion: u32,
     pub dwUpdateDomains: u32,
     pub dwFaultDomains: u32,
     pub bReserveSpareNode: super::super::Foundation::BOOL,
 }
-impl windows_core::TypeKind for CLUSTER_AVAILABILITY_SET_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUSTER_AVAILABILITY_SET_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_AVAILABILITY_SET_CONFIG {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_BATCH_COMMAND {
     pub Command: CLUSTER_REG_COMMAND,
     pub dwOptions: u32,
@@ -14632,30 +13718,30 @@ pub struct CLUSTER_BATCH_COMMAND {
     pub lpData: *const u8,
     pub cbData: u32,
 }
-impl windows_core::TypeKind for CLUSTER_BATCH_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUSTER_BATCH_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_BATCH_COMMAND {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_CREATE_GROUP_INFO {
     pub dwVersion: u32,
     pub groupType: CLUSGROUP_TYPE,
-}
-impl windows_core::TypeKind for CLUSTER_CREATE_GROUP_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSTER_CREATE_GROUP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_CREATE_GROUP_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_ENUM_ITEM {
     pub dwVersion: u32,
     pub dwType: u32,
@@ -14664,16 +13750,16 @@ pub struct CLUSTER_ENUM_ITEM {
     pub cbName: u32,
     pub lpszName: windows_core::PWSTR,
 }
-impl windows_core::TypeKind for CLUSTER_ENUM_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUSTER_ENUM_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_ENUM_ITEM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_GROUP_ENUM_ITEM {
     pub dwVersion: u32,
     pub cbId: u32,
@@ -14689,16 +13775,16 @@ pub struct CLUSTER_GROUP_ENUM_ITEM {
     pub cbRoProperties: u32,
     pub pRoProperties: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for CLUSTER_GROUP_ENUM_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUSTER_GROUP_ENUM_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_GROUP_ENUM_ITEM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_HEALTH_FAULT {
     pub Id: windows_core::PWSTR,
     pub ErrorType: u32,
@@ -14708,59 +13794,59 @@ pub struct CLUSTER_HEALTH_FAULT {
     pub Flags: u32,
     pub Reserved: u32,
 }
-impl windows_core::TypeKind for CLUSTER_HEALTH_FAULT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUSTER_HEALTH_FAULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_HEALTH_FAULT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_HEALTH_FAULT_ARRAY {
     pub numFaults: u32,
     pub faults: *mut CLUSTER_HEALTH_FAULT,
-}
-impl windows_core::TypeKind for CLUSTER_HEALTH_FAULT_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSTER_HEALTH_FAULT_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_HEALTH_FAULT_ARRAY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_IP_ENTRY {
     pub lpszIpAddress: windows_core::PCWSTR,
     pub dwPrefixLength: u32,
-}
-impl windows_core::TypeKind for CLUSTER_IP_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSTER_IP_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_IP_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_MEMBERSHIP_INFO {
     pub HasQuorum: super::super::Foundation::BOOL,
     pub UpnodesSize: u32,
     pub Upnodes: [u8; 1],
-}
-impl windows_core::TypeKind for CLUSTER_MEMBERSHIP_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSTER_MEMBERSHIP_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_MEMBERSHIP_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_READ_BATCH_COMMAND {
     pub Command: CLUSTER_REG_COMMAND,
     pub dwOptions: u32,
@@ -14769,16 +13855,16 @@ pub struct CLUSTER_READ_BATCH_COMMAND {
     pub lpData: *const u8,
     pub cbData: u32,
 }
-impl windows_core::TypeKind for CLUSTER_READ_BATCH_COMMAND {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUSTER_READ_BATCH_COMMAND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_READ_BATCH_COMMAND {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_RESOURCE_ENUM_ITEM {
     pub dwVersion: u32,
     pub cbId: u32,
@@ -14794,131 +13880,131 @@ pub struct CLUSTER_RESOURCE_ENUM_ITEM {
     pub cbRoProperties: u32,
     pub pRoProperties: *mut core::ffi::c_void,
 }
-impl windows_core::TypeKind for CLUSTER_RESOURCE_ENUM_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUSTER_RESOURCE_ENUM_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_RESOURCE_ENUM_ITEM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_SET_PASSWORD_STATUS {
     pub NodeId: u32,
     pub SetAttempted: super::super::Foundation::BOOLEAN,
     pub ReturnStatus: u32,
-}
-impl windows_core::TypeKind for CLUSTER_SET_PASSWORD_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSTER_SET_PASSWORD_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_SET_PASSWORD_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
     pub Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
     pub Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME,
-}
-impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT {
     pub Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
     pub Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME,
-}
-impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
     pub NewVolumeName: [u16; 260],
     pub NewVolumeGuid: [u16; 50],
-}
-impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
     pub NewVolumeName: [u16; 260],
-}
-impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
     pub InputType: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE,
     pub Anonymous: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0,
-}
-impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
     pub VolumeOffset: u64,
     pub VolumeId: [u16; 260],
     pub VolumeName: [u16; 260],
     pub VolumeGuid: [u16; 50],
 }
-impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_STATE_INFO {
     pub szVolumeName: [u16; 260],
     pub szNodeName: [u16; 260],
     pub VolumeState: CLUSTER_SHARED_VOLUME_STATE,
-}
-impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_STATE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSTER_SHARED_VOLUME_STATE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_STATE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     pub szVolumeName: [u16; 260],
     pub szNodeName: [u16; 260],
@@ -14927,124 +14013,124 @@ pub struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     pub RedirectedIOReason: u64,
     pub VolumeRedirectedIOReason: u64,
 }
-impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_VALIDATE_CSV_FILENAME {
     pub szFileName: [u16; 1],
-}
-impl windows_core::TypeKind for CLUSTER_VALIDATE_CSV_FILENAME {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSTER_VALIDATE_CSV_FILENAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_VALIDATE_CSV_FILENAME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_VALIDATE_DIRECTORY {
     pub szPath: [u16; 1],
-}
-impl windows_core::TypeKind for CLUSTER_VALIDATE_DIRECTORY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSTER_VALIDATE_DIRECTORY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_VALIDATE_DIRECTORY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_VALIDATE_NETNAME {
     pub szNetworkName: [u16; 1],
-}
-impl windows_core::TypeKind for CLUSTER_VALIDATE_NETNAME {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSTER_VALIDATE_NETNAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_VALIDATE_NETNAME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUSTER_VALIDATE_PATH {
     pub szPath: [u16; 1],
-}
-impl windows_core::TypeKind for CLUSTER_VALIDATE_PATH {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUSTER_VALIDATE_PATH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUSTER_VALIDATE_PATH {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_CHKDSK_INFO {
     pub PartitionNumber: u32,
     pub ChkdskState: u32,
     pub FileIdCount: u32,
     pub FileIdList: [u64; 1],
 }
-impl windows_core::TypeKind for CLUS_CHKDSK_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUS_CHKDSK_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_CHKDSK_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
     pub FileServerName: [u16; 16],
-}
-impl windows_core::TypeKind for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
     pub FileServerName: [u16; 260],
-}
-impl windows_core::TypeKind for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_CSV_MAINTENANCE_MODE_INFO {
     pub InMaintenance: super::super::Foundation::BOOL,
     pub VolumeName: [u16; 260],
-}
-impl windows_core::TypeKind for CLUS_CSV_MAINTENANCE_MODE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_CSV_MAINTENANCE_MODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_CSV_MAINTENANCE_MODE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_CSV_VOLUME_INFO {
     pub VolumeOffset: u64,
     pub PartitionNumber: u32,
@@ -15053,209 +14139,209 @@ pub struct CLUS_CSV_VOLUME_INFO {
     pub szVolumeFriendlyName: [u16; 260],
     pub szVolumeName: [u16; 50],
 }
-impl windows_core::TypeKind for CLUS_CSV_VOLUME_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUS_CSV_VOLUME_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_CSV_VOLUME_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_CSV_VOLUME_NAME {
     pub VolumeOffset: i64,
     pub szVolumeName: [u16; 260],
     pub szRootPath: [u16; 263],
-}
-impl windows_core::TypeKind for CLUS_CSV_VOLUME_NAME {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_CSV_VOLUME_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_CSV_VOLUME_NAME {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_DISK_NUMBER_INFO {
     pub DiskNumber: u32,
     pub BytesPerSector: u32,
-}
-impl windows_core::TypeKind for CLUS_DISK_NUMBER_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_DISK_NUMBER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_DISK_NUMBER_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_DNN_LEADER_STATUS {
     pub IsOnline: super::super::Foundation::BOOL,
     pub IsFileServerPresent: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for CLUS_DNN_LEADER_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_DNN_LEADER_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_DNN_LEADER_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_DNN_SODAFS_CLONE_STATUS {
     pub NodeId: u32,
     pub Status: CLUSTER_RESOURCE_STATE,
-}
-impl windows_core::TypeKind for CLUS_DNN_SODAFS_CLONE_STATUS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_DNN_SODAFS_CLONE_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_DNN_SODAFS_CLONE_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_FORCE_QUORUM_INFO {
     pub dwSize: u32,
     pub dwNodeBitMask: u32,
     pub dwMaxNumberofNodes: u32,
     pub multiszNodeList: [u16; 1],
 }
-impl windows_core::TypeKind for CLUS_FORCE_QUORUM_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUS_FORCE_QUORUM_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_FORCE_QUORUM_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_FTSET_INFO {
     pub dwRootSignature: u32,
     pub dwFtType: u32,
-}
-impl windows_core::TypeKind for CLUS_FTSET_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_FTSET_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_FTSET_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_MAINTENANCE_MODE_INFO {
     pub InMaintenance: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for CLUS_MAINTENANCE_MODE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_MAINTENANCE_MODE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_MAINTENANCE_MODE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_MAINTENANCE_MODE_INFOEX {
     pub InMaintenance: super::super::Foundation::BOOL,
     pub MaintainenceModeType: MAINTENANCE_MODE_TYPE_ENUM,
     pub InternalState: CLUSTER_RESOURCE_STATE,
     pub Signature: u32,
 }
-impl windows_core::TypeKind for CLUS_MAINTENANCE_MODE_INFOEX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUS_MAINTENANCE_MODE_INFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_MAINTENANCE_MODE_INFOEX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_NETNAME_IP_INFO_ENTRY {
     pub NodeId: u32,
     pub AddressSize: u32,
     pub Address: [u8; 1],
-}
-impl windows_core::TypeKind for CLUS_NETNAME_IP_INFO_ENTRY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_NETNAME_IP_INFO_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_NETNAME_IP_INFO_ENTRY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
     pub szName: [u16; 64],
     pub NumEntries: u32,
     pub IpInfo: [CLUS_NETNAME_IP_INFO_ENTRY; 1],
-}
-impl windows_core::TypeKind for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_NETNAME_PWD_INFO {
     pub Flags: u32,
     pub Password: [u16; 16],
     pub CreatingDC: [u16; 258],
     pub ObjectGuid: [u16; 64],
 }
-impl windows_core::TypeKind for CLUS_NETNAME_PWD_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUS_NETNAME_PWD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_NETNAME_PWD_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_NETNAME_PWD_INFOEX {
     pub Flags: u32,
     pub Password: [u16; 128],
     pub CreatingDC: [u16; 258],
     pub ObjectGuid: [u16; 64],
 }
-impl windows_core::TypeKind for CLUS_NETNAME_PWD_INFOEX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUS_NETNAME_PWD_INFOEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_NETNAME_PWD_INFOEX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_NETNAME_VS_TOKEN_INFO {
     pub ProcessID: u32,
     pub DesiredAccess: u32,
     pub InheritHandle: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for CLUS_NETNAME_VS_TOKEN_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_NETNAME_VS_TOKEN_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_NETNAME_VS_TOKEN_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_PARTITION_INFO {
     pub dwFlags: u32,
     pub szDeviceName: [u16; 260],
@@ -15265,16 +14351,16 @@ pub struct CLUS_PARTITION_INFO {
     pub dwFileSystemFlags: u32,
     pub szFileSystem: [u16; 32],
 }
-impl windows_core::TypeKind for CLUS_PARTITION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUS_PARTITION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_PARTITION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_PARTITION_INFO_EX {
     pub dwFlags: u32,
     pub szDeviceName: [u16; 260],
@@ -15289,244 +14375,244 @@ pub struct CLUS_PARTITION_INFO_EX {
     pub PartitionNumber: u32,
     pub VolumeGuid: windows_core::GUID,
 }
-impl windows_core::TypeKind for CLUS_PARTITION_INFO_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUS_PARTITION_INFO_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_PARTITION_INFO_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_PARTITION_INFO_EX2 {
     pub GptPartitionId: windows_core::GUID,
     pub szPartitionName: [u16; 260],
     pub EncryptionFlags: u32,
-}
-impl windows_core::TypeKind for CLUS_PARTITION_INFO_EX2 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_PARTITION_INFO_EX2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_PARTITION_INFO_EX2 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_PROVIDER_STATE_CHANGE_INFO {
     pub dwSize: u32,
     pub resourceState: CLUSTER_RESOURCE_STATE,
     pub szProviderId: [u16; 1],
-}
-impl windows_core::TypeKind for CLUS_PROVIDER_STATE_CHANGE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_PROVIDER_STATE_CHANGE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_PROVIDER_STATE_CHANGE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUS_RESOURCE_CLASS_INFO {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0,
-}
-impl windows_core::TypeKind for CLUS_RESOURCE_CLASS_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_RESOURCE_CLASS_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_RESOURCE_CLASS_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CLUS_RESOURCE_CLASS_INFO_0 {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0,
     pub li: u64,
-}
-impl windows_core::TypeKind for CLUS_RESOURCE_CLASS_INFO_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_RESOURCE_CLASS_INFO_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_RESOURCE_CLASS_INFO_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUS_RESOURCE_CLASS_INFO_0_0 {
     pub Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0_0,
     pub SubClass: u32,
-}
-impl windows_core::TypeKind for CLUS_RESOURCE_CLASS_INFO_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_RESOURCE_CLASS_INFO_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_RESOURCE_CLASS_INFO_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CLUS_RESOURCE_CLASS_INFO_0_0_0 {
     pub dw: u32,
     pub rc: CLUSTER_RESOURCE_CLASS,
-}
-impl windows_core::TypeKind for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct CLUS_SCSI_ADDRESS {
     pub Anonymous: CLUS_SCSI_ADDRESS_0,
-}
-impl windows_core::TypeKind for CLUS_SCSI_ADDRESS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_SCSI_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_SCSI_ADDRESS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union CLUS_SCSI_ADDRESS_0 {
     pub Anonymous: CLUS_SCSI_ADDRESS_0_0,
     pub dw: u32,
-}
-impl windows_core::TypeKind for CLUS_SCSI_ADDRESS_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_SCSI_ADDRESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_SCSI_ADDRESS_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_SCSI_ADDRESS_0_0 {
     pub PortNumber: u8,
     pub PathId: u8,
     pub TargetId: u8,
     pub Lun: u8,
 }
-impl windows_core::TypeKind for CLUS_SCSI_ADDRESS_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CLUS_SCSI_ADDRESS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_SCSI_ADDRESS_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_SET_MAINTENANCE_MODE_INPUT {
     pub InMaintenance: super::super::Foundation::BOOL,
     pub ExtraParameterSize: u32,
     pub ExtraParameter: [u8; 1],
-}
-impl windows_core::TypeKind for CLUS_SET_MAINTENANCE_MODE_INPUT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_SET_MAINTENANCE_MODE_INPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_SET_MAINTENANCE_MODE_INPUT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_SHARED_VOLUME_BACKUP_MODE {
     pub BackupState: CLUSTER_SHARED_VOLUME_BACKUP_STATE,
     pub DelayTimerInSecs: u32,
     pub VolumeName: [u16; 260],
-}
-impl windows_core::TypeKind for CLUS_SHARED_VOLUME_BACKUP_MODE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_SHARED_VOLUME_BACKUP_MODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_SHARED_VOLUME_BACKUP_MODE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_STARTING_PARAMS {
     pub dwSize: u32,
     pub bForm: super::super::Foundation::BOOL,
     pub bFirst: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for CLUS_STARTING_PARAMS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_STARTING_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_STARTING_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
     pub AvailDrivelettersMask: u32,
-}
-impl windows_core::TypeKind for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_STORAGE_REMAP_DRIVELETTER {
     pub CurrentDriveLetterMask: u32,
     pub TargetDriveLetterMask: u32,
-}
-impl windows_core::TypeKind for CLUS_STORAGE_REMAP_DRIVELETTER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_STORAGE_REMAP_DRIVELETTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_STORAGE_REMAP_DRIVELETTER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_STORAGE_SET_DRIVELETTER {
     pub PartitionNumber: u32,
     pub DriveLetterMask: u32,
-}
-impl windows_core::TypeKind for CLUS_STORAGE_SET_DRIVELETTER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_STORAGE_SET_DRIVELETTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_STORAGE_SET_DRIVELETTER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CLUS_WORKER {
     pub hThread: super::super::Foundation::HANDLE,
     pub Terminate: super::super::Foundation::BOOL,
-}
-impl windows_core::TypeKind for CLUS_WORKER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for CLUS_WORKER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CLUS_WORKER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CREATE_CLUSTER_CONFIG {
     pub dwVersion: u32,
     pub lpszClusterName: windows_core::PCWSTR,
@@ -15538,16 +14624,16 @@ pub struct CREATE_CLUSTER_CONFIG {
     pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
     pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
 }
-impl windows_core::TypeKind for CREATE_CLUSTER_CONFIG {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CREATE_CLUSTER_CONFIG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for CREATE_CLUSTER_CONFIG {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct CREATE_CLUSTER_NAME_ACCOUNT {
     pub dwVersion: u32,
     pub lpszClusterName: windows_core::PCWSTR,
@@ -15559,13 +14645,13 @@ pub struct CREATE_CLUSTER_NAME_ACCOUNT {
     pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
     pub bUpgradeVCOs: super::super::Foundation::BOOLEAN,
 }
-impl windows_core::TypeKind for CREATE_CLUSTER_NAME_ACCOUNT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for CREATE_CLUSTER_NAME_ACCOUNT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for CREATE_CLUSTER_NAME_ACCOUNT {
+    type TypeKind = windows_core::CopyType;
 }
 pub const ClusApplication: windows_core::GUID = windows_core::GUID::from_u128(0xf2e606e5_2631_11d1_89f1_00a0c90d061e);
 pub const ClusCryptoKeys: windows_core::GUID = windows_core::GUID::from_u128(0xf2e6072b_2631_11d1_89f1_00a0c90d061e);
@@ -15608,410 +14694,280 @@ pub const Cluster: windows_core::GUID = windows_core::GUID::from_u128(0xf2e606e3
 pub const ClusterNames: windows_core::GUID = windows_core::GUID::from_u128(0xf2e606eb_2631_11d1_89f1_00a0c90d061e);
 pub const DomainNames: windows_core::GUID = windows_core::GUID::from_u128(0xf2e606e1_2631_11d1_89f1_00a0c90d061e);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct FILESHARE_CHANGE {
     pub Change: FILESHARE_CHANGE_ENUM,
     pub ShareName: [u16; 84],
-}
-impl windows_core::TypeKind for FILESHARE_CHANGE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILESHARE_CHANGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FILESHARE_CHANGE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct FILESHARE_CHANGE_LIST {
     pub NumEntries: u32,
     pub ChangeEntry: [FILESHARE_CHANGE; 1],
-}
-impl windows_core::TypeKind for FILESHARE_CHANGE_LIST {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILESHARE_CHANGE_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FILESHARE_CHANGE_LIST {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GET_OPERATION_CONTEXT_PARAMS {
     pub Size: u32,
     pub Version: u32,
     pub Type: RESDLL_CONTEXT_OPERATION_TYPE,
     pub Priority: u32,
 }
-impl windows_core::TypeKind for GET_OPERATION_CONTEXT_PARAMS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for GET_OPERATION_CONTEXT_PARAMS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GET_OPERATION_CONTEXT_PARAMS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GROUP_FAILURE_INFO {
     pub dwFailoverAttemptsRemaining: u32,
     pub dwFailoverPeriodRemaining: u32,
-}
-impl windows_core::TypeKind for GROUP_FAILURE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GROUP_FAILURE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GROUP_FAILURE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GROUP_FAILURE_INFO_BUFFER {
     pub dwVersion: u32,
     pub Info: GROUP_FAILURE_INFO,
-}
-impl windows_core::TypeKind for GROUP_FAILURE_INFO_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for GROUP_FAILURE_INFO_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HCHANGE(pub isize);
-impl Default for HCHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+impl windows_core::TypeKind for GROUP_FAILURE_INFO_BUFFER {
+    type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct HCHANGE(pub isize);
 impl windows_core::TypeKind for HCHANGE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCLUSCRYPTPROVIDER(pub isize);
-impl Default for HCLUSCRYPTPROVIDER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HCLUSCRYPTPROVIDER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCLUSENUM(pub isize);
-impl Default for HCLUSENUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HCLUSENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCLUSENUMEX(pub isize);
-impl Default for HCLUSENUMEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HCLUSENUMEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCLUSTER(pub isize);
-impl Default for HCLUSTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HCLUSTER {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HGROUP(pub isize);
-impl Default for HGROUP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HGROUP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HGROUPENUM(pub isize);
-impl Default for HGROUPENUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HGROUPENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HGROUPENUMEX(pub isize);
-impl Default for HGROUPENUMEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HGROUPENUMEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HGROUPSET(pub isize);
-impl Default for HGROUPSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HGROUPSET {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HGROUPSETENUM(pub isize);
-impl Default for HGROUPSETENUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HGROUPSETENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HNETINTERFACE(pub isize);
-impl Default for HNETINTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HNETINTERFACE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HNETINTERFACEENUM(pub isize);
-impl Default for HNETINTERFACEENUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HNETINTERFACEENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HNETWORK(pub isize);
-impl Default for HNETWORK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HNETWORK {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HNETWORKENUM(pub isize);
-impl Default for HNETWORKENUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HNETWORKENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HNODE(pub isize);
-impl Default for HNODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HNODE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HNODEENUM(pub isize);
-impl Default for HNODEENUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HNODEENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HNODEENUMEX(pub isize);
-impl Default for HNODEENUMEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HNODEENUMEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HREGBATCH(pub isize);
-impl Default for HREGBATCH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HREGBATCH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HREGBATCHNOTIFICATION(pub isize);
-impl Default for HREGBATCHNOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HREGBATCHNOTIFICATION {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HREGBATCHPORT(pub isize);
-impl Default for HREGBATCHPORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HREGBATCHPORT {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HREGREADBATCH(pub isize);
-impl Default for HREGREADBATCH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HREGREADBATCH {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HREGREADBATCHREPLY(pub isize);
-impl Default for HREGREADBATCHREPLY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HREGREADBATCHREPLY {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HRESENUM(pub isize);
-impl Default for HRESENUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HRESENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HRESENUMEX(pub isize);
-impl Default for HRESENUMEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HRESENUMEX {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HRESOURCE(pub isize);
-impl Default for HRESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HRESOURCE {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HRESTYPEENUM(pub isize);
-impl Default for HRESTYPEENUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for HRESTYPEENUM {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct MONITOR_STATE {
     pub LastUpdate: i64,
     pub State: RESOURCE_MONITOR_STATE,
     pub ActiveResource: super::super::Foundation::HANDLE,
     pub ResmonStop: super::super::Foundation::BOOL,
 }
-impl windows_core::TypeKind for MONITOR_STATE {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MONITOR_STATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MONITOR_STATE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NOTIFY_FILTER_AND_TYPE {
     pub dwObjectType: u32,
     pub FilterFlags: i64,
-}
-impl windows_core::TypeKind for NOTIFY_FILTER_AND_TYPE {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NOTIFY_FILTER_AND_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NOTIFY_FILTER_AND_TYPE {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct NodeUtilizationInfoElement {
     pub Id: u64,
     pub AvailableMemory: u64,
     pub AvailableMemoryAfterReclamation: u64,
-}
-impl windows_core::TypeKind for NodeUtilizationInfoElement {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for NodeUtilizationInfoElement {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for NodeUtilizationInfoElement {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POST_UPGRADE_VERSION_INFO {
     pub newMajorVersion: u32,
     pub newUpgradeVersion: u32,
@@ -16019,16 +14975,16 @@ pub struct POST_UPGRADE_VERSION_INFO {
     pub oldUpgradeVersion: u32,
     pub reserved: u32,
 }
-impl windows_core::TypeKind for POST_UPGRADE_VERSION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for POST_UPGRADE_VERSION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for POST_UPGRADE_VERSION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PaxosTagCStruct {
     pub __padding__PaxosTagVtable: u64,
     pub __padding__NextEpochVtable: u64,
@@ -16044,60 +15000,60 @@ pub struct PaxosTagCStruct {
     pub Sequence: i32,
     pub __padding__BoundrySequence: u32,
 }
-impl windows_core::TypeKind for PaxosTagCStruct {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PaxosTagCStruct {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PaxosTagCStruct {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RESOURCE_FAILURE_INFO {
     pub dwRestartAttemptsRemaining: u32,
     pub dwRestartPeriodRemaining: u32,
-}
-impl windows_core::TypeKind for RESOURCE_FAILURE_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RESOURCE_FAILURE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RESOURCE_FAILURE_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RESOURCE_FAILURE_INFO_BUFFER {
     pub dwVersion: u32,
     pub Info: RESOURCE_FAILURE_INFO,
-}
-impl windows_core::TypeKind for RESOURCE_FAILURE_INFO_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RESOURCE_FAILURE_INFO_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RESOURCE_FAILURE_INFO_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RESOURCE_STATUS {
     pub ResourceState: CLUSTER_RESOURCE_STATE,
     pub CheckPoint: u32,
     pub WaitHint: u32,
     pub EventHandle: super::super::Foundation::HANDLE,
 }
-impl windows_core::TypeKind for RESOURCE_STATUS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for RESOURCE_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RESOURCE_STATUS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RESOURCE_STATUS_EX {
     pub ResourceState: CLUSTER_RESOURCE_STATE,
     pub CheckPoint: u32,
@@ -16106,60 +15062,60 @@ pub struct RESOURCE_STATUS_EX {
     pub Flags: u32,
     pub WaitHint: u32,
 }
-impl windows_core::TypeKind for RESOURCE_STATUS_EX {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for RESOURCE_STATUS_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RESOURCE_STATUS_EX {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
     pub isTerminalFailure: super::super::Foundation::BOOL,
     pub restartPeriodRemaining: u32,
-}
-impl windows_core::TypeKind for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RESUTIL_FILETIME_DATA {
     pub Default: super::super::Foundation::FILETIME,
     pub Minimum: super::super::Foundation::FILETIME,
     pub Maximum: super::super::Foundation::FILETIME,
-}
-impl windows_core::TypeKind for RESUTIL_FILETIME_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RESUTIL_FILETIME_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RESUTIL_FILETIME_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RESUTIL_LARGEINT_DATA {
     pub Default: i64,
     pub Minimum: i64,
     pub Maximum: i64,
-}
-impl windows_core::TypeKind for RESUTIL_LARGEINT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RESUTIL_LARGEINT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RESUTIL_LARGEINT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct RESUTIL_PROPERTY_ITEM {
     pub Name: windows_core::PWSTR,
     pub KeyName: windows_core::PWSTR,
@@ -16170,16 +15126,16 @@ pub struct RESUTIL_PROPERTY_ITEM {
     pub Flags: u32,
     pub Offset: u32,
 }
-impl windows_core::TypeKind for RESUTIL_PROPERTY_ITEM {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for RESUTIL_PROPERTY_ITEM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RESUTIL_PROPERTY_ITEM {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union RESUTIL_PROPERTY_ITEM_0 {
     pub DefaultPtr: usize,
     pub Default: u32,
@@ -16188,45 +15144,45 @@ pub union RESUTIL_PROPERTY_ITEM_0 {
     pub ULargeIntData: *mut RESUTIL_ULARGEINT_DATA,
     pub FileTimeData: *mut RESUTIL_FILETIME_DATA,
 }
-impl windows_core::TypeKind for RESUTIL_PROPERTY_ITEM_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for RESUTIL_PROPERTY_ITEM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RESUTIL_PROPERTY_ITEM_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct RESUTIL_ULARGEINT_DATA {
     pub Default: u64,
     pub Minimum: u64,
     pub Maximum: u64,
-}
-impl windows_core::TypeKind for RESUTIL_ULARGEINT_DATA {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for RESUTIL_ULARGEINT_DATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for RESUTIL_ULARGEINT_DATA {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct ResourceUtilizationInfoElement {
     pub PhysicalNumaId: u64,
     pub CurrentMemory: u64,
-}
-impl windows_core::TypeKind for ResourceUtilizationInfoElement {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for ResourceUtilizationInfoElement {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for ResourceUtilizationInfoElement {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     pub ReplicationGroupName: [u16; 260],
     pub Description: [u16; 260],
@@ -16242,186 +15198,186 @@ pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     pub VolumeNameCount: u32,
     pub VolumeNames: [u16; 260],
 }
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
     pub Result: u32,
     pub ErrorString: [u16; 260],
-}
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_DISK_INFO {
     pub Reason: SR_DISK_REPLICATION_ELIGIBLE,
     pub DiskGuid: windows_core::GUID,
-}
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_DISK_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SR_RESOURCE_TYPE_DISK_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SR_RESOURCE_TYPE_DISK_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
     pub Count: u16,
     pub DiskInfo: [SR_RESOURCE_TYPE_DISK_INFO; 1],
-}
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
     pub DataDiskGuid: windows_core::GUID,
     pub IncludeOfflineDisks: super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     pub DataDiskGuid: windows_core::GUID,
     pub IncludeAvailableStoargeDisks: super::super::Foundation::BOOLEAN,
-}
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     pub SourceDataDiskGuid: windows_core::GUID,
     pub TargetReplicationGroupGuid: windows_core::GUID,
     pub SkipConnectivityCheck: super::super::Foundation::BOOLEAN,
     pub IncludeOfflineDisks: super::super::Foundation::BOOLEAN,
 }
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_DISK {
     pub Type: SR_REPLICATED_DISK_TYPE,
     pub ClusterDiskResourceGuid: windows_core::GUID,
     pub ReplicationGroupId: windows_core::GUID,
     pub ReplicationGroupName: [u16; 260],
 }
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_REPLICATED_DISK {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for SR_RESOURCE_TYPE_REPLICATED_DISK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SR_RESOURCE_TYPE_REPLICATED_DISK {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
     pub Count: u16,
     pub ReplicatedDisks: [SR_RESOURCE_TYPE_REPLICATED_DISK; 1],
-}
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
     pub Count: u32,
     pub PartitionArray: [SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO; 1],
-}
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
     pub PartitionOffset: u64,
     pub Capabilities: u32,
-}
-impl windows_core::TypeKind for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WitnessTagHelper {
     pub Version: i32,
     pub paxosToValidate: PaxosTagCStruct,
-}
-impl windows_core::TypeKind for WitnessTagHelper {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for WitnessTagHelper {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for WitnessTagHelper {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct WitnessTagUpdateHelper {
     pub Version: i32,
     pub paxosToSet: PaxosTagCStruct,
     pub paxosToValidate: PaxosTagCStruct,
 }
-impl windows_core::TypeKind for WitnessTagUpdateHelper {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for WitnessTagUpdateHelper {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for WitnessTagUpdateHelper {
+    type TypeKind = windows_core::CopyType;
 }
 pub type LPGROUP_CALLBACK_EX = Option<unsafe extern "system" fn(param0: HCLUSTER, param1: HGROUP, param2: HGROUP, param3: *mut core::ffi::c_void) -> u32>;
 pub type LPNODE_CALLBACK = Option<unsafe extern "system" fn(param0: HCLUSTER, param1: HNODE, param2: CLUSTER_NODE_STATE, param3: *mut core::ffi::c_void) -> u32>;

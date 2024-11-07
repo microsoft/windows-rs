@@ -68,11 +68,8 @@ pub struct IFlightStickStatics_Vtbl {
     pub FromGameController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGameController, IGameController_Vtbl, 0x1baf6522_5f64_42c5_8267_b9fe2215bfbd);
-impl core::ops::Deref for IGameController {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IGameController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IGameController, windows_core::IUnknown, windows_core::IInspectable);
 impl IGameController {
@@ -142,9 +139,6 @@ impl IGameController {
         }
     }
 }
-impl windows_core::RuntimeType for IGameController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IGameController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -165,6 +159,10 @@ pub struct IGameController_Vtbl {
     User: usize,
 }
 #[cfg(feature = "System")]
+impl windows_core::RuntimeName for IGameController {
+    const NAME: &'static str = "Windows.Gaming.Input.IGameController";
+}
+#[cfg(feature = "System")]
 pub trait IGameController_Impl: Sized + windows_core::IUnknownImpl {
     fn HeadsetConnected(&self, value: Option<&super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>;
     fn RemoveHeadsetConnected(&self, token: &super::super::Foundation::EventRegistrationToken) -> windows_core::Result<()>;
@@ -177,12 +175,8 @@ pub trait IGameController_Impl: Sized + windows_core::IUnknownImpl {
     fn User(&self) -> windows_core::Result<super::super::System::User>;
 }
 #[cfg(feature = "System")]
-impl windows_core::RuntimeName for IGameController {
-    const NAME: &'static str = "Windows.Gaming.Input.IGameController";
-}
-#[cfg(feature = "System")]
 impl IGameController_Vtbl {
-    pub const fn new<Identity: IGameController_Impl, const OFFSET: isize>() -> IGameController_Vtbl {
+    pub const fn new<Identity: IGameController_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn HeadsetConnected<Identity: IGameController_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IGameController_Impl::HeadsetConnected(this, windows_core::from_raw_borrowed(&value)) {
@@ -275,11 +269,8 @@ impl IGameController_Vtbl {
     }
 }
 windows_core::imp::define_interface!(IGameControllerBatteryInfo, IGameControllerBatteryInfo_Vtbl, 0xdcecc681_3963_4da6_955d_553f3b6f6161);
-impl core::ops::Deref for IGameControllerBatteryInfo {
-    type Target = windows_core::IInspectable;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
+impl windows_core::RuntimeType for IGameControllerBatteryInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 windows_core::imp::interface_hierarchy!(IGameControllerBatteryInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl IGameControllerBatteryInfo {
@@ -292,9 +283,6 @@ impl IGameControllerBatteryInfo {
         }
     }
 }
-impl windows_core::RuntimeType for IGameControllerBatteryInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
 #[repr(C)]
 pub struct IGameControllerBatteryInfo_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
@@ -304,16 +292,16 @@ pub struct IGameControllerBatteryInfo_Vtbl {
     TryGetBatteryReport: usize,
 }
 #[cfg(feature = "Devices_Power")]
-pub trait IGameControllerBatteryInfo_Impl: Sized + windows_core::IUnknownImpl {
-    fn TryGetBatteryReport(&self) -> windows_core::Result<super::super::Devices::Power::BatteryReport>;
-}
-#[cfg(feature = "Devices_Power")]
 impl windows_core::RuntimeName for IGameControllerBatteryInfo {
     const NAME: &'static str = "Windows.Gaming.Input.IGameControllerBatteryInfo";
 }
 #[cfg(feature = "Devices_Power")]
+pub trait IGameControllerBatteryInfo_Impl: Sized + windows_core::IUnknownImpl {
+    fn TryGetBatteryReport(&self) -> windows_core::Result<super::super::Devices::Power::BatteryReport>;
+}
+#[cfg(feature = "Devices_Power")]
 impl IGameControllerBatteryInfo_Vtbl {
-    pub const fn new<Identity: IGameControllerBatteryInfo_Impl, const OFFSET: isize>() -> IGameControllerBatteryInfo_Vtbl {
+    pub const fn new<Identity: IGameControllerBatteryInfo_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TryGetBatteryReport<Identity: IGameControllerBatteryInfo_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IGameControllerBatteryInfo_Impl::TryGetBatteryReport(this) {
@@ -524,7 +512,7 @@ pub struct IUINavigationControllerStatics2_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ArcadeStick(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ArcadeStick, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(ArcadeStick, IGameController, IGameControllerBatteryInfo);
+windows_core::imp::required_hierarchy!(ArcadeStick, IArcadeStick, IArcadeStickStatics, IArcadeStickStatics2, IGameController, IGameControllerBatteryInfo);
 impl ArcadeStick {
     pub fn GetButtonLabel(&self, button: ArcadeStickButtons) -> windows_core::Result<GameControllerButtonLabel> {
         let this = self;
@@ -666,19 +654,17 @@ impl windows_core::RuntimeType for ArcadeStick {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IArcadeStick>();
 }
 unsafe impl windows_core::Interface for ArcadeStick {
-    type Vtable = IArcadeStick_Vtbl;
+    type Vtable = <IArcadeStick as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IArcadeStick as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ArcadeStick {
     const NAME: &'static str = "Windows.Gaming.Input.ArcadeStick";
 }
-unsafe impl Send for ArcadeStick {}
-unsafe impl Sync for ArcadeStick {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FlightStick(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FlightStick, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(FlightStick, IGameController, IGameControllerBatteryInfo);
+windows_core::imp::required_hierarchy!(FlightStick, IFlightStick, IFlightStickStatics, IGameController, IGameControllerBatteryInfo);
 impl FlightStick {
     pub fn HatSwitchKind(&self) -> windows_core::Result<GameControllerSwitchKind> {
         let this = self;
@@ -823,19 +809,17 @@ impl windows_core::RuntimeType for FlightStick {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFlightStick>();
 }
 unsafe impl windows_core::Interface for FlightStick {
-    type Vtable = IFlightStick_Vtbl;
+    type Vtable = <IFlightStick as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFlightStick as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for FlightStick {
     const NAME: &'static str = "Windows.Gaming.Input.FlightStick";
 }
-unsafe impl Send for FlightStick {}
-unsafe impl Sync for FlightStick {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Gamepad(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Gamepad, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Gamepad, IGameController, IGameControllerBatteryInfo);
+windows_core::imp::required_hierarchy!(Gamepad, IGameController, IGameControllerBatteryInfo, IGamepad, IGamepad2, IGamepadStatics, IGamepadStatics2);
 impl Gamepad {
     pub fn HeadsetConnected<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -911,18 +895,18 @@ impl Gamepad {
         }
     }
     pub fn Vibration(&self) -> windows_core::Result<GamepadVibration> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGamepad>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Vibration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SetVibration(&self, value: GamepadVibration) -> windows_core::Result<()> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGamepad>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVibration)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn GetCurrentReading(&self) -> windows_core::Result<GamepadReading> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IGamepad>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentReading)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -988,19 +972,17 @@ impl windows_core::RuntimeType for Gamepad {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGamepad>();
 }
 unsafe impl windows_core::Interface for Gamepad {
-    type Vtable = IGamepad_Vtbl;
+    type Vtable = <IGamepad as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGamepad as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Gamepad {
     const NAME: &'static str = "Windows.Gaming.Input.Gamepad";
 }
-unsafe impl Send for Gamepad {}
-unsafe impl Sync for Gamepad {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Headset(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Headset, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(Headset, IGameControllerBatteryInfo);
+windows_core::imp::required_hierarchy!(Headset, IGameControllerBatteryInfo, IHeadset);
 impl Headset {
     #[cfg(feature = "Devices_Power")]
     pub fn TryGetBatteryReport(&self) -> windows_core::Result<super::super::Devices::Power::BatteryReport> {
@@ -1029,19 +1011,17 @@ impl windows_core::RuntimeType for Headset {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHeadset>();
 }
 unsafe impl windows_core::Interface for Headset {
-    type Vtable = IHeadset_Vtbl;
+    type Vtable = <IHeadset as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHeadset as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for Headset {
     const NAME: &'static str = "Windows.Gaming.Input.Headset";
 }
-unsafe impl Send for Headset {}
-unsafe impl Sync for Headset {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RacingWheel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RacingWheel, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RacingWheel, IGameController, IGameControllerBatteryInfo);
+windows_core::imp::required_hierarchy!(RacingWheel, IGameController, IGameControllerBatteryInfo, IRacingWheel, IRacingWheelStatics, IRacingWheelStatics2);
 impl RacingWheel {
     pub fn HeadsetConnected<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1226,19 +1206,17 @@ impl windows_core::RuntimeType for RacingWheel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRacingWheel>();
 }
 unsafe impl windows_core::Interface for RacingWheel {
-    type Vtable = IRacingWheel_Vtbl;
+    type Vtable = <IRacingWheel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRacingWheel as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RacingWheel {
     const NAME: &'static str = "Windows.Gaming.Input.RacingWheel";
 }
-unsafe impl Send for RacingWheel {}
-unsafe impl Sync for RacingWheel {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RawGameController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RawGameController, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(RawGameController, IGameController, IGameControllerBatteryInfo);
+windows_core::imp::required_hierarchy!(RawGameController, IGameController, IGameControllerBatteryInfo, IRawGameController, IRawGameController2, IRawGameControllerStatics);
 impl RawGameController {
     pub fn HeadsetConnected<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1314,14 +1292,14 @@ impl RawGameController {
         }
     }
     pub fn AxisCount(&self) -> windows_core::Result<i32> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AxisCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ButtonCount(&self) -> windows_core::Result<i32> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ButtonCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
@@ -1329,49 +1307,49 @@ impl RawGameController {
     }
     #[cfg(all(feature = "Foundation_Collections", feature = "Gaming_Input_ForceFeedback"))]
     pub fn ForceFeedbackMotors(&self) -> windows_core::Result<super::super::Foundation::Collections::IVectorView<ForceFeedback::ForceFeedbackMotor>> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForceFeedbackMotors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn HardwareProductId(&self) -> windows_core::Result<u16> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HardwareProductId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn HardwareVendorId(&self) -> windows_core::Result<u16> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HardwareVendorId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn SwitchCount(&self) -> windows_core::Result<i32> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SwitchCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn GetButtonLabel(&self, buttonindex: i32) -> windows_core::Result<GameControllerButtonLabel> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetButtonLabel)(windows_core::Interface::as_raw(this), buttonindex, &mut result__).map(|| result__)
         }
     }
     pub fn GetCurrentReading(&self, buttonarray: &mut [bool], switcharray: &mut [GameControllerSwitchPosition], axisarray: &mut [f64]) -> windows_core::Result<u64> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentReading)(windows_core::Interface::as_raw(this), buttonarray.len().try_into().unwrap(), buttonarray.as_mut_ptr(), switcharray.len().try_into().unwrap(), switcharray.as_mut_ptr(), axisarray.len().try_into().unwrap(), axisarray.as_mut_ptr(), &mut result__).map(|| result__)
         }
     }
     pub fn GetSwitchKind(&self, switchindex: i32) -> windows_core::Result<GameControllerSwitchKind> {
-        let this = self;
+        let this = &windows_core::Interface::cast::<IRawGameController>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSwitchKind)(windows_core::Interface::as_raw(this), switchindex, &mut result__).map(|| result__)
@@ -1448,19 +1426,17 @@ impl windows_core::RuntimeType for RawGameController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRawGameController>();
 }
 unsafe impl windows_core::Interface for RawGameController {
-    type Vtable = IRawGameController_Vtbl;
+    type Vtable = <IRawGameController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRawGameController as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for RawGameController {
     const NAME: &'static str = "Windows.Gaming.Input.RawGameController";
 }
-unsafe impl Send for RawGameController {}
-unsafe impl Sync for RawGameController {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UINavigationController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UINavigationController, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(UINavigationController, IGameController, IGameControllerBatteryInfo);
+windows_core::imp::required_hierarchy!(UINavigationController, IGameController, IGameControllerBatteryInfo, IUINavigationController, IUINavigationControllerStatics, IUINavigationControllerStatics2);
 impl UINavigationController {
     pub fn HeadsetConnected<P0>(&self, value: P0) -> windows_core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1609,16 +1585,14 @@ impl windows_core::RuntimeType for UINavigationController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUINavigationController>();
 }
 unsafe impl windows_core::Interface for UINavigationController {
-    type Vtable = IUINavigationController_Vtbl;
+    type Vtable = <IUINavigationController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUINavigationController as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for UINavigationController {
     const NAME: &'static str = "Windows.Gaming.Input.UINavigationController";
 }
-unsafe impl Send for UINavigationController {}
-unsafe impl Sync for UINavigationController {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ArcadeStickButtons(pub u32);
 impl ArcadeStickButtons {
     pub const None: Self = Self(0u32);
@@ -1638,49 +1612,11 @@ impl ArcadeStickButtons {
 impl windows_core::TypeKind for ArcadeStickButtons {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for ArcadeStickButtons {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("ArcadeStickButtons").field(&self.0).finish()
-    }
-}
-impl ArcadeStickButtons {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for ArcadeStickButtons {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for ArcadeStickButtons {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for ArcadeStickButtons {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for ArcadeStickButtons {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for ArcadeStickButtons {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for ArcadeStickButtons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.ArcadeStickButtons;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct FlightStickButtons(pub u32);
 impl FlightStickButtons {
     pub const None: Self = Self(0u32);
@@ -1690,49 +1626,11 @@ impl FlightStickButtons {
 impl windows_core::TypeKind for FlightStickButtons {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FlightStickButtons {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FlightStickButtons").field(&self.0).finish()
-    }
-}
-impl FlightStickButtons {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for FlightStickButtons {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for FlightStickButtons {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for FlightStickButtons {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for FlightStickButtons {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for FlightStickButtons {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for FlightStickButtons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.FlightStickButtons;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GameControllerButtonLabel(pub i32);
 impl GameControllerButtonLabel {
     pub const None: Self = Self(0i32);
@@ -1808,16 +1706,11 @@ impl GameControllerButtonLabel {
 impl windows_core::TypeKind for GameControllerButtonLabel {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GameControllerButtonLabel {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GameControllerButtonLabel").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GameControllerButtonLabel {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerButtonLabel;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GameControllerSwitchKind(pub i32);
 impl GameControllerSwitchKind {
     pub const TwoWay: Self = Self(0i32);
@@ -1827,16 +1720,11 @@ impl GameControllerSwitchKind {
 impl windows_core::TypeKind for GameControllerSwitchKind {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GameControllerSwitchKind {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GameControllerSwitchKind").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GameControllerSwitchKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchKind;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GameControllerSwitchPosition(pub i32);
 impl GameControllerSwitchPosition {
     pub const Center: Self = Self(0i32);
@@ -1852,16 +1740,11 @@ impl GameControllerSwitchPosition {
 impl windows_core::TypeKind for GameControllerSwitchPosition {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GameControllerSwitchPosition {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GameControllerSwitchPosition").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for GameControllerSwitchPosition {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GamepadButtons(pub u32);
 impl GamepadButtons {
     pub const None: Self = Self(0u32);
@@ -1887,49 +1770,11 @@ impl GamepadButtons {
 impl windows_core::TypeKind for GamepadButtons {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GamepadButtons {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GamepadButtons").field(&self.0).finish()
-    }
-}
-impl GamepadButtons {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for GamepadButtons {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for GamepadButtons {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for GamepadButtons {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for GamepadButtons {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for GamepadButtons {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for GamepadButtons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.GamepadButtons;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct OptionalUINavigationButtons(pub u32);
 impl OptionalUINavigationButtons {
     pub const None: Self = Self(0u32);
@@ -1949,49 +1794,11 @@ impl OptionalUINavigationButtons {
 impl windows_core::TypeKind for OptionalUINavigationButtons {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for OptionalUINavigationButtons {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("OptionalUINavigationButtons").field(&self.0).finish()
-    }
-}
-impl OptionalUINavigationButtons {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for OptionalUINavigationButtons {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for OptionalUINavigationButtons {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for OptionalUINavigationButtons {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for OptionalUINavigationButtons {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for OptionalUINavigationButtons {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for OptionalUINavigationButtons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.OptionalUINavigationButtons;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct RacingWheelButtons(pub u32);
 impl RacingWheelButtons {
     pub const None: Self = Self(0u32);
@@ -2021,49 +1828,11 @@ impl RacingWheelButtons {
 impl windows_core::TypeKind for RacingWheelButtons {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RacingWheelButtons {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RacingWheelButtons").field(&self.0).finish()
-    }
-}
-impl RacingWheelButtons {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for RacingWheelButtons {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for RacingWheelButtons {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for RacingWheelButtons {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for RacingWheelButtons {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for RacingWheelButtons {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for RacingWheelButtons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RacingWheelButtons;u4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct RequiredUINavigationButtons(pub u32);
 impl RequiredUINavigationButtons {
     pub const None: Self = Self(0u32);
@@ -2079,49 +1848,11 @@ impl RequiredUINavigationButtons {
 impl windows_core::TypeKind for RequiredUINavigationButtons {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for RequiredUINavigationButtons {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("RequiredUINavigationButtons").field(&self.0).finish()
-    }
-}
-impl RequiredUINavigationButtons {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl core::ops::BitOr for RequiredUINavigationButtons {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl core::ops::BitAnd for RequiredUINavigationButtons {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl core::ops::BitOrAssign for RequiredUINavigationButtons {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl core::ops::BitAndAssign for RequiredUINavigationButtons {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl core::ops::Not for RequiredUINavigationButtons {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 impl windows_core::RuntimeType for RequiredUINavigationButtons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4)");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct ArcadeStickReading {
     pub Timestamp: u64,
     pub Buttons: ArcadeStickButtons,
@@ -2132,13 +1863,8 @@ impl windows_core::TypeKind for ArcadeStickReading {
 impl windows_core::RuntimeType for ArcadeStickReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.ArcadeStickReading;u8;enum(Windows.Gaming.Input.ArcadeStickButtons;u4))");
 }
-impl Default for ArcadeStickReading {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct FlightStickReading {
     pub Timestamp: u64,
     pub Buttons: FlightStickButtons,
@@ -2154,13 +1880,8 @@ impl windows_core::TypeKind for FlightStickReading {
 impl windows_core::RuntimeType for FlightStickReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.FlightStickReading;u8;enum(Windows.Gaming.Input.FlightStickButtons;u4);enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4);f8;f8;f8;f8)");
 }
-impl Default for FlightStickReading {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GamepadReading {
     pub Timestamp: u64,
     pub Buttons: GamepadButtons,
@@ -2177,13 +1898,8 @@ impl windows_core::TypeKind for GamepadReading {
 impl windows_core::RuntimeType for GamepadReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadReading;u8;enum(Windows.Gaming.Input.GamepadButtons;u4);f8;f8;f8;f8;f8;f8)");
 }
-impl Default for GamepadReading {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct GamepadVibration {
     pub LeftMotor: f64,
     pub RightMotor: f64,
@@ -2196,13 +1912,8 @@ impl windows_core::TypeKind for GamepadVibration {
 impl windows_core::RuntimeType for GamepadVibration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadVibration;f8;f8;f8;f8)");
 }
-impl Default for GamepadVibration {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct RacingWheelReading {
     pub Timestamp: u64,
     pub Buttons: RacingWheelButtons,
@@ -2219,13 +1930,8 @@ impl windows_core::TypeKind for RacingWheelReading {
 impl windows_core::RuntimeType for RacingWheelReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.RacingWheelReading;u8;enum(Windows.Gaming.Input.RacingWheelButtons;u4);i4;f8;f8;f8;f8;f8)");
 }
-impl Default for RacingWheelReading {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct UINavigationReading {
     pub Timestamp: u64,
     pub RequiredButtons: RequiredUINavigationButtons,
@@ -2236,9 +1942,4 @@ impl windows_core::TypeKind for UINavigationReading {
 }
 impl windows_core::RuntimeType for UINavigationReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.UINavigationReading;u8;enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4);enum(Windows.Gaming.Input.OptionalUINavigationButtons;u4))");
-}
-impl Default for UINavigationReading {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }

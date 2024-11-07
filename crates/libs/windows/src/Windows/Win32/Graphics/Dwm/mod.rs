@@ -7,11 +7,11 @@ where
     DwmAttachMilContent(hwnd.param().abi()).ok()
 }
 #[inline]
-pub unsafe fn DwmDefWindowProc<P0, P1, P2>(hwnd: P0, msg: u32, wparam: P1, lparam: P2, plresult: *mut super::super::Foundation::LRESULT) -> super::super::Foundation::BOOL
+pub unsafe fn DwmDefWindowProc<P0, P2, P3>(hwnd: P0, msg: u32, wparam: P2, lparam: P3, plresult: *mut super::super::Foundation::LRESULT) -> super::super::Foundation::BOOL
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::WPARAM>,
-    P2: windows_core::Param<super::super::Foundation::LPARAM>,
+    P2: windows_core::Param<super::super::Foundation::WPARAM>,
+    P3: windows_core::Param<super::super::Foundation::LPARAM>,
 {
     windows_targets::link!("dwmapi.dll" "system" fn DwmDefWindowProc(hwnd : super::super::Foundation:: HWND, msg : u32, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, plresult : *mut super::super::Foundation:: LRESULT) -> super::super::Foundation:: BOOL);
     DwmDefWindowProc(hwnd.param().abi(), msg, wparam.param().abi(), lparam.param().abi(), plresult)
@@ -121,10 +121,10 @@ pub unsafe fn DwmIsCompositionEnabled() -> windows_core::Result<super::super::Fo
     DwmIsCompositionEnabled(&mut result__).map(|| result__)
 }
 #[inline]
-pub unsafe fn DwmModifyPreviousDxFrameDuration<P0, P1>(hwnd: P0, crefreshes: i32, frelative: P1) -> windows_core::Result<()>
+pub unsafe fn DwmModifyPreviousDxFrameDuration<P0, P2>(hwnd: P0, crefreshes: i32, frelative: P2) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::super::Foundation::HWND>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dwmapi.dll" "system" fn DwmModifyPreviousDxFrameDuration(hwnd : super::super::Foundation:: HWND, crefreshes : i32, frelative : super::super::Foundation:: BOOL) -> windows_core::HRESULT);
     DwmModifyPreviousDxFrameDuration(hwnd.param().abi(), crefreshes, frelative.param().abi()).ok()
@@ -200,9 +200,9 @@ pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) ->
     DwmShowContact(dwpointerid, eshowcontact).ok()
 }
 #[inline]
-pub unsafe fn DwmTetherContact<P0>(dwpointerid: u32, fenable: P0, pttether: super::super::Foundation::POINT) -> windows_core::Result<()>
+pub unsafe fn DwmTetherContact<P1>(dwpointerid: u32, fenable: P1, pttether: super::super::Foundation::POINT) -> windows_core::Result<()>
 where
-    P0: windows_core::Param<super::super::Foundation::BOOL>,
+    P1: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("dwmapi.dll" "system" fn DwmTetherContact(dwpointerid : u32, fenable : super::super::Foundation:: BOOL, pttether : super::super::Foundation:: POINT) -> windows_core::HRESULT);
     DwmTetherContact(dwpointerid, fenable.param().abi(), core::mem::transmute(pttether)).ok()
@@ -322,59 +322,34 @@ pub const c_DwmMaxAdapters: u32 = 16u32;
 pub const c_DwmMaxMonitors: u32 = 16u32;
 pub const c_DwmMaxQueuedBuffers: u32 = 8u32;
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DWMFLIP3DWINDOWPOLICY(pub i32);
 impl windows_core::TypeKind for DWMFLIP3DWINDOWPOLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DWMFLIP3DWINDOWPOLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DWMFLIP3DWINDOWPOLICY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DWMNCRENDERINGPOLICY(pub i32);
 impl windows_core::TypeKind for DWMNCRENDERINGPOLICY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DWMNCRENDERINGPOLICY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DWMNCRENDERINGPOLICY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DWMTRANSITION_OWNEDWINDOW_TARGET(pub i32);
 impl windows_core::TypeKind for DWMTRANSITION_OWNEDWINDOW_TARGET {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DWMTRANSITION_OWNEDWINDOW_TARGET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DWMTRANSITION_OWNEDWINDOW_TARGET").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DWMWINDOWATTRIBUTE(pub i32);
 impl windows_core::TypeKind for DWMWINDOWATTRIBUTE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DWMWINDOWATTRIBUTE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DWMWINDOWATTRIBUTE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DWM_SHOWCONTACT(pub u32);
 impl windows_core::TypeKind for DWM_SHOWCONTACT {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DWM_SHOWCONTACT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DWM_SHOWCONTACT").field(&self.0).finish()
-    }
 }
 impl DWM_SHOWCONTACT {
     pub const fn contains(&self, other: Self) -> bool {
@@ -410,37 +385,22 @@ impl core::ops::Not for DWM_SHOWCONTACT {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DWM_SOURCE_FRAME_SAMPLING(pub i32);
 impl windows_core::TypeKind for DWM_SOURCE_FRAME_SAMPLING {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DWM_SOURCE_FRAME_SAMPLING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DWM_SOURCE_FRAME_SAMPLING").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DWM_SYSTEMBACKDROP_TYPE(pub i32);
 impl windows_core::TypeKind for DWM_SYSTEMBACKDROP_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DWM_SYSTEMBACKDROP_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DWM_SYSTEMBACKDROP_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DWM_TAB_WINDOW_REQUIREMENTS(pub i32);
 impl windows_core::TypeKind for DWM_TAB_WINDOW_REQUIREMENTS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for DWM_TAB_WINDOW_REQUIREMENTS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DWM_TAB_WINDOW_REQUIREMENTS").field(&self.0).finish()
-    }
 }
 impl DWM_TAB_WINDOW_REQUIREMENTS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -476,30 +436,20 @@ impl core::ops::Not for DWM_TAB_WINDOW_REQUIREMENTS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct DWM_WINDOW_CORNER_PREFERENCE(pub i32);
 impl windows_core::TypeKind for DWM_WINDOW_CORNER_PREFERENCE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for DWM_WINDOW_CORNER_PREFERENCE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("DWM_WINDOW_CORNER_PREFERENCE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct GESTURE_TYPE(pub i32);
 impl windows_core::TypeKind for GESTURE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for GESTURE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("GESTURE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DWM_BLURBEHIND {
     pub dwFlags: u32,
     pub fEnable: super::super::Foundation::BOOL,
@@ -507,17 +457,17 @@ pub struct DWM_BLURBEHIND {
     pub fTransitionOnMaximized: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for DWM_BLURBEHIND {
-    type TypeKind = windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for DWM_BLURBEHIND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for DWM_BLURBEHIND {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DWM_PRESENT_PARAMETERS {
     pub cbSize: u32,
     pub fQueue: super::super::Foundation::BOOL,
@@ -528,16 +478,16 @@ pub struct DWM_PRESENT_PARAMETERS {
     pub cRefreshesPerFrame: u32,
     pub eSampling: DWM_SOURCE_FRAME_SAMPLING,
 }
-impl windows_core::TypeKind for DWM_PRESENT_PARAMETERS {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DWM_PRESENT_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DWM_PRESENT_PARAMETERS {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DWM_THUMBNAIL_PROPERTIES {
     pub dwFlags: u32,
     pub rcDestination: super::super::Foundation::RECT,
@@ -546,16 +496,16 @@ pub struct DWM_THUMBNAIL_PROPERTIES {
     pub fVisible: super::super::Foundation::BOOL,
     pub fSourceClientAreaOnly: super::super::Foundation::BOOL,
 }
-impl windows_core::TypeKind for DWM_THUMBNAIL_PROPERTIES {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DWM_THUMBNAIL_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DWM_THUMBNAIL_PROPERTIES {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct DWM_TIMING_INFO {
     pub cbSize: u32,
     pub rateRefresh: UNSIGNED_RATIO,
@@ -598,16 +548,16 @@ pub struct DWM_TIMING_INFO {
     pub cPixelsDrawn: u64,
     pub cBuffersEmpty: u64,
 }
-impl windows_core::TypeKind for DWM_TIMING_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for DWM_TIMING_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for DWM_TIMING_INFO {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct MilMatrix3x2D {
     pub S_11: f64,
     pub S_12: f64,
@@ -616,25 +566,25 @@ pub struct MilMatrix3x2D {
     pub DX: f64,
     pub DY: f64,
 }
-impl windows_core::TypeKind for MilMatrix3x2D {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for MilMatrix3x2D {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for MilMatrix3x2D {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct UNSIGNED_RATIO {
     pub uiNumerator: u32,
     pub uiDenominator: u32,
-}
-impl windows_core::TypeKind for UNSIGNED_RATIO {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for UNSIGNED_RATIO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for UNSIGNED_RATIO {
+    type TypeKind = windows_core::CopyType;
 }

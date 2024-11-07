@@ -209,15 +209,10 @@ pub const PIPE_TYPE_MESSAGE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(4u32);
 pub const PIPE_UNLIMITED_INSTANCES: u32 = 255u32;
 pub const PIPE_WAIT: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct NAMED_PIPE_MODE(pub u32);
 impl windows_core::TypeKind for NAMED_PIPE_MODE {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for NAMED_PIPE_MODE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("NAMED_PIPE_MODE").field(&self.0).finish()
-    }
 }
 impl NAMED_PIPE_MODE {
     pub const fn contains(&self, other: Self) -> bool {

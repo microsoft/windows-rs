@@ -68,6 +68,7 @@ pub struct IShareOperation3_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct QuickLink(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(QuickLink, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(QuickLink, IQuickLink);
 impl QuickLink {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -135,7 +136,7 @@ impl windows_core::RuntimeType for QuickLink {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IQuickLink>();
 }
 unsafe impl windows_core::Interface for QuickLink {
-    type Vtable = IQuickLink_Vtbl;
+    type Vtable = <IQuickLink as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IQuickLink as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for QuickLink {
@@ -145,6 +146,7 @@ impl windows_core::RuntimeName for QuickLink {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareOperation, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ShareOperation, IShareOperation, IShareOperation2, IShareOperation3);
 impl ShareOperation {
     pub fn Data(&self) -> windows_core::Result<super::DataPackageView> {
         let this = self;
@@ -208,7 +210,7 @@ impl windows_core::RuntimeType for ShareOperation {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareOperation>();
 }
 unsafe impl windows_core::Interface for ShareOperation {
-    type Vtable = IShareOperation_Vtbl;
+    type Vtable = <IShareOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IShareOperation as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ShareOperation {

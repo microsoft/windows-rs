@@ -79,6 +79,7 @@ pub struct ISerialDeviceStatics_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ErrorReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ErrorReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(ErrorReceivedEventArgs, IErrorReceivedEventArgs);
 impl ErrorReceivedEventArgs {
     pub fn Error(&self) -> windows_core::Result<SerialError> {
         let this = self;
@@ -92,18 +93,17 @@ impl windows_core::RuntimeType for ErrorReceivedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IErrorReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for ErrorReceivedEventArgs {
-    type Vtable = IErrorReceivedEventArgs_Vtbl;
+    type Vtable = <IErrorReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IErrorReceivedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for ErrorReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.ErrorReceivedEventArgs";
 }
-unsafe impl Send for ErrorReceivedEventArgs {}
-unsafe impl Sync for ErrorReceivedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PinChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PinChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PinChangedEventArgs, IPinChangedEventArgs);
 impl PinChangedEventArgs {
     pub fn PinChange(&self) -> windows_core::Result<SerialPinChange> {
         let this = self;
@@ -117,24 +117,18 @@ impl windows_core::RuntimeType for PinChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPinChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for PinChangedEventArgs {
-    type Vtable = IPinChangedEventArgs_Vtbl;
+    type Vtable = <IPinChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPinChangedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PinChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.PinChangedEventArgs";
 }
-unsafe impl Send for PinChangedEventArgs {}
-unsafe impl Sync for PinChangedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SerialDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SerialDevice, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SerialDevice, super::super::Foundation::IClosable);
+windows_core::imp::required_hierarchy!(SerialDevice, ISerialDevice, ISerialDeviceStatics, super::super::Foundation::IClosable);
 impl SerialDevice {
-    pub fn Close(&self) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
-    }
     pub fn BaudRate(&self) -> windows_core::Result<u32> {
         let this = self;
         unsafe {
@@ -362,6 +356,10 @@ impl SerialDevice {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
+    pub fn Close(&self) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
+    }
     fn ISerialDeviceStatics<R, F: FnOnce(&ISerialDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SerialDevice, ISerialDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -371,16 +369,14 @@ impl windows_core::RuntimeType for SerialDevice {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISerialDevice>();
 }
 unsafe impl windows_core::Interface for SerialDevice {
-    type Vtable = ISerialDevice_Vtbl;
+    type Vtable = <ISerialDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISerialDevice as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SerialDevice {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.SerialDevice";
 }
-unsafe impl Send for SerialDevice {}
-unsafe impl Sync for SerialDevice {}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SerialError(pub i32);
 impl SerialError {
     pub const Frame: Self = Self(0i32);
@@ -392,16 +388,11 @@ impl SerialError {
 impl windows_core::TypeKind for SerialError {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SerialError {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SerialError").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for SerialError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialError;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SerialHandshake(pub i32);
 impl SerialHandshake {
     pub const None: Self = Self(0i32);
@@ -412,16 +403,11 @@ impl SerialHandshake {
 impl windows_core::TypeKind for SerialHandshake {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SerialHandshake {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SerialHandshake").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for SerialHandshake {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialHandshake;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SerialParity(pub i32);
 impl SerialParity {
     pub const None: Self = Self(0i32);
@@ -433,16 +419,11 @@ impl SerialParity {
 impl windows_core::TypeKind for SerialParity {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SerialParity {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SerialParity").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for SerialParity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialParity;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SerialPinChange(pub i32);
 impl SerialPinChange {
     pub const BreakSignal: Self = Self(0i32);
@@ -454,16 +435,11 @@ impl SerialPinChange {
 impl windows_core::TypeKind for SerialPinChange {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for SerialPinChange {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SerialPinChange").field(&self.0).finish()
-    }
-}
 impl windows_core::RuntimeType for SerialPinChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialPinChange;i4)");
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct SerialStopBitCount(pub i32);
 impl SerialStopBitCount {
     pub const One: Self = Self(0i32);
@@ -472,11 +448,6 @@ impl SerialStopBitCount {
 }
 impl windows_core::TypeKind for SerialStopBitCount {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for SerialStopBitCount {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("SerialStopBitCount").field(&self.0).finish()
-    }
 }
 impl windows_core::RuntimeType for SerialStopBitCount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialStopBitCount;i4)");

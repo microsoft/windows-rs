@@ -56,9 +56,9 @@ pub unsafe fn JsCreateArray(length: u32, result: *mut *mut core::ffi::c_void) ->
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
-pub unsafe fn JsCreateContext<P0>(runtime: *const core::ffi::c_void, debugapplication: P0, newcontext: *mut *mut core::ffi::c_void) -> JsErrorCode
+pub unsafe fn JsCreateContext<P1>(runtime: *const core::ffi::c_void, debugapplication: P1, newcontext: *mut *mut core::ffi::c_void) -> JsErrorCode
 where
-    P0: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication64>,
+    P1: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication64>,
 {
     windows_targets::link!("chakra.dll" "system" fn JsCreateContext(runtime : *const core::ffi::c_void, debugapplication : * mut core::ffi::c_void, newcontext : *mut *mut core::ffi::c_void) -> JsErrorCode);
     JsCreateContext(runtime, debugapplication.param().abi(), newcontext)
@@ -66,9 +66,9 @@ where
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_ActiveScript")]
 #[inline]
-pub unsafe fn JsCreateContext<P0>(runtime: *const core::ffi::c_void, debugapplication: P0, newcontext: *mut *mut core::ffi::c_void) -> JsErrorCode
+pub unsafe fn JsCreateContext<P1>(runtime: *const core::ffi::c_void, debugapplication: P1, newcontext: *mut *mut core::ffi::c_void) -> JsErrorCode
 where
-    P0: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication32>,
+    P1: windows_core::Param<super::Diagnostics::Debug::ActiveScript::IDebugApplication32>,
 {
     windows_targets::link!("chakra.dll" "system" fn JsCreateContext(runtime : *const core::ffi::c_void, debugapplication : * mut core::ffi::c_void, newcontext : *mut *mut core::ffi::c_void) -> JsErrorCode);
     JsCreateContext(runtime, debugapplication.param().abi(), newcontext)
@@ -323,19 +323,19 @@ pub unsafe fn JsNumberToDouble(value: *const core::ffi::c_void, doublevalue: *mu
     JsNumberToDouble(value, doublevalue)
 }
 #[inline]
-pub unsafe fn JsParseScript<P0, P1>(script: P0, sourcecontext: usize, sourceurl: P1, result: *mut *mut core::ffi::c_void) -> JsErrorCode
+pub unsafe fn JsParseScript<P0, P2>(script: P0, sourcecontext: usize, sourceurl: P2, result: *mut *mut core::ffi::c_void) -> JsErrorCode
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("chakra.dll" "system" fn JsParseScript(script : windows_core::PCWSTR, sourcecontext : usize, sourceurl : windows_core::PCWSTR, result : *mut *mut core::ffi::c_void) -> JsErrorCode);
     JsParseScript(script.param().abi(), sourcecontext, sourceurl.param().abi(), result)
 }
 #[inline]
-pub unsafe fn JsParseSerializedScript<P0, P1>(script: P0, buffer: *const u8, sourcecontext: usize, sourceurl: P1, result: *mut *mut core::ffi::c_void) -> JsErrorCode
+pub unsafe fn JsParseSerializedScript<P0, P3>(script: P0, buffer: *const u8, sourcecontext: usize, sourceurl: P3, result: *mut *mut core::ffi::c_void) -> JsErrorCode
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("chakra.dll" "system" fn JsParseSerializedScript(script : windows_core::PCWSTR, buffer : *const u8, sourcecontext : usize, sourceurl : windows_core::PCWSTR, result : *mut *mut core::ffi::c_void) -> JsErrorCode);
     JsParseSerializedScript(script.param().abi(), buffer, sourcecontext, sourceurl.param().abi(), result)
@@ -356,19 +356,19 @@ pub unsafe fn JsRelease(r#ref: *const core::ffi::c_void, count: Option<*mut u32>
     JsRelease(r#ref, core::mem::transmute(count.unwrap_or(core::ptr::null_mut())))
 }
 #[inline]
-pub unsafe fn JsRunScript<P0, P1>(script: P0, sourcecontext: usize, sourceurl: P1, result: *mut *mut core::ffi::c_void) -> JsErrorCode
+pub unsafe fn JsRunScript<P0, P2>(script: P0, sourcecontext: usize, sourceurl: P2, result: *mut *mut core::ffi::c_void) -> JsErrorCode
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("chakra.dll" "system" fn JsRunScript(script : windows_core::PCWSTR, sourcecontext : usize, sourceurl : windows_core::PCWSTR, result : *mut *mut core::ffi::c_void) -> JsErrorCode);
     JsRunScript(script.param().abi(), sourcecontext, sourceurl.param().abi(), result)
 }
 #[inline]
-pub unsafe fn JsRunSerializedScript<P0, P1>(script: P0, buffer: *const u8, sourcecontext: usize, sourceurl: P1, result: *mut *mut core::ffi::c_void) -> JsErrorCode
+pub unsafe fn JsRunSerializedScript<P0, P3>(script: P0, buffer: *const u8, sourcecontext: usize, sourceurl: P3, result: *mut *mut core::ffi::c_void) -> JsErrorCode
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
-    P1: windows_core::Param<windows_core::PCWSTR>,
+    P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_targets::link!("chakra.dll" "system" fn JsRunSerializedScript(script : windows_core::PCWSTR, buffer : *const u8, sourcecontext : usize, sourceurl : windows_core::PCWSTR, result : *mut *mut core::ffi::c_void) -> JsErrorCode);
     JsRunSerializedScript(script.param().abi(), buffer, sourcecontext, sourceurl.param().abi(), result)
@@ -473,13 +473,13 @@ pub unsafe fn JsStringToPointer(value: *const core::ffi::c_void, stringvalue: *m
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn JsValueToVariant(object: *const core::ffi::c_void, variant: *mut super::Variant::VARIANT) -> JsErrorCode {
-    windows_targets::link!("chakra.dll" "system" fn JsValueToVariant(object : *const core::ffi::c_void, variant : *mut core::mem::MaybeUninit < super::Variant:: VARIANT >) -> JsErrorCode);
+    windows_targets::link!("chakra.dll" "system" fn JsValueToVariant(object : *const core::ffi::c_void, variant : *mut super::Variant:: VARIANT) -> JsErrorCode);
     JsValueToVariant(object, core::mem::transmute(variant))
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn JsVariantToValue(variant: *const super::Variant::VARIANT, value: *mut *mut core::ffi::c_void) -> JsErrorCode {
-    windows_targets::link!("chakra.dll" "system" fn JsVariantToValue(variant : *const core::mem::MaybeUninit < super::Variant:: VARIANT >, value : *mut *mut core::ffi::c_void) -> JsErrorCode);
+    windows_targets::link!("chakra.dll" "system" fn JsVariantToValue(variant : *const super::Variant:: VARIANT, value : *mut *mut core::ffi::c_void) -> JsErrorCode);
     JsVariantToValue(core::mem::transmute(variant), value)
 }
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
@@ -534,59 +534,34 @@ pub const JsRuntimeVersionEdge: JsRuntimeVersion = JsRuntimeVersion(-1i32);
 pub const JsString: JsValueType = JsValueType(3i32);
 pub const JsUndefined: JsValueType = JsValueType(0i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct JsErrorCode(pub u32);
 impl windows_core::TypeKind for JsErrorCode {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for JsErrorCode {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("JsErrorCode").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct JsMemoryEventType(pub i32);
 impl windows_core::TypeKind for JsMemoryEventType {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for JsMemoryEventType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("JsMemoryEventType").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct JsRuntimeAttributes(pub i32);
 impl windows_core::TypeKind for JsRuntimeAttributes {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for JsRuntimeAttributes {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("JsRuntimeAttributes").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct JsRuntimeVersion(pub i32);
 impl windows_core::TypeKind for JsRuntimeVersion {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for JsRuntimeVersion {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("JsRuntimeVersion").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct JsValueType(pub i32);
 impl windows_core::TypeKind for JsValueType {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for JsValueType {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("JsValueType").field(&self.0).finish()
-    }
 }
 pub type JsBackgroundWorkItemCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void)>;
 pub type JsBeforeCollectCallback = Option<unsafe extern "system" fn(callbackstate: *const core::ffi::c_void)>;

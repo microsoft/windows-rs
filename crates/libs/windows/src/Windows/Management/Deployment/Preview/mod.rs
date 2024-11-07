@@ -37,6 +37,7 @@ impl windows_core::RuntimeName for ClassicAppManager {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InstalledClassicAppInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InstalledClassicAppInfo, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(InstalledClassicAppInfo, IInstalledClassicAppInfo);
 impl InstalledClassicAppInfo {
     pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = self;
@@ -57,11 +58,9 @@ impl windows_core::RuntimeType for InstalledClassicAppInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInstalledClassicAppInfo>();
 }
 unsafe impl windows_core::Interface for InstalledClassicAppInfo {
-    type Vtable = IInstalledClassicAppInfo_Vtbl;
+    type Vtable = <IInstalledClassicAppInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInstalledClassicAppInfo as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for InstalledClassicAppInfo {
     const NAME: &'static str = "Windows.Management.Deployment.Preview.InstalledClassicAppInfo";
 }
-unsafe impl Send for InstalledClassicAppInfo {}
-unsafe impl Sync for InstalledClassicAppInfo {}

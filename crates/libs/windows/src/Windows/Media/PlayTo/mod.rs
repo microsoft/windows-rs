@@ -401,6 +401,7 @@ pub struct IVolumeChangeRequestedEventArgs_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CurrentTimeChangeRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CurrentTimeChangeRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(CurrentTimeChangeRequestedEventArgs, ICurrentTimeChangeRequestedEventArgs);
 impl CurrentTimeChangeRequestedEventArgs {
     pub fn Time(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -414,7 +415,7 @@ impl windows_core::RuntimeType for CurrentTimeChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICurrentTimeChangeRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for CurrentTimeChangeRequestedEventArgs {
-    type Vtable = ICurrentTimeChangeRequestedEventArgs_Vtbl;
+    type Vtable = <ICurrentTimeChangeRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICurrentTimeChangeRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for CurrentTimeChangeRequestedEventArgs {
@@ -424,6 +425,7 @@ impl windows_core::RuntimeName for CurrentTimeChangeRequestedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MuteChangeRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MuteChangeRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(MuteChangeRequestedEventArgs, IMuteChangeRequestedEventArgs);
 impl MuteChangeRequestedEventArgs {
     pub fn Mute(&self) -> windows_core::Result<bool> {
         let this = self;
@@ -437,7 +439,7 @@ impl windows_core::RuntimeType for MuteChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMuteChangeRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for MuteChangeRequestedEventArgs {
-    type Vtable = IMuteChangeRequestedEventArgs_Vtbl;
+    type Vtable = <IMuteChangeRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMuteChangeRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for MuteChangeRequestedEventArgs {
@@ -449,6 +451,8 @@ impl windows_core::RuntimeName for MuteChangeRequestedEventArgs {
 pub struct PlayToConnection(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PlayToConnection, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(PlayToConnection, IPlayToConnection);
 #[cfg(feature = "deprecated")]
 impl PlayToConnection {
     #[cfg(feature = "deprecated")]
@@ -514,7 +518,7 @@ impl windows_core::RuntimeType for PlayToConnection {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToConnection {
-    type Vtable = IPlayToConnection_Vtbl;
+    type Vtable = <IPlayToConnection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayToConnection as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -522,15 +526,13 @@ impl windows_core::RuntimeName for PlayToConnection {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnection";
 }
 #[cfg(feature = "deprecated")]
-unsafe impl Send for PlayToConnection {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for PlayToConnection {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayToConnectionErrorEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PlayToConnectionErrorEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(PlayToConnectionErrorEventArgs, IPlayToConnectionErrorEventArgs);
 #[cfg(feature = "deprecated")]
 impl PlayToConnectionErrorEventArgs {
     #[cfg(feature = "deprecated")]
@@ -556,7 +558,7 @@ impl windows_core::RuntimeType for PlayToConnectionErrorEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToConnectionErrorEventArgs {
-    type Vtable = IPlayToConnectionErrorEventArgs_Vtbl;
+    type Vtable = <IPlayToConnectionErrorEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayToConnectionErrorEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -564,15 +566,13 @@ impl windows_core::RuntimeName for PlayToConnectionErrorEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnectionErrorEventArgs";
 }
 #[cfg(feature = "deprecated")]
-unsafe impl Send for PlayToConnectionErrorEventArgs {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for PlayToConnectionErrorEventArgs {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayToConnectionStateChangedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PlayToConnectionStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(PlayToConnectionStateChangedEventArgs, IPlayToConnectionStateChangedEventArgs);
 #[cfg(feature = "deprecated")]
 impl PlayToConnectionStateChangedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -598,7 +598,7 @@ impl windows_core::RuntimeType for PlayToConnectionStateChangedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToConnectionStateChangedEventArgs {
-    type Vtable = IPlayToConnectionStateChangedEventArgs_Vtbl;
+    type Vtable = <IPlayToConnectionStateChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayToConnectionStateChangedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -606,15 +606,13 @@ impl windows_core::RuntimeName for PlayToConnectionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnectionStateChangedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-unsafe impl Send for PlayToConnectionStateChangedEventArgs {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for PlayToConnectionStateChangedEventArgs {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayToConnectionTransferredEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PlayToConnectionTransferredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(PlayToConnectionTransferredEventArgs, IPlayToConnectionTransferredEventArgs);
 #[cfg(feature = "deprecated")]
 impl PlayToConnectionTransferredEventArgs {
     #[cfg(feature = "deprecated")]
@@ -640,7 +638,7 @@ impl windows_core::RuntimeType for PlayToConnectionTransferredEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToConnectionTransferredEventArgs {
-    type Vtable = IPlayToConnectionTransferredEventArgs_Vtbl;
+    type Vtable = <IPlayToConnectionTransferredEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayToConnectionTransferredEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -648,15 +646,13 @@ impl windows_core::RuntimeName for PlayToConnectionTransferredEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToConnectionTransferredEventArgs";
 }
 #[cfg(feature = "deprecated")]
-unsafe impl Send for PlayToConnectionTransferredEventArgs {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for PlayToConnectionTransferredEventArgs {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayToManager(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PlayToManager, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(PlayToManager, IPlayToManager, IPlayToManagerStatics);
 #[cfg(feature = "deprecated")]
 impl PlayToManager {
     #[cfg(feature = "deprecated")]
@@ -715,7 +711,6 @@ impl PlayToManager {
     pub fn ShowPlayToUI() -> windows_core::Result<()> {
         Self::IPlayToManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowPlayToUI)(windows_core::Interface::as_raw(this)).ok() })
     }
-    #[cfg(feature = "deprecated")]
     fn IPlayToManagerStatics<R, F: FnOnce(&IPlayToManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayToManager, IPlayToManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
@@ -727,21 +722,18 @@ impl windows_core::RuntimeType for PlayToManager {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToManager {
-    type Vtable = IPlayToManager_Vtbl;
+    type Vtable = <IPlayToManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayToManager as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for PlayToManager {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToManager";
 }
-#[cfg(feature = "deprecated")]
-unsafe impl Send for PlayToManager {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for PlayToManager {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayToReceiver(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayToReceiver, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PlayToReceiver, IPlayToReceiver);
 impl PlayToReceiver {
     pub fn new() -> windows_core::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -995,7 +987,7 @@ impl windows_core::RuntimeType for PlayToReceiver {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayToReceiver>();
 }
 unsafe impl windows_core::Interface for PlayToReceiver {
-    type Vtable = IPlayToReceiver_Vtbl;
+    type Vtable = <IPlayToReceiver as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayToReceiver as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PlayToReceiver {
@@ -1007,6 +999,8 @@ impl windows_core::RuntimeName for PlayToReceiver {
 pub struct PlayToSource(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PlayToSource, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(PlayToSource, IPlayToSource, IPlayToSourceWithPreferredSourceUri);
 #[cfg(feature = "deprecated")]
 impl PlayToSource {
     #[cfg(feature = "deprecated")]
@@ -1061,7 +1055,7 @@ impl windows_core::RuntimeType for PlayToSource {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToSource {
-    type Vtable = IPlayToSource_Vtbl;
+    type Vtable = <IPlayToSource as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayToSource as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1069,15 +1063,13 @@ impl windows_core::RuntimeName for PlayToSource {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSource";
 }
 #[cfg(feature = "deprecated")]
-unsafe impl Send for PlayToSource {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for PlayToSource {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayToSourceDeferral(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PlayToSourceDeferral, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(PlayToSourceDeferral, IPlayToSourceDeferral);
 #[cfg(feature = "deprecated")]
 impl PlayToSourceDeferral {
     #[cfg(feature = "deprecated")]
@@ -1092,7 +1084,7 @@ impl windows_core::RuntimeType for PlayToSourceDeferral {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToSourceDeferral {
-    type Vtable = IPlayToSourceDeferral_Vtbl;
+    type Vtable = <IPlayToSourceDeferral as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayToSourceDeferral as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1100,15 +1092,13 @@ impl windows_core::RuntimeName for PlayToSourceDeferral {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceDeferral";
 }
 #[cfg(feature = "deprecated")]
-unsafe impl Send for PlayToSourceDeferral {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for PlayToSourceDeferral {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayToSourceRequest(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PlayToSourceRequest, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(PlayToSourceRequest, IPlayToSourceRequest);
 #[cfg(feature = "deprecated")]
 impl PlayToSourceRequest {
     #[cfg(feature = "deprecated")]
@@ -1147,7 +1137,7 @@ impl windows_core::RuntimeType for PlayToSourceRequest {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToSourceRequest {
-    type Vtable = IPlayToSourceRequest_Vtbl;
+    type Vtable = <IPlayToSourceRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayToSourceRequest as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1155,15 +1145,13 @@ impl windows_core::RuntimeName for PlayToSourceRequest {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceRequest";
 }
 #[cfg(feature = "deprecated")]
-unsafe impl Send for PlayToSourceRequest {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for PlayToSourceRequest {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayToSourceRequestedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PlayToSourceRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(PlayToSourceRequestedEventArgs, IPlayToSourceRequestedEventArgs);
 #[cfg(feature = "deprecated")]
 impl PlayToSourceRequestedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -1181,7 +1169,7 @@ impl windows_core::RuntimeType for PlayToSourceRequestedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToSourceRequestedEventArgs {
-    type Vtable = IPlayToSourceRequestedEventArgs_Vtbl;
+    type Vtable = <IPlayToSourceRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayToSourceRequestedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
@@ -1189,15 +1177,13 @@ impl windows_core::RuntimeName for PlayToSourceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceRequestedEventArgs";
 }
 #[cfg(feature = "deprecated")]
-unsafe impl Send for PlayToSourceRequestedEventArgs {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for PlayToSourceRequestedEventArgs {}
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayToSourceSelectedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PlayToSourceSelectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "deprecated")]
+windows_core::imp::required_hierarchy!(PlayToSourceSelectedEventArgs, IPlayToSourceSelectedEventArgs);
 #[cfg(feature = "deprecated")]
 impl PlayToSourceSelectedEventArgs {
     #[cfg(feature = "deprecated")]
@@ -1247,21 +1233,18 @@ impl windows_core::RuntimeType for PlayToSourceSelectedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PlayToSourceSelectedEventArgs {
-    type Vtable = IPlayToSourceSelectedEventArgs_Vtbl;
+    type Vtable = <IPlayToSourceSelectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayToSourceSelectedEventArgs as windows_core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl windows_core::RuntimeName for PlayToSourceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToSourceSelectedEventArgs";
 }
-#[cfg(feature = "deprecated")]
-unsafe impl Send for PlayToSourceSelectedEventArgs {}
-#[cfg(feature = "deprecated")]
-unsafe impl Sync for PlayToSourceSelectedEventArgs {}
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaybackRateChangeRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlaybackRateChangeRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(PlaybackRateChangeRequestedEventArgs, IPlaybackRateChangeRequestedEventArgs);
 impl PlaybackRateChangeRequestedEventArgs {
     pub fn Rate(&self) -> windows_core::Result<f64> {
         let this = self;
@@ -1275,7 +1258,7 @@ impl windows_core::RuntimeType for PlaybackRateChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaybackRateChangeRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for PlaybackRateChangeRequestedEventArgs {
-    type Vtable = IPlaybackRateChangeRequestedEventArgs_Vtbl;
+    type Vtable = <IPlaybackRateChangeRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlaybackRateChangeRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for PlaybackRateChangeRequestedEventArgs {
@@ -1285,6 +1268,7 @@ impl windows_core::RuntimeName for PlaybackRateChangeRequestedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SourceChangeRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SourceChangeRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(SourceChangeRequestedEventArgs, ISourceChangeRequestedEventArgs);
 impl SourceChangeRequestedEventArgs {
     #[cfg(feature = "Storage_Streams")]
     pub fn Stream(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
@@ -1364,7 +1348,7 @@ impl windows_core::RuntimeType for SourceChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISourceChangeRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for SourceChangeRequestedEventArgs {
-    type Vtable = ISourceChangeRequestedEventArgs_Vtbl;
+    type Vtable = <ISourceChangeRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISourceChangeRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for SourceChangeRequestedEventArgs {
@@ -1374,6 +1358,7 @@ impl windows_core::RuntimeName for SourceChangeRequestedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VolumeChangeRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VolumeChangeRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+windows_core::imp::required_hierarchy!(VolumeChangeRequestedEventArgs, IVolumeChangeRequestedEventArgs);
 impl VolumeChangeRequestedEventArgs {
     pub fn Volume(&self) -> windows_core::Result<f64> {
         let this = self;
@@ -1387,17 +1372,15 @@ impl windows_core::RuntimeType for VolumeChangeRequestedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVolumeChangeRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for VolumeChangeRequestedEventArgs {
-    type Vtable = IVolumeChangeRequestedEventArgs_Vtbl;
+    type Vtable = <IVolumeChangeRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVolumeChangeRequestedEventArgs as windows_core::Interface>::IID;
 }
 impl windows_core::RuntimeName for VolumeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.VolumeChangeRequestedEventArgs";
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PlayToConnectionError(pub i32);
-#[cfg(feature = "deprecated")]
 impl PlayToConnectionError {
     pub const None: Self = Self(0i32);
     pub const DeviceNotResponding: Self = Self(1i32);
@@ -1405,41 +1388,23 @@ impl PlayToConnectionError {
     pub const DeviceLocked: Self = Self(3i32);
     pub const ProtectedPlaybackFailed: Self = Self(4i32);
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::TypeKind for PlayToConnectionError {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "deprecated")]
-impl core::fmt::Debug for PlayToConnectionError {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PlayToConnectionError").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for PlayToConnectionError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionError;i4)");
 }
-#[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct PlayToConnectionState(pub i32);
-#[cfg(feature = "deprecated")]
 impl PlayToConnectionState {
     pub const Disconnected: Self = Self(0i32);
     pub const Connected: Self = Self(1i32);
     pub const Rendering: Self = Self(2i32);
 }
-#[cfg(feature = "deprecated")]
 impl windows_core::TypeKind for PlayToConnectionState {
     type TypeKind = windows_core::CopyType;
 }
-#[cfg(feature = "deprecated")]
-impl core::fmt::Debug for PlayToConnectionState {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PlayToConnectionState").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 impl windows_core::RuntimeType for PlayToConnectionState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionState;i4)");
 }

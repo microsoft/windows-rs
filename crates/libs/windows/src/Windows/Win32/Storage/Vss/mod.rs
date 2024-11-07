@@ -5,12 +5,6 @@ pub unsafe fn CreateVssExpressWriterInternal() -> windows_core::Result<IVssExpre
     CreateVssExpressWriterInternal(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
 }
 windows_core::imp::define_interface!(IVssAdmin, IVssAdmin_Vtbl, 0x77ed5996_2f63_11d3_8a39_00c04f72d8e3);
-impl core::ops::Deref for IVssAdmin {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssAdmin, windows_core::IUnknown);
 impl IVssAdmin {
     pub unsafe fn RegisterProvider(&self, pproviderid: windows_core::GUID, classid: windows_core::GUID, pwszprovidername: *const u16, eprovidertype: VSS_PROVIDER_TYPE, pwszproviderversion: *const u16, providerversionid: windows_core::GUID) -> windows_core::Result<()> {
@@ -35,15 +29,14 @@ pub struct IVssAdmin_Vtbl {
     pub QueryProviders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AbortAllSnapshotsInProgress: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IVssAdmin_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssAdmin_Impl: windows_core::IUnknownImpl {
     fn RegisterProvider(&self, pproviderid: &windows_core::GUID, classid: &windows_core::GUID, pwszprovidername: *const u16, eprovidertype: VSS_PROVIDER_TYPE, pwszproviderversion: *const u16, providerversionid: &windows_core::GUID) -> windows_core::Result<()>;
     fn UnregisterProvider(&self, providerid: &windows_core::GUID) -> windows_core::Result<()>;
     fn QueryProviders(&self) -> windows_core::Result<IVssEnumObject>;
     fn AbortAllSnapshotsInProgress(&self) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IVssAdmin {}
 impl IVssAdmin_Vtbl {
-    pub const fn new<Identity: IVssAdmin_Impl, const OFFSET: isize>() -> IVssAdmin_Vtbl {
+    pub const fn new<Identity: IVssAdmin_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RegisterProvider<Identity: IVssAdmin_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pproviderid: windows_core::GUID, classid: windows_core::GUID, pwszprovidername: *const u16, eprovidertype: VSS_PROVIDER_TYPE, pwszproviderversion: *const u16, providerversionid: windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssAdmin_Impl::RegisterProvider(this, core::mem::transmute(&pproviderid), core::mem::transmute(&classid), core::mem::transmute_copy(&pwszprovidername), core::mem::transmute_copy(&eprovidertype), core::mem::transmute_copy(&pwszproviderversion), core::mem::transmute(&providerversionid)).into()
@@ -78,6 +71,7 @@ impl IVssAdmin_Vtbl {
         iid == &<IVssAdmin as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssAdmin {}
 windows_core::imp::define_interface!(IVssAdminEx, IVssAdminEx_Vtbl, 0x7858a9f8_b1fa_41a6_964f_b9b36b8cd8d8);
 impl core::ops::Deref for IVssAdminEx {
     type Target = IVssAdmin;
@@ -106,14 +100,13 @@ pub struct IVssAdminEx_Vtbl {
     pub GetProviderContext: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut i32) -> windows_core::HRESULT,
     pub SetProviderContext: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, i32) -> windows_core::HRESULT,
 }
-pub trait IVssAdminEx_Impl: Sized + IVssAdmin_Impl {
+pub trait IVssAdminEx_Impl: IVssAdmin_Impl {
     fn GetProviderCapability(&self, pproviderid: &windows_core::GUID) -> windows_core::Result<u64>;
     fn GetProviderContext(&self, providerid: &windows_core::GUID) -> windows_core::Result<i32>;
     fn SetProviderContext(&self, providerid: &windows_core::GUID, lcontext: i32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IVssAdminEx {}
 impl IVssAdminEx_Vtbl {
-    pub const fn new<Identity: IVssAdminEx_Impl, const OFFSET: isize>() -> IVssAdminEx_Vtbl {
+    pub const fn new<Identity: IVssAdminEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetProviderCapability<Identity: IVssAdminEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pproviderid: windows_core::GUID, plloriginalcapabilitymask: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVssAdminEx_Impl::GetProviderCapability(this, core::mem::transmute(&pproviderid)) {
@@ -146,16 +139,11 @@ impl IVssAdminEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssAdminEx as windows_core::Interface>::IID || iid == &<IVssAdmin as windows_core::Interface>::IID
+        iid == &<IVssAdminEx as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssAdminEx {}
 windows_core::imp::define_interface!(IVssAsync, IVssAsync_Vtbl, 0x507c37b4_cf5b_4e95_b0af_14eb9767467e);
-impl core::ops::Deref for IVssAsync {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssAsync, windows_core::IUnknown);
 impl IVssAsync {
     pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
@@ -175,14 +163,13 @@ pub struct IVssAsync_Vtbl {
     pub Wait: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub QueryStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut i32) -> windows_core::HRESULT,
 }
-pub trait IVssAsync_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssAsync_Impl: windows_core::IUnknownImpl {
     fn Cancel(&self) -> windows_core::Result<()>;
     fn Wait(&self, dwmilliseconds: u32) -> windows_core::Result<()>;
     fn QueryStatus(&self, phrresult: *mut windows_core::HRESULT, preserved: *mut i32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IVssAsync {}
 impl IVssAsync_Vtbl {
-    pub const fn new<Identity: IVssAsync_Impl, const OFFSET: isize>() -> IVssAsync_Vtbl {
+    pub const fn new<Identity: IVssAsync_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Cancel<Identity: IVssAsync_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssAsync_Impl::Cancel(this).into()
@@ -206,13 +193,8 @@ impl IVssAsync_Vtbl {
         iid == &<IVssAsync as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssAsync {}
 windows_core::imp::define_interface!(IVssComponent, IVssComponent_Vtbl, 0xd2c72c96_c121_4518_b627_e5a93d010ead);
-impl core::ops::Deref for IVssComponent {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssComponent, windows_core::IUnknown);
 impl IVssComponent {
     pub unsafe fn GetLogicalPath(&self, pbstrpath: *mut windows_core::BSTR) -> windows_core::Result<()> {
@@ -414,7 +396,7 @@ pub struct IVssComponent_Vtbl {
     pub GetDifferencedFilesCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetDifferencedFile: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Foundation::BOOL, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut super::super::Foundation::FILETIME) -> windows_core::HRESULT,
 }
-pub trait IVssComponent_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssComponent_Impl: windows_core::IUnknownImpl {
     fn GetLogicalPath(&self, pbstrpath: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetComponentType(&self, pct: *mut VSS_COMPONENT_TYPE) -> windows_core::Result<()>;
     fn GetComponentName(&self, pbstrname: *mut windows_core::BSTR) -> windows_core::Result<()>;
@@ -454,9 +436,8 @@ pub trait IVssComponent_Impl: Sized + windows_core::IUnknownImpl {
     fn GetDifferencedFilesCount(&self, pcdifferencedfiles: *mut u32) -> windows_core::Result<()>;
     fn GetDifferencedFile(&self, idifferencedfile: u32, pbstrpath: *mut windows_core::BSTR, pbstrfilespec: *mut windows_core::BSTR, pbrecursive: *mut super::super::Foundation::BOOL, pbstrlsnstring: *mut windows_core::BSTR, pftlastmodifytime: *mut super::super::Foundation::FILETIME) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IVssComponent {}
 impl IVssComponent_Vtbl {
-    pub const fn new<Identity: IVssComponent_Impl, const OFFSET: isize>() -> IVssComponent_Vtbl {
+    pub const fn new<Identity: IVssComponent_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetLogicalPath<Identity: IVssComponent_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpath: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssComponent_Impl::GetLogicalPath(this, core::mem::transmute_copy(&pbstrpath)).into()
@@ -667,6 +648,7 @@ impl IVssComponent_Vtbl {
         iid == &<IVssComponent as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssComponent {}
 windows_core::imp::define_interface!(IVssComponentEx, IVssComponentEx_Vtbl, 0x156c8b5e_f131_4bd7_9c97_d1923be7e1fa);
 impl core::ops::Deref for IVssComponentEx {
     type Target = IVssComponent;
@@ -690,11 +672,11 @@ impl IVssComponentEx {
     }
     pub unsafe fn GetPrepareForBackupFailureMsg(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPrepareForBackupFailureMsg)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetPrepareForBackupFailureMsg)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn GetPostSnapshotFailureMsg(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPostSnapshotFailureMsg)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetPostSnapshotFailureMsg)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn GetAuthoritativeRestore(&self) -> windows_core::Result<bool> {
         let mut result__ = core::mem::zeroed();
@@ -705,7 +687,7 @@ impl IVssComponentEx {
     }
     pub unsafe fn GetRestoreName(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetRestoreName)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetRestoreName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[repr(C)]
@@ -719,7 +701,7 @@ pub struct IVssComponentEx_Vtbl {
     pub GetRollForward: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VSS_ROLLFORWARD_TYPE, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetRestoreName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-pub trait IVssComponentEx_Impl: Sized + IVssComponent_Impl {
+pub trait IVssComponentEx_Impl: IVssComponent_Impl {
     fn SetPrepareForBackupFailureMsg(&self, wszfailuremsg: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SetPostSnapshotFailureMsg(&self, wszfailuremsg: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetPrepareForBackupFailureMsg(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -728,9 +710,8 @@ pub trait IVssComponentEx_Impl: Sized + IVssComponent_Impl {
     fn GetRollForward(&self, prolltype: *mut VSS_ROLLFORWARD_TYPE, pbstrpoint: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetRestoreName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-impl windows_core::RuntimeName for IVssComponentEx {}
 impl IVssComponentEx_Vtbl {
-    pub const fn new<Identity: IVssComponentEx_Impl, const OFFSET: isize>() -> IVssComponentEx_Vtbl {
+    pub const fn new<Identity: IVssComponentEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetPrepareForBackupFailureMsg<Identity: IVssComponentEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszfailuremsg: windows_core::PCWSTR) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssComponentEx_Impl::SetPrepareForBackupFailureMsg(this, core::mem::transmute(&wszfailuremsg)).into()
@@ -795,9 +776,10 @@ impl IVssComponentEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssComponentEx as windows_core::Interface>::IID || iid == &<IVssComponent as windows_core::Interface>::IID
+        iid == &<IVssComponentEx as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssComponentEx {}
 windows_core::imp::define_interface!(IVssComponentEx2, IVssComponentEx2_Vtbl, 0x3b5be0f2_07a9_4e4b_bdd3_cfdc8e2c0d2d);
 impl core::ops::Deref for IVssComponentEx2 {
     type Target = IVssComponentEx;
@@ -807,9 +789,9 @@ impl core::ops::Deref for IVssComponentEx2 {
 }
 windows_core::imp::interface_hierarchy!(IVssComponentEx2, windows_core::IUnknown, IVssComponent, IVssComponentEx);
 impl IVssComponentEx2 {
-    pub unsafe fn SetFailure<P0>(&self, hr: windows_core::HRESULT, hrapplication: windows_core::HRESULT, wszapplicationmessage: P0, dwreserved: u32) -> windows_core::Result<()>
+    pub unsafe fn SetFailure<P2>(&self, hr: windows_core::HRESULT, hrapplication: windows_core::HRESULT, wszapplicationmessage: P2, dwreserved: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).SetFailure)(windows_core::Interface::as_raw(self), hr, hrapplication, wszapplicationmessage.param().abi(), dwreserved).ok()
     }
@@ -823,13 +805,12 @@ pub struct IVssComponentEx2_Vtbl {
     pub SetFailure: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT, windows_core::HRESULT, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
     pub GetFailure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut windows_core::HRESULT, *mut core::mem::MaybeUninit<windows_core::BSTR>, *mut u32) -> windows_core::HRESULT,
 }
-pub trait IVssComponentEx2_Impl: Sized + IVssComponentEx_Impl {
+pub trait IVssComponentEx2_Impl: IVssComponentEx_Impl {
     fn SetFailure(&self, hr: windows_core::HRESULT, hrapplication: windows_core::HRESULT, wszapplicationmessage: &windows_core::PCWSTR, dwreserved: u32) -> windows_core::Result<()>;
     fn GetFailure(&self, phr: *mut windows_core::HRESULT, phrapplication: *mut windows_core::HRESULT, pbstrapplicationmessage: *mut windows_core::BSTR, pdwreserved: *mut u32) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IVssComponentEx2 {}
 impl IVssComponentEx2_Vtbl {
-    pub const fn new<Identity: IVssComponentEx2_Impl, const OFFSET: isize>() -> IVssComponentEx2_Vtbl {
+    pub const fn new<Identity: IVssComponentEx2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetFailure<Identity: IVssComponentEx2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hr: windows_core::HRESULT, hrapplication: windows_core::HRESULT, wszapplicationmessage: windows_core::PCWSTR, dwreserved: u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssComponentEx2_Impl::SetFailure(this, core::mem::transmute_copy(&hr), core::mem::transmute_copy(&hrapplication), core::mem::transmute(&wszapplicationmessage), core::mem::transmute_copy(&dwreserved)).into()
@@ -841,16 +822,11 @@ impl IVssComponentEx2_Vtbl {
         Self { base__: IVssComponentEx_Vtbl::new::<Identity, OFFSET>(), SetFailure: SetFailure::<Identity, OFFSET>, GetFailure: GetFailure::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssComponentEx2 as windows_core::Interface>::IID || iid == &<IVssComponent as windows_core::Interface>::IID || iid == &<IVssComponentEx as windows_core::Interface>::IID
+        iid == &<IVssComponentEx2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssComponentEx2 {}
 windows_core::imp::define_interface!(IVssCreateExpressWriterMetadata, IVssCreateExpressWriterMetadata_Vtbl, 0x9c772e77_b26e_427f_92dd_c996f41ea5e3);
-impl core::ops::Deref for IVssCreateExpressWriterMetadata {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssCreateExpressWriterMetadata, windows_core::IUnknown);
 impl IVssCreateExpressWriterMetadata {
     pub unsafe fn AddExcludeFiles<P0, P1>(&self, wszpath: P0, wszfilespec: P1, brecursive: u8) -> windows_core::Result<()>
@@ -860,37 +836,37 @@ impl IVssCreateExpressWriterMetadata {
     {
         (windows_core::Interface::vtable(self).AddExcludeFiles)(windows_core::Interface::as_raw(self), wszpath.param().abi(), wszfilespec.param().abi(), brecursive).ok()
     }
-    pub unsafe fn AddComponent<P0, P1, P2>(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: P0, wszcomponentname: P1, wszcaption: P2, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> windows_core::Result<()>
+    pub unsafe fn AddComponent<P1, P2, P3>(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: P1, wszcomponentname: P2, wszcaption: P3, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).AddComponent)(windows_core::Interface::as_raw(self), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszcaption.param().abi(), pbicon, cbicon, brestoremetadata, bnotifyonbackupcomplete, bselectable, bselectableforrestore, dwcomponentflags).ok()
     }
-    pub unsafe fn AddFilesToFileGroup<P0, P1, P2, P3, P4>(&self, wszlogicalpath: P0, wszgroupname: P1, wszpath: P2, wszfilespec: P3, brecursive: u8, wszalternatelocation: P4, dwbackuptypemask: u32) -> windows_core::Result<()>
+    pub unsafe fn AddFilesToFileGroup<P0, P1, P2, P3, P5>(&self, wszlogicalpath: P0, wszgroupname: P1, wszpath: P2, wszfilespec: P3, brecursive: u8, wszalternatelocation: P5, dwbackuptypemask: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
-        P4: windows_core::Param<windows_core::PCWSTR>,
+        P5: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).AddFilesToFileGroup)(windows_core::Interface::as_raw(self), wszlogicalpath.param().abi(), wszgroupname.param().abi(), wszpath.param().abi(), wszfilespec.param().abi(), brecursive, wszalternatelocation.param().abi(), dwbackuptypemask).ok()
     }
-    pub unsafe fn SetRestoreMethod<P0, P1>(&self, method: VSS_RESTOREMETHOD_ENUM, wszservice: P0, wszuserprocedure: P1, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> windows_core::Result<()>
+    pub unsafe fn SetRestoreMethod<P1, P2>(&self, method: VSS_RESTOREMETHOD_ENUM, wszservice: P1, wszuserprocedure: P2, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).SetRestoreMethod)(windows_core::Interface::as_raw(self), method, wszservice.param().abi(), wszuserprocedure.param().abi(), writerrestore, brebootrequired).ok()
     }
-    pub unsafe fn AddComponentDependency<P0, P1, P2, P3>(&self, wszforlogicalpath: P0, wszforcomponentname: P1, onwriterid: windows_core::GUID, wszonlogicalpath: P2, wszoncomponentname: P3) -> windows_core::Result<()>
+    pub unsafe fn AddComponentDependency<P0, P1, P3, P4>(&self, wszforlogicalpath: P0, wszforcomponentname: P1, onwriterid: windows_core::GUID, wszonlogicalpath: P3, wszoncomponentname: P4) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).AddComponentDependency)(windows_core::Interface::as_raw(self), wszforlogicalpath.param().abi(), wszforcomponentname.param().abi(), core::mem::transmute(onwriterid), wszonlogicalpath.param().abi(), wszoncomponentname.param().abi()).ok()
     }
@@ -899,7 +875,7 @@ impl IVssCreateExpressWriterMetadata {
     }
     pub unsafe fn SaveAsXML(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).SaveAsXML)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).SaveAsXML)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[repr(C)]
@@ -913,7 +889,7 @@ pub struct IVssCreateExpressWriterMetadata_Vtbl {
     pub SetBackupSchema: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SaveAsXML: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-pub trait IVssCreateExpressWriterMetadata_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssCreateExpressWriterMetadata_Impl: windows_core::IUnknownImpl {
     fn AddExcludeFiles(&self, wszpath: &windows_core::PCWSTR, wszfilespec: &windows_core::PCWSTR, brecursive: u8) -> windows_core::Result<()>;
     fn AddComponent(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, wszcaption: &windows_core::PCWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> windows_core::Result<()>;
     fn AddFilesToFileGroup(&self, wszlogicalpath: &windows_core::PCWSTR, wszgroupname: &windows_core::PCWSTR, wszpath: &windows_core::PCWSTR, wszfilespec: &windows_core::PCWSTR, brecursive: u8, wszalternatelocation: &windows_core::PCWSTR, dwbackuptypemask: u32) -> windows_core::Result<()>;
@@ -922,9 +898,8 @@ pub trait IVssCreateExpressWriterMetadata_Impl: Sized + windows_core::IUnknownIm
     fn SetBackupSchema(&self, dwschemamask: u32) -> windows_core::Result<()>;
     fn SaveAsXML(&self) -> windows_core::Result<windows_core::BSTR>;
 }
-impl windows_core::RuntimeName for IVssCreateExpressWriterMetadata {}
 impl IVssCreateExpressWriterMetadata_Vtbl {
-    pub const fn new<Identity: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>() -> IVssCreateExpressWriterMetadata_Vtbl {
+    pub const fn new<Identity: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddExcludeFiles<Identity: IVssCreateExpressWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszpath: windows_core::PCWSTR, wszfilespec: windows_core::PCWSTR, brecursive: u8) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssCreateExpressWriterMetadata_Impl::AddExcludeFiles(this, core::mem::transmute(&wszpath), core::mem::transmute(&wszfilespec), core::mem::transmute_copy(&brecursive)).into()
@@ -974,13 +949,14 @@ impl IVssCreateExpressWriterMetadata_Vtbl {
         iid == &<IVssCreateExpressWriterMetadata as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssCreateExpressWriterMetadata {}
 windows_core::imp::define_interface!(IVssCreateWriterMetadata, IVssCreateWriterMetadata_Vtbl);
 impl IVssCreateWriterMetadata {
-    pub unsafe fn AddIncludeFiles<P0, P1, P2>(&self, wszpath: P0, wszfilespec: P1, brecursive: u8, wszalternatelocation: P2) -> windows_core::Result<()>
+    pub unsafe fn AddIncludeFiles<P0, P1, P3>(&self, wszpath: P0, wszfilespec: P1, brecursive: u8, wszalternatelocation: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).AddIncludeFiles)(windows_core::Interface::as_raw(self), wszpath.param().abi(), wszfilespec.param().abi(), brecursive, wszalternatelocation.param().abi()).ok()
     }
@@ -991,11 +967,11 @@ impl IVssCreateWriterMetadata {
     {
         (windows_core::Interface::vtable(self).AddExcludeFiles)(windows_core::Interface::as_raw(self), wszpath.param().abi(), wszfilespec.param().abi(), brecursive).ok()
     }
-    pub unsafe fn AddComponent<P0, P1, P2>(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: P0, wszcomponentname: P1, wszcaption: P2, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> windows_core::Result<()>
+    pub unsafe fn AddComponent<P1, P2, P3>(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: P1, wszcomponentname: P2, wszcaption: P3, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).AddComponent)(windows_core::Interface::as_raw(self), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszcaption.param().abi(), pbicon, cbicon, brestoremetadata, bnotifyonbackupcomplete, bselectable, bselectableforrestore, dwcomponentflags).ok()
     }
@@ -1017,37 +993,37 @@ impl IVssCreateWriterMetadata {
     {
         (windows_core::Interface::vtable(self).AddDatabaseLogFiles)(windows_core::Interface::as_raw(self), wszlogicalpath.param().abi(), wszdatabasename.param().abi(), wszpath.param().abi(), wszfilespec.param().abi(), dwbackuptypemask).ok()
     }
-    pub unsafe fn AddFilesToFileGroup<P0, P1, P2, P3, P4>(&self, wszlogicalpath: P0, wszgroupname: P1, wszpath: P2, wszfilespec: P3, brecursive: u8, wszalternatelocation: P4, dwbackuptypemask: u32) -> windows_core::Result<()>
+    pub unsafe fn AddFilesToFileGroup<P0, P1, P2, P3, P5>(&self, wszlogicalpath: P0, wszgroupname: P1, wszpath: P2, wszfilespec: P3, brecursive: u8, wszalternatelocation: P5, dwbackuptypemask: u32) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
-        P4: windows_core::Param<windows_core::PCWSTR>,
+        P5: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).AddFilesToFileGroup)(windows_core::Interface::as_raw(self), wszlogicalpath.param().abi(), wszgroupname.param().abi(), wszpath.param().abi(), wszfilespec.param().abi(), brecursive, wszalternatelocation.param().abi(), dwbackuptypemask).ok()
     }
-    pub unsafe fn SetRestoreMethod<P0, P1>(&self, method: VSS_RESTOREMETHOD_ENUM, wszservice: P0, wszuserprocedure: P1, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> windows_core::Result<()>
+    pub unsafe fn SetRestoreMethod<P1, P2>(&self, method: VSS_RESTOREMETHOD_ENUM, wszservice: P1, wszuserprocedure: P2, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).SetRestoreMethod)(windows_core::Interface::as_raw(self), method, wszservice.param().abi(), wszuserprocedure.param().abi(), writerrestore, brebootrequired).ok()
     }
-    pub unsafe fn AddAlternateLocationMapping<P0, P1, P2>(&self, wszsourcepath: P0, wszsourcefilespec: P1, brecursive: u8, wszdestination: P2) -> windows_core::Result<()>
+    pub unsafe fn AddAlternateLocationMapping<P0, P1, P3>(&self, wszsourcepath: P0, wszsourcefilespec: P1, brecursive: u8, wszdestination: P3) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
+        P3: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).AddAlternateLocationMapping)(windows_core::Interface::as_raw(self), wszsourcepath.param().abi(), wszsourcefilespec.param().abi(), brecursive, wszdestination.param().abi()).ok()
     }
-    pub unsafe fn AddComponentDependency<P0, P1, P2, P3>(&self, wszforlogicalpath: P0, wszforcomponentname: P1, onwriterid: windows_core::GUID, wszonlogicalpath: P2, wszoncomponentname: P3) -> windows_core::Result<()>
+    pub unsafe fn AddComponentDependency<P0, P1, P3, P4>(&self, wszforlogicalpath: P0, wszforcomponentname: P1, onwriterid: windows_core::GUID, wszonlogicalpath: P3, wszoncomponentname: P4) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
-        P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
+        P4: windows_core::Param<windows_core::PCWSTR>,
     {
         (windows_core::Interface::vtable(self).AddComponentDependency)(windows_core::Interface::as_raw(self), wszforlogicalpath.param().abi(), wszforcomponentname.param().abi(), core::mem::transmute(onwriterid), wszonlogicalpath.param().abi(), wszoncomponentname.param().abi()).ok()
     }
@@ -1082,7 +1058,7 @@ pub struct IVssCreateWriterMetadata_Vtbl {
     pub SaveAsXML: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-pub trait IVssCreateWriterMetadata_Impl: Sized {
+pub trait IVssCreateWriterMetadata_Impl {
     fn AddIncludeFiles(&self, wszpath: &windows_core::PCWSTR, wszfilespec: &windows_core::PCWSTR, brecursive: u8, wszalternatelocation: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn AddExcludeFiles(&self, wszpath: &windows_core::PCWSTR, wszfilespec: &windows_core::PCWSTR, brecursive: u8) -> windows_core::Result<()>;
     fn AddComponent(&self, ct: VSS_COMPONENT_TYPE, wszlogicalpath: &windows_core::PCWSTR, wszcomponentname: &windows_core::PCWSTR, wszcaption: &windows_core::PCWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> windows_core::Result<()>;
@@ -1098,60 +1074,49 @@ pub trait IVssCreateWriterMetadata_Impl: Sized {
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 impl IVssCreateWriterMetadata_Vtbl {
-    pub const fn new<Impl: IVssCreateWriterMetadata_Impl>() -> IVssCreateWriterMetadata_Vtbl {
-        unsafe extern "system" fn AddIncludeFiles<Impl: IVssCreateWriterMetadata_Impl>(this: *mut core::ffi::c_void, wszpath: windows_core::PCWSTR, wszfilespec: windows_core::PCWSTR, brecursive: u8, wszalternatelocation: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Impl);
+    pub const fn new<Identity: IVssCreateWriterMetadata_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn AddIncludeFiles<Identity: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszpath: windows_core::PCWSTR, wszfilespec: windows_core::PCWSTR, brecursive: u8, wszalternatelocation: windows_core::PCWSTR) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssCreateWriterMetadata_Impl::AddIncludeFiles(this, core::mem::transmute(&wszpath), core::mem::transmute(&wszfilespec), core::mem::transmute_copy(&brecursive), core::mem::transmute(&wszalternatelocation)).into()
         }
-        unsafe extern "system" fn AddExcludeFiles<Impl: IVssCreateWriterMetadata_Impl>(this: *mut core::ffi::c_void, wszpath: windows_core::PCWSTR, wszfilespec: windows_core::PCWSTR, brecursive: u8) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Impl);
+        unsafe extern "system" fn AddExcludeFiles<Identity: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszpath: windows_core::PCWSTR, wszfilespec: windows_core::PCWSTR, brecursive: u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssCreateWriterMetadata_Impl::AddExcludeFiles(this, core::mem::transmute(&wszpath), core::mem::transmute(&wszfilespec), core::mem::transmute_copy(&brecursive)).into()
         }
-        unsafe extern "system" fn AddComponent<Impl: IVssCreateWriterMetadata_Impl>(this: *mut core::ffi::c_void, ct: VSS_COMPONENT_TYPE, wszlogicalpath: windows_core::PCWSTR, wszcomponentname: windows_core::PCWSTR, wszcaption: windows_core::PCWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Impl);
+        unsafe extern "system" fn AddComponent<Identity: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ct: VSS_COMPONENT_TYPE, wszlogicalpath: windows_core::PCWSTR, wszcomponentname: windows_core::PCWSTR, wszcaption: windows_core::PCWSTR, pbicon: *const u8, cbicon: u32, brestoremetadata: u8, bnotifyonbackupcomplete: u8, bselectable: u8, bselectableforrestore: u8, dwcomponentflags: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssCreateWriterMetadata_Impl::AddComponent(this, core::mem::transmute_copy(&ct), core::mem::transmute(&wszlogicalpath), core::mem::transmute(&wszcomponentname), core::mem::transmute(&wszcaption), core::mem::transmute_copy(&pbicon), core::mem::transmute_copy(&cbicon), core::mem::transmute_copy(&brestoremetadata), core::mem::transmute_copy(&bnotifyonbackupcomplete), core::mem::transmute_copy(&bselectable), core::mem::transmute_copy(&bselectableforrestore), core::mem::transmute_copy(&dwcomponentflags)).into()
         }
-        unsafe extern "system" fn AddDatabaseFiles<Impl: IVssCreateWriterMetadata_Impl>(this: *mut core::ffi::c_void, wszlogicalpath: windows_core::PCWSTR, wszdatabasename: windows_core::PCWSTR, wszpath: windows_core::PCWSTR, wszfilespec: windows_core::PCWSTR, dwbackuptypemask: u32) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Impl);
+        unsafe extern "system" fn AddDatabaseFiles<Identity: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszlogicalpath: windows_core::PCWSTR, wszdatabasename: windows_core::PCWSTR, wszpath: windows_core::PCWSTR, wszfilespec: windows_core::PCWSTR, dwbackuptypemask: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssCreateWriterMetadata_Impl::AddDatabaseFiles(this, core::mem::transmute(&wszlogicalpath), core::mem::transmute(&wszdatabasename), core::mem::transmute(&wszpath), core::mem::transmute(&wszfilespec), core::mem::transmute_copy(&dwbackuptypemask)).into()
         }
-        unsafe extern "system" fn AddDatabaseLogFiles<Impl: IVssCreateWriterMetadata_Impl>(this: *mut core::ffi::c_void, wszlogicalpath: windows_core::PCWSTR, wszdatabasename: windows_core::PCWSTR, wszpath: windows_core::PCWSTR, wszfilespec: windows_core::PCWSTR, dwbackuptypemask: u32) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Impl);
+        unsafe extern "system" fn AddDatabaseLogFiles<Identity: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszlogicalpath: windows_core::PCWSTR, wszdatabasename: windows_core::PCWSTR, wszpath: windows_core::PCWSTR, wszfilespec: windows_core::PCWSTR, dwbackuptypemask: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssCreateWriterMetadata_Impl::AddDatabaseLogFiles(this, core::mem::transmute(&wszlogicalpath), core::mem::transmute(&wszdatabasename), core::mem::transmute(&wszpath), core::mem::transmute(&wszfilespec), core::mem::transmute_copy(&dwbackuptypemask)).into()
         }
-        unsafe extern "system" fn AddFilesToFileGroup<Impl: IVssCreateWriterMetadata_Impl>(this: *mut core::ffi::c_void, wszlogicalpath: windows_core::PCWSTR, wszgroupname: windows_core::PCWSTR, wszpath: windows_core::PCWSTR, wszfilespec: windows_core::PCWSTR, brecursive: u8, wszalternatelocation: windows_core::PCWSTR, dwbackuptypemask: u32) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Impl);
+        unsafe extern "system" fn AddFilesToFileGroup<Identity: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszlogicalpath: windows_core::PCWSTR, wszgroupname: windows_core::PCWSTR, wszpath: windows_core::PCWSTR, wszfilespec: windows_core::PCWSTR, brecursive: u8, wszalternatelocation: windows_core::PCWSTR, dwbackuptypemask: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssCreateWriterMetadata_Impl::AddFilesToFileGroup(this, core::mem::transmute(&wszlogicalpath), core::mem::transmute(&wszgroupname), core::mem::transmute(&wszpath), core::mem::transmute(&wszfilespec), core::mem::transmute_copy(&brecursive), core::mem::transmute(&wszalternatelocation), core::mem::transmute_copy(&dwbackuptypemask)).into()
         }
-        unsafe extern "system" fn SetRestoreMethod<Impl: IVssCreateWriterMetadata_Impl>(this: *mut core::ffi::c_void, method: VSS_RESTOREMETHOD_ENUM, wszservice: windows_core::PCWSTR, wszuserprocedure: windows_core::PCWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Impl);
+        unsafe extern "system" fn SetRestoreMethod<Identity: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, method: VSS_RESTOREMETHOD_ENUM, wszservice: windows_core::PCWSTR, wszuserprocedure: windows_core::PCWSTR, writerrestore: VSS_WRITERRESTORE_ENUM, brebootrequired: u8) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssCreateWriterMetadata_Impl::SetRestoreMethod(this, core::mem::transmute_copy(&method), core::mem::transmute(&wszservice), core::mem::transmute(&wszuserprocedure), core::mem::transmute_copy(&writerrestore), core::mem::transmute_copy(&brebootrequired)).into()
         }
-        unsafe extern "system" fn AddAlternateLocationMapping<Impl: IVssCreateWriterMetadata_Impl>(this: *mut core::ffi::c_void, wszsourcepath: windows_core::PCWSTR, wszsourcefilespec: windows_core::PCWSTR, brecursive: u8, wszdestination: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Impl);
+        unsafe extern "system" fn AddAlternateLocationMapping<Identity: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszsourcepath: windows_core::PCWSTR, wszsourcefilespec: windows_core::PCWSTR, brecursive: u8, wszdestination: windows_core::PCWSTR) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssCreateWriterMetadata_Impl::AddAlternateLocationMapping(this, core::mem::transmute(&wszsourcepath), core::mem::transmute(&wszsourcefilespec), core::mem::transmute_copy(&brecursive), core::mem::transmute(&wszdestination)).into()
         }
-        unsafe extern "system" fn AddComponentDependency<Impl: IVssCreateWriterMetadata_Impl>(this: *mut core::ffi::c_void, wszforlogicalpath: windows_core::PCWSTR, wszforcomponentname: windows_core::PCWSTR, onwriterid: windows_core::GUID, wszonlogicalpath: windows_core::PCWSTR, wszoncomponentname: windows_core::PCWSTR) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Impl);
+        unsafe extern "system" fn AddComponentDependency<Identity: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszforlogicalpath: windows_core::PCWSTR, wszforcomponentname: windows_core::PCWSTR, onwriterid: windows_core::GUID, wszonlogicalpath: windows_core::PCWSTR, wszoncomponentname: windows_core::PCWSTR) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssCreateWriterMetadata_Impl::AddComponentDependency(this, core::mem::transmute(&wszforlogicalpath), core::mem::transmute(&wszforcomponentname), core::mem::transmute(&onwriterid), core::mem::transmute(&wszonlogicalpath), core::mem::transmute(&wszoncomponentname)).into()
         }
-        unsafe extern "system" fn SetBackupSchema<Impl: IVssCreateWriterMetadata_Impl>(this: *mut core::ffi::c_void, dwschemamask: u32) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Impl);
+        unsafe extern "system" fn SetBackupSchema<Identity: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwschemamask: u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssCreateWriterMetadata_Impl::SetBackupSchema(this, core::mem::transmute_copy(&dwschemamask)).into()
         }
-        unsafe extern "system" fn GetDocument<Impl: IVssCreateWriterMetadata_Impl>(this: *mut core::ffi::c_void, pdoc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Impl);
+        unsafe extern "system" fn GetDocument<Identity: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdoc: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVssCreateWriterMetadata_Impl::GetDocument(this) {
                 Ok(ok__) => {
                     pdoc.write(core::mem::transmute(ok__));
@@ -1160,52 +1125,32 @@ impl IVssCreateWriterMetadata_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SaveAsXML<Impl: IVssCreateWriterMetadata_Impl>(this: *mut core::ffi::c_void, pbstrxml: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Impl);
+        unsafe extern "system" fn SaveAsXML<Identity: IVssCreateWriterMetadata_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrxml: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssCreateWriterMetadata_Impl::SaveAsXML(this, core::mem::transmute_copy(&pbstrxml)).into()
         }
         Self {
-            AddIncludeFiles: AddIncludeFiles::<Impl>,
-            AddExcludeFiles: AddExcludeFiles::<Impl>,
-            AddComponent: AddComponent::<Impl>,
-            AddDatabaseFiles: AddDatabaseFiles::<Impl>,
-            AddDatabaseLogFiles: AddDatabaseLogFiles::<Impl>,
-            AddFilesToFileGroup: AddFilesToFileGroup::<Impl>,
-            SetRestoreMethod: SetRestoreMethod::<Impl>,
-            AddAlternateLocationMapping: AddAlternateLocationMapping::<Impl>,
-            AddComponentDependency: AddComponentDependency::<Impl>,
-            SetBackupSchema: SetBackupSchema::<Impl>,
-            GetDocument: GetDocument::<Impl>,
-            SaveAsXML: SaveAsXML::<Impl>,
+            AddIncludeFiles: AddIncludeFiles::<Identity, OFFSET>,
+            AddExcludeFiles: AddExcludeFiles::<Identity, OFFSET>,
+            AddComponent: AddComponent::<Identity, OFFSET>,
+            AddDatabaseFiles: AddDatabaseFiles::<Identity, OFFSET>,
+            AddDatabaseLogFiles: AddDatabaseLogFiles::<Identity, OFFSET>,
+            AddFilesToFileGroup: AddFilesToFileGroup::<Identity, OFFSET>,
+            SetRestoreMethod: SetRestoreMethod::<Identity, OFFSET>,
+            AddAlternateLocationMapping: AddAlternateLocationMapping::<Identity, OFFSET>,
+            AddComponentDependency: AddComponentDependency::<Identity, OFFSET>,
+            SetBackupSchema: SetBackupSchema::<Identity, OFFSET>,
+            GetDocument: GetDocument::<Identity, OFFSET>,
+            SaveAsXML: SaveAsXML::<Identity, OFFSET>,
         }
     }
-}
-#[doc(hidden)]
-#[cfg(feature = "std")]
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-struct IVssCreateWriterMetadata_ImplVtbl<T: IVssCreateWriterMetadata_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-impl<T: IVssCreateWriterMetadata_Impl> IVssCreateWriterMetadata_ImplVtbl<T> {
-    const VTABLE: IVssCreateWriterMetadata_Vtbl = IVssCreateWriterMetadata_Vtbl::new::<T>();
-}
-#[cfg(feature = "std")]
-#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
-impl IVssCreateWriterMetadata {
-    pub fn new<'a, T: IVssCreateWriterMetadata_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
-        let this = windows_core::ScopedHeap { vtable: &IVssCreateWriterMetadata_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVssCreateWriterMetadata as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
+impl windows_core::RuntimeName for IVssCreateWriterMetadata {}
 windows_core::imp::define_interface!(IVssDifferentialSoftwareSnapshotMgmt, IVssDifferentialSoftwareSnapshotMgmt_Vtbl, 0x214a0f28_b737_4026_b847_4f9e37d79529);
-impl core::ops::Deref for IVssDifferentialSoftwareSnapshotMgmt {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssDifferentialSoftwareSnapshotMgmt, windows_core::IUnknown);
 impl IVssDifferentialSoftwareSnapshotMgmt {
     pub unsafe fn AddDiffArea(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64) -> windows_core::Result<()> {
@@ -1241,7 +1186,7 @@ pub struct IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
     pub QueryDiffAreasOnVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub QueryDiffAreasForSnapshot: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IVssDifferentialSoftwareSnapshotMgmt_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssDifferentialSoftwareSnapshotMgmt_Impl: windows_core::IUnknownImpl {
     fn AddDiffArea(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64) -> windows_core::Result<()>;
     fn ChangeDiffAreaMaximumSize(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64) -> windows_core::Result<()>;
     fn QueryVolumesSupportedForDiffAreas(&self, pwszoriginalvolumename: *const u16) -> windows_core::Result<IVssEnumMgmtObject>;
@@ -1249,9 +1194,8 @@ pub trait IVssDifferentialSoftwareSnapshotMgmt_Impl: Sized + windows_core::IUnkn
     fn QueryDiffAreasOnVolume(&self, pwszvolumename: *const u16) -> windows_core::Result<IVssEnumMgmtObject>;
     fn QueryDiffAreasForSnapshot(&self, snapshotid: &windows_core::GUID) -> windows_core::Result<IVssEnumMgmtObject>;
 }
-impl windows_core::RuntimeName for IVssDifferentialSoftwareSnapshotMgmt {}
 impl IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
-    pub const fn new<Identity: IVssDifferentialSoftwareSnapshotMgmt_Impl, const OFFSET: isize>() -> IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
+    pub const fn new<Identity: IVssDifferentialSoftwareSnapshotMgmt_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddDiffArea<Identity: IVssDifferentialSoftwareSnapshotMgmt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssDifferentialSoftwareSnapshotMgmt_Impl::AddDiffArea(this, core::mem::transmute_copy(&pwszvolumename), core::mem::transmute_copy(&pwszdiffareavolumename), core::mem::transmute_copy(&llmaximumdiffspace)).into()
@@ -1314,6 +1258,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
         iid == &<IVssDifferentialSoftwareSnapshotMgmt as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssDifferentialSoftwareSnapshotMgmt {}
 windows_core::imp::define_interface!(IVssDifferentialSoftwareSnapshotMgmt2, IVssDifferentialSoftwareSnapshotMgmt2_Vtbl, 0x949d7353_675f_4275_8969_f044c6277815);
 impl core::ops::Deref for IVssDifferentialSoftwareSnapshotMgmt2 {
     type Target = IVssDifferentialSoftwareSnapshotMgmt;
@@ -1323,9 +1268,9 @@ impl core::ops::Deref for IVssDifferentialSoftwareSnapshotMgmt2 {
 }
 windows_core::imp::interface_hierarchy!(IVssDifferentialSoftwareSnapshotMgmt2, windows_core::IUnknown, IVssDifferentialSoftwareSnapshotMgmt);
 impl IVssDifferentialSoftwareSnapshotMgmt2 {
-    pub unsafe fn ChangeDiffAreaMaximumSizeEx<P0>(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: P0) -> windows_core::Result<()>
+    pub unsafe fn ChangeDiffAreaMaximumSizeEx<P3>(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: P3) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P3: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).ChangeDiffAreaMaximumSizeEx)(windows_core::Interface::as_raw(self), pwszvolumename, pwszdiffareavolumename, llmaximumdiffspace, bvolatile.param().abi()).ok()
     }
@@ -1348,15 +1293,14 @@ pub struct IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
     pub QueryMigrationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *const u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetSnapshotPriority: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, u8) -> windows_core::HRESULT,
 }
-pub trait IVssDifferentialSoftwareSnapshotMgmt2_Impl: Sized + IVssDifferentialSoftwareSnapshotMgmt_Impl {
+pub trait IVssDifferentialSoftwareSnapshotMgmt2_Impl: IVssDifferentialSoftwareSnapshotMgmt_Impl {
     fn ChangeDiffAreaMaximumSizeEx(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn MigrateDiffAreas(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, pwsznewdiffareavolumename: *const u16) -> windows_core::Result<()>;
     fn QueryMigrationStatus(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16) -> windows_core::Result<IVssAsync>;
     fn SetSnapshotPriority(&self, idsnapshot: &windows_core::GUID, priority: u8) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IVssDifferentialSoftwareSnapshotMgmt2 {}
 impl IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
-    pub const fn new<Identity: IVssDifferentialSoftwareSnapshotMgmt2_Impl, const OFFSET: isize>() -> IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
+    pub const fn new<Identity: IVssDifferentialSoftwareSnapshotMgmt2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn ChangeDiffAreaMaximumSizeEx<Identity: IVssDifferentialSoftwareSnapshotMgmt2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64, bvolatile: super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssDifferentialSoftwareSnapshotMgmt2_Impl::ChangeDiffAreaMaximumSizeEx(this, core::mem::transmute_copy(&pwszvolumename), core::mem::transmute_copy(&pwszdiffareavolumename), core::mem::transmute_copy(&llmaximumdiffspace), core::mem::transmute_copy(&bvolatile)).into()
@@ -1388,9 +1332,10 @@ impl IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssDifferentialSoftwareSnapshotMgmt2 as windows_core::Interface>::IID || iid == &<IVssDifferentialSoftwareSnapshotMgmt as windows_core::Interface>::IID
+        iid == &<IVssDifferentialSoftwareSnapshotMgmt2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssDifferentialSoftwareSnapshotMgmt2 {}
 windows_core::imp::define_interface!(IVssDifferentialSoftwareSnapshotMgmt3, IVssDifferentialSoftwareSnapshotMgmt3_Vtbl, 0x383f7e71_a4c5_401f_b27f_f826289f8458);
 impl core::ops::Deref for IVssDifferentialSoftwareSnapshotMgmt3 {
     type Target = IVssDifferentialSoftwareSnapshotMgmt2;
@@ -1425,16 +1370,15 @@ pub struct IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
     pub DeleteUnusedDiffAreas: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16) -> windows_core::HRESULT,
     pub QuerySnapshotDeltaBitmap: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, windows_core::GUID, *mut u32, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
-pub trait IVssDifferentialSoftwareSnapshotMgmt3_Impl: Sized + IVssDifferentialSoftwareSnapshotMgmt2_Impl {
+pub trait IVssDifferentialSoftwareSnapshotMgmt3_Impl: IVssDifferentialSoftwareSnapshotMgmt2_Impl {
     fn SetVolumeProtectLevel(&self, pwszvolumename: *const u16, protectionlevel: VSS_PROTECTION_LEVEL) -> windows_core::Result<()>;
     fn GetVolumeProtectLevel(&self, pwszvolumename: *const u16, protectionlevel: *mut VSS_VOLUME_PROTECTION_INFO) -> windows_core::Result<()>;
     fn ClearVolumeProtectFault(&self, pwszvolumename: *const u16) -> windows_core::Result<()>;
     fn DeleteUnusedDiffAreas(&self, pwszdiffareavolumename: *const u16) -> windows_core::Result<()>;
     fn QuerySnapshotDeltaBitmap(&self, idsnapshotolder: &windows_core::GUID, idsnapshotyounger: &windows_core::GUID, pcblocksizeperbit: *mut u32, pcbitmaplength: *mut u32, ppbbitmap: *mut *mut u8) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IVssDifferentialSoftwareSnapshotMgmt3 {}
 impl IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
-    pub const fn new<Identity: IVssDifferentialSoftwareSnapshotMgmt3_Impl, const OFFSET: isize>() -> IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
+    pub const fn new<Identity: IVssDifferentialSoftwareSnapshotMgmt3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetVolumeProtectLevel<Identity: IVssDifferentialSoftwareSnapshotMgmt3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwszvolumename: *const u16, protectionlevel: VSS_PROTECTION_LEVEL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssDifferentialSoftwareSnapshotMgmt3_Impl::SetVolumeProtectLevel(this, core::mem::transmute_copy(&pwszvolumename), core::mem::transmute_copy(&protectionlevel)).into()
@@ -1465,16 +1409,11 @@ impl IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssDifferentialSoftwareSnapshotMgmt3 as windows_core::Interface>::IID || iid == &<IVssDifferentialSoftwareSnapshotMgmt as windows_core::Interface>::IID || iid == &<IVssDifferentialSoftwareSnapshotMgmt2 as windows_core::Interface>::IID
+        iid == &<IVssDifferentialSoftwareSnapshotMgmt3 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssDifferentialSoftwareSnapshotMgmt3 {}
 windows_core::imp::define_interface!(IVssEnumMgmtObject, IVssEnumMgmtObject_Vtbl, 0x01954e6b_9254_4e6e_808c_c9e05d007696);
-impl core::ops::Deref for IVssEnumMgmtObject {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssEnumMgmtObject, windows_core::IUnknown);
 impl IVssEnumMgmtObject {
     pub unsafe fn Next(&self, rgelt: &mut [VSS_MGMT_OBJECT_PROP], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -1498,15 +1437,14 @@ pub struct IVssEnumMgmtObject_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IVssEnumMgmtObject_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssEnumMgmtObject_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: u32, rgelt: *mut VSS_MGMT_OBJECT_PROP, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self, ppenum: *mut Option<IVssEnumMgmtObject>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IVssEnumMgmtObject {}
 impl IVssEnumMgmtObject_Vtbl {
-    pub const fn new<Identity: IVssEnumMgmtObject_Impl, const OFFSET: isize>() -> IVssEnumMgmtObject_Vtbl {
+    pub const fn new<Identity: IVssEnumMgmtObject_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IVssEnumMgmtObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut VSS_MGMT_OBJECT_PROP, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssEnumMgmtObject_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
@@ -1535,13 +1473,8 @@ impl IVssEnumMgmtObject_Vtbl {
         iid == &<IVssEnumMgmtObject as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssEnumMgmtObject {}
 windows_core::imp::define_interface!(IVssEnumObject, IVssEnumObject_Vtbl, 0xae1c7110_2f60_11d3_8a39_00c04f72d8e3);
-impl core::ops::Deref for IVssEnumObject {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssEnumObject, windows_core::IUnknown);
 impl IVssEnumObject {
     pub unsafe fn Next(&self, rgelt: &mut [VSS_OBJECT_PROP], pceltfetched: *mut u32) -> windows_core::Result<()> {
@@ -1565,15 +1498,14 @@ pub struct IVssEnumObject_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IVssEnumObject_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssEnumObject_Impl: windows_core::IUnknownImpl {
     fn Next(&self, celt: u32, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self, ppenum: *mut Option<IVssEnumObject>) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IVssEnumObject {}
 impl IVssEnumObject_Vtbl {
-    pub const fn new<Identity: IVssEnumObject_Impl, const OFFSET: isize>() -> IVssEnumObject_Vtbl {
+    pub const fn new<Identity: IVssEnumObject_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Next<Identity: IVssEnumObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, celt: u32, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut u32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssEnumObject_Impl::Next(this, core::mem::transmute_copy(&celt), core::mem::transmute_copy(&rgelt), core::mem::transmute_copy(&pceltfetched)).into()
@@ -1602,18 +1534,13 @@ impl IVssEnumObject_Vtbl {
         iid == &<IVssEnumObject as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssEnumObject {}
 windows_core::imp::define_interface!(IVssExpressWriter, IVssExpressWriter_Vtbl, 0xe33affdc_59c7_47b1_97d5_4266598f6235);
-impl core::ops::Deref for IVssExpressWriter {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssExpressWriter, windows_core::IUnknown);
 impl IVssExpressWriter {
-    pub unsafe fn CreateMetadata<P0>(&self, writerid: windows_core::GUID, writername: P0, usagetype: VSS_USAGE_TYPE, versionmajor: u32, versionminor: u32, reserved: u32) -> windows_core::Result<IVssCreateExpressWriterMetadata>
+    pub unsafe fn CreateMetadata<P1>(&self, writerid: windows_core::GUID, writername: P1, usagetype: VSS_USAGE_TYPE, versionmajor: u32, versionminor: u32, reserved: u32) -> windows_core::Result<IVssCreateExpressWriterMetadata>
     where
-        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
     {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).CreateMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), writername.param().abi(), usagetype, versionmajor, versionminor, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1639,15 +1566,14 @@ pub struct IVssExpressWriter_Vtbl {
     pub Register: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
-pub trait IVssExpressWriter_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssExpressWriter_Impl: windows_core::IUnknownImpl {
     fn CreateMetadata(&self, writerid: &windows_core::GUID, writername: &windows_core::PCWSTR, usagetype: VSS_USAGE_TYPE, versionmajor: u32, versionminor: u32, reserved: u32) -> windows_core::Result<IVssCreateExpressWriterMetadata>;
     fn LoadMetadata(&self, metadata: &windows_core::PCWSTR, reserved: u32) -> windows_core::Result<()>;
     fn Register(&self) -> windows_core::Result<()>;
     fn Unregister(&self, writerid: &windows_core::GUID) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IVssExpressWriter {}
 impl IVssExpressWriter_Vtbl {
-    pub const fn new<Identity: IVssExpressWriter_Impl, const OFFSET: isize>() -> IVssExpressWriter_Vtbl {
+    pub const fn new<Identity: IVssExpressWriter_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateMetadata<Identity: IVssExpressWriter_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, writerid: windows_core::GUID, writername: windows_core::PCWSTR, usagetype: VSS_USAGE_TYPE, versionmajor: u32, versionminor: u32, reserved: u32, ppmetadata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVssExpressWriter_Impl::CreateMetadata(this, core::mem::transmute(&writerid), core::mem::transmute(&writername), core::mem::transmute_copy(&usagetype), core::mem::transmute_copy(&versionmajor), core::mem::transmute_copy(&versionminor), core::mem::transmute_copy(&reserved)) {
@@ -1682,13 +1608,8 @@ impl IVssExpressWriter_Vtbl {
         iid == &<IVssExpressWriter as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssExpressWriter {}
 windows_core::imp::define_interface!(IVssFileShareSnapshotProvider, IVssFileShareSnapshotProvider_Vtbl, 0xc8636060_7c2e_11df_8c4a_0800200c9a66);
-impl core::ops::Deref for IVssFileShareSnapshotProvider {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssFileShareSnapshotProvider, windows_core::IUnknown);
 impl IVssFileShareSnapshotProvider {
     pub unsafe fn SetContext(&self, lcontext: i32) -> windows_core::Result<()> {
@@ -1701,9 +1622,9 @@ impl IVssFileShareSnapshotProvider {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Query)(windows_core::Interface::as_raw(self), core::mem::transmute(queriedobjectid), equeriedobjecttype, ereturnedobjectstype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn DeleteSnapshots<P0>(&self, sourceobjectid: windows_core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: P0, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut windows_core::GUID) -> windows_core::Result<()>
+    pub unsafe fn DeleteSnapshots<P2>(&self, sourceobjectid: windows_core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: P2, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).DeleteSnapshots)(windows_core::Interface::as_raw(self), core::mem::transmute(sourceobjectid), esourceobjecttype, bforcedelete.param().abi(), pldeletedsnapshots, pnondeletedsnapshotid).ok()
     }
@@ -1718,9 +1639,9 @@ impl IVssFileShareSnapshotProvider {
         (windows_core::Interface::vtable(self).IsPathSnapshotted)(windows_core::Interface::as_raw(self), pwszsharepath, pbsnapshotspresent, plsnapshotcompatibility).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetSnapshotProperty<P0>(&self, snapshotid: windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: P0) -> windows_core::Result<()>
+    pub unsafe fn SetSnapshotProperty<P2>(&self, snapshotid: windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::System::Variant::VARIANT>,
+        P2: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).SetSnapshotProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(snapshotid), esnapshotpropertyid, vproperty.param().abi()).ok()
     }
@@ -1736,12 +1657,12 @@ pub struct IVssFileShareSnapshotProvider_Vtbl {
     pub IsPathSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub IsPathSnapshotted: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *mut super::super::Foundation::BOOL, *mut i32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetSnapshotProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, VSS_SNAPSHOT_PROPERTY_ID, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub SetSnapshotProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, VSS_SNAPSHOT_PROPERTY_ID, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetSnapshotProperty: usize,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IVssFileShareSnapshotProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssFileShareSnapshotProvider_Impl: windows_core::IUnknownImpl {
     fn SetContext(&self, lcontext: i32) -> windows_core::Result<()>;
     fn GetSnapshotProperties(&self, snapshotid: &windows_core::GUID, pprop: *mut VSS_SNAPSHOT_PROP) -> windows_core::Result<()>;
     fn Query(&self, queriedobjectid: &windows_core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE) -> windows_core::Result<IVssEnumObject>;
@@ -1752,10 +1673,8 @@ pub trait IVssFileShareSnapshotProvider_Impl: Sized + windows_core::IUnknownImpl
     fn SetSnapshotProperty(&self, snapshotid: &windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IVssFileShareSnapshotProvider {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVssFileShareSnapshotProvider_Vtbl {
-    pub const fn new<Identity: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>() -> IVssFileShareSnapshotProvider_Vtbl {
+    pub const fn new<Identity: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetContext<Identity: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcontext: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssFileShareSnapshotProvider_Impl::SetContext(this, core::mem::transmute_copy(&lcontext)).into()
@@ -1796,7 +1715,7 @@ impl IVssFileShareSnapshotProvider_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssFileShareSnapshotProvider_Impl::IsPathSnapshotted(this, core::mem::transmute_copy(&pwszsharepath), core::mem::transmute_copy(&pbsnapshotspresent), core::mem::transmute_copy(&plsnapshotcompatibility)).into()
         }
-        unsafe extern "system" fn SetSnapshotProperty<Identity: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapshotid: windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSnapshotProperty<Identity: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapshotid: windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssFileShareSnapshotProvider_Impl::SetSnapshotProperty(this, core::mem::transmute(&snapshotid), core::mem::transmute_copy(&esnapshotpropertyid), core::mem::transmute(&vproperty)).into()
         }
@@ -1816,13 +1735,9 @@ impl IVssFileShareSnapshotProvider_Vtbl {
         iid == &<IVssFileShareSnapshotProvider as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IVssFileShareSnapshotProvider {}
 windows_core::imp::define_interface!(IVssHardwareSnapshotProvider, IVssHardwareSnapshotProvider_Vtbl, 0x9593a157_44e9_4344_bbeb_44fbf9b06b10);
-impl core::ops::Deref for IVssHardwareSnapshotProvider {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssHardwareSnapshotProvider, windows_core::IUnknown);
 impl IVssHardwareSnapshotProvider {
     #[cfg(feature = "Win32_Storage_VirtualDiskService")]
@@ -1879,7 +1794,7 @@ pub struct IVssHardwareSnapshotProvider_Vtbl {
     OnLunEmpty: usize,
 }
 #[cfg(feature = "Win32_Storage_VirtualDiskService")]
-pub trait IVssHardwareSnapshotProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssHardwareSnapshotProvider_Impl: windows_core::IUnknownImpl {
     fn AreLunsSupported(&self, lluncount: i32, lcontext: i32, rgwszdevices: *const *const u16, pluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn FillInLunInfo(&self, wszdevicename: *const u16, pluninfo: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> windows_core::Result<()>;
     fn BeginPrepareSnapshot(&self, snapshotsetid: &windows_core::GUID, snapshotid: &windows_core::GUID, lcontext: i32, lluncount: i32, rgdevicenames: *const *const u16, rgluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION) -> windows_core::Result<()>;
@@ -1888,10 +1803,8 @@ pub trait IVssHardwareSnapshotProvider_Impl: Sized + windows_core::IUnknownImpl 
     fn OnLunEmpty(&self, wszdevicename: *const u16, pinformation: *const super::VirtualDiskService::VDS_LUN_INFORMATION) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Storage_VirtualDiskService")]
-impl windows_core::RuntimeName for IVssHardwareSnapshotProvider {}
-#[cfg(feature = "Win32_Storage_VirtualDiskService")]
 impl IVssHardwareSnapshotProvider_Vtbl {
-    pub const fn new<Identity: IVssHardwareSnapshotProvider_Impl, const OFFSET: isize>() -> IVssHardwareSnapshotProvider_Vtbl {
+    pub const fn new<Identity: IVssHardwareSnapshotProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AreLunsSupported<Identity: IVssHardwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lluncount: i32, lcontext: i32, rgwszdevices: *const *const u16, pluninformation: *mut super::VirtualDiskService::VDS_LUN_INFORMATION, pbissupported: *mut super::super::Foundation::BOOL) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssHardwareSnapshotProvider_Impl::AreLunsSupported(this, core::mem::transmute_copy(&lluncount), core::mem::transmute_copy(&lcontext), core::mem::transmute_copy(&rgwszdevices), core::mem::transmute_copy(&pluninformation), core::mem::transmute_copy(&pbissupported)).into()
@@ -1930,6 +1843,8 @@ impl IVssHardwareSnapshotProvider_Vtbl {
         iid == &<IVssHardwareSnapshotProvider as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Storage_VirtualDiskService")]
+impl windows_core::RuntimeName for IVssHardwareSnapshotProvider {}
 windows_core::imp::define_interface!(IVssHardwareSnapshotProviderEx, IVssHardwareSnapshotProviderEx_Vtbl, 0x7f5ba925_cdb1_4d11_a71f_339eb7e709fd);
 impl core::ops::Deref for IVssHardwareSnapshotProviderEx {
     type Target = IVssHardwareSnapshotProvider;
@@ -1975,17 +1890,15 @@ pub struct IVssHardwareSnapshotProviderEx_Vtbl {
     OnReuseLuns: usize,
 }
 #[cfg(feature = "Win32_Storage_VirtualDiskService")]
-pub trait IVssHardwareSnapshotProviderEx_Impl: Sized + IVssHardwareSnapshotProvider_Impl {
+pub trait IVssHardwareSnapshotProviderEx_Impl: IVssHardwareSnapshotProvider_Impl {
     fn GetProviderCapabilities(&self) -> windows_core::Result<u64>;
     fn OnLunStateChange(&self, psnapshotluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, poriginalluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32, dwflags: u32) -> windows_core::Result<()>;
     fn ResyncLuns(&self, psourceluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, ptargetluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32) -> windows_core::Result<IVssAsync>;
     fn OnReuseLuns(&self, psnapshotluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, poriginalluns: *const super::VirtualDiskService::VDS_LUN_INFORMATION, dwcount: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Storage_VirtualDiskService")]
-impl windows_core::RuntimeName for IVssHardwareSnapshotProviderEx {}
-#[cfg(feature = "Win32_Storage_VirtualDiskService")]
 impl IVssHardwareSnapshotProviderEx_Vtbl {
-    pub const fn new<Identity: IVssHardwareSnapshotProviderEx_Impl, const OFFSET: isize>() -> IVssHardwareSnapshotProviderEx_Vtbl {
+    pub const fn new<Identity: IVssHardwareSnapshotProviderEx_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetProviderCapabilities<Identity: IVssHardwareSnapshotProviderEx_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plloriginalcapabilitymask: *mut u64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVssHardwareSnapshotProviderEx_Impl::GetProviderCapabilities(this) {
@@ -2023,16 +1936,12 @@ impl IVssHardwareSnapshotProviderEx_Vtbl {
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<IVssHardwareSnapshotProviderEx as windows_core::Interface>::IID || iid == &<IVssHardwareSnapshotProvider as windows_core::Interface>::IID
+        iid == &<IVssHardwareSnapshotProviderEx as windows_core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Storage_VirtualDiskService")]
+impl windows_core::RuntimeName for IVssHardwareSnapshotProviderEx {}
 windows_core::imp::define_interface!(IVssProviderCreateSnapshotSet, IVssProviderCreateSnapshotSet_Vtbl, 0x5f894e5b_1e39_4778_8e23_9abad9f0e08c);
-impl core::ops::Deref for IVssProviderCreateSnapshotSet {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssProviderCreateSnapshotSet, windows_core::IUnknown);
 impl IVssProviderCreateSnapshotSet {
     pub unsafe fn EndPrepareSnapshots(&self, snapshotsetid: windows_core::GUID) -> windows_core::Result<()> {
@@ -2068,7 +1977,7 @@ pub struct IVssProviderCreateSnapshotSet_Vtbl {
     pub PostFinalCommitSnapshots: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
     pub AbortSnapshots: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
-pub trait IVssProviderCreateSnapshotSet_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssProviderCreateSnapshotSet_Impl: windows_core::IUnknownImpl {
     fn EndPrepareSnapshots(&self, snapshotsetid: &windows_core::GUID) -> windows_core::Result<()>;
     fn PreCommitSnapshots(&self, snapshotsetid: &windows_core::GUID) -> windows_core::Result<()>;
     fn CommitSnapshots(&self, snapshotsetid: &windows_core::GUID) -> windows_core::Result<()>;
@@ -2077,9 +1986,8 @@ pub trait IVssProviderCreateSnapshotSet_Impl: Sized + windows_core::IUnknownImpl
     fn PostFinalCommitSnapshots(&self, snapshotsetid: &windows_core::GUID) -> windows_core::Result<()>;
     fn AbortSnapshots(&self, snapshotsetid: &windows_core::GUID) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IVssProviderCreateSnapshotSet {}
 impl IVssProviderCreateSnapshotSet_Vtbl {
-    pub const fn new<Identity: IVssProviderCreateSnapshotSet_Impl, const OFFSET: isize>() -> IVssProviderCreateSnapshotSet_Vtbl {
+    pub const fn new<Identity: IVssProviderCreateSnapshotSet_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn EndPrepareSnapshots<Identity: IVssProviderCreateSnapshotSet_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapshotsetid: windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssProviderCreateSnapshotSet_Impl::EndPrepareSnapshots(this, core::mem::transmute(&snapshotsetid)).into()
@@ -2123,13 +2031,8 @@ impl IVssProviderCreateSnapshotSet_Vtbl {
         iid == &<IVssProviderCreateSnapshotSet as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssProviderCreateSnapshotSet {}
 windows_core::imp::define_interface!(IVssProviderNotifications, IVssProviderNotifications_Vtbl, 0xe561901f_03a5_4afe_86d0_72baeece7004);
-impl core::ops::Deref for IVssProviderNotifications {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssProviderNotifications, windows_core::IUnknown);
 impl IVssProviderNotifications {
     pub unsafe fn OnLoad<P0>(&self, pcallback: P0) -> windows_core::Result<()>
@@ -2151,13 +2054,12 @@ pub struct IVssProviderNotifications_Vtbl {
     pub OnLoad: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OnUnload: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::BOOL) -> windows_core::HRESULT,
 }
-pub trait IVssProviderNotifications_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssProviderNotifications_Impl: windows_core::IUnknownImpl {
     fn OnLoad(&self, pcallback: Option<&windows_core::IUnknown>) -> windows_core::Result<()>;
     fn OnUnload(&self, bforceunload: super::super::Foundation::BOOL) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IVssProviderNotifications {}
 impl IVssProviderNotifications_Vtbl {
-    pub const fn new<Identity: IVssProviderNotifications_Impl, const OFFSET: isize>() -> IVssProviderNotifications_Vtbl {
+    pub const fn new<Identity: IVssProviderNotifications_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OnLoad<Identity: IVssProviderNotifications_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcallback: *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssProviderNotifications_Impl::OnLoad(this, windows_core::from_raw_borrowed(&pcallback)).into()
@@ -2172,13 +2074,8 @@ impl IVssProviderNotifications_Vtbl {
         iid == &<IVssProviderNotifications as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssProviderNotifications {}
 windows_core::imp::define_interface!(IVssSnapshotMgmt, IVssSnapshotMgmt_Vtbl, 0xfa7df749_66e7_4986_a27f_e2f04ae53772);
-impl core::ops::Deref for IVssSnapshotMgmt {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssSnapshotMgmt, windows_core::IUnknown);
 impl IVssSnapshotMgmt {
     pub unsafe fn GetProviderMgmtInterface(&self, providerid: windows_core::GUID, interfaceid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
@@ -2201,14 +2098,13 @@ pub struct IVssSnapshotMgmt_Vtbl {
     pub QueryVolumesSupportedForSnapshots: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub QuerySnapshotsByVolume: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IVssSnapshotMgmt_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssSnapshotMgmt_Impl: windows_core::IUnknownImpl {
     fn GetProviderMgmtInterface(&self, providerid: &windows_core::GUID, interfaceid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown>;
     fn QueryVolumesSupportedForSnapshots(&self, providerid: &windows_core::GUID, lcontext: i32) -> windows_core::Result<IVssEnumMgmtObject>;
     fn QuerySnapshotsByVolume(&self, pwszvolumename: *const u16, providerid: &windows_core::GUID) -> windows_core::Result<IVssEnumObject>;
 }
-impl windows_core::RuntimeName for IVssSnapshotMgmt {}
 impl IVssSnapshotMgmt_Vtbl {
-    pub const fn new<Identity: IVssSnapshotMgmt_Impl, const OFFSET: isize>() -> IVssSnapshotMgmt_Vtbl {
+    pub const fn new<Identity: IVssSnapshotMgmt_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetProviderMgmtInterface<Identity: IVssSnapshotMgmt_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, providerid: windows_core::GUID, interfaceid: *const windows_core::GUID, ppitf: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVssSnapshotMgmt_Impl::GetProviderMgmtInterface(this, core::mem::transmute(&providerid), core::mem::transmute_copy(&interfaceid)) {
@@ -2250,13 +2146,8 @@ impl IVssSnapshotMgmt_Vtbl {
         iid == &<IVssSnapshotMgmt as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssSnapshotMgmt {}
 windows_core::imp::define_interface!(IVssSnapshotMgmt2, IVssSnapshotMgmt2_Vtbl, 0x0f61ec39_fe82_45f2_a3f0_768b5d427102);
-impl core::ops::Deref for IVssSnapshotMgmt2 {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssSnapshotMgmt2, windows_core::IUnknown);
 impl IVssSnapshotMgmt2 {
     pub unsafe fn GetMinDiffAreaSize(&self) -> windows_core::Result<i64> {
@@ -2269,12 +2160,11 @@ pub struct IVssSnapshotMgmt2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetMinDiffAreaSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
 }
-pub trait IVssSnapshotMgmt2_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssSnapshotMgmt2_Impl: windows_core::IUnknownImpl {
     fn GetMinDiffAreaSize(&self) -> windows_core::Result<i64>;
 }
-impl windows_core::RuntimeName for IVssSnapshotMgmt2 {}
 impl IVssSnapshotMgmt2_Vtbl {
-    pub const fn new<Identity: IVssSnapshotMgmt2_Impl, const OFFSET: isize>() -> IVssSnapshotMgmt2_Vtbl {
+    pub const fn new<Identity: IVssSnapshotMgmt2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetMinDiffAreaSize<Identity: IVssSnapshotMgmt2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pllmindiffareasize: *mut i64) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVssSnapshotMgmt2_Impl::GetMinDiffAreaSize(this) {
@@ -2291,13 +2181,8 @@ impl IVssSnapshotMgmt2_Vtbl {
         iid == &<IVssSnapshotMgmt2 as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssSnapshotMgmt2 {}
 windows_core::imp::define_interface!(IVssSoftwareSnapshotProvider, IVssSoftwareSnapshotProvider_Vtbl, 0x609e123e_2c5a_44d3_8f01_0b1d9a47d1ff);
-impl core::ops::Deref for IVssSoftwareSnapshotProvider {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssSoftwareSnapshotProvider, windows_core::IUnknown);
 impl IVssSoftwareSnapshotProvider {
     pub unsafe fn SetContext(&self, lcontext: i32) -> windows_core::Result<()> {
@@ -2310,9 +2195,9 @@ impl IVssSoftwareSnapshotProvider {
         let mut result__ = core::mem::zeroed();
         (windows_core::Interface::vtable(self).Query)(windows_core::Interface::as_raw(self), core::mem::transmute(queriedobjectid), equeriedobjecttype, ereturnedobjectstype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
-    pub unsafe fn DeleteSnapshots<P0>(&self, sourceobjectid: windows_core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: P0, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut windows_core::GUID) -> windows_core::Result<()>
+    pub unsafe fn DeleteSnapshots<P2>(&self, sourceobjectid: windows_core::GUID, esourceobjecttype: VSS_OBJECT_TYPE, bforcedelete: P2, pldeletedsnapshots: *mut i32, pnondeletedsnapshotid: *mut windows_core::GUID) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::Foundation::BOOL>,
+        P2: windows_core::Param<super::super::Foundation::BOOL>,
     {
         (windows_core::Interface::vtable(self).DeleteSnapshots)(windows_core::Interface::as_raw(self), core::mem::transmute(sourceobjectid), esourceobjecttype, bforcedelete.param().abi(), pldeletedsnapshots, pnondeletedsnapshotid).ok()
     }
@@ -2327,9 +2212,9 @@ impl IVssSoftwareSnapshotProvider {
         (windows_core::Interface::vtable(self).IsVolumeSnapshotted)(windows_core::Interface::as_raw(self), pwszvolumename, pbsnapshotspresent, plsnapshotcompatibility).ok()
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetSnapshotProperty<P0>(&self, snapshotid: windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: P0) -> windows_core::Result<()>
+    pub unsafe fn SetSnapshotProperty<P2>(&self, snapshotid: windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: P2) -> windows_core::Result<()>
     where
-        P0: windows_core::Param<super::super::System::Variant::VARIANT>,
+        P2: windows_core::Param<super::super::System::Variant::VARIANT>,
     {
         (windows_core::Interface::vtable(self).SetSnapshotProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(snapshotid), esnapshotpropertyid, vproperty.param().abi()).ok()
     }
@@ -2352,14 +2237,14 @@ pub struct IVssSoftwareSnapshotProvider_Vtbl {
     pub IsVolumeSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *mut super::super::Foundation::BOOL) -> windows_core::HRESULT,
     pub IsVolumeSnapshotted: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *mut super::super::Foundation::BOOL, *mut i32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub SetSnapshotProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, VSS_SNAPSHOT_PROPERTY_ID, core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT,
+    pub SetSnapshotProperty: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, VSS_SNAPSHOT_PROPERTY_ID, super::super::System::Variant::VARIANT) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetSnapshotProperty: usize,
     pub RevertToSnapshot: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
     pub QueryRevertStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub trait IVssSoftwareSnapshotProvider_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssSoftwareSnapshotProvider_Impl: windows_core::IUnknownImpl {
     fn SetContext(&self, lcontext: i32) -> windows_core::Result<()>;
     fn GetSnapshotProperties(&self, snapshotid: &windows_core::GUID, pprop: *mut VSS_SNAPSHOT_PROP) -> windows_core::Result<()>;
     fn Query(&self, queriedobjectid: &windows_core::GUID, equeriedobjecttype: VSS_OBJECT_TYPE, ereturnedobjectstype: VSS_OBJECT_TYPE) -> windows_core::Result<IVssEnumObject>;
@@ -2372,10 +2257,8 @@ pub trait IVssSoftwareSnapshotProvider_Impl: Sized + windows_core::IUnknownImpl 
     fn QueryRevertStatus(&self, pwszvolume: *const u16) -> windows_core::Result<IVssAsync>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-impl windows_core::RuntimeName for IVssSoftwareSnapshotProvider {}
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVssSoftwareSnapshotProvider_Vtbl {
-    pub const fn new<Identity: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>() -> IVssSoftwareSnapshotProvider_Vtbl {
+    pub const fn new<Identity: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetContext<Identity: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lcontext: i32) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssSoftwareSnapshotProvider_Impl::SetContext(this, core::mem::transmute_copy(&lcontext)).into()
@@ -2416,7 +2299,7 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssSoftwareSnapshotProvider_Impl::IsVolumeSnapshotted(this, core::mem::transmute_copy(&pwszvolumename), core::mem::transmute_copy(&pbsnapshotspresent), core::mem::transmute_copy(&plsnapshotcompatibility)).into()
         }
-        unsafe extern "system" fn SetSnapshotProperty<Identity: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapshotid: windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: core::mem::MaybeUninit<super::super::System::Variant::VARIANT>) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSnapshotProperty<Identity: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, snapshotid: windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Variant::VARIANT) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssSoftwareSnapshotProvider_Impl::SetSnapshotProperty(this, core::mem::transmute(&snapshotid), core::mem::transmute_copy(&esnapshotpropertyid), core::mem::transmute(&vproperty)).into()
         }
@@ -2452,13 +2335,9 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
         iid == &<IVssSoftwareSnapshotProvider as windows_core::Interface>::IID
     }
 }
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+impl windows_core::RuntimeName for IVssSoftwareSnapshotProvider {}
 windows_core::imp::define_interface!(IVssWMDependency, IVssWMDependency_Vtbl, 0);
-impl core::ops::Deref for IVssWMDependency {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssWMDependency, windows_core::IUnknown);
 impl IVssWMDependency {
     pub unsafe fn GetWriterId(&self, pwriterid: *mut windows_core::GUID) -> windows_core::Result<()> {
@@ -2478,14 +2357,13 @@ pub struct IVssWMDependency_Vtbl {
     pub GetLogicalPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetComponentName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
 }
-pub trait IVssWMDependency_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssWMDependency_Impl: windows_core::IUnknownImpl {
     fn GetWriterId(&self, pwriterid: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn GetLogicalPath(&self, pbstrlogicalpath: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetComponentName(&self, pbstrcomponentname: *mut windows_core::BSTR) -> windows_core::Result<()>;
 }
-impl windows_core::RuntimeName for IVssWMDependency {}
 impl IVssWMDependency_Vtbl {
-    pub const fn new<Identity: IVssWMDependency_Impl, const OFFSET: isize>() -> IVssWMDependency_Vtbl {
+    pub const fn new<Identity: IVssWMDependency_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetWriterId<Identity: IVssWMDependency_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwriterid: *mut windows_core::GUID) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssWMDependency_Impl::GetWriterId(this, core::mem::transmute_copy(&pwriterid)).into()
@@ -2509,22 +2387,17 @@ impl IVssWMDependency_Vtbl {
         iid == &<IVssWMDependency as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssWMDependency {}
 windows_core::imp::define_interface!(IVssWMFiledesc, IVssWMFiledesc_Vtbl, 0);
-impl core::ops::Deref for IVssWMFiledesc {
-    type Target = windows_core::IUnknown;
-    fn deref(&self) -> &Self::Target {
-        unsafe { core::mem::transmute(self) }
-    }
-}
 windows_core::imp::interface_hierarchy!(IVssWMFiledesc, windows_core::IUnknown);
 impl IVssWMFiledesc {
     pub unsafe fn GetPath(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetPath)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn GetFilespec(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetFilespec)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetFilespec)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn GetRecursive(&self) -> windows_core::Result<bool> {
         let mut result__ = core::mem::zeroed();
@@ -2532,7 +2405,7 @@ impl IVssWMFiledesc {
     }
     pub unsafe fn GetAlternateLocation(&self) -> windows_core::Result<windows_core::BSTR> {
         let mut result__ = core::mem::zeroed();
-        (windows_core::Interface::vtable(self).GetAlternateLocation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        (windows_core::Interface::vtable(self).GetAlternateLocation)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
     }
     pub unsafe fn GetBackupTypeMask(&self) -> windows_core::Result<u32> {
         let mut result__ = core::mem::zeroed();
@@ -2548,16 +2421,15 @@ pub struct IVssWMFiledesc_Vtbl {
     pub GetAlternateLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT,
     pub GetBackupTypeMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-pub trait IVssWMFiledesc_Impl: Sized + windows_core::IUnknownImpl {
+pub trait IVssWMFiledesc_Impl: windows_core::IUnknownImpl {
     fn GetPath(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetFilespec(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetRecursive(&self) -> windows_core::Result<bool>;
     fn GetAlternateLocation(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetBackupTypeMask(&self) -> windows_core::Result<u32>;
 }
-impl windows_core::RuntimeName for IVssWMFiledesc {}
 impl IVssWMFiledesc_Vtbl {
-    pub const fn new<Identity: IVssWMFiledesc_Impl, const OFFSET: isize>() -> IVssWMFiledesc_Vtbl {
+    pub const fn new<Identity: IVssWMFiledesc_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPath<Identity: IVssWMFiledesc_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbstrpath: *mut core::mem::MaybeUninit<windows_core::BSTR>) -> windows_core::HRESULT {
             let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVssWMFiledesc_Impl::GetPath(this) {
@@ -2621,6 +2493,7 @@ impl IVssWMFiledesc_Vtbl {
         iid == &<IVssWMFiledesc as windows_core::Interface>::IID
     }
 }
+impl windows_core::RuntimeName for IVssWMFiledesc {}
 windows_core::imp::define_interface!(IVssWriterComponents, IVssWriterComponents_Vtbl);
 impl IVssWriterComponents {
     pub unsafe fn GetComponentCount(&self, pccomponents: *mut u32) -> windows_core::Result<()> {
@@ -2640,26 +2513,23 @@ pub struct IVssWriterComponents_Vtbl {
     pub GetWriterInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetComponent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-pub trait IVssWriterComponents_Impl: Sized {
+pub trait IVssWriterComponents_Impl {
     fn GetComponentCount(&self, pccomponents: *mut u32) -> windows_core::Result<()>;
     fn GetWriterInfo(&self, pidinstance: *mut windows_core::GUID, pidwriter: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn GetComponent(&self, icomponent: u32) -> windows_core::Result<IVssComponent>;
 }
 impl IVssWriterComponents_Vtbl {
-    pub const fn new<Impl: IVssWriterComponents_Impl>() -> IVssWriterComponents_Vtbl {
-        unsafe extern "system" fn GetComponentCount<Impl: IVssWriterComponents_Impl>(this: *mut core::ffi::c_void, pccomponents: *mut u32) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Impl);
+    pub const fn new<Identity: IVssWriterComponents_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetComponentCount<Identity: IVssWriterComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pccomponents: *mut u32) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssWriterComponents_Impl::GetComponentCount(this, core::mem::transmute_copy(&pccomponents)).into()
         }
-        unsafe extern "system" fn GetWriterInfo<Impl: IVssWriterComponents_Impl>(this: *mut core::ffi::c_void, pidinstance: *mut windows_core::GUID, pidwriter: *mut windows_core::GUID) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Impl);
+        unsafe extern "system" fn GetWriterInfo<Identity: IVssWriterComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pidinstance: *mut windows_core::GUID, pidwriter: *mut windows_core::GUID) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             IVssWriterComponents_Impl::GetWriterInfo(this, core::mem::transmute_copy(&pidinstance), core::mem::transmute_copy(&pidwriter)).into()
         }
-        unsafe extern "system" fn GetComponent<Impl: IVssWriterComponents_Impl>(this: *mut core::ffi::c_void, icomponent: u32, ppcomponent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
-            let this = &*((*this).this as *const Impl);
+        unsafe extern "system" fn GetComponent<Identity: IVssWriterComponents_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, icomponent: u32, ppcomponent: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
             match IVssWriterComponents_Impl::GetComponent(this, core::mem::transmute_copy(&icomponent)) {
                 Ok(ok__) => {
                     ppcomponent.write(core::mem::transmute(ok__));
@@ -2668,24 +2538,17 @@ impl IVssWriterComponents_Vtbl {
                 Err(err) => err.into(),
             }
         }
-        Self { GetComponentCount: GetComponentCount::<Impl>, GetWriterInfo: GetWriterInfo::<Impl>, GetComponent: GetComponent::<Impl> }
+        Self {
+            GetComponentCount: GetComponentCount::<Identity, OFFSET>,
+            GetWriterInfo: GetWriterInfo::<Identity, OFFSET>,
+            GetComponent: GetComponent::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<IVssWriterComponents as windows_core::Interface>::IID
     }
 }
-#[doc(hidden)]
-#[cfg(feature = "std")]
-struct IVssWriterComponents_ImplVtbl<T: IVssWriterComponents_Impl>(core::marker::PhantomData<T>);
-#[cfg(feature = "std")]
-impl<T: IVssWriterComponents_Impl> IVssWriterComponents_ImplVtbl<T> {
-    const VTABLE: IVssWriterComponents_Vtbl = IVssWriterComponents_Vtbl::new::<T>();
-}
-#[cfg(feature = "std")]
-impl IVssWriterComponents {
-    pub fn new<'a, T: IVssWriterComponents_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
-        let this = windows_core::ScopedHeap { vtable: &IVssWriterComponents_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
-        let this = core::mem::ManuallyDrop::new(Box::new(this));
-        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
-    }
-}
+impl windows_core::RuntimeName for IVssWriterComponents {}
 pub const VSS_APP_AUTO: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(-1i32);
 pub const VSS_APP_BACK_END: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(2i32);
 pub const VSS_APP_FRONT_END: VSS_APPLICATION_LEVEL = VSS_APPLICATION_LEVEL(3i32);
@@ -2994,338 +2857,188 @@ pub const VSS_WS_WAITING_FOR_FREEZE: VSS_WRITER_STATE = VSS_WRITER_STATE(2i32);
 pub const VSS_WS_WAITING_FOR_POST_SNAPSHOT: VSS_WRITER_STATE = VSS_WRITER_STATE(4i32);
 pub const VSS_WS_WAITING_FOR_THAW: VSS_WRITER_STATE = VSS_WRITER_STATE(3i32);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_ALTERNATE_WRITER_STATE(pub i32);
 impl windows_core::TypeKind for VSS_ALTERNATE_WRITER_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_ALTERNATE_WRITER_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_ALTERNATE_WRITER_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_APPLICATION_LEVEL(pub i32);
 impl windows_core::TypeKind for VSS_APPLICATION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_APPLICATION_LEVEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_APPLICATION_LEVEL").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_BACKUP_SCHEMA(pub i32);
 impl windows_core::TypeKind for VSS_BACKUP_SCHEMA {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_BACKUP_SCHEMA {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_BACKUP_SCHEMA").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_BACKUP_TYPE(pub i32);
 impl windows_core::TypeKind for VSS_BACKUP_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_BACKUP_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_BACKUP_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_COMPONENT_FLAGS(pub i32);
 impl windows_core::TypeKind for VSS_COMPONENT_FLAGS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_COMPONENT_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_COMPONENT_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_COMPONENT_TYPE(pub i32);
 impl windows_core::TypeKind for VSS_COMPONENT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_COMPONENT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_COMPONENT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_FILE_RESTORE_STATUS(pub i32);
 impl windows_core::TypeKind for VSS_FILE_RESTORE_STATUS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_FILE_RESTORE_STATUS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_FILE_RESTORE_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_FILE_SPEC_BACKUP_TYPE(pub i32);
 impl windows_core::TypeKind for VSS_FILE_SPEC_BACKUP_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_FILE_SPEC_BACKUP_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_FILE_SPEC_BACKUP_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_HARDWARE_OPTIONS(pub i32);
 impl windows_core::TypeKind for VSS_HARDWARE_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_HARDWARE_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_HARDWARE_OPTIONS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_MGMT_OBJECT_TYPE(pub i32);
 impl windows_core::TypeKind for VSS_MGMT_OBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_MGMT_OBJECT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_MGMT_OBJECT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_OBJECT_TYPE(pub i32);
 impl windows_core::TypeKind for VSS_OBJECT_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_OBJECT_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_OBJECT_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_PROTECTION_FAULT(pub i32);
 impl windows_core::TypeKind for VSS_PROTECTION_FAULT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_PROTECTION_FAULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_PROTECTION_FAULT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_PROTECTION_LEVEL(pub i32);
 impl windows_core::TypeKind for VSS_PROTECTION_LEVEL {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_PROTECTION_LEVEL {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_PROTECTION_LEVEL").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_PROVIDER_CAPABILITIES(pub i32);
 impl windows_core::TypeKind for VSS_PROVIDER_CAPABILITIES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_PROVIDER_CAPABILITIES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_PROVIDER_CAPABILITIES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_PROVIDER_TYPE(pub i32);
 impl windows_core::TypeKind for VSS_PROVIDER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_PROVIDER_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_PROVIDER_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_RECOVERY_OPTIONS(pub i32);
 impl windows_core::TypeKind for VSS_RECOVERY_OPTIONS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_RECOVERY_OPTIONS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_RECOVERY_OPTIONS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_RESTOREMETHOD_ENUM(pub i32);
 impl windows_core::TypeKind for VSS_RESTOREMETHOD_ENUM {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_RESTOREMETHOD_ENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_RESTOREMETHOD_ENUM").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_RESTORE_TARGET(pub i32);
 impl windows_core::TypeKind for VSS_RESTORE_TARGET {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_RESTORE_TARGET {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_RESTORE_TARGET").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_RESTORE_TYPE(pub i32);
 impl windows_core::TypeKind for VSS_RESTORE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_RESTORE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_RESTORE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_ROLLFORWARD_TYPE(pub i32);
 impl windows_core::TypeKind for VSS_ROLLFORWARD_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_ROLLFORWARD_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_ROLLFORWARD_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_SNAPSHOT_COMPATIBILITY(pub i32);
 impl windows_core::TypeKind for VSS_SNAPSHOT_COMPATIBILITY {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_SNAPSHOT_COMPATIBILITY {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_SNAPSHOT_COMPATIBILITY").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_SNAPSHOT_CONTEXT(pub i32);
 impl windows_core::TypeKind for VSS_SNAPSHOT_CONTEXT {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_SNAPSHOT_CONTEXT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_SNAPSHOT_CONTEXT").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_SNAPSHOT_PROPERTY_ID(pub i32);
 impl windows_core::TypeKind for VSS_SNAPSHOT_PROPERTY_ID {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_SNAPSHOT_PROPERTY_ID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_SNAPSHOT_PROPERTY_ID").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_SNAPSHOT_STATE(pub i32);
 impl windows_core::TypeKind for VSS_SNAPSHOT_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_SNAPSHOT_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_SNAPSHOT_STATE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_SOURCE_TYPE(pub i32);
 impl windows_core::TypeKind for VSS_SOURCE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_SOURCE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_SOURCE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_SUBSCRIBE_MASK(pub i32);
 impl windows_core::TypeKind for VSS_SUBSCRIBE_MASK {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_SUBSCRIBE_MASK {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_SUBSCRIBE_MASK").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_USAGE_TYPE(pub i32);
 impl windows_core::TypeKind for VSS_USAGE_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_USAGE_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_USAGE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_VOLUME_SNAPSHOT_ATTRIBUTES(pub i32);
 impl windows_core::TypeKind for VSS_VOLUME_SNAPSHOT_ATTRIBUTES {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_VOLUME_SNAPSHOT_ATTRIBUTES {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_VOLUME_SNAPSHOT_ATTRIBUTES").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_WRITERRESTORE_ENUM(pub i32);
 impl windows_core::TypeKind for VSS_WRITERRESTORE_ENUM {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_WRITERRESTORE_ENUM {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_WRITERRESTORE_ENUM").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct VSS_WRITER_STATE(pub i32);
 impl windows_core::TypeKind for VSS_WRITER_STATE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for VSS_WRITER_STATE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("VSS_WRITER_STATE").field(&self.0).finish()
-    }
-}
 pub const VSSCoordinator: windows_core::GUID = windows_core::GUID::from_u128(0xe579ab5f_1cc4_44b4_bed9_de0991ff0623);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct VSS_DIFF_AREA_PROP {
     pub m_pwszVolumeName: *mut u16,
     pub m_pwszDiffAreaVolumeName: *mut u16,
@@ -3333,89 +3046,89 @@ pub struct VSS_DIFF_AREA_PROP {
     pub m_llAllocatedDiffSpace: i64,
     pub m_llUsedDiffSpace: i64,
 }
-impl windows_core::TypeKind for VSS_DIFF_AREA_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for VSS_DIFF_AREA_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for VSS_DIFF_AREA_PROP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct VSS_DIFF_VOLUME_PROP {
     pub m_pwszVolumeName: *mut u16,
     pub m_pwszVolumeDisplayName: *mut u16,
     pub m_llVolumeFreeSpace: i64,
     pub m_llVolumeTotalSpace: i64,
 }
-impl windows_core::TypeKind for VSS_DIFF_VOLUME_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for VSS_DIFF_VOLUME_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for VSS_DIFF_VOLUME_PROP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VSS_MGMT_OBJECT_PROP {
     pub Type: VSS_MGMT_OBJECT_TYPE,
     pub Obj: VSS_MGMT_OBJECT_UNION,
-}
-impl windows_core::TypeKind for VSS_MGMT_OBJECT_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for VSS_MGMT_OBJECT_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for VSS_MGMT_OBJECT_PROP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union VSS_MGMT_OBJECT_UNION {
     pub Vol: VSS_VOLUME_PROP,
     pub DiffVol: VSS_DIFF_VOLUME_PROP,
     pub DiffArea: VSS_DIFF_AREA_PROP,
-}
-impl windows_core::TypeKind for VSS_MGMT_OBJECT_UNION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for VSS_MGMT_OBJECT_UNION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for VSS_MGMT_OBJECT_UNION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct VSS_OBJECT_PROP {
     pub Type: VSS_OBJECT_TYPE,
     pub Obj: VSS_OBJECT_UNION,
-}
-impl windows_core::TypeKind for VSS_OBJECT_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for VSS_OBJECT_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for VSS_OBJECT_PROP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union VSS_OBJECT_UNION {
     pub Snap: VSS_SNAPSHOT_PROP,
     pub Prov: VSS_PROVIDER_PROP,
-}
-impl windows_core::TypeKind for VSS_OBJECT_UNION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for VSS_OBJECT_UNION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for VSS_OBJECT_UNION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct VSS_PROVIDER_PROP {
     pub m_ProviderId: windows_core::GUID,
     pub m_pwszProviderName: *mut u16,
@@ -3424,16 +3137,16 @@ pub struct VSS_PROVIDER_PROP {
     pub m_ProviderVersionId: windows_core::GUID,
     pub m_ClassId: windows_core::GUID,
 }
-impl windows_core::TypeKind for VSS_PROVIDER_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for VSS_PROVIDER_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for VSS_PROVIDER_PROP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct VSS_SNAPSHOT_PROP {
     pub m_SnapshotId: windows_core::GUID,
     pub m_SnapshotSetId: windows_core::GUID,
@@ -3449,30 +3162,30 @@ pub struct VSS_SNAPSHOT_PROP {
     pub m_tsCreationTimestamp: i64,
     pub m_eStatus: VSS_SNAPSHOT_STATE,
 }
-impl windows_core::TypeKind for VSS_SNAPSHOT_PROP {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for VSS_SNAPSHOT_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for VSS_SNAPSHOT_PROP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct VSS_VOLUME_PROP {
     pub m_pwszVolumeName: *mut u16,
     pub m_pwszVolumeDisplayName: *mut u16,
-}
-impl windows_core::TypeKind for VSS_VOLUME_PROP {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for VSS_VOLUME_PROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for VSS_VOLUME_PROP {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct VSS_VOLUME_PROTECTION_INFO {
     pub m_protectionLevel: VSS_PROTECTION_LEVEL,
     pub m_volumeIsOfflineForProtection: super::super::Foundation::BOOL,
@@ -3481,12 +3194,12 @@ pub struct VSS_VOLUME_PROTECTION_INFO {
     pub m_volumeHasUnusedDiffArea: super::super::Foundation::BOOL,
     pub m_reserved: u32,
 }
-impl windows_core::TypeKind for VSS_VOLUME_PROTECTION_INFO {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for VSS_VOLUME_PROTECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for VSS_VOLUME_PROTECTION_INFO {
+    type TypeKind = windows_core::CopyType;
 }
 pub const VssSnapshotMgmt: windows_core::GUID = windows_core::GUID::from_u128(0x0b5a2c52_3eb9_470a_96e2_6c6d4570e40f);

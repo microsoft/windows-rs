@@ -357,94 +357,74 @@ pub const WNNC_NET_VMWARE: u32 = 4128768u32;
 pub const WNNC_NET_YAHOO: u32 = 2883584u32;
 pub const WNNC_NET_ZENWORKS: u32 = 3997696u32;
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct FILTER_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for FILTER_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FILTER_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILTER_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct FILTER_VOLUME_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for FILTER_VOLUME_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FILTER_VOLUME_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FILTER_VOLUME_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct FLT_FILESYSTEM_TYPE(pub i32);
 impl windows_core::TypeKind for FLT_FILESYSTEM_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for FLT_FILESYSTEM_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("FLT_FILESYSTEM_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct INSTANCE_INFORMATION_CLASS(pub i32);
 impl windows_core::TypeKind for INSTANCE_INFORMATION_CLASS {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for INSTANCE_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("INSTANCE_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u32,
     pub Type: FILTER_AGGREGATE_BASIC_INFORMATION_0,
-}
-impl windows_core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILTER_AGGREGATE_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     pub MiniFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_0,
     pub LegacyFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_1,
-}
-impl windows_core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     pub FilterNameLength: u16,
     pub FilterNameBufferOffset: u16,
-}
-impl windows_core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     pub FrameID: u32,
     pub NumberOfInstances: u32,
@@ -453,45 +433,45 @@ pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     pub FilterAltitudeLength: u16,
     pub FilterAltitudeBufferOffset: u16,
 }
-impl windows_core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u32,
     pub Type: FILTER_AGGREGATE_STANDARD_INFORMATION_0,
-}
-impl windows_core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     pub MiniFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_0,
     pub LegacyFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_1,
-}
-impl windows_core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub Flags: u32,
     pub FilterNameLength: u16,
@@ -499,16 +479,16 @@ pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub FilterAltitudeLength: u16,
     pub FilterAltitudeBufferOffset: u16,
 }
-impl windows_core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub Flags: u32,
     pub FrameID: u32,
@@ -518,16 +498,16 @@ pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub FilterAltitudeLength: u16,
     pub FilterAltitudeBufferOffset: u16,
 }
-impl windows_core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct FILTER_FULL_INFORMATION {
     pub NextEntryOffset: u32,
     pub FrameID: u32,
@@ -535,58 +515,58 @@ pub struct FILTER_FULL_INFORMATION {
     pub FilterNameLength: u16,
     pub FilterNameBuffer: [u16; 1],
 }
-impl windows_core::TypeKind for FILTER_FULL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for FILTER_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FILTER_FULL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct FILTER_MESSAGE_HEADER {
     pub ReplyLength: u32,
     pub MessageId: u64,
-}
-impl windows_core::TypeKind for FILTER_MESSAGE_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILTER_MESSAGE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FILTER_MESSAGE_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct FILTER_REPLY_HEADER {
     pub Status: super::super::Foundation::NTSTATUS,
     pub MessageId: u64,
-}
-impl windows_core::TypeKind for FILTER_REPLY_HEADER {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILTER_REPLY_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FILTER_REPLY_HEADER {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct FILTER_VOLUME_BASIC_INFORMATION {
     pub FilterVolumeNameLength: u16,
     pub FilterVolumeName: [u16; 1],
-}
-impl windows_core::TypeKind for FILTER_VOLUME_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for FILTER_VOLUME_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FILTER_VOLUME_BASIC_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct FILTER_VOLUME_STANDARD_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u32,
@@ -595,17 +575,20 @@ pub struct FILTER_VOLUME_STANDARD_INFORMATION {
     pub FilterVolumeNameLength: u16,
     pub FilterVolumeName: [u16; 1],
 }
-impl windows_core::TypeKind for FILTER_VOLUME_STANDARD_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for FILTER_VOLUME_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for FILTER_VOLUME_STANDARD_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HFILTER(pub isize);
+impl windows_core::TypeKind for HFILTER {
+    type TypeKind = windows_core::CopyType;
+}
 impl HFILTER {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -615,21 +598,17 @@ impl windows_core::Free for HFILTER {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = FilterClose(*self);
+            windows_targets::link!("fltlib.dll" "system" fn FilterClose(hfilter : isize) -> i32);
+            FilterClose(self.0);
         }
     }
 }
-impl Default for HFILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HFILTER {
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct HFILTER_INSTANCE(pub isize);
+impl windows_core::TypeKind for HFILTER_INSTANCE {
     type TypeKind = windows_core::CopyType;
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HFILTER_INSTANCE(pub isize);
 impl HFILTER_INSTANCE {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0
@@ -639,49 +618,42 @@ impl windows_core::Free for HFILTER_INSTANCE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = FilterInstanceClose(*self);
+            windows_targets::link!("fltlib.dll" "system" fn FilterInstanceClose(hinstance : isize) -> i32);
+            FilterInstanceClose(self.0);
         }
     }
 }
-impl Default for HFILTER_INSTANCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for HFILTER_INSTANCE {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u32,
     pub Type: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0,
-}
-impl windows_core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Copy, Clone)]
 pub union INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     pub MiniFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0,
     pub LegacyFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1,
-}
-impl windows_core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub Flags: u32,
     pub AltitudeLength: u16,
@@ -692,16 +664,16 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub FilterNameBufferOffset: u16,
     pub SupportedFeatures: u32,
 }
-impl windows_core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub Flags: u32,
     pub FrameID: u32,
@@ -716,31 +688,31 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub FilterNameBufferOffset: u16,
     pub SupportedFeatures: u32,
 }
-impl windows_core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INSTANCE_BASIC_INFORMATION {
     pub NextEntryOffset: u32,
     pub InstanceNameLength: u16,
     pub InstanceNameBufferOffset: u16,
-}
-impl windows_core::TypeKind for INSTANCE_BASIC_INFORMATION {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for INSTANCE_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INSTANCE_BASIC_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INSTANCE_FULL_INFORMATION {
     pub NextEntryOffset: u32,
     pub InstanceNameLength: u16,
@@ -752,16 +724,16 @@ pub struct INSTANCE_FULL_INFORMATION {
     pub FilterNameLength: u16,
     pub FilterNameBufferOffset: u16,
 }
-impl windows_core::TypeKind for INSTANCE_FULL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INSTANCE_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for INSTANCE_FULL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct INSTANCE_PARTIAL_INFORMATION {
     pub NextEntryOffset: u32,
     pub InstanceNameLength: u16,
@@ -769,11 +741,11 @@ pub struct INSTANCE_PARTIAL_INFORMATION {
     pub AltitudeLength: u16,
     pub AltitudeBufferOffset: u16,
 }
-impl windows_core::TypeKind for INSTANCE_PARTIAL_INFORMATION {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for INSTANCE_PARTIAL_INFORMATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for INSTANCE_PARTIAL_INFORMATION {
+    type TypeKind = windows_core::CopyType;
 }

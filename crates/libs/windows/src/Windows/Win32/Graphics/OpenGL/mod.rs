@@ -2078,10 +2078,10 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn wglRealizeLayerPalette<P0, P1>(param0: P0, param1: i32, param2: P1) -> windows_core::Result<()>
+pub unsafe fn wglRealizeLayerPalette<P0, P2>(param0: P0, param1: i32, param2: P2) -> windows_core::Result<()>
 where
     P0: windows_core::Param<super::Gdi::HDC>,
-    P1: windows_core::Param<super::super::Foundation::BOOL>,
+    P2: windows_core::Param<super::super::Foundation::BOOL>,
 {
     windows_targets::link!("opengl32.dll" "system" fn wglRealizeLayerPalette(param0 : super::Gdi:: HDC, param1 : i32, param2 : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     wglRealizeLayerPalette(param0.param().abi(), param1, param2.param().abi()).ok()
@@ -2877,15 +2877,10 @@ pub const PFD_TYPE_COLORINDEX: PFD_PIXEL_TYPE = PFD_PIXEL_TYPE(1u8);
 pub const PFD_TYPE_RGBA: PFD_PIXEL_TYPE = PFD_PIXEL_TYPE(0u8);
 pub const PFD_UNDERLAY_PLANE: PFD_LAYER_TYPE = PFD_LAYER_TYPE(-1i8);
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PFD_FLAGS(pub u32);
 impl windows_core::TypeKind for PFD_FLAGS {
     type TypeKind = windows_core::CopyType;
-}
-impl core::fmt::Debug for PFD_FLAGS {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PFD_FLAGS").field(&self.0).finish()
-    }
 }
 impl PFD_FLAGS {
     pub const fn contains(&self, other: Self) -> bool {
@@ -2921,37 +2916,23 @@ impl core::ops::Not for PFD_FLAGS {
     }
 }
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PFD_LAYER_TYPE(pub i8);
 impl windows_core::TypeKind for PFD_LAYER_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PFD_LAYER_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PFD_LAYER_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(transparent)]
-#[derive(PartialEq, Eq, Copy, Clone, Default)]
+#[derive(Copy, Clone, Default, Debug, PartialEq, Eq)]
 pub struct PFD_PIXEL_TYPE(pub u8);
 impl windows_core::TypeKind for PFD_PIXEL_TYPE {
     type TypeKind = windows_core::CopyType;
 }
-impl core::fmt::Debug for PFD_PIXEL_TYPE {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        f.debug_tuple("PFD_PIXEL_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct EMRPIXELFORMAT {
     pub emr: super::Gdi::EMR,
     pub pfd: PIXELFORMATDESCRIPTOR,
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl windows_core::TypeKind for EMRPIXELFORMAT {
-    type TypeKind = windows_core::CopyType;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl Default for EMRPIXELFORMAT {
@@ -2959,41 +2940,30 @@ impl Default for EMRPIXELFORMAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct GLUnurbs(pub isize);
-impl Default for GLUnurbs {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl windows_core::TypeKind for EMRPIXELFORMAT {
+    type TypeKind = windows_core::CopyType;
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct GLUnurbs(pub isize);
 impl windows_core::TypeKind for GLUnurbs {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct GLUquadric(pub isize);
-impl Default for GLUquadric {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for GLUquadric {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct GLUtesselator(pub isize);
-impl Default for GLUtesselator {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 impl windows_core::TypeKind for GLUtesselator {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct GLYPHMETRICSFLOAT {
     pub gmfBlackBoxX: f32,
     pub gmfBlackBoxY: f32,
@@ -3001,17 +2971,20 @@ pub struct GLYPHMETRICSFLOAT {
     pub gmfCellIncX: f32,
     pub gmfCellIncY: f32,
 }
-impl windows_core::TypeKind for GLYPHMETRICSFLOAT {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for GLYPHMETRICSFLOAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for GLYPHMETRICSFLOAT {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGLRC(pub *mut core::ffi::c_void);
+impl windows_core::TypeKind for HGLRC {
+    type TypeKind = windows_core::CopyType;
+}
 impl HGLRC {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 as _ || self.0 == 0 as _
@@ -3021,7 +2994,8 @@ impl windows_core::Free for HGLRC {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            _ = wglDeleteContext(*self);
+            windows_targets::link!("opengl32.dll" "system" fn wglDeleteContext(param0 : *mut core::ffi::c_void) -> i32);
+            wglDeleteContext(self.0);
         }
     }
 }
@@ -3030,11 +3004,8 @@ impl Default for HGLRC {
         unsafe { core::mem::zeroed() }
     }
 }
-impl windows_core::TypeKind for HGLRC {
-    type TypeKind = windows_core::CopyType;
-}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct LAYERPLANEDESCRIPTOR {
     pub nSize: u16,
     pub nVersion: u16,
@@ -3061,16 +3032,16 @@ pub struct LAYERPLANEDESCRIPTOR {
     pub bReserved: u8,
     pub crTransparent: super::super::Foundation::COLORREF,
 }
-impl windows_core::TypeKind for LAYERPLANEDESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for LAYERPLANEDESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for LAYERPLANEDESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct PIXELFORMATDESCRIPTOR {
     pub nSize: u16,
     pub nVersion: u16,
@@ -3099,27 +3070,27 @@ pub struct PIXELFORMATDESCRIPTOR {
     pub dwVisibleMask: u32,
     pub dwDamageMask: u32,
 }
-impl windows_core::TypeKind for PIXELFORMATDESCRIPTOR {
-    type TypeKind = windows_core::CopyType;
-}
 impl Default for PIXELFORMATDESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+impl windows_core::TypeKind for PIXELFORMATDESCRIPTOR {
+    type TypeKind = windows_core::CopyType;
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct POINTFLOAT {
     pub x: f32,
     pub y: f32,
-}
-impl windows_core::TypeKind for POINTFLOAT {
-    type TypeKind = windows_core::CopyType;
 }
 impl Default for POINTFLOAT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+impl windows_core::TypeKind for POINTFLOAT {
+    type TypeKind = windows_core::CopyType;
 }
 pub type GLUnurbsErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
 pub type GLUquadricErrorProc = Option<unsafe extern "system" fn(param0: u32)>;
