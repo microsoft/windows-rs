@@ -90,15 +90,16 @@ impl CppFn {
         let args = method.write_args();
         let params = method.write_params(writer);
         let generics = method.write_generics();
-        let where_clause = method.write_where(writer);
         let abi_return_type = method.write_return(writer);
 
         match method.return_hint {
             ReturnHint::Query(..) => {
+                let where_clause = method.write_where(writer, true);
+
                 quote! {
                     #cfg
                     #[inline]
-                    pub unsafe fn #name<#generics T>(#params) -> windows_core::Result<T> where #where_clause T: windows_core::Interface {
+                    pub unsafe fn #name<#generics T>(#params) -> windows_core::Result<T> #where_clause {
                         #link
                         let mut result__ = core::ptr::null_mut();
                         #name(#args).and_then(||windows_core::Type::from_abi(result__))
@@ -106,16 +107,19 @@ impl CppFn {
                 }
             }
             ReturnHint::QueryOptional(..) => {
+                let where_clause = method.write_where(writer, true);
+
                 quote! {
                     #cfg
                     #[inline]
-                    pub unsafe fn #name<#generics T>(#params result__: *mut Option<T>) -> windows_core::Result<()> where #where_clause  T: windows_core::Interface {
+                    pub unsafe fn #name<#generics T>(#params result__: *mut Option<T>) -> windows_core::Result<()> #where_clause {
                         #link
                         #name(#args).ok()
                     }
                 }
             }
             ReturnHint::ResultValue => {
+                let where_clause = method.write_where(writer, false);
                 let return_type = signature.params[signature.params.len() - 1].0.deref();
 
                 let map = if return_type.is_blittable() {
@@ -129,7 +133,7 @@ impl CppFn {
                 quote! {
                     #cfg
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> where #where_clause {
+                    pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> #where_clause {
                         #link
                         let mut result__ = core::mem::zeroed();
                         #name(#args).#map
@@ -137,16 +141,20 @@ impl CppFn {
                 }
             }
             ReturnHint::ResultVoid => {
+                let where_clause = method.write_where(writer, false);
+
                 quote! {
                     #cfg
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) -> windows_core::Result<()> where #where_clause {
+                    pub unsafe fn #name<#generics>(#params) -> windows_core::Result<()> #where_clause {
                         #link
                         #name(#args).ok()
                     }
                 }
             }
             ReturnHint::ReturnValue => {
+                let where_clause = method.write_where(writer, false);
+
                 let return_type = method.signature.params[method.signature.params.len() - 1]
                     .0
                     .deref();
@@ -171,12 +179,13 @@ impl CppFn {
                         quote! { core::mem::transmute(result__) }
                     };
 
+                    let where_clause = method.write_where(writer, false);
                     let return_type = return_type.write(writer);
 
                     quote! {
                         #cfg
                         #[inline]
-                        pub unsafe fn #name<#generics>(#params) -> #return_type where #where_clause {
+                        pub unsafe fn #name<#generics>(#params) -> #return_type #where_clause {
                             #link
                             let mut result__ = core::mem::zeroed();
                             #name(#args);
@@ -186,13 +195,15 @@ impl CppFn {
                 }
             }
             ReturnHint::ReturnStruct | ReturnHint::None => {
+                let where_clause = method.write_where(writer, false);
+
                 if method.handle_last_error() {
                     let return_type = signature.return_type.0.write(writer);
 
                     quote! {
                         #cfg
                         #[inline]
-                        pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> where #where_clause {
+                        pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> #where_clause {
                             #link
                             let result__ = #name(#args);
                             (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
@@ -202,7 +213,7 @@ impl CppFn {
                     quote! {
                         #cfg
                         #[inline]
-                        pub unsafe fn #name<#generics>(#params) #abi_return_type where #where_clause {
+                        pub unsafe fn #name<#generics>(#params) #abi_return_type #where_clause {
                             #link
                             #name(#args)
                         }
@@ -210,10 +221,12 @@ impl CppFn {
                 }
             }
             ReturnHint::ReturnVoid => {
+                let where_clause = method.write_where(writer, false);
+                
                 quote! {
                     #cfg
                     #[inline]
-                    pub unsafe fn #name<#generics>(#params) where #where_clause {
+                    pub unsafe fn #name<#generics>(#params) #where_clause {
                         #link
                         #name(#args)
                     }
