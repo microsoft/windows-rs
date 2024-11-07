@@ -153,9 +153,6 @@ pub struct IRawNotification3_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationChannel(windows_core::IUnknown);
-impl windows_core::RuntimeType for PushNotificationChannel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationChannel>();
-}
 windows_core::imp::interface_hierarchy!(PushNotificationChannel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PushNotificationChannel,);
 impl PushNotificationChannel {
@@ -191,6 +188,9 @@ impl PushNotificationChannel {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePushNotificationReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
+}
+impl windows_core::RuntimeType for PushNotificationChannel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationChannel>();
 }
 unsafe impl windows_core::Interface for PushNotificationChannel {
     type Vtable = <IPushNotificationChannel as windows_core::Interface>::Vtable;
@@ -270,9 +270,6 @@ impl windows_core::RuntimeName for PushNotificationChannelManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationChannelManagerForUser(windows_core::IUnknown);
-impl windows_core::RuntimeType for PushNotificationChannelManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationChannelManagerForUser>();
-}
 windows_core::imp::interface_hierarchy!(PushNotificationChannelManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PushNotificationChannelManagerForUser,);
 impl PushNotificationChannelManagerForUser {
@@ -328,6 +325,9 @@ impl PushNotificationChannelManagerForUser {
         }
     }
 }
+impl windows_core::RuntimeType for PushNotificationChannelManagerForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationChannelManagerForUser>();
+}
 unsafe impl windows_core::Interface for PushNotificationChannelManagerForUser {
     type Vtable = <IPushNotificationChannelManagerForUser as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPushNotificationChannelManagerForUser as windows_core::Interface>::IID;
@@ -338,12 +338,12 @@ impl windows_core::RuntimeName for PushNotificationChannelManagerForUser {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationChannelsRevokedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PushNotificationChannelsRevokedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationChannelsRevokedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PushNotificationChannelsRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PushNotificationChannelsRevokedEventArgs,);
 impl PushNotificationChannelsRevokedEventArgs {}
+impl windows_core::RuntimeType for PushNotificationChannelsRevokedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationChannelsRevokedEventArgs>();
+}
 unsafe impl windows_core::Interface for PushNotificationChannelsRevokedEventArgs {
     type Vtable = <IPushNotificationChannelsRevokedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPushNotificationChannelsRevokedEventArgs as windows_core::Interface>::IID;
@@ -354,9 +354,6 @@ impl windows_core::RuntimeName for PushNotificationChannelsRevokedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PushNotificationReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PushNotificationReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PushNotificationReceivedEventArgs,);
 impl PushNotificationReceivedEventArgs {
@@ -410,6 +407,9 @@ impl PushNotificationReceivedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PushNotificationReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPushNotificationReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for PushNotificationReceivedEventArgs {
     type Vtable = <IPushNotificationReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPushNotificationReceivedEventArgs as windows_core::Interface>::IID;
@@ -420,9 +420,6 @@ impl windows_core::RuntimeName for PushNotificationReceivedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RawNotification(windows_core::IUnknown);
-impl windows_core::RuntimeType for RawNotification {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRawNotification>();
-}
 windows_core::imp::interface_hierarchy!(RawNotification, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RawNotification,);
 impl RawNotification {
@@ -456,6 +453,9 @@ impl RawNotification {
             (windows_core::Interface::vtable(this).ContentBytes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for RawNotification {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRawNotification>();
 }
 unsafe impl windows_core::Interface for RawNotification {
     type Vtable = <IRawNotification as windows_core::Interface>::Vtable;

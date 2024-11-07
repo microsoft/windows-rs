@@ -168,9 +168,6 @@ pub struct IInputInjectorStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InjectedInputGamepadInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for InjectedInputGamepadInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputGamepadInfo>();
-}
 windows_core::imp::interface_hierarchy!(InjectedInputGamepadInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InjectedInputGamepadInfo,);
 impl InjectedInputGamepadInfo {
@@ -272,6 +269,9 @@ impl InjectedInputGamepadInfo {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for InjectedInputGamepadInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputGamepadInfo>();
+}
 unsafe impl windows_core::Interface for InjectedInputGamepadInfo {
     type Vtable = <IInjectedInputGamepadInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInjectedInputGamepadInfo as windows_core::Interface>::IID;
@@ -282,9 +282,6 @@ impl windows_core::RuntimeName for InjectedInputGamepadInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InjectedInputKeyboardInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for InjectedInputKeyboardInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputKeyboardInfo>();
-}
 windows_core::imp::interface_hierarchy!(InjectedInputKeyboardInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InjectedInputKeyboardInfo,);
 impl InjectedInputKeyboardInfo {
@@ -329,6 +326,9 @@ impl InjectedInputKeyboardInfo {
         unsafe { (windows_core::Interface::vtable(this).SetVirtualKey)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for InjectedInputKeyboardInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputKeyboardInfo>();
+}
 unsafe impl windows_core::Interface for InjectedInputKeyboardInfo {
     type Vtable = <IInjectedInputKeyboardInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInjectedInputKeyboardInfo as windows_core::Interface>::IID;
@@ -339,9 +339,6 @@ impl windows_core::RuntimeName for InjectedInputKeyboardInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InjectedInputMouseInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for InjectedInputMouseInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputMouseInfo>();
-}
 windows_core::imp::interface_hierarchy!(InjectedInputMouseInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InjectedInputMouseInfo,);
 impl InjectedInputMouseInfo {
@@ -408,6 +405,9 @@ impl InjectedInputMouseInfo {
         unsafe { (windows_core::Interface::vtable(this).SetTimeOffsetInMilliseconds)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for InjectedInputMouseInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputMouseInfo>();
+}
 unsafe impl windows_core::Interface for InjectedInputMouseInfo {
     type Vtable = <IInjectedInputMouseInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInjectedInputMouseInfo as windows_core::Interface>::IID;
@@ -418,9 +418,6 @@ impl windows_core::RuntimeName for InjectedInputMouseInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InjectedInputPenInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for InjectedInputPenInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputPenInfo>();
-}
 windows_core::imp::interface_hierarchy!(InjectedInputPenInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InjectedInputPenInfo,);
 impl InjectedInputPenInfo {
@@ -509,6 +506,9 @@ impl InjectedInputPenInfo {
         unsafe { (windows_core::Interface::vtable(this).SetTiltY)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for InjectedInputPenInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputPenInfo>();
+}
 unsafe impl windows_core::Interface for InjectedInputPenInfo {
     type Vtable = <IInjectedInputPenInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInjectedInputPenInfo as windows_core::Interface>::IID;
@@ -519,9 +519,6 @@ impl windows_core::RuntimeName for InjectedInputPenInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InjectedInputTouchInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for InjectedInputTouchInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputTouchInfo>();
-}
 windows_core::imp::interface_hierarchy!(InjectedInputTouchInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InjectedInputTouchInfo,);
 impl InjectedInputTouchInfo {
@@ -588,6 +585,9 @@ impl InjectedInputTouchInfo {
         unsafe { (windows_core::Interface::vtable(this).SetTouchParameters)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for InjectedInputTouchInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInjectedInputTouchInfo>();
+}
 unsafe impl windows_core::Interface for InjectedInputTouchInfo {
     type Vtable = <IInjectedInputTouchInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInjectedInputTouchInfo as windows_core::Interface>::IID;
@@ -598,9 +598,6 @@ impl windows_core::RuntimeName for InjectedInputTouchInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InputInjector(windows_core::IUnknown);
-impl windows_core::RuntimeType for InputInjector {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputInjector>();
-}
 windows_core::imp::interface_hierarchy!(InputInjector, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InputInjector,);
 impl InputInjector {
@@ -690,6 +687,9 @@ impl InputInjector {
         static SHARED: windows_core::imp::FactoryCache<InputInjector, IInputInjectorStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for InputInjector {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputInjector>();
 }
 unsafe impl windows_core::Interface for InputInjector {
     type Vtable = <IInputInjector as windows_core::Interface>::Vtable;
@@ -861,7 +861,7 @@ impl windows_core::RuntimeType for InjectedInputVisualizationMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputVisualizationMode;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct InjectedInputPoint {
     pub PositionX: i32,
     pub PositionY: i32,
@@ -873,7 +873,7 @@ impl windows_core::RuntimeType for InjectedInputPoint {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct InjectedInputPointerInfo {
     pub PointerId: u32,
     pub PointerOptions: InjectedInputPointerOptions,
@@ -888,7 +888,7 @@ impl windows_core::RuntimeType for InjectedInputPointerInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo;u4;enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4);struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4);u4;u8)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct InjectedInputRectangle {
     pub Left: i32,
     pub Top: i32,

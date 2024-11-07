@@ -663,9 +663,6 @@ pub struct IStoreVideo_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreAcquireLicenseResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreAcquireLicenseResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreAcquireLicenseResult>();
-}
 windows_core::imp::interface_hierarchy!(StoreAcquireLicenseResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreAcquireLicenseResult,);
 impl StoreAcquireLicenseResult {
@@ -684,6 +681,9 @@ impl StoreAcquireLicenseResult {
         }
     }
 }
+impl windows_core::RuntimeType for StoreAcquireLicenseResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreAcquireLicenseResult>();
+}
 unsafe impl windows_core::Interface for StoreAcquireLicenseResult {
     type Vtable = <IStoreAcquireLicenseResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreAcquireLicenseResult as windows_core::Interface>::IID;
@@ -694,9 +694,6 @@ impl windows_core::RuntimeName for StoreAcquireLicenseResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreAppLicense(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreAppLicense {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreAppLicense>();
-}
 windows_core::imp::interface_hierarchy!(StoreAppLicense, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreAppLicense,);
 impl StoreAppLicense {
@@ -772,6 +769,9 @@ impl StoreAppLicense {
         }
     }
 }
+impl windows_core::RuntimeType for StoreAppLicense {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreAppLicense>();
+}
 unsafe impl windows_core::Interface for StoreAppLicense {
     type Vtable = <IStoreAppLicense as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreAppLicense as windows_core::Interface>::IID;
@@ -782,9 +782,6 @@ impl windows_core::RuntimeName for StoreAppLicense {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreAvailability(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreAvailability {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreAvailability>();
-}
 windows_core::imp::interface_hierarchy!(StoreAvailability, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreAvailability,);
 impl StoreAvailability {
@@ -834,6 +831,9 @@ impl StoreAvailability {
         }
     }
 }
+impl windows_core::RuntimeType for StoreAvailability {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreAvailability>();
+}
 unsafe impl windows_core::Interface for StoreAvailability {
     type Vtable = <IStoreAvailability as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreAvailability as windows_core::Interface>::IID;
@@ -844,9 +844,6 @@ impl windows_core::RuntimeName for StoreAvailability {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreCanAcquireLicenseResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreCanAcquireLicenseResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreCanAcquireLicenseResult>();
-}
 windows_core::imp::interface_hierarchy!(StoreCanAcquireLicenseResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreCanAcquireLicenseResult,);
 impl StoreCanAcquireLicenseResult {
@@ -872,6 +869,9 @@ impl StoreCanAcquireLicenseResult {
         }
     }
 }
+impl windows_core::RuntimeType for StoreCanAcquireLicenseResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreCanAcquireLicenseResult>();
+}
 unsafe impl windows_core::Interface for StoreCanAcquireLicenseResult {
     type Vtable = <IStoreCanAcquireLicenseResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreCanAcquireLicenseResult as windows_core::Interface>::IID;
@@ -882,9 +882,6 @@ impl windows_core::RuntimeName for StoreCanAcquireLicenseResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreCollectionData(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreCollectionData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreCollectionData>();
-}
 windows_core::imp::interface_hierarchy!(StoreCollectionData, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreCollectionData,);
 impl StoreCollectionData {
@@ -945,6 +942,9 @@ impl StoreCollectionData {
         }
     }
 }
+impl windows_core::RuntimeType for StoreCollectionData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreCollectionData>();
+}
 unsafe impl windows_core::Interface for StoreCollectionData {
     type Vtable = <IStoreCollectionData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreCollectionData as windows_core::Interface>::IID;
@@ -955,9 +955,6 @@ impl windows_core::RuntimeName for StoreCollectionData {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreConsumableResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreConsumableResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreConsumableResult>();
-}
 windows_core::imp::interface_hierarchy!(StoreConsumableResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreConsumableResult,);
 impl StoreConsumableResult {
@@ -990,6 +987,9 @@ impl StoreConsumableResult {
         }
     }
 }
+impl windows_core::RuntimeType for StoreConsumableResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreConsumableResult>();
+}
 unsafe impl windows_core::Interface for StoreConsumableResult {
     type Vtable = <IStoreConsumableResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreConsumableResult as windows_core::Interface>::IID;
@@ -1000,9 +1000,6 @@ impl windows_core::RuntimeName for StoreConsumableResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreContext(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreContext>();
-}
 windows_core::imp::interface_hierarchy!(StoreContext, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreContext,);
 impl StoreContext {
@@ -1413,6 +1410,9 @@ impl StoreContext {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for StoreContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreContext>();
+}
 unsafe impl windows_core::Interface for StoreContext {
     type Vtable = <IStoreContext as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreContext as windows_core::Interface>::IID;
@@ -1423,9 +1423,6 @@ impl windows_core::RuntimeName for StoreContext {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreImage(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreImage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreImage>();
-}
 windows_core::imp::interface_hierarchy!(StoreImage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreImage,);
 impl StoreImage {
@@ -1465,6 +1462,9 @@ impl StoreImage {
         }
     }
 }
+impl windows_core::RuntimeType for StoreImage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreImage>();
+}
 unsafe impl windows_core::Interface for StoreImage {
     type Vtable = <IStoreImage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreImage as windows_core::Interface>::IID;
@@ -1475,9 +1475,6 @@ impl windows_core::RuntimeName for StoreImage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreLicense(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreLicense {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreLicense>();
-}
 windows_core::imp::interface_hierarchy!(StoreLicense, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreLicense,);
 impl StoreLicense {
@@ -1517,6 +1514,9 @@ impl StoreLicense {
         }
     }
 }
+impl windows_core::RuntimeType for StoreLicense {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreLicense>();
+}
 unsafe impl windows_core::Interface for StoreLicense {
     type Vtable = <IStoreLicense as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreLicense as windows_core::Interface>::IID;
@@ -1527,9 +1527,6 @@ impl windows_core::RuntimeName for StoreLicense {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePackageInstallOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorePackageInstallOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePackageInstallOptions>();
-}
 windows_core::imp::interface_hierarchy!(StorePackageInstallOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorePackageInstallOptions,);
 impl StorePackageInstallOptions {
@@ -1552,6 +1549,9 @@ impl StorePackageInstallOptions {
         unsafe { (windows_core::Interface::vtable(this).SetAllowForcedAppRestart)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for StorePackageInstallOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePackageInstallOptions>();
+}
 unsafe impl windows_core::Interface for StorePackageInstallOptions {
     type Vtable = <IStorePackageInstallOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorePackageInstallOptions as windows_core::Interface>::IID;
@@ -1562,9 +1562,6 @@ impl windows_core::RuntimeName for StorePackageInstallOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePackageLicense(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorePackageLicense {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePackageLicense>();
-}
 windows_core::imp::interface_hierarchy!(StorePackageLicense, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorePackageLicense, super::super::Foundation::IClosable);
 impl StorePackageLicense {
@@ -1606,6 +1603,9 @@ impl StorePackageLicense {
         unsafe { (windows_core::Interface::vtable(this).ReleaseLicense)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for StorePackageLicense {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePackageLicense>();
+}
 unsafe impl windows_core::Interface for StorePackageLicense {
     type Vtable = <IStorePackageLicense as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorePackageLicense as windows_core::Interface>::IID;
@@ -1616,9 +1616,6 @@ impl windows_core::RuntimeName for StorePackageLicense {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePackageUpdate(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorePackageUpdate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePackageUpdate>();
-}
 windows_core::imp::interface_hierarchy!(StorePackageUpdate, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorePackageUpdate,);
 impl StorePackageUpdate {
@@ -1638,6 +1635,9 @@ impl StorePackageUpdate {
         }
     }
 }
+impl windows_core::RuntimeType for StorePackageUpdate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePackageUpdate>();
+}
 unsafe impl windows_core::Interface for StorePackageUpdate {
     type Vtable = <IStorePackageUpdate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorePackageUpdate as windows_core::Interface>::IID;
@@ -1648,9 +1648,6 @@ impl windows_core::RuntimeName for StorePackageUpdate {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePackageUpdateResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorePackageUpdateResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePackageUpdateResult>();
-}
 windows_core::imp::interface_hierarchy!(StorePackageUpdateResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorePackageUpdateResult,);
 impl StorePackageUpdateResult {
@@ -1678,6 +1675,9 @@ impl StorePackageUpdateResult {
         }
     }
 }
+impl windows_core::RuntimeType for StorePackageUpdateResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePackageUpdateResult>();
+}
 unsafe impl windows_core::Interface for StorePackageUpdateResult {
     type Vtable = <IStorePackageUpdateResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorePackageUpdateResult as windows_core::Interface>::IID;
@@ -1688,9 +1688,6 @@ impl windows_core::RuntimeName for StorePackageUpdateResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePrice(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorePrice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePrice>();
-}
 windows_core::imp::interface_hierarchy!(StorePrice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorePrice,);
 impl StorePrice {
@@ -1758,6 +1755,9 @@ impl StorePrice {
         }
     }
 }
+impl windows_core::RuntimeType for StorePrice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePrice>();
+}
 unsafe impl windows_core::Interface for StorePrice {
     type Vtable = <IStorePrice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorePrice as windows_core::Interface>::IID;
@@ -1768,9 +1768,6 @@ impl windows_core::RuntimeName for StorePrice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreProduct(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreProduct {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreProduct>();
-}
 windows_core::imp::interface_hierarchy!(StoreProduct, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreProduct,);
 impl StoreProduct {
@@ -1908,6 +1905,9 @@ impl StoreProduct {
         }
     }
 }
+impl windows_core::RuntimeType for StoreProduct {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreProduct>();
+}
 unsafe impl windows_core::Interface for StoreProduct {
     type Vtable = <IStoreProduct as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreProduct as windows_core::Interface>::IID;
@@ -1918,9 +1918,6 @@ impl windows_core::RuntimeName for StoreProduct {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreProductOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreProductOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreProductOptions>();
-}
 windows_core::imp::interface_hierarchy!(StoreProductOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreProductOptions,);
 impl StoreProductOptions {
@@ -1940,6 +1937,9 @@ impl StoreProductOptions {
         }
     }
 }
+impl windows_core::RuntimeType for StoreProductOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreProductOptions>();
+}
 unsafe impl windows_core::Interface for StoreProductOptions {
     type Vtable = <IStoreProductOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreProductOptions as windows_core::Interface>::IID;
@@ -1950,9 +1950,6 @@ impl windows_core::RuntimeName for StoreProductOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreProductPagedQueryResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreProductPagedQueryResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreProductPagedQueryResult>();
-}
 windows_core::imp::interface_hierarchy!(StoreProductPagedQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreProductPagedQueryResult,);
 impl StoreProductPagedQueryResult {
@@ -1986,6 +1983,9 @@ impl StoreProductPagedQueryResult {
         }
     }
 }
+impl windows_core::RuntimeType for StoreProductPagedQueryResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreProductPagedQueryResult>();
+}
 unsafe impl windows_core::Interface for StoreProductPagedQueryResult {
     type Vtable = <IStoreProductPagedQueryResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreProductPagedQueryResult as windows_core::Interface>::IID;
@@ -1996,9 +1996,6 @@ impl windows_core::RuntimeName for StoreProductPagedQueryResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreProductQueryResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreProductQueryResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreProductQueryResult>();
-}
 windows_core::imp::interface_hierarchy!(StoreProductQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreProductQueryResult,);
 impl StoreProductQueryResult {
@@ -2018,6 +2015,9 @@ impl StoreProductQueryResult {
         }
     }
 }
+impl windows_core::RuntimeType for StoreProductQueryResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreProductQueryResult>();
+}
 unsafe impl windows_core::Interface for StoreProductQueryResult {
     type Vtable = <IStoreProductQueryResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreProductQueryResult as windows_core::Interface>::IID;
@@ -2028,9 +2028,6 @@ impl windows_core::RuntimeName for StoreProductQueryResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreProductResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreProductResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreProductResult>();
-}
 windows_core::imp::interface_hierarchy!(StoreProductResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreProductResult,);
 impl StoreProductResult {
@@ -2049,6 +2046,9 @@ impl StoreProductResult {
         }
     }
 }
+impl windows_core::RuntimeType for StoreProductResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreProductResult>();
+}
 unsafe impl windows_core::Interface for StoreProductResult {
     type Vtable = <IStoreProductResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreProductResult as windows_core::Interface>::IID;
@@ -2059,9 +2059,6 @@ impl windows_core::RuntimeName for StoreProductResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePurchaseProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorePurchaseProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePurchaseProperties>();
-}
 windows_core::imp::interface_hierarchy!(StorePurchaseProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorePurchaseProperties,);
 impl StorePurchaseProperties {
@@ -2105,6 +2102,9 @@ impl StorePurchaseProperties {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for StorePurchaseProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePurchaseProperties>();
+}
 unsafe impl windows_core::Interface for StorePurchaseProperties {
     type Vtable = <IStorePurchaseProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorePurchaseProperties as windows_core::Interface>::IID;
@@ -2115,9 +2115,6 @@ impl windows_core::RuntimeName for StorePurchaseProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorePurchaseResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorePurchaseResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePurchaseResult>();
-}
 windows_core::imp::interface_hierarchy!(StorePurchaseResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorePurchaseResult,);
 impl StorePurchaseResult {
@@ -2136,6 +2133,9 @@ impl StorePurchaseResult {
         }
     }
 }
+impl windows_core::RuntimeType for StorePurchaseResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorePurchaseResult>();
+}
 unsafe impl windows_core::Interface for StorePurchaseResult {
     type Vtable = <IStorePurchaseResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorePurchaseResult as windows_core::Interface>::IID;
@@ -2146,9 +2146,6 @@ impl windows_core::RuntimeName for StorePurchaseResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreQueueItem(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreQueueItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreQueueItem>();
-}
 windows_core::imp::interface_hierarchy!(StoreQueueItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreQueueItem,);
 impl StoreQueueItem {
@@ -2230,6 +2227,9 @@ impl StoreQueueItem {
         }
     }
 }
+impl windows_core::RuntimeType for StoreQueueItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreQueueItem>();
+}
 unsafe impl windows_core::Interface for StoreQueueItem {
     type Vtable = <IStoreQueueItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreQueueItem as windows_core::Interface>::IID;
@@ -2240,9 +2240,6 @@ impl windows_core::RuntimeName for StoreQueueItem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreQueueItemCompletedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreQueueItemCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreQueueItemCompletedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(StoreQueueItemCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreQueueItemCompletedEventArgs,);
 impl StoreQueueItemCompletedEventArgs {
@@ -2254,6 +2251,9 @@ impl StoreQueueItemCompletedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for StoreQueueItemCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreQueueItemCompletedEventArgs>();
+}
 unsafe impl windows_core::Interface for StoreQueueItemCompletedEventArgs {
     type Vtable = <IStoreQueueItemCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreQueueItemCompletedEventArgs as windows_core::Interface>::IID;
@@ -2264,9 +2264,6 @@ impl windows_core::RuntimeName for StoreQueueItemCompletedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreQueueItemStatus(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreQueueItemStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreQueueItemStatus>();
-}
 windows_core::imp::interface_hierarchy!(StoreQueueItemStatus, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreQueueItemStatus,);
 impl StoreQueueItemStatus {
@@ -2299,6 +2296,9 @@ impl StoreQueueItemStatus {
         }
     }
 }
+impl windows_core::RuntimeType for StoreQueueItemStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreQueueItemStatus>();
+}
 unsafe impl windows_core::Interface for StoreQueueItemStatus {
     type Vtable = <IStoreQueueItemStatus as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreQueueItemStatus as windows_core::Interface>::IID;
@@ -2309,9 +2309,6 @@ impl windows_core::RuntimeName for StoreQueueItemStatus {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreRateAndReviewResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreRateAndReviewResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreRateAndReviewResult>();
-}
 windows_core::imp::interface_hierarchy!(StoreRateAndReviewResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreRateAndReviewResult,);
 impl StoreRateAndReviewResult {
@@ -2344,6 +2341,9 @@ impl StoreRateAndReviewResult {
         }
     }
 }
+impl windows_core::RuntimeType for StoreRateAndReviewResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreRateAndReviewResult>();
+}
 unsafe impl windows_core::Interface for StoreRateAndReviewResult {
     type Vtable = <IStoreRateAndReviewResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreRateAndReviewResult as windows_core::Interface>::IID;
@@ -2373,9 +2373,6 @@ impl windows_core::RuntimeName for StoreRequestHelper {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreSendRequestResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreSendRequestResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreSendRequestResult>();
-}
 windows_core::imp::interface_hierarchy!(StoreSendRequestResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreSendRequestResult,);
 impl StoreSendRequestResult {
@@ -2402,6 +2399,9 @@ impl StoreSendRequestResult {
         }
     }
 }
+impl windows_core::RuntimeType for StoreSendRequestResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreSendRequestResult>();
+}
 unsafe impl windows_core::Interface for StoreSendRequestResult {
     type Vtable = <IStoreSendRequestResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreSendRequestResult as windows_core::Interface>::IID;
@@ -2412,9 +2412,6 @@ impl windows_core::RuntimeName for StoreSendRequestResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreSku(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreSku {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreSku>();
-}
 windows_core::imp::interface_hierarchy!(StoreSku, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreSku,);
 impl StoreSku {
@@ -2559,6 +2556,9 @@ impl StoreSku {
         }
     }
 }
+impl windows_core::RuntimeType for StoreSku {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreSku>();
+}
 unsafe impl windows_core::Interface for StoreSku {
     type Vtable = <IStoreSku as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreSku as windows_core::Interface>::IID;
@@ -2569,9 +2569,6 @@ impl windows_core::RuntimeName for StoreSku {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreSubscriptionInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreSubscriptionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreSubscriptionInfo>();
-}
 windows_core::imp::interface_hierarchy!(StoreSubscriptionInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreSubscriptionInfo,);
 impl StoreSubscriptionInfo {
@@ -2611,6 +2608,9 @@ impl StoreSubscriptionInfo {
         }
     }
 }
+impl windows_core::RuntimeType for StoreSubscriptionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreSubscriptionInfo>();
+}
 unsafe impl windows_core::Interface for StoreSubscriptionInfo {
     type Vtable = <IStoreSubscriptionInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreSubscriptionInfo as windows_core::Interface>::IID;
@@ -2621,9 +2621,6 @@ impl windows_core::RuntimeName for StoreSubscriptionInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreUninstallStorePackageResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreUninstallStorePackageResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreUninstallStorePackageResult>();
-}
 windows_core::imp::interface_hierarchy!(StoreUninstallStorePackageResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreUninstallStorePackageResult,);
 impl StoreUninstallStorePackageResult {
@@ -2642,6 +2639,9 @@ impl StoreUninstallStorePackageResult {
         }
     }
 }
+impl windows_core::RuntimeType for StoreUninstallStorePackageResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreUninstallStorePackageResult>();
+}
 unsafe impl windows_core::Interface for StoreUninstallStorePackageResult {
     type Vtable = <IStoreUninstallStorePackageResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStoreUninstallStorePackageResult as windows_core::Interface>::IID;
@@ -2652,9 +2652,6 @@ impl windows_core::RuntimeName for StoreUninstallStorePackageResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StoreVideo(windows_core::IUnknown);
-impl windows_core::RuntimeType for StoreVideo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreVideo>();
-}
 windows_core::imp::interface_hierarchy!(StoreVideo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StoreVideo,);
 impl StoreVideo {
@@ -2700,6 +2697,9 @@ impl StoreVideo {
             (windows_core::Interface::vtable(this).PreviewImage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for StoreVideo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStoreVideo>();
 }
 unsafe impl windows_core::Interface for StoreVideo {
     type Vtable = <IStoreVideo as windows_core::Interface>::Vtable;

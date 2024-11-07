@@ -60,9 +60,6 @@ impl windows_core::RuntimeName for DeviceLockdownProfile {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceLockdownProfileInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeviceLockdownProfileInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceLockdownProfileInformation>();
-}
 windows_core::imp::interface_hierarchy!(DeviceLockdownProfileInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeviceLockdownProfileInformation,);
 impl DeviceLockdownProfileInformation {
@@ -73,6 +70,9 @@ impl DeviceLockdownProfileInformation {
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for DeviceLockdownProfileInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceLockdownProfileInformation>();
 }
 unsafe impl windows_core::Interface for DeviceLockdownProfileInformation {
     type Vtable = <IDeviceLockdownProfileInformation as windows_core::Interface>::Vtable;

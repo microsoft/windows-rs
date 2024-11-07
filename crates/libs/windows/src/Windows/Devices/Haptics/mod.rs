@@ -194,9 +194,6 @@ impl windows_core::RuntimeName for KnownSimpleHapticsControllerWaveforms {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SimpleHapticsController(windows_core::IUnknown);
-impl windows_core::RuntimeType for SimpleHapticsController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISimpleHapticsController>();
-}
 windows_core::imp::interface_hierarchy!(SimpleHapticsController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SimpleHapticsController,);
 impl SimpleHapticsController {
@@ -276,6 +273,9 @@ impl SimpleHapticsController {
         unsafe { (windows_core::Interface::vtable(this).SendHapticFeedbackForPlayCount)(windows_core::Interface::as_raw(this), feedback.param().abi(), intensity, playcount, replaypauseinterval).ok() }
     }
 }
+impl windows_core::RuntimeType for SimpleHapticsController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISimpleHapticsController>();
+}
 unsafe impl windows_core::Interface for SimpleHapticsController {
     type Vtable = <ISimpleHapticsController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISimpleHapticsController as windows_core::Interface>::IID;
@@ -286,9 +286,6 @@ impl windows_core::RuntimeName for SimpleHapticsController {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SimpleHapticsControllerFeedback(windows_core::IUnknown);
-impl windows_core::RuntimeType for SimpleHapticsControllerFeedback {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISimpleHapticsControllerFeedback>();
-}
 windows_core::imp::interface_hierarchy!(SimpleHapticsControllerFeedback, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SimpleHapticsControllerFeedback,);
 impl SimpleHapticsControllerFeedback {
@@ -307,6 +304,9 @@ impl SimpleHapticsControllerFeedback {
         }
     }
 }
+impl windows_core::RuntimeType for SimpleHapticsControllerFeedback {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISimpleHapticsControllerFeedback>();
+}
 unsafe impl windows_core::Interface for SimpleHapticsControllerFeedback {
     type Vtable = <ISimpleHapticsControllerFeedback as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISimpleHapticsControllerFeedback as windows_core::Interface>::IID;
@@ -317,9 +317,6 @@ impl windows_core::RuntimeName for SimpleHapticsControllerFeedback {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VibrationDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for VibrationDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVibrationDevice>();
-}
 windows_core::imp::interface_hierarchy!(VibrationDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VibrationDevice,);
 impl VibrationDevice {
@@ -372,6 +369,9 @@ impl VibrationDevice {
         static SHARED: windows_core::imp::FactoryCache<VibrationDevice, IVibrationDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for VibrationDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVibrationDevice>();
 }
 unsafe impl windows_core::Interface for VibrationDevice {
     type Vtable = <IVibrationDevice as windows_core::Interface>::Vtable;

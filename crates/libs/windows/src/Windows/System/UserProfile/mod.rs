@@ -331,9 +331,6 @@ impl windows_core::RuntimeName for AdvertisingManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdvertisingManagerForUser(windows_core::IUnknown);
-impl windows_core::RuntimeType for AdvertisingManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAdvertisingManagerForUser>();
-}
 windows_core::imp::interface_hierarchy!(AdvertisingManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AdvertisingManagerForUser,);
 impl AdvertisingManagerForUser {
@@ -352,6 +349,9 @@ impl AdvertisingManagerForUser {
         }
     }
 }
+impl windows_core::RuntimeType for AdvertisingManagerForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAdvertisingManagerForUser>();
+}
 unsafe impl windows_core::Interface for AdvertisingManagerForUser {
     type Vtable = <IAdvertisingManagerForUser as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAdvertisingManagerForUser as windows_core::Interface>::IID;
@@ -362,9 +362,6 @@ impl windows_core::RuntimeName for AdvertisingManagerForUser {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AssignedAccessSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for AssignedAccessSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAssignedAccessSettings>();
-}
 windows_core::imp::interface_hierarchy!(AssignedAccessSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AssignedAccessSettings,);
 impl AssignedAccessSettings {
@@ -409,6 +406,9 @@ impl AssignedAccessSettings {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AssignedAccessSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAssignedAccessSettings>();
+}
 unsafe impl windows_core::Interface for AssignedAccessSettings {
     type Vtable = <IAssignedAccessSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAssignedAccessSettings as windows_core::Interface>::IID;
@@ -419,9 +419,6 @@ impl windows_core::RuntimeName for AssignedAccessSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DiagnosticsSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for DiagnosticsSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDiagnosticsSettings>();
-}
 windows_core::imp::interface_hierarchy!(DiagnosticsSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DiagnosticsSettings,);
 impl DiagnosticsSettings {
@@ -459,6 +456,9 @@ impl DiagnosticsSettings {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DiagnosticsSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDiagnosticsSettings>();
+}
 unsafe impl windows_core::Interface for DiagnosticsSettings {
     type Vtable = <IDiagnosticsSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDiagnosticsSettings as windows_core::Interface>::IID;
@@ -470,10 +470,6 @@ impl windows_core::RuntimeName for DiagnosticsSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FirstSignInSettings(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for FirstSignInSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFirstSignInSettings>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(FirstSignInSettings, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -523,6 +519,10 @@ impl FirstSignInSettings {
         static SHARED: windows_core::imp::FactoryCache<FirstSignInSettings, IFirstSignInSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for FirstSignInSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFirstSignInSettings>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for FirstSignInSettings {
@@ -620,9 +620,6 @@ impl windows_core::RuntimeName for GlobalizationPreferences {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GlobalizationPreferencesForUser(windows_core::IUnknown);
-impl windows_core::RuntimeType for GlobalizationPreferencesForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGlobalizationPreferencesForUser>();
-}
 windows_core::imp::interface_hierarchy!(GlobalizationPreferencesForUser, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GlobalizationPreferencesForUser,);
 impl GlobalizationPreferencesForUser {
@@ -680,6 +677,9 @@ impl GlobalizationPreferencesForUser {
             (windows_core::Interface::vtable(this).WeekStartsOn)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for GlobalizationPreferencesForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGlobalizationPreferencesForUser>();
 }
 unsafe impl windows_core::Interface for GlobalizationPreferencesForUser {
     type Vtable = <IGlobalizationPreferencesForUser as windows_core::Interface>::Vtable;
@@ -887,9 +887,6 @@ impl windows_core::RuntimeName for UserInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserProfilePersonalizationSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserProfilePersonalizationSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserProfilePersonalizationSettings>();
-}
 windows_core::imp::interface_hierarchy!(UserProfilePersonalizationSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserProfilePersonalizationSettings,);
 impl UserProfilePersonalizationSettings {
@@ -931,6 +928,9 @@ impl UserProfilePersonalizationSettings {
         static SHARED: windows_core::imp::FactoryCache<UserProfilePersonalizationSettings, IUserProfilePersonalizationSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for UserProfilePersonalizationSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserProfilePersonalizationSettings>();
 }
 unsafe impl windows_core::Interface for UserProfilePersonalizationSettings {
     type Vtable = <IUserProfilePersonalizationSettings as windows_core::Interface>::Vtable;

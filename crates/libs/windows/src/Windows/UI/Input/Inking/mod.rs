@@ -1303,9 +1303,6 @@ pub struct IPenAndInkSettingsStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkDrawingAttributes(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkDrawingAttributes {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkDrawingAttributes>();
-}
 windows_core::imp::interface_hierarchy!(InkDrawingAttributes, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkDrawingAttributes,);
 impl InkDrawingAttributes {
@@ -1438,6 +1435,9 @@ impl InkDrawingAttributes {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for InkDrawingAttributes {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkDrawingAttributes>();
+}
 unsafe impl windows_core::Interface for InkDrawingAttributes {
     type Vtable = <IInkDrawingAttributes as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkDrawingAttributes as windows_core::Interface>::IID;
@@ -1448,9 +1448,6 @@ impl windows_core::RuntimeName for InkDrawingAttributes {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkDrawingAttributesPencilProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkDrawingAttributesPencilProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkDrawingAttributesPencilProperties>();
-}
 windows_core::imp::interface_hierarchy!(InkDrawingAttributesPencilProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkDrawingAttributesPencilProperties,);
 impl InkDrawingAttributesPencilProperties {
@@ -1466,6 +1463,9 @@ impl InkDrawingAttributesPencilProperties {
         unsafe { (windows_core::Interface::vtable(this).SetOpacity)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for InkDrawingAttributesPencilProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkDrawingAttributesPencilProperties>();
+}
 unsafe impl windows_core::Interface for InkDrawingAttributesPencilProperties {
     type Vtable = <IInkDrawingAttributesPencilProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkDrawingAttributesPencilProperties as windows_core::Interface>::IID;
@@ -1476,9 +1476,6 @@ impl windows_core::RuntimeName for InkDrawingAttributesPencilProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkInputConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkInputConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkInputConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(InkInputConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkInputConfiguration,);
 impl InkInputConfiguration {
@@ -1516,6 +1513,9 @@ impl InkInputConfiguration {
         unsafe { (windows_core::Interface::vtable(this).SetIsPenHapticFeedbackEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for InkInputConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkInputConfiguration>();
+}
 unsafe impl windows_core::Interface for InkInputConfiguration {
     type Vtable = <IInkInputConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkInputConfiguration as windows_core::Interface>::IID;
@@ -1526,9 +1526,6 @@ impl windows_core::RuntimeName for InkInputConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkInputProcessingConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkInputProcessingConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkInputProcessingConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(InkInputProcessingConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkInputProcessingConfiguration,);
 impl InkInputProcessingConfiguration {
@@ -1555,6 +1552,9 @@ impl InkInputProcessingConfiguration {
         unsafe { (windows_core::Interface::vtable(this).SetRightDragAction)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for InkInputProcessingConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkInputProcessingConfiguration>();
+}
 unsafe impl windows_core::Interface for InkInputProcessingConfiguration {
     type Vtable = <IInkInputProcessingConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkInputProcessingConfiguration as windows_core::Interface>::IID;
@@ -1565,9 +1565,6 @@ impl windows_core::RuntimeName for InkInputProcessingConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkManager>();
-}
 windows_core::imp::interface_hierarchy!(InkManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkManager, IInkRecognizerContainer, IInkStrokeContainer);
 impl InkManager {
@@ -1768,6 +1765,9 @@ impl InkManager {
         }
     }
 }
+impl windows_core::RuntimeType for InkManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkManager>();
+}
 unsafe impl windows_core::Interface for InkManager {
     type Vtable = <IInkManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkManager as windows_core::Interface>::IID;
@@ -1778,9 +1778,6 @@ impl windows_core::RuntimeName for InkManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkModelerAttributes(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkModelerAttributes {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkModelerAttributes>();
-}
 windows_core::imp::interface_hierarchy!(InkModelerAttributes, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkModelerAttributes,);
 impl InkModelerAttributes {
@@ -1818,6 +1815,9 @@ impl InkModelerAttributes {
         unsafe { (windows_core::Interface::vtable(this).SetUseVelocityBasedPressure)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for InkModelerAttributes {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkModelerAttributes>();
+}
 unsafe impl windows_core::Interface for InkModelerAttributes {
     type Vtable = <IInkModelerAttributes as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkModelerAttributes as windows_core::Interface>::IID;
@@ -1828,9 +1828,6 @@ impl windows_core::RuntimeName for InkModelerAttributes {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkPoint(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkPoint {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkPoint>();
-}
 windows_core::imp::interface_hierarchy!(InkPoint, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkPoint, IInkPointFactory);
 impl InkPoint {
@@ -1890,6 +1887,9 @@ impl InkPoint {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for InkPoint {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkPoint>();
+}
 unsafe impl windows_core::Interface for InkPoint {
     type Vtable = <IInkPoint as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkPoint as windows_core::Interface>::IID;
@@ -1900,9 +1900,6 @@ impl windows_core::RuntimeName for InkPoint {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkPresenter(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkPresenter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkPresenter>();
-}
 windows_core::imp::interface_hierarchy!(InkPresenter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkPresenter,);
 impl InkPresenter {
@@ -2037,6 +2034,9 @@ impl InkPresenter {
         }
     }
 }
+impl windows_core::RuntimeType for InkPresenter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkPresenter>();
+}
 unsafe impl windows_core::Interface for InkPresenter {
     type Vtable = <IInkPresenter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkPresenter as windows_core::Interface>::IID;
@@ -2047,9 +2047,6 @@ impl windows_core::RuntimeName for InkPresenter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkPresenterProtractor(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkPresenterProtractor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkPresenterProtractor>();
-}
 windows_core::imp::interface_hierarchy!(InkPresenterProtractor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkPresenterProtractor, IInkPresenterStencil);
 impl InkPresenterProtractor {
@@ -2197,6 +2194,9 @@ impl InkPresenterProtractor {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for InkPresenterProtractor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkPresenterProtractor>();
+}
 unsafe impl windows_core::Interface for InkPresenterProtractor {
     type Vtable = <IInkPresenterProtractor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkPresenterProtractor as windows_core::Interface>::IID;
@@ -2207,9 +2207,6 @@ impl windows_core::RuntimeName for InkPresenterProtractor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkPresenterRuler(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkPresenterRuler {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkPresenterRuler>();
-}
 windows_core::imp::interface_hierarchy!(InkPresenterRuler, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkPresenterRuler, IInkPresenterRulerFactory, IInkPresenterStencil);
 impl InkPresenterRuler {
@@ -2324,6 +2321,9 @@ impl InkPresenterRuler {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for InkPresenterRuler {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkPresenterRuler>();
+}
 unsafe impl windows_core::Interface for InkPresenterRuler {
     type Vtable = <IInkPresenterRuler as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkPresenterRuler as windows_core::Interface>::IID;
@@ -2334,9 +2334,6 @@ impl windows_core::RuntimeName for InkPresenterRuler {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkRecognitionResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkRecognitionResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkRecognitionResult>();
-}
 windows_core::imp::interface_hierarchy!(InkRecognitionResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkRecognitionResult,);
 impl InkRecognitionResult {
@@ -2364,6 +2361,9 @@ impl InkRecognitionResult {
         }
     }
 }
+impl windows_core::RuntimeType for InkRecognitionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkRecognitionResult>();
+}
 unsafe impl windows_core::Interface for InkRecognitionResult {
     type Vtable = <IInkRecognitionResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkRecognitionResult as windows_core::Interface>::IID;
@@ -2374,9 +2374,6 @@ impl windows_core::RuntimeName for InkRecognitionResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkRecognizer(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkRecognizer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkRecognizer>();
-}
 windows_core::imp::interface_hierarchy!(InkRecognizer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkRecognizer,);
 impl InkRecognizer {
@@ -2388,6 +2385,9 @@ impl InkRecognizer {
         }
     }
 }
+impl windows_core::RuntimeType for InkRecognizer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkRecognizer>();
+}
 unsafe impl windows_core::Interface for InkRecognizer {
     type Vtable = <IInkRecognizer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkRecognizer as windows_core::Interface>::IID;
@@ -2398,9 +2398,6 @@ impl windows_core::RuntimeName for InkRecognizer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkRecognizerContainer(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkRecognizerContainer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkRecognizerContainer>();
-}
 windows_core::imp::interface_hierarchy!(InkRecognizerContainer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkRecognizerContainer, IInkRecognizerContainer);
 impl InkRecognizerContainer {
@@ -2438,6 +2435,9 @@ impl InkRecognizerContainer {
         }
     }
 }
+impl windows_core::RuntimeType for InkRecognizerContainer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkRecognizerContainer>();
+}
 unsafe impl windows_core::Interface for InkRecognizerContainer {
     type Vtable = <IInkRecognizerContainer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkRecognizerContainer as windows_core::Interface>::IID;
@@ -2448,9 +2448,6 @@ impl windows_core::RuntimeName for InkRecognizerContainer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStroke(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkStroke {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStroke>();
-}
 windows_core::imp::interface_hierarchy!(InkStroke, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkStroke,);
 impl InkStroke {
@@ -2572,6 +2569,9 @@ impl InkStroke {
         }
     }
 }
+impl windows_core::RuntimeType for InkStroke {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStroke>();
+}
 unsafe impl windows_core::Interface for InkStroke {
     type Vtable = <IInkStroke as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkStroke as windows_core::Interface>::IID;
@@ -2582,9 +2582,6 @@ impl windows_core::RuntimeName for InkStroke {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStrokeBuilder(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkStrokeBuilder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokeBuilder>();
-}
 windows_core::imp::interface_hierarchy!(InkStrokeBuilder, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkStrokeBuilder,);
 impl InkStrokeBuilder {
@@ -2665,6 +2662,9 @@ impl InkStrokeBuilder {
         }
     }
 }
+impl windows_core::RuntimeType for InkStrokeBuilder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokeBuilder>();
+}
 unsafe impl windows_core::Interface for InkStrokeBuilder {
     type Vtable = <IInkStrokeBuilder as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkStrokeBuilder as windows_core::Interface>::IID;
@@ -2675,9 +2675,6 @@ impl windows_core::RuntimeName for InkStrokeBuilder {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStrokeContainer(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkStrokeContainer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokeContainer>();
-}
 windows_core::imp::interface_hierarchy!(InkStrokeContainer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkStrokeContainer, IInkStrokeContainer);
 impl InkStrokeContainer {
@@ -2829,6 +2826,9 @@ impl InkStrokeContainer {
         }
     }
 }
+impl windows_core::RuntimeType for InkStrokeContainer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokeContainer>();
+}
 unsafe impl windows_core::Interface for InkStrokeContainer {
     type Vtable = <IInkStrokeContainer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkStrokeContainer as windows_core::Interface>::IID;
@@ -2839,9 +2839,6 @@ impl windows_core::RuntimeName for InkStrokeContainer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStrokeInput(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkStrokeInput {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokeInput>();
-}
 windows_core::imp::interface_hierarchy!(InkStrokeInput, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkStrokeInput,);
 impl InkStrokeInput {
@@ -2913,6 +2910,9 @@ impl InkStrokeInput {
         }
     }
 }
+impl windows_core::RuntimeType for InkStrokeInput {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokeInput>();
+}
 unsafe impl windows_core::Interface for InkStrokeInput {
     type Vtable = <IInkStrokeInput as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkStrokeInput as windows_core::Interface>::IID;
@@ -2923,9 +2923,6 @@ impl windows_core::RuntimeName for InkStrokeInput {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStrokeRenderingSegment(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkStrokeRenderingSegment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokeRenderingSegment>();
-}
 windows_core::imp::interface_hierarchy!(InkStrokeRenderingSegment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkStrokeRenderingSegment,);
 impl InkStrokeRenderingSegment {
@@ -2979,6 +2976,9 @@ impl InkStrokeRenderingSegment {
         }
     }
 }
+impl windows_core::RuntimeType for InkStrokeRenderingSegment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokeRenderingSegment>();
+}
 unsafe impl windows_core::Interface for InkStrokeRenderingSegment {
     type Vtable = <IInkStrokeRenderingSegment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkStrokeRenderingSegment as windows_core::Interface>::IID;
@@ -2989,9 +2989,6 @@ impl windows_core::RuntimeName for InkStrokeRenderingSegment {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStrokesCollectedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkStrokesCollectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokesCollectedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(InkStrokesCollectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkStrokesCollectedEventArgs,);
 impl InkStrokesCollectedEventArgs {
@@ -3004,6 +3001,9 @@ impl InkStrokesCollectedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for InkStrokesCollectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokesCollectedEventArgs>();
+}
 unsafe impl windows_core::Interface for InkStrokesCollectedEventArgs {
     type Vtable = <IInkStrokesCollectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkStrokesCollectedEventArgs as windows_core::Interface>::IID;
@@ -3014,9 +3014,6 @@ impl windows_core::RuntimeName for InkStrokesCollectedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkStrokesErasedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkStrokesErasedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokesErasedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(InkStrokesErasedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkStrokesErasedEventArgs,);
 impl InkStrokesErasedEventArgs {
@@ -3029,6 +3026,9 @@ impl InkStrokesErasedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for InkStrokesErasedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkStrokesErasedEventArgs>();
+}
 unsafe impl windows_core::Interface for InkStrokesErasedEventArgs {
     type Vtable = <IInkStrokesErasedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkStrokesErasedEventArgs as windows_core::Interface>::IID;
@@ -3039,9 +3039,6 @@ impl windows_core::RuntimeName for InkStrokesErasedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkSynchronizer(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkSynchronizer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkSynchronizer>();
-}
 windows_core::imp::interface_hierarchy!(InkSynchronizer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkSynchronizer,);
 impl InkSynchronizer {
@@ -3058,6 +3055,9 @@ impl InkSynchronizer {
         unsafe { (windows_core::Interface::vtable(this).EndDry)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for InkSynchronizer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkSynchronizer>();
+}
 unsafe impl windows_core::Interface for InkSynchronizer {
     type Vtable = <IInkSynchronizer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkSynchronizer as windows_core::Interface>::IID;
@@ -3068,9 +3068,6 @@ impl windows_core::RuntimeName for InkSynchronizer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkUnprocessedInput(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkUnprocessedInput {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkUnprocessedInput>();
-}
 windows_core::imp::interface_hierarchy!(InkUnprocessedInput, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkUnprocessedInput,);
 impl InkUnprocessedInput {
@@ -3187,6 +3184,9 @@ impl InkUnprocessedInput {
         }
     }
 }
+impl windows_core::RuntimeType for InkUnprocessedInput {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkUnprocessedInput>();
+}
 unsafe impl windows_core::Interface for InkUnprocessedInput {
     type Vtable = <IInkUnprocessedInput as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkUnprocessedInput as windows_core::Interface>::IID;
@@ -3197,9 +3197,6 @@ impl windows_core::RuntimeName for InkUnprocessedInput {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PenAndInkSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for PenAndInkSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenAndInkSettings>();
-}
 windows_core::imp::interface_hierarchy!(PenAndInkSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PenAndInkSettings,);
 impl PenAndInkSettings {
@@ -3259,6 +3256,9 @@ impl PenAndInkSettings {
         static SHARED: windows_core::imp::FactoryCache<PenAndInkSettings, IPenAndInkSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for PenAndInkSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPenAndInkSettings>();
 }
 unsafe impl windows_core::Interface for PenAndInkSettings {
     type Vtable = <IPenAndInkSettings as windows_core::Interface>::Vtable;

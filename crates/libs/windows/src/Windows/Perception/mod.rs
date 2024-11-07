@@ -44,9 +44,6 @@ pub struct IPerceptionTimestampHelperStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PerceptionTimestamp(windows_core::IUnknown);
-impl windows_core::RuntimeType for PerceptionTimestamp {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPerceptionTimestamp>();
-}
 windows_core::imp::interface_hierarchy!(PerceptionTimestamp, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PerceptionTimestamp,);
 impl PerceptionTimestamp {
@@ -71,6 +68,9 @@ impl PerceptionTimestamp {
             (windows_core::Interface::vtable(this).SystemRelativeTargetTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for PerceptionTimestamp {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPerceptionTimestamp>();
 }
 unsafe impl windows_core::Interface for PerceptionTimestamp {
     type Vtable = <IPerceptionTimestamp as windows_core::Interface>::Vtable;

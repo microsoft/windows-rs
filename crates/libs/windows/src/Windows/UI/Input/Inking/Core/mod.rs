@@ -161,9 +161,6 @@ pub struct ICoreWetStrokeUpdateSourceStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreIncrementalInkStroke(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreIncrementalInkStroke {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreIncrementalInkStroke>();
-}
 windows_core::imp::interface_hierarchy!(CoreIncrementalInkStroke, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreIncrementalInkStroke,);
 impl CoreIncrementalInkStroke {
@@ -222,6 +219,9 @@ impl CoreIncrementalInkStroke {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CoreIncrementalInkStroke {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreIncrementalInkStroke>();
+}
 unsafe impl windows_core::Interface for CoreIncrementalInkStroke {
     type Vtable = <ICoreIncrementalInkStroke as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreIncrementalInkStroke as windows_core::Interface>::IID;
@@ -232,9 +232,6 @@ impl windows_core::RuntimeName for CoreIncrementalInkStroke {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInkIndependentInputSource(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreInkIndependentInputSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInkIndependentInputSource>();
-}
 windows_core::imp::interface_hierarchy!(CoreInkIndependentInputSource, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreInkIndependentInputSource,);
 impl CoreInkIndependentInputSource {
@@ -380,6 +377,9 @@ impl CoreInkIndependentInputSource {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CoreInkIndependentInputSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInkIndependentInputSource>();
+}
 unsafe impl windows_core::Interface for CoreInkIndependentInputSource {
     type Vtable = <ICoreInkIndependentInputSource as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreInkIndependentInputSource as windows_core::Interface>::IID;
@@ -390,9 +390,6 @@ impl windows_core::RuntimeName for CoreInkIndependentInputSource {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInkPresenterHost(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreInkPresenterHost {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInkPresenterHost>();
-}
 windows_core::imp::interface_hierarchy!(CoreInkPresenterHost, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreInkPresenterHost,);
 impl CoreInkPresenterHost {
@@ -427,6 +424,9 @@ impl CoreInkPresenterHost {
         unsafe { (windows_core::Interface::vtable(this).SetRootVisual)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CoreInkPresenterHost {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInkPresenterHost>();
+}
 unsafe impl windows_core::Interface for CoreInkPresenterHost {
     type Vtable = <ICoreInkPresenterHost as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreInkPresenterHost as windows_core::Interface>::IID;
@@ -437,9 +437,6 @@ impl windows_core::RuntimeName for CoreInkPresenterHost {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreWetStrokeUpdateEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreWetStrokeUpdateEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWetStrokeUpdateEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CoreWetStrokeUpdateEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreWetStrokeUpdateEventArgs,);
 impl CoreWetStrokeUpdateEventArgs {
@@ -470,6 +467,9 @@ impl CoreWetStrokeUpdateEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetDisposition)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CoreWetStrokeUpdateEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWetStrokeUpdateEventArgs>();
+}
 unsafe impl windows_core::Interface for CoreWetStrokeUpdateEventArgs {
     type Vtable = <ICoreWetStrokeUpdateEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreWetStrokeUpdateEventArgs as windows_core::Interface>::IID;
@@ -480,9 +480,6 @@ impl windows_core::RuntimeName for CoreWetStrokeUpdateEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreWetStrokeUpdateSource(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreWetStrokeUpdateSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWetStrokeUpdateSource>();
-}
 windows_core::imp::interface_hierarchy!(CoreWetStrokeUpdateSource, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreWetStrokeUpdateSource,);
 impl CoreWetStrokeUpdateSource {
@@ -576,6 +573,9 @@ impl CoreWetStrokeUpdateSource {
         static SHARED: windows_core::imp::FactoryCache<CoreWetStrokeUpdateSource, ICoreWetStrokeUpdateSourceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for CoreWetStrokeUpdateSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWetStrokeUpdateSource>();
 }
 unsafe impl windows_core::Interface for CoreWetStrokeUpdateSource {
     type Vtable = <ICoreWetStrokeUpdateSource as windows_core::Interface>::Vtable;

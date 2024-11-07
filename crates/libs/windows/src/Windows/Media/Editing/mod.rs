@@ -273,9 +273,6 @@ pub struct IMediaOverlayLayerFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundAudioTrack(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackgroundAudioTrack {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundAudioTrack>();
-}
 windows_core::imp::interface_hierarchy!(BackgroundAudioTrack, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundAudioTrack,);
 impl BackgroundAudioTrack {
@@ -392,6 +389,9 @@ impl BackgroundAudioTrack {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BackgroundAudioTrack {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundAudioTrack>();
+}
 unsafe impl windows_core::Interface for BackgroundAudioTrack {
     type Vtable = <IBackgroundAudioTrack as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundAudioTrack as windows_core::Interface>::IID;
@@ -402,9 +402,6 @@ impl windows_core::RuntimeName for BackgroundAudioTrack {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmbeddedAudioTrack(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmbeddedAudioTrack {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmbeddedAudioTrack>();
-}
 windows_core::imp::interface_hierarchy!(EmbeddedAudioTrack, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmbeddedAudioTrack,);
 impl EmbeddedAudioTrack {
@@ -417,6 +414,9 @@ impl EmbeddedAudioTrack {
         }
     }
 }
+impl windows_core::RuntimeType for EmbeddedAudioTrack {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmbeddedAudioTrack>();
+}
 unsafe impl windows_core::Interface for EmbeddedAudioTrack {
     type Vtable = <IEmbeddedAudioTrack as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmbeddedAudioTrack as windows_core::Interface>::IID;
@@ -427,9 +427,6 @@ impl windows_core::RuntimeName for EmbeddedAudioTrack {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaClip(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaClip {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaClip>();
-}
 windows_core::imp::interface_hierarchy!(MediaClip, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaClip,);
 impl MediaClip {
@@ -598,6 +595,9 @@ impl MediaClip {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MediaClip {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaClip>();
+}
 unsafe impl windows_core::Interface for MediaClip {
     type Vtable = <IMediaClip as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaClip as windows_core::Interface>::IID;
@@ -608,9 +608,6 @@ impl windows_core::RuntimeName for MediaClip {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaComposition(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaComposition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaComposition>();
-}
 windows_core::imp::interface_hierarchy!(MediaComposition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaComposition,);
 impl MediaComposition {
@@ -781,6 +778,9 @@ impl MediaComposition {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MediaComposition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaComposition>();
+}
 unsafe impl windows_core::Interface for MediaComposition {
     type Vtable = <IMediaComposition as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaComposition as windows_core::Interface>::IID;
@@ -791,9 +791,6 @@ impl windows_core::RuntimeName for MediaComposition {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaOverlay(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaOverlay {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaOverlay>();
-}
 windows_core::imp::interface_hierarchy!(MediaOverlay, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaOverlay,);
 impl MediaOverlay {
@@ -878,6 +875,9 @@ impl MediaOverlay {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MediaOverlay {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaOverlay>();
+}
 unsafe impl windows_core::Interface for MediaOverlay {
     type Vtable = <IMediaOverlay as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaOverlay as windows_core::Interface>::IID;
@@ -888,9 +888,6 @@ impl windows_core::RuntimeName for MediaOverlay {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaOverlayLayer(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaOverlayLayer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaOverlayLayer>();
-}
 windows_core::imp::interface_hierarchy!(MediaOverlayLayer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaOverlayLayer,);
 impl MediaOverlayLayer {
@@ -938,6 +935,9 @@ impl MediaOverlayLayer {
         static SHARED: windows_core::imp::FactoryCache<MediaOverlayLayer, IMediaOverlayLayerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for MediaOverlayLayer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaOverlayLayer>();
 }
 unsafe impl windows_core::Interface for MediaOverlayLayer {
     type Vtable = <IMediaOverlayLayer as windows_core::Interface>::Vtable;

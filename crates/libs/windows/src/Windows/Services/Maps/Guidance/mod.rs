@@ -282,9 +282,6 @@ pub struct IGuidanceUpdatedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceAudioNotificationRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for GuidanceAudioNotificationRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceAudioNotificationRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(GuidanceAudioNotificationRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GuidanceAudioNotificationRequestedEventArgs,);
 impl GuidanceAudioNotificationRequestedEventArgs {
@@ -311,6 +308,9 @@ impl GuidanceAudioNotificationRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for GuidanceAudioNotificationRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceAudioNotificationRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for GuidanceAudioNotificationRequestedEventArgs {
     type Vtable = <IGuidanceAudioNotificationRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceAudioNotificationRequestedEventArgs as windows_core::Interface>::IID;
@@ -321,9 +321,6 @@ impl windows_core::RuntimeName for GuidanceAudioNotificationRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceLaneInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for GuidanceLaneInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceLaneInfo>();
-}
 windows_core::imp::interface_hierarchy!(GuidanceLaneInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GuidanceLaneInfo,);
 impl GuidanceLaneInfo {
@@ -342,6 +339,9 @@ impl GuidanceLaneInfo {
         }
     }
 }
+impl windows_core::RuntimeType for GuidanceLaneInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceLaneInfo>();
+}
 unsafe impl windows_core::Interface for GuidanceLaneInfo {
     type Vtable = <IGuidanceLaneInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceLaneInfo as windows_core::Interface>::IID;
@@ -352,9 +352,6 @@ impl windows_core::RuntimeName for GuidanceLaneInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceManeuver(windows_core::IUnknown);
-impl windows_core::RuntimeType for GuidanceManeuver {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceManeuver>();
-}
 windows_core::imp::interface_hierarchy!(GuidanceManeuver, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GuidanceManeuver,);
 impl GuidanceManeuver {
@@ -444,6 +441,9 @@ impl GuidanceManeuver {
         }
     }
 }
+impl windows_core::RuntimeType for GuidanceManeuver {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceManeuver>();
+}
 unsafe impl windows_core::Interface for GuidanceManeuver {
     type Vtable = <IGuidanceManeuver as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceManeuver as windows_core::Interface>::IID;
@@ -454,9 +454,6 @@ impl windows_core::RuntimeName for GuidanceManeuver {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceMapMatchedCoordinate(windows_core::IUnknown);
-impl windows_core::RuntimeType for GuidanceMapMatchedCoordinate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceMapMatchedCoordinate>();
-}
 windows_core::imp::interface_hierarchy!(GuidanceMapMatchedCoordinate, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GuidanceMapMatchedCoordinate,);
 impl GuidanceMapMatchedCoordinate {
@@ -497,6 +494,9 @@ impl GuidanceMapMatchedCoordinate {
         }
     }
 }
+impl windows_core::RuntimeType for GuidanceMapMatchedCoordinate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceMapMatchedCoordinate>();
+}
 unsafe impl windows_core::Interface for GuidanceMapMatchedCoordinate {
     type Vtable = <IGuidanceMapMatchedCoordinate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceMapMatchedCoordinate as windows_core::Interface>::IID;
@@ -507,9 +507,6 @@ impl windows_core::RuntimeName for GuidanceMapMatchedCoordinate {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceNavigator(windows_core::IUnknown);
-impl windows_core::RuntimeType for GuidanceNavigator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceNavigator>();
-}
 windows_core::imp::interface_hierarchy!(GuidanceNavigator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GuidanceNavigator,);
 impl GuidanceNavigator {
@@ -733,6 +730,9 @@ impl GuidanceNavigator {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GuidanceNavigator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceNavigator>();
+}
 unsafe impl windows_core::Interface for GuidanceNavigator {
     type Vtable = <IGuidanceNavigator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceNavigator as windows_core::Interface>::IID;
@@ -743,9 +743,6 @@ impl windows_core::RuntimeName for GuidanceNavigator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceReroutedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for GuidanceReroutedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceReroutedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(GuidanceReroutedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GuidanceReroutedEventArgs,);
 impl GuidanceReroutedEventArgs {
@@ -757,6 +754,9 @@ impl GuidanceReroutedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for GuidanceReroutedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceReroutedEventArgs>();
+}
 unsafe impl windows_core::Interface for GuidanceReroutedEventArgs {
     type Vtable = <IGuidanceReroutedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceReroutedEventArgs as windows_core::Interface>::IID;
@@ -767,9 +767,6 @@ impl windows_core::RuntimeName for GuidanceReroutedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceRoadSegment(windows_core::IUnknown);
-impl windows_core::RuntimeType for GuidanceRoadSegment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceRoadSegment>();
-}
 windows_core::imp::interface_hierarchy!(GuidanceRoadSegment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GuidanceRoadSegment,);
 impl GuidanceRoadSegment {
@@ -845,6 +842,9 @@ impl GuidanceRoadSegment {
         }
     }
 }
+impl windows_core::RuntimeType for GuidanceRoadSegment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceRoadSegment>();
+}
 unsafe impl windows_core::Interface for GuidanceRoadSegment {
     type Vtable = <IGuidanceRoadSegment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceRoadSegment as windows_core::Interface>::IID;
@@ -855,9 +855,6 @@ impl windows_core::RuntimeName for GuidanceRoadSegment {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceRoadSignpost(windows_core::IUnknown);
-impl windows_core::RuntimeType for GuidanceRoadSignpost {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceRoadSignpost>();
-}
 windows_core::imp::interface_hierarchy!(GuidanceRoadSignpost, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GuidanceRoadSignpost,);
 impl GuidanceRoadSignpost {
@@ -900,6 +897,9 @@ impl GuidanceRoadSignpost {
         }
     }
 }
+impl windows_core::RuntimeType for GuidanceRoadSignpost {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceRoadSignpost>();
+}
 unsafe impl windows_core::Interface for GuidanceRoadSignpost {
     type Vtable = <IGuidanceRoadSignpost as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceRoadSignpost as windows_core::Interface>::IID;
@@ -910,9 +910,6 @@ impl windows_core::RuntimeName for GuidanceRoadSignpost {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceRoute(windows_core::IUnknown);
-impl windows_core::RuntimeType for GuidanceRoute {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceRoute>();
-}
 windows_core::imp::interface_hierarchy!(GuidanceRoute, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GuidanceRoute,);
 impl GuidanceRoute {
@@ -992,6 +989,9 @@ impl GuidanceRoute {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GuidanceRoute {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceRoute>();
+}
 unsafe impl windows_core::Interface for GuidanceRoute {
     type Vtable = <IGuidanceRoute as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceRoute as windows_core::Interface>::IID;
@@ -1002,9 +1002,6 @@ impl windows_core::RuntimeName for GuidanceRoute {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceTelemetryCollector(windows_core::IUnknown);
-impl windows_core::RuntimeType for GuidanceTelemetryCollector {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceTelemetryCollector>();
-}
 windows_core::imp::interface_hierarchy!(GuidanceTelemetryCollector, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GuidanceTelemetryCollector,);
 impl GuidanceTelemetryCollector {
@@ -1056,6 +1053,9 @@ impl GuidanceTelemetryCollector {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GuidanceTelemetryCollector {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceTelemetryCollector>();
+}
 unsafe impl windows_core::Interface for GuidanceTelemetryCollector {
     type Vtable = <IGuidanceTelemetryCollector as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGuidanceTelemetryCollector as windows_core::Interface>::IID;
@@ -1066,9 +1066,6 @@ impl windows_core::RuntimeName for GuidanceTelemetryCollector {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GuidanceUpdatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for GuidanceUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceUpdatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(GuidanceUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GuidanceUpdatedEventArgs,);
 impl GuidanceUpdatedEventArgs {
@@ -1171,6 +1168,9 @@ impl GuidanceUpdatedEventArgs {
             (windows_core::Interface::vtable(this).LaneInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for GuidanceUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGuidanceUpdatedEventArgs>();
 }
 unsafe impl windows_core::Interface for GuidanceUpdatedEventArgs {
     type Vtable = <IGuidanceUpdatedEventArgs as windows_core::Interface>::Vtable;

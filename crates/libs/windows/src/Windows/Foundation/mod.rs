@@ -2374,9 +2374,6 @@ pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Deferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for Deferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeferral>();
-}
 windows_core::imp::interface_hierarchy!(Deferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Deferral, IClosable);
 impl Deferral {
@@ -2401,6 +2398,9 @@ impl Deferral {
         static SHARED: windows_core::imp::FactoryCache<Deferral, IDeferralFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for Deferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeferral>();
 }
 unsafe impl windows_core::Interface for Deferral {
     type Vtable = <IDeferral as windows_core::Interface>::Vtable;
@@ -2440,9 +2440,6 @@ impl windows_core::RuntimeName for GuidHelper {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MemoryBuffer(windows_core::IUnknown);
-impl windows_core::RuntimeType for MemoryBuffer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMemoryBuffer>();
-}
 windows_core::imp::interface_hierarchy!(MemoryBuffer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MemoryBuffer, IClosable, IMemoryBuffer);
 impl MemoryBuffer {
@@ -2467,6 +2464,9 @@ impl MemoryBuffer {
         static SHARED: windows_core::imp::FactoryCache<MemoryBuffer, IMemoryBufferFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for MemoryBuffer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMemoryBuffer>();
 }
 unsafe impl windows_core::Interface for MemoryBuffer {
     type Vtable = <IMemoryBuffer as windows_core::Interface>::Vtable;
@@ -2725,9 +2725,6 @@ impl windows_core::RuntimeName for PropertyValue {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Uri(windows_core::IUnknown);
-impl windows_core::RuntimeType for Uri {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUriRuntimeClass>();
-}
 windows_core::imp::interface_hierarchy!(Uri, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Uri, IStringable);
 impl Uri {
@@ -2908,6 +2905,9 @@ impl Uri {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Uri {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUriRuntimeClass>();
+}
 unsafe impl windows_core::Interface for Uri {
     type Vtable = <IUriRuntimeClass as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUriRuntimeClass as windows_core::Interface>::IID;
@@ -2919,10 +2919,6 @@ impl windows_core::RuntimeName for Uri {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WwwFormUrlDecoder(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for WwwFormUrlDecoder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWwwFormUrlDecoderRuntimeClass>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(WwwFormUrlDecoder, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -2987,6 +2983,10 @@ impl WwwFormUrlDecoder {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for WwwFormUrlDecoder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWwwFormUrlDecoderRuntimeClass>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for WwwFormUrlDecoder {
     type Vtable = <IWwwFormUrlDecoderRuntimeClass as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWwwFormUrlDecoderRuntimeClass as windows_core::Interface>::IID;
@@ -2998,9 +2998,6 @@ impl windows_core::RuntimeName for WwwFormUrlDecoder {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WwwFormUrlDecoderEntry(windows_core::IUnknown);
-impl windows_core::RuntimeType for WwwFormUrlDecoderEntry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWwwFormUrlDecoderEntry>();
-}
 windows_core::imp::interface_hierarchy!(WwwFormUrlDecoderEntry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WwwFormUrlDecoderEntry, IWwwFormUrlDecoderEntry);
 impl WwwFormUrlDecoderEntry {
@@ -3018,6 +3015,9 @@ impl WwwFormUrlDecoderEntry {
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for WwwFormUrlDecoderEntry {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWwwFormUrlDecoderEntry>();
 }
 unsafe impl windows_core::Interface for WwwFormUrlDecoderEntry {
     type Vtable = <IWwwFormUrlDecoderEntry as windows_core::Interface>::Vtable;
@@ -3783,7 +3783,7 @@ impl windows_core::RuntimeType for PropertyType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.PropertyType;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct DateTime {
     pub UniversalTime: i64,
 }
@@ -3794,7 +3794,7 @@ impl windows_core::RuntimeType for DateTime {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct EventRegistrationToken {
     pub Value: i64,
 }
@@ -3805,7 +3805,7 @@ impl windows_core::RuntimeType for EventRegistrationToken {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.EventRegistrationToken;i8)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct Point {
     pub X: f32,
     pub Y: f32,
@@ -3817,7 +3817,7 @@ impl windows_core::RuntimeType for Point {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Point;f4;f4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct Rect {
     pub X: f32,
     pub Y: f32,
@@ -3831,7 +3831,7 @@ impl windows_core::RuntimeType for Rect {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct Size {
     pub Width: f32,
     pub Height: f32,
@@ -3843,7 +3843,7 @@ impl windows_core::RuntimeType for Size {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct TimeSpan {
     pub Duration: i64,
 }

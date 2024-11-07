@@ -105,9 +105,6 @@ pub struct IPackageInstallResult2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Enterprise(windows_core::IUnknown);
-impl windows_core::RuntimeType for Enterprise {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterprise>();
-}
 windows_core::imp::interface_hierarchy!(Enterprise, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Enterprise,);
 impl Enterprise {
@@ -153,6 +150,9 @@ impl Enterprise {
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for Enterprise {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterprise>();
 }
 unsafe impl windows_core::Interface for Enterprise {
     type Vtable = <IEnterprise as windows_core::Interface>::Vtable;
@@ -208,9 +208,6 @@ impl windows_core::RuntimeName for EnterpriseEnrollmentManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnterpriseEnrollmentResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for EnterpriseEnrollmentResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterpriseEnrollmentResult>();
-}
 windows_core::imp::interface_hierarchy!(EnterpriseEnrollmentResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EnterpriseEnrollmentResult,);
 impl EnterpriseEnrollmentResult {
@@ -228,6 +225,9 @@ impl EnterpriseEnrollmentResult {
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for EnterpriseEnrollmentResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterpriseEnrollmentResult>();
 }
 unsafe impl windows_core::Interface for EnterpriseEnrollmentResult {
     type Vtable = <IEnterpriseEnrollmentResult as windows_core::Interface>::Vtable;
@@ -318,9 +318,6 @@ impl windows_core::RuntimeName for InstallationManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageInstallResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for PackageInstallResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageInstallResult>();
-}
 windows_core::imp::interface_hierarchy!(PackageInstallResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PackageInstallResult,);
 impl PackageInstallResult {
@@ -346,6 +343,9 @@ impl PackageInstallResult {
             (windows_core::Interface::vtable(this).ErrorText)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for PackageInstallResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageInstallResult>();
 }
 unsafe impl windows_core::Interface for PackageInstallResult {
     type Vtable = <IPackageInstallResult as windows_core::Interface>::Vtable;

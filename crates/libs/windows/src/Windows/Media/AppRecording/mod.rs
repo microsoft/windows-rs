@@ -103,9 +103,6 @@ pub struct IAppRecordingStatusDetails_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppRecordingManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppRecordingManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppRecordingManager>();
-}
 windows_core::imp::interface_hierarchy!(AppRecordingManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppRecordingManager,);
 impl AppRecordingManager {
@@ -169,6 +166,9 @@ impl AppRecordingManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AppRecordingManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppRecordingManager>();
+}
 unsafe impl windows_core::Interface for AppRecordingManager {
     type Vtable = <IAppRecordingManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppRecordingManager as windows_core::Interface>::IID;
@@ -179,9 +179,6 @@ impl windows_core::RuntimeName for AppRecordingManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppRecordingResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppRecordingResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppRecordingResult>();
-}
 windows_core::imp::interface_hierarchy!(AppRecordingResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppRecordingResult,);
 impl AppRecordingResult {
@@ -214,6 +211,9 @@ impl AppRecordingResult {
         }
     }
 }
+impl windows_core::RuntimeType for AppRecordingResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppRecordingResult>();
+}
 unsafe impl windows_core::Interface for AppRecordingResult {
     type Vtable = <IAppRecordingResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppRecordingResult as windows_core::Interface>::IID;
@@ -224,9 +224,6 @@ impl windows_core::RuntimeName for AppRecordingResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppRecordingSaveScreenshotResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppRecordingSaveScreenshotResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppRecordingSaveScreenshotResult>();
-}
 windows_core::imp::interface_hierarchy!(AppRecordingSaveScreenshotResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppRecordingSaveScreenshotResult,);
 impl AppRecordingSaveScreenshotResult {
@@ -253,6 +250,9 @@ impl AppRecordingSaveScreenshotResult {
         }
     }
 }
+impl windows_core::RuntimeType for AppRecordingSaveScreenshotResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppRecordingSaveScreenshotResult>();
+}
 unsafe impl windows_core::Interface for AppRecordingSaveScreenshotResult {
     type Vtable = <IAppRecordingSaveScreenshotResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppRecordingSaveScreenshotResult as windows_core::Interface>::IID;
@@ -263,9 +263,6 @@ impl windows_core::RuntimeName for AppRecordingSaveScreenshotResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppRecordingSavedScreenshotInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppRecordingSavedScreenshotInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppRecordingSavedScreenshotInfo>();
-}
 windows_core::imp::interface_hierarchy!(AppRecordingSavedScreenshotInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppRecordingSavedScreenshotInfo,);
 impl AppRecordingSavedScreenshotInfo {
@@ -285,6 +282,9 @@ impl AppRecordingSavedScreenshotInfo {
         }
     }
 }
+impl windows_core::RuntimeType for AppRecordingSavedScreenshotInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppRecordingSavedScreenshotInfo>();
+}
 unsafe impl windows_core::Interface for AppRecordingSavedScreenshotInfo {
     type Vtable = <IAppRecordingSavedScreenshotInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppRecordingSavedScreenshotInfo as windows_core::Interface>::IID;
@@ -295,9 +295,6 @@ impl windows_core::RuntimeName for AppRecordingSavedScreenshotInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppRecordingStatus(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppRecordingStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppRecordingStatus>();
-}
 windows_core::imp::interface_hierarchy!(AppRecordingStatus, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppRecordingStatus,);
 impl AppRecordingStatus {
@@ -330,6 +327,9 @@ impl AppRecordingStatus {
         }
     }
 }
+impl windows_core::RuntimeType for AppRecordingStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppRecordingStatus>();
+}
 unsafe impl windows_core::Interface for AppRecordingStatus {
     type Vtable = <IAppRecordingStatus as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppRecordingStatus as windows_core::Interface>::IID;
@@ -340,9 +340,6 @@ impl windows_core::RuntimeName for AppRecordingStatus {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppRecordingStatusDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppRecordingStatusDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppRecordingStatusDetails>();
-}
 windows_core::imp::interface_hierarchy!(AppRecordingStatusDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppRecordingStatusDetails,);
 impl AppRecordingStatusDetails {
@@ -409,6 +406,9 @@ impl AppRecordingStatusDetails {
             (windows_core::Interface::vtable(this).IsDisabledBySystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for AppRecordingStatusDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppRecordingStatusDetails>();
 }
 unsafe impl windows_core::Interface for AppRecordingStatusDetails {
     type Vtable = <IAppRecordingStatusDetails as windows_core::Interface>::Vtable;

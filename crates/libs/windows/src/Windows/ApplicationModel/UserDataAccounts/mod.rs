@@ -174,9 +174,6 @@ pub struct IUserDataAccountStoreChangedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccount(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataAccount {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccount>();
-}
 windows_core::imp::interface_hierarchy!(UserDataAccount, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccount,);
 impl UserDataAccount {
@@ -365,6 +362,9 @@ impl UserDataAccount {
         unsafe { (windows_core::Interface::vtable(this).SetIcon)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for UserDataAccount {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccount>();
+}
 unsafe impl windows_core::Interface for UserDataAccount {
     type Vtable = <IUserDataAccount as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataAccount as windows_core::Interface>::IID;
@@ -423,9 +423,6 @@ impl windows_core::RuntimeName for UserDataAccountManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountManagerForUser(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataAccountManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountManagerForUser>();
-}
 windows_core::imp::interface_hierarchy!(UserDataAccountManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountManagerForUser,);
 impl UserDataAccountManagerForUser {
@@ -445,6 +442,9 @@ impl UserDataAccountManagerForUser {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataAccountManagerForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountManagerForUser>();
+}
 unsafe impl windows_core::Interface for UserDataAccountManagerForUser {
     type Vtable = <IUserDataAccountManagerForUser as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataAccountManagerForUser as windows_core::Interface>::IID;
@@ -455,9 +455,6 @@ impl windows_core::RuntimeName for UserDataAccountManagerForUser {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountStore(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataAccountStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountStore>();
-}
 windows_core::imp::interface_hierarchy!(UserDataAccountStore, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountStore,);
 impl UserDataAccountStore {
@@ -512,6 +509,9 @@ impl UserDataAccountStore {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataAccountStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountStore>();
+}
 unsafe impl windows_core::Interface for UserDataAccountStore {
     type Vtable = <IUserDataAccountStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataAccountStore as windows_core::Interface>::IID;
@@ -522,9 +522,6 @@ impl windows_core::RuntimeName for UserDataAccountStore {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountStoreChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataAccountStoreChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountStoreChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(UserDataAccountStoreChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountStoreChangedEventArgs,);
 impl UserDataAccountStoreChangedEventArgs {
@@ -535,6 +532,9 @@ impl UserDataAccountStoreChangedEventArgs {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for UserDataAccountStoreChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountStoreChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for UserDataAccountStoreChangedEventArgs {
     type Vtable = <IUserDataAccountStoreChangedEventArgs as windows_core::Interface>::Vtable;

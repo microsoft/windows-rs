@@ -920,9 +920,6 @@ pub struct IEmailStoreNotificationTriggerDetails_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailAttachment(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailAttachment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailAttachment>();
-}
 windows_core::imp::interface_hierarchy!(EmailAttachment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailAttachment,);
 impl EmailAttachment {
@@ -1069,6 +1066,9 @@ impl EmailAttachment {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for EmailAttachment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailAttachment>();
+}
 unsafe impl windows_core::Interface for EmailAttachment {
     type Vtable = <IEmailAttachment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailAttachment as windows_core::Interface>::IID;
@@ -1079,9 +1079,6 @@ impl windows_core::RuntimeName for EmailAttachment {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailConversation(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailConversation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailConversation>();
-}
 windows_core::imp::interface_hierarchy!(EmailConversation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailConversation,);
 impl EmailConversation {
@@ -1193,6 +1190,9 @@ impl EmailConversation {
         }
     }
 }
+impl windows_core::RuntimeType for EmailConversation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailConversation>();
+}
 unsafe impl windows_core::Interface for EmailConversation {
     type Vtable = <IEmailConversation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailConversation as windows_core::Interface>::IID;
@@ -1203,9 +1203,6 @@ impl windows_core::RuntimeName for EmailConversation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailConversationBatch(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailConversationBatch {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailConversationBatch>();
-}
 windows_core::imp::interface_hierarchy!(EmailConversationBatch, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailConversationBatch,);
 impl EmailConversationBatch {
@@ -1225,6 +1222,9 @@ impl EmailConversationBatch {
         }
     }
 }
+impl windows_core::RuntimeType for EmailConversationBatch {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailConversationBatch>();
+}
 unsafe impl windows_core::Interface for EmailConversationBatch {
     type Vtable = <IEmailConversationBatch as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailConversationBatch as windows_core::Interface>::IID;
@@ -1235,9 +1235,6 @@ impl windows_core::RuntimeName for EmailConversationBatch {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailConversationReader(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailConversationReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailConversationReader>();
-}
 windows_core::imp::interface_hierarchy!(EmailConversationReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailConversationReader,);
 impl EmailConversationReader {
@@ -1249,6 +1246,9 @@ impl EmailConversationReader {
         }
     }
 }
+impl windows_core::RuntimeType for EmailConversationReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailConversationReader>();
+}
 unsafe impl windows_core::Interface for EmailConversationReader {
     type Vtable = <IEmailConversationReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailConversationReader as windows_core::Interface>::IID;
@@ -1259,9 +1259,6 @@ impl windows_core::RuntimeName for EmailConversationReader {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailFolder(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailFolder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailFolder>();
-}
 windows_core::imp::interface_hierarchy!(EmailFolder, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailFolder,);
 impl EmailFolder {
@@ -1445,6 +1442,9 @@ impl EmailFolder {
         }
     }
 }
+impl windows_core::RuntimeType for EmailFolder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailFolder>();
+}
 unsafe impl windows_core::Interface for EmailFolder {
     type Vtable = <IEmailFolder as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailFolder as windows_core::Interface>::IID;
@@ -1455,9 +1455,6 @@ impl windows_core::RuntimeName for EmailFolder {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailIrmInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailIrmInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailIrmInfo>();
-}
 windows_core::imp::interface_hierarchy!(EmailIrmInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailIrmInfo,);
 impl EmailIrmInfo {
@@ -1617,6 +1614,9 @@ impl EmailIrmInfo {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for EmailIrmInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailIrmInfo>();
+}
 unsafe impl windows_core::Interface for EmailIrmInfo {
     type Vtable = <IEmailIrmInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailIrmInfo as windows_core::Interface>::IID;
@@ -1627,9 +1627,6 @@ impl windows_core::RuntimeName for EmailIrmInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailIrmTemplate(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailIrmTemplate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailIrmTemplate>();
-}
 windows_core::imp::interface_hierarchy!(EmailIrmTemplate, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailIrmTemplate,);
 impl EmailIrmTemplate {
@@ -1684,6 +1681,9 @@ impl EmailIrmTemplate {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for EmailIrmTemplate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailIrmTemplate>();
+}
 unsafe impl windows_core::Interface for EmailIrmTemplate {
     type Vtable = <IEmailIrmTemplate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailIrmTemplate as windows_core::Interface>::IID;
@@ -1694,9 +1694,6 @@ impl windows_core::RuntimeName for EmailIrmTemplate {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailItemCounts(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailItemCounts {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailItemCounts>();
-}
 windows_core::imp::interface_hierarchy!(EmailItemCounts, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailItemCounts,);
 impl EmailItemCounts {
@@ -1729,6 +1726,9 @@ impl EmailItemCounts {
         }
     }
 }
+impl windows_core::RuntimeType for EmailItemCounts {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailItemCounts>();
+}
 unsafe impl windows_core::Interface for EmailItemCounts {
     type Vtable = <IEmailItemCounts as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailItemCounts as windows_core::Interface>::IID;
@@ -1739,9 +1739,6 @@ impl windows_core::RuntimeName for EmailItemCounts {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailbox(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMailbox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailbox>();
-}
 windows_core::imp::interface_hierarchy!(EmailMailbox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMailbox,);
 impl EmailMailbox {
@@ -2192,6 +2189,9 @@ impl EmailMailbox {
         }
     }
 }
+impl windows_core::RuntimeType for EmailMailbox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailbox>();
+}
 unsafe impl windows_core::Interface for EmailMailbox {
     type Vtable = <IEmailMailbox as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailbox as windows_core::Interface>::IID;
@@ -2202,9 +2202,6 @@ impl windows_core::RuntimeName for EmailMailbox {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxAction(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMailboxAction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxAction>();
-}
 windows_core::imp::interface_hierarchy!(EmailMailboxAction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMailboxAction,);
 impl EmailMailboxAction {
@@ -2223,6 +2220,9 @@ impl EmailMailboxAction {
         }
     }
 }
+impl windows_core::RuntimeType for EmailMailboxAction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxAction>();
+}
 unsafe impl windows_core::Interface for EmailMailboxAction {
     type Vtable = <IEmailMailboxAction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxAction as windows_core::Interface>::IID;
@@ -2233,9 +2233,6 @@ impl windows_core::RuntimeName for EmailMailboxAction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxAutoReply(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMailboxAutoReply {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxAutoReply>();
-}
 windows_core::imp::interface_hierarchy!(EmailMailboxAutoReply, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMailboxAutoReply,);
 impl EmailMailboxAutoReply {
@@ -2262,6 +2259,9 @@ impl EmailMailboxAutoReply {
         unsafe { (windows_core::Interface::vtable(this).SetResponse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for EmailMailboxAutoReply {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxAutoReply>();
+}
 unsafe impl windows_core::Interface for EmailMailboxAutoReply {
     type Vtable = <IEmailMailboxAutoReply as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxAutoReply as windows_core::Interface>::IID;
@@ -2272,9 +2272,6 @@ impl windows_core::RuntimeName for EmailMailboxAutoReply {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxAutoReplySettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMailboxAutoReplySettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxAutoReplySettings>();
-}
 windows_core::imp::interface_hierarchy!(EmailMailboxAutoReplySettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMailboxAutoReplySettings,);
 impl EmailMailboxAutoReplySettings {
@@ -2357,6 +2354,9 @@ impl EmailMailboxAutoReplySettings {
         }
     }
 }
+impl windows_core::RuntimeType for EmailMailboxAutoReplySettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxAutoReplySettings>();
+}
 unsafe impl windows_core::Interface for EmailMailboxAutoReplySettings {
     type Vtable = <IEmailMailboxAutoReplySettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxAutoReplySettings as windows_core::Interface>::IID;
@@ -2367,9 +2367,6 @@ impl windows_core::RuntimeName for EmailMailboxAutoReplySettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMailboxCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(EmailMailboxCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMailboxCapabilities,);
 impl EmailMailboxCapabilities {
@@ -2528,6 +2525,9 @@ impl EmailMailboxCapabilities {
         unsafe { (windows_core::Interface::vtable(this).SetCanMoveFolder)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for EmailMailboxCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxCapabilities>();
+}
 unsafe impl windows_core::Interface for EmailMailboxCapabilities {
     type Vtable = <IEmailMailboxCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxCapabilities as windows_core::Interface>::IID;
@@ -2538,9 +2538,6 @@ impl windows_core::RuntimeName for EmailMailboxCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxChange(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMailboxChange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChange>();
-}
 windows_core::imp::interface_hierarchy!(EmailMailboxChange, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMailboxChange,);
 impl EmailMailboxChange {
@@ -2574,6 +2571,9 @@ impl EmailMailboxChange {
         }
     }
 }
+impl windows_core::RuntimeType for EmailMailboxChange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChange>();
+}
 unsafe impl windows_core::Interface for EmailMailboxChange {
     type Vtable = <IEmailMailboxChange as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxChange as windows_core::Interface>::IID;
@@ -2584,9 +2584,6 @@ impl windows_core::RuntimeName for EmailMailboxChange {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxChangeReader(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMailboxChangeReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChangeReader>();
-}
 windows_core::imp::interface_hierarchy!(EmailMailboxChangeReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMailboxChangeReader,);
 impl EmailMailboxChangeReader {
@@ -2610,6 +2607,9 @@ impl EmailMailboxChangeReader {
         }
     }
 }
+impl windows_core::RuntimeType for EmailMailboxChangeReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChangeReader>();
+}
 unsafe impl windows_core::Interface for EmailMailboxChangeReader {
     type Vtable = <IEmailMailboxChangeReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxChangeReader as windows_core::Interface>::IID;
@@ -2620,9 +2620,6 @@ impl windows_core::RuntimeName for EmailMailboxChangeReader {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxChangeTracker(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMailboxChangeTracker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChangeTracker>();
-}
 windows_core::imp::interface_hierarchy!(EmailMailboxChangeTracker, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMailboxChangeTracker,);
 impl EmailMailboxChangeTracker {
@@ -2649,6 +2646,9 @@ impl EmailMailboxChangeTracker {
         unsafe { (windows_core::Interface::vtable(this).Reset)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for EmailMailboxChangeTracker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChangeTracker>();
+}
 unsafe impl windows_core::Interface for EmailMailboxChangeTracker {
     type Vtable = <IEmailMailboxChangeTracker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxChangeTracker as windows_core::Interface>::IID;
@@ -2659,9 +2659,6 @@ impl windows_core::RuntimeName for EmailMailboxChangeTracker {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxChangedDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMailboxChangedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChangedDeferral>();
-}
 windows_core::imp::interface_hierarchy!(EmailMailboxChangedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMailboxChangedDeferral,);
 impl EmailMailboxChangedDeferral {
@@ -2669,6 +2666,9 @@ impl EmailMailboxChangedDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for EmailMailboxChangedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChangedDeferral>();
 }
 unsafe impl windows_core::Interface for EmailMailboxChangedDeferral {
     type Vtable = <IEmailMailboxChangedDeferral as windows_core::Interface>::Vtable;
@@ -2680,9 +2680,6 @@ impl windows_core::RuntimeName for EmailMailboxChangedDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMailboxChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(EmailMailboxChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMailboxChangedEventArgs,);
 impl EmailMailboxChangedEventArgs {
@@ -2694,6 +2691,9 @@ impl EmailMailboxChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for EmailMailboxChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for EmailMailboxChangedEventArgs {
     type Vtable = <IEmailMailboxChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxChangedEventArgs as windows_core::Interface>::IID;
@@ -2704,9 +2704,6 @@ impl windows_core::RuntimeName for EmailMailboxChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxCreateFolderResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMailboxCreateFolderResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxCreateFolderResult>();
-}
 windows_core::imp::interface_hierarchy!(EmailMailboxCreateFolderResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMailboxCreateFolderResult,);
 impl EmailMailboxCreateFolderResult {
@@ -2725,6 +2722,9 @@ impl EmailMailboxCreateFolderResult {
         }
     }
 }
+impl windows_core::RuntimeType for EmailMailboxCreateFolderResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxCreateFolderResult>();
+}
 unsafe impl windows_core::Interface for EmailMailboxCreateFolderResult {
     type Vtable = <IEmailMailboxCreateFolderResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxCreateFolderResult as windows_core::Interface>::IID;
@@ -2735,9 +2735,6 @@ impl windows_core::RuntimeName for EmailMailboxCreateFolderResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxPolicies(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMailboxPolicies {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxPolicies>();
-}
 windows_core::imp::interface_hierarchy!(EmailMailboxPolicies, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMailboxPolicies,);
 impl EmailMailboxPolicies {
@@ -2814,6 +2811,9 @@ impl EmailMailboxPolicies {
         unsafe { (windows_core::Interface::vtable(this).SetMustSignSmimeMessages)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for EmailMailboxPolicies {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxPolicies>();
+}
 unsafe impl windows_core::Interface for EmailMailboxPolicies {
     type Vtable = <IEmailMailboxPolicies as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxPolicies as windows_core::Interface>::IID;
@@ -2824,9 +2824,6 @@ impl windows_core::RuntimeName for EmailMailboxPolicies {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMailboxSyncManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMailboxSyncManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxSyncManager>();
-}
 windows_core::imp::interface_hierarchy!(EmailMailboxSyncManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMailboxSyncManager,);
 impl EmailMailboxSyncManager {
@@ -2885,6 +2882,9 @@ impl EmailMailboxSyncManager {
         unsafe { (windows_core::Interface::vtable(this).SetLastAttemptedSyncTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for EmailMailboxSyncManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMailboxSyncManager>();
+}
 unsafe impl windows_core::Interface for EmailMailboxSyncManager {
     type Vtable = <IEmailMailboxSyncManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMailboxSyncManager as windows_core::Interface>::IID;
@@ -2938,9 +2938,6 @@ impl windows_core::RuntimeName for EmailManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailManagerForUser(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailManagerForUser>();
-}
 windows_core::imp::interface_hierarchy!(EmailManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailManagerForUser,);
 impl EmailManagerForUser {
@@ -2970,6 +2967,9 @@ impl EmailManagerForUser {
         }
     }
 }
+impl windows_core::RuntimeType for EmailManagerForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailManagerForUser>();
+}
 unsafe impl windows_core::Interface for EmailManagerForUser {
     type Vtable = <IEmailManagerForUser as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailManagerForUser as windows_core::Interface>::IID;
@@ -2980,9 +2980,6 @@ impl windows_core::RuntimeName for EmailManagerForUser {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMeetingInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMeetingInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMeetingInfo>();
-}
 windows_core::imp::interface_hierarchy!(EmailMeetingInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMeetingInfo,);
 impl EmailMeetingInfo {
@@ -3161,6 +3158,9 @@ impl EmailMeetingInfo {
         }
     }
 }
+impl windows_core::RuntimeType for EmailMeetingInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMeetingInfo>();
+}
 unsafe impl windows_core::Interface for EmailMeetingInfo {
     type Vtable = <IEmailMeetingInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMeetingInfo as windows_core::Interface>::IID;
@@ -3171,9 +3171,6 @@ impl windows_core::RuntimeName for EmailMeetingInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMessage(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMessage>();
-}
 windows_core::imp::interface_hierarchy!(EmailMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMessage,);
 impl EmailMessage {
@@ -3569,6 +3566,9 @@ impl EmailMessage {
         unsafe { (windows_core::Interface::vtable(this).SetSentRepresenting)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for EmailMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMessage>();
+}
 unsafe impl windows_core::Interface for EmailMessage {
     type Vtable = <IEmailMessage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMessage as windows_core::Interface>::IID;
@@ -3579,9 +3579,6 @@ impl windows_core::RuntimeName for EmailMessage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMessageBatch(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMessageBatch {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMessageBatch>();
-}
 windows_core::imp::interface_hierarchy!(EmailMessageBatch, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMessageBatch,);
 impl EmailMessageBatch {
@@ -3601,6 +3598,9 @@ impl EmailMessageBatch {
         }
     }
 }
+impl windows_core::RuntimeType for EmailMessageBatch {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMessageBatch>();
+}
 unsafe impl windows_core::Interface for EmailMessageBatch {
     type Vtable = <IEmailMessageBatch as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMessageBatch as windows_core::Interface>::IID;
@@ -3611,9 +3611,6 @@ impl windows_core::RuntimeName for EmailMessageBatch {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailMessageReader(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailMessageReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMessageReader>();
-}
 windows_core::imp::interface_hierarchy!(EmailMessageReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailMessageReader,);
 impl EmailMessageReader {
@@ -3625,6 +3622,9 @@ impl EmailMessageReader {
         }
     }
 }
+impl windows_core::RuntimeType for EmailMessageReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailMessageReader>();
+}
 unsafe impl windows_core::Interface for EmailMessageReader {
     type Vtable = <IEmailMessageReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailMessageReader as windows_core::Interface>::IID;
@@ -3635,9 +3635,6 @@ impl windows_core::RuntimeName for EmailMessageReader {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailQueryOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailQueryOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailQueryOptions>();
-}
 windows_core::imp::interface_hierarchy!(EmailQueryOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailQueryOptions,);
 impl EmailQueryOptions {
@@ -3713,6 +3710,9 @@ impl EmailQueryOptions {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for EmailQueryOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailQueryOptions>();
+}
 unsafe impl windows_core::Interface for EmailQueryOptions {
     type Vtable = <IEmailQueryOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailQueryOptions as windows_core::Interface>::IID;
@@ -3723,9 +3723,6 @@ impl windows_core::RuntimeName for EmailQueryOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailQueryTextSearch(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailQueryTextSearch {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailQueryTextSearch>();
-}
 windows_core::imp::interface_hierarchy!(EmailQueryTextSearch, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailQueryTextSearch,);
 impl EmailQueryTextSearch {
@@ -3763,6 +3760,9 @@ impl EmailQueryTextSearch {
         unsafe { (windows_core::Interface::vtable(this).SetText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for EmailQueryTextSearch {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailQueryTextSearch>();
+}
 unsafe impl windows_core::Interface for EmailQueryTextSearch {
     type Vtable = <IEmailQueryTextSearch as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailQueryTextSearch as windows_core::Interface>::IID;
@@ -3773,9 +3773,6 @@ impl windows_core::RuntimeName for EmailQueryTextSearch {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailRecipient(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailRecipient {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailRecipient>();
-}
 windows_core::imp::interface_hierarchy!(EmailRecipient, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailRecipient,);
 impl EmailRecipient {
@@ -3825,6 +3822,9 @@ impl EmailRecipient {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for EmailRecipient {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailRecipient>();
+}
 unsafe impl windows_core::Interface for EmailRecipient {
     type Vtable = <IEmailRecipient as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailRecipient as windows_core::Interface>::IID;
@@ -3835,9 +3835,6 @@ impl windows_core::RuntimeName for EmailRecipient {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailRecipientResolutionResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailRecipientResolutionResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailRecipientResolutionResult>();
-}
 windows_core::imp::interface_hierarchy!(EmailRecipientResolutionResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailRecipientResolutionResult,);
 impl EmailRecipientResolutionResult {
@@ -3876,6 +3873,9 @@ impl EmailRecipientResolutionResult {
         unsafe { (windows_core::Interface::vtable(this).SetPublicKeys)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for EmailRecipientResolutionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailRecipientResolutionResult>();
+}
 unsafe impl windows_core::Interface for EmailRecipientResolutionResult {
     type Vtable = <IEmailRecipientResolutionResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailRecipientResolutionResult as windows_core::Interface>::IID;
@@ -3886,9 +3886,6 @@ impl windows_core::RuntimeName for EmailRecipientResolutionResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailStore(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailStore>();
-}
 windows_core::imp::interface_hierarchy!(EmailStore, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailStore,);
 impl EmailStore {
@@ -3977,6 +3974,9 @@ impl EmailStore {
         }
     }
 }
+impl windows_core::RuntimeType for EmailStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailStore>();
+}
 unsafe impl windows_core::Interface for EmailStore {
     type Vtable = <IEmailStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailStore as windows_core::Interface>::IID;
@@ -3987,12 +3987,12 @@ impl windows_core::RuntimeName for EmailStore {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailStoreNotificationTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailStoreNotificationTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailStoreNotificationTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(EmailStoreNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailStoreNotificationTriggerDetails,);
 impl EmailStoreNotificationTriggerDetails {}
+impl windows_core::RuntimeType for EmailStoreNotificationTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailStoreNotificationTriggerDetails>();
+}
 unsafe impl windows_core::Interface for EmailStoreNotificationTriggerDetails {
     type Vtable = <IEmailStoreNotificationTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailStoreNotificationTriggerDetails as windows_core::Interface>::IID;

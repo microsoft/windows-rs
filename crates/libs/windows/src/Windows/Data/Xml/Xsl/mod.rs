@@ -37,9 +37,6 @@ pub struct IXsltProcessorFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XsltProcessor(windows_core::IUnknown);
-impl windows_core::RuntimeType for XsltProcessor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXsltProcessor>();
-}
 windows_core::imp::interface_hierarchy!(XsltProcessor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XsltProcessor,);
 impl XsltProcessor {
@@ -79,6 +76,9 @@ impl XsltProcessor {
         static SHARED: windows_core::imp::FactoryCache<XsltProcessor, IXsltProcessorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for XsltProcessor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXsltProcessor>();
 }
 unsafe impl windows_core::Interface for XsltProcessor {
     type Vtable = <IXsltProcessor as windows_core::Interface>::Vtable;

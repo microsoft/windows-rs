@@ -771,9 +771,6 @@ pub struct IImageScannerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScanner(windows_core::IUnknown);
-impl windows_core::RuntimeType for ImageScanner {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScanner>();
-}
 windows_core::imp::interface_hierarchy!(ImageScanner, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageScanner,);
 impl ImageScanner {
@@ -865,6 +862,9 @@ impl ImageScanner {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ImageScanner {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScanner>();
+}
 unsafe impl windows_core::Interface for ImageScanner {
     type Vtable = <IImageScanner as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IImageScanner as windows_core::Interface>::IID;
@@ -875,9 +875,6 @@ impl windows_core::RuntimeName for ImageScanner {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScannerAutoConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for ImageScannerAutoConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScannerFormatConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(ImageScannerAutoConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageScannerAutoConfiguration, IImageScannerFormatConfiguration);
 impl ImageScannerAutoConfiguration {
@@ -907,6 +904,9 @@ impl ImageScannerAutoConfiguration {
         }
     }
 }
+impl windows_core::RuntimeType for ImageScannerAutoConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScannerFormatConfiguration>();
+}
 unsafe impl windows_core::Interface for ImageScannerAutoConfiguration {
     type Vtable = <IImageScannerFormatConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IImageScannerFormatConfiguration as windows_core::Interface>::IID;
@@ -917,9 +917,6 @@ impl windows_core::RuntimeName for ImageScannerAutoConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScannerFeederConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for ImageScannerFeederConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScannerFormatConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(ImageScannerFeederConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageScannerFeederConfiguration, IImageScannerFormatConfiguration, IImageScannerSourceConfiguration);
 impl ImageScannerFeederConfiguration {
@@ -1240,6 +1237,9 @@ impl ImageScannerFeederConfiguration {
         unsafe { (windows_core::Interface::vtable(this).SetContrast)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for ImageScannerFeederConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScannerFormatConfiguration>();
+}
 unsafe impl windows_core::Interface for ImageScannerFeederConfiguration {
     type Vtable = <IImageScannerFormatConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IImageScannerFormatConfiguration as windows_core::Interface>::IID;
@@ -1250,9 +1250,6 @@ impl windows_core::RuntimeName for ImageScannerFeederConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScannerFlatbedConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for ImageScannerFlatbedConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScannerFormatConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(ImageScannerFlatbedConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageScannerFlatbedConfiguration, IImageScannerFormatConfiguration, IImageScannerSourceConfiguration);
 impl ImageScannerFlatbedConfiguration {
@@ -1467,6 +1464,9 @@ impl ImageScannerFlatbedConfiguration {
         unsafe { (windows_core::Interface::vtable(this).SetContrast)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for ImageScannerFlatbedConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScannerFormatConfiguration>();
+}
 unsafe impl windows_core::Interface for ImageScannerFlatbedConfiguration {
     type Vtable = <IImageScannerFormatConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IImageScannerFormatConfiguration as windows_core::Interface>::IID;
@@ -1477,9 +1477,6 @@ impl windows_core::RuntimeName for ImageScannerFlatbedConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScannerPreviewResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for ImageScannerPreviewResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScannerPreviewResult>();
-}
 windows_core::imp::interface_hierarchy!(ImageScannerPreviewResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageScannerPreviewResult,);
 impl ImageScannerPreviewResult {
@@ -1498,6 +1495,9 @@ impl ImageScannerPreviewResult {
         }
     }
 }
+impl windows_core::RuntimeType for ImageScannerPreviewResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScannerPreviewResult>();
+}
 unsafe impl windows_core::Interface for ImageScannerPreviewResult {
     type Vtable = <IImageScannerPreviewResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IImageScannerPreviewResult as windows_core::Interface>::IID;
@@ -1508,9 +1508,6 @@ impl windows_core::RuntimeName for ImageScannerPreviewResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageScannerScanResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for ImageScannerScanResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScannerScanResult>();
-}
 windows_core::imp::interface_hierarchy!(ImageScannerScanResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageScannerScanResult,);
 impl ImageScannerScanResult {
@@ -1522,6 +1519,9 @@ impl ImageScannerScanResult {
             (windows_core::Interface::vtable(this).ScannedFiles)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for ImageScannerScanResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageScannerScanResult>();
 }
 unsafe impl windows_core::Interface for ImageScannerScanResult {
     type Vtable = <IImageScannerScanResult as windows_core::Interface>::Vtable;
@@ -1593,7 +1593,7 @@ impl windows_core::RuntimeType for ImageScannerScanSource {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerScanSource;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct ImageScannerResolution {
     pub DpiX: f32,
     pub DpiY: f32,

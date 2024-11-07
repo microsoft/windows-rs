@@ -118,10 +118,6 @@ pub struct IVoiceInformation_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechSynthesisStream(windows_core::IUnknown);
 #[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
-impl windows_core::RuntimeType for SpeechSynthesisStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechSynthesisStream>();
-}
-#[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
 windows_core::imp::interface_hierarchy!(SpeechSynthesisStream, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
 windows_core::imp::required_hierarchy!(SpeechSynthesisStream, super::super::Foundation::IClosable, super::Core::ITimedMetadataTrackProvider, super::super::Storage::Streams::IContentTypeProvider, super::super::Storage::Streams::IInputStream, super::super::Storage::Streams::IOutputStream, super::super::Storage::Streams::IRandomAccessStream, super::super::Storage::Streams::IRandomAccessStreamWithContentType);
@@ -242,6 +238,10 @@ impl SpeechSynthesisStream {
     }
 }
 #[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
+impl windows_core::RuntimeType for SpeechSynthesisStream {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechSynthesisStream>();
+}
+#[cfg(all(feature = "Media_Core", feature = "Storage_Streams"))]
 unsafe impl windows_core::Interface for SpeechSynthesisStream {
     type Vtable = <ISpeechSynthesisStream as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechSynthesisStream as windows_core::Interface>::IID;
@@ -253,9 +253,6 @@ impl windows_core::RuntimeName for SpeechSynthesisStream {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechSynthesizer(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechSynthesizer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechSynthesizer>();
-}
 windows_core::imp::interface_hierarchy!(SpeechSynthesizer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechSynthesizer, super::super::Foundation::IClosable);
 impl SpeechSynthesizer {
@@ -338,6 +335,9 @@ impl SpeechSynthesizer {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SpeechSynthesizer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechSynthesizer>();
+}
 unsafe impl windows_core::Interface for SpeechSynthesizer {
     type Vtable = <ISpeechSynthesizer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechSynthesizer as windows_core::Interface>::IID;
@@ -348,9 +348,6 @@ impl windows_core::RuntimeName for SpeechSynthesizer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechSynthesizerOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechSynthesizerOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechSynthesizerOptions>();
-}
 windows_core::imp::interface_hierarchy!(SpeechSynthesizerOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechSynthesizerOptions,);
 impl SpeechSynthesizerOptions {
@@ -432,6 +429,9 @@ impl SpeechSynthesizerOptions {
         unsafe { (windows_core::Interface::vtable(this).SetPunctuationSilence)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for SpeechSynthesizerOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechSynthesizerOptions>();
+}
 unsafe impl windows_core::Interface for SpeechSynthesizerOptions {
     type Vtable = <ISpeechSynthesizerOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechSynthesizerOptions as windows_core::Interface>::IID;
@@ -442,9 +442,6 @@ impl windows_core::RuntimeName for SpeechSynthesizerOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for VoiceInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoiceInformation>();
-}
 windows_core::imp::interface_hierarchy!(VoiceInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VoiceInformation,);
 impl VoiceInformation {
@@ -483,6 +480,9 @@ impl VoiceInformation {
             (windows_core::Interface::vtable(this).Gender)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for VoiceInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoiceInformation>();
 }
 unsafe impl windows_core::Interface for VoiceInformation {
     type Vtable = <IVoiceInformation as windows_core::Interface>::Vtable;

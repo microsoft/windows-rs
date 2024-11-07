@@ -80,10 +80,6 @@ impl windows_core::RuntimeName for HolographicApplicationPreview {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicKeyboardPlacementOverridePreview(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for HolographicKeyboardPlacementOverridePreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicKeyboardPlacementOverridePreview>();
-}
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(HolographicKeyboardPlacementOverridePreview, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(HolographicKeyboardPlacementOverridePreview,);
@@ -121,6 +117,10 @@ impl HolographicKeyboardPlacementOverridePreview {
         static SHARED: windows_core::imp::FactoryCache<HolographicKeyboardPlacementOverridePreview, IHolographicKeyboardPlacementOverridePreviewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for HolographicKeyboardPlacementOverridePreview {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicKeyboardPlacementOverridePreview>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for HolographicKeyboardPlacementOverridePreview {

@@ -606,9 +606,6 @@ pub struct IViewModePreferencesStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AccessibilitySettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for AccessibilitySettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccessibilitySettings>();
-}
 windows_core::imp::interface_hierarchy!(AccessibilitySettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AccessibilitySettings,);
 impl AccessibilitySettings {
@@ -648,6 +645,9 @@ impl AccessibilitySettings {
         unsafe { (windows_core::Interface::vtable(this).RemoveHighContrastChanged)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
 }
+impl windows_core::RuntimeType for AccessibilitySettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccessibilitySettings>();
+}
 unsafe impl windows_core::Interface for AccessibilitySettings {
     type Vtable = <IAccessibilitySettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAccessibilitySettings as windows_core::Interface>::IID;
@@ -658,9 +658,6 @@ impl windows_core::RuntimeName for AccessibilitySettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivationViewSwitcher(windows_core::IUnknown);
-impl windows_core::RuntimeType for ActivationViewSwitcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivationViewSwitcher>();
-}
 windows_core::imp::interface_hierarchy!(ActivationViewSwitcher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActivationViewSwitcher,);
 impl ActivationViewSwitcher {
@@ -686,6 +683,9 @@ impl ActivationViewSwitcher {
         }
     }
 }
+impl windows_core::RuntimeType for ActivationViewSwitcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivationViewSwitcher>();
+}
 unsafe impl windows_core::Interface for ActivationViewSwitcher {
     type Vtable = <IActivationViewSwitcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IActivationViewSwitcher as windows_core::Interface>::IID;
@@ -696,9 +696,6 @@ impl windows_core::RuntimeName for ActivationViewSwitcher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationView(windows_core::IUnknown);
-impl windows_core::RuntimeType for ApplicationView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationView>();
-}
 windows_core::imp::interface_hierarchy!(ApplicationView, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ApplicationView,);
 impl ApplicationView {
@@ -1041,6 +1038,9 @@ impl ApplicationView {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ApplicationView {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationView>();
+}
 unsafe impl windows_core::Interface for ApplicationView {
     type Vtable = <IApplicationView as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IApplicationView as windows_core::Interface>::IID;
@@ -1051,9 +1051,6 @@ impl windows_core::RuntimeName for ApplicationView {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationViewConsolidatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ApplicationViewConsolidatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationViewConsolidatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ApplicationViewConsolidatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ApplicationViewConsolidatedEventArgs,);
 impl ApplicationViewConsolidatedEventArgs {
@@ -1072,6 +1069,9 @@ impl ApplicationViewConsolidatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ApplicationViewConsolidatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationViewConsolidatedEventArgs>();
+}
 unsafe impl windows_core::Interface for ApplicationViewConsolidatedEventArgs {
     type Vtable = <IApplicationViewConsolidatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IApplicationViewConsolidatedEventArgs as windows_core::Interface>::IID;
@@ -1082,9 +1082,6 @@ impl windows_core::RuntimeName for ApplicationViewConsolidatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationViewScaling(windows_core::IUnknown);
-impl windows_core::RuntimeType for ApplicationViewScaling {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationViewScaling>();
-}
 windows_core::imp::interface_hierarchy!(ApplicationViewScaling, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ApplicationViewScaling,);
 impl ApplicationViewScaling {
@@ -1104,6 +1101,9 @@ impl ApplicationViewScaling {
         static SHARED: windows_core::imp::FactoryCache<ApplicationViewScaling, IApplicationViewScalingStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for ApplicationViewScaling {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationViewScaling>();
 }
 unsafe impl windows_core::Interface for ApplicationViewScaling {
     type Vtable = <IApplicationViewScaling as windows_core::Interface>::Vtable;
@@ -1196,9 +1196,6 @@ impl windows_core::RuntimeName for ApplicationViewSwitcher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationViewTitleBar(windows_core::IUnknown);
-impl windows_core::RuntimeType for ApplicationViewTitleBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationViewTitleBar>();
-}
 windows_core::imp::interface_hierarchy!(ApplicationViewTitleBar, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ApplicationViewTitleBar,);
 impl ApplicationViewTitleBar {
@@ -1371,6 +1368,9 @@ impl ApplicationViewTitleBar {
         }
     }
 }
+impl windows_core::RuntimeType for ApplicationViewTitleBar {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationViewTitleBar>();
+}
 unsafe impl windows_core::Interface for ApplicationViewTitleBar {
     type Vtable = <IApplicationViewTitleBar as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IApplicationViewTitleBar as windows_core::Interface>::IID;
@@ -1381,9 +1381,6 @@ impl windows_core::RuntimeName for ApplicationViewTitleBar {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationViewTransferContext(windows_core::IUnknown);
-impl windows_core::RuntimeType for ApplicationViewTransferContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationViewTransferContext>();
-}
 windows_core::imp::interface_hierarchy!(ApplicationViewTransferContext, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ApplicationViewTransferContext,);
 impl ApplicationViewTransferContext {
@@ -1416,6 +1413,9 @@ impl ApplicationViewTransferContext {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ApplicationViewTransferContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationViewTransferContext>();
+}
 unsafe impl windows_core::Interface for ApplicationViewTransferContext {
     type Vtable = <IApplicationViewTransferContext as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IApplicationViewTransferContext as windows_core::Interface>::IID;
@@ -1426,9 +1426,6 @@ impl windows_core::RuntimeName for ApplicationViewTransferContext {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InputPane(windows_core::IUnknown);
-impl windows_core::RuntimeType for InputPane {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputPane>();
-}
 windows_core::imp::interface_hierarchy!(InputPane, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InputPane,);
 impl InputPane {
@@ -1516,6 +1513,9 @@ impl InputPane {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for InputPane {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputPane>();
+}
 unsafe impl windows_core::Interface for InputPane {
     type Vtable = <IInputPane as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInputPane as windows_core::Interface>::IID;
@@ -1526,9 +1526,6 @@ impl windows_core::RuntimeName for InputPane {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InputPaneVisibilityEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for InputPaneVisibilityEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputPaneVisibilityEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(InputPaneVisibilityEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InputPaneVisibilityEventArgs,);
 impl InputPaneVisibilityEventArgs {
@@ -1550,6 +1547,9 @@ impl InputPaneVisibilityEventArgs {
             (windows_core::Interface::vtable(this).EnsuredFocusedElementInView)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for InputPaneVisibilityEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputPaneVisibilityEventArgs>();
 }
 unsafe impl windows_core::Interface for InputPaneVisibilityEventArgs {
     type Vtable = <IInputPaneVisibilityEventArgs as windows_core::Interface>::Vtable;
@@ -1640,9 +1640,6 @@ impl windows_core::RuntimeName for ProjectionManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StatusBar(windows_core::IUnknown);
-impl windows_core::RuntimeType for StatusBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStatusBar>();
-}
 windows_core::imp::interface_hierarchy!(StatusBar, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StatusBar,);
 impl StatusBar {
@@ -1752,6 +1749,9 @@ impl StatusBar {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for StatusBar {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStatusBar>();
+}
 unsafe impl windows_core::Interface for StatusBar {
     type Vtable = <IStatusBar as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStatusBar as windows_core::Interface>::IID;
@@ -1762,9 +1762,6 @@ impl windows_core::RuntimeName for StatusBar {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StatusBarProgressIndicator(windows_core::IUnknown);
-impl windows_core::RuntimeType for StatusBarProgressIndicator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStatusBarProgressIndicator>();
-}
 windows_core::imp::interface_hierarchy!(StatusBarProgressIndicator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StatusBarProgressIndicator,);
 impl StatusBarProgressIndicator {
@@ -1808,6 +1805,9 @@ impl StatusBarProgressIndicator {
         unsafe { (windows_core::Interface::vtable(this).SetProgressValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for StatusBarProgressIndicator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStatusBarProgressIndicator>();
+}
 unsafe impl windows_core::Interface for StatusBarProgressIndicator {
     type Vtable = <IStatusBarProgressIndicator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStatusBarProgressIndicator as windows_core::Interface>::IID;
@@ -1818,9 +1818,6 @@ impl windows_core::RuntimeName for StatusBarProgressIndicator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UISettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for UISettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettings>();
-}
 windows_core::imp::interface_hierarchy!(UISettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UISettings,);
 impl UISettings {
@@ -2035,6 +2032,9 @@ impl UISettings {
         unsafe { (windows_core::Interface::vtable(this).RemoveMessageDurationChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for UISettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettings>();
+}
 unsafe impl windows_core::Interface for UISettings {
     type Vtable = <IUISettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUISettings as windows_core::Interface>::IID;
@@ -2045,12 +2045,12 @@ impl windows_core::RuntimeName for UISettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UISettingsAnimationsEnabledChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for UISettingsAnimationsEnabledChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsAnimationsEnabledChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(UISettingsAnimationsEnabledChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UISettingsAnimationsEnabledChangedEventArgs,);
 impl UISettingsAnimationsEnabledChangedEventArgs {}
+impl windows_core::RuntimeType for UISettingsAnimationsEnabledChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsAnimationsEnabledChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for UISettingsAnimationsEnabledChangedEventArgs {
     type Vtable = <IUISettingsAnimationsEnabledChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUISettingsAnimationsEnabledChangedEventArgs as windows_core::Interface>::IID;
@@ -2061,12 +2061,12 @@ impl windows_core::RuntimeName for UISettingsAnimationsEnabledChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UISettingsAutoHideScrollBarsChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for UISettingsAutoHideScrollBarsChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsAutoHideScrollBarsChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(UISettingsAutoHideScrollBarsChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UISettingsAutoHideScrollBarsChangedEventArgs,);
 impl UISettingsAutoHideScrollBarsChangedEventArgs {}
+impl windows_core::RuntimeType for UISettingsAutoHideScrollBarsChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsAutoHideScrollBarsChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for UISettingsAutoHideScrollBarsChangedEventArgs {
     type Vtable = <IUISettingsAutoHideScrollBarsChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUISettingsAutoHideScrollBarsChangedEventArgs as windows_core::Interface>::IID;
@@ -2077,12 +2077,12 @@ impl windows_core::RuntimeName for UISettingsAutoHideScrollBarsChangedEventArgs 
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UISettingsMessageDurationChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for UISettingsMessageDurationChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsMessageDurationChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(UISettingsMessageDurationChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UISettingsMessageDurationChangedEventArgs,);
 impl UISettingsMessageDurationChangedEventArgs {}
+impl windows_core::RuntimeType for UISettingsMessageDurationChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsMessageDurationChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for UISettingsMessageDurationChangedEventArgs {
     type Vtable = <IUISettingsMessageDurationChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUISettingsMessageDurationChangedEventArgs as windows_core::Interface>::IID;
@@ -2093,9 +2093,6 @@ impl windows_core::RuntimeName for UISettingsMessageDurationChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UIViewSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for UIViewSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUIViewSettings>();
-}
 windows_core::imp::interface_hierarchy!(UIViewSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UIViewSettings,);
 impl UIViewSettings {
@@ -2117,6 +2114,9 @@ impl UIViewSettings {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for UIViewSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUIViewSettings>();
+}
 unsafe impl windows_core::Interface for UIViewSettings {
     type Vtable = <IUIViewSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUIViewSettings as windows_core::Interface>::IID;
@@ -2127,9 +2127,6 @@ impl windows_core::RuntimeName for UIViewSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ViewModePreferences(windows_core::IUnknown);
-impl windows_core::RuntimeType for ViewModePreferences {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IViewModePreferences>();
-}
 windows_core::imp::interface_hierarchy!(ViewModePreferences, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ViewModePreferences,);
 impl ViewModePreferences {
@@ -2165,6 +2162,9 @@ impl ViewModePreferences {
         static SHARED: windows_core::imp::FactoryCache<ViewModePreferences, IViewModePreferencesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for ViewModePreferences {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IViewModePreferences>();
 }
 unsafe impl windows_core::Interface for ViewModePreferences {
     type Vtable = <IViewModePreferences as windows_core::Interface>::Vtable;

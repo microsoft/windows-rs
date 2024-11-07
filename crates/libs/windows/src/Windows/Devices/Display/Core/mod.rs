@@ -642,9 +642,6 @@ pub struct IDisplayWireFormatStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayAdapter(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayAdapter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayAdapter>();
-}
 windows_core::imp::interface_hierarchy!(DisplayAdapter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayAdapter,);
 impl DisplayAdapter {
@@ -732,6 +729,9 @@ impl DisplayAdapter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DisplayAdapter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayAdapter>();
+}
 unsafe impl windows_core::Interface for DisplayAdapter {
     type Vtable = <IDisplayAdapter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayAdapter as windows_core::Interface>::IID;
@@ -742,9 +742,6 @@ impl windows_core::RuntimeName for DisplayAdapter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayDevice>();
-}
 windows_core::imp::interface_hierarchy!(DisplayDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayDevice,);
 impl DisplayDevice {
@@ -833,6 +830,9 @@ impl DisplayDevice {
         }
     }
 }
+impl windows_core::RuntimeType for DisplayDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayDevice>();
+}
 unsafe impl windows_core::Interface for DisplayDevice {
     type Vtable = <IDisplayDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayDevice as windows_core::Interface>::IID;
@@ -843,12 +843,12 @@ impl windows_core::RuntimeName for DisplayDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayFence(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayFence {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayFence>();
-}
 windows_core::imp::interface_hierarchy!(DisplayFence, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayFence,);
 impl DisplayFence {}
+impl windows_core::RuntimeType for DisplayFence {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayFence>();
+}
 unsafe impl windows_core::Interface for DisplayFence {
     type Vtable = <IDisplayFence as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayFence as windows_core::Interface>::IID;
@@ -859,9 +859,6 @@ impl windows_core::RuntimeName for DisplayFence {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManager>();
-}
 windows_core::imp::interface_hierarchy!(DisplayManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayManager, super::super::super::Foundation::IClosable);
 impl DisplayManager {
@@ -1046,6 +1043,9 @@ impl DisplayManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DisplayManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManager>();
+}
 unsafe impl windows_core::Interface for DisplayManager {
     type Vtable = <IDisplayManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayManager as windows_core::Interface>::IID;
@@ -1056,9 +1056,6 @@ impl windows_core::RuntimeName for DisplayManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayManagerChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DisplayManagerChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayManagerChangedEventArgs,);
 impl DisplayManagerChangedEventArgs {
@@ -1081,6 +1078,9 @@ impl DisplayManagerChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for DisplayManagerChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for DisplayManagerChangedEventArgs {
     type Vtable = <IDisplayManagerChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayManagerChangedEventArgs as windows_core::Interface>::IID;
@@ -1091,9 +1091,6 @@ impl windows_core::RuntimeName for DisplayManagerChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerDisabledEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayManagerDisabledEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerDisabledEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DisplayManagerDisabledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayManagerDisabledEventArgs,);
 impl DisplayManagerDisabledEventArgs {
@@ -1116,6 +1113,9 @@ impl DisplayManagerDisabledEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for DisplayManagerDisabledEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerDisabledEventArgs>();
+}
 unsafe impl windows_core::Interface for DisplayManagerDisabledEventArgs {
     type Vtable = <IDisplayManagerDisabledEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayManagerDisabledEventArgs as windows_core::Interface>::IID;
@@ -1126,9 +1126,6 @@ impl windows_core::RuntimeName for DisplayManagerDisabledEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerEnabledEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayManagerEnabledEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerEnabledEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DisplayManagerEnabledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayManagerEnabledEventArgs,);
 impl DisplayManagerEnabledEventArgs {
@@ -1151,6 +1148,9 @@ impl DisplayManagerEnabledEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for DisplayManagerEnabledEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerEnabledEventArgs>();
+}
 unsafe impl windows_core::Interface for DisplayManagerEnabledEventArgs {
     type Vtable = <IDisplayManagerEnabledEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayManagerEnabledEventArgs as windows_core::Interface>::IID;
@@ -1161,9 +1161,6 @@ impl windows_core::RuntimeName for DisplayManagerEnabledEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerPathsFailedOrInvalidatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayManagerPathsFailedOrInvalidatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerPathsFailedOrInvalidatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DisplayManagerPathsFailedOrInvalidatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayManagerPathsFailedOrInvalidatedEventArgs,);
 impl DisplayManagerPathsFailedOrInvalidatedEventArgs {
@@ -1186,6 +1183,9 @@ impl DisplayManagerPathsFailedOrInvalidatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for DisplayManagerPathsFailedOrInvalidatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerPathsFailedOrInvalidatedEventArgs>();
+}
 unsafe impl windows_core::Interface for DisplayManagerPathsFailedOrInvalidatedEventArgs {
     type Vtable = <IDisplayManagerPathsFailedOrInvalidatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayManagerPathsFailedOrInvalidatedEventArgs as windows_core::Interface>::IID;
@@ -1196,9 +1196,6 @@ impl windows_core::RuntimeName for DisplayManagerPathsFailedOrInvalidatedEventAr
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayManagerResultWithState(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayManagerResultWithState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerResultWithState>();
-}
 windows_core::imp::interface_hierarchy!(DisplayManagerResultWithState, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayManagerResultWithState,);
 impl DisplayManagerResultWithState {
@@ -1224,6 +1221,9 @@ impl DisplayManagerResultWithState {
         }
     }
 }
+impl windows_core::RuntimeType for DisplayManagerResultWithState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayManagerResultWithState>();
+}
 unsafe impl windows_core::Interface for DisplayManagerResultWithState {
     type Vtable = <IDisplayManagerResultWithState as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayManagerResultWithState as windows_core::Interface>::IID;
@@ -1234,9 +1234,6 @@ impl windows_core::RuntimeName for DisplayManagerResultWithState {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayModeInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayModeInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayModeInfo>();
-}
 windows_core::imp::interface_hierarchy!(DisplayModeInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayModeInfo,);
 impl DisplayModeInfo {
@@ -1320,6 +1317,9 @@ impl DisplayModeInfo {
         }
     }
 }
+impl windows_core::RuntimeType for DisplayModeInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayModeInfo>();
+}
 unsafe impl windows_core::Interface for DisplayModeInfo {
     type Vtable = <IDisplayModeInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayModeInfo as windows_core::Interface>::IID;
@@ -1330,9 +1330,6 @@ impl windows_core::RuntimeName for DisplayModeInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayMuxDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayMuxDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayMuxDevice>();
-}
 windows_core::imp::interface_hierarchy!(DisplayMuxDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayMuxDevice, super::super::super::Foundation::IClosable);
 impl DisplayMuxDevice {
@@ -1431,6 +1428,9 @@ impl DisplayMuxDevice {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DisplayMuxDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayMuxDevice>();
+}
 unsafe impl windows_core::Interface for DisplayMuxDevice {
     type Vtable = <IDisplayMuxDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayMuxDevice as windows_core::Interface>::IID;
@@ -1441,9 +1441,6 @@ impl windows_core::RuntimeName for DisplayMuxDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayPath(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayPath {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayPath>();
-}
 windows_core::imp::interface_hierarchy!(DisplayPath, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayPath,);
 impl DisplayPath {
@@ -1630,6 +1627,9 @@ impl DisplayPath {
         unsafe { (windows_core::Interface::vtable(this).SetPhysicalPresentationRate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for DisplayPath {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayPath>();
+}
 unsafe impl windows_core::Interface for DisplayPath {
     type Vtable = <IDisplayPath as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayPath as windows_core::Interface>::IID;
@@ -1640,9 +1640,6 @@ impl windows_core::RuntimeName for DisplayPath {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayPrimaryDescription(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayPrimaryDescription {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayPrimaryDescription>();
-}
 windows_core::imp::interface_hierarchy!(DisplayPrimaryDescription, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayPrimaryDescription,);
 impl DisplayPrimaryDescription {
@@ -1725,6 +1722,9 @@ impl DisplayPrimaryDescription {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DisplayPrimaryDescription {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayPrimaryDescription>();
+}
 unsafe impl windows_core::Interface for DisplayPrimaryDescription {
     type Vtable = <IDisplayPrimaryDescription as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayPrimaryDescription as windows_core::Interface>::IID;
@@ -1735,12 +1735,12 @@ impl windows_core::RuntimeName for DisplayPrimaryDescription {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayScanout(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayScanout {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayScanout>();
-}
 windows_core::imp::interface_hierarchy!(DisplayScanout, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayScanout,);
 impl DisplayScanout {}
+impl windows_core::RuntimeType for DisplayScanout {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayScanout>();
+}
 unsafe impl windows_core::Interface for DisplayScanout {
     type Vtable = <IDisplayScanout as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayScanout as windows_core::Interface>::IID;
@@ -1751,9 +1751,6 @@ impl windows_core::RuntimeName for DisplayScanout {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplaySource(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplaySource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplaySource>();
-}
 windows_core::imp::interface_hierarchy!(DisplaySource, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplaySource,);
 impl DisplaySource {
@@ -1802,6 +1799,9 @@ impl DisplaySource {
         unsafe { (windows_core::Interface::vtable(this).RemoveStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for DisplaySource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplaySource>();
+}
 unsafe impl windows_core::Interface for DisplaySource {
     type Vtable = <IDisplaySource as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplaySource as windows_core::Interface>::IID;
@@ -1812,9 +1812,6 @@ impl windows_core::RuntimeName for DisplaySource {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayState(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayState>();
-}
 windows_core::imp::interface_hierarchy!(DisplayState, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayState,);
 impl DisplayState {
@@ -1937,6 +1934,9 @@ impl DisplayState {
         }
     }
 }
+impl windows_core::RuntimeType for DisplayState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayState>();
+}
 unsafe impl windows_core::Interface for DisplayState {
     type Vtable = <IDisplayState as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayState as windows_core::Interface>::IID;
@@ -1947,9 +1947,6 @@ impl windows_core::RuntimeName for DisplayState {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayStateOperationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayStateOperationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayStateOperationResult>();
-}
 windows_core::imp::interface_hierarchy!(DisplayStateOperationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayStateOperationResult,);
 impl DisplayStateOperationResult {
@@ -1968,6 +1965,9 @@ impl DisplayStateOperationResult {
         }
     }
 }
+impl windows_core::RuntimeType for DisplayStateOperationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayStateOperationResult>();
+}
 unsafe impl windows_core::Interface for DisplayStateOperationResult {
     type Vtable = <IDisplayStateOperationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayStateOperationResult as windows_core::Interface>::IID;
@@ -1978,12 +1978,12 @@ impl windows_core::RuntimeName for DisplayStateOperationResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplaySurface(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplaySurface {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplaySurface>();
-}
 windows_core::imp::interface_hierarchy!(DisplaySurface, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplaySurface,);
 impl DisplaySurface {}
+impl windows_core::RuntimeType for DisplaySurface {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplaySurface>();
+}
 unsafe impl windows_core::Interface for DisplaySurface {
     type Vtable = <IDisplaySurface as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplaySurface as windows_core::Interface>::IID;
@@ -1994,9 +1994,6 @@ impl windows_core::RuntimeName for DisplaySurface {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayTarget(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayTarget {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayTarget>();
-}
 windows_core::imp::interface_hierarchy!(DisplayTarget, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayTarget,);
 impl DisplayTarget {
@@ -2106,6 +2103,9 @@ impl DisplayTarget {
         }
     }
 }
+impl windows_core::RuntimeType for DisplayTarget {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayTarget>();
+}
 unsafe impl windows_core::Interface for DisplayTarget {
     type Vtable = <IDisplayTarget as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayTarget as windows_core::Interface>::IID;
@@ -2116,9 +2116,6 @@ impl windows_core::RuntimeName for DisplayTarget {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayTask(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayTask {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayTask>();
-}
 windows_core::imp::interface_hierarchy!(DisplayTask, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayTask,);
 impl DisplayTask {
@@ -2144,6 +2141,9 @@ impl DisplayTask {
         unsafe { (windows_core::Interface::vtable(this).SetSignal)(windows_core::Interface::as_raw(this), signalkind, fence.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for DisplayTask {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayTask>();
+}
 unsafe impl windows_core::Interface for DisplayTask {
     type Vtable = <IDisplayTask as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayTask as windows_core::Interface>::IID;
@@ -2154,9 +2154,6 @@ impl windows_core::RuntimeName for DisplayTask {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayTaskPool(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayTaskPool {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayTaskPool>();
-}
 windows_core::imp::interface_hierarchy!(DisplayTaskPool, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayTaskPool,);
 impl DisplayTaskPool {
@@ -2185,6 +2182,9 @@ impl DisplayTaskPool {
         }
     }
 }
+impl windows_core::RuntimeType for DisplayTaskPool {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayTaskPool>();
+}
 unsafe impl windows_core::Interface for DisplayTaskPool {
     type Vtable = <IDisplayTaskPool as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayTaskPool as windows_core::Interface>::IID;
@@ -2195,9 +2195,6 @@ impl windows_core::RuntimeName for DisplayTaskPool {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayTaskResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayTaskResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayTaskResult>();
-}
 windows_core::imp::interface_hierarchy!(DisplayTaskResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayTaskResult,);
 impl DisplayTaskResult {
@@ -2223,6 +2220,9 @@ impl DisplayTaskResult {
         }
     }
 }
+impl windows_core::RuntimeType for DisplayTaskResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayTaskResult>();
+}
 unsafe impl windows_core::Interface for DisplayTaskResult {
     type Vtable = <IDisplayTaskResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayTaskResult as windows_core::Interface>::IID;
@@ -2233,9 +2233,6 @@ impl windows_core::RuntimeName for DisplayTaskResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayView(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayView>();
-}
 windows_core::imp::interface_hierarchy!(DisplayView, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayView,);
 impl DisplayView {
@@ -2279,6 +2276,9 @@ impl DisplayView {
         }
     }
 }
+impl windows_core::RuntimeType for DisplayView {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayView>();
+}
 unsafe impl windows_core::Interface for DisplayView {
     type Vtable = <IDisplayView as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayView as windows_core::Interface>::IID;
@@ -2289,9 +2289,6 @@ impl windows_core::RuntimeName for DisplayView {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayWireFormat(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayWireFormat {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayWireFormat>();
-}
 windows_core::imp::interface_hierarchy!(DisplayWireFormat, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayWireFormat,);
 impl DisplayWireFormat {
@@ -2362,6 +2359,9 @@ impl DisplayWireFormat {
         static SHARED: windows_core::imp::FactoryCache<DisplayWireFormat, IDisplayWireFormatStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for DisplayWireFormat {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayWireFormat>();
 }
 unsafe impl windows_core::Interface for DisplayWireFormat {
     type Vtable = <IDisplayWireFormat as windows_core::Interface>::Vtable;
@@ -2673,7 +2673,7 @@ impl windows_core::RuntimeType for DisplayWireFormatPixelEncoding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Display.Core.DisplayWireFormatPixelEncoding;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct DisplayPresentationRate {
     pub VerticalSyncRate: super::super::super::Foundation::Numerics::Rational,
     pub VerticalSyncsPerPresentation: i32,

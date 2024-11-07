@@ -124,9 +124,6 @@ pub struct IPackageExtensionPackageUpdatingEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageExtension(windows_core::IUnknown);
-impl windows_core::RuntimeType for PackageExtension {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageExtension>();
-}
 windows_core::imp::interface_hierarchy!(PackageExtension, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PackageExtension,);
 impl PackageExtension {
@@ -198,6 +195,9 @@ impl PackageExtension {
         }
     }
 }
+impl windows_core::RuntimeType for PackageExtension {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageExtension>();
+}
 unsafe impl windows_core::Interface for PackageExtension {
     type Vtable = <IPackageExtension as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageExtension as windows_core::Interface>::IID;
@@ -208,9 +208,6 @@ impl windows_core::RuntimeName for PackageExtension {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageExtensionCatalog(windows_core::IUnknown);
-impl windows_core::RuntimeType for PackageExtensionCatalog {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageExtensionCatalog>();
-}
 windows_core::imp::interface_hierarchy!(PackageExtensionCatalog, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PackageExtensionCatalog,);
 impl PackageExtensionCatalog {
@@ -318,6 +315,9 @@ impl PackageExtensionCatalog {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PackageExtensionCatalog {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageExtensionCatalog>();
+}
 unsafe impl windows_core::Interface for PackageExtensionCatalog {
     type Vtable = <IPackageExtensionCatalog as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageExtensionCatalog as windows_core::Interface>::IID;
@@ -328,9 +328,6 @@ impl windows_core::RuntimeName for PackageExtensionCatalog {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageExtensionPackageInstalledEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PackageExtensionPackageInstalledEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageExtensionPackageInstalledEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PackageExtensionPackageInstalledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PackageExtensionPackageInstalledEventArgs,);
 impl PackageExtensionPackageInstalledEventArgs {
@@ -357,6 +354,9 @@ impl PackageExtensionPackageInstalledEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PackageExtensionPackageInstalledEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageExtensionPackageInstalledEventArgs>();
+}
 unsafe impl windows_core::Interface for PackageExtensionPackageInstalledEventArgs {
     type Vtable = <IPackageExtensionPackageInstalledEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageExtensionPackageInstalledEventArgs as windows_core::Interface>::IID;
@@ -367,9 +367,6 @@ impl windows_core::RuntimeName for PackageExtensionPackageInstalledEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageExtensionPackageStatusChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PackageExtensionPackageStatusChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageExtensionPackageStatusChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PackageExtensionPackageStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PackageExtensionPackageStatusChangedEventArgs,);
 impl PackageExtensionPackageStatusChangedEventArgs {
@@ -388,6 +385,9 @@ impl PackageExtensionPackageStatusChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PackageExtensionPackageStatusChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageExtensionPackageStatusChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for PackageExtensionPackageStatusChangedEventArgs {
     type Vtable = <IPackageExtensionPackageStatusChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageExtensionPackageStatusChangedEventArgs as windows_core::Interface>::IID;
@@ -398,9 +398,6 @@ impl windows_core::RuntimeName for PackageExtensionPackageStatusChangedEventArgs
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageExtensionPackageUninstallingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PackageExtensionPackageUninstallingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageExtensionPackageUninstallingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PackageExtensionPackageUninstallingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PackageExtensionPackageUninstallingEventArgs,);
 impl PackageExtensionPackageUninstallingEventArgs {
@@ -419,6 +416,9 @@ impl PackageExtensionPackageUninstallingEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PackageExtensionPackageUninstallingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageExtensionPackageUninstallingEventArgs>();
+}
 unsafe impl windows_core::Interface for PackageExtensionPackageUninstallingEventArgs {
     type Vtable = <IPackageExtensionPackageUninstallingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageExtensionPackageUninstallingEventArgs as windows_core::Interface>::IID;
@@ -429,9 +429,6 @@ impl windows_core::RuntimeName for PackageExtensionPackageUninstallingEventArgs 
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageExtensionPackageUpdatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PackageExtensionPackageUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageExtensionPackageUpdatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PackageExtensionPackageUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PackageExtensionPackageUpdatedEventArgs,);
 impl PackageExtensionPackageUpdatedEventArgs {
@@ -458,6 +455,9 @@ impl PackageExtensionPackageUpdatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PackageExtensionPackageUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageExtensionPackageUpdatedEventArgs>();
+}
 unsafe impl windows_core::Interface for PackageExtensionPackageUpdatedEventArgs {
     type Vtable = <IPackageExtensionPackageUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageExtensionPackageUpdatedEventArgs as windows_core::Interface>::IID;
@@ -468,9 +468,6 @@ impl windows_core::RuntimeName for PackageExtensionPackageUpdatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageExtensionPackageUpdatingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PackageExtensionPackageUpdatingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageExtensionPackageUpdatingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PackageExtensionPackageUpdatingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PackageExtensionPackageUpdatingEventArgs,);
 impl PackageExtensionPackageUpdatingEventArgs {
@@ -488,6 +485,9 @@ impl PackageExtensionPackageUpdatingEventArgs {
             (windows_core::Interface::vtable(this).Package)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for PackageExtensionPackageUpdatingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageExtensionPackageUpdatingEventArgs>();
 }
 unsafe impl windows_core::Interface for PackageExtensionPackageUpdatingEventArgs {
     type Vtable = <IPackageExtensionPackageUpdatingEventArgs as windows_core::Interface>::Vtable;

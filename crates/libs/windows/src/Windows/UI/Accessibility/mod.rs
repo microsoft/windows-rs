@@ -22,9 +22,6 @@ pub struct IScreenReaderService_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScreenReaderPositionChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ScreenReaderPositionChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScreenReaderPositionChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ScreenReaderPositionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ScreenReaderPositionChangedEventArgs,);
 impl ScreenReaderPositionChangedEventArgs {
@@ -43,6 +40,9 @@ impl ScreenReaderPositionChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ScreenReaderPositionChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScreenReaderPositionChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for ScreenReaderPositionChangedEventArgs {
     type Vtable = <IScreenReaderPositionChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IScreenReaderPositionChangedEventArgs as windows_core::Interface>::IID;
@@ -53,9 +53,6 @@ impl windows_core::RuntimeName for ScreenReaderPositionChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScreenReaderService(windows_core::IUnknown);
-impl windows_core::RuntimeType for ScreenReaderService {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScreenReaderService>();
-}
 windows_core::imp::interface_hierarchy!(ScreenReaderService, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ScreenReaderService,);
 impl ScreenReaderService {
@@ -87,6 +84,9 @@ impl ScreenReaderService {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveScreenReaderPositionChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
+}
+impl windows_core::RuntimeType for ScreenReaderService {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScreenReaderService>();
 }
 unsafe impl windows_core::Interface for ScreenReaderService {
     type Vtable = <IScreenReaderService as windows_core::Interface>::Vtable;

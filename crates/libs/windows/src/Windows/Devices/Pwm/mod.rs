@@ -65,9 +65,6 @@ pub struct IPwmPin_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PwmController(windows_core::IUnknown);
-impl windows_core::RuntimeType for PwmController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPwmController>();
-}
 windows_core::imp::interface_hierarchy!(PwmController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PwmController,);
 impl PwmController {
@@ -160,6 +157,9 @@ impl PwmController {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PwmController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPwmController>();
+}
 unsafe impl windows_core::Interface for PwmController {
     type Vtable = <IPwmController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPwmController as windows_core::Interface>::IID;
@@ -170,9 +170,6 @@ impl windows_core::RuntimeName for PwmController {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PwmPin(windows_core::IUnknown);
-impl windows_core::RuntimeType for PwmPin {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPwmPin>();
-}
 windows_core::imp::interface_hierarchy!(PwmPin, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PwmPin, super::super::Foundation::IClosable);
 impl PwmPin {
@@ -224,6 +221,9 @@ impl PwmPin {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for PwmPin {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPwmPin>();
 }
 unsafe impl windows_core::Interface for PwmPin {
     type Vtable = <IPwmPin as windows_core::Interface>::Vtable;

@@ -111,9 +111,6 @@ impl windows_core::RuntimeName for GameService {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameServicePropertyCollection(windows_core::IUnknown);
-impl windows_core::RuntimeType for GameServicePropertyCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameServicePropertyCollection>();
-}
 windows_core::imp::interface_hierarchy!(GameServicePropertyCollection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GameServicePropertyCollection,);
 impl GameServicePropertyCollection {
@@ -124,6 +121,9 @@ impl GameServicePropertyCollection {
             (windows_core::Interface::vtable(this).GetPropertyAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for GameServicePropertyCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameServicePropertyCollection>();
 }
 unsafe impl windows_core::Interface for GameServicePropertyCollection {
     type Vtable = <IGameServicePropertyCollection as windows_core::Interface>::Vtable;

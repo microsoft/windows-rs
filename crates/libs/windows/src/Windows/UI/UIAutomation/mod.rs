@@ -42,9 +42,6 @@ pub struct IAutomationTextRange_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationConnection(windows_core::IUnknown);
-impl windows_core::RuntimeType for AutomationConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutomationConnection>();
-}
 windows_core::imp::interface_hierarchy!(AutomationConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AutomationConnection,);
 impl AutomationConnection {
@@ -72,6 +69,9 @@ impl AutomationConnection {
         }
     }
 }
+impl windows_core::RuntimeType for AutomationConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutomationConnection>();
+}
 unsafe impl windows_core::Interface for AutomationConnection {
     type Vtable = <IAutomationConnection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAutomationConnection as windows_core::Interface>::IID;
@@ -82,9 +82,6 @@ impl windows_core::RuntimeName for AutomationConnection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationConnectionBoundObject(windows_core::IUnknown);
-impl windows_core::RuntimeType for AutomationConnectionBoundObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutomationConnectionBoundObject>();
-}
 windows_core::imp::interface_hierarchy!(AutomationConnectionBoundObject, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AutomationConnectionBoundObject,);
 impl AutomationConnectionBoundObject {
@@ -96,6 +93,9 @@ impl AutomationConnectionBoundObject {
         }
     }
 }
+impl windows_core::RuntimeType for AutomationConnectionBoundObject {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutomationConnectionBoundObject>();
+}
 unsafe impl windows_core::Interface for AutomationConnectionBoundObject {
     type Vtable = <IAutomationConnectionBoundObject as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAutomationConnectionBoundObject as windows_core::Interface>::IID;
@@ -106,9 +106,6 @@ impl windows_core::RuntimeName for AutomationConnectionBoundObject {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationElement(windows_core::IUnknown);
-impl windows_core::RuntimeType for AutomationElement {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutomationElement>();
-}
 windows_core::imp::interface_hierarchy!(AutomationElement, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AutomationElement,);
 impl AutomationElement {
@@ -136,6 +133,9 @@ impl AutomationElement {
         }
     }
 }
+impl windows_core::RuntimeType for AutomationElement {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutomationElement>();
+}
 unsafe impl windows_core::Interface for AutomationElement {
     type Vtable = <IAutomationElement as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAutomationElement as windows_core::Interface>::IID;
@@ -146,12 +146,12 @@ impl windows_core::RuntimeName for AutomationElement {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationTextRange(windows_core::IUnknown);
-impl windows_core::RuntimeType for AutomationTextRange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutomationTextRange>();
-}
 windows_core::imp::interface_hierarchy!(AutomationTextRange, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AutomationTextRange,);
 impl AutomationTextRange {}
+impl windows_core::RuntimeType for AutomationTextRange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutomationTextRange>();
+}
 unsafe impl windows_core::Interface for AutomationTextRange {
     type Vtable = <IAutomationTextRange as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAutomationTextRange as windows_core::Interface>::IID;

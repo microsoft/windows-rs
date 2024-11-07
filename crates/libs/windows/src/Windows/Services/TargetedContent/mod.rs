@@ -236,9 +236,6 @@ pub struct ITargetedContentValue_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentAction(windows_core::IUnknown);
-impl windows_core::RuntimeType for TargetedContentAction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentAction>();
-}
 windows_core::imp::interface_hierarchy!(TargetedContentAction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TargetedContentAction,);
 impl TargetedContentAction {
@@ -250,6 +247,9 @@ impl TargetedContentAction {
         }
     }
 }
+impl windows_core::RuntimeType for TargetedContentAction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentAction>();
+}
 unsafe impl windows_core::Interface for TargetedContentAction {
     type Vtable = <ITargetedContentAction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentAction as windows_core::Interface>::IID;
@@ -260,9 +260,6 @@ impl windows_core::RuntimeName for TargetedContentAction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentAvailabilityChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for TargetedContentAvailabilityChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentAvailabilityChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(TargetedContentAvailabilityChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TargetedContentAvailabilityChangedEventArgs,);
 impl TargetedContentAvailabilityChangedEventArgs {
@@ -274,6 +271,9 @@ impl TargetedContentAvailabilityChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for TargetedContentAvailabilityChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentAvailabilityChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for TargetedContentAvailabilityChangedEventArgs {
     type Vtable = <ITargetedContentAvailabilityChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentAvailabilityChangedEventArgs as windows_core::Interface>::IID;
@@ -284,9 +284,6 @@ impl windows_core::RuntimeName for TargetedContentAvailabilityChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for TargetedContentChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(TargetedContentChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TargetedContentChangedEventArgs,);
 impl TargetedContentChangedEventArgs {
@@ -305,6 +302,9 @@ impl TargetedContentChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for TargetedContentChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for TargetedContentChangedEventArgs {
     type Vtable = <ITargetedContentChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentChangedEventArgs as windows_core::Interface>::IID;
@@ -315,9 +315,6 @@ impl windows_core::RuntimeName for TargetedContentChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentCollection(windows_core::IUnknown);
-impl windows_core::RuntimeType for TargetedContentCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentCollection>();
-}
 windows_core::imp::interface_hierarchy!(TargetedContentCollection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TargetedContentCollection,);
 impl TargetedContentCollection {
@@ -368,6 +365,9 @@ impl TargetedContentCollection {
         }
     }
 }
+impl windows_core::RuntimeType for TargetedContentCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentCollection>();
+}
 unsafe impl windows_core::Interface for TargetedContentCollection {
     type Vtable = <ITargetedContentCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentCollection as windows_core::Interface>::IID;
@@ -378,9 +378,6 @@ impl windows_core::RuntimeName for TargetedContentCollection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentContainer(windows_core::IUnknown);
-impl windows_core::RuntimeType for TargetedContentContainer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentContainer>();
-}
 windows_core::imp::interface_hierarchy!(TargetedContentContainer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TargetedContentContainer,);
 impl TargetedContentContainer {
@@ -430,6 +427,9 @@ impl TargetedContentContainer {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TargetedContentContainer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentContainer>();
+}
 unsafe impl windows_core::Interface for TargetedContentContainer {
     type Vtable = <ITargetedContentContainer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentContainer as windows_core::Interface>::IID;
@@ -441,10 +441,6 @@ impl windows_core::RuntimeName for TargetedContentContainer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentFile(windows_core::IUnknown);
-#[cfg(feature = "Storage_Streams")]
-impl windows_core::RuntimeType for TargetedContentFile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Storage::Streams::IRandomAccessStreamReference>();
-}
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(TargetedContentFile, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
@@ -461,6 +457,10 @@ impl TargetedContentFile {
     }
 }
 #[cfg(feature = "Storage_Streams")]
+impl windows_core::RuntimeType for TargetedContentFile {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Storage::Streams::IRandomAccessStreamReference>();
+}
+#[cfg(feature = "Storage_Streams")]
 unsafe impl windows_core::Interface for TargetedContentFile {
     type Vtable = <super::super::Storage::Streams::IRandomAccessStreamReference as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::Storage::Streams::IRandomAccessStreamReference as windows_core::Interface>::IID;
@@ -473,10 +473,6 @@ impl windows_core::RuntimeName for TargetedContentFile {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentImage(windows_core::IUnknown);
-#[cfg(feature = "Storage_Streams")]
-impl windows_core::RuntimeType for TargetedContentImage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentImage>();
-}
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(TargetedContentImage, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
@@ -507,6 +503,10 @@ impl TargetedContentImage {
     }
 }
 #[cfg(feature = "Storage_Streams")]
+impl windows_core::RuntimeType for TargetedContentImage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentImage>();
+}
+#[cfg(feature = "Storage_Streams")]
 unsafe impl windows_core::Interface for TargetedContentImage {
     type Vtable = <ITargetedContentImage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentImage as windows_core::Interface>::IID;
@@ -518,9 +518,6 @@ impl windows_core::RuntimeName for TargetedContentImage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentItem(windows_core::IUnknown);
-impl windows_core::RuntimeType for TargetedContentItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentItem>();
-}
 windows_core::imp::interface_hierarchy!(TargetedContentItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TargetedContentItem,);
 impl TargetedContentItem {
@@ -563,6 +560,9 @@ impl TargetedContentItem {
         }
     }
 }
+impl windows_core::RuntimeType for TargetedContentItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentItem>();
+}
 unsafe impl windows_core::Interface for TargetedContentItem {
     type Vtable = <ITargetedContentItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentItem as windows_core::Interface>::IID;
@@ -573,9 +573,6 @@ impl windows_core::RuntimeName for TargetedContentItem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentItemState(windows_core::IUnknown);
-impl windows_core::RuntimeType for TargetedContentItemState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentItemState>();
-}
 windows_core::imp::interface_hierarchy!(TargetedContentItemState, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TargetedContentItemState,);
 impl TargetedContentItemState {
@@ -594,6 +591,9 @@ impl TargetedContentItemState {
         }
     }
 }
+impl windows_core::RuntimeType for TargetedContentItemState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentItemState>();
+}
 unsafe impl windows_core::Interface for TargetedContentItemState {
     type Vtable = <ITargetedContentItemState as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentItemState as windows_core::Interface>::IID;
@@ -604,9 +604,6 @@ impl windows_core::RuntimeName for TargetedContentItemState {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentObject(windows_core::IUnknown);
-impl windows_core::RuntimeType for TargetedContentObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentObject>();
-}
 windows_core::imp::interface_hierarchy!(TargetedContentObject, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TargetedContentObject,);
 impl TargetedContentObject {
@@ -639,6 +636,9 @@ impl TargetedContentObject {
         }
     }
 }
+impl windows_core::RuntimeType for TargetedContentObject {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentObject>();
+}
 unsafe impl windows_core::Interface for TargetedContentObject {
     type Vtable = <ITargetedContentObject as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentObject as windows_core::Interface>::IID;
@@ -649,9 +649,6 @@ impl windows_core::RuntimeName for TargetedContentObject {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentStateChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for TargetedContentStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentStateChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(TargetedContentStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TargetedContentStateChangedEventArgs,);
 impl TargetedContentStateChangedEventArgs {
@@ -663,6 +660,9 @@ impl TargetedContentStateChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for TargetedContentStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentStateChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for TargetedContentStateChangedEventArgs {
     type Vtable = <ITargetedContentStateChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentStateChangedEventArgs as windows_core::Interface>::IID;
@@ -673,9 +673,6 @@ impl windows_core::RuntimeName for TargetedContentStateChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentSubscription(windows_core::IUnknown);
-impl windows_core::RuntimeType for TargetedContentSubscription {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentSubscription>();
-}
 windows_core::imp::interface_hierarchy!(TargetedContentSubscription, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TargetedContentSubscription,);
 impl TargetedContentSubscription {
@@ -752,6 +749,9 @@ impl TargetedContentSubscription {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TargetedContentSubscription {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentSubscription>();
+}
 unsafe impl windows_core::Interface for TargetedContentSubscription {
     type Vtable = <ITargetedContentSubscription as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentSubscription as windows_core::Interface>::IID;
@@ -762,9 +762,6 @@ impl windows_core::RuntimeName for TargetedContentSubscription {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentSubscriptionOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for TargetedContentSubscriptionOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentSubscriptionOptions>();
-}
 windows_core::imp::interface_hierarchy!(TargetedContentSubscriptionOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TargetedContentSubscriptionOptions,);
 impl TargetedContentSubscriptionOptions {
@@ -807,6 +804,9 @@ impl TargetedContentSubscriptionOptions {
         unsafe { (windows_core::Interface::vtable(this).Update)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for TargetedContentSubscriptionOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentSubscriptionOptions>();
+}
 unsafe impl windows_core::Interface for TargetedContentSubscriptionOptions {
     type Vtable = <ITargetedContentSubscriptionOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetedContentSubscriptionOptions as windows_core::Interface>::IID;
@@ -817,9 +817,6 @@ impl windows_core::RuntimeName for TargetedContentSubscriptionOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetedContentValue(windows_core::IUnknown);
-impl windows_core::RuntimeType for TargetedContentValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentValue>();
-}
 windows_core::imp::interface_hierarchy!(TargetedContentValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TargetedContentValue,);
 impl TargetedContentValue {
@@ -944,6 +941,9 @@ impl TargetedContentValue {
             (windows_core::Interface::vtable(this).Actions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for TargetedContentValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetedContentValue>();
 }
 unsafe impl windows_core::Interface for TargetedContentValue {
     type Vtable = <ITargetedContentValue as windows_core::Interface>::Vtable;

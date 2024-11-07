@@ -1605,9 +1605,6 @@ pub struct IUssdSessionStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ESim(windows_core::IUnknown);
-impl windows_core::RuntimeType for ESim {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESim>();
-}
 windows_core::imp::interface_hierarchy!(ESim, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ESim,);
 impl ESim {
@@ -1732,6 +1729,9 @@ impl ESim {
         }
     }
 }
+impl windows_core::RuntimeType for ESim {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESim>();
+}
 unsafe impl windows_core::Interface for ESim {
     type Vtable = <IESim as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESim as windows_core::Interface>::IID;
@@ -1742,9 +1742,6 @@ impl windows_core::RuntimeName for ESim {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ESimAddedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ESimAddedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimAddedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ESimAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ESimAddedEventArgs,);
 impl ESimAddedEventArgs {
@@ -1756,6 +1753,9 @@ impl ESimAddedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ESimAddedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimAddedEventArgs>();
+}
 unsafe impl windows_core::Interface for ESimAddedEventArgs {
     type Vtable = <IESimAddedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimAddedEventArgs as windows_core::Interface>::IID;
@@ -1766,9 +1766,6 @@ impl windows_core::RuntimeName for ESimAddedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ESimDiscoverEvent(windows_core::IUnknown);
-impl windows_core::RuntimeType for ESimDiscoverEvent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimDiscoverEvent>();
-}
 windows_core::imp::interface_hierarchy!(ESimDiscoverEvent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ESimDiscoverEvent,);
 impl ESimDiscoverEvent {
@@ -1787,6 +1784,9 @@ impl ESimDiscoverEvent {
         }
     }
 }
+impl windows_core::RuntimeType for ESimDiscoverEvent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimDiscoverEvent>();
+}
 unsafe impl windows_core::Interface for ESimDiscoverEvent {
     type Vtable = <IESimDiscoverEvent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimDiscoverEvent as windows_core::Interface>::IID;
@@ -1797,9 +1797,6 @@ impl windows_core::RuntimeName for ESimDiscoverEvent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ESimDiscoverResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for ESimDiscoverResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimDiscoverResult>();
-}
 windows_core::imp::interface_hierarchy!(ESimDiscoverResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ESimDiscoverResult,);
 impl ESimDiscoverResult {
@@ -1833,6 +1830,9 @@ impl ESimDiscoverResult {
         }
     }
 }
+impl windows_core::RuntimeType for ESimDiscoverResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimDiscoverResult>();
+}
 unsafe impl windows_core::Interface for ESimDiscoverResult {
     type Vtable = <IESimDiscoverResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimDiscoverResult as windows_core::Interface>::IID;
@@ -1843,9 +1843,6 @@ impl windows_core::RuntimeName for ESimDiscoverResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ESimDownloadProfileMetadataResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for ESimDownloadProfileMetadataResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimDownloadProfileMetadataResult>();
-}
 windows_core::imp::interface_hierarchy!(ESimDownloadProfileMetadataResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ESimDownloadProfileMetadataResult,);
 impl ESimDownloadProfileMetadataResult {
@@ -1863,6 +1860,9 @@ impl ESimDownloadProfileMetadataResult {
             (windows_core::Interface::vtable(this).ProfileMetadata)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for ESimDownloadProfileMetadataResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimDownloadProfileMetadataResult>();
 }
 unsafe impl windows_core::Interface for ESimDownloadProfileMetadataResult {
     type Vtable = <IESimDownloadProfileMetadataResult as windows_core::Interface>::Vtable;
@@ -1908,9 +1908,6 @@ impl windows_core::RuntimeName for ESimManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ESimOperationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for ESimOperationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimOperationResult>();
-}
 windows_core::imp::interface_hierarchy!(ESimOperationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ESimOperationResult,);
 impl ESimOperationResult {
@@ -1922,6 +1919,9 @@ impl ESimOperationResult {
         }
     }
 }
+impl windows_core::RuntimeType for ESimOperationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimOperationResult>();
+}
 unsafe impl windows_core::Interface for ESimOperationResult {
     type Vtable = <IESimOperationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimOperationResult as windows_core::Interface>::IID;
@@ -1932,9 +1932,6 @@ impl windows_core::RuntimeName for ESimOperationResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ESimPolicy(windows_core::IUnknown);
-impl windows_core::RuntimeType for ESimPolicy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimPolicy>();
-}
 windows_core::imp::interface_hierarchy!(ESimPolicy, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ESimPolicy,);
 impl ESimPolicy {
@@ -1946,6 +1943,9 @@ impl ESimPolicy {
         }
     }
 }
+impl windows_core::RuntimeType for ESimPolicy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimPolicy>();
+}
 unsafe impl windows_core::Interface for ESimPolicy {
     type Vtable = <IESimPolicy as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimPolicy as windows_core::Interface>::IID;
@@ -1956,9 +1956,6 @@ impl windows_core::RuntimeName for ESimPolicy {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ESimProfile(windows_core::IUnknown);
-impl windows_core::RuntimeType for ESimProfile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimProfile>();
-}
 windows_core::imp::interface_hierarchy!(ESimProfile, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ESimProfile,);
 impl ESimProfile {
@@ -2041,6 +2038,9 @@ impl ESimProfile {
         }
     }
 }
+impl windows_core::RuntimeType for ESimProfile {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimProfile>();
+}
 unsafe impl windows_core::Interface for ESimProfile {
     type Vtable = <IESimProfile as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimProfile as windows_core::Interface>::IID;
@@ -2051,9 +2051,6 @@ impl windows_core::RuntimeName for ESimProfile {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ESimProfileMetadata(windows_core::IUnknown);
-impl windows_core::RuntimeType for ESimProfileMetadata {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimProfileMetadata>();
-}
 windows_core::imp::interface_hierarchy!(ESimProfileMetadata, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ESimProfileMetadata,);
 impl ESimProfileMetadata {
@@ -2150,6 +2147,9 @@ impl ESimProfileMetadata {
         unsafe { (windows_core::Interface::vtable(this).RemoveStateChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for ESimProfileMetadata {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimProfileMetadata>();
+}
 unsafe impl windows_core::Interface for ESimProfileMetadata {
     type Vtable = <IESimProfileMetadata as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimProfileMetadata as windows_core::Interface>::IID;
@@ -2160,9 +2160,6 @@ impl windows_core::RuntimeName for ESimProfileMetadata {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ESimProfilePolicy(windows_core::IUnknown);
-impl windows_core::RuntimeType for ESimProfilePolicy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimProfilePolicy>();
-}
 windows_core::imp::interface_hierarchy!(ESimProfilePolicy, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ESimProfilePolicy,);
 impl ESimProfilePolicy {
@@ -2188,6 +2185,9 @@ impl ESimProfilePolicy {
         }
     }
 }
+impl windows_core::RuntimeType for ESimProfilePolicy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimProfilePolicy>();
+}
 unsafe impl windows_core::Interface for ESimProfilePolicy {
     type Vtable = <IESimProfilePolicy as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimProfilePolicy as windows_core::Interface>::IID;
@@ -2198,9 +2198,6 @@ impl windows_core::RuntimeName for ESimProfilePolicy {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ESimRemovedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ESimRemovedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimRemovedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ESimRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ESimRemovedEventArgs,);
 impl ESimRemovedEventArgs {
@@ -2212,6 +2209,9 @@ impl ESimRemovedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ESimRemovedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimRemovedEventArgs>();
+}
 unsafe impl windows_core::Interface for ESimRemovedEventArgs {
     type Vtable = <IESimRemovedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimRemovedEventArgs as windows_core::Interface>::IID;
@@ -2222,9 +2222,6 @@ impl windows_core::RuntimeName for ESimRemovedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ESimServiceInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for ESimServiceInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimServiceInfo>();
-}
 windows_core::imp::interface_hierarchy!(ESimServiceInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ESimServiceInfo,);
 impl ESimServiceInfo {
@@ -2243,6 +2240,9 @@ impl ESimServiceInfo {
         }
     }
 }
+impl windows_core::RuntimeType for ESimServiceInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimServiceInfo>();
+}
 unsafe impl windows_core::Interface for ESimServiceInfo {
     type Vtable = <IESimServiceInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimServiceInfo as windows_core::Interface>::IID;
@@ -2253,9 +2253,6 @@ impl windows_core::RuntimeName for ESimServiceInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ESimUpdatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ESimUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimUpdatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ESimUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ESimUpdatedEventArgs,);
 impl ESimUpdatedEventArgs {
@@ -2267,6 +2264,9 @@ impl ESimUpdatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ESimUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimUpdatedEventArgs>();
+}
 unsafe impl windows_core::Interface for ESimUpdatedEventArgs {
     type Vtable = <IESimUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimUpdatedEventArgs as windows_core::Interface>::IID;
@@ -2277,9 +2277,6 @@ impl windows_core::RuntimeName for ESimUpdatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ESimWatcher(windows_core::IUnknown);
-impl windows_core::RuntimeType for ESimWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimWatcher>();
-}
 windows_core::imp::interface_hierarchy!(ESimWatcher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ESimWatcher,);
 impl ESimWatcher {
@@ -2369,6 +2366,9 @@ impl ESimWatcher {
         unsafe { (windows_core::Interface::vtable(this).RemoveUpdated)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for ESimWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IESimWatcher>();
+}
 unsafe impl windows_core::Interface for ESimWatcher {
     type Vtable = <IESimWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IESimWatcher as windows_core::Interface>::IID;
@@ -2395,9 +2395,6 @@ impl windows_core::RuntimeName for FdnAccessManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HotspotAuthenticationContext(windows_core::IUnknown);
-impl windows_core::RuntimeType for HotspotAuthenticationContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHotspotAuthenticationContext>();
-}
 windows_core::imp::interface_hierarchy!(HotspotAuthenticationContext, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HotspotAuthenticationContext,);
 impl HotspotAuthenticationContext {
@@ -2472,6 +2469,9 @@ impl HotspotAuthenticationContext {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HotspotAuthenticationContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHotspotAuthenticationContext>();
+}
 unsafe impl windows_core::Interface for HotspotAuthenticationContext {
     type Vtable = <IHotspotAuthenticationContext as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHotspotAuthenticationContext as windows_core::Interface>::IID;
@@ -2482,9 +2482,6 @@ impl windows_core::RuntimeName for HotspotAuthenticationContext {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HotspotAuthenticationEventDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for HotspotAuthenticationEventDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHotspotAuthenticationEventDetails>();
-}
 windows_core::imp::interface_hierarchy!(HotspotAuthenticationEventDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HotspotAuthenticationEventDetails,);
 impl HotspotAuthenticationEventDetails {
@@ -2496,6 +2493,9 @@ impl HotspotAuthenticationEventDetails {
         }
     }
 }
+impl windows_core::RuntimeType for HotspotAuthenticationEventDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHotspotAuthenticationEventDetails>();
+}
 unsafe impl windows_core::Interface for HotspotAuthenticationEventDetails {
     type Vtable = <IHotspotAuthenticationEventDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHotspotAuthenticationEventDetails as windows_core::Interface>::IID;
@@ -2506,9 +2506,6 @@ impl windows_core::RuntimeName for HotspotAuthenticationEventDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HotspotCredentialsAuthenticationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for HotspotCredentialsAuthenticationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHotspotCredentialsAuthenticationResult>();
-}
 windows_core::imp::interface_hierarchy!(HotspotCredentialsAuthenticationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HotspotCredentialsAuthenticationResult,);
 impl HotspotCredentialsAuthenticationResult {
@@ -2541,6 +2538,9 @@ impl HotspotCredentialsAuthenticationResult {
             (windows_core::Interface::vtable(this).AuthenticationReplyXml)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for HotspotCredentialsAuthenticationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHotspotCredentialsAuthenticationResult>();
 }
 unsafe impl windows_core::Interface for HotspotCredentialsAuthenticationResult {
     type Vtable = <IHotspotCredentialsAuthenticationResult as windows_core::Interface>::Vtable;
@@ -2697,9 +2697,6 @@ impl windows_core::RuntimeName for KnownUSimFilePaths {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandAccount(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandAccount {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAccount>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandAccount, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandAccount,);
 impl MobileBroadbandAccount {
@@ -2771,6 +2768,9 @@ impl MobileBroadbandAccount {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandAccount {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAccount>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandAccount {
     type Vtable = <IMobileBroadbandAccount as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandAccount as windows_core::Interface>::IID;
@@ -2781,9 +2781,6 @@ impl windows_core::RuntimeName for MobileBroadbandAccount {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandAccountEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandAccountEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAccountEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandAccountEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandAccountEventArgs,);
 impl MobileBroadbandAccountEventArgs {
@@ -2795,6 +2792,9 @@ impl MobileBroadbandAccountEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandAccountEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAccountEventArgs>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandAccountEventArgs {
     type Vtable = <IMobileBroadbandAccountEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandAccountEventArgs as windows_core::Interface>::IID;
@@ -2805,9 +2805,6 @@ impl windows_core::RuntimeName for MobileBroadbandAccountEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandAccountUpdatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandAccountUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAccountUpdatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandAccountUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandAccountUpdatedEventArgs,);
 impl MobileBroadbandAccountUpdatedEventArgs {
@@ -2833,6 +2830,9 @@ impl MobileBroadbandAccountUpdatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandAccountUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAccountUpdatedEventArgs>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandAccountUpdatedEventArgs {
     type Vtable = <IMobileBroadbandAccountUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandAccountUpdatedEventArgs as windows_core::Interface>::IID;
@@ -2843,9 +2843,6 @@ impl windows_core::RuntimeName for MobileBroadbandAccountUpdatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandAccountWatcher(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandAccountWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAccountWatcher>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandAccountWatcher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandAccountWatcher,);
 impl MobileBroadbandAccountWatcher {
@@ -2942,6 +2939,9 @@ impl MobileBroadbandAccountWatcher {
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandAccountWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAccountWatcher>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandAccountWatcher {
     type Vtable = <IMobileBroadbandAccountWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandAccountWatcher as windows_core::Interface>::IID;
@@ -2952,9 +2952,6 @@ impl windows_core::RuntimeName for MobileBroadbandAccountWatcher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandAntennaSar(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandAntennaSar {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAntennaSar>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandAntennaSar, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandAntennaSar,);
 impl MobileBroadbandAntennaSar {
@@ -2983,6 +2980,9 @@ impl MobileBroadbandAntennaSar {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandAntennaSar {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandAntennaSar>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandAntennaSar {
     type Vtable = <IMobileBroadbandAntennaSar as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandAntennaSar as windows_core::Interface>::IID;
@@ -2993,9 +2993,6 @@ impl windows_core::RuntimeName for MobileBroadbandAntennaSar {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandCellCdma(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandCellCdma {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellCdma>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellCdma, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandCellCdma,);
 impl MobileBroadbandCellCdma {
@@ -3056,6 +3053,9 @@ impl MobileBroadbandCellCdma {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandCellCdma {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellCdma>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandCellCdma {
     type Vtable = <IMobileBroadbandCellCdma as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandCellCdma as windows_core::Interface>::IID;
@@ -3066,9 +3066,6 @@ impl windows_core::RuntimeName for MobileBroadbandCellCdma {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandCellGsm(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandCellGsm {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellGsm>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellGsm, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandCellGsm,);
 impl MobileBroadbandCellGsm {
@@ -3122,6 +3119,9 @@ impl MobileBroadbandCellGsm {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandCellGsm {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellGsm>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandCellGsm {
     type Vtable = <IMobileBroadbandCellGsm as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandCellGsm as windows_core::Interface>::IID;
@@ -3132,9 +3132,6 @@ impl windows_core::RuntimeName for MobileBroadbandCellGsm {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandCellLte(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandCellLte {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellLte>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellLte, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandCellLte,);
 impl MobileBroadbandCellLte {
@@ -3195,6 +3192,9 @@ impl MobileBroadbandCellLte {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandCellLte {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellLte>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandCellLte {
     type Vtable = <IMobileBroadbandCellLte as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandCellLte as windows_core::Interface>::IID;
@@ -3205,9 +3205,6 @@ impl windows_core::RuntimeName for MobileBroadbandCellLte {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandCellNR(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandCellNR {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellNR>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellNR, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandCellNR,);
 impl MobileBroadbandCellNR {
@@ -3275,6 +3272,9 @@ impl MobileBroadbandCellNR {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandCellNR {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellNR>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandCellNR {
     type Vtable = <IMobileBroadbandCellNR as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandCellNR as windows_core::Interface>::IID;
@@ -3285,9 +3285,6 @@ impl windows_core::RuntimeName for MobileBroadbandCellNR {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandCellTdscdma(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandCellTdscdma {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellTdscdma>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellTdscdma, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandCellTdscdma,);
 impl MobileBroadbandCellTdscdma {
@@ -3348,6 +3345,9 @@ impl MobileBroadbandCellTdscdma {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandCellTdscdma {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellTdscdma>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandCellTdscdma {
     type Vtable = <IMobileBroadbandCellTdscdma as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandCellTdscdma as windows_core::Interface>::IID;
@@ -3358,9 +3358,6 @@ impl windows_core::RuntimeName for MobileBroadbandCellTdscdma {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandCellUmts(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandCellUmts {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellUmts>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellUmts, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandCellUmts,);
 impl MobileBroadbandCellUmts {
@@ -3421,6 +3418,9 @@ impl MobileBroadbandCellUmts {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandCellUmts {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellUmts>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandCellUmts {
     type Vtable = <IMobileBroadbandCellUmts as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandCellUmts as windows_core::Interface>::IID;
@@ -3431,9 +3431,6 @@ impl windows_core::RuntimeName for MobileBroadbandCellUmts {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandCellsInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandCellsInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellsInfo>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellsInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandCellsInfo,);
 impl MobileBroadbandCellsInfo {
@@ -3534,6 +3531,9 @@ impl MobileBroadbandCellsInfo {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandCellsInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCellsInfo>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandCellsInfo {
     type Vtable = <IMobileBroadbandCellsInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandCellsInfo as windows_core::Interface>::IID;
@@ -3544,9 +3544,6 @@ impl windows_core::RuntimeName for MobileBroadbandCellsInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandCurrentSlotIndexChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandCurrentSlotIndexChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCurrentSlotIndexChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandCurrentSlotIndexChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandCurrentSlotIndexChangedEventArgs,);
 impl MobileBroadbandCurrentSlotIndexChangedEventArgs {
@@ -3558,6 +3555,9 @@ impl MobileBroadbandCurrentSlotIndexChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandCurrentSlotIndexChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandCurrentSlotIndexChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandCurrentSlotIndexChangedEventArgs {
     type Vtable = <IMobileBroadbandCurrentSlotIndexChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandCurrentSlotIndexChangedEventArgs as windows_core::Interface>::IID;
@@ -3568,9 +3568,6 @@ impl windows_core::RuntimeName for MobileBroadbandCurrentSlotIndexChangedEventAr
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandDeviceInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandDeviceInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceInformation>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandDeviceInformation,);
 impl MobileBroadbandDeviceInformation {
@@ -3724,6 +3721,9 @@ impl MobileBroadbandDeviceInformation {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandDeviceInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceInformation>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandDeviceInformation {
     type Vtable = <IMobileBroadbandDeviceInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceInformation as windows_core::Interface>::IID;
@@ -3734,9 +3734,6 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandDeviceService(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandDeviceService {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceService>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceService, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandDeviceService,);
 impl MobileBroadbandDeviceService {
@@ -3770,6 +3767,9 @@ impl MobileBroadbandDeviceService {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandDeviceService {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceService>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandDeviceService {
     type Vtable = <IMobileBroadbandDeviceService as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceService as windows_core::Interface>::IID;
@@ -3780,9 +3780,6 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceService {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandDeviceServiceCommandEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceCommandEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandDeviceServiceCommandEventArgs,);
 impl MobileBroadbandDeviceServiceCommandEventArgs {
@@ -3816,6 +3813,9 @@ impl MobileBroadbandDeviceServiceCommandEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceCommandEventArgs>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceCommandEventArgs {
     type Vtable = <IMobileBroadbandDeviceServiceCommandEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceCommandEventArgs as windows_core::Interface>::IID;
@@ -3826,9 +3826,6 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceServiceCommandEventArgs 
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandDeviceServiceCommandResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceCommandResult>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandDeviceServiceCommandResult,);
 impl MobileBroadbandDeviceServiceCommandResult {
@@ -3848,6 +3845,9 @@ impl MobileBroadbandDeviceServiceCommandResult {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceCommandResult>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceCommandResult {
     type Vtable = <IMobileBroadbandDeviceServiceCommandResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceCommandResult as windows_core::Interface>::IID;
@@ -3858,9 +3858,6 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceServiceCommandResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandDeviceServiceCommandSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceCommandSession>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceCommandSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandDeviceServiceCommandSession,);
 impl MobileBroadbandDeviceServiceCommandSession {
@@ -3905,6 +3902,9 @@ impl MobileBroadbandDeviceServiceCommandSession {
         unsafe { (windows_core::Interface::vtable(this).RemoveCommandReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceCommandSession>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceCommandSession {
     type Vtable = <IMobileBroadbandDeviceServiceCommandSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceCommandSession as windows_core::Interface>::IID;
@@ -3915,9 +3915,6 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceServiceCommandSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandDeviceServiceDataReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandDeviceServiceDataReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceDataReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceDataReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandDeviceServiceDataReceivedEventArgs,);
 impl MobileBroadbandDeviceServiceDataReceivedEventArgs {
@@ -3930,6 +3927,9 @@ impl MobileBroadbandDeviceServiceDataReceivedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceDataReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceDataReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceDataReceivedEventArgs {
     type Vtable = <IMobileBroadbandDeviceServiceDataReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceDataReceivedEventArgs as windows_core::Interface>::IID;
@@ -3940,9 +3940,6 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceServiceDataReceivedEvent
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandDeviceServiceDataSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandDeviceServiceDataSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceDataSession>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceDataSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandDeviceServiceDataSession,);
 impl MobileBroadbandDeviceServiceDataSession {
@@ -3976,6 +3973,9 @@ impl MobileBroadbandDeviceServiceDataSession {
         unsafe { (windows_core::Interface::vtable(this).RemoveDataReceived)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceDataSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceDataSession>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceDataSession {
     type Vtable = <IMobileBroadbandDeviceServiceDataSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceDataSession as windows_core::Interface>::IID;
@@ -3986,9 +3986,6 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceServiceDataSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandDeviceServiceInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandDeviceServiceInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceInformation>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandDeviceServiceInformation,);
 impl MobileBroadbandDeviceServiceInformation {
@@ -4014,6 +4011,9 @@ impl MobileBroadbandDeviceServiceInformation {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceInformation>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceInformation {
     type Vtable = <IMobileBroadbandDeviceServiceInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceInformation as windows_core::Interface>::IID;
@@ -4024,9 +4024,6 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceServiceInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandDeviceServiceTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandDeviceServiceTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandDeviceServiceTriggerDetails,);
 impl MobileBroadbandDeviceServiceTriggerDetails {
@@ -4060,6 +4057,9 @@ impl MobileBroadbandDeviceServiceTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandDeviceServiceTriggerDetails>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceTriggerDetails {
     type Vtable = <IMobileBroadbandDeviceServiceTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandDeviceServiceTriggerDetails as windows_core::Interface>::IID;
@@ -4070,9 +4070,6 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceServiceTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandModem(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandModem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandModem>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandModem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandModem,);
 impl MobileBroadbandModem {
@@ -4240,6 +4237,9 @@ impl MobileBroadbandModem {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandModem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandModem>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandModem {
     type Vtable = <IMobileBroadbandModem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandModem as windows_core::Interface>::IID;
@@ -4250,9 +4250,6 @@ impl windows_core::RuntimeName for MobileBroadbandModem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandModemConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandModemConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandModemConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandModemConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandModemConfiguration,);
 impl MobileBroadbandModemConfiguration {
@@ -4285,6 +4282,9 @@ impl MobileBroadbandModemConfiguration {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandModemConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandModemConfiguration>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandModemConfiguration {
     type Vtable = <IMobileBroadbandModemConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandModemConfiguration as windows_core::Interface>::IID;
@@ -4295,9 +4295,6 @@ impl windows_core::RuntimeName for MobileBroadbandModemConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandModemIsolation(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandModemIsolation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandModemIsolation>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandModemIsolation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandModemIsolation,);
 impl MobileBroadbandModemIsolation {
@@ -4341,6 +4338,9 @@ impl MobileBroadbandModemIsolation {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandModemIsolation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandModemIsolation>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandModemIsolation {
     type Vtable = <IMobileBroadbandModemIsolation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandModemIsolation as windows_core::Interface>::IID;
@@ -4351,9 +4351,6 @@ impl windows_core::RuntimeName for MobileBroadbandModemIsolation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandNetwork(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandNetwork {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandNetwork>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandNetwork, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandNetwork,);
 impl MobileBroadbandNetwork {
@@ -4448,6 +4445,9 @@ impl MobileBroadbandNetwork {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandNetwork {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandNetwork>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandNetwork {
     type Vtable = <IMobileBroadbandNetwork as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandNetwork as windows_core::Interface>::IID;
@@ -4458,9 +4458,6 @@ impl windows_core::RuntimeName for MobileBroadbandNetwork {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandNetworkRegistrationStateChange(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandNetworkRegistrationStateChange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandNetworkRegistrationStateChange>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandNetworkRegistrationStateChange, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandNetworkRegistrationStateChange,);
 impl MobileBroadbandNetworkRegistrationStateChange {
@@ -4479,6 +4476,9 @@ impl MobileBroadbandNetworkRegistrationStateChange {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandNetworkRegistrationStateChange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandNetworkRegistrationStateChange>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandNetworkRegistrationStateChange {
     type Vtable = <IMobileBroadbandNetworkRegistrationStateChange as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandNetworkRegistrationStateChange as windows_core::Interface>::IID;
@@ -4489,9 +4489,6 @@ impl windows_core::RuntimeName for MobileBroadbandNetworkRegistrationStateChange
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandNetworkRegistrationStateChangeTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandNetworkRegistrationStateChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandNetworkRegistrationStateChangeTriggerDetails,);
 impl MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
@@ -4504,6 +4501,9 @@ impl MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     type Vtable = <IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails as windows_core::Interface>::IID;
@@ -4514,9 +4514,6 @@ impl windows_core::RuntimeName for MobileBroadbandNetworkRegistrationStateChange
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandPco(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandPco {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPco>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandPco, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandPco,);
 impl MobileBroadbandPco {
@@ -4543,6 +4540,9 @@ impl MobileBroadbandPco {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandPco {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPco>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandPco {
     type Vtable = <IMobileBroadbandPco as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandPco as windows_core::Interface>::IID;
@@ -4553,9 +4553,6 @@ impl windows_core::RuntimeName for MobileBroadbandPco {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandPcoDataChangeTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandPcoDataChangeTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPcoDataChangeTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandPcoDataChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandPcoDataChangeTriggerDetails,);
 impl MobileBroadbandPcoDataChangeTriggerDetails {
@@ -4567,6 +4564,9 @@ impl MobileBroadbandPcoDataChangeTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandPcoDataChangeTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPcoDataChangeTriggerDetails>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandPcoDataChangeTriggerDetails {
     type Vtable = <IMobileBroadbandPcoDataChangeTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandPcoDataChangeTriggerDetails as windows_core::Interface>::IID;
@@ -4577,9 +4577,6 @@ impl windows_core::RuntimeName for MobileBroadbandPcoDataChangeTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandPin(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandPin {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPin>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandPin, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandPin,);
 impl MobileBroadbandPin {
@@ -4668,6 +4665,9 @@ impl MobileBroadbandPin {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandPin {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPin>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandPin {
     type Vtable = <IMobileBroadbandPin as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandPin as windows_core::Interface>::IID;
@@ -4678,9 +4678,6 @@ impl windows_core::RuntimeName for MobileBroadbandPin {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandPinLockStateChange(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandPinLockStateChange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPinLockStateChange>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandPinLockStateChange, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandPinLockStateChange,);
 impl MobileBroadbandPinLockStateChange {
@@ -4706,6 +4703,9 @@ impl MobileBroadbandPinLockStateChange {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandPinLockStateChange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPinLockStateChange>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandPinLockStateChange {
     type Vtable = <IMobileBroadbandPinLockStateChange as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandPinLockStateChange as windows_core::Interface>::IID;
@@ -4716,9 +4716,6 @@ impl windows_core::RuntimeName for MobileBroadbandPinLockStateChange {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandPinLockStateChangeTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandPinLockStateChangeTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPinLockStateChangeTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandPinLockStateChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandPinLockStateChangeTriggerDetails,);
 impl MobileBroadbandPinLockStateChangeTriggerDetails {
@@ -4731,6 +4728,9 @@ impl MobileBroadbandPinLockStateChangeTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandPinLockStateChangeTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPinLockStateChangeTriggerDetails>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandPinLockStateChangeTriggerDetails {
     type Vtable = <IMobileBroadbandPinLockStateChangeTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandPinLockStateChangeTriggerDetails as windows_core::Interface>::IID;
@@ -4741,9 +4741,6 @@ impl windows_core::RuntimeName for MobileBroadbandPinLockStateChangeTriggerDetai
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandPinManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandPinManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPinManager>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandPinManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandPinManager,);
 impl MobileBroadbandPinManager {
@@ -4763,6 +4760,9 @@ impl MobileBroadbandPinManager {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandPinManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPinManager>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandPinManager {
     type Vtable = <IMobileBroadbandPinManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandPinManager as windows_core::Interface>::IID;
@@ -4773,9 +4773,6 @@ impl windows_core::RuntimeName for MobileBroadbandPinManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandPinOperationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandPinOperationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPinOperationResult>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandPinOperationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandPinOperationResult,);
 impl MobileBroadbandPinOperationResult {
@@ -4794,6 +4791,9 @@ impl MobileBroadbandPinOperationResult {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandPinOperationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandPinOperationResult>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandPinOperationResult {
     type Vtable = <IMobileBroadbandPinOperationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandPinOperationResult as windows_core::Interface>::IID;
@@ -4804,9 +4804,6 @@ impl windows_core::RuntimeName for MobileBroadbandPinOperationResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandRadioStateChange(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandRadioStateChange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandRadioStateChange>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandRadioStateChange, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandRadioStateChange,);
 impl MobileBroadbandRadioStateChange {
@@ -4825,6 +4822,9 @@ impl MobileBroadbandRadioStateChange {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandRadioStateChange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandRadioStateChange>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandRadioStateChange {
     type Vtable = <IMobileBroadbandRadioStateChange as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandRadioStateChange as windows_core::Interface>::IID;
@@ -4835,9 +4835,6 @@ impl windows_core::RuntimeName for MobileBroadbandRadioStateChange {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandRadioStateChangeTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandRadioStateChangeTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandRadioStateChangeTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandRadioStateChangeTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandRadioStateChangeTriggerDetails,);
 impl MobileBroadbandRadioStateChangeTriggerDetails {
@@ -4850,6 +4847,9 @@ impl MobileBroadbandRadioStateChangeTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandRadioStateChangeTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandRadioStateChangeTriggerDetails>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandRadioStateChangeTriggerDetails {
     type Vtable = <IMobileBroadbandRadioStateChangeTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandRadioStateChangeTriggerDetails as windows_core::Interface>::IID;
@@ -4860,9 +4860,6 @@ impl windows_core::RuntimeName for MobileBroadbandRadioStateChangeTriggerDetails
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandSarManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandSarManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandSarManager>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandSarManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandSarManager,);
 impl MobileBroadbandSarManager {
@@ -4971,6 +4968,9 @@ impl MobileBroadbandSarManager {
         unsafe { (windows_core::Interface::vtable(this).StopTransmissionStateMonitoring)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandSarManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandSarManager>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandSarManager {
     type Vtable = <IMobileBroadbandSarManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandSarManager as windows_core::Interface>::IID;
@@ -4981,9 +4981,6 @@ impl windows_core::RuntimeName for MobileBroadbandSarManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandSlotInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandSlotInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandSlotInfo>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandSlotInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandSlotInfo,);
 impl MobileBroadbandSlotInfo {
@@ -5009,6 +5006,9 @@ impl MobileBroadbandSlotInfo {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandSlotInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandSlotInfo>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandSlotInfo {
     type Vtable = <IMobileBroadbandSlotInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandSlotInfo as windows_core::Interface>::IID;
@@ -5019,9 +5019,6 @@ impl windows_core::RuntimeName for MobileBroadbandSlotInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandSlotInfoChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandSlotInfoChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandSlotInfoChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandSlotInfoChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandSlotInfoChangedEventArgs,);
 impl MobileBroadbandSlotInfoChangedEventArgs {
@@ -5033,6 +5030,9 @@ impl MobileBroadbandSlotInfoChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandSlotInfoChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandSlotInfoChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandSlotInfoChangedEventArgs {
     type Vtable = <IMobileBroadbandSlotInfoChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandSlotInfoChangedEventArgs as windows_core::Interface>::IID;
@@ -5043,9 +5043,6 @@ impl windows_core::RuntimeName for MobileBroadbandSlotInfoChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandSlotManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandSlotManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandSlotManager>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandSlotManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandSlotManager,);
 impl MobileBroadbandSlotManager {
@@ -5107,6 +5104,9 @@ impl MobileBroadbandSlotManager {
         unsafe { (windows_core::Interface::vtable(this).RemoveCurrentSlotIndexChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandSlotManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandSlotManager>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandSlotManager {
     type Vtable = <IMobileBroadbandSlotManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandSlotManager as windows_core::Interface>::IID;
@@ -5117,9 +5117,6 @@ impl windows_core::RuntimeName for MobileBroadbandSlotManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandTransmissionStateChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandTransmissionStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandTransmissionStateChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandTransmissionStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandTransmissionStateChangedEventArgs,);
 impl MobileBroadbandTransmissionStateChangedEventArgs {
@@ -5131,6 +5128,9 @@ impl MobileBroadbandTransmissionStateChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandTransmissionStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandTransmissionStateChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandTransmissionStateChangedEventArgs {
     type Vtable = <IMobileBroadbandTransmissionStateChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandTransmissionStateChangedEventArgs as windows_core::Interface>::IID;
@@ -5141,9 +5141,6 @@ impl windows_core::RuntimeName for MobileBroadbandTransmissionStateChangedEventA
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandUicc(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandUicc {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUicc>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandUicc, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandUicc,);
 impl MobileBroadbandUicc {
@@ -5162,6 +5159,9 @@ impl MobileBroadbandUicc {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandUicc {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUicc>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandUicc {
     type Vtable = <IMobileBroadbandUicc as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandUicc as windows_core::Interface>::IID;
@@ -5172,9 +5172,6 @@ impl windows_core::RuntimeName for MobileBroadbandUicc {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandUiccApp(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandUiccApp {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUiccApp>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandUiccApp, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandUiccApp,);
 impl MobileBroadbandUiccApp {
@@ -5216,6 +5213,9 @@ impl MobileBroadbandUiccApp {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandUiccApp {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUiccApp>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandUiccApp {
     type Vtable = <IMobileBroadbandUiccApp as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandUiccApp as windows_core::Interface>::IID;
@@ -5226,9 +5226,6 @@ impl windows_core::RuntimeName for MobileBroadbandUiccApp {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandUiccAppReadRecordResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandUiccAppReadRecordResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUiccAppReadRecordResult>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandUiccAppReadRecordResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandUiccAppReadRecordResult,);
 impl MobileBroadbandUiccAppReadRecordResult {
@@ -5248,6 +5245,9 @@ impl MobileBroadbandUiccAppReadRecordResult {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandUiccAppReadRecordResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUiccAppReadRecordResult>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandUiccAppReadRecordResult {
     type Vtable = <IMobileBroadbandUiccAppReadRecordResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandUiccAppReadRecordResult as windows_core::Interface>::IID;
@@ -5258,9 +5258,6 @@ impl windows_core::RuntimeName for MobileBroadbandUiccAppReadRecordResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandUiccAppRecordDetailsResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandUiccAppRecordDetailsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUiccAppRecordDetailsResult>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandUiccAppRecordDetailsResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandUiccAppRecordDetailsResult,);
 impl MobileBroadbandUiccAppRecordDetailsResult {
@@ -5307,6 +5304,9 @@ impl MobileBroadbandUiccAppRecordDetailsResult {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandUiccAppRecordDetailsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUiccAppRecordDetailsResult>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandUiccAppRecordDetailsResult {
     type Vtable = <IMobileBroadbandUiccAppRecordDetailsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandUiccAppRecordDetailsResult as windows_core::Interface>::IID;
@@ -5317,9 +5317,6 @@ impl windows_core::RuntimeName for MobileBroadbandUiccAppRecordDetailsResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandUiccAppsResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandUiccAppsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUiccAppsResult>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandUiccAppsResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandUiccAppsResult,);
 impl MobileBroadbandUiccAppsResult {
@@ -5339,6 +5336,9 @@ impl MobileBroadbandUiccAppsResult {
         }
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandUiccAppsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMobileBroadbandUiccAppsResult>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandUiccAppsResult {
     type Vtable = <IMobileBroadbandUiccAppsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMobileBroadbandUiccAppsResult as windows_core::Interface>::IID;
@@ -5349,9 +5349,6 @@ impl windows_core::RuntimeName for MobileBroadbandUiccAppsResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkOperatorDataUsageTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for NetworkOperatorDataUsageTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorDataUsageTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(NetworkOperatorDataUsageTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkOperatorDataUsageTriggerDetails,);
 impl NetworkOperatorDataUsageTriggerDetails {
@@ -5363,6 +5360,9 @@ impl NetworkOperatorDataUsageTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for NetworkOperatorDataUsageTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorDataUsageTriggerDetails>();
+}
 unsafe impl windows_core::Interface for NetworkOperatorDataUsageTriggerDetails {
     type Vtable = <INetworkOperatorDataUsageTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorDataUsageTriggerDetails as windows_core::Interface>::IID;
@@ -5373,9 +5373,6 @@ impl windows_core::RuntimeName for NetworkOperatorDataUsageTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkOperatorNotificationEventDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for NetworkOperatorNotificationEventDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorNotificationEventDetails>();
-}
 windows_core::imp::interface_hierarchy!(NetworkOperatorNotificationEventDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkOperatorNotificationEventDetails,);
 impl NetworkOperatorNotificationEventDetails {
@@ -5427,6 +5424,9 @@ impl NetworkOperatorNotificationEventDetails {
         unsafe { (windows_core::Interface::vtable(this).AuthorizeTethering)(windows_core::Interface::as_raw(this), allow, core::mem::transmute_copy(entitlementfailurereason)).ok() }
     }
 }
+impl windows_core::RuntimeType for NetworkOperatorNotificationEventDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorNotificationEventDetails>();
+}
 unsafe impl windows_core::Interface for NetworkOperatorNotificationEventDetails {
     type Vtable = <INetworkOperatorNotificationEventDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorNotificationEventDetails as windows_core::Interface>::IID;
@@ -5437,9 +5437,6 @@ impl windows_core::RuntimeName for NetworkOperatorNotificationEventDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkOperatorTetheringAccessPointConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for NetworkOperatorTetheringAccessPointConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringAccessPointConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringAccessPointConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkOperatorTetheringAccessPointConfiguration,);
 impl NetworkOperatorTetheringAccessPointConfiguration {
@@ -5523,6 +5520,9 @@ impl NetworkOperatorTetheringAccessPointConfiguration {
         unsafe { (windows_core::Interface::vtable(this).SetAuthenticationKind)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for NetworkOperatorTetheringAccessPointConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringAccessPointConfiguration>();
+}
 unsafe impl windows_core::Interface for NetworkOperatorTetheringAccessPointConfiguration {
     type Vtable = <INetworkOperatorTetheringAccessPointConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorTetheringAccessPointConfiguration as windows_core::Interface>::IID;
@@ -5533,9 +5533,6 @@ impl windows_core::RuntimeName for NetworkOperatorTetheringAccessPointConfigurat
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkOperatorTetheringClient(windows_core::IUnknown);
-impl windows_core::RuntimeType for NetworkOperatorTetheringClient {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringClient>();
-}
 windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringClient, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkOperatorTetheringClient,);
 impl NetworkOperatorTetheringClient {
@@ -5555,6 +5552,9 @@ impl NetworkOperatorTetheringClient {
         }
     }
 }
+impl windows_core::RuntimeType for NetworkOperatorTetheringClient {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringClient>();
+}
 unsafe impl windows_core::Interface for NetworkOperatorTetheringClient {
     type Vtable = <INetworkOperatorTetheringClient as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorTetheringClient as windows_core::Interface>::IID;
@@ -5565,9 +5565,6 @@ impl windows_core::RuntimeName for NetworkOperatorTetheringClient {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkOperatorTetheringManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for NetworkOperatorTetheringManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringManager>();
-}
 windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkOperatorTetheringManager,);
 impl NetworkOperatorTetheringManager {
@@ -5725,6 +5722,9 @@ impl NetworkOperatorTetheringManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for NetworkOperatorTetheringManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringManager>();
+}
 unsafe impl windows_core::Interface for NetworkOperatorTetheringManager {
     type Vtable = <INetworkOperatorTetheringManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorTetheringManager as windows_core::Interface>::IID;
@@ -5735,9 +5735,6 @@ impl windows_core::RuntimeName for NetworkOperatorTetheringManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkOperatorTetheringOperationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for NetworkOperatorTetheringOperationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringOperationResult>();
-}
 windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringOperationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkOperatorTetheringOperationResult,);
 impl NetworkOperatorTetheringOperationResult {
@@ -5756,6 +5753,9 @@ impl NetworkOperatorTetheringOperationResult {
         }
     }
 }
+impl windows_core::RuntimeType for NetworkOperatorTetheringOperationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringOperationResult>();
+}
 unsafe impl windows_core::Interface for NetworkOperatorTetheringOperationResult {
     type Vtable = <INetworkOperatorTetheringOperationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorTetheringOperationResult as windows_core::Interface>::IID;
@@ -5766,9 +5766,6 @@ impl windows_core::RuntimeName for NetworkOperatorTetheringOperationResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkOperatorTetheringSessionAccessPointConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for NetworkOperatorTetheringSessionAccessPointConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringSessionAccessPointConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(NetworkOperatorTetheringSessionAccessPointConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkOperatorTetheringSessionAccessPointConfiguration,);
 impl NetworkOperatorTetheringSessionAccessPointConfiguration {
@@ -5863,6 +5860,9 @@ impl NetworkOperatorTetheringSessionAccessPointConfiguration {
         unsafe { (windows_core::Interface::vtable(this).SetPerformancePriority)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for NetworkOperatorTetheringSessionAccessPointConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorTetheringSessionAccessPointConfiguration>();
+}
 unsafe impl windows_core::Interface for NetworkOperatorTetheringSessionAccessPointConfiguration {
     type Vtable = <INetworkOperatorTetheringSessionAccessPointConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorTetheringSessionAccessPointConfiguration as windows_core::Interface>::IID;
@@ -5873,9 +5873,6 @@ impl windows_core::RuntimeName for NetworkOperatorTetheringSessionAccessPointCon
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProvisionFromXmlDocumentResults(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProvisionFromXmlDocumentResults {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProvisionFromXmlDocumentResults>();
-}
 windows_core::imp::interface_hierarchy!(ProvisionFromXmlDocumentResults, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProvisionFromXmlDocumentResults,);
 impl ProvisionFromXmlDocumentResults {
@@ -5894,6 +5891,9 @@ impl ProvisionFromXmlDocumentResults {
         }
     }
 }
+impl windows_core::RuntimeType for ProvisionFromXmlDocumentResults {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProvisionFromXmlDocumentResults>();
+}
 unsafe impl windows_core::Interface for ProvisionFromXmlDocumentResults {
     type Vtable = <IProvisionFromXmlDocumentResults as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProvisionFromXmlDocumentResults as windows_core::Interface>::IID;
@@ -5904,9 +5904,6 @@ impl windows_core::RuntimeName for ProvisionFromXmlDocumentResults {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProvisionedProfile(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProvisionedProfile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProvisionedProfile>();
-}
 windows_core::imp::interface_hierarchy!(ProvisionedProfile, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProvisionedProfile,);
 impl ProvisionedProfile {
@@ -5920,6 +5917,9 @@ impl ProvisionedProfile {
         unsafe { (windows_core::Interface::vtable(this).UpdateUsage)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for ProvisionedProfile {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProvisionedProfile>();
+}
 unsafe impl windows_core::Interface for ProvisionedProfile {
     type Vtable = <IProvisionedProfile as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProvisionedProfile as windows_core::Interface>::IID;
@@ -5930,9 +5930,6 @@ impl windows_core::RuntimeName for ProvisionedProfile {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProvisioningAgent(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProvisioningAgent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProvisioningAgent>();
-}
 windows_core::imp::interface_hierarchy!(ProvisioningAgent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProvisioningAgent,);
 impl ProvisioningAgent {
@@ -5968,6 +5965,9 @@ impl ProvisioningAgent {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ProvisioningAgent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProvisioningAgent>();
+}
 unsafe impl windows_core::Interface for ProvisioningAgent {
     type Vtable = <IProvisioningAgent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProvisioningAgent as windows_core::Interface>::IID;
@@ -5978,9 +5978,6 @@ impl windows_core::RuntimeName for ProvisioningAgent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TetheringEntitlementCheckTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for TetheringEntitlementCheckTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITetheringEntitlementCheckTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(TetheringEntitlementCheckTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TetheringEntitlementCheckTriggerDetails,);
 impl TetheringEntitlementCheckTriggerDetails {
@@ -6000,6 +5997,9 @@ impl TetheringEntitlementCheckTriggerDetails {
         unsafe { (windows_core::Interface::vtable(this).DenyTethering)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(entitlementfailurereason)).ok() }
     }
 }
+impl windows_core::RuntimeType for TetheringEntitlementCheckTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITetheringEntitlementCheckTriggerDetails>();
+}
 unsafe impl windows_core::Interface for TetheringEntitlementCheckTriggerDetails {
     type Vtable = <ITetheringEntitlementCheckTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITetheringEntitlementCheckTriggerDetails as windows_core::Interface>::IID;
@@ -6010,9 +6010,6 @@ impl windows_core::RuntimeName for TetheringEntitlementCheckTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UssdMessage(windows_core::IUnknown);
-impl windows_core::RuntimeType for UssdMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUssdMessage>();
-}
 windows_core::imp::interface_hierarchy!(UssdMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UssdMessage,);
 impl UssdMessage {
@@ -6060,6 +6057,9 @@ impl UssdMessage {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for UssdMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUssdMessage>();
+}
 unsafe impl windows_core::Interface for UssdMessage {
     type Vtable = <IUssdMessage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUssdMessage as windows_core::Interface>::IID;
@@ -6070,9 +6070,6 @@ impl windows_core::RuntimeName for UssdMessage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UssdReply(windows_core::IUnknown);
-impl windows_core::RuntimeType for UssdReply {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUssdReply>();
-}
 windows_core::imp::interface_hierarchy!(UssdReply, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UssdReply,);
 impl UssdReply {
@@ -6091,6 +6088,9 @@ impl UssdReply {
         }
     }
 }
+impl windows_core::RuntimeType for UssdReply {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUssdReply>();
+}
 unsafe impl windows_core::Interface for UssdReply {
     type Vtable = <IUssdReply as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUssdReply as windows_core::Interface>::IID;
@@ -6101,9 +6101,6 @@ impl windows_core::RuntimeName for UssdReply {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UssdSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for UssdSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUssdSession>();
-}
 windows_core::imp::interface_hierarchy!(UssdSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UssdSession,);
 impl UssdSession {
@@ -6137,6 +6134,9 @@ impl UssdSession {
         static SHARED: windows_core::imp::FactoryCache<UssdSession, IUssdSessionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for UssdSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUssdSession>();
 }
 unsafe impl windows_core::Interface for UssdSession {
     type Vtable = <IUssdSession as windows_core::Interface>::Vtable;
@@ -6738,7 +6738,7 @@ impl windows_core::RuntimeType for UssdResultCode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.UssdResultCode;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct ESimProfileInstallProgress {
     pub TotalSizeInBytes: i32,
     pub InstalledSizeInBytes: i32,
@@ -6750,7 +6750,7 @@ impl windows_core::RuntimeType for ESimProfileInstallProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ESimProfileInstallProgress;i4;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct ProfileUsage {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: super::super::Foundation::DateTime,

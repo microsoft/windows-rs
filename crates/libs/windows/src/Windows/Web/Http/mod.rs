@@ -613,9 +613,6 @@ pub struct IHttpTransportInformation_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpBufferContent(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpBufferContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
-}
 windows_core::imp::interface_hierarchy!(HttpBufferContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpBufferContent, super::super::Foundation::IClosable, super::super::Foundation::IStringable, IHttpContent);
 impl HttpBufferContent {
@@ -711,6 +708,9 @@ impl HttpBufferContent {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HttpBufferContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
+}
 unsafe impl windows_core::Interface for HttpBufferContent {
     type Vtable = <IHttpContent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpContent as windows_core::Interface>::IID;
@@ -721,9 +721,6 @@ impl windows_core::RuntimeName for HttpBufferContent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpClient(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpClient {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpClient>();
-}
 windows_core::imp::interface_hierarchy!(HttpClient, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpClient, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
 impl HttpClient {
@@ -985,6 +982,9 @@ impl HttpClient {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HttpClient {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpClient>();
+}
 unsafe impl windows_core::Interface for HttpClient {
     type Vtable = <IHttpClient as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpClient as windows_core::Interface>::IID;
@@ -995,9 +995,6 @@ impl windows_core::RuntimeName for HttpClient {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpCookie(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpCookie {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpCookie>();
-}
 windows_core::imp::interface_hierarchy!(HttpCookie, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpCookie, super::super::Foundation::IStringable);
 impl HttpCookie {
@@ -1087,6 +1084,9 @@ impl HttpCookie {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HttpCookie {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpCookie>();
+}
 unsafe impl windows_core::Interface for HttpCookie {
     type Vtable = <IHttpCookie as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpCookie as windows_core::Interface>::IID;
@@ -1098,10 +1098,6 @@ impl windows_core::RuntimeName for HttpCookie {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpCookieCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for HttpCookieCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVectorView<HttpCookie>>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpCookieCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -1149,6 +1145,10 @@ impl HttpCookieCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for HttpCookieCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVectorView<HttpCookie>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpCookieCollection {
     type Vtable = <super::super::Foundation::Collections::IVectorView<HttpCookie> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::Foundation::Collections::IVectorView<HttpCookie> as windows_core::Interface>::IID;
@@ -1160,9 +1160,6 @@ impl windows_core::RuntimeName for HttpCookieCollection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpCookieManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpCookieManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpCookieManager>();
-}
 windows_core::imp::interface_hierarchy!(HttpCookieManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpCookieManager,);
 impl HttpCookieManager {
@@ -1205,6 +1202,9 @@ impl HttpCookieManager {
         }
     }
 }
+impl windows_core::RuntimeType for HttpCookieManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpCookieManager>();
+}
 unsafe impl windows_core::Interface for HttpCookieManager {
     type Vtable = <IHttpCookieManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpCookieManager as windows_core::Interface>::IID;
@@ -1215,9 +1215,6 @@ impl windows_core::RuntimeName for HttpCookieManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpFormUrlEncodedContent(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpFormUrlEncodedContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
-}
 windows_core::imp::interface_hierarchy!(HttpFormUrlEncodedContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpFormUrlEncodedContent, super::super::Foundation::IClosable, super::super::Foundation::IStringable, IHttpContent);
 impl HttpFormUrlEncodedContent {
@@ -1303,6 +1300,9 @@ impl HttpFormUrlEncodedContent {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HttpFormUrlEncodedContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
+}
 unsafe impl windows_core::Interface for HttpFormUrlEncodedContent {
     type Vtable = <IHttpContent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpContent as windows_core::Interface>::IID;
@@ -1313,9 +1313,6 @@ impl windows_core::RuntimeName for HttpFormUrlEncodedContent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpGetBufferResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpGetBufferResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpGetBufferResult>();
-}
 windows_core::imp::interface_hierarchy!(HttpGetBufferResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpGetBufferResult, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
 impl HttpGetBufferResult {
@@ -1367,6 +1364,9 @@ impl HttpGetBufferResult {
         }
     }
 }
+impl windows_core::RuntimeType for HttpGetBufferResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpGetBufferResult>();
+}
 unsafe impl windows_core::Interface for HttpGetBufferResult {
     type Vtable = <IHttpGetBufferResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpGetBufferResult as windows_core::Interface>::IID;
@@ -1377,9 +1377,6 @@ impl windows_core::RuntimeName for HttpGetBufferResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpGetInputStreamResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpGetInputStreamResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpGetInputStreamResult>();
-}
 windows_core::imp::interface_hierarchy!(HttpGetInputStreamResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpGetInputStreamResult, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
 impl HttpGetInputStreamResult {
@@ -1431,6 +1428,9 @@ impl HttpGetInputStreamResult {
         }
     }
 }
+impl windows_core::RuntimeType for HttpGetInputStreamResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpGetInputStreamResult>();
+}
 unsafe impl windows_core::Interface for HttpGetInputStreamResult {
     type Vtable = <IHttpGetInputStreamResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpGetInputStreamResult as windows_core::Interface>::IID;
@@ -1441,9 +1441,6 @@ impl windows_core::RuntimeName for HttpGetInputStreamResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpGetStringResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpGetStringResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpGetStringResult>();
-}
 windows_core::imp::interface_hierarchy!(HttpGetStringResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpGetStringResult, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
 impl HttpGetStringResult {
@@ -1494,6 +1491,9 @@ impl HttpGetStringResult {
         }
     }
 }
+impl windows_core::RuntimeType for HttpGetStringResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpGetStringResult>();
+}
 unsafe impl windows_core::Interface for HttpGetStringResult {
     type Vtable = <IHttpGetStringResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpGetStringResult as windows_core::Interface>::IID;
@@ -1504,9 +1504,6 @@ impl windows_core::RuntimeName for HttpGetStringResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpMethod(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpMethod {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpMethod>();
-}
 windows_core::imp::interface_hierarchy!(HttpMethod, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpMethod, super::super::Foundation::IStringable);
 impl HttpMethod {
@@ -1581,6 +1578,9 @@ impl HttpMethod {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HttpMethod {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpMethod>();
+}
 unsafe impl windows_core::Interface for HttpMethod {
     type Vtable = <IHttpMethod as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpMethod as windows_core::Interface>::IID;
@@ -1592,10 +1592,6 @@ impl windows_core::RuntimeName for HttpMethod {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpMultipartContent(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for HttpMultipartContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpMultipartContent, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -1709,6 +1705,10 @@ impl HttpMultipartContent {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for HttpMultipartContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpMultipartContent {
     type Vtable = <IHttpContent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpContent as windows_core::Interface>::IID;
@@ -1721,10 +1721,6 @@ impl windows_core::RuntimeName for HttpMultipartContent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpMultipartFormDataContent(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for HttpMultipartFormDataContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(HttpMultipartFormDataContent, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -1846,6 +1842,10 @@ impl HttpMultipartFormDataContent {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for HttpMultipartFormDataContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for HttpMultipartFormDataContent {
     type Vtable = <IHttpContent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpContent as windows_core::Interface>::IID;
@@ -1857,9 +1857,6 @@ impl windows_core::RuntimeName for HttpMultipartFormDataContent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpRequestMessage(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpRequestMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpRequestMessage>();
-}
 windows_core::imp::interface_hierarchy!(HttpRequestMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpRequestMessage, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
 impl HttpRequestMessage {
@@ -1972,6 +1969,9 @@ impl HttpRequestMessage {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HttpRequestMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpRequestMessage>();
+}
 unsafe impl windows_core::Interface for HttpRequestMessage {
     type Vtable = <IHttpRequestMessage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpRequestMessage as windows_core::Interface>::IID;
@@ -1982,9 +1982,6 @@ impl windows_core::RuntimeName for HttpRequestMessage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpRequestResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpRequestResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpRequestResult>();
-}
 windows_core::imp::interface_hierarchy!(HttpRequestResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpRequestResult, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
 impl HttpRequestResult {
@@ -2028,6 +2025,9 @@ impl HttpRequestResult {
         }
     }
 }
+impl windows_core::RuntimeType for HttpRequestResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpRequestResult>();
+}
 unsafe impl windows_core::Interface for HttpRequestResult {
     type Vtable = <IHttpRequestResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpRequestResult as windows_core::Interface>::IID;
@@ -2038,9 +2038,6 @@ impl windows_core::RuntimeName for HttpRequestResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpResponseMessage(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpResponseMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpResponseMessage>();
-}
 windows_core::imp::interface_hierarchy!(HttpResponseMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpResponseMessage, super::super::Foundation::IClosable, super::super::Foundation::IStringable);
 impl HttpResponseMessage {
@@ -2167,6 +2164,9 @@ impl HttpResponseMessage {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HttpResponseMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpResponseMessage>();
+}
 unsafe impl windows_core::Interface for HttpResponseMessage {
     type Vtable = <IHttpResponseMessage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpResponseMessage as windows_core::Interface>::IID;
@@ -2177,9 +2177,6 @@ impl windows_core::RuntimeName for HttpResponseMessage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpStreamContent(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpStreamContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
-}
 windows_core::imp::interface_hierarchy!(HttpStreamContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpStreamContent, super::super::Foundation::IClosable, super::super::Foundation::IStringable, IHttpContent);
 impl HttpStreamContent {
@@ -2265,6 +2262,9 @@ impl HttpStreamContent {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HttpStreamContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
+}
 unsafe impl windows_core::Interface for HttpStreamContent {
     type Vtable = <IHttpContent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpContent as windows_core::Interface>::IID;
@@ -2275,9 +2275,6 @@ impl windows_core::RuntimeName for HttpStreamContent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpStringContent(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpStringContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
-}
 windows_core::imp::interface_hierarchy!(HttpStringContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpStringContent, super::super::Foundation::IClosable, super::super::Foundation::IStringable, IHttpContent);
 impl HttpStringContent {
@@ -2373,6 +2370,9 @@ impl HttpStringContent {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HttpStringContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpContent>();
+}
 unsafe impl windows_core::Interface for HttpStringContent {
     type Vtable = <IHttpContent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpContent as windows_core::Interface>::IID;
@@ -2383,9 +2383,6 @@ impl windows_core::RuntimeName for HttpStringContent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpTransportInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpTransportInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpTransportInformation>();
-}
 windows_core::imp::interface_hierarchy!(HttpTransportInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpTransportInformation, super::super::Foundation::IStringable);
 impl HttpTransportInformation {
@@ -2428,6 +2425,9 @@ impl HttpTransportInformation {
             (windows_core::Interface::vtable(this).ServerIntermediateCertificates)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for HttpTransportInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpTransportInformation>();
 }
 unsafe impl windows_core::Interface for HttpTransportInformation {
     type Vtable = <IHttpTransportInformation as windows_core::Interface>::Vtable;

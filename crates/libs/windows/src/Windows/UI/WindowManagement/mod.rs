@@ -324,9 +324,6 @@ pub struct IWindowingEnvironmentStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindow(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppWindow {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindow>();
-}
 windows_core::imp::interface_hierarchy!(AppWindow, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppWindow,);
 impl AppWindow {
@@ -537,6 +534,9 @@ impl AppWindow {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AppWindow {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindow>();
+}
 unsafe impl windows_core::Interface for AppWindow {
     type Vtable = <IAppWindow as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppWindow as windows_core::Interface>::IID;
@@ -547,9 +547,6 @@ impl windows_core::RuntimeName for AppWindow {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppWindowChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AppWindowChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppWindowChangedEventArgs,);
 impl AppWindowChangedEventArgs {
@@ -610,6 +607,9 @@ impl AppWindowChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AppWindowChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for AppWindowChangedEventArgs {
     type Vtable = <IAppWindowChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppWindowChangedEventArgs as windows_core::Interface>::IID;
@@ -620,9 +620,6 @@ impl windows_core::RuntimeName for AppWindowChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowCloseRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppWindowCloseRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowCloseRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AppWindowCloseRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppWindowCloseRequestedEventArgs,);
 impl AppWindowCloseRequestedEventArgs {
@@ -645,6 +642,9 @@ impl AppWindowCloseRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AppWindowCloseRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowCloseRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for AppWindowCloseRequestedEventArgs {
     type Vtable = <IAppWindowCloseRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppWindowCloseRequestedEventArgs as windows_core::Interface>::IID;
@@ -655,9 +655,6 @@ impl windows_core::RuntimeName for AppWindowCloseRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowClosedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppWindowClosedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowClosedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AppWindowClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppWindowClosedEventArgs,);
 impl AppWindowClosedEventArgs {
@@ -669,6 +666,9 @@ impl AppWindowClosedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AppWindowClosedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowClosedEventArgs>();
+}
 unsafe impl windows_core::Interface for AppWindowClosedEventArgs {
     type Vtable = <IAppWindowClosedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppWindowClosedEventArgs as windows_core::Interface>::IID;
@@ -679,9 +679,6 @@ impl windows_core::RuntimeName for AppWindowClosedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowFrame(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppWindowFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowFrame>();
-}
 windows_core::imp::interface_hierarchy!(AppWindowFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppWindowFrame,);
 impl AppWindowFrame {
@@ -705,6 +702,9 @@ impl AppWindowFrame {
         unsafe { (windows_core::Interface::vtable(this).SetFrameStyle)(windows_core::Interface::as_raw(this), framestyle).ok() }
     }
 }
+impl windows_core::RuntimeType for AppWindowFrame {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowFrame>();
+}
 unsafe impl windows_core::Interface for AppWindowFrame {
     type Vtable = <IAppWindowFrame as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppWindowFrame as windows_core::Interface>::IID;
@@ -715,9 +715,6 @@ impl windows_core::RuntimeName for AppWindowFrame {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowPlacement(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppWindowPlacement {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowPlacement>();
-}
 windows_core::imp::interface_hierarchy!(AppWindowPlacement, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppWindowPlacement,);
 impl AppWindowPlacement {
@@ -743,6 +740,9 @@ impl AppWindowPlacement {
         }
     }
 }
+impl windows_core::RuntimeType for AppWindowPlacement {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowPlacement>();
+}
 unsafe impl windows_core::Interface for AppWindowPlacement {
     type Vtable = <IAppWindowPlacement as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppWindowPlacement as windows_core::Interface>::IID;
@@ -753,9 +753,6 @@ impl windows_core::RuntimeName for AppWindowPlacement {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowPresentationConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppWindowPresentationConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowPresentationConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(AppWindowPresentationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppWindowPresentationConfiguration,);
 impl AppWindowPresentationConfiguration {
@@ -767,6 +764,9 @@ impl AppWindowPresentationConfiguration {
         }
     }
 }
+impl windows_core::RuntimeType for AppWindowPresentationConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowPresentationConfiguration>();
+}
 unsafe impl windows_core::Interface for AppWindowPresentationConfiguration {
     type Vtable = <IAppWindowPresentationConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppWindowPresentationConfiguration as windows_core::Interface>::IID;
@@ -777,9 +777,6 @@ impl windows_core::RuntimeName for AppWindowPresentationConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowPresenter(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppWindowPresenter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowPresenter>();
-}
 windows_core::imp::interface_hierarchy!(AppWindowPresenter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppWindowPresenter,);
 impl AppWindowPresenter {
@@ -815,6 +812,9 @@ impl AppWindowPresenter {
         }
     }
 }
+impl windows_core::RuntimeType for AppWindowPresenter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowPresenter>();
+}
 unsafe impl windows_core::Interface for AppWindowPresenter {
     type Vtable = <IAppWindowPresenter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppWindowPresenter as windows_core::Interface>::IID;
@@ -825,9 +825,6 @@ impl windows_core::RuntimeName for AppWindowPresenter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowTitleBar(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppWindowTitleBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowTitleBar>();
-}
 windows_core::imp::interface_hierarchy!(AppWindowTitleBar, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppWindowTitleBar,);
 impl AppWindowTitleBar {
@@ -1037,6 +1034,9 @@ impl AppWindowTitleBar {
         unsafe { (windows_core::Interface::vtable(this).SetPreferredVisibility)(windows_core::Interface::as_raw(this), visibilitymode).ok() }
     }
 }
+impl windows_core::RuntimeType for AppWindowTitleBar {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowTitleBar>();
+}
 unsafe impl windows_core::Interface for AppWindowTitleBar {
     type Vtable = <IAppWindowTitleBar as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppWindowTitleBar as windows_core::Interface>::IID;
@@ -1047,9 +1047,6 @@ impl windows_core::RuntimeName for AppWindowTitleBar {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppWindowTitleBarOcclusion(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppWindowTitleBarOcclusion {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowTitleBarOcclusion>();
-}
 windows_core::imp::interface_hierarchy!(AppWindowTitleBarOcclusion, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppWindowTitleBarOcclusion,);
 impl AppWindowTitleBarOcclusion {
@@ -1061,6 +1058,9 @@ impl AppWindowTitleBarOcclusion {
         }
     }
 }
+impl windows_core::RuntimeType for AppWindowTitleBarOcclusion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppWindowTitleBarOcclusion>();
+}
 unsafe impl windows_core::Interface for AppWindowTitleBarOcclusion {
     type Vtable = <IAppWindowTitleBarOcclusion as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppWindowTitleBarOcclusion as windows_core::Interface>::IID;
@@ -1071,9 +1071,6 @@ impl windows_core::RuntimeName for AppWindowTitleBarOcclusion {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompactOverlayPresentationConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompactOverlayPresentationConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompactOverlayPresentationConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(CompactOverlayPresentationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompactOverlayPresentationConfiguration,);
 impl CompactOverlayPresentationConfiguration {
@@ -1092,6 +1089,9 @@ impl CompactOverlayPresentationConfiguration {
         }
     }
 }
+impl windows_core::RuntimeType for CompactOverlayPresentationConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompactOverlayPresentationConfiguration>();
+}
 unsafe impl windows_core::Interface for CompactOverlayPresentationConfiguration {
     type Vtable = <ICompactOverlayPresentationConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompactOverlayPresentationConfiguration as windows_core::Interface>::IID;
@@ -1102,9 +1102,6 @@ impl windows_core::RuntimeName for CompactOverlayPresentationConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DefaultPresentationConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for DefaultPresentationConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDefaultPresentationConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(DefaultPresentationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DefaultPresentationConfiguration,);
 impl DefaultPresentationConfiguration {
@@ -1123,6 +1120,9 @@ impl DefaultPresentationConfiguration {
         }
     }
 }
+impl windows_core::RuntimeType for DefaultPresentationConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDefaultPresentationConfiguration>();
+}
 unsafe impl windows_core::Interface for DefaultPresentationConfiguration {
     type Vtable = <IDefaultPresentationConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDefaultPresentationConfiguration as windows_core::Interface>::IID;
@@ -1133,9 +1133,6 @@ impl windows_core::RuntimeName for DefaultPresentationConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayRegion(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayRegion {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayRegion>();
-}
 windows_core::imp::interface_hierarchy!(DisplayRegion, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayRegion,);
 impl DisplayRegion {
@@ -1189,6 +1186,9 @@ impl DisplayRegion {
         unsafe { (windows_core::Interface::vtable(this).RemoveChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for DisplayRegion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayRegion>();
+}
 unsafe impl windows_core::Interface for DisplayRegion {
     type Vtable = <IDisplayRegion as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayRegion as windows_core::Interface>::IID;
@@ -1199,9 +1199,6 @@ impl windows_core::RuntimeName for DisplayRegion {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FullScreenPresentationConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for FullScreenPresentationConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFullScreenPresentationConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(FullScreenPresentationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FullScreenPresentationConfiguration,);
 impl FullScreenPresentationConfiguration {
@@ -1231,6 +1228,9 @@ impl FullScreenPresentationConfiguration {
         unsafe { (windows_core::Interface::vtable(this).SetIsExclusive)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for FullScreenPresentationConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFullScreenPresentationConfiguration>();
+}
 unsafe impl windows_core::Interface for FullScreenPresentationConfiguration {
     type Vtable = <IFullScreenPresentationConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFullScreenPresentationConfiguration as windows_core::Interface>::IID;
@@ -1258,9 +1258,6 @@ impl windows_core::RuntimeName for WindowServices {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowingEnvironment(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowingEnvironment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironment>();
-}
 windows_core::imp::interface_hierarchy!(WindowingEnvironment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowingEnvironment,);
 impl WindowingEnvironment {
@@ -1319,6 +1316,9 @@ impl WindowingEnvironment {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WindowingEnvironment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironment>();
+}
 unsafe impl windows_core::Interface for WindowingEnvironment {
     type Vtable = <IWindowingEnvironment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowingEnvironment as windows_core::Interface>::IID;
@@ -1329,9 +1329,6 @@ impl windows_core::RuntimeName for WindowingEnvironment {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowingEnvironmentAddedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowingEnvironmentAddedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironmentAddedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WindowingEnvironmentAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowingEnvironmentAddedEventArgs,);
 impl WindowingEnvironmentAddedEventArgs {
@@ -1343,6 +1340,9 @@ impl WindowingEnvironmentAddedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WindowingEnvironmentAddedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironmentAddedEventArgs>();
+}
 unsafe impl windows_core::Interface for WindowingEnvironmentAddedEventArgs {
     type Vtable = <IWindowingEnvironmentAddedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowingEnvironmentAddedEventArgs as windows_core::Interface>::IID;
@@ -1353,12 +1353,12 @@ impl windows_core::RuntimeName for WindowingEnvironmentAddedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowingEnvironmentChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowingEnvironmentChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironmentChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WindowingEnvironmentChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowingEnvironmentChangedEventArgs,);
 impl WindowingEnvironmentChangedEventArgs {}
+impl windows_core::RuntimeType for WindowingEnvironmentChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironmentChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for WindowingEnvironmentChangedEventArgs {
     type Vtable = <IWindowingEnvironmentChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowingEnvironmentChangedEventArgs as windows_core::Interface>::IID;
@@ -1369,9 +1369,6 @@ impl windows_core::RuntimeName for WindowingEnvironmentChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowingEnvironmentRemovedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowingEnvironmentRemovedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironmentRemovedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WindowingEnvironmentRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowingEnvironmentRemovedEventArgs,);
 impl WindowingEnvironmentRemovedEventArgs {
@@ -1382,6 +1379,9 @@ impl WindowingEnvironmentRemovedEventArgs {
             (windows_core::Interface::vtable(this).WindowingEnvironment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for WindowingEnvironmentRemovedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowingEnvironmentRemovedEventArgs>();
 }
 unsafe impl windows_core::Interface for WindowingEnvironmentRemovedEventArgs {
     type Vtable = <IWindowingEnvironmentRemovedEventArgs as windows_core::Interface>::Vtable;

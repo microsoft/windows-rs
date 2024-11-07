@@ -43,9 +43,6 @@ pub struct IHardwareButtonsStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackPressedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackPressedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackPressedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(BackPressedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackPressedEventArgs,);
 impl BackPressedEventArgs {
@@ -61,6 +58,9 @@ impl BackPressedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for BackPressedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackPressedEventArgs>();
+}
 unsafe impl windows_core::Interface for BackPressedEventArgs {
     type Vtable = <IBackPressedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackPressedEventArgs as windows_core::Interface>::IID;
@@ -71,12 +71,12 @@ impl windows_core::RuntimeName for BackPressedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CameraEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CameraEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICameraEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CameraEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CameraEventArgs,);
 impl CameraEventArgs {}
+impl windows_core::RuntimeType for CameraEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICameraEventArgs>();
+}
 unsafe impl windows_core::Interface for CameraEventArgs {
     type Vtable = <ICameraEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICameraEventArgs as windows_core::Interface>::IID;

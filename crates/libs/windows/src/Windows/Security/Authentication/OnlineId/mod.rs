@@ -118,9 +118,6 @@ pub struct IUserIdentity_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OnlineIdAuthenticator(windows_core::IUnknown);
-impl windows_core::RuntimeType for OnlineIdAuthenticator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOnlineIdAuthenticator>();
-}
 windows_core::imp::interface_hierarchy!(OnlineIdAuthenticator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OnlineIdAuthenticator,);
 impl OnlineIdAuthenticator {
@@ -185,6 +182,9 @@ impl OnlineIdAuthenticator {
         }
     }
 }
+impl windows_core::RuntimeType for OnlineIdAuthenticator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOnlineIdAuthenticator>();
+}
 unsafe impl windows_core::Interface for OnlineIdAuthenticator {
     type Vtable = <IOnlineIdAuthenticator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOnlineIdAuthenticator as windows_core::Interface>::IID;
@@ -195,9 +195,6 @@ impl windows_core::RuntimeName for OnlineIdAuthenticator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OnlineIdServiceTicket(windows_core::IUnknown);
-impl windows_core::RuntimeType for OnlineIdServiceTicket {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOnlineIdServiceTicket>();
-}
 windows_core::imp::interface_hierarchy!(OnlineIdServiceTicket, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OnlineIdServiceTicket,);
 impl OnlineIdServiceTicket {
@@ -223,6 +220,9 @@ impl OnlineIdServiceTicket {
         }
     }
 }
+impl windows_core::RuntimeType for OnlineIdServiceTicket {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOnlineIdServiceTicket>();
+}
 unsafe impl windows_core::Interface for OnlineIdServiceTicket {
     type Vtable = <IOnlineIdServiceTicket as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOnlineIdServiceTicket as windows_core::Interface>::IID;
@@ -233,9 +233,6 @@ impl windows_core::RuntimeName for OnlineIdServiceTicket {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OnlineIdServiceTicketRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for OnlineIdServiceTicketRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOnlineIdServiceTicketRequest>();
-}
 windows_core::imp::interface_hierarchy!(OnlineIdServiceTicketRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OnlineIdServiceTicketRequest,);
 impl OnlineIdServiceTicketRequest {
@@ -269,6 +266,9 @@ impl OnlineIdServiceTicketRequest {
         static SHARED: windows_core::imp::FactoryCache<OnlineIdServiceTicketRequest, IOnlineIdServiceTicketRequestFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for OnlineIdServiceTicketRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOnlineIdServiceTicketRequest>();
 }
 unsafe impl windows_core::Interface for OnlineIdServiceTicketRequest {
     type Vtable = <IOnlineIdServiceTicketRequest as windows_core::Interface>::Vtable;
@@ -306,9 +306,6 @@ impl windows_core::RuntimeName for OnlineIdSystemAuthenticator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OnlineIdSystemAuthenticatorForUser(windows_core::IUnknown);
-impl windows_core::RuntimeType for OnlineIdSystemAuthenticatorForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOnlineIdSystemAuthenticatorForUser>();
-}
 windows_core::imp::interface_hierarchy!(OnlineIdSystemAuthenticatorForUser, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OnlineIdSystemAuthenticatorForUser,);
 impl OnlineIdSystemAuthenticatorForUser {
@@ -342,6 +339,9 @@ impl OnlineIdSystemAuthenticatorForUser {
         }
     }
 }
+impl windows_core::RuntimeType for OnlineIdSystemAuthenticatorForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOnlineIdSystemAuthenticatorForUser>();
+}
 unsafe impl windows_core::Interface for OnlineIdSystemAuthenticatorForUser {
     type Vtable = <IOnlineIdSystemAuthenticatorForUser as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOnlineIdSystemAuthenticatorForUser as windows_core::Interface>::IID;
@@ -352,9 +352,6 @@ impl windows_core::RuntimeName for OnlineIdSystemAuthenticatorForUser {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OnlineIdSystemIdentity(windows_core::IUnknown);
-impl windows_core::RuntimeType for OnlineIdSystemIdentity {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOnlineIdSystemIdentity>();
-}
 windows_core::imp::interface_hierarchy!(OnlineIdSystemIdentity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OnlineIdSystemIdentity,);
 impl OnlineIdSystemIdentity {
@@ -373,6 +370,9 @@ impl OnlineIdSystemIdentity {
         }
     }
 }
+impl windows_core::RuntimeType for OnlineIdSystemIdentity {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOnlineIdSystemIdentity>();
+}
 unsafe impl windows_core::Interface for OnlineIdSystemIdentity {
     type Vtable = <IOnlineIdSystemIdentity as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOnlineIdSystemIdentity as windows_core::Interface>::IID;
@@ -383,9 +383,6 @@ impl windows_core::RuntimeName for OnlineIdSystemIdentity {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OnlineIdSystemTicketResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for OnlineIdSystemTicketResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOnlineIdSystemTicketResult>();
-}
 windows_core::imp::interface_hierarchy!(OnlineIdSystemTicketResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OnlineIdSystemTicketResult,);
 impl OnlineIdSystemTicketResult {
@@ -411,6 +408,9 @@ impl OnlineIdSystemTicketResult {
         }
     }
 }
+impl windows_core::RuntimeType for OnlineIdSystemTicketResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOnlineIdSystemTicketResult>();
+}
 unsafe impl windows_core::Interface for OnlineIdSystemTicketResult {
     type Vtable = <IOnlineIdSystemTicketResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOnlineIdSystemTicketResult as windows_core::Interface>::IID;
@@ -421,9 +421,6 @@ impl windows_core::RuntimeName for OnlineIdSystemTicketResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SignOutUserOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for SignOutUserOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::IAsyncAction>();
-}
 windows_core::imp::interface_hierarchy!(SignOutUserOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SignOutUserOperation, super::super::super::Foundation::IAsyncAction, super::super::super::Foundation::IAsyncInfo);
 impl SignOutUserOperation {
@@ -475,6 +472,9 @@ impl SignOutUserOperation {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for SignOutUserOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::IAsyncAction>();
+}
 unsafe impl windows_core::Interface for SignOutUserOperation {
     type Vtable = <super::super::super::Foundation::IAsyncAction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::super::Foundation::IAsyncAction as windows_core::Interface>::IID;
@@ -485,9 +485,6 @@ impl windows_core::RuntimeName for SignOutUserOperation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserAuthenticationOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserAuthenticationOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::IAsyncOperation<UserIdentity>>();
-}
 windows_core::imp::interface_hierarchy!(UserAuthenticationOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserAuthenticationOperation, super::super::super::Foundation::IAsyncInfo, super::super::super::Foundation::IAsyncOperation<UserIdentity>);
 impl UserAuthenticationOperation {
@@ -542,6 +539,9 @@ impl UserAuthenticationOperation {
         }
     }
 }
+impl windows_core::RuntimeType for UserAuthenticationOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::IAsyncOperation<UserIdentity>>();
+}
 unsafe impl windows_core::Interface for UserAuthenticationOperation {
     type Vtable = <super::super::super::Foundation::IAsyncOperation<UserIdentity> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::super::Foundation::IAsyncOperation<UserIdentity> as windows_core::Interface>::IID;
@@ -552,9 +552,6 @@ impl windows_core::RuntimeName for UserAuthenticationOperation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserIdentity(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserIdentity {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserIdentity>();
-}
 windows_core::imp::interface_hierarchy!(UserIdentity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserIdentity,);
 impl UserIdentity {
@@ -615,6 +612,9 @@ impl UserIdentity {
             (windows_core::Interface::vtable(this).IsConfirmedPC)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for UserIdentity {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserIdentity>();
 }
 unsafe impl windows_core::Interface for UserIdentity {
     type Vtable = <IUserIdentity as windows_core::Interface>::Vtable;

@@ -1241,9 +1241,6 @@ pub struct IWebViewControlWebResourceRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlContentLoadingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlContentLoadingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlContentLoadingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlContentLoadingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlContentLoadingEventArgs,);
 impl WebViewControlContentLoadingEventArgs {
@@ -1255,6 +1252,9 @@ impl WebViewControlContentLoadingEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WebViewControlContentLoadingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlContentLoadingEventArgs>();
+}
 unsafe impl windows_core::Interface for WebViewControlContentLoadingEventArgs {
     type Vtable = <IWebViewControlContentLoadingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlContentLoadingEventArgs as windows_core::Interface>::IID;
@@ -1265,9 +1265,6 @@ impl windows_core::RuntimeName for WebViewControlContentLoadingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlDOMContentLoadedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlDOMContentLoadedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlDOMContentLoadedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlDOMContentLoadedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlDOMContentLoadedEventArgs,);
 impl WebViewControlDOMContentLoadedEventArgs {
@@ -1279,6 +1276,9 @@ impl WebViewControlDOMContentLoadedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WebViewControlDOMContentLoadedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlDOMContentLoadedEventArgs>();
+}
 unsafe impl windows_core::Interface for WebViewControlDOMContentLoadedEventArgs {
     type Vtable = <IWebViewControlDOMContentLoadedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlDOMContentLoadedEventArgs as windows_core::Interface>::IID;
@@ -1289,9 +1289,6 @@ impl windows_core::RuntimeName for WebViewControlDOMContentLoadedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlDeferredPermissionRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlDeferredPermissionRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlDeferredPermissionRequest>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlDeferredPermissionRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlDeferredPermissionRequest,);
 impl WebViewControlDeferredPermissionRequest {
@@ -1325,6 +1322,9 @@ impl WebViewControlDeferredPermissionRequest {
         unsafe { (windows_core::Interface::vtable(this).Deny)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for WebViewControlDeferredPermissionRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlDeferredPermissionRequest>();
+}
 unsafe impl windows_core::Interface for WebViewControlDeferredPermissionRequest {
     type Vtable = <IWebViewControlDeferredPermissionRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlDeferredPermissionRequest as windows_core::Interface>::IID;
@@ -1335,9 +1335,6 @@ impl windows_core::RuntimeName for WebViewControlDeferredPermissionRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlLongRunningScriptDetectedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlLongRunningScriptDetectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlLongRunningScriptDetectedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlLongRunningScriptDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlLongRunningScriptDetectedEventArgs,);
 impl WebViewControlLongRunningScriptDetectedEventArgs {
@@ -1360,6 +1357,9 @@ impl WebViewControlLongRunningScriptDetectedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetStopPageScriptExecution)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for WebViewControlLongRunningScriptDetectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlLongRunningScriptDetectedEventArgs>();
+}
 unsafe impl windows_core::Interface for WebViewControlLongRunningScriptDetectedEventArgs {
     type Vtable = <IWebViewControlLongRunningScriptDetectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlLongRunningScriptDetectedEventArgs as windows_core::Interface>::IID;
@@ -1370,9 +1370,6 @@ impl windows_core::RuntimeName for WebViewControlLongRunningScriptDetectedEventA
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlNavigationCompletedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlNavigationCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlNavigationCompletedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlNavigationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlNavigationCompletedEventArgs,);
 impl WebViewControlNavigationCompletedEventArgs {
@@ -1398,6 +1395,9 @@ impl WebViewControlNavigationCompletedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WebViewControlNavigationCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlNavigationCompletedEventArgs>();
+}
 unsafe impl windows_core::Interface for WebViewControlNavigationCompletedEventArgs {
     type Vtable = <IWebViewControlNavigationCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlNavigationCompletedEventArgs as windows_core::Interface>::IID;
@@ -1408,9 +1408,6 @@ impl windows_core::RuntimeName for WebViewControlNavigationCompletedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlNavigationStartingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlNavigationStartingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlNavigationStartingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlNavigationStartingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlNavigationStartingEventArgs,);
 impl WebViewControlNavigationStartingEventArgs {
@@ -1433,6 +1430,9 @@ impl WebViewControlNavigationStartingEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetCancel)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for WebViewControlNavigationStartingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlNavigationStartingEventArgs>();
+}
 unsafe impl windows_core::Interface for WebViewControlNavigationStartingEventArgs {
     type Vtable = <IWebViewControlNavigationStartingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlNavigationStartingEventArgs as windows_core::Interface>::IID;
@@ -1443,9 +1443,6 @@ impl windows_core::RuntimeName for WebViewControlNavigationStartingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlNewWindowRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlNewWindowRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlNewWindowRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlNewWindowRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlNewWindowRequestedEventArgs,);
 impl WebViewControlNewWindowRequestedEventArgs {
@@ -1496,6 +1493,9 @@ impl WebViewControlNewWindowRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WebViewControlNewWindowRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlNewWindowRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for WebViewControlNewWindowRequestedEventArgs {
     type Vtable = <IWebViewControlNewWindowRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlNewWindowRequestedEventArgs as windows_core::Interface>::IID;
@@ -1506,9 +1506,6 @@ impl windows_core::RuntimeName for WebViewControlNewWindowRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlPermissionRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlPermissionRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlPermissionRequest>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlPermissionRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlPermissionRequest,);
 impl WebViewControlPermissionRequest {
@@ -1553,6 +1550,9 @@ impl WebViewControlPermissionRequest {
         unsafe { (windows_core::Interface::vtable(this).Deny)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for WebViewControlPermissionRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlPermissionRequest>();
+}
 unsafe impl windows_core::Interface for WebViewControlPermissionRequest {
     type Vtable = <IWebViewControlPermissionRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlPermissionRequest as windows_core::Interface>::IID;
@@ -1563,9 +1563,6 @@ impl windows_core::RuntimeName for WebViewControlPermissionRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlPermissionRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlPermissionRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlPermissionRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlPermissionRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlPermissionRequestedEventArgs,);
 impl WebViewControlPermissionRequestedEventArgs {
@@ -1577,6 +1574,9 @@ impl WebViewControlPermissionRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WebViewControlPermissionRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlPermissionRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for WebViewControlPermissionRequestedEventArgs {
     type Vtable = <IWebViewControlPermissionRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlPermissionRequestedEventArgs as windows_core::Interface>::IID;
@@ -1587,9 +1587,6 @@ impl windows_core::RuntimeName for WebViewControlPermissionRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlScriptNotifyEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlScriptNotifyEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlScriptNotifyEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlScriptNotifyEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlScriptNotifyEventArgs,);
 impl WebViewControlScriptNotifyEventArgs {
@@ -1608,6 +1605,9 @@ impl WebViewControlScriptNotifyEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WebViewControlScriptNotifyEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlScriptNotifyEventArgs>();
+}
 unsafe impl windows_core::Interface for WebViewControlScriptNotifyEventArgs {
     type Vtable = <IWebViewControlScriptNotifyEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlScriptNotifyEventArgs as windows_core::Interface>::IID;
@@ -1618,9 +1618,6 @@ impl windows_core::RuntimeName for WebViewControlScriptNotifyEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlSettings>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlSettings,);
 impl WebViewControlSettings {
@@ -1658,6 +1655,9 @@ impl WebViewControlSettings {
         }
     }
 }
+impl windows_core::RuntimeType for WebViewControlSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlSettings>();
+}
 unsafe impl windows_core::Interface for WebViewControlSettings {
     type Vtable = <IWebViewControlSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlSettings as windows_core::Interface>::IID;
@@ -1668,9 +1668,6 @@ impl windows_core::RuntimeName for WebViewControlSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlUnsupportedUriSchemeIdentifiedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlUnsupportedUriSchemeIdentifiedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlUnsupportedUriSchemeIdentifiedEventArgs,);
 impl WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
@@ -1693,6 +1690,9 @@ impl WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs>();
+}
 unsafe impl windows_core::Interface for WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
     type Vtable = <IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs as windows_core::Interface>::IID;
@@ -1703,9 +1703,6 @@ impl windows_core::RuntimeName for WebViewControlUnsupportedUriSchemeIdentifiedE
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlUnviewableContentIdentifiedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlUnviewableContentIdentifiedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlUnviewableContentIdentifiedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlUnviewableContentIdentifiedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlUnviewableContentIdentifiedEventArgs,);
 impl WebViewControlUnviewableContentIdentifiedEventArgs {
@@ -1731,6 +1728,9 @@ impl WebViewControlUnviewableContentIdentifiedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WebViewControlUnviewableContentIdentifiedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlUnviewableContentIdentifiedEventArgs>();
+}
 unsafe impl windows_core::Interface for WebViewControlUnviewableContentIdentifiedEventArgs {
     type Vtable = <IWebViewControlUnviewableContentIdentifiedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlUnviewableContentIdentifiedEventArgs as windows_core::Interface>::IID;
@@ -1741,9 +1741,6 @@ impl windows_core::RuntimeName for WebViewControlUnviewableContentIdentifiedEven
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlWebResourceRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlWebResourceRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlWebResourceRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlWebResourceRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlWebResourceRequestedEventArgs,);
 impl WebViewControlWebResourceRequestedEventArgs {
@@ -1778,6 +1775,9 @@ impl WebViewControlWebResourceRequestedEventArgs {
             (windows_core::Interface::vtable(this).Response)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for WebViewControlWebResourceRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlWebResourceRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebViewControlWebResourceRequestedEventArgs {
     type Vtable = <IWebViewControlWebResourceRequestedEventArgs as windows_core::Interface>::Vtable;

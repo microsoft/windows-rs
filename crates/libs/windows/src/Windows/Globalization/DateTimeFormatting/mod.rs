@@ -81,9 +81,6 @@ pub struct IDateTimeFormatterStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DateTimeFormatter(windows_core::IUnknown);
-impl windows_core::RuntimeType for DateTimeFormatter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDateTimeFormatter>();
-}
 windows_core::imp::interface_hierarchy!(DateTimeFormatter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DateTimeFormatter,);
 impl DateTimeFormatter {
@@ -309,6 +306,9 @@ impl DateTimeFormatter {
         static SHARED: windows_core::imp::FactoryCache<DateTimeFormatter, IDateTimeFormatterStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for DateTimeFormatter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDateTimeFormatter>();
 }
 unsafe impl windows_core::Interface for DateTimeFormatter {
     type Vtable = <IDateTimeFormatter as windows_core::Interface>::Vtable;

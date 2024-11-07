@@ -934,9 +934,6 @@ pub struct IGattWriteResult_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattCharacteristic(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattCharacteristic {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattCharacteristic>();
-}
 windows_core::imp::interface_hierarchy!(GattCharacteristic, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattCharacteristic,);
 impl GattCharacteristic {
@@ -1141,6 +1138,9 @@ impl GattCharacteristic {
         static SHARED: windows_core::imp::FactoryCache<GattCharacteristic, IGattCharacteristicStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for GattCharacteristic {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattCharacteristic>();
 }
 unsafe impl windows_core::Interface for GattCharacteristic {
     type Vtable = <IGattCharacteristic as windows_core::Interface>::Vtable;
@@ -1652,9 +1652,6 @@ impl windows_core::RuntimeName for GattCharacteristicUuids {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattCharacteristicsResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattCharacteristicsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattCharacteristicsResult>();
-}
 windows_core::imp::interface_hierarchy!(GattCharacteristicsResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattCharacteristicsResult,);
 impl GattCharacteristicsResult {
@@ -1681,6 +1678,9 @@ impl GattCharacteristicsResult {
         }
     }
 }
+impl windows_core::RuntimeType for GattCharacteristicsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattCharacteristicsResult>();
+}
 unsafe impl windows_core::Interface for GattCharacteristicsResult {
     type Vtable = <IGattCharacteristicsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattCharacteristicsResult as windows_core::Interface>::IID;
@@ -1691,9 +1691,6 @@ impl windows_core::RuntimeName for GattCharacteristicsResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattClientNotificationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattClientNotificationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattClientNotificationResult>();
-}
 windows_core::imp::interface_hierarchy!(GattClientNotificationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattClientNotificationResult,);
 impl GattClientNotificationResult {
@@ -1726,6 +1723,9 @@ impl GattClientNotificationResult {
         }
     }
 }
+impl windows_core::RuntimeType for GattClientNotificationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattClientNotificationResult>();
+}
 unsafe impl windows_core::Interface for GattClientNotificationResult {
     type Vtable = <IGattClientNotificationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattClientNotificationResult as windows_core::Interface>::IID;
@@ -1736,9 +1736,6 @@ impl windows_core::RuntimeName for GattClientNotificationResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattDescriptor(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattDescriptor>();
-}
 windows_core::imp::interface_hierarchy!(GattDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattDescriptor,);
 impl GattDescriptor {
@@ -1814,6 +1811,9 @@ impl GattDescriptor {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GattDescriptor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattDescriptor>();
+}
 unsafe impl windows_core::Interface for GattDescriptor {
     type Vtable = <IGattDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattDescriptor as windows_core::Interface>::IID;
@@ -1870,9 +1870,6 @@ impl windows_core::RuntimeName for GattDescriptorUuids {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattDescriptorsResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattDescriptorsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattDescriptorsResult>();
-}
 windows_core::imp::interface_hierarchy!(GattDescriptorsResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattDescriptorsResult,);
 impl GattDescriptorsResult {
@@ -1899,6 +1896,9 @@ impl GattDescriptorsResult {
         }
     }
 }
+impl windows_core::RuntimeType for GattDescriptorsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattDescriptorsResult>();
+}
 unsafe impl windows_core::Interface for GattDescriptorsResult {
     type Vtable = <IGattDescriptorsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattDescriptorsResult as windows_core::Interface>::IID;
@@ -1909,9 +1909,6 @@ impl windows_core::RuntimeName for GattDescriptorsResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattDeviceService(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattDeviceService {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattDeviceService>();
-}
 windows_core::imp::interface_hierarchy!(GattDeviceService, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattDeviceService, super::super::super::Foundation::IClosable);
 impl GattDeviceService {
@@ -2155,6 +2152,9 @@ impl GattDeviceService {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GattDeviceService {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattDeviceService>();
+}
 unsafe impl windows_core::Interface for GattDeviceService {
     type Vtable = <IGattDeviceService as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattDeviceService as windows_core::Interface>::IID;
@@ -2165,9 +2165,6 @@ impl windows_core::RuntimeName for GattDeviceService {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattDeviceServicesResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattDeviceServicesResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattDeviceServicesResult>();
-}
 windows_core::imp::interface_hierarchy!(GattDeviceServicesResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattDeviceServicesResult,);
 impl GattDeviceServicesResult {
@@ -2194,6 +2191,9 @@ impl GattDeviceServicesResult {
         }
     }
 }
+impl windows_core::RuntimeType for GattDeviceServicesResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattDeviceServicesResult>();
+}
 unsafe impl windows_core::Interface for GattDeviceServicesResult {
     type Vtable = <IGattDeviceServicesResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattDeviceServicesResult as windows_core::Interface>::IID;
@@ -2204,9 +2204,6 @@ impl windows_core::RuntimeName for GattDeviceServicesResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalCharacteristic(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattLocalCharacteristic {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalCharacteristic>();
-}
 windows_core::imp::interface_hierarchy!(GattLocalCharacteristic, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattLocalCharacteristic,);
 impl GattLocalCharacteristic {
@@ -2353,6 +2350,9 @@ impl GattLocalCharacteristic {
         }
     }
 }
+impl windows_core::RuntimeType for GattLocalCharacteristic {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalCharacteristic>();
+}
 unsafe impl windows_core::Interface for GattLocalCharacteristic {
     type Vtable = <IGattLocalCharacteristic as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattLocalCharacteristic as windows_core::Interface>::IID;
@@ -2363,9 +2363,6 @@ impl windows_core::RuntimeName for GattLocalCharacteristic {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalCharacteristicParameters(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattLocalCharacteristicParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalCharacteristicParameters>();
-}
 windows_core::imp::interface_hierarchy!(GattLocalCharacteristicParameters, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattLocalCharacteristicParameters,);
 impl GattLocalCharacteristicParameters {
@@ -2445,6 +2442,9 @@ impl GattLocalCharacteristicParameters {
         }
     }
 }
+impl windows_core::RuntimeType for GattLocalCharacteristicParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalCharacteristicParameters>();
+}
 unsafe impl windows_core::Interface for GattLocalCharacteristicParameters {
     type Vtable = <IGattLocalCharacteristicParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattLocalCharacteristicParameters as windows_core::Interface>::IID;
@@ -2455,9 +2455,6 @@ impl windows_core::RuntimeName for GattLocalCharacteristicParameters {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalCharacteristicResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattLocalCharacteristicResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalCharacteristicResult>();
-}
 windows_core::imp::interface_hierarchy!(GattLocalCharacteristicResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattLocalCharacteristicResult,);
 impl GattLocalCharacteristicResult {
@@ -2476,6 +2473,9 @@ impl GattLocalCharacteristicResult {
         }
     }
 }
+impl windows_core::RuntimeType for GattLocalCharacteristicResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalCharacteristicResult>();
+}
 unsafe impl windows_core::Interface for GattLocalCharacteristicResult {
     type Vtable = <IGattLocalCharacteristicResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattLocalCharacteristicResult as windows_core::Interface>::IID;
@@ -2486,9 +2486,6 @@ impl windows_core::RuntimeName for GattLocalCharacteristicResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalDescriptor(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattLocalDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalDescriptor>();
-}
 windows_core::imp::interface_hierarchy!(GattLocalDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattLocalDescriptor,);
 impl GattLocalDescriptor {
@@ -2550,6 +2547,9 @@ impl GattLocalDescriptor {
         unsafe { (windows_core::Interface::vtable(this).RemoveWriteRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for GattLocalDescriptor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalDescriptor>();
+}
 unsafe impl windows_core::Interface for GattLocalDescriptor {
     type Vtable = <IGattLocalDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattLocalDescriptor as windows_core::Interface>::IID;
@@ -2560,9 +2560,6 @@ impl windows_core::RuntimeName for GattLocalDescriptor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalDescriptorParameters(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattLocalDescriptorParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalDescriptorParameters>();
-}
 windows_core::imp::interface_hierarchy!(GattLocalDescriptorParameters, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattLocalDescriptorParameters,);
 impl GattLocalDescriptorParameters {
@@ -2612,6 +2609,9 @@ impl GattLocalDescriptorParameters {
         }
     }
 }
+impl windows_core::RuntimeType for GattLocalDescriptorParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalDescriptorParameters>();
+}
 unsafe impl windows_core::Interface for GattLocalDescriptorParameters {
     type Vtable = <IGattLocalDescriptorParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattLocalDescriptorParameters as windows_core::Interface>::IID;
@@ -2622,9 +2622,6 @@ impl windows_core::RuntimeName for GattLocalDescriptorParameters {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalDescriptorResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattLocalDescriptorResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalDescriptorResult>();
-}
 windows_core::imp::interface_hierarchy!(GattLocalDescriptorResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattLocalDescriptorResult,);
 impl GattLocalDescriptorResult {
@@ -2643,6 +2640,9 @@ impl GattLocalDescriptorResult {
         }
     }
 }
+impl windows_core::RuntimeType for GattLocalDescriptorResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalDescriptorResult>();
+}
 unsafe impl windows_core::Interface for GattLocalDescriptorResult {
     type Vtable = <IGattLocalDescriptorResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattLocalDescriptorResult as windows_core::Interface>::IID;
@@ -2653,9 +2653,6 @@ impl windows_core::RuntimeName for GattLocalDescriptorResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattLocalService(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattLocalService {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalService>();
-}
 windows_core::imp::interface_hierarchy!(GattLocalService, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattLocalService,);
 impl GattLocalService {
@@ -2685,6 +2682,9 @@ impl GattLocalService {
         }
     }
 }
+impl windows_core::RuntimeType for GattLocalService {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattLocalService>();
+}
 unsafe impl windows_core::Interface for GattLocalService {
     type Vtable = <IGattLocalService as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattLocalService as windows_core::Interface>::IID;
@@ -2695,9 +2695,6 @@ impl windows_core::RuntimeName for GattLocalService {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattPresentationFormat(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattPresentationFormat {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattPresentationFormat>();
-}
 windows_core::imp::interface_hierarchy!(GattPresentationFormat, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattPresentationFormat,);
 impl GattPresentationFormat {
@@ -2756,6 +2753,9 @@ impl GattPresentationFormat {
         static SHARED: windows_core::imp::FactoryCache<GattPresentationFormat, IGattPresentationFormatStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for GattPresentationFormat {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattPresentationFormat>();
 }
 unsafe impl windows_core::Interface for GattPresentationFormat {
     type Vtable = <IGattPresentationFormat as windows_core::Interface>::Vtable;
@@ -3051,9 +3051,6 @@ impl windows_core::RuntimeName for GattProtocolError {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattReadClientCharacteristicConfigurationDescriptorResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattReadClientCharacteristicConfigurationDescriptorResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReadClientCharacteristicConfigurationDescriptorResult>();
-}
 windows_core::imp::interface_hierarchy!(GattReadClientCharacteristicConfigurationDescriptorResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattReadClientCharacteristicConfigurationDescriptorResult,);
 impl GattReadClientCharacteristicConfigurationDescriptorResult {
@@ -3079,6 +3076,9 @@ impl GattReadClientCharacteristicConfigurationDescriptorResult {
         }
     }
 }
+impl windows_core::RuntimeType for GattReadClientCharacteristicConfigurationDescriptorResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReadClientCharacteristicConfigurationDescriptorResult>();
+}
 unsafe impl windows_core::Interface for GattReadClientCharacteristicConfigurationDescriptorResult {
     type Vtable = <IGattReadClientCharacteristicConfigurationDescriptorResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattReadClientCharacteristicConfigurationDescriptorResult as windows_core::Interface>::IID;
@@ -3089,9 +3089,6 @@ impl windows_core::RuntimeName for GattReadClientCharacteristicConfigurationDesc
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattReadRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattReadRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReadRequest>();
-}
 windows_core::imp::interface_hierarchy!(GattReadRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattReadRequest,);
 impl GattReadRequest {
@@ -3143,6 +3140,9 @@ impl GattReadRequest {
         unsafe { (windows_core::Interface::vtable(this).RespondWithProtocolError)(windows_core::Interface::as_raw(this), protocolerror).ok() }
     }
 }
+impl windows_core::RuntimeType for GattReadRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReadRequest>();
+}
 unsafe impl windows_core::Interface for GattReadRequest {
     type Vtable = <IGattReadRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattReadRequest as windows_core::Interface>::IID;
@@ -3153,9 +3153,6 @@ impl windows_core::RuntimeName for GattReadRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattReadRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattReadRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReadRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(GattReadRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattReadRequestedEventArgs,);
 impl GattReadRequestedEventArgs {
@@ -3181,6 +3178,9 @@ impl GattReadRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for GattReadRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReadRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for GattReadRequestedEventArgs {
     type Vtable = <IGattReadRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattReadRequestedEventArgs as windows_core::Interface>::IID;
@@ -3191,9 +3191,6 @@ impl windows_core::RuntimeName for GattReadRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattReadResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattReadResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReadResult>();
-}
 windows_core::imp::interface_hierarchy!(GattReadResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattReadResult,);
 impl GattReadResult {
@@ -3220,6 +3217,9 @@ impl GattReadResult {
         }
     }
 }
+impl windows_core::RuntimeType for GattReadResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReadResult>();
+}
 unsafe impl windows_core::Interface for GattReadResult {
     type Vtable = <IGattReadResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattReadResult as windows_core::Interface>::IID;
@@ -3230,9 +3230,6 @@ impl windows_core::RuntimeName for GattReadResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattReliableWriteTransaction(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattReliableWriteTransaction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReliableWriteTransaction>();
-}
 windows_core::imp::interface_hierarchy!(GattReliableWriteTransaction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattReliableWriteTransaction,);
 impl GattReliableWriteTransaction {
@@ -3267,6 +3264,9 @@ impl GattReliableWriteTransaction {
         }
     }
 }
+impl windows_core::RuntimeType for GattReliableWriteTransaction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattReliableWriteTransaction>();
+}
 unsafe impl windows_core::Interface for GattReliableWriteTransaction {
     type Vtable = <IGattReliableWriteTransaction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattReliableWriteTransaction as windows_core::Interface>::IID;
@@ -3277,9 +3277,6 @@ impl windows_core::RuntimeName for GattReliableWriteTransaction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattRequestStateChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattRequestStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattRequestStateChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(GattRequestStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattRequestStateChangedEventArgs,);
 impl GattRequestStateChangedEventArgs {
@@ -3298,6 +3295,9 @@ impl GattRequestStateChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for GattRequestStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattRequestStateChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for GattRequestStateChangedEventArgs {
     type Vtable = <IGattRequestStateChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattRequestStateChangedEventArgs as windows_core::Interface>::IID;
@@ -3308,9 +3308,6 @@ impl windows_core::RuntimeName for GattRequestStateChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattServiceProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProvider>();
-}
 windows_core::imp::interface_hierarchy!(GattServiceProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattServiceProvider,);
 impl GattServiceProvider {
@@ -3368,6 +3365,9 @@ impl GattServiceProvider {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GattServiceProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProvider>();
+}
 unsafe impl windows_core::Interface for GattServiceProvider {
     type Vtable = <IGattServiceProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattServiceProvider as windows_core::Interface>::IID;
@@ -3378,9 +3378,6 @@ impl windows_core::RuntimeName for GattServiceProvider {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderAdvertisementStatusChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattServiceProviderAdvertisementStatusChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderAdvertisementStatusChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(GattServiceProviderAdvertisementStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattServiceProviderAdvertisementStatusChangedEventArgs,);
 impl GattServiceProviderAdvertisementStatusChangedEventArgs {
@@ -3399,6 +3396,9 @@ impl GattServiceProviderAdvertisementStatusChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for GattServiceProviderAdvertisementStatusChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderAdvertisementStatusChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for GattServiceProviderAdvertisementStatusChangedEventArgs {
     type Vtable = <IGattServiceProviderAdvertisementStatusChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattServiceProviderAdvertisementStatusChangedEventArgs as windows_core::Interface>::IID;
@@ -3409,9 +3409,6 @@ impl windows_core::RuntimeName for GattServiceProviderAdvertisementStatusChanged
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderAdvertisingParameters(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattServiceProviderAdvertisingParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderAdvertisingParameters>();
-}
 windows_core::imp::interface_hierarchy!(GattServiceProviderAdvertisingParameters, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattServiceProviderAdvertisingParameters,);
 impl GattServiceProviderAdvertisingParameters {
@@ -3461,6 +3458,9 @@ impl GattServiceProviderAdvertisingParameters {
         }
     }
 }
+impl windows_core::RuntimeType for GattServiceProviderAdvertisingParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderAdvertisingParameters>();
+}
 unsafe impl windows_core::Interface for GattServiceProviderAdvertisingParameters {
     type Vtable = <IGattServiceProviderAdvertisingParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattServiceProviderAdvertisingParameters as windows_core::Interface>::IID;
@@ -3471,9 +3471,6 @@ impl windows_core::RuntimeName for GattServiceProviderAdvertisingParameters {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattServiceProviderResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderResult>();
-}
 windows_core::imp::interface_hierarchy!(GattServiceProviderResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattServiceProviderResult,);
 impl GattServiceProviderResult {
@@ -3491,6 +3488,9 @@ impl GattServiceProviderResult {
             (windows_core::Interface::vtable(this).ServiceProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for GattServiceProviderResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderResult>();
 }
 unsafe impl windows_core::Interface for GattServiceProviderResult {
     type Vtable = <IGattServiceProviderResult as windows_core::Interface>::Vtable;
@@ -3648,9 +3648,6 @@ impl windows_core::RuntimeName for GattServiceUuids {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattSession>();
-}
 windows_core::imp::interface_hierarchy!(GattSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattSession, super::super::super::Foundation::IClosable);
 impl GattSession {
@@ -3739,6 +3736,9 @@ impl GattSession {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GattSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattSession>();
+}
 unsafe impl windows_core::Interface for GattSession {
     type Vtable = <IGattSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattSession as windows_core::Interface>::IID;
@@ -3749,9 +3749,6 @@ impl windows_core::RuntimeName for GattSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattSessionStatusChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattSessionStatusChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattSessionStatusChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(GattSessionStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattSessionStatusChangedEventArgs,);
 impl GattSessionStatusChangedEventArgs {
@@ -3770,6 +3767,9 @@ impl GattSessionStatusChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for GattSessionStatusChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattSessionStatusChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for GattSessionStatusChangedEventArgs {
     type Vtable = <IGattSessionStatusChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattSessionStatusChangedEventArgs as windows_core::Interface>::IID;
@@ -3780,9 +3780,6 @@ impl windows_core::RuntimeName for GattSessionStatusChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattSubscribedClient(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattSubscribedClient {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattSubscribedClient>();
-}
 windows_core::imp::interface_hierarchy!(GattSubscribedClient, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattSubscribedClient,);
 impl GattSubscribedClient {
@@ -3815,6 +3812,9 @@ impl GattSubscribedClient {
         unsafe { (windows_core::Interface::vtable(this).RemoveMaxNotificationSizeChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for GattSubscribedClient {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattSubscribedClient>();
+}
 unsafe impl windows_core::Interface for GattSubscribedClient {
     type Vtable = <IGattSubscribedClient as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattSubscribedClient as windows_core::Interface>::IID;
@@ -3825,9 +3825,6 @@ impl windows_core::RuntimeName for GattSubscribedClient {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattValueChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattValueChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattValueChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(GattValueChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattValueChangedEventArgs,);
 impl GattValueChangedEventArgs {
@@ -3847,6 +3844,9 @@ impl GattValueChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for GattValueChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattValueChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for GattValueChangedEventArgs {
     type Vtable = <IGattValueChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattValueChangedEventArgs as windows_core::Interface>::IID;
@@ -3857,9 +3857,6 @@ impl windows_core::RuntimeName for GattValueChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattWriteRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattWriteRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattWriteRequest>();
-}
 windows_core::imp::interface_hierarchy!(GattWriteRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattWriteRequest,);
 impl GattWriteRequest {
@@ -3915,6 +3912,9 @@ impl GattWriteRequest {
         unsafe { (windows_core::Interface::vtable(this).RespondWithProtocolError)(windows_core::Interface::as_raw(this), protocolerror).ok() }
     }
 }
+impl windows_core::RuntimeType for GattWriteRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattWriteRequest>();
+}
 unsafe impl windows_core::Interface for GattWriteRequest {
     type Vtable = <IGattWriteRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattWriteRequest as windows_core::Interface>::IID;
@@ -3925,9 +3925,6 @@ impl windows_core::RuntimeName for GattWriteRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattWriteRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattWriteRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattWriteRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(GattWriteRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattWriteRequestedEventArgs,);
 impl GattWriteRequestedEventArgs {
@@ -3953,6 +3950,9 @@ impl GattWriteRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for GattWriteRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattWriteRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for GattWriteRequestedEventArgs {
     type Vtable = <IGattWriteRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattWriteRequestedEventArgs as windows_core::Interface>::IID;
@@ -3963,9 +3963,6 @@ impl windows_core::RuntimeName for GattWriteRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattWriteResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattWriteResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattWriteResult>();
-}
 windows_core::imp::interface_hierarchy!(GattWriteResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattWriteResult,);
 impl GattWriteResult {
@@ -3983,6 +3980,9 @@ impl GattWriteResult {
             (windows_core::Interface::vtable(this).ProtocolError)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for GattWriteResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattWriteResult>();
 }
 unsafe impl windows_core::Interface for GattWriteResult {
     type Vtable = <IGattWriteResult as windows_core::Interface>::Vtable;

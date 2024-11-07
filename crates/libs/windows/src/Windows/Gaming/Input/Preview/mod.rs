@@ -109,9 +109,6 @@ impl windows_core::RuntimeName for GameControllerProviderInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LegacyGipGameControllerProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for LegacyGipGameControllerProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILegacyGipGameControllerProvider>();
-}
 windows_core::imp::interface_hierarchy!(LegacyGipGameControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LegacyGipGameControllerProvider,);
 impl LegacyGipGameControllerProvider {
@@ -283,6 +280,9 @@ impl LegacyGipGameControllerProvider {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LegacyGipGameControllerProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILegacyGipGameControllerProvider>();
+}
 unsafe impl windows_core::Interface for LegacyGipGameControllerProvider {
     type Vtable = <ILegacyGipGameControllerProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILegacyGipGameControllerProvider as windows_core::Interface>::IID;
@@ -422,7 +422,7 @@ impl windows_core::RuntimeType for RemappingButtonCategory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Preview.RemappingButtonCategory;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct HeadsetGeqGains {
     pub band1Gain: i32,
     pub band2Gain: i32,

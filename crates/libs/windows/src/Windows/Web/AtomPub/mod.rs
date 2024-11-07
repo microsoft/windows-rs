@@ -125,10 +125,6 @@ pub struct IWorkspace_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AtomPubClient(windows_core::IUnknown);
 #[cfg(feature = "Web_Syndication")]
-impl windows_core::RuntimeType for AtomPubClient {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAtomPubClient>();
-}
-#[cfg(feature = "Web_Syndication")]
 windows_core::imp::interface_hierarchy!(AtomPubClient, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Web_Syndication")]
 windows_core::imp::required_hierarchy!(AtomPubClient, super::Syndication::ISyndicationClient);
@@ -355,6 +351,10 @@ impl AtomPubClient {
     }
 }
 #[cfg(feature = "Web_Syndication")]
+impl windows_core::RuntimeType for AtomPubClient {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAtomPubClient>();
+}
+#[cfg(feature = "Web_Syndication")]
 unsafe impl windows_core::Interface for AtomPubClient {
     type Vtable = <IAtomPubClient as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAtomPubClient as windows_core::Interface>::IID;
@@ -367,10 +367,6 @@ impl windows_core::RuntimeName for AtomPubClient {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceCollection(windows_core::IUnknown);
-#[cfg(feature = "Web_Syndication")]
-impl windows_core::RuntimeType for ResourceCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IResourceCollection>();
-}
 #[cfg(feature = "Web_Syndication")]
 windows_core::imp::interface_hierarchy!(ResourceCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Web_Syndication")]
@@ -492,6 +488,10 @@ impl ResourceCollection {
     }
 }
 #[cfg(feature = "Web_Syndication")]
+impl windows_core::RuntimeType for ResourceCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IResourceCollection>();
+}
+#[cfg(feature = "Web_Syndication")]
 unsafe impl windows_core::Interface for ResourceCollection {
     type Vtable = <IResourceCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IResourceCollection as windows_core::Interface>::IID;
@@ -504,10 +504,6 @@ impl windows_core::RuntimeName for ResourceCollection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServiceDocument(windows_core::IUnknown);
-#[cfg(feature = "Web_Syndication")]
-impl windows_core::RuntimeType for ServiceDocument {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IServiceDocument>();
-}
 #[cfg(feature = "Web_Syndication")]
 windows_core::imp::interface_hierarchy!(ServiceDocument, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Web_Syndication")]
@@ -606,6 +602,10 @@ impl ServiceDocument {
     }
 }
 #[cfg(feature = "Web_Syndication")]
+impl windows_core::RuntimeType for ServiceDocument {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IServiceDocument>();
+}
+#[cfg(feature = "Web_Syndication")]
 unsafe impl windows_core::Interface for ServiceDocument {
     type Vtable = <IServiceDocument as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IServiceDocument as windows_core::Interface>::IID;
@@ -618,10 +618,6 @@ impl windows_core::RuntimeName for ServiceDocument {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Workspace(windows_core::IUnknown);
-#[cfg(feature = "Web_Syndication")]
-impl windows_core::RuntimeType for Workspace {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWorkspace>();
-}
 #[cfg(feature = "Web_Syndication")]
 windows_core::imp::interface_hierarchy!(Workspace, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Web_Syndication")]
@@ -726,6 +722,10 @@ impl Workspace {
             (windows_core::Interface::vtable(this).GetXmlDocument)(windows_core::Interface::as_raw(this), format, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+#[cfg(feature = "Web_Syndication")]
+impl windows_core::RuntimeType for Workspace {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWorkspace>();
 }
 #[cfg(feature = "Web_Syndication")]
 unsafe impl windows_core::Interface for Workspace {

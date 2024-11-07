@@ -89,9 +89,6 @@ pub struct IUserDataAccountProviderSettingsOperation_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountPartnerAccountInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataAccountPartnerAccountInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountPartnerAccountInfo>();
-}
 windows_core::imp::interface_hierarchy!(UserDataAccountPartnerAccountInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountPartnerAccountInfo,);
 impl UserDataAccountPartnerAccountInfo {
@@ -117,6 +114,9 @@ impl UserDataAccountPartnerAccountInfo {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataAccountPartnerAccountInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountPartnerAccountInfo>();
+}
 unsafe impl windows_core::Interface for UserDataAccountPartnerAccountInfo {
     type Vtable = <IUserDataAccountPartnerAccountInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataAccountPartnerAccountInfo as windows_core::Interface>::IID;
@@ -127,9 +127,6 @@ impl windows_core::RuntimeName for UserDataAccountPartnerAccountInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountProviderAddAccountOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataAccountProviderAddAccountOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountProviderAddAccountOperation>();
-}
 windows_core::imp::interface_hierarchy!(UserDataAccountProviderAddAccountOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountProviderAddAccountOperation, IUserDataAccountProviderOperation);
 impl UserDataAccountProviderAddAccountOperation {
@@ -160,6 +157,9 @@ impl UserDataAccountProviderAddAccountOperation {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataAccountProviderAddAccountOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountProviderAddAccountOperation>();
+}
 unsafe impl windows_core::Interface for UserDataAccountProviderAddAccountOperation {
     type Vtable = <IUserDataAccountProviderAddAccountOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataAccountProviderAddAccountOperation as windows_core::Interface>::IID;
@@ -170,9 +170,6 @@ impl windows_core::RuntimeName for UserDataAccountProviderAddAccountOperation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountProviderResolveErrorsOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataAccountProviderResolveErrorsOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountProviderResolveErrorsOperation>();
-}
 windows_core::imp::interface_hierarchy!(UserDataAccountProviderResolveErrorsOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountProviderResolveErrorsOperation, IUserDataAccountProviderOperation);
 impl UserDataAccountProviderResolveErrorsOperation {
@@ -195,6 +192,9 @@ impl UserDataAccountProviderResolveErrorsOperation {
         unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for UserDataAccountProviderResolveErrorsOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountProviderResolveErrorsOperation>();
+}
 unsafe impl windows_core::Interface for UserDataAccountProviderResolveErrorsOperation {
     type Vtable = <IUserDataAccountProviderResolveErrorsOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataAccountProviderResolveErrorsOperation as windows_core::Interface>::IID;
@@ -205,9 +205,6 @@ impl windows_core::RuntimeName for UserDataAccountProviderResolveErrorsOperation
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountProviderSettingsOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataAccountProviderSettingsOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountProviderSettingsOperation>();
-}
 windows_core::imp::interface_hierarchy!(UserDataAccountProviderSettingsOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountProviderSettingsOperation, IUserDataAccountProviderOperation);
 impl UserDataAccountProviderSettingsOperation {
@@ -229,6 +226,9 @@ impl UserDataAccountProviderSettingsOperation {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for UserDataAccountProviderSettingsOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountProviderSettingsOperation>();
 }
 unsafe impl windows_core::Interface for UserDataAccountProviderSettingsOperation {
     type Vtable = <IUserDataAccountProviderSettingsOperation as windows_core::Interface>::Vtable;

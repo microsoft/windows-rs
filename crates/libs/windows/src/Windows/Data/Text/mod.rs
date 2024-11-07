@@ -261,9 +261,6 @@ pub struct IWordsSegmenterFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AlternateWordForm(windows_core::IUnknown);
-impl windows_core::RuntimeType for AlternateWordForm {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAlternateWordForm>();
-}
 windows_core::imp::interface_hierarchy!(AlternateWordForm, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AlternateWordForm,);
 impl AlternateWordForm {
@@ -289,6 +286,9 @@ impl AlternateWordForm {
         }
     }
 }
+impl windows_core::RuntimeType for AlternateWordForm {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAlternateWordForm>();
+}
 unsafe impl windows_core::Interface for AlternateWordForm {
     type Vtable = <IAlternateWordForm as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAlternateWordForm as windows_core::Interface>::IID;
@@ -299,9 +299,6 @@ impl windows_core::RuntimeName for AlternateWordForm {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SelectableWordSegment(windows_core::IUnknown);
-impl windows_core::RuntimeType for SelectableWordSegment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISelectableWordSegment>();
-}
 windows_core::imp::interface_hierarchy!(SelectableWordSegment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SelectableWordSegment,);
 impl SelectableWordSegment {
@@ -320,6 +317,9 @@ impl SelectableWordSegment {
         }
     }
 }
+impl windows_core::RuntimeType for SelectableWordSegment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISelectableWordSegment>();
+}
 unsafe impl windows_core::Interface for SelectableWordSegment {
     type Vtable = <ISelectableWordSegment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISelectableWordSegment as windows_core::Interface>::IID;
@@ -330,9 +330,6 @@ impl windows_core::RuntimeName for SelectableWordSegment {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SelectableWordsSegmenter(windows_core::IUnknown);
-impl windows_core::RuntimeType for SelectableWordsSegmenter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISelectableWordsSegmenter>();
-}
 windows_core::imp::interface_hierarchy!(SelectableWordsSegmenter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SelectableWordsSegmenter,);
 impl SelectableWordsSegmenter {
@@ -377,6 +374,9 @@ impl SelectableWordsSegmenter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SelectableWordsSegmenter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISelectableWordsSegmenter>();
+}
 unsafe impl windows_core::Interface for SelectableWordsSegmenter {
     type Vtable = <ISelectableWordsSegmenter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISelectableWordsSegmenter as windows_core::Interface>::IID;
@@ -387,9 +387,6 @@ impl windows_core::RuntimeName for SelectableWordsSegmenter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SemanticTextQuery(windows_core::IUnknown);
-impl windows_core::RuntimeType for SemanticTextQuery {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISemanticTextQuery>();
-}
 windows_core::imp::interface_hierarchy!(SemanticTextQuery, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SemanticTextQuery,);
 impl SemanticTextQuery {
@@ -426,6 +423,9 @@ impl SemanticTextQuery {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SemanticTextQuery {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISemanticTextQuery>();
+}
 unsafe impl windows_core::Interface for SemanticTextQuery {
     type Vtable = <ISemanticTextQuery as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISemanticTextQuery as windows_core::Interface>::IID;
@@ -436,9 +436,6 @@ impl windows_core::RuntimeName for SemanticTextQuery {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TextConversionGenerator(windows_core::IUnknown);
-impl windows_core::RuntimeType for TextConversionGenerator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextConversionGenerator>();
-}
 windows_core::imp::interface_hierarchy!(TextConversionGenerator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TextConversionGenerator,);
 impl TextConversionGenerator {
@@ -483,6 +480,9 @@ impl TextConversionGenerator {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TextConversionGenerator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextConversionGenerator>();
+}
 unsafe impl windows_core::Interface for TextConversionGenerator {
     type Vtable = <ITextConversionGenerator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITextConversionGenerator as windows_core::Interface>::IID;
@@ -493,9 +493,6 @@ impl windows_core::RuntimeName for TextConversionGenerator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TextPhoneme(windows_core::IUnknown);
-impl windows_core::RuntimeType for TextPhoneme {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextPhoneme>();
-}
 windows_core::imp::interface_hierarchy!(TextPhoneme, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TextPhoneme,);
 impl TextPhoneme {
@@ -514,6 +511,9 @@ impl TextPhoneme {
         }
     }
 }
+impl windows_core::RuntimeType for TextPhoneme {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextPhoneme>();
+}
 unsafe impl windows_core::Interface for TextPhoneme {
     type Vtable = <ITextPhoneme as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITextPhoneme as windows_core::Interface>::IID;
@@ -524,9 +524,6 @@ impl windows_core::RuntimeName for TextPhoneme {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TextPredictionGenerator(windows_core::IUnknown);
-impl windows_core::RuntimeType for TextPredictionGenerator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextPredictionGenerator>();
-}
 windows_core::imp::interface_hierarchy!(TextPredictionGenerator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TextPredictionGenerator,);
 impl TextPredictionGenerator {
@@ -606,6 +603,9 @@ impl TextPredictionGenerator {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TextPredictionGenerator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextPredictionGenerator>();
+}
 unsafe impl windows_core::Interface for TextPredictionGenerator {
     type Vtable = <ITextPredictionGenerator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITextPredictionGenerator as windows_core::Interface>::IID;
@@ -616,9 +616,6 @@ impl windows_core::RuntimeName for TextPredictionGenerator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TextReverseConversionGenerator(windows_core::IUnknown);
-impl windows_core::RuntimeType for TextReverseConversionGenerator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextReverseConversionGenerator>();
-}
 windows_core::imp::interface_hierarchy!(TextReverseConversionGenerator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TextReverseConversionGenerator,);
 impl TextReverseConversionGenerator {
@@ -661,6 +658,9 @@ impl TextReverseConversionGenerator {
         static SHARED: windows_core::imp::FactoryCache<TextReverseConversionGenerator, ITextReverseConversionGeneratorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for TextReverseConversionGenerator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextReverseConversionGenerator>();
 }
 unsafe impl windows_core::Interface for TextReverseConversionGenerator {
     type Vtable = <ITextReverseConversionGenerator as windows_core::Interface>::Vtable;
@@ -781,9 +781,6 @@ impl windows_core::RuntimeName for UnicodeCharacters {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WordSegment(windows_core::IUnknown);
-impl windows_core::RuntimeType for WordSegment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWordSegment>();
-}
 windows_core::imp::interface_hierarchy!(WordSegment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WordSegment,);
 impl WordSegment {
@@ -810,6 +807,9 @@ impl WordSegment {
         }
     }
 }
+impl windows_core::RuntimeType for WordSegment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWordSegment>();
+}
 unsafe impl windows_core::Interface for WordSegment {
     type Vtable = <IWordSegment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWordSegment as windows_core::Interface>::IID;
@@ -820,9 +820,6 @@ impl windows_core::RuntimeName for WordSegment {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WordsSegmenter(windows_core::IUnknown);
-impl windows_core::RuntimeType for WordsSegmenter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWordsSegmenter>();
-}
 windows_core::imp::interface_hierarchy!(WordsSegmenter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WordsSegmenter,);
 impl WordsSegmenter {
@@ -866,6 +863,9 @@ impl WordsSegmenter {
         static SHARED: windows_core::imp::FactoryCache<WordsSegmenter, IWordsSegmenterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for WordsSegmenter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWordsSegmenter>();
 }
 unsafe impl windows_core::Interface for WordsSegmenter {
     type Vtable = <IWordsSegmenter as windows_core::Interface>::Vtable;
@@ -1083,7 +1083,7 @@ impl windows_core::RuntimeType for UnicodeNumericType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeNumericType;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct TextSegment {
     pub StartPosition: u32,
     pub Length: u32,

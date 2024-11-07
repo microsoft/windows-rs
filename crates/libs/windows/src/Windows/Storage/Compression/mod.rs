@@ -56,10 +56,6 @@ pub struct IDecompressorFactory_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Compressor(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
-impl windows_core::RuntimeType for Compressor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompressor>();
-}
-#[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(Compressor, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::required_hierarchy!(Compressor, super::super::Foundation::IClosable, super::Streams::IOutputStream);
@@ -125,6 +121,10 @@ impl Compressor {
     }
 }
 #[cfg(feature = "Storage_Streams")]
+impl windows_core::RuntimeType for Compressor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompressor>();
+}
+#[cfg(feature = "Storage_Streams")]
 unsafe impl windows_core::Interface for Compressor {
     type Vtable = <ICompressor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompressor as windows_core::Interface>::IID;
@@ -137,10 +137,6 @@ impl windows_core::RuntimeName for Compressor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Decompressor(windows_core::IUnknown);
-#[cfg(feature = "Storage_Streams")]
-impl windows_core::RuntimeType for Decompressor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDecompressor>();
-}
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(Decompressor, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
@@ -182,6 +178,10 @@ impl Decompressor {
         static SHARED: windows_core::imp::FactoryCache<Decompressor, IDecompressorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+#[cfg(feature = "Storage_Streams")]
+impl windows_core::RuntimeType for Decompressor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDecompressor>();
 }
 #[cfg(feature = "Storage_Streams")]
 unsafe impl windows_core::Interface for Decompressor {

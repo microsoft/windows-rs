@@ -75,9 +75,6 @@ pub struct IPowerGridForecastStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Battery(windows_core::IUnknown);
-impl windows_core::RuntimeType for Battery {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBattery>();
-}
 windows_core::imp::interface_hierarchy!(Battery, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Battery,);
 impl Battery {
@@ -132,6 +129,9 @@ impl Battery {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Battery {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBattery>();
+}
 unsafe impl windows_core::Interface for Battery {
     type Vtable = <IBattery as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBattery as windows_core::Interface>::IID;
@@ -142,9 +142,6 @@ impl windows_core::RuntimeName for Battery {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BatteryReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for BatteryReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBatteryReport>();
-}
 windows_core::imp::interface_hierarchy!(BatteryReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BatteryReport,);
 impl BatteryReport {
@@ -185,6 +182,9 @@ impl BatteryReport {
         }
     }
 }
+impl windows_core::RuntimeType for BatteryReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBatteryReport>();
+}
 unsafe impl windows_core::Interface for BatteryReport {
     type Vtable = <IBatteryReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBatteryReport as windows_core::Interface>::IID;
@@ -195,9 +195,6 @@ impl windows_core::RuntimeName for BatteryReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PowerGridData(windows_core::IUnknown);
-impl windows_core::RuntimeType for PowerGridData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPowerGridData>();
-}
 windows_core::imp::interface_hierarchy!(PowerGridData, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PowerGridData,);
 impl PowerGridData {
@@ -216,6 +213,9 @@ impl PowerGridData {
         }
     }
 }
+impl windows_core::RuntimeType for PowerGridData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPowerGridData>();
+}
 unsafe impl windows_core::Interface for PowerGridData {
     type Vtable = <IPowerGridData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPowerGridData as windows_core::Interface>::IID;
@@ -226,9 +226,6 @@ impl windows_core::RuntimeName for PowerGridData {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PowerGridForecast(windows_core::IUnknown);
-impl windows_core::RuntimeType for PowerGridForecast {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPowerGridForecast>();
-}
 windows_core::imp::interface_hierarchy!(PowerGridForecast, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PowerGridForecast,);
 impl PowerGridForecast {
@@ -276,6 +273,9 @@ impl PowerGridForecast {
         static SHARED: windows_core::imp::FactoryCache<PowerGridForecast, IPowerGridForecastStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for PowerGridForecast {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPowerGridForecast>();
 }
 unsafe impl windows_core::Interface for PowerGridForecast {
     type Vtable = <IPowerGridForecast as windows_core::Interface>::Vtable;

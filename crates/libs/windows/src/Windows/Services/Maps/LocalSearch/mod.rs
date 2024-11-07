@@ -166,9 +166,6 @@ impl windows_core::RuntimeName for LocalCategories {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocalLocation(windows_core::IUnknown);
-impl windows_core::RuntimeType for LocalLocation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocalLocation>();
-}
 windows_core::imp::interface_hierarchy!(LocalLocation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LocalLocation,);
 impl LocalLocation {
@@ -245,6 +242,9 @@ impl LocalLocation {
         }
     }
 }
+impl windows_core::RuntimeType for LocalLocation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocalLocation>();
+}
 unsafe impl windows_core::Interface for LocalLocation {
     type Vtable = <ILocalLocation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILocalLocation as windows_core::Interface>::IID;
@@ -275,9 +275,6 @@ impl windows_core::RuntimeName for LocalLocationFinder {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocalLocationFinderResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for LocalLocationFinderResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocalLocationFinderResult>();
-}
 windows_core::imp::interface_hierarchy!(LocalLocationFinderResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LocalLocationFinderResult,);
 impl LocalLocationFinderResult {
@@ -297,6 +294,9 @@ impl LocalLocationFinderResult {
         }
     }
 }
+impl windows_core::RuntimeType for LocalLocationFinderResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocalLocationFinderResult>();
+}
 unsafe impl windows_core::Interface for LocalLocationFinderResult {
     type Vtable = <ILocalLocationFinderResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILocalLocationFinderResult as windows_core::Interface>::IID;
@@ -307,9 +307,6 @@ impl windows_core::RuntimeName for LocalLocationFinderResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocalLocationHoursOfOperationItem(windows_core::IUnknown);
-impl windows_core::RuntimeType for LocalLocationHoursOfOperationItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocalLocationHoursOfOperationItem>();
-}
 windows_core::imp::interface_hierarchy!(LocalLocationHoursOfOperationItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LocalLocationHoursOfOperationItem,);
 impl LocalLocationHoursOfOperationItem {
@@ -336,6 +333,9 @@ impl LocalLocationHoursOfOperationItem {
         }
     }
 }
+impl windows_core::RuntimeType for LocalLocationHoursOfOperationItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocalLocationHoursOfOperationItem>();
+}
 unsafe impl windows_core::Interface for LocalLocationHoursOfOperationItem {
     type Vtable = <ILocalLocationHoursOfOperationItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILocalLocationHoursOfOperationItem as windows_core::Interface>::IID;
@@ -346,9 +346,6 @@ impl windows_core::RuntimeName for LocalLocationHoursOfOperationItem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocalLocationRatingInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for LocalLocationRatingInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocalLocationRatingInfo>();
-}
 windows_core::imp::interface_hierarchy!(LocalLocationRatingInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LocalLocationRatingInfo,);
 impl LocalLocationRatingInfo {
@@ -373,6 +370,9 @@ impl LocalLocationRatingInfo {
             (windows_core::Interface::vtable(this).ProviderIdentifier)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for LocalLocationRatingInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocalLocationRatingInfo>();
 }
 unsafe impl windows_core::Interface for LocalLocationRatingInfo {
     type Vtable = <ILocalLocationRatingInfo as windows_core::Interface>::Vtable;

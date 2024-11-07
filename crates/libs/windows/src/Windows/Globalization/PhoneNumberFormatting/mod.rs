@@ -61,9 +61,6 @@ pub struct IPhoneNumberInfoStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneNumberFormatter(windows_core::IUnknown);
-impl windows_core::RuntimeType for PhoneNumberFormatter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneNumberFormatter>();
-}
 windows_core::imp::interface_hierarchy!(PhoneNumberFormatter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhoneNumberFormatter,);
 impl PhoneNumberFormatter {
@@ -141,6 +138,9 @@ impl PhoneNumberFormatter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PhoneNumberFormatter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneNumberFormatter>();
+}
 unsafe impl windows_core::Interface for PhoneNumberFormatter {
     type Vtable = <IPhoneNumberFormatter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneNumberFormatter as windows_core::Interface>::IID;
@@ -151,9 +151,6 @@ impl windows_core::RuntimeName for PhoneNumberFormatter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneNumberInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for PhoneNumberInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneNumberInfo>();
-}
 windows_core::imp::interface_hierarchy!(PhoneNumberInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhoneNumberInfo, super::super::Foundation::IStringable);
 impl PhoneNumberInfo {
@@ -249,6 +246,9 @@ impl PhoneNumberInfo {
         static SHARED: windows_core::imp::FactoryCache<PhoneNumberInfo, IPhoneNumberInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for PhoneNumberInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneNumberInfo>();
 }
 unsafe impl windows_core::Interface for PhoneNumberInfo {
     type Vtable = <IPhoneNumberInfo as windows_core::Interface>::Vtable;

@@ -1149,9 +1149,6 @@ pub struct IUserWatcher_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppActivationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppActivationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppActivationResult>();
-}
 windows_core::imp::interface_hierarchy!(AppActivationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppActivationResult,);
 impl AppActivationResult {
@@ -1170,6 +1167,9 @@ impl AppActivationResult {
         }
     }
 }
+impl windows_core::RuntimeType for AppActivationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppActivationResult>();
+}
 unsafe impl windows_core::Interface for AppActivationResult {
     type Vtable = <IAppActivationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppActivationResult as windows_core::Interface>::IID;
@@ -1180,9 +1180,6 @@ impl windows_core::RuntimeName for AppActivationResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppDiagnosticInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppDiagnosticInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppDiagnosticInfo>();
-}
 windows_core::imp::interface_hierarchy!(AppDiagnosticInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppDiagnosticInfo,);
 impl AppDiagnosticInfo {
@@ -1265,6 +1262,9 @@ impl AppDiagnosticInfo {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AppDiagnosticInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppDiagnosticInfo>();
+}
 unsafe impl windows_core::Interface for AppDiagnosticInfo {
     type Vtable = <IAppDiagnosticInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppDiagnosticInfo as windows_core::Interface>::IID;
@@ -1275,9 +1275,6 @@ impl windows_core::RuntimeName for AppDiagnosticInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppDiagnosticInfoWatcher(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppDiagnosticInfoWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppDiagnosticInfoWatcher>();
-}
 windows_core::imp::interface_hierarchy!(AppDiagnosticInfoWatcher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppDiagnosticInfoWatcher,);
 impl AppDiagnosticInfoWatcher {
@@ -1353,6 +1350,9 @@ impl AppDiagnosticInfoWatcher {
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for AppDiagnosticInfoWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppDiagnosticInfoWatcher>();
+}
 unsafe impl windows_core::Interface for AppDiagnosticInfoWatcher {
     type Vtable = <IAppDiagnosticInfoWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppDiagnosticInfoWatcher as windows_core::Interface>::IID;
@@ -1363,9 +1363,6 @@ impl windows_core::RuntimeName for AppDiagnosticInfoWatcher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppDiagnosticInfoWatcherEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppDiagnosticInfoWatcherEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppDiagnosticInfoWatcherEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AppDiagnosticInfoWatcherEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppDiagnosticInfoWatcherEventArgs,);
 impl AppDiagnosticInfoWatcherEventArgs {
@@ -1377,6 +1374,9 @@ impl AppDiagnosticInfoWatcherEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AppDiagnosticInfoWatcherEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppDiagnosticInfoWatcherEventArgs>();
+}
 unsafe impl windows_core::Interface for AppDiagnosticInfoWatcherEventArgs {
     type Vtable = <IAppDiagnosticInfoWatcherEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppDiagnosticInfoWatcherEventArgs as windows_core::Interface>::IID;
@@ -1387,9 +1387,6 @@ impl windows_core::RuntimeName for AppDiagnosticInfoWatcherEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppExecutionStateChangeResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppExecutionStateChangeResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppExecutionStateChangeResult>();
-}
 windows_core::imp::interface_hierarchy!(AppExecutionStateChangeResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppExecutionStateChangeResult,);
 impl AppExecutionStateChangeResult {
@@ -1401,6 +1398,9 @@ impl AppExecutionStateChangeResult {
         }
     }
 }
+impl windows_core::RuntimeType for AppExecutionStateChangeResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppExecutionStateChangeResult>();
+}
 unsafe impl windows_core::Interface for AppExecutionStateChangeResult {
     type Vtable = <IAppExecutionStateChangeResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppExecutionStateChangeResult as windows_core::Interface>::IID;
@@ -1411,9 +1411,6 @@ impl windows_core::RuntimeName for AppExecutionStateChangeResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppMemoryReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppMemoryReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppMemoryReport>();
-}
 windows_core::imp::interface_hierarchy!(AppMemoryReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppMemoryReport,);
 impl AppMemoryReport {
@@ -1453,6 +1450,9 @@ impl AppMemoryReport {
         }
     }
 }
+impl windows_core::RuntimeType for AppMemoryReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppMemoryReport>();
+}
 unsafe impl windows_core::Interface for AppMemoryReport {
     type Vtable = <IAppMemoryReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppMemoryReport as windows_core::Interface>::IID;
@@ -1463,9 +1463,6 @@ impl windows_core::RuntimeName for AppMemoryReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppMemoryUsageLimitChangingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppMemoryUsageLimitChangingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppMemoryUsageLimitChangingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AppMemoryUsageLimitChangingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppMemoryUsageLimitChangingEventArgs,);
 impl AppMemoryUsageLimitChangingEventArgs {
@@ -1484,6 +1481,9 @@ impl AppMemoryUsageLimitChangingEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AppMemoryUsageLimitChangingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppMemoryUsageLimitChangingEventArgs>();
+}
 unsafe impl windows_core::Interface for AppMemoryUsageLimitChangingEventArgs {
     type Vtable = <IAppMemoryUsageLimitChangingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppMemoryUsageLimitChangingEventArgs as windows_core::Interface>::IID;
@@ -1494,9 +1494,6 @@ impl windows_core::RuntimeName for AppMemoryUsageLimitChangingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupBackgroundTaskReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppResourceGroupBackgroundTaskReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppResourceGroupBackgroundTaskReport>();
-}
 windows_core::imp::interface_hierarchy!(AppResourceGroupBackgroundTaskReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppResourceGroupBackgroundTaskReport,);
 impl AppResourceGroupBackgroundTaskReport {
@@ -1529,6 +1526,9 @@ impl AppResourceGroupBackgroundTaskReport {
         }
     }
 }
+impl windows_core::RuntimeType for AppResourceGroupBackgroundTaskReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppResourceGroupBackgroundTaskReport>();
+}
 unsafe impl windows_core::Interface for AppResourceGroupBackgroundTaskReport {
     type Vtable = <IAppResourceGroupBackgroundTaskReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppResourceGroupBackgroundTaskReport as windows_core::Interface>::IID;
@@ -1539,9 +1539,6 @@ impl windows_core::RuntimeName for AppResourceGroupBackgroundTaskReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppResourceGroupInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppResourceGroupInfo>();
-}
 windows_core::imp::interface_hierarchy!(AppResourceGroupInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppResourceGroupInfo,);
 impl AppResourceGroupInfo {
@@ -1611,6 +1608,9 @@ impl AppResourceGroupInfo {
         }
     }
 }
+impl windows_core::RuntimeType for AppResourceGroupInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppResourceGroupInfo>();
+}
 unsafe impl windows_core::Interface for AppResourceGroupInfo {
     type Vtable = <IAppResourceGroupInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppResourceGroupInfo as windows_core::Interface>::IID;
@@ -1621,9 +1621,6 @@ impl windows_core::RuntimeName for AppResourceGroupInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupInfoWatcher(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppResourceGroupInfoWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppResourceGroupInfoWatcher>();
-}
 windows_core::imp::interface_hierarchy!(AppResourceGroupInfoWatcher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppResourceGroupInfoWatcher,);
 impl AppResourceGroupInfoWatcher {
@@ -1713,6 +1710,9 @@ impl AppResourceGroupInfoWatcher {
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for AppResourceGroupInfoWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppResourceGroupInfoWatcher>();
+}
 unsafe impl windows_core::Interface for AppResourceGroupInfoWatcher {
     type Vtable = <IAppResourceGroupInfoWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppResourceGroupInfoWatcher as windows_core::Interface>::IID;
@@ -1723,9 +1723,6 @@ impl windows_core::RuntimeName for AppResourceGroupInfoWatcher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupInfoWatcherEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppResourceGroupInfoWatcherEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppResourceGroupInfoWatcherEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AppResourceGroupInfoWatcherEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppResourceGroupInfoWatcherEventArgs,);
 impl AppResourceGroupInfoWatcherEventArgs {
@@ -1745,6 +1742,9 @@ impl AppResourceGroupInfoWatcherEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AppResourceGroupInfoWatcherEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppResourceGroupInfoWatcherEventArgs>();
+}
 unsafe impl windows_core::Interface for AppResourceGroupInfoWatcherEventArgs {
     type Vtable = <IAppResourceGroupInfoWatcherEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppResourceGroupInfoWatcherEventArgs as windows_core::Interface>::IID;
@@ -1755,9 +1755,6 @@ impl windows_core::RuntimeName for AppResourceGroupInfoWatcherEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupInfoWatcherExecutionStateChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AppResourceGroupInfoWatcherExecutionStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppResourceGroupInfoWatcherExecutionStateChangedEventArgs,);
 impl AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
@@ -1777,6 +1774,9 @@ impl AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     type Vtable = <IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs as windows_core::Interface>::IID;
@@ -1787,9 +1787,6 @@ impl windows_core::RuntimeName for AppResourceGroupInfoWatcherExecutionStateChan
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupMemoryReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppResourceGroupMemoryReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppResourceGroupMemoryReport>();
-}
 windows_core::imp::interface_hierarchy!(AppResourceGroupMemoryReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppResourceGroupMemoryReport,);
 impl AppResourceGroupMemoryReport {
@@ -1822,6 +1819,9 @@ impl AppResourceGroupMemoryReport {
         }
     }
 }
+impl windows_core::RuntimeType for AppResourceGroupMemoryReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppResourceGroupMemoryReport>();
+}
 unsafe impl windows_core::Interface for AppResourceGroupMemoryReport {
     type Vtable = <IAppResourceGroupMemoryReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppResourceGroupMemoryReport as windows_core::Interface>::IID;
@@ -1832,9 +1832,6 @@ impl windows_core::RuntimeName for AppResourceGroupMemoryReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppResourceGroupStateReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppResourceGroupStateReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppResourceGroupStateReport>();
-}
 windows_core::imp::interface_hierarchy!(AppResourceGroupStateReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppResourceGroupStateReport,);
 impl AppResourceGroupStateReport {
@@ -1853,6 +1850,9 @@ impl AppResourceGroupStateReport {
         }
     }
 }
+impl windows_core::RuntimeType for AppResourceGroupStateReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppResourceGroupStateReport>();
+}
 unsafe impl windows_core::Interface for AppResourceGroupStateReport {
     type Vtable = <IAppResourceGroupStateReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppResourceGroupStateReport as windows_core::Interface>::IID;
@@ -1863,9 +1863,6 @@ impl windows_core::RuntimeName for AppResourceGroupStateReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppUriHandlerHost(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppUriHandlerHost {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppUriHandlerHost>();
-}
 windows_core::imp::interface_hierarchy!(AppUriHandlerHost, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppUriHandlerHost,);
 impl AppUriHandlerHost {
@@ -1909,6 +1906,9 @@ impl AppUriHandlerHost {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AppUriHandlerHost {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppUriHandlerHost>();
+}
 unsafe impl windows_core::Interface for AppUriHandlerHost {
     type Vtable = <IAppUriHandlerHost as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppUriHandlerHost as windows_core::Interface>::IID;
@@ -1919,9 +1919,6 @@ impl windows_core::RuntimeName for AppUriHandlerHost {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppUriHandlerRegistration(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppUriHandlerRegistration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppUriHandlerRegistration>();
-}
 windows_core::imp::interface_hierarchy!(AppUriHandlerRegistration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppUriHandlerRegistration,);
 impl AppUriHandlerRegistration {
@@ -1982,6 +1979,9 @@ impl AppUriHandlerRegistration {
         }
     }
 }
+impl windows_core::RuntimeType for AppUriHandlerRegistration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppUriHandlerRegistration>();
+}
 unsafe impl windows_core::Interface for AppUriHandlerRegistration {
     type Vtable = <IAppUriHandlerRegistration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppUriHandlerRegistration as windows_core::Interface>::IID;
@@ -1992,9 +1992,6 @@ impl windows_core::RuntimeName for AppUriHandlerRegistration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppUriHandlerRegistrationManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppUriHandlerRegistrationManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppUriHandlerRegistrationManager>();
-}
 windows_core::imp::interface_hierarchy!(AppUriHandlerRegistrationManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppUriHandlerRegistrationManager,);
 impl AppUriHandlerRegistrationManager {
@@ -2058,6 +2055,9 @@ impl AppUriHandlerRegistrationManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AppUriHandlerRegistrationManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppUriHandlerRegistrationManager>();
+}
 unsafe impl windows_core::Interface for AppUriHandlerRegistrationManager {
     type Vtable = <IAppUriHandlerRegistrationManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppUriHandlerRegistrationManager as windows_core::Interface>::IID;
@@ -2081,9 +2081,6 @@ impl windows_core::RuntimeName for DateTimeSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DispatcherQueue(windows_core::IUnknown);
-impl windows_core::RuntimeType for DispatcherQueue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDispatcherQueue>();
-}
 windows_core::imp::interface_hierarchy!(DispatcherQueue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DispatcherQueue,);
 impl DispatcherQueue {
@@ -2160,6 +2157,9 @@ impl DispatcherQueue {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DispatcherQueue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDispatcherQueue>();
+}
 unsafe impl windows_core::Interface for DispatcherQueue {
     type Vtable = <IDispatcherQueue as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDispatcherQueue as windows_core::Interface>::IID;
@@ -2170,9 +2170,6 @@ impl windows_core::RuntimeName for DispatcherQueue {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DispatcherQueueController(windows_core::IUnknown);
-impl windows_core::RuntimeType for DispatcherQueueController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDispatcherQueueController>();
-}
 windows_core::imp::interface_hierarchy!(DispatcherQueueController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DispatcherQueueController,);
 impl DispatcherQueueController {
@@ -2201,6 +2198,9 @@ impl DispatcherQueueController {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DispatcherQueueController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDispatcherQueueController>();
+}
 unsafe impl windows_core::Interface for DispatcherQueueController {
     type Vtable = <IDispatcherQueueController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDispatcherQueueController as windows_core::Interface>::IID;
@@ -2211,9 +2211,6 @@ impl windows_core::RuntimeName for DispatcherQueueController {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DispatcherQueueShutdownStartingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DispatcherQueueShutdownStartingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDispatcherQueueShutdownStartingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DispatcherQueueShutdownStartingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DispatcherQueueShutdownStartingEventArgs,);
 impl DispatcherQueueShutdownStartingEventArgs {
@@ -2225,6 +2222,9 @@ impl DispatcherQueueShutdownStartingEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for DispatcherQueueShutdownStartingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDispatcherQueueShutdownStartingEventArgs>();
+}
 unsafe impl windows_core::Interface for DispatcherQueueShutdownStartingEventArgs {
     type Vtable = <IDispatcherQueueShutdownStartingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDispatcherQueueShutdownStartingEventArgs as windows_core::Interface>::IID;
@@ -2235,9 +2235,6 @@ impl windows_core::RuntimeName for DispatcherQueueShutdownStartingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DispatcherQueueTimer(windows_core::IUnknown);
-impl windows_core::RuntimeType for DispatcherQueueTimer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDispatcherQueueTimer>();
-}
 windows_core::imp::interface_hierarchy!(DispatcherQueueTimer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DispatcherQueueTimer,);
 impl DispatcherQueueTimer {
@@ -2293,6 +2290,9 @@ impl DispatcherQueueTimer {
         unsafe { (windows_core::Interface::vtable(this).RemoveTick)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for DispatcherQueueTimer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDispatcherQueueTimer>();
+}
 unsafe impl windows_core::Interface for DispatcherQueueTimer {
     type Vtable = <IDispatcherQueueTimer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDispatcherQueueTimer as windows_core::Interface>::IID;
@@ -2303,9 +2303,6 @@ impl windows_core::RuntimeName for DispatcherQueueTimer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FolderLauncherOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for FolderLauncherOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFolderLauncherOptions>();
-}
 windows_core::imp::interface_hierarchy!(FolderLauncherOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FolderLauncherOptions, ILauncherViewOptions);
 impl FolderLauncherOptions {
@@ -2337,6 +2334,9 @@ impl FolderLauncherOptions {
         let this = &windows_core::Interface::cast::<ILauncherViewOptions>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDesiredRemainingView)(windows_core::Interface::as_raw(this), value).ok() }
     }
+}
+impl windows_core::RuntimeType for FolderLauncherOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFolderLauncherOptions>();
 }
 unsafe impl windows_core::Interface for FolderLauncherOptions {
     type Vtable = <IFolderLauncherOptions as windows_core::Interface>::Vtable;
@@ -2422,9 +2422,6 @@ impl windows_core::RuntimeName for KnownUserProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LaunchUriResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for LaunchUriResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILaunchUriResult>();
-}
 windows_core::imp::interface_hierarchy!(LaunchUriResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LaunchUriResult,);
 impl LaunchUriResult {
@@ -2443,6 +2440,9 @@ impl LaunchUriResult {
             (windows_core::Interface::vtable(this).Result)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for LaunchUriResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILaunchUriResult>();
 }
 unsafe impl windows_core::Interface for LaunchUriResult {
     type Vtable = <ILaunchUriResult as windows_core::Interface>::Vtable;
@@ -2754,9 +2754,6 @@ impl windows_core::RuntimeName for Launcher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LauncherOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for LauncherOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILauncherOptions>();
-}
 windows_core::imp::interface_hierarchy!(LauncherOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LauncherOptions, ILauncherViewOptions);
 impl LauncherOptions {
@@ -2906,6 +2903,9 @@ impl LauncherOptions {
         unsafe { (windows_core::Interface::vtable(this).SetDesiredRemainingView)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for LauncherOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILauncherOptions>();
+}
 unsafe impl windows_core::Interface for LauncherOptions {
     type Vtable = <ILauncherOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILauncherOptions as windows_core::Interface>::IID;
@@ -2916,9 +2916,6 @@ impl windows_core::RuntimeName for LauncherOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LauncherUIOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for LauncherUIOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILauncherUIOptions>();
-}
 windows_core::imp::interface_hierarchy!(LauncherUIOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LauncherUIOptions,);
 impl LauncherUIOptions {
@@ -2963,6 +2960,9 @@ impl LauncherUIOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPreferredPlacement)(windows_core::Interface::as_raw(this), value).ok() }
     }
+}
+impl windows_core::RuntimeType for LauncherUIOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILauncherUIOptions>();
 }
 unsafe impl windows_core::Interface for LauncherUIOptions {
     type Vtable = <ILauncherUIOptions as windows_core::Interface>::Vtable;
@@ -3099,9 +3099,6 @@ impl windows_core::RuntimeName for ProcessLauncher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessLauncherOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProcessLauncherOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessLauncherOptions>();
-}
 windows_core::imp::interface_hierarchy!(ProcessLauncherOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProcessLauncherOptions,);
 impl ProcessLauncherOptions {
@@ -3172,6 +3169,9 @@ impl ProcessLauncherOptions {
         unsafe { (windows_core::Interface::vtable(this).SetWorkingDirectory)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for ProcessLauncherOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessLauncherOptions>();
+}
 unsafe impl windows_core::Interface for ProcessLauncherOptions {
     type Vtable = <IProcessLauncherOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProcessLauncherOptions as windows_core::Interface>::IID;
@@ -3182,9 +3182,6 @@ impl windows_core::RuntimeName for ProcessLauncherOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessLauncherResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProcessLauncherResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessLauncherResult>();
-}
 windows_core::imp::interface_hierarchy!(ProcessLauncherResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProcessLauncherResult,);
 impl ProcessLauncherResult {
@@ -3196,6 +3193,9 @@ impl ProcessLauncherResult {
         }
     }
 }
+impl windows_core::RuntimeType for ProcessLauncherResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessLauncherResult>();
+}
 unsafe impl windows_core::Interface for ProcessLauncherResult {
     type Vtable = <IProcessLauncherResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProcessLauncherResult as windows_core::Interface>::IID;
@@ -3206,9 +3206,6 @@ impl windows_core::RuntimeName for ProcessLauncherResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessMemoryReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProcessMemoryReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessMemoryReport>();
-}
 windows_core::imp::interface_hierarchy!(ProcessMemoryReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProcessMemoryReport,);
 impl ProcessMemoryReport {
@@ -3227,6 +3224,9 @@ impl ProcessMemoryReport {
         }
     }
 }
+impl windows_core::RuntimeType for ProcessMemoryReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessMemoryReport>();
+}
 unsafe impl windows_core::Interface for ProcessMemoryReport {
     type Vtable = <IProcessMemoryReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProcessMemoryReport as windows_core::Interface>::IID;
@@ -3237,9 +3237,6 @@ impl windows_core::RuntimeName for ProcessMemoryReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtocolForResultsOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProtocolForResultsOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtocolForResultsOperation>();
-}
 windows_core::imp::interface_hierarchy!(ProtocolForResultsOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProtocolForResultsOperation,);
 impl ProtocolForResultsOperation {
@@ -3251,6 +3248,9 @@ impl ProtocolForResultsOperation {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this), data.param().abi()).ok() }
     }
+}
+impl windows_core::RuntimeType for ProtocolForResultsOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtocolForResultsOperation>();
 }
 unsafe impl windows_core::Interface for ProtocolForResultsOperation {
     type Vtable = <IProtocolForResultsOperation as windows_core::Interface>::Vtable;
@@ -3308,9 +3308,6 @@ impl windows_core::RuntimeName for RemoteLauncher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteLauncherOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteLauncherOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteLauncherOptions>();
-}
 windows_core::imp::interface_hierarchy!(RemoteLauncherOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteLauncherOptions,);
 impl RemoteLauncherOptions {
@@ -3343,6 +3340,9 @@ impl RemoteLauncherOptions {
             (windows_core::Interface::vtable(this).PreferredAppIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for RemoteLauncherOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteLauncherOptions>();
 }
 unsafe impl windows_core::Interface for RemoteLauncherOptions {
     type Vtable = <IRemoteLauncherOptions as windows_core::Interface>::Vtable;
@@ -3428,9 +3428,6 @@ impl windows_core::RuntimeName for TimeZoneSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct User(windows_core::IUnknown);
-impl windows_core::RuntimeType for User {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUser>();
-}
 windows_core::imp::interface_hierarchy!(User, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(User,);
 impl User {
@@ -3536,6 +3533,9 @@ impl User {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for User {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUser>();
+}
 unsafe impl windows_core::Interface for User {
     type Vtable = <IUser as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUser as windows_core::Interface>::IID;
@@ -3546,9 +3546,6 @@ impl windows_core::RuntimeName for User {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserAuthenticationStatusChangeDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserAuthenticationStatusChangeDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserAuthenticationStatusChangeDeferral>();
-}
 windows_core::imp::interface_hierarchy!(UserAuthenticationStatusChangeDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserAuthenticationStatusChangeDeferral,);
 impl UserAuthenticationStatusChangeDeferral {
@@ -3556,6 +3553,9 @@ impl UserAuthenticationStatusChangeDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for UserAuthenticationStatusChangeDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserAuthenticationStatusChangeDeferral>();
 }
 unsafe impl windows_core::Interface for UserAuthenticationStatusChangeDeferral {
     type Vtable = <IUserAuthenticationStatusChangeDeferral as windows_core::Interface>::Vtable;
@@ -3567,9 +3567,6 @@ impl windows_core::RuntimeName for UserAuthenticationStatusChangeDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserAuthenticationStatusChangingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserAuthenticationStatusChangingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserAuthenticationStatusChangingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(UserAuthenticationStatusChangingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserAuthenticationStatusChangingEventArgs,);
 impl UserAuthenticationStatusChangingEventArgs {
@@ -3602,6 +3599,9 @@ impl UserAuthenticationStatusChangingEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for UserAuthenticationStatusChangingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserAuthenticationStatusChangingEventArgs>();
+}
 unsafe impl windows_core::Interface for UserAuthenticationStatusChangingEventArgs {
     type Vtable = <IUserAuthenticationStatusChangingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserAuthenticationStatusChangingEventArgs as windows_core::Interface>::IID;
@@ -3612,9 +3612,6 @@ impl windows_core::RuntimeName for UserAuthenticationStatusChangingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(UserChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserChangedEventArgs,);
 impl UserChangedEventArgs {
@@ -3633,6 +3630,9 @@ impl UserChangedEventArgs {
             (windows_core::Interface::vtable(this).ChangedPropertyKinds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for UserChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for UserChangedEventArgs {
     type Vtable = <IUserChangedEventArgs as windows_core::Interface>::Vtable;
@@ -3672,9 +3672,6 @@ impl windows_core::RuntimeName for UserDeviceAssociation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDeviceAssociationChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDeviceAssociationChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDeviceAssociationChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(UserDeviceAssociationChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDeviceAssociationChangedEventArgs,);
 impl UserDeviceAssociationChangedEventArgs {
@@ -3700,6 +3697,9 @@ impl UserDeviceAssociationChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for UserDeviceAssociationChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDeviceAssociationChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for UserDeviceAssociationChangedEventArgs {
     type Vtable = <IUserDeviceAssociationChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDeviceAssociationChangedEventArgs as windows_core::Interface>::IID;
@@ -3710,9 +3710,6 @@ impl windows_core::RuntimeName for UserDeviceAssociationChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserPicker(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserPicker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserPicker>();
-}
 windows_core::imp::interface_hierarchy!(UserPicker, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserPicker,);
 impl UserPicker {
@@ -3766,6 +3763,9 @@ impl UserPicker {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for UserPicker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserPicker>();
+}
 unsafe impl windows_core::Interface for UserPicker {
     type Vtable = <IUserPicker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserPicker as windows_core::Interface>::IID;
@@ -3776,9 +3776,6 @@ impl windows_core::RuntimeName for UserPicker {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserWatcher(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserWatcher>();
-}
 windows_core::imp::interface_hierarchy!(UserWatcher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserWatcher,);
 impl UserWatcher {
@@ -3895,6 +3892,9 @@ impl UserWatcher {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStopped)(windows_core::Interface::as_raw(this), token).ok() }
     }
+}
+impl windows_core::RuntimeType for UserWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserWatcher>();
 }
 unsafe impl windows_core::Interface for UserWatcher {
     type Vtable = <IUserWatcher as windows_core::Interface>::Vtable;

@@ -14,9 +14,6 @@ pub struct ICompositorController_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositorController(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositorController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositorController>();
-}
 windows_core::imp::interface_hierarchy!(CompositorController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositorController, super::super::super::Foundation::IClosable);
 impl CompositorController {
@@ -63,6 +60,9 @@ impl CompositorController {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCommitNeeded)(windows_core::Interface::as_raw(this), token).ok() }
     }
+}
+impl windows_core::RuntimeType for CompositorController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositorController>();
 }
 unsafe impl windows_core::Interface for CompositorController {
     type Vtable = <ICompositorController as windows_core::Interface>::Vtable;

@@ -120,9 +120,6 @@ pub struct ICastingSource_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingConnection(windows_core::IUnknown);
-impl windows_core::RuntimeType for CastingConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingConnection>();
-}
 windows_core::imp::interface_hierarchy!(CastingConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CastingConnection, super::super::Foundation::IClosable);
 impl CastingConnection {
@@ -204,6 +201,9 @@ impl CastingConnection {
         }
     }
 }
+impl windows_core::RuntimeType for CastingConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingConnection>();
+}
 unsafe impl windows_core::Interface for CastingConnection {
     type Vtable = <ICastingConnection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICastingConnection as windows_core::Interface>::IID;
@@ -214,9 +214,6 @@ impl windows_core::RuntimeName for CastingConnection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingConnectionErrorOccurredEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CastingConnectionErrorOccurredEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingConnectionErrorOccurredEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CastingConnectionErrorOccurredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CastingConnectionErrorOccurredEventArgs,);
 impl CastingConnectionErrorOccurredEventArgs {
@@ -235,6 +232,9 @@ impl CastingConnectionErrorOccurredEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for CastingConnectionErrorOccurredEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingConnectionErrorOccurredEventArgs>();
+}
 unsafe impl windows_core::Interface for CastingConnectionErrorOccurredEventArgs {
     type Vtable = <ICastingConnectionErrorOccurredEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICastingConnectionErrorOccurredEventArgs as windows_core::Interface>::IID;
@@ -245,9 +245,6 @@ impl windows_core::RuntimeName for CastingConnectionErrorOccurredEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for CastingDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingDevice>();
-}
 windows_core::imp::interface_hierarchy!(CastingDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CastingDevice,);
 impl CastingDevice {
@@ -323,6 +320,9 @@ impl CastingDevice {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CastingDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingDevice>();
+}
 unsafe impl windows_core::Interface for CastingDevice {
     type Vtable = <ICastingDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICastingDevice as windows_core::Interface>::IID;
@@ -333,9 +333,6 @@ impl windows_core::RuntimeName for CastingDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingDevicePicker(windows_core::IUnknown);
-impl windows_core::RuntimeType for CastingDevicePicker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingDevicePicker>();
-}
 windows_core::imp::interface_hierarchy!(CastingDevicePicker, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CastingDevicePicker,);
 impl CastingDevicePicker {
@@ -403,6 +400,9 @@ impl CastingDevicePicker {
         unsafe { (windows_core::Interface::vtable(this).Hide)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for CastingDevicePicker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingDevicePicker>();
+}
 unsafe impl windows_core::Interface for CastingDevicePicker {
     type Vtable = <ICastingDevicePicker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICastingDevicePicker as windows_core::Interface>::IID;
@@ -413,9 +413,6 @@ impl windows_core::RuntimeName for CastingDevicePicker {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingDevicePickerFilter(windows_core::IUnknown);
-impl windows_core::RuntimeType for CastingDevicePickerFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingDevicePickerFilter>();
-}
 windows_core::imp::interface_hierarchy!(CastingDevicePickerFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CastingDevicePickerFilter,);
 impl CastingDevicePickerFilter {
@@ -461,6 +458,9 @@ impl CastingDevicePickerFilter {
         }
     }
 }
+impl windows_core::RuntimeType for CastingDevicePickerFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingDevicePickerFilter>();
+}
 unsafe impl windows_core::Interface for CastingDevicePickerFilter {
     type Vtable = <ICastingDevicePickerFilter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICastingDevicePickerFilter as windows_core::Interface>::IID;
@@ -471,9 +471,6 @@ impl windows_core::RuntimeName for CastingDevicePickerFilter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingDeviceSelectedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CastingDeviceSelectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingDeviceSelectedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CastingDeviceSelectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CastingDeviceSelectedEventArgs,);
 impl CastingDeviceSelectedEventArgs {
@@ -485,6 +482,9 @@ impl CastingDeviceSelectedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for CastingDeviceSelectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingDeviceSelectedEventArgs>();
+}
 unsafe impl windows_core::Interface for CastingDeviceSelectedEventArgs {
     type Vtable = <ICastingDeviceSelectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICastingDeviceSelectedEventArgs as windows_core::Interface>::IID;
@@ -495,9 +495,6 @@ impl windows_core::RuntimeName for CastingDeviceSelectedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CastingSource(windows_core::IUnknown);
-impl windows_core::RuntimeType for CastingSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingSource>();
-}
 windows_core::imp::interface_hierarchy!(CastingSource, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CastingSource,);
 impl CastingSource {
@@ -515,6 +512,9 @@ impl CastingSource {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPreferredSourceUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
+}
+impl windows_core::RuntimeType for CastingSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICastingSource>();
 }
 unsafe impl windows_core::Interface for CastingSource {
     type Vtable = <ICastingSource as windows_core::Interface>::Vtable;

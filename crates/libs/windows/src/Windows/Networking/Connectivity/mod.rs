@@ -494,9 +494,6 @@ pub struct IWwanConnectionProfileDetails2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AttributedNetworkUsage(windows_core::IUnknown);
-impl windows_core::RuntimeType for AttributedNetworkUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAttributedNetworkUsage>();
-}
 windows_core::imp::interface_hierarchy!(AttributedNetworkUsage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AttributedNetworkUsage,);
 impl AttributedNetworkUsage {
@@ -537,6 +534,9 @@ impl AttributedNetworkUsage {
         }
     }
 }
+impl windows_core::RuntimeType for AttributedNetworkUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAttributedNetworkUsage>();
+}
 unsafe impl windows_core::Interface for AttributedNetworkUsage {
     type Vtable = <IAttributedNetworkUsage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAttributedNetworkUsage as windows_core::Interface>::IID;
@@ -547,9 +547,6 @@ impl windows_core::RuntimeName for AttributedNetworkUsage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CellularApnContext(windows_core::IUnknown);
-impl windows_core::RuntimeType for CellularApnContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICellularApnContext>();
-}
 windows_core::imp::interface_hierarchy!(CellularApnContext, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CellularApnContext,);
 impl CellularApnContext {
@@ -638,6 +635,9 @@ impl CellularApnContext {
         unsafe { (windows_core::Interface::vtable(this).SetProfileName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for CellularApnContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICellularApnContext>();
+}
 unsafe impl windows_core::Interface for CellularApnContext {
     type Vtable = <ICellularApnContext as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICellularApnContext as windows_core::Interface>::IID;
@@ -648,9 +648,6 @@ impl windows_core::RuntimeName for CellularApnContext {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConnectionCost(windows_core::IUnknown);
-impl windows_core::RuntimeType for ConnectionCost {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConnectionCost>();
-}
 windows_core::imp::interface_hierarchy!(ConnectionCost, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConnectionCost,);
 impl ConnectionCost {
@@ -690,6 +687,9 @@ impl ConnectionCost {
         }
     }
 }
+impl windows_core::RuntimeType for ConnectionCost {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConnectionCost>();
+}
 unsafe impl windows_core::Interface for ConnectionCost {
     type Vtable = <IConnectionCost as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IConnectionCost as windows_core::Interface>::IID;
@@ -700,9 +700,6 @@ impl windows_core::RuntimeName for ConnectionCost {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConnectionProfile(windows_core::IUnknown);
-impl windows_core::RuntimeType for ConnectionProfile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConnectionProfile>();
-}
 windows_core::imp::interface_hierarchy!(ConnectionProfile, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConnectionProfile,);
 impl ConnectionProfile {
@@ -873,6 +870,9 @@ impl ConnectionProfile {
         }
     }
 }
+impl windows_core::RuntimeType for ConnectionProfile {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConnectionProfile>();
+}
 unsafe impl windows_core::Interface for ConnectionProfile {
     type Vtable = <IConnectionProfile as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IConnectionProfile as windows_core::Interface>::IID;
@@ -883,9 +883,6 @@ impl windows_core::RuntimeName for ConnectionProfile {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConnectionProfileFilter(windows_core::IUnknown);
-impl windows_core::RuntimeType for ConnectionProfileFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConnectionProfileFilter>();
-}
 windows_core::imp::interface_hierarchy!(ConnectionProfileFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConnectionProfileFilter,);
 impl ConnectionProfileFilter {
@@ -1019,6 +1016,9 @@ impl ConnectionProfileFilter {
         }
     }
 }
+impl windows_core::RuntimeType for ConnectionProfileFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConnectionProfileFilter>();
+}
 unsafe impl windows_core::Interface for ConnectionProfileFilter {
     type Vtable = <IConnectionProfileFilter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IConnectionProfileFilter as windows_core::Interface>::IID;
@@ -1029,9 +1029,6 @@ impl windows_core::RuntimeName for ConnectionProfileFilter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConnectionSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for ConnectionSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConnectionSession>();
-}
 windows_core::imp::interface_hierarchy!(ConnectionSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConnectionSession, super::super::Foundation::IClosable);
 impl ConnectionSession {
@@ -1047,6 +1044,9 @@ impl ConnectionSession {
         }
     }
 }
+impl windows_core::RuntimeType for ConnectionSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConnectionSession>();
+}
 unsafe impl windows_core::Interface for ConnectionSession {
     type Vtable = <IConnectionSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IConnectionSession as windows_core::Interface>::IID;
@@ -1057,9 +1057,6 @@ impl windows_core::RuntimeName for ConnectionSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConnectivityInterval(windows_core::IUnknown);
-impl windows_core::RuntimeType for ConnectivityInterval {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConnectivityInterval>();
-}
 windows_core::imp::interface_hierarchy!(ConnectivityInterval, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConnectivityInterval,);
 impl ConnectivityInterval {
@@ -1077,6 +1074,9 @@ impl ConnectivityInterval {
             (windows_core::Interface::vtable(this).ConnectionDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for ConnectivityInterval {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConnectivityInterval>();
 }
 unsafe impl windows_core::Interface for ConnectivityInterval {
     type Vtable = <IConnectivityInterval as windows_core::Interface>::Vtable;
@@ -1119,9 +1119,6 @@ impl windows_core::RuntimeName for ConnectivityManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataPlanStatus(windows_core::IUnknown);
-impl windows_core::RuntimeType for DataPlanStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataPlanStatus>();
-}
 windows_core::imp::interface_hierarchy!(DataPlanStatus, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DataPlanStatus,);
 impl DataPlanStatus {
@@ -1168,6 +1165,9 @@ impl DataPlanStatus {
         }
     }
 }
+impl windows_core::RuntimeType for DataPlanStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataPlanStatus>();
+}
 unsafe impl windows_core::Interface for DataPlanStatus {
     type Vtable = <IDataPlanStatus as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataPlanStatus as windows_core::Interface>::IID;
@@ -1178,9 +1178,6 @@ impl windows_core::RuntimeName for DataPlanStatus {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataPlanUsage(windows_core::IUnknown);
-impl windows_core::RuntimeType for DataPlanUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataPlanUsage>();
-}
 windows_core::imp::interface_hierarchy!(DataPlanUsage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DataPlanUsage,);
 impl DataPlanUsage {
@@ -1199,6 +1196,9 @@ impl DataPlanUsage {
         }
     }
 }
+impl windows_core::RuntimeType for DataPlanUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataPlanUsage>();
+}
 unsafe impl windows_core::Interface for DataPlanUsage {
     type Vtable = <IDataPlanUsage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataPlanUsage as windows_core::Interface>::IID;
@@ -1210,10 +1210,6 @@ impl windows_core::RuntimeName for DataPlanUsage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataUsage(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for DataUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataUsage>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(DataUsage, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1238,6 +1234,10 @@ impl DataUsage {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for DataUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataUsage>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for DataUsage {
     type Vtable = <IDataUsage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataUsage as windows_core::Interface>::IID;
@@ -1249,9 +1249,6 @@ impl windows_core::RuntimeName for DataUsage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IPInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for IPInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIPInformation>();
-}
 windows_core::imp::interface_hierarchy!(IPInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IPInformation,);
 impl IPInformation {
@@ -1270,6 +1267,9 @@ impl IPInformation {
         }
     }
 }
+impl windows_core::RuntimeType for IPInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIPInformation>();
+}
 unsafe impl windows_core::Interface for IPInformation {
     type Vtable = <IIPInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIPInformation as windows_core::Interface>::IID;
@@ -1280,9 +1280,6 @@ impl windows_core::RuntimeName for IPInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LanIdentifier(windows_core::IUnknown);
-impl windows_core::RuntimeType for LanIdentifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanIdentifier>();
-}
 windows_core::imp::interface_hierarchy!(LanIdentifier, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LanIdentifier,);
 impl LanIdentifier {
@@ -1308,6 +1305,9 @@ impl LanIdentifier {
         }
     }
 }
+impl windows_core::RuntimeType for LanIdentifier {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanIdentifier>();
+}
 unsafe impl windows_core::Interface for LanIdentifier {
     type Vtable = <ILanIdentifier as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILanIdentifier as windows_core::Interface>::IID;
@@ -1318,9 +1318,6 @@ impl windows_core::RuntimeName for LanIdentifier {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LanIdentifierData(windows_core::IUnknown);
-impl windows_core::RuntimeType for LanIdentifierData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanIdentifierData>();
-}
 windows_core::imp::interface_hierarchy!(LanIdentifierData, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LanIdentifierData,);
 impl LanIdentifierData {
@@ -1340,6 +1337,9 @@ impl LanIdentifierData {
         }
     }
 }
+impl windows_core::RuntimeType for LanIdentifierData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanIdentifierData>();
+}
 unsafe impl windows_core::Interface for LanIdentifierData {
     type Vtable = <ILanIdentifierData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILanIdentifierData as windows_core::Interface>::IID;
@@ -1350,9 +1350,6 @@ impl windows_core::RuntimeName for LanIdentifierData {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkAdapter(windows_core::IUnknown);
-impl windows_core::RuntimeType for NetworkAdapter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkAdapter>();
-}
 windows_core::imp::interface_hierarchy!(NetworkAdapter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkAdapter,);
 impl NetworkAdapter {
@@ -1398,6 +1395,9 @@ impl NetworkAdapter {
             (windows_core::Interface::vtable(this).GetConnectedProfileAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for NetworkAdapter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkAdapter>();
 }
 unsafe impl windows_core::Interface for NetworkAdapter {
     type Vtable = <INetworkAdapter as windows_core::Interface>::Vtable;
@@ -1491,9 +1491,6 @@ impl windows_core::RuntimeName for NetworkInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkItem(windows_core::IUnknown);
-impl windows_core::RuntimeType for NetworkItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkItem>();
-}
 windows_core::imp::interface_hierarchy!(NetworkItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkItem,);
 impl NetworkItem {
@@ -1512,6 +1509,9 @@ impl NetworkItem {
         }
     }
 }
+impl windows_core::RuntimeType for NetworkItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkItem>();
+}
 unsafe impl windows_core::Interface for NetworkItem {
     type Vtable = <INetworkItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkItem as windows_core::Interface>::IID;
@@ -1522,9 +1522,6 @@ impl windows_core::RuntimeName for NetworkItem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkSecuritySettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for NetworkSecuritySettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkSecuritySettings>();
-}
 windows_core::imp::interface_hierarchy!(NetworkSecuritySettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkSecuritySettings,);
 impl NetworkSecuritySettings {
@@ -1543,6 +1540,9 @@ impl NetworkSecuritySettings {
         }
     }
 }
+impl windows_core::RuntimeType for NetworkSecuritySettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkSecuritySettings>();
+}
 unsafe impl windows_core::Interface for NetworkSecuritySettings {
     type Vtable = <INetworkSecuritySettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkSecuritySettings as windows_core::Interface>::IID;
@@ -1553,9 +1553,6 @@ impl windows_core::RuntimeName for NetworkSecuritySettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkStateChangeEventDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for NetworkStateChangeEventDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkStateChangeEventDetails>();
-}
 windows_core::imp::interface_hierarchy!(NetworkStateChangeEventDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkStateChangeEventDetails,);
 impl NetworkStateChangeEventDetails {
@@ -1616,6 +1613,9 @@ impl NetworkStateChangeEventDetails {
         }
     }
 }
+impl windows_core::RuntimeType for NetworkStateChangeEventDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkStateChangeEventDetails>();
+}
 unsafe impl windows_core::Interface for NetworkStateChangeEventDetails {
     type Vtable = <INetworkStateChangeEventDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkStateChangeEventDetails as windows_core::Interface>::IID;
@@ -1626,9 +1626,6 @@ impl windows_core::RuntimeName for NetworkStateChangeEventDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkUsage(windows_core::IUnknown);
-impl windows_core::RuntimeType for NetworkUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkUsage>();
-}
 windows_core::imp::interface_hierarchy!(NetworkUsage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkUsage,);
 impl NetworkUsage {
@@ -1654,6 +1651,9 @@ impl NetworkUsage {
         }
     }
 }
+impl windows_core::RuntimeType for NetworkUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkUsage>();
+}
 unsafe impl windows_core::Interface for NetworkUsage {
     type Vtable = <INetworkUsage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkUsage as windows_core::Interface>::IID;
@@ -1664,9 +1664,6 @@ impl windows_core::RuntimeName for NetworkUsage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProviderNetworkUsage(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProviderNetworkUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProviderNetworkUsage>();
-}
 windows_core::imp::interface_hierarchy!(ProviderNetworkUsage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProviderNetworkUsage,);
 impl ProviderNetworkUsage {
@@ -1692,6 +1689,9 @@ impl ProviderNetworkUsage {
         }
     }
 }
+impl windows_core::RuntimeType for ProviderNetworkUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProviderNetworkUsage>();
+}
 unsafe impl windows_core::Interface for ProviderNetworkUsage {
     type Vtable = <IProviderNetworkUsage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProviderNetworkUsage as windows_core::Interface>::IID;
@@ -1702,9 +1702,6 @@ impl windows_core::RuntimeName for ProviderNetworkUsage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProxyConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProxyConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProxyConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(ProxyConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProxyConfiguration,);
 impl ProxyConfiguration {
@@ -1724,6 +1721,9 @@ impl ProxyConfiguration {
         }
     }
 }
+impl windows_core::RuntimeType for ProxyConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProxyConfiguration>();
+}
 unsafe impl windows_core::Interface for ProxyConfiguration {
     type Vtable = <IProxyConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProxyConfiguration as windows_core::Interface>::IID;
@@ -1734,9 +1734,6 @@ impl windows_core::RuntimeName for ProxyConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RoutePolicy(windows_core::IUnknown);
-impl windows_core::RuntimeType for RoutePolicy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRoutePolicy>();
-}
 windows_core::imp::interface_hierarchy!(RoutePolicy, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RoutePolicy,);
 impl RoutePolicy {
@@ -1776,6 +1773,9 @@ impl RoutePolicy {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RoutePolicy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRoutePolicy>();
+}
 unsafe impl windows_core::Interface for RoutePolicy {
     type Vtable = <IRoutePolicy as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRoutePolicy as windows_core::Interface>::IID;
@@ -1786,9 +1786,6 @@ impl windows_core::RuntimeName for RoutePolicy {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WlanConnectionProfileDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for WlanConnectionProfileDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWlanConnectionProfileDetails>();
-}
 windows_core::imp::interface_hierarchy!(WlanConnectionProfileDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WlanConnectionProfileDetails,);
 impl WlanConnectionProfileDetails {
@@ -1800,6 +1797,9 @@ impl WlanConnectionProfileDetails {
         }
     }
 }
+impl windows_core::RuntimeType for WlanConnectionProfileDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWlanConnectionProfileDetails>();
+}
 unsafe impl windows_core::Interface for WlanConnectionProfileDetails {
     type Vtable = <IWlanConnectionProfileDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWlanConnectionProfileDetails as windows_core::Interface>::IID;
@@ -1810,9 +1810,6 @@ impl windows_core::RuntimeName for WlanConnectionProfileDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WwanConnectionProfileDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for WwanConnectionProfileDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWwanConnectionProfileDetails>();
-}
 windows_core::imp::interface_hierarchy!(WwanConnectionProfileDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WwanConnectionProfileDetails,);
 impl WwanConnectionProfileDetails {
@@ -1859,6 +1856,9 @@ impl WwanConnectionProfileDetails {
             (windows_core::Interface::vtable(this).PurposeGuids)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for WwanConnectionProfileDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWwanConnectionProfileDetails>();
 }
 unsafe impl windows_core::Interface for WwanConnectionProfileDetails {
     type Vtable = <IWwanConnectionProfileDetails as windows_core::Interface>::Vtable;
@@ -2184,7 +2184,7 @@ impl windows_core::RuntimeType for WwanNetworkRegistrationState {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.WwanNetworkRegistrationState;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct NetworkUsageStates {
     pub Roaming: TriStates,
     pub Shared: TriStates,

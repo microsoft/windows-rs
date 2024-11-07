@@ -398,9 +398,6 @@ pub struct IVideoMediaFrameFormat_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioMediaFrame(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioMediaFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioMediaFrame>();
-}
 windows_core::imp::interface_hierarchy!(AudioMediaFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioMediaFrame,);
 impl AudioMediaFrame {
@@ -427,6 +424,9 @@ impl AudioMediaFrame {
         }
     }
 }
+impl windows_core::RuntimeType for AudioMediaFrame {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioMediaFrame>();
+}
 unsafe impl windows_core::Interface for AudioMediaFrame {
     type Vtable = <IAudioMediaFrame as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioMediaFrame as windows_core::Interface>::IID;
@@ -437,9 +437,6 @@ impl windows_core::RuntimeName for AudioMediaFrame {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BufferMediaFrame(windows_core::IUnknown);
-impl windows_core::RuntimeType for BufferMediaFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBufferMediaFrame>();
-}
 windows_core::imp::interface_hierarchy!(BufferMediaFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BufferMediaFrame,);
 impl BufferMediaFrame {
@@ -459,6 +456,9 @@ impl BufferMediaFrame {
         }
     }
 }
+impl windows_core::RuntimeType for BufferMediaFrame {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBufferMediaFrame>();
+}
 unsafe impl windows_core::Interface for BufferMediaFrame {
     type Vtable = <IBufferMediaFrame as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBufferMediaFrame as windows_core::Interface>::IID;
@@ -469,9 +469,6 @@ impl windows_core::RuntimeName for BufferMediaFrame {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DepthMediaFrame(windows_core::IUnknown);
-impl windows_core::RuntimeType for DepthMediaFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDepthMediaFrame>();
-}
 windows_core::imp::interface_hierarchy!(DepthMediaFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DepthMediaFrame,);
 impl DepthMediaFrame {
@@ -523,6 +520,9 @@ impl DepthMediaFrame {
         }
     }
 }
+impl windows_core::RuntimeType for DepthMediaFrame {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDepthMediaFrame>();
+}
 unsafe impl windows_core::Interface for DepthMediaFrame {
     type Vtable = <IDepthMediaFrame as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDepthMediaFrame as windows_core::Interface>::IID;
@@ -533,9 +533,6 @@ impl windows_core::RuntimeName for DepthMediaFrame {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DepthMediaFrameFormat(windows_core::IUnknown);
-impl windows_core::RuntimeType for DepthMediaFrameFormat {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDepthMediaFrameFormat>();
-}
 windows_core::imp::interface_hierarchy!(DepthMediaFrameFormat, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DepthMediaFrameFormat,);
 impl DepthMediaFrameFormat {
@@ -554,6 +551,9 @@ impl DepthMediaFrameFormat {
         }
     }
 }
+impl windows_core::RuntimeType for DepthMediaFrameFormat {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDepthMediaFrameFormat>();
+}
 unsafe impl windows_core::Interface for DepthMediaFrameFormat {
     type Vtable = <IDepthMediaFrameFormat as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDepthMediaFrameFormat as windows_core::Interface>::IID;
@@ -564,9 +564,6 @@ impl windows_core::RuntimeName for DepthMediaFrameFormat {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InfraredMediaFrame(windows_core::IUnknown);
-impl windows_core::RuntimeType for InfraredMediaFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInfraredMediaFrame>();
-}
 windows_core::imp::interface_hierarchy!(InfraredMediaFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InfraredMediaFrame,);
 impl InfraredMediaFrame {
@@ -592,6 +589,9 @@ impl InfraredMediaFrame {
         }
     }
 }
+impl windows_core::RuntimeType for InfraredMediaFrame {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInfraredMediaFrame>();
+}
 unsafe impl windows_core::Interface for InfraredMediaFrame {
     type Vtable = <IInfraredMediaFrame as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInfraredMediaFrame as windows_core::Interface>::IID;
@@ -602,12 +602,12 @@ impl windows_core::RuntimeName for InfraredMediaFrame {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameArrivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaFrameArrivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameArrivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MediaFrameArrivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaFrameArrivedEventArgs,);
 impl MediaFrameArrivedEventArgs {}
+impl windows_core::RuntimeType for MediaFrameArrivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameArrivedEventArgs>();
+}
 unsafe impl windows_core::Interface for MediaFrameArrivedEventArgs {
     type Vtable = <IMediaFrameArrivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaFrameArrivedEventArgs as windows_core::Interface>::IID;
@@ -618,9 +618,6 @@ impl windows_core::RuntimeName for MediaFrameArrivedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameFormat(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaFrameFormat {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameFormat>();
-}
 windows_core::imp::interface_hierarchy!(MediaFrameFormat, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaFrameFormat,);
 impl MediaFrameFormat {
@@ -670,6 +667,9 @@ impl MediaFrameFormat {
         }
     }
 }
+impl windows_core::RuntimeType for MediaFrameFormat {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameFormat>();
+}
 unsafe impl windows_core::Interface for MediaFrameFormat {
     type Vtable = <IMediaFrameFormat as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaFrameFormat as windows_core::Interface>::IID;
@@ -680,9 +680,6 @@ impl windows_core::RuntimeName for MediaFrameFormat {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameReader(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaFrameReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameReader>();
-}
 windows_core::imp::interface_hierarchy!(MediaFrameReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaFrameReader, super::super::super::Foundation::IClosable);
 impl MediaFrameReader {
@@ -737,6 +734,9 @@ impl MediaFrameReader {
         }
     }
 }
+impl windows_core::RuntimeType for MediaFrameReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameReader>();
+}
 unsafe impl windows_core::Interface for MediaFrameReader {
     type Vtable = <IMediaFrameReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaFrameReader as windows_core::Interface>::IID;
@@ -747,9 +747,6 @@ impl windows_core::RuntimeName for MediaFrameReader {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameReference(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaFrameReference {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameReference>();
-}
 windows_core::imp::interface_hierarchy!(MediaFrameReference, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaFrameReference, super::super::super::Foundation::IClosable);
 impl MediaFrameReference {
@@ -823,6 +820,9 @@ impl MediaFrameReference {
         }
     }
 }
+impl windows_core::RuntimeType for MediaFrameReference {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameReference>();
+}
 unsafe impl windows_core::Interface for MediaFrameReference {
     type Vtable = <IMediaFrameReference as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaFrameReference as windows_core::Interface>::IID;
@@ -833,9 +833,6 @@ impl windows_core::RuntimeName for MediaFrameReference {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameSource(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaFrameSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameSource>();
-}
 windows_core::imp::interface_hierarchy!(MediaFrameSource, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaFrameSource,);
 impl MediaFrameSource {
@@ -904,6 +901,9 @@ impl MediaFrameSource {
         }
     }
 }
+impl windows_core::RuntimeType for MediaFrameSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameSource>();
+}
 unsafe impl windows_core::Interface for MediaFrameSource {
     type Vtable = <IMediaFrameSource as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaFrameSource as windows_core::Interface>::IID;
@@ -914,9 +914,6 @@ impl windows_core::RuntimeName for MediaFrameSource {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameSourceController(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaFrameSourceController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameSourceController>();
-}
 windows_core::imp::interface_hierarchy!(MediaFrameSourceController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaFrameSourceController,);
 impl MediaFrameSourceController {
@@ -971,6 +968,9 @@ impl MediaFrameSourceController {
         }
     }
 }
+impl windows_core::RuntimeType for MediaFrameSourceController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameSourceController>();
+}
 unsafe impl windows_core::Interface for MediaFrameSourceController {
     type Vtable = <IMediaFrameSourceController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaFrameSourceController as windows_core::Interface>::IID;
@@ -981,9 +981,6 @@ impl windows_core::RuntimeName for MediaFrameSourceController {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameSourceGetPropertyResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaFrameSourceGetPropertyResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameSourceGetPropertyResult>();
-}
 windows_core::imp::interface_hierarchy!(MediaFrameSourceGetPropertyResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaFrameSourceGetPropertyResult,);
 impl MediaFrameSourceGetPropertyResult {
@@ -1002,6 +999,9 @@ impl MediaFrameSourceGetPropertyResult {
         }
     }
 }
+impl windows_core::RuntimeType for MediaFrameSourceGetPropertyResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameSourceGetPropertyResult>();
+}
 unsafe impl windows_core::Interface for MediaFrameSourceGetPropertyResult {
     type Vtable = <IMediaFrameSourceGetPropertyResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaFrameSourceGetPropertyResult as windows_core::Interface>::IID;
@@ -1012,9 +1012,6 @@ impl windows_core::RuntimeName for MediaFrameSourceGetPropertyResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameSourceGroup(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaFrameSourceGroup {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameSourceGroup>();
-}
 windows_core::imp::interface_hierarchy!(MediaFrameSourceGroup, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaFrameSourceGroup,);
 impl MediaFrameSourceGroup {
@@ -1064,6 +1061,9 @@ impl MediaFrameSourceGroup {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MediaFrameSourceGroup {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameSourceGroup>();
+}
 unsafe impl windows_core::Interface for MediaFrameSourceGroup {
     type Vtable = <IMediaFrameSourceGroup as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaFrameSourceGroup as windows_core::Interface>::IID;
@@ -1074,9 +1074,6 @@ impl windows_core::RuntimeName for MediaFrameSourceGroup {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaFrameSourceInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaFrameSourceInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameSourceInfo>();
-}
 windows_core::imp::interface_hierarchy!(MediaFrameSourceInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaFrameSourceInfo,);
 impl MediaFrameSourceInfo {
@@ -1166,6 +1163,9 @@ impl MediaFrameSourceInfo {
         }
     }
 }
+impl windows_core::RuntimeType for MediaFrameSourceInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaFrameSourceInfo>();
+}
 unsafe impl windows_core::Interface for MediaFrameSourceInfo {
     type Vtable = <IMediaFrameSourceInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaFrameSourceInfo as windows_core::Interface>::IID;
@@ -1176,12 +1176,12 @@ impl windows_core::RuntimeName for MediaFrameSourceInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MultiSourceMediaFrameArrivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MultiSourceMediaFrameArrivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMultiSourceMediaFrameArrivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MultiSourceMediaFrameArrivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MultiSourceMediaFrameArrivedEventArgs,);
 impl MultiSourceMediaFrameArrivedEventArgs {}
+impl windows_core::RuntimeType for MultiSourceMediaFrameArrivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMultiSourceMediaFrameArrivedEventArgs>();
+}
 unsafe impl windows_core::Interface for MultiSourceMediaFrameArrivedEventArgs {
     type Vtable = <IMultiSourceMediaFrameArrivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMultiSourceMediaFrameArrivedEventArgs as windows_core::Interface>::IID;
@@ -1192,9 +1192,6 @@ impl windows_core::RuntimeName for MultiSourceMediaFrameArrivedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MultiSourceMediaFrameReader(windows_core::IUnknown);
-impl windows_core::RuntimeType for MultiSourceMediaFrameReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMultiSourceMediaFrameReader>();
-}
 windows_core::imp::interface_hierarchy!(MultiSourceMediaFrameReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MultiSourceMediaFrameReader, super::super::super::Foundation::IClosable);
 impl MultiSourceMediaFrameReader {
@@ -1249,6 +1246,9 @@ impl MultiSourceMediaFrameReader {
         }
     }
 }
+impl windows_core::RuntimeType for MultiSourceMediaFrameReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMultiSourceMediaFrameReader>();
+}
 unsafe impl windows_core::Interface for MultiSourceMediaFrameReader {
     type Vtable = <IMultiSourceMediaFrameReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMultiSourceMediaFrameReader as windows_core::Interface>::IID;
@@ -1259,9 +1259,6 @@ impl windows_core::RuntimeName for MultiSourceMediaFrameReader {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MultiSourceMediaFrameReference(windows_core::IUnknown);
-impl windows_core::RuntimeType for MultiSourceMediaFrameReference {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMultiSourceMediaFrameReference>();
-}
 windows_core::imp::interface_hierarchy!(MultiSourceMediaFrameReference, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MultiSourceMediaFrameReference, super::super::super::Foundation::IClosable);
 impl MultiSourceMediaFrameReference {
@@ -1277,6 +1274,9 @@ impl MultiSourceMediaFrameReference {
         }
     }
 }
+impl windows_core::RuntimeType for MultiSourceMediaFrameReference {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMultiSourceMediaFrameReference>();
+}
 unsafe impl windows_core::Interface for MultiSourceMediaFrameReference {
     type Vtable = <IMultiSourceMediaFrameReference as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMultiSourceMediaFrameReference as windows_core::Interface>::IID;
@@ -1287,9 +1287,6 @@ impl windows_core::RuntimeName for MultiSourceMediaFrameReference {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoMediaFrame(windows_core::IUnknown);
-impl windows_core::RuntimeType for VideoMediaFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoMediaFrame>();
-}
 windows_core::imp::interface_hierarchy!(VideoMediaFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoMediaFrame,);
 impl VideoMediaFrame {
@@ -1353,6 +1350,9 @@ impl VideoMediaFrame {
         }
     }
 }
+impl windows_core::RuntimeType for VideoMediaFrame {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoMediaFrame>();
+}
 unsafe impl windows_core::Interface for VideoMediaFrame {
     type Vtable = <IVideoMediaFrame as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVideoMediaFrame as windows_core::Interface>::IID;
@@ -1363,9 +1363,6 @@ impl windows_core::RuntimeName for VideoMediaFrame {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoMediaFrameFormat(windows_core::IUnknown);
-impl windows_core::RuntimeType for VideoMediaFrameFormat {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoMediaFrameFormat>();
-}
 windows_core::imp::interface_hierarchy!(VideoMediaFrameFormat, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoMediaFrameFormat,);
 impl VideoMediaFrameFormat {
@@ -1397,6 +1394,9 @@ impl VideoMediaFrameFormat {
             (windows_core::Interface::vtable(this).Height)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for VideoMediaFrameFormat {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoMediaFrameFormat>();
 }
 unsafe impl windows_core::Interface for VideoMediaFrameFormat {
     type Vtable = <IVideoMediaFrameFormat as windows_core::Interface>::Vtable;

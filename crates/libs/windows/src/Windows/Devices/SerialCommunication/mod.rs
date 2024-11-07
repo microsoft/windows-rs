@@ -78,9 +78,6 @@ pub struct ISerialDeviceStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ErrorReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ErrorReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IErrorReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ErrorReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ErrorReceivedEventArgs,);
 impl ErrorReceivedEventArgs {
@@ -92,6 +89,9 @@ impl ErrorReceivedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ErrorReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IErrorReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for ErrorReceivedEventArgs {
     type Vtable = <IErrorReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IErrorReceivedEventArgs as windows_core::Interface>::IID;
@@ -102,9 +102,6 @@ impl windows_core::RuntimeName for ErrorReceivedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PinChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PinChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPinChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PinChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PinChangedEventArgs,);
 impl PinChangedEventArgs {
@@ -116,6 +113,9 @@ impl PinChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PinChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPinChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for PinChangedEventArgs {
     type Vtable = <IPinChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPinChangedEventArgs as windows_core::Interface>::IID;
@@ -126,9 +126,6 @@ impl windows_core::RuntimeName for PinChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SerialDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for SerialDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISerialDevice>();
-}
 windows_core::imp::interface_hierarchy!(SerialDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SerialDevice, super::super::Foundation::IClosable);
 impl SerialDevice {
@@ -367,6 +364,9 @@ impl SerialDevice {
         static SHARED: windows_core::imp::FactoryCache<SerialDevice, ISerialDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for SerialDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISerialDevice>();
 }
 unsafe impl windows_core::Interface for SerialDevice {
     type Vtable = <ISerialDevice as windows_core::Interface>::Vtable;

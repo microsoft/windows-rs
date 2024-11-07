@@ -306,9 +306,6 @@ pub struct IUserActivityVisualElements2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivity(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserActivity {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivity>();
-}
 windows_core::imp::interface_hierarchy!(UserActivity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserActivity,);
 impl UserActivity {
@@ -470,6 +467,9 @@ impl UserActivity {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for UserActivity {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivity>();
+}
 unsafe impl windows_core::Interface for UserActivity {
     type Vtable = <IUserActivity as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserActivity as windows_core::Interface>::IID;
@@ -480,9 +480,6 @@ impl windows_core::RuntimeName for UserActivity {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivityAttribution(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserActivityAttribution {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivityAttribution>();
-}
 windows_core::imp::interface_hierarchy!(UserActivityAttribution, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserActivityAttribution,);
 impl UserActivityAttribution {
@@ -543,6 +540,9 @@ impl UserActivityAttribution {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for UserActivityAttribution {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivityAttribution>();
+}
 unsafe impl windows_core::Interface for UserActivityAttribution {
     type Vtable = <IUserActivityAttribution as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserActivityAttribution as windows_core::Interface>::IID;
@@ -553,9 +553,6 @@ impl windows_core::RuntimeName for UserActivityAttribution {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivityChannel(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserActivityChannel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivityChannel>();
-}
 windows_core::imp::interface_hierarchy!(UserActivityChannel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserActivityChannel,);
 impl UserActivityChannel {
@@ -638,6 +635,9 @@ impl UserActivityChannel {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for UserActivityChannel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivityChannel>();
+}
 unsafe impl windows_core::Interface for UserActivityChannel {
     type Vtable = <IUserActivityChannel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserActivityChannel as windows_core::Interface>::IID;
@@ -648,9 +648,6 @@ impl windows_core::RuntimeName for UserActivityChannel {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivityContentInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserActivityContentInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivityContentInfo>();
-}
 windows_core::imp::interface_hierarchy!(UserActivityContentInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserActivityContentInfo, IUserActivityContentInfo);
 impl UserActivityContentInfo {
@@ -672,6 +669,9 @@ impl UserActivityContentInfo {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for UserActivityContentInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivityContentInfo>();
+}
 unsafe impl windows_core::Interface for UserActivityContentInfo {
     type Vtable = <IUserActivityContentInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserActivityContentInfo as windows_core::Interface>::IID;
@@ -682,9 +682,6 @@ impl windows_core::RuntimeName for UserActivityContentInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivityRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserActivityRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivityRequest>();
-}
 windows_core::imp::interface_hierarchy!(UserActivityRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserActivityRequest,);
 impl UserActivityRequest {
@@ -696,6 +693,9 @@ impl UserActivityRequest {
         unsafe { (windows_core::Interface::vtable(this).SetUserActivity)(windows_core::Interface::as_raw(this), activity.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for UserActivityRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivityRequest>();
+}
 unsafe impl windows_core::Interface for UserActivityRequest {
     type Vtable = <IUserActivityRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserActivityRequest as windows_core::Interface>::IID;
@@ -706,9 +706,6 @@ impl windows_core::RuntimeName for UserActivityRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivityRequestManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserActivityRequestManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivityRequestManager>();
-}
 windows_core::imp::interface_hierarchy!(UserActivityRequestManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserActivityRequestManager,);
 impl UserActivityRequestManager {
@@ -737,6 +734,9 @@ impl UserActivityRequestManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for UserActivityRequestManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivityRequestManager>();
+}
 unsafe impl windows_core::Interface for UserActivityRequestManager {
     type Vtable = <IUserActivityRequestManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserActivityRequestManager as windows_core::Interface>::IID;
@@ -747,9 +747,6 @@ impl windows_core::RuntimeName for UserActivityRequestManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivityRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserActivityRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivityRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(UserActivityRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserActivityRequestedEventArgs,);
 impl UserActivityRequestedEventArgs {
@@ -768,6 +765,9 @@ impl UserActivityRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for UserActivityRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivityRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for UserActivityRequestedEventArgs {
     type Vtable = <IUserActivityRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserActivityRequestedEventArgs as windows_core::Interface>::IID;
@@ -778,9 +778,6 @@ impl windows_core::RuntimeName for UserActivityRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivitySession(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserActivitySession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivitySession>();
-}
 windows_core::imp::interface_hierarchy!(UserActivitySession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserActivitySession, super::super::Foundation::IClosable);
 impl UserActivitySession {
@@ -796,6 +793,9 @@ impl UserActivitySession {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for UserActivitySession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivitySession>();
+}
 unsafe impl windows_core::Interface for UserActivitySession {
     type Vtable = <IUserActivitySession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserActivitySession as windows_core::Interface>::IID;
@@ -806,9 +806,6 @@ impl windows_core::RuntimeName for UserActivitySession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivitySessionHistoryItem(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserActivitySessionHistoryItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivitySessionHistoryItem>();
-}
 windows_core::imp::interface_hierarchy!(UserActivitySessionHistoryItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserActivitySessionHistoryItem,);
 impl UserActivitySessionHistoryItem {
@@ -834,6 +831,9 @@ impl UserActivitySessionHistoryItem {
         }
     }
 }
+impl windows_core::RuntimeType for UserActivitySessionHistoryItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivitySessionHistoryItem>();
+}
 unsafe impl windows_core::Interface for UserActivitySessionHistoryItem {
     type Vtable = <IUserActivitySessionHistoryItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserActivitySessionHistoryItem as windows_core::Interface>::IID;
@@ -844,9 +844,6 @@ impl windows_core::RuntimeName for UserActivitySessionHistoryItem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserActivityVisualElements(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserActivityVisualElements {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivityVisualElements>();
-}
 windows_core::imp::interface_hierarchy!(UserActivityVisualElements, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserActivityVisualElements,);
 impl UserActivityVisualElements {
@@ -926,6 +923,9 @@ impl UserActivityVisualElements {
         let this = &windows_core::Interface::cast::<IUserActivityVisualElements2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAttributionDisplayText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
+}
+impl windows_core::RuntimeType for UserActivityVisualElements {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserActivityVisualElements>();
 }
 unsafe impl windows_core::Interface for UserActivityVisualElements {
     type Vtable = <IUserActivityVisualElements as windows_core::Interface>::Vtable;

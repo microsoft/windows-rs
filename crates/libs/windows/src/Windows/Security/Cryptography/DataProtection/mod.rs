@@ -34,9 +34,6 @@ pub struct IDataProtectionProviderFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataProtectionProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for DataProtectionProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataProtectionProvider>();
-}
 windows_core::imp::interface_hierarchy!(DataProtectionProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DataProtectionProvider,);
 impl DataProtectionProvider {
@@ -103,6 +100,9 @@ impl DataProtectionProvider {
         static SHARED: windows_core::imp::FactoryCache<DataProtectionProvider, IDataProtectionProviderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for DataProtectionProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataProtectionProvider>();
 }
 unsafe impl windows_core::Interface for DataProtectionProvider {
     type Vtable = <IDataProtectionProvider as windows_core::Interface>::Vtable;

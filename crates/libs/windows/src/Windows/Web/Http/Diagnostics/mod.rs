@@ -104,9 +104,6 @@ pub struct IHttpDiagnosticSourceLocation_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpDiagnosticProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpDiagnosticProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticProvider>();
-}
 windows_core::imp::interface_hierarchy!(HttpDiagnosticProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpDiagnosticProvider,);
 impl HttpDiagnosticProvider {
@@ -175,6 +172,9 @@ impl HttpDiagnosticProvider {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HttpDiagnosticProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticProvider>();
+}
 unsafe impl windows_core::Interface for HttpDiagnosticProvider {
     type Vtable = <IHttpDiagnosticProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpDiagnosticProvider as windows_core::Interface>::IID;
@@ -185,9 +185,6 @@ impl windows_core::RuntimeName for HttpDiagnosticProvider {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpDiagnosticProviderRequestResponseCompletedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticProviderRequestResponseCompletedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderRequestResponseCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpDiagnosticProviderRequestResponseCompletedEventArgs,);
 impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
@@ -242,6 +239,9 @@ impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticProviderRequestResponseCompletedEventArgs>();
+}
 unsafe impl windows_core::Interface for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     type Vtable = <IHttpDiagnosticProviderRequestResponseCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpDiagnosticProviderRequestResponseCompletedEventArgs as windows_core::Interface>::IID;
@@ -252,9 +252,6 @@ impl windows_core::RuntimeName for HttpDiagnosticProviderRequestResponseComplete
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpDiagnosticProviderRequestResponseTimestamps(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpDiagnosticProviderRequestResponseTimestamps {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticProviderRequestResponseTimestamps>();
-}
 windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderRequestResponseTimestamps, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpDiagnosticProviderRequestResponseTimestamps,);
 impl HttpDiagnosticProviderRequestResponseTimestamps {
@@ -322,6 +319,9 @@ impl HttpDiagnosticProviderRequestResponseTimestamps {
         }
     }
 }
+impl windows_core::RuntimeType for HttpDiagnosticProviderRequestResponseTimestamps {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticProviderRequestResponseTimestamps>();
+}
 unsafe impl windows_core::Interface for HttpDiagnosticProviderRequestResponseTimestamps {
     type Vtable = <IHttpDiagnosticProviderRequestResponseTimestamps as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpDiagnosticProviderRequestResponseTimestamps as windows_core::Interface>::IID;
@@ -332,9 +332,6 @@ impl windows_core::RuntimeName for HttpDiagnosticProviderRequestResponseTimestam
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpDiagnosticProviderRequestSentEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpDiagnosticProviderRequestSentEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticProviderRequestSentEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderRequestSentEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpDiagnosticProviderRequestSentEventArgs,);
 impl HttpDiagnosticProviderRequestSentEventArgs {
@@ -389,6 +386,9 @@ impl HttpDiagnosticProviderRequestSentEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for HttpDiagnosticProviderRequestSentEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticProviderRequestSentEventArgs>();
+}
 unsafe impl windows_core::Interface for HttpDiagnosticProviderRequestSentEventArgs {
     type Vtable = <IHttpDiagnosticProviderRequestSentEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpDiagnosticProviderRequestSentEventArgs as windows_core::Interface>::IID;
@@ -399,9 +399,6 @@ impl windows_core::RuntimeName for HttpDiagnosticProviderRequestSentEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpDiagnosticProviderResponseReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpDiagnosticProviderResponseReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticProviderResponseReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(HttpDiagnosticProviderResponseReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpDiagnosticProviderResponseReceivedEventArgs,);
 impl HttpDiagnosticProviderResponseReceivedEventArgs {
@@ -427,6 +424,9 @@ impl HttpDiagnosticProviderResponseReceivedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for HttpDiagnosticProviderResponseReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticProviderResponseReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for HttpDiagnosticProviderResponseReceivedEventArgs {
     type Vtable = <IHttpDiagnosticProviderResponseReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpDiagnosticProviderResponseReceivedEventArgs as windows_core::Interface>::IID;
@@ -437,9 +437,6 @@ impl windows_core::RuntimeName for HttpDiagnosticProviderResponseReceivedEventAr
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpDiagnosticSourceLocation(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpDiagnosticSourceLocation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticSourceLocation>();
-}
 windows_core::imp::interface_hierarchy!(HttpDiagnosticSourceLocation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpDiagnosticSourceLocation,);
 impl HttpDiagnosticSourceLocation {
@@ -464,6 +461,9 @@ impl HttpDiagnosticSourceLocation {
             (windows_core::Interface::vtable(this).ColumnNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for HttpDiagnosticSourceLocation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpDiagnosticSourceLocation>();
 }
 unsafe impl windows_core::Interface for HttpDiagnosticSourceLocation {
     type Vtable = <IHttpDiagnosticSourceLocation as windows_core::Interface>::Vtable;

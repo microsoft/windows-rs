@@ -693,9 +693,6 @@ pub struct IFindAppointmentsOptions_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Appointment(windows_core::IUnknown);
-impl windows_core::RuntimeType for Appointment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointment>();
-}
 windows_core::imp::interface_hierarchy!(Appointment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Appointment,);
 impl Appointment {
@@ -1007,6 +1004,9 @@ impl Appointment {
         unsafe { (windows_core::Interface::vtable(this).SetDetailsKind)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for Appointment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointment>();
+}
 unsafe impl windows_core::Interface for Appointment {
     type Vtable = <IAppointment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointment as windows_core::Interface>::IID;
@@ -1017,9 +1017,6 @@ impl windows_core::RuntimeName for Appointment {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendar(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentCalendar {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentCalendar>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentCalendar, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentCalendar,);
 impl AppointmentCalendar {
@@ -1384,6 +1381,9 @@ impl AppointmentCalendar {
         }
     }
 }
+impl windows_core::RuntimeType for AppointmentCalendar {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentCalendar>();
+}
 unsafe impl windows_core::Interface for AppointmentCalendar {
     type Vtable = <IAppointmentCalendar as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentCalendar as windows_core::Interface>::IID;
@@ -1394,9 +1394,6 @@ impl windows_core::RuntimeName for AppointmentCalendar {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentCalendarSyncManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentCalendarSyncManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentCalendarSyncManager>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentCalendarSyncManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentCalendarSyncManager,);
 impl AppointmentCalendarSyncManager {
@@ -1455,6 +1452,9 @@ impl AppointmentCalendarSyncManager {
         unsafe { (windows_core::Interface::vtable(this).SetLastAttemptedSyncTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for AppointmentCalendarSyncManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentCalendarSyncManager>();
+}
 unsafe impl windows_core::Interface for AppointmentCalendarSyncManager {
     type Vtable = <IAppointmentCalendarSyncManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentCalendarSyncManager as windows_core::Interface>::IID;
@@ -1465,9 +1465,6 @@ impl windows_core::RuntimeName for AppointmentCalendarSyncManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentConflictResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentConflictResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentConflictResult>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentConflictResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentConflictResult,);
 impl AppointmentConflictResult {
@@ -1486,6 +1483,9 @@ impl AppointmentConflictResult {
         }
     }
 }
+impl windows_core::RuntimeType for AppointmentConflictResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentConflictResult>();
+}
 unsafe impl windows_core::Interface for AppointmentConflictResult {
     type Vtable = <IAppointmentConflictResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentConflictResult as windows_core::Interface>::IID;
@@ -1496,9 +1496,6 @@ impl windows_core::RuntimeName for AppointmentConflictResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentException(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentException {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentException>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentException, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentException,);
 impl AppointmentException {
@@ -1525,6 +1522,9 @@ impl AppointmentException {
         }
     }
 }
+impl windows_core::RuntimeType for AppointmentException {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentException>();
+}
 unsafe impl windows_core::Interface for AppointmentException {
     type Vtable = <IAppointmentException as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentException as windows_core::Interface>::IID;
@@ -1535,9 +1535,6 @@ impl windows_core::RuntimeName for AppointmentException {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentInvitee(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentInvitee {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentInvitee>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentInvitee, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentInvitee, IAppointmentParticipant);
 impl AppointmentInvitee {
@@ -1592,6 +1589,9 @@ impl AppointmentInvitee {
         let this = &windows_core::Interface::cast::<IAppointmentParticipant>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAddress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
+}
+impl windows_core::RuntimeType for AppointmentInvitee {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentInvitee>();
 }
 unsafe impl windows_core::Interface for AppointmentInvitee {
     type Vtable = <IAppointmentInvitee as windows_core::Interface>::Vtable;
@@ -1732,9 +1732,6 @@ impl windows_core::RuntimeName for AppointmentManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentManagerForUser(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentManagerForUser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentManagerForUser>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentManagerForUser,);
 impl AppointmentManagerForUser {
@@ -1861,6 +1858,9 @@ impl AppointmentManagerForUser {
         }
     }
 }
+impl windows_core::RuntimeType for AppointmentManagerForUser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentManagerForUser>();
+}
 unsafe impl windows_core::Interface for AppointmentManagerForUser {
     type Vtable = <IAppointmentManagerForUser as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentManagerForUser as windows_core::Interface>::IID;
@@ -1871,9 +1871,6 @@ impl windows_core::RuntimeName for AppointmentManagerForUser {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentOrganizer(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentOrganizer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentParticipant>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentOrganizer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentOrganizer, IAppointmentParticipant);
 impl AppointmentOrganizer {
@@ -1906,6 +1903,9 @@ impl AppointmentOrganizer {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAddress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
+}
+impl windows_core::RuntimeType for AppointmentOrganizer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentParticipant>();
 }
 unsafe impl windows_core::Interface for AppointmentOrganizer {
     type Vtable = <IAppointmentParticipant as windows_core::Interface>::Vtable;
@@ -2088,9 +2088,6 @@ impl windows_core::RuntimeName for AppointmentProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentRecurrence(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentRecurrence {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentRecurrence>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentRecurrence, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentRecurrence,);
 impl AppointmentRecurrence {
@@ -2221,6 +2218,9 @@ impl AppointmentRecurrence {
         }
     }
 }
+impl windows_core::RuntimeType for AppointmentRecurrence {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentRecurrence>();
+}
 unsafe impl windows_core::Interface for AppointmentRecurrence {
     type Vtable = <IAppointmentRecurrence as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentRecurrence as windows_core::Interface>::IID;
@@ -2231,9 +2231,6 @@ impl windows_core::RuntimeName for AppointmentRecurrence {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentStore(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStore>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentStore, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentStore,);
 impl AppointmentStore {
@@ -2445,6 +2442,9 @@ impl AppointmentStore {
         }
     }
 }
+impl windows_core::RuntimeType for AppointmentStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStore>();
+}
 unsafe impl windows_core::Interface for AppointmentStore {
     type Vtable = <IAppointmentStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentStore as windows_core::Interface>::IID;
@@ -2455,9 +2455,6 @@ impl windows_core::RuntimeName for AppointmentStore {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentStoreChange(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentStoreChange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStoreChange>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentStoreChange, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentStoreChange,);
 impl AppointmentStoreChange {
@@ -2483,6 +2480,9 @@ impl AppointmentStoreChange {
         }
     }
 }
+impl windows_core::RuntimeType for AppointmentStoreChange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStoreChange>();
+}
 unsafe impl windows_core::Interface for AppointmentStoreChange {
     type Vtable = <IAppointmentStoreChange as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentStoreChange as windows_core::Interface>::IID;
@@ -2493,9 +2493,6 @@ impl windows_core::RuntimeName for AppointmentStoreChange {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentStoreChangeReader(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentStoreChangeReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStoreChangeReader>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentStoreChangeReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentStoreChangeReader,);
 impl AppointmentStoreChangeReader {
@@ -2519,6 +2516,9 @@ impl AppointmentStoreChangeReader {
         unsafe { (windows_core::Interface::vtable(this).AcceptChangesThrough)(windows_core::Interface::as_raw(this), lastchangetoaccept.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for AppointmentStoreChangeReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStoreChangeReader>();
+}
 unsafe impl windows_core::Interface for AppointmentStoreChangeReader {
     type Vtable = <IAppointmentStoreChangeReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentStoreChangeReader as windows_core::Interface>::IID;
@@ -2529,9 +2529,6 @@ impl windows_core::RuntimeName for AppointmentStoreChangeReader {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentStoreChangeTracker(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentStoreChangeTracker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStoreChangeTracker>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentStoreChangeTracker, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentStoreChangeTracker,);
 impl AppointmentStoreChangeTracker {
@@ -2558,6 +2555,9 @@ impl AppointmentStoreChangeTracker {
         }
     }
 }
+impl windows_core::RuntimeType for AppointmentStoreChangeTracker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStoreChangeTracker>();
+}
 unsafe impl windows_core::Interface for AppointmentStoreChangeTracker {
     type Vtable = <IAppointmentStoreChangeTracker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentStoreChangeTracker as windows_core::Interface>::IID;
@@ -2568,9 +2568,6 @@ impl windows_core::RuntimeName for AppointmentStoreChangeTracker {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentStoreChangedDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentStoreChangedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStoreChangedDeferral>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentStoreChangedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentStoreChangedDeferral,);
 impl AppointmentStoreChangedDeferral {
@@ -2578,6 +2575,9 @@ impl AppointmentStoreChangedDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for AppointmentStoreChangedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStoreChangedDeferral>();
 }
 unsafe impl windows_core::Interface for AppointmentStoreChangedDeferral {
     type Vtable = <IAppointmentStoreChangedDeferral as windows_core::Interface>::Vtable;
@@ -2589,9 +2589,6 @@ impl windows_core::RuntimeName for AppointmentStoreChangedDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentStoreChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentStoreChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStoreChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentStoreChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentStoreChangedEventArgs,);
 impl AppointmentStoreChangedEventArgs {
@@ -2603,6 +2600,9 @@ impl AppointmentStoreChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AppointmentStoreChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStoreChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for AppointmentStoreChangedEventArgs {
     type Vtable = <IAppointmentStoreChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentStoreChangedEventArgs as windows_core::Interface>::IID;
@@ -2613,12 +2613,12 @@ impl windows_core::RuntimeName for AppointmentStoreChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentStoreNotificationTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentStoreNotificationTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStoreNotificationTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentStoreNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentStoreNotificationTriggerDetails,);
 impl AppointmentStoreNotificationTriggerDetails {}
+impl windows_core::RuntimeType for AppointmentStoreNotificationTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStoreNotificationTriggerDetails>();
+}
 unsafe impl windows_core::Interface for AppointmentStoreNotificationTriggerDetails {
     type Vtable = <IAppointmentStoreNotificationTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentStoreNotificationTriggerDetails as windows_core::Interface>::IID;
@@ -2629,9 +2629,6 @@ impl windows_core::RuntimeName for AppointmentStoreNotificationTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FindAppointmentsOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for FindAppointmentsOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFindAppointmentsOptions>();
-}
 windows_core::imp::interface_hierarchy!(FindAppointmentsOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FindAppointmentsOptions,);
 impl FindAppointmentsOptions {
@@ -2680,6 +2677,9 @@ impl FindAppointmentsOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMaxCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
+}
+impl windows_core::RuntimeType for FindAppointmentsOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFindAppointmentsOptions>();
 }
 unsafe impl windows_core::Interface for FindAppointmentsOptions {
     type Vtable = <IFindAppointmentsOptions as windows_core::Interface>::Vtable;

@@ -284,9 +284,6 @@ impl windows_core::RuntimeName for AnalyticsInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AnalyticsVersionInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for AnalyticsVersionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAnalyticsVersionInfo>();
-}
 windows_core::imp::interface_hierarchy!(AnalyticsVersionInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AnalyticsVersionInfo,);
 impl AnalyticsVersionInfo {
@@ -311,6 +308,9 @@ impl AnalyticsVersionInfo {
             (windows_core::Interface::vtable(this).ProductName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for AnalyticsVersionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAnalyticsVersionInfo>();
 }
 unsafe impl windows_core::Interface for AnalyticsVersionInfo {
     type Vtable = <IAnalyticsVersionInfo as windows_core::Interface>::Vtable;
@@ -378,9 +378,6 @@ impl windows_core::RuntimeName for HardwareIdentification {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HardwareToken(windows_core::IUnknown);
-impl windows_core::RuntimeType for HardwareToken {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHardwareToken>();
-}
 windows_core::imp::interface_hierarchy!(HardwareToken, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HardwareToken,);
 impl HardwareToken {
@@ -408,6 +405,9 @@ impl HardwareToken {
             (windows_core::Interface::vtable(this).Certificate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for HardwareToken {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHardwareToken>();
 }
 unsafe impl windows_core::Interface for HardwareToken {
     type Vtable = <IHardwareToken as windows_core::Interface>::Vtable;
@@ -713,9 +713,6 @@ impl windows_core::RuntimeName for SystemIdentification {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemIdentificationInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemIdentificationInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemIdentificationInfo>();
-}
 windows_core::imp::interface_hierarchy!(SystemIdentificationInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemIdentificationInfo,);
 impl SystemIdentificationInfo {
@@ -734,6 +731,9 @@ impl SystemIdentificationInfo {
             (windows_core::Interface::vtable(this).Source)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for SystemIdentificationInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemIdentificationInfo>();
 }
 unsafe impl windows_core::Interface for SystemIdentificationInfo {
     type Vtable = <ISystemIdentificationInfo as windows_core::Interface>::Vtable;
@@ -773,9 +773,6 @@ impl windows_core::RuntimeName for SystemSetupInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UnsupportedAppRequirement(windows_core::IUnknown);
-impl windows_core::RuntimeType for UnsupportedAppRequirement {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUnsupportedAppRequirement>();
-}
 windows_core::imp::interface_hierarchy!(UnsupportedAppRequirement, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UnsupportedAppRequirement,);
 impl UnsupportedAppRequirement {
@@ -793,6 +790,9 @@ impl UnsupportedAppRequirement {
             (windows_core::Interface::vtable(this).Reasons)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for UnsupportedAppRequirement {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUnsupportedAppRequirement>();
 }
 unsafe impl windows_core::Interface for UnsupportedAppRequirement {
     type Vtable = <IUnsupportedAppRequirement as windows_core::Interface>::Vtable;

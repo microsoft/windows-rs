@@ -511,9 +511,6 @@ impl windows_core::RuntimeName for GameControllerFactoryManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GipFirmwareUpdateResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for GipFirmwareUpdateResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGipFirmwareUpdateResult>();
-}
 windows_core::imp::interface_hierarchy!(GipFirmwareUpdateResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GipFirmwareUpdateResult,);
 impl GipFirmwareUpdateResult {
@@ -539,6 +536,9 @@ impl GipFirmwareUpdateResult {
         }
     }
 }
+impl windows_core::RuntimeType for GipFirmwareUpdateResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGipFirmwareUpdateResult>();
+}
 unsafe impl windows_core::Interface for GipFirmwareUpdateResult {
     type Vtable = <IGipFirmwareUpdateResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGipFirmwareUpdateResult as windows_core::Interface>::IID;
@@ -549,9 +549,6 @@ impl windows_core::RuntimeName for GipFirmwareUpdateResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GipGameControllerProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for GipGameControllerProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGipGameControllerProvider>();
-}
 windows_core::imp::interface_hierarchy!(GipGameControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GipGameControllerProvider, IGameControllerProvider);
 impl GipGameControllerProvider {
@@ -610,6 +607,9 @@ impl GipGameControllerProvider {
         }
     }
 }
+impl windows_core::RuntimeType for GipGameControllerProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGipGameControllerProvider>();
+}
 unsafe impl windows_core::Interface for GipGameControllerProvider {
     type Vtable = <IGipGameControllerProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGipGameControllerProvider as windows_core::Interface>::IID;
@@ -620,9 +620,6 @@ impl windows_core::RuntimeName for GipGameControllerProvider {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HidGameControllerProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for HidGameControllerProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidGameControllerProvider>();
-}
 windows_core::imp::interface_hierarchy!(HidGameControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HidGameControllerProvider, IGameControllerProvider);
 impl HidGameControllerProvider {
@@ -688,6 +685,9 @@ impl HidGameControllerProvider {
         unsafe { (windows_core::Interface::vtable(this).SendOutputReport)(windows_core::Interface::as_raw(this), reportid, reportbuffer.len().try_into().unwrap(), reportbuffer.as_ptr()).ok() }
     }
 }
+impl windows_core::RuntimeType for HidGameControllerProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHidGameControllerProvider>();
+}
 unsafe impl windows_core::Interface for HidGameControllerProvider {
     type Vtable = <IHidGameControllerProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHidGameControllerProvider as windows_core::Interface>::IID;
@@ -698,9 +698,6 @@ impl windows_core::RuntimeName for HidGameControllerProvider {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XusbGameControllerProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for XusbGameControllerProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXusbGameControllerProvider>();
-}
 windows_core::imp::interface_hierarchy!(XusbGameControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XusbGameControllerProvider, IGameControllerProvider);
 impl XusbGameControllerProvider {
@@ -743,6 +740,9 @@ impl XusbGameControllerProvider {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetVibration)(windows_core::Interface::as_raw(this), lowfrequencymotorspeed, highfrequencymotorspeed).ok() }
     }
+}
+impl windows_core::RuntimeType for XusbGameControllerProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXusbGameControllerProvider>();
 }
 unsafe impl windows_core::Interface for XusbGameControllerProvider {
     type Vtable = <IXusbGameControllerProvider as windows_core::Interface>::Vtable;
@@ -815,7 +815,7 @@ impl windows_core::RuntimeType for XusbDeviceType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.Custom.XusbDeviceType;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct GameControllerVersionInfo {
     pub Major: u16,
     pub Minor: u16,
@@ -829,7 +829,7 @@ impl windows_core::RuntimeType for GameControllerVersionInfo {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.Custom.GameControllerVersionInfo;u2;u2;u2;u2)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct GipFirmwareUpdateProgress {
     pub PercentCompleted: f64,
     pub CurrentComponentId: u32,

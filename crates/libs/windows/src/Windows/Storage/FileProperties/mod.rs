@@ -302,9 +302,6 @@ pub struct IVideoProperties_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BasicProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for BasicProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBasicProperties>();
-}
 windows_core::imp::interface_hierarchy!(BasicProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BasicProperties, IStorageItemExtraProperties);
 impl BasicProperties {
@@ -359,6 +356,9 @@ impl BasicProperties {
         }
     }
 }
+impl windows_core::RuntimeType for BasicProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBasicProperties>();
+}
 unsafe impl windows_core::Interface for BasicProperties {
     type Vtable = <IBasicProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBasicProperties as windows_core::Interface>::IID;
@@ -369,9 +369,6 @@ impl windows_core::RuntimeName for BasicProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DocumentProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for DocumentProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDocumentProperties>();
-}
 windows_core::imp::interface_hierarchy!(DocumentProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DocumentProperties, IStorageItemExtraProperties);
 impl DocumentProperties {
@@ -443,6 +440,9 @@ impl DocumentProperties {
         }
     }
 }
+impl windows_core::RuntimeType for DocumentProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDocumentProperties>();
+}
 unsafe impl windows_core::Interface for DocumentProperties {
     type Vtable = <IDocumentProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDocumentProperties as windows_core::Interface>::IID;
@@ -495,9 +495,6 @@ impl windows_core::RuntimeName for GeotagHelper {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for ImageProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageProperties>();
-}
 windows_core::imp::interface_hierarchy!(ImageProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageProperties, IStorageItemExtraProperties);
 impl ImageProperties {
@@ -637,6 +634,9 @@ impl ImageProperties {
         }
     }
 }
+impl windows_core::RuntimeType for ImageProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageProperties>();
+}
 unsafe impl windows_core::Interface for ImageProperties {
     type Vtable = <IImageProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IImageProperties as windows_core::Interface>::IID;
@@ -647,9 +647,6 @@ impl windows_core::RuntimeName for ImageProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MusicProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for MusicProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMusicProperties>();
-}
 windows_core::imp::interface_hierarchy!(MusicProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MusicProperties, IStorageItemExtraProperties);
 impl MusicProperties {
@@ -836,6 +833,9 @@ impl MusicProperties {
         }
     }
 }
+impl windows_core::RuntimeType for MusicProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMusicProperties>();
+}
 unsafe impl windows_core::Interface for MusicProperties {
     type Vtable = <IMusicProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMusicProperties as windows_core::Interface>::IID;
@@ -846,9 +846,6 @@ impl windows_core::RuntimeName for MusicProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageItemContentProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageItemContentProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageItemContentProperties>();
-}
 windows_core::imp::interface_hierarchy!(StorageItemContentProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageItemContentProperties, IStorageItemExtraProperties);
 impl StorageItemContentProperties {
@@ -910,6 +907,9 @@ impl StorageItemContentProperties {
         }
     }
 }
+impl windows_core::RuntimeType for StorageItemContentProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageItemContentProperties>();
+}
 unsafe impl windows_core::Interface for StorageItemContentProperties {
     type Vtable = <IStorageItemContentProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageItemContentProperties as windows_core::Interface>::IID;
@@ -921,10 +921,6 @@ impl windows_core::RuntimeName for StorageItemContentProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageItemThumbnail(windows_core::IUnknown);
-#[cfg(feature = "Storage_Streams")]
-impl windows_core::RuntimeType for StorageItemThumbnail {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::Streams::IRandomAccessStreamWithContentType>();
-}
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(StorageItemThumbnail, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
@@ -1058,6 +1054,10 @@ impl StorageItemThumbnail {
     }
 }
 #[cfg(feature = "Storage_Streams")]
+impl windows_core::RuntimeType for StorageItemThumbnail {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::Streams::IRandomAccessStreamWithContentType>();
+}
+#[cfg(feature = "Storage_Streams")]
 unsafe impl windows_core::Interface for StorageItemThumbnail {
     type Vtable = <super::Streams::IRandomAccessStreamWithContentType as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::Streams::IRandomAccessStreamWithContentType as windows_core::Interface>::IID;
@@ -1069,9 +1069,6 @@ impl windows_core::RuntimeName for StorageItemThumbnail {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for VideoProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoProperties>();
-}
 windows_core::imp::interface_hierarchy!(VideoProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoProperties, IStorageItemExtraProperties);
 impl VideoProperties {
@@ -1240,6 +1237,9 @@ impl VideoProperties {
             (windows_core::Interface::vtable(this).Orientation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for VideoProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoProperties>();
 }
 unsafe impl windows_core::Interface for VideoProperties {
     type Vtable = <IVideoProperties as windows_core::Interface>::Vtable;

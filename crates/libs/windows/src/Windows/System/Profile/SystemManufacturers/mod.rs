@@ -55,9 +55,6 @@ pub struct ISystemSupportInfoStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OemSupportInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for OemSupportInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOemSupportInfo>();
-}
 windows_core::imp::interface_hierarchy!(OemSupportInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OemSupportInfo,);
 impl OemSupportInfo {
@@ -82,6 +79,9 @@ impl OemSupportInfo {
             (windows_core::Interface::vtable(this).SupportProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for OemSupportInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOemSupportInfo>();
 }
 unsafe impl windows_core::Interface for OemSupportInfo {
     type Vtable = <IOemSupportInfo as windows_core::Interface>::Vtable;
@@ -109,9 +109,6 @@ impl windows_core::RuntimeName for SmbiosInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemSupportDeviceInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemSupportDeviceInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemSupportDeviceInfo>();
-}
 windows_core::imp::interface_hierarchy!(SystemSupportDeviceInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemSupportDeviceInfo,);
 impl SystemSupportDeviceInfo {
@@ -164,6 +161,9 @@ impl SystemSupportDeviceInfo {
             (windows_core::Interface::vtable(this).SystemFirmwareVersion)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for SystemSupportDeviceInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemSupportDeviceInfo>();
 }
 unsafe impl windows_core::Interface for SystemSupportDeviceInfo {
     type Vtable = <ISystemSupportDeviceInfo as windows_core::Interface>::Vtable;

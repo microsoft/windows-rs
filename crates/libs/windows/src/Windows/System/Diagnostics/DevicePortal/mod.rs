@@ -92,9 +92,6 @@ pub struct IDevicePortalWebSocketConnectionRequestReceivedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePortalConnection(windows_core::IUnknown);
-impl windows_core::RuntimeType for DevicePortalConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePortalConnection>();
-}
 windows_core::imp::interface_hierarchy!(DevicePortalConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DevicePortalConnection,);
 impl DevicePortalConnection {
@@ -196,6 +193,9 @@ impl DevicePortalConnection {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DevicePortalConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePortalConnection>();
+}
 unsafe impl windows_core::Interface for DevicePortalConnection {
     type Vtable = <IDevicePortalConnection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDevicePortalConnection as windows_core::Interface>::IID;
@@ -206,9 +206,6 @@ impl windows_core::RuntimeName for DevicePortalConnection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePortalConnectionClosedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DevicePortalConnectionClosedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePortalConnectionClosedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DevicePortalConnectionClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DevicePortalConnectionClosedEventArgs,);
 impl DevicePortalConnectionClosedEventArgs {
@@ -220,6 +217,9 @@ impl DevicePortalConnectionClosedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for DevicePortalConnectionClosedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePortalConnectionClosedEventArgs>();
+}
 unsafe impl windows_core::Interface for DevicePortalConnectionClosedEventArgs {
     type Vtable = <IDevicePortalConnectionClosedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDevicePortalConnectionClosedEventArgs as windows_core::Interface>::IID;
@@ -230,9 +230,6 @@ impl windows_core::RuntimeName for DevicePortalConnectionClosedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePortalConnectionRequestReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DevicePortalConnectionRequestReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePortalConnectionRequestReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DevicePortalConnectionRequestReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DevicePortalConnectionRequestReceivedEventArgs,);
 impl DevicePortalConnectionRequestReceivedEventArgs {
@@ -274,6 +271,9 @@ impl DevicePortalConnectionRequestReceivedEventArgs {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for DevicePortalConnectionRequestReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePortalConnectionRequestReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for DevicePortalConnectionRequestReceivedEventArgs {
     type Vtable = <IDevicePortalConnectionRequestReceivedEventArgs as windows_core::Interface>::Vtable;

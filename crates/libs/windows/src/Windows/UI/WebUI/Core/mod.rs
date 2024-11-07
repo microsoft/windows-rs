@@ -175,9 +175,6 @@ pub struct IWebUICommandBarSymbolIconFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBar(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebUICommandBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBar>();
-}
 windows_core::imp::interface_hierarchy!(WebUICommandBar, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUICommandBar,);
 impl WebUICommandBar {
@@ -323,6 +320,9 @@ impl WebUICommandBar {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WebUICommandBar {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBar>();
+}
 unsafe impl windows_core::Interface for WebUICommandBar {
     type Vtable = <IWebUICommandBar as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUICommandBar as windows_core::Interface>::IID;
@@ -333,9 +333,6 @@ impl windows_core::RuntimeName for WebUICommandBar {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarBitmapIcon(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebUICommandBarBitmapIcon {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarBitmapIcon>();
-}
 windows_core::imp::interface_hierarchy!(WebUICommandBarBitmapIcon, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUICommandBarBitmapIcon, IWebUICommandBarIcon);
 impl WebUICommandBarBitmapIcon {
@@ -374,6 +371,9 @@ impl WebUICommandBarBitmapIcon {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WebUICommandBarBitmapIcon {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarBitmapIcon>();
+}
 unsafe impl windows_core::Interface for WebUICommandBarBitmapIcon {
     type Vtable = <IWebUICommandBarBitmapIcon as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUICommandBarBitmapIcon as windows_core::Interface>::IID;
@@ -384,9 +384,6 @@ impl windows_core::RuntimeName for WebUICommandBarBitmapIcon {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarConfirmationButton(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebUICommandBarConfirmationButton {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarConfirmationButton>();
-}
 windows_core::imp::interface_hierarchy!(WebUICommandBarConfirmationButton, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUICommandBarConfirmationButton, IWebUICommandBarElement);
 impl WebUICommandBarConfirmationButton {
@@ -423,6 +420,9 @@ impl WebUICommandBarConfirmationButton {
         unsafe { (windows_core::Interface::vtable(this).RemoveItemInvoked)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for WebUICommandBarConfirmationButton {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarConfirmationButton>();
+}
 unsafe impl windows_core::Interface for WebUICommandBarConfirmationButton {
     type Vtable = <IWebUICommandBarConfirmationButton as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUICommandBarConfirmationButton as windows_core::Interface>::IID;
@@ -433,9 +433,6 @@ impl windows_core::RuntimeName for WebUICommandBarConfirmationButton {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarIconButton(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebUICommandBarIconButton {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarIconButton>();
-}
 windows_core::imp::interface_hierarchy!(WebUICommandBarIconButton, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUICommandBarIconButton, IWebUICommandBarElement);
 impl WebUICommandBarIconButton {
@@ -519,6 +516,9 @@ impl WebUICommandBarIconButton {
         unsafe { (windows_core::Interface::vtable(this).RemoveItemInvoked)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for WebUICommandBarIconButton {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarIconButton>();
+}
 unsafe impl windows_core::Interface for WebUICommandBarIconButton {
     type Vtable = <IWebUICommandBarIconButton as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUICommandBarIconButton as windows_core::Interface>::IID;
@@ -529,9 +529,6 @@ impl windows_core::RuntimeName for WebUICommandBarIconButton {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarItemInvokedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebUICommandBarItemInvokedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarItemInvokedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebUICommandBarItemInvokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUICommandBarItemInvokedEventArgs,);
 impl WebUICommandBarItemInvokedEventArgs {
@@ -543,6 +540,9 @@ impl WebUICommandBarItemInvokedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WebUICommandBarItemInvokedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarItemInvokedEventArgs>();
+}
 unsafe impl windows_core::Interface for WebUICommandBarItemInvokedEventArgs {
     type Vtable = <IWebUICommandBarItemInvokedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUICommandBarItemInvokedEventArgs as windows_core::Interface>::IID;
@@ -553,9 +553,6 @@ impl windows_core::RuntimeName for WebUICommandBarItemInvokedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarSizeChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebUICommandBarSizeChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarSizeChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebUICommandBarSizeChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUICommandBarSizeChangedEventArgs,);
 impl WebUICommandBarSizeChangedEventArgs {
@@ -567,6 +564,9 @@ impl WebUICommandBarSizeChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WebUICommandBarSizeChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarSizeChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for WebUICommandBarSizeChangedEventArgs {
     type Vtable = <IWebUICommandBarSizeChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUICommandBarSizeChangedEventArgs as windows_core::Interface>::IID;
@@ -577,9 +577,6 @@ impl windows_core::RuntimeName for WebUICommandBarSizeChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandBarSymbolIcon(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebUICommandBarSymbolIcon {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarSymbolIcon>();
-}
 windows_core::imp::interface_hierarchy!(WebUICommandBarSymbolIcon, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUICommandBarSymbolIcon, IWebUICommandBarIcon);
 impl WebUICommandBarSymbolIcon {
@@ -611,6 +608,9 @@ impl WebUICommandBarSymbolIcon {
         static SHARED: windows_core::imp::FactoryCache<WebUICommandBarSymbolIcon, IWebUICommandBarSymbolIconFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for WebUICommandBarSymbolIcon {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUICommandBarSymbolIcon>();
 }
 unsafe impl windows_core::Interface for WebUICommandBarSymbolIcon {
     type Vtable = <IWebUICommandBarSymbolIcon as windows_core::Interface>::Vtable;

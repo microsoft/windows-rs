@@ -25,9 +25,6 @@ pub struct IExtendedExecutionForegroundSession_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExtendedExecutionForegroundRevokedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ExtendedExecutionForegroundRevokedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExtendedExecutionForegroundRevokedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ExtendedExecutionForegroundRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ExtendedExecutionForegroundRevokedEventArgs,);
 impl ExtendedExecutionForegroundRevokedEventArgs {
@@ -39,6 +36,9 @@ impl ExtendedExecutionForegroundRevokedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ExtendedExecutionForegroundRevokedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExtendedExecutionForegroundRevokedEventArgs>();
+}
 unsafe impl windows_core::Interface for ExtendedExecutionForegroundRevokedEventArgs {
     type Vtable = <IExtendedExecutionForegroundRevokedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IExtendedExecutionForegroundRevokedEventArgs as windows_core::Interface>::IID;
@@ -49,9 +49,6 @@ impl windows_core::RuntimeName for ExtendedExecutionForegroundRevokedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExtendedExecutionForegroundSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for ExtendedExecutionForegroundSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExtendedExecutionForegroundSession>();
-}
 windows_core::imp::interface_hierarchy!(ExtendedExecutionForegroundSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ExtendedExecutionForegroundSession, super::super::super::Foundation::IClosable);
 impl ExtendedExecutionForegroundSession {
@@ -109,6 +106,9 @@ impl ExtendedExecutionForegroundSession {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for ExtendedExecutionForegroundSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExtendedExecutionForegroundSession>();
 }
 unsafe impl windows_core::Interface for ExtendedExecutionForegroundSession {
     type Vtable = <IExtendedExecutionForegroundSession as windows_core::Interface>::Vtable;

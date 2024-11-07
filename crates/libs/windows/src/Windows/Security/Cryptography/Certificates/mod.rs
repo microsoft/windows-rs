@@ -664,9 +664,6 @@ pub struct IUserCertificateStore_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Certificate(windows_core::IUnknown);
-impl windows_core::RuntimeType for Certificate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificate>();
-}
 windows_core::imp::interface_hierarchy!(Certificate, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Certificate,);
 impl Certificate {
@@ -861,6 +858,9 @@ impl Certificate {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Certificate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificate>();
+}
 unsafe impl windows_core::Interface for Certificate {
     type Vtable = <ICertificate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICertificate as windows_core::Interface>::IID;
@@ -871,9 +871,6 @@ impl windows_core::RuntimeName for Certificate {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateChain(windows_core::IUnknown);
-impl windows_core::RuntimeType for CertificateChain {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateChain>();
-}
 windows_core::imp::interface_hierarchy!(CertificateChain, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CertificateChain,);
 impl CertificateChain {
@@ -902,6 +899,9 @@ impl CertificateChain {
             (windows_core::Interface::vtable(this).GetCertificates)(windows_core::Interface::as_raw(this), includeroot, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for CertificateChain {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateChain>();
 }
 unsafe impl windows_core::Interface for CertificateChain {
     type Vtable = <ICertificateChain as windows_core::Interface>::Vtable;
@@ -973,9 +973,6 @@ impl windows_core::RuntimeName for CertificateEnrollmentManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateExtension(windows_core::IUnknown);
-impl windows_core::RuntimeType for CertificateExtension {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateExtension>();
-}
 windows_core::imp::interface_hierarchy!(CertificateExtension, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CertificateExtension,);
 impl CertificateExtension {
@@ -1024,6 +1021,9 @@ impl CertificateExtension {
         unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
 }
+impl windows_core::RuntimeType for CertificateExtension {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateExtension>();
+}
 unsafe impl windows_core::Interface for CertificateExtension {
     type Vtable = <ICertificateExtension as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICertificateExtension as windows_core::Interface>::IID;
@@ -1034,9 +1034,6 @@ impl windows_core::RuntimeName for CertificateExtension {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateKeyUsages(windows_core::IUnknown);
-impl windows_core::RuntimeType for CertificateKeyUsages {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateKeyUsages>();
-}
 windows_core::imp::interface_hierarchy!(CertificateKeyUsages, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CertificateKeyUsages,);
 impl CertificateKeyUsages {
@@ -1136,6 +1133,9 @@ impl CertificateKeyUsages {
         unsafe { (windows_core::Interface::vtable(this).SetDigitalSignature)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CertificateKeyUsages {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateKeyUsages>();
+}
 unsafe impl windows_core::Interface for CertificateKeyUsages {
     type Vtable = <ICertificateKeyUsages as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICertificateKeyUsages as windows_core::Interface>::IID;
@@ -1146,9 +1146,6 @@ impl windows_core::RuntimeName for CertificateKeyUsages {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateQuery(windows_core::IUnknown);
-impl windows_core::RuntimeType for CertificateQuery {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateQuery>();
-}
 windows_core::imp::interface_hierarchy!(CertificateQuery, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CertificateQuery,);
 impl CertificateQuery {
@@ -1245,6 +1242,9 @@ impl CertificateQuery {
         unsafe { (windows_core::Interface::vtable(this).SetStoreName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for CertificateQuery {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateQuery>();
+}
 unsafe impl windows_core::Interface for CertificateQuery {
     type Vtable = <ICertificateQuery as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICertificateQuery as windows_core::Interface>::IID;
@@ -1255,9 +1255,6 @@ impl windows_core::RuntimeName for CertificateQuery {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateRequestProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for CertificateRequestProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateRequestProperties>();
-}
 windows_core::imp::interface_hierarchy!(CertificateRequestProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CertificateRequestProperties,);
 impl CertificateRequestProperties {
@@ -1485,6 +1482,9 @@ impl CertificateRequestProperties {
         }
     }
 }
+impl windows_core::RuntimeType for CertificateRequestProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateRequestProperties>();
+}
 unsafe impl windows_core::Interface for CertificateRequestProperties {
     type Vtable = <ICertificateRequestProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICertificateRequestProperties as windows_core::Interface>::IID;
@@ -1495,9 +1495,6 @@ impl windows_core::RuntimeName for CertificateRequestProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CertificateStore(windows_core::IUnknown);
-impl windows_core::RuntimeType for CertificateStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateStore>();
-}
 windows_core::imp::interface_hierarchy!(CertificateStore, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CertificateStore,);
 impl CertificateStore {
@@ -1522,6 +1519,9 @@ impl CertificateStore {
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for CertificateStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICertificateStore>();
 }
 unsafe impl windows_core::Interface for CertificateStore {
     type Vtable = <ICertificateStore as windows_core::Interface>::Vtable;
@@ -1588,9 +1588,6 @@ impl windows_core::RuntimeName for CertificateStores {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChainBuildingParameters(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChainBuildingParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChainBuildingParameters>();
-}
 windows_core::imp::interface_hierarchy!(ChainBuildingParameters, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChainBuildingParameters,);
 impl ChainBuildingParameters {
@@ -1673,6 +1670,9 @@ impl ChainBuildingParameters {
         }
     }
 }
+impl windows_core::RuntimeType for ChainBuildingParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChainBuildingParameters>();
+}
 unsafe impl windows_core::Interface for ChainBuildingParameters {
     type Vtable = <IChainBuildingParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChainBuildingParameters as windows_core::Interface>::IID;
@@ -1683,9 +1683,6 @@ impl windows_core::RuntimeName for ChainBuildingParameters {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChainValidationParameters(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChainValidationParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChainValidationParameters>();
-}
 windows_core::imp::interface_hierarchy!(ChainValidationParameters, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChainValidationParameters,);
 impl ChainValidationParameters {
@@ -1724,6 +1721,9 @@ impl ChainValidationParameters {
         unsafe { (windows_core::Interface::vtable(this).SetServerDnsName)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for ChainValidationParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChainValidationParameters>();
+}
 unsafe impl windows_core::Interface for ChainValidationParameters {
     type Vtable = <IChainValidationParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChainValidationParameters as windows_core::Interface>::IID;
@@ -1734,9 +1734,6 @@ impl windows_core::RuntimeName for ChainValidationParameters {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CmsAttachedSignature(windows_core::IUnknown);
-impl windows_core::RuntimeType for CmsAttachedSignature {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICmsAttachedSignature>();
-}
 windows_core::imp::interface_hierarchy!(CmsAttachedSignature, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CmsAttachedSignature,);
 impl CmsAttachedSignature {
@@ -1801,6 +1798,9 @@ impl CmsAttachedSignature {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CmsAttachedSignature {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICmsAttachedSignature>();
+}
 unsafe impl windows_core::Interface for CmsAttachedSignature {
     type Vtable = <ICmsAttachedSignature as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICmsAttachedSignature as windows_core::Interface>::IID;
@@ -1811,9 +1811,6 @@ impl windows_core::RuntimeName for CmsAttachedSignature {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CmsDetachedSignature(windows_core::IUnknown);
-impl windows_core::RuntimeType for CmsDetachedSignature {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICmsDetachedSignature>();
-}
 windows_core::imp::interface_hierarchy!(CmsDetachedSignature, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CmsDetachedSignature,);
 impl CmsDetachedSignature {
@@ -1875,6 +1872,9 @@ impl CmsDetachedSignature {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CmsDetachedSignature {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICmsDetachedSignature>();
+}
 unsafe impl windows_core::Interface for CmsDetachedSignature {
     type Vtable = <ICmsDetachedSignature as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICmsDetachedSignature as windows_core::Interface>::IID;
@@ -1885,9 +1885,6 @@ impl windows_core::RuntimeName for CmsDetachedSignature {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CmsSignerInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for CmsSignerInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICmsSignerInfo>();
-}
 windows_core::imp::interface_hierarchy!(CmsSignerInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CmsSignerInfo,);
 impl CmsSignerInfo {
@@ -1931,6 +1928,9 @@ impl CmsSignerInfo {
         }
     }
 }
+impl windows_core::RuntimeType for CmsSignerInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICmsSignerInfo>();
+}
 unsafe impl windows_core::Interface for CmsSignerInfo {
     type Vtable = <ICmsSignerInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICmsSignerInfo as windows_core::Interface>::IID;
@@ -1941,9 +1941,6 @@ impl windows_core::RuntimeName for CmsSignerInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CmsTimestampInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for CmsTimestampInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICmsTimestampInfo>();
-}
 windows_core::imp::interface_hierarchy!(CmsTimestampInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CmsTimestampInfo,);
 impl CmsTimestampInfo {
@@ -1969,6 +1966,9 @@ impl CmsTimestampInfo {
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for CmsTimestampInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICmsTimestampInfo>();
 }
 unsafe impl windows_core::Interface for CmsTimestampInfo {
     type Vtable = <ICmsTimestampInfo as windows_core::Interface>::Vtable;
@@ -2124,9 +2124,6 @@ impl windows_core::RuntimeName for KeyStorageProviderNames {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PfxImportParameters(windows_core::IUnknown);
-impl windows_core::RuntimeType for PfxImportParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPfxImportParameters>();
-}
 windows_core::imp::interface_hierarchy!(PfxImportParameters, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PfxImportParameters,);
 impl PfxImportParameters {
@@ -2215,6 +2212,9 @@ impl PfxImportParameters {
         unsafe { (windows_core::Interface::vtable(this).SetReaderName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for PfxImportParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPfxImportParameters>();
+}
 unsafe impl windows_core::Interface for PfxImportParameters {
     type Vtable = <IPfxImportParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPfxImportParameters as windows_core::Interface>::IID;
@@ -2253,9 +2253,6 @@ impl windows_core::RuntimeName for StandardCertificateStoreNames {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SubjectAlternativeNameInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for SubjectAlternativeNameInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISubjectAlternativeNameInfo>();
-}
 windows_core::imp::interface_hierarchy!(SubjectAlternativeNameInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SubjectAlternativeNameInfo,);
 impl SubjectAlternativeNameInfo {
@@ -2370,6 +2367,9 @@ impl SubjectAlternativeNameInfo {
         }
     }
 }
+impl windows_core::RuntimeType for SubjectAlternativeNameInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISubjectAlternativeNameInfo>();
+}
 unsafe impl windows_core::Interface for SubjectAlternativeNameInfo {
     type Vtable = <ISubjectAlternativeNameInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISubjectAlternativeNameInfo as windows_core::Interface>::IID;
@@ -2380,9 +2380,6 @@ impl windows_core::RuntimeName for SubjectAlternativeNameInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserCertificateEnrollmentManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserCertificateEnrollmentManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserCertificateEnrollmentManager>();
-}
 windows_core::imp::interface_hierarchy!(UserCertificateEnrollmentManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserCertificateEnrollmentManager,);
 impl UserCertificateEnrollmentManager {
@@ -2428,6 +2425,9 @@ impl UserCertificateEnrollmentManager {
         }
     }
 }
+impl windows_core::RuntimeType for UserCertificateEnrollmentManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserCertificateEnrollmentManager>();
+}
 unsafe impl windows_core::Interface for UserCertificateEnrollmentManager {
     type Vtable = <IUserCertificateEnrollmentManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserCertificateEnrollmentManager as windows_core::Interface>::IID;
@@ -2438,9 +2438,6 @@ impl windows_core::RuntimeName for UserCertificateEnrollmentManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserCertificateStore(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserCertificateStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserCertificateStore>();
-}
 windows_core::imp::interface_hierarchy!(UserCertificateStore, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserCertificateStore,);
 impl UserCertificateStore {
@@ -2471,6 +2468,9 @@ impl UserCertificateStore {
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for UserCertificateStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserCertificateStore>();
 }
 unsafe impl windows_core::Interface for UserCertificateStore {
     type Vtable = <IUserCertificateStore as windows_core::Interface>::Vtable;

@@ -308,9 +308,6 @@ pub struct IBluetoothLEManufacturerDataFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisement(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEAdvertisement {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisement>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisement, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEAdvertisement,);
 impl BluetoothLEAdvertisement {
@@ -387,6 +384,9 @@ impl BluetoothLEAdvertisement {
         }
     }
 }
+impl windows_core::RuntimeType for BluetoothLEAdvertisement {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisement>();
+}
 unsafe impl windows_core::Interface for BluetoothLEAdvertisement {
     type Vtable = <IBluetoothLEAdvertisement as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEAdvertisement as windows_core::Interface>::IID;
@@ -397,9 +397,6 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisement {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementBytePattern(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEAdvertisementBytePattern {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementBytePattern>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementBytePattern, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEAdvertisementBytePattern,);
 impl BluetoothLEAdvertisementBytePattern {
@@ -463,6 +460,9 @@ impl BluetoothLEAdvertisementBytePattern {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BluetoothLEAdvertisementBytePattern {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementBytePattern>();
+}
 unsafe impl windows_core::Interface for BluetoothLEAdvertisementBytePattern {
     type Vtable = <IBluetoothLEAdvertisementBytePattern as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEAdvertisementBytePattern as windows_core::Interface>::IID;
@@ -473,9 +473,6 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementBytePattern {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementDataSection(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEAdvertisementDataSection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementDataSection>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementDataSection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEAdvertisementDataSection,);
 impl BluetoothLEAdvertisementDataSection {
@@ -527,6 +524,9 @@ impl BluetoothLEAdvertisementDataSection {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAdvertisementDataSection, IBluetoothLEAdvertisementDataSectionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for BluetoothLEAdvertisementDataSection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementDataSection>();
 }
 unsafe impl windows_core::Interface for BluetoothLEAdvertisementDataSection {
     type Vtable = <IBluetoothLEAdvertisementDataSection as windows_core::Interface>::Vtable;
@@ -680,9 +680,6 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementDataTypes {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementFilter(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEAdvertisementFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementFilter>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEAdvertisementFilter,);
 impl BluetoothLEAdvertisementFilter {
@@ -716,6 +713,9 @@ impl BluetoothLEAdvertisementFilter {
         }
     }
 }
+impl windows_core::RuntimeType for BluetoothLEAdvertisementFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementFilter>();
+}
 unsafe impl windows_core::Interface for BluetoothLEAdvertisementFilter {
     type Vtable = <IBluetoothLEAdvertisementFilter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEAdvertisementFilter as windows_core::Interface>::IID;
@@ -726,9 +726,6 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementFilter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementPublisher(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEAdvertisementPublisher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementPublisher>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementPublisher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEAdvertisementPublisher,);
 impl BluetoothLEAdvertisementPublisher {
@@ -836,6 +833,9 @@ impl BluetoothLEAdvertisementPublisher {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BluetoothLEAdvertisementPublisher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementPublisher>();
+}
 unsafe impl windows_core::Interface for BluetoothLEAdvertisementPublisher {
     type Vtable = <IBluetoothLEAdvertisementPublisher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEAdvertisementPublisher as windows_core::Interface>::IID;
@@ -846,9 +846,6 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementPublisher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementPublisherStatusChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementPublisherStatusChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementPublisherStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEAdvertisementPublisherStatusChangedEventArgs,);
 impl BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
@@ -874,6 +871,9 @@ impl BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementPublisherStatusChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
     type Vtable = <IBluetoothLEAdvertisementPublisherStatusChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEAdvertisementPublisherStatusChangedEventArgs as windows_core::Interface>::IID;
@@ -884,9 +884,6 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementPublisherStatusChange
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEAdvertisementReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEAdvertisementReceivedEventArgs,);
 impl BluetoothLEAdvertisementReceivedEventArgs {
@@ -975,6 +972,9 @@ impl BluetoothLEAdvertisementReceivedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for BluetoothLEAdvertisementReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for BluetoothLEAdvertisementReceivedEventArgs {
     type Vtable = <IBluetoothLEAdvertisementReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEAdvertisementReceivedEventArgs as windows_core::Interface>::IID;
@@ -985,9 +985,6 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementReceivedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementWatcher(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEAdvertisementWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementWatcher>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementWatcher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEAdvertisementWatcher,);
 impl BluetoothLEAdvertisementWatcher {
@@ -1133,6 +1130,9 @@ impl BluetoothLEAdvertisementWatcher {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BluetoothLEAdvertisementWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementWatcher>();
+}
 unsafe impl windows_core::Interface for BluetoothLEAdvertisementWatcher {
     type Vtable = <IBluetoothLEAdvertisementWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEAdvertisementWatcher as windows_core::Interface>::IID;
@@ -1143,9 +1143,6 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementWatcher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementWatcherStoppedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEAdvertisementWatcherStoppedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementWatcherStoppedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementWatcherStoppedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEAdvertisementWatcherStoppedEventArgs,);
 impl BluetoothLEAdvertisementWatcherStoppedEventArgs {
@@ -1157,6 +1154,9 @@ impl BluetoothLEAdvertisementWatcherStoppedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for BluetoothLEAdvertisementWatcherStoppedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementWatcherStoppedEventArgs>();
+}
 unsafe impl windows_core::Interface for BluetoothLEAdvertisementWatcherStoppedEventArgs {
     type Vtable = <IBluetoothLEAdvertisementWatcherStoppedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEAdvertisementWatcherStoppedEventArgs as windows_core::Interface>::IID;
@@ -1167,9 +1167,6 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementWatcherStoppedEventAr
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEManufacturerData(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEManufacturerData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEManufacturerData>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEManufacturerData, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEManufacturerData,);
 impl BluetoothLEManufacturerData {
@@ -1221,6 +1218,9 @@ impl BluetoothLEManufacturerData {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEManufacturerData, IBluetoothLEManufacturerDataFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for BluetoothLEManufacturerData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEManufacturerData>();
 }
 unsafe impl windows_core::Interface for BluetoothLEManufacturerData {
     type Vtable = <IBluetoothLEManufacturerData as windows_core::Interface>::Vtable;

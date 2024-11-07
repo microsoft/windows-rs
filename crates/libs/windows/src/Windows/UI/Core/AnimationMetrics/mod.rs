@@ -175,9 +175,6 @@ pub struct IScaleAnimation_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AnimationDescription(windows_core::IUnknown);
-impl windows_core::RuntimeType for AnimationDescription {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAnimationDescription>();
-}
 windows_core::imp::interface_hierarchy!(AnimationDescription, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AnimationDescription,);
 impl AnimationDescription {
@@ -228,6 +225,9 @@ impl AnimationDescription {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AnimationDescription {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAnimationDescription>();
+}
 unsafe impl windows_core::Interface for AnimationDescription {
     type Vtable = <IAnimationDescription as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAnimationDescription as windows_core::Interface>::IID;
@@ -238,9 +238,6 @@ impl windows_core::RuntimeName for AnimationDescription {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OpacityAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for OpacityAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOpacityAnimation>();
-}
 windows_core::imp::interface_hierarchy!(OpacityAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OpacityAnimation, IPropertyAnimation);
 impl OpacityAnimation {
@@ -294,6 +291,9 @@ impl OpacityAnimation {
         }
     }
 }
+impl windows_core::RuntimeType for OpacityAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOpacityAnimation>();
+}
 unsafe impl windows_core::Interface for OpacityAnimation {
     type Vtable = <IOpacityAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOpacityAnimation as windows_core::Interface>::IID;
@@ -304,9 +304,6 @@ impl windows_core::RuntimeName for OpacityAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PropertyAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for PropertyAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPropertyAnimation>();
-}
 windows_core::imp::interface_hierarchy!(PropertyAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PropertyAnimation, IPropertyAnimation);
 impl PropertyAnimation {
@@ -346,6 +343,9 @@ impl PropertyAnimation {
         }
     }
 }
+impl windows_core::RuntimeType for PropertyAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPropertyAnimation>();
+}
 unsafe impl windows_core::Interface for PropertyAnimation {
     type Vtable = <IPropertyAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPropertyAnimation as windows_core::Interface>::IID;
@@ -356,9 +356,6 @@ impl windows_core::RuntimeName for PropertyAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScaleAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for ScaleAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScaleAnimation>();
-}
 windows_core::imp::interface_hierarchy!(ScaleAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ScaleAnimation, IPropertyAnimation);
 impl ScaleAnimation {
@@ -433,6 +430,9 @@ impl ScaleAnimation {
         }
     }
 }
+impl windows_core::RuntimeType for ScaleAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScaleAnimation>();
+}
 unsafe impl windows_core::Interface for ScaleAnimation {
     type Vtable = <IScaleAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IScaleAnimation as windows_core::Interface>::IID;
@@ -443,9 +443,6 @@ impl windows_core::RuntimeName for ScaleAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TranslationAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for TranslationAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPropertyAnimation>();
-}
 windows_core::imp::interface_hierarchy!(TranslationAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TranslationAnimation, IPropertyAnimation);
 impl TranslationAnimation {
@@ -484,6 +481,9 @@ impl TranslationAnimation {
             (windows_core::Interface::vtable(this).Control2)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for TranslationAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPropertyAnimation>();
 }
 unsafe impl windows_core::Interface for TranslationAnimation {
     type Vtable = <IPropertyAnimation as windows_core::Interface>::Vtable;

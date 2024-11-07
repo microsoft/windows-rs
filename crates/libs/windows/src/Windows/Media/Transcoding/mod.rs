@@ -61,9 +61,6 @@ pub struct IPrepareTranscodeResult_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaTranscoder(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaTranscoder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaTranscoder>();
-}
 windows_core::imp::interface_hierarchy!(MediaTranscoder, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaTranscoder,);
 impl MediaTranscoder {
@@ -197,6 +194,9 @@ impl MediaTranscoder {
         }
     }
 }
+impl windows_core::RuntimeType for MediaTranscoder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaTranscoder>();
+}
 unsafe impl windows_core::Interface for MediaTranscoder {
     type Vtable = <IMediaTranscoder as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaTranscoder as windows_core::Interface>::IID;
@@ -207,9 +207,6 @@ impl windows_core::RuntimeName for MediaTranscoder {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrepareTranscodeResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrepareTranscodeResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrepareTranscodeResult>();
-}
 windows_core::imp::interface_hierarchy!(PrepareTranscodeResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrepareTranscodeResult,);
 impl PrepareTranscodeResult {
@@ -234,6 +231,9 @@ impl PrepareTranscodeResult {
             (windows_core::Interface::vtable(this).TranscodeAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for PrepareTranscodeResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrepareTranscodeResult>();
 }
 unsafe impl windows_core::Interface for PrepareTranscodeResult {
     type Vtable = <IPrepareTranscodeResult as windows_core::Interface>::Vtable;

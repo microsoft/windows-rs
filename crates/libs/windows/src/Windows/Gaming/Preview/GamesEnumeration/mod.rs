@@ -337,9 +337,6 @@ impl windows_core::RuntimeName for GameList {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameListEntry(windows_core::IUnknown);
-impl windows_core::RuntimeType for GameListEntry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameListEntry>();
-}
 windows_core::imp::interface_hierarchy!(GameListEntry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GameListEntry, IGameListEntry);
 impl GameListEntry {
@@ -446,6 +443,9 @@ impl GameListEntry {
         }
     }
 }
+impl windows_core::RuntimeType for GameListEntry {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameListEntry>();
+}
 unsafe impl windows_core::Interface for GameListEntry {
     type Vtable = <IGameListEntry as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGameListEntry as windows_core::Interface>::IID;
@@ -456,9 +456,6 @@ impl windows_core::RuntimeName for GameListEntry {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameModeConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for GameModeConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameModeConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(GameModeConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GameModeConfiguration,);
 impl GameModeConfiguration {
@@ -584,6 +581,9 @@ impl GameModeConfiguration {
         }
     }
 }
+impl windows_core::RuntimeType for GameModeConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameModeConfiguration>();
+}
 unsafe impl windows_core::Interface for GameModeConfiguration {
     type Vtable = <IGameModeConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGameModeConfiguration as windows_core::Interface>::IID;
@@ -594,9 +594,6 @@ impl windows_core::RuntimeName for GameModeConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GameModeUserConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for GameModeUserConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameModeUserConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(GameModeUserConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GameModeUserConfiguration,);
 impl GameModeUserConfiguration {
@@ -625,6 +622,9 @@ impl GameModeUserConfiguration {
         static SHARED: windows_core::imp::FactoryCache<GameModeUserConfiguration, IGameModeUserConfigurationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for GameModeUserConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGameModeUserConfiguration>();
 }
 unsafe impl windows_core::Interface for GameModeUserConfiguration {
     type Vtable = <IGameModeUserConfiguration as windows_core::Interface>::Vtable;

@@ -43,9 +43,6 @@ pub struct ISignalNotifierStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PreallocatedWorkItem(windows_core::IUnknown);
-impl windows_core::RuntimeType for PreallocatedWorkItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPreallocatedWorkItem>();
-}
 windows_core::imp::interface_hierarchy!(PreallocatedWorkItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PreallocatedWorkItem,);
 impl PreallocatedWorkItem {
@@ -88,6 +85,9 @@ impl PreallocatedWorkItem {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PreallocatedWorkItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPreallocatedWorkItem>();
+}
 unsafe impl windows_core::Interface for PreallocatedWorkItem {
     type Vtable = <IPreallocatedWorkItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPreallocatedWorkItem as windows_core::Interface>::IID;
@@ -98,9 +98,6 @@ impl windows_core::RuntimeName for PreallocatedWorkItem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SignalNotifier(windows_core::IUnknown);
-impl windows_core::RuntimeType for SignalNotifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISignalNotifier>();
-}
 windows_core::imp::interface_hierarchy!(SignalNotifier, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SignalNotifier,);
 impl SignalNotifier {
@@ -152,6 +149,9 @@ impl SignalNotifier {
         static SHARED: windows_core::imp::FactoryCache<SignalNotifier, ISignalNotifierStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for SignalNotifier {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISignalNotifier>();
 }
 unsafe impl windows_core::Interface for SignalNotifier {
     type Vtable = <ISignalNotifier as windows_core::Interface>::Vtable;

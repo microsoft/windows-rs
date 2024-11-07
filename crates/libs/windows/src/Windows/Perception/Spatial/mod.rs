@@ -448,9 +448,6 @@ pub struct ISpatialStationaryFrameOfReference_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAnchor(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialAnchor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialAnchor>();
-}
 windows_core::imp::interface_hierarchy!(SpatialAnchor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialAnchor,);
 impl SpatialAnchor {
@@ -523,6 +520,9 @@ impl SpatialAnchor {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SpatialAnchor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialAnchor>();
+}
 unsafe impl windows_core::Interface for SpatialAnchor {
     type Vtable = <ISpatialAnchor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialAnchor as windows_core::Interface>::IID;
@@ -533,9 +533,6 @@ impl windows_core::RuntimeName for SpatialAnchor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAnchorExportSufficiency(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialAnchorExportSufficiency {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialAnchorExportSufficiency>();
-}
 windows_core::imp::interface_hierarchy!(SpatialAnchorExportSufficiency, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialAnchorExportSufficiency,);
 impl SpatialAnchorExportSufficiency {
@@ -561,6 +558,9 @@ impl SpatialAnchorExportSufficiency {
         }
     }
 }
+impl windows_core::RuntimeType for SpatialAnchorExportSufficiency {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialAnchorExportSufficiency>();
+}
 unsafe impl windows_core::Interface for SpatialAnchorExportSufficiency {
     type Vtable = <ISpatialAnchorExportSufficiency as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialAnchorExportSufficiency as windows_core::Interface>::IID;
@@ -571,9 +571,6 @@ impl windows_core::RuntimeName for SpatialAnchorExportSufficiency {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAnchorExporter(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialAnchorExporter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialAnchorExporter>();
-}
 windows_core::imp::interface_hierarchy!(SpatialAnchorExporter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialAnchorExporter,);
 impl SpatialAnchorExporter {
@@ -616,6 +613,9 @@ impl SpatialAnchorExporter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SpatialAnchorExporter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialAnchorExporter>();
+}
 unsafe impl windows_core::Interface for SpatialAnchorExporter {
     type Vtable = <ISpatialAnchorExporter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialAnchorExporter as windows_core::Interface>::IID;
@@ -642,9 +642,6 @@ impl windows_core::RuntimeName for SpatialAnchorManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAnchorRawCoordinateSystemAdjustedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialAnchorRawCoordinateSystemAdjustedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SpatialAnchorRawCoordinateSystemAdjustedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialAnchorRawCoordinateSystemAdjustedEventArgs,);
 impl SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
@@ -657,6 +654,9 @@ impl SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialAnchorRawCoordinateSystemAdjustedEventArgs>();
+}
 unsafe impl windows_core::Interface for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     type Vtable = <ISpatialAnchorRawCoordinateSystemAdjustedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialAnchorRawCoordinateSystemAdjustedEventArgs as windows_core::Interface>::IID;
@@ -667,9 +667,6 @@ impl windows_core::RuntimeName for SpatialAnchorRawCoordinateSystemAdjustedEvent
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAnchorStore(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialAnchorStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialAnchorStore>();
-}
 windows_core::imp::interface_hierarchy!(SpatialAnchorStore, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialAnchorStore,);
 impl SpatialAnchorStore {
@@ -699,6 +696,9 @@ impl SpatialAnchorStore {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for SpatialAnchorStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialAnchorStore>();
 }
 unsafe impl windows_core::Interface for SpatialAnchorStore {
     type Vtable = <ISpatialAnchorStore as windows_core::Interface>::Vtable;
@@ -751,9 +751,6 @@ impl windows_core::RuntimeName for SpatialAnchorTransferManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialBoundingVolume(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialBoundingVolume {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialBoundingVolume>();
-}
 windows_core::imp::interface_hierarchy!(SpatialBoundingVolume, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialBoundingVolume,);
 impl SpatialBoundingVolume {
@@ -802,6 +799,9 @@ impl SpatialBoundingVolume {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SpatialBoundingVolume {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialBoundingVolume>();
+}
 unsafe impl windows_core::Interface for SpatialBoundingVolume {
     type Vtable = <ISpatialBoundingVolume as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialBoundingVolume as windows_core::Interface>::IID;
@@ -812,9 +812,6 @@ impl windows_core::RuntimeName for SpatialBoundingVolume {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialCoordinateSystem(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialCoordinateSystem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialCoordinateSystem>();
-}
 windows_core::imp::interface_hierarchy!(SpatialCoordinateSystem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialCoordinateSystem,);
 impl SpatialCoordinateSystem {
@@ -830,6 +827,9 @@ impl SpatialCoordinateSystem {
         }
     }
 }
+impl windows_core::RuntimeType for SpatialCoordinateSystem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialCoordinateSystem>();
+}
 unsafe impl windows_core::Interface for SpatialCoordinateSystem {
     type Vtable = <ISpatialCoordinateSystem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialCoordinateSystem as windows_core::Interface>::IID;
@@ -840,9 +840,6 @@ impl windows_core::RuntimeName for SpatialCoordinateSystem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntity(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialEntity {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialEntity>();
-}
 windows_core::imp::interface_hierarchy!(SpatialEntity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialEntity,);
 impl SpatialEntity {
@@ -893,6 +890,9 @@ impl SpatialEntity {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SpatialEntity {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialEntity>();
+}
 unsafe impl windows_core::Interface for SpatialEntity {
     type Vtable = <ISpatialEntity as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialEntity as windows_core::Interface>::IID;
@@ -903,9 +903,6 @@ impl windows_core::RuntimeName for SpatialEntity {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntityAddedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialEntityAddedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialEntityAddedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SpatialEntityAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialEntityAddedEventArgs,);
 impl SpatialEntityAddedEventArgs {
@@ -917,6 +914,9 @@ impl SpatialEntityAddedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for SpatialEntityAddedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialEntityAddedEventArgs>();
+}
 unsafe impl windows_core::Interface for SpatialEntityAddedEventArgs {
     type Vtable = <ISpatialEntityAddedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialEntityAddedEventArgs as windows_core::Interface>::IID;
@@ -927,9 +927,6 @@ impl windows_core::RuntimeName for SpatialEntityAddedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntityRemovedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialEntityRemovedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialEntityRemovedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SpatialEntityRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialEntityRemovedEventArgs,);
 impl SpatialEntityRemovedEventArgs {
@@ -941,6 +938,9 @@ impl SpatialEntityRemovedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for SpatialEntityRemovedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialEntityRemovedEventArgs>();
+}
 unsafe impl windows_core::Interface for SpatialEntityRemovedEventArgs {
     type Vtable = <ISpatialEntityRemovedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialEntityRemovedEventArgs as windows_core::Interface>::IID;
@@ -951,9 +951,6 @@ impl windows_core::RuntimeName for SpatialEntityRemovedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntityStore(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialEntityStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialEntityStore>();
-}
 windows_core::imp::interface_hierarchy!(SpatialEntityStore, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialEntityStore,);
 impl SpatialEntityStore {
@@ -1005,6 +1002,9 @@ impl SpatialEntityStore {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SpatialEntityStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialEntityStore>();
+}
 unsafe impl windows_core::Interface for SpatialEntityStore {
     type Vtable = <ISpatialEntityStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialEntityStore as windows_core::Interface>::IID;
@@ -1015,9 +1015,6 @@ impl windows_core::RuntimeName for SpatialEntityStore {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntityUpdatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialEntityUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialEntityUpdatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SpatialEntityUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialEntityUpdatedEventArgs,);
 impl SpatialEntityUpdatedEventArgs {
@@ -1029,6 +1026,9 @@ impl SpatialEntityUpdatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for SpatialEntityUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialEntityUpdatedEventArgs>();
+}
 unsafe impl windows_core::Interface for SpatialEntityUpdatedEventArgs {
     type Vtable = <ISpatialEntityUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialEntityUpdatedEventArgs as windows_core::Interface>::IID;
@@ -1039,9 +1039,6 @@ impl windows_core::RuntimeName for SpatialEntityUpdatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialEntityWatcher(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialEntityWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialEntityWatcher>();
-}
 windows_core::imp::interface_hierarchy!(SpatialEntityWatcher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialEntityWatcher,);
 impl SpatialEntityWatcher {
@@ -1117,6 +1114,9 @@ impl SpatialEntityWatcher {
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for SpatialEntityWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialEntityWatcher>();
+}
 unsafe impl windows_core::Interface for SpatialEntityWatcher {
     type Vtable = <ISpatialEntityWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialEntityWatcher as windows_core::Interface>::IID;
@@ -1127,9 +1127,6 @@ impl windows_core::RuntimeName for SpatialEntityWatcher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialLocation(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialLocation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialLocation>();
-}
 windows_core::imp::interface_hierarchy!(SpatialLocation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialLocation,);
 impl SpatialLocation {
@@ -1198,6 +1195,9 @@ impl SpatialLocation {
         }
     }
 }
+impl windows_core::RuntimeType for SpatialLocation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialLocation>();
+}
 unsafe impl windows_core::Interface for SpatialLocation {
     type Vtable = <ISpatialLocation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialLocation as windows_core::Interface>::IID;
@@ -1208,9 +1208,6 @@ impl windows_core::RuntimeName for SpatialLocation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialLocator(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialLocator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialLocator>();
-}
 windows_core::imp::interface_hierarchy!(SpatialLocator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialLocator,);
 impl SpatialLocator {
@@ -1333,6 +1330,9 @@ impl SpatialLocator {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SpatialLocator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialLocator>();
+}
 unsafe impl windows_core::Interface for SpatialLocator {
     type Vtable = <ISpatialLocator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialLocator as windows_core::Interface>::IID;
@@ -1343,9 +1343,6 @@ impl windows_core::RuntimeName for SpatialLocator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialLocatorAttachedFrameOfReference(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialLocatorAttachedFrameOfReference {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialLocatorAttachedFrameOfReference>();
-}
 windows_core::imp::interface_hierarchy!(SpatialLocatorAttachedFrameOfReference, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialLocatorAttachedFrameOfReference,);
 impl SpatialLocatorAttachedFrameOfReference {
@@ -1400,6 +1397,9 @@ impl SpatialLocatorAttachedFrameOfReference {
         }
     }
 }
+impl windows_core::RuntimeType for SpatialLocatorAttachedFrameOfReference {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialLocatorAttachedFrameOfReference>();
+}
 unsafe impl windows_core::Interface for SpatialLocatorAttachedFrameOfReference {
     type Vtable = <ISpatialLocatorAttachedFrameOfReference as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialLocatorAttachedFrameOfReference as windows_core::Interface>::IID;
@@ -1410,9 +1410,6 @@ impl windows_core::RuntimeName for SpatialLocatorAttachedFrameOfReference {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialLocatorPositionalTrackingDeactivatingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialLocatorPositionalTrackingDeactivatingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SpatialLocatorPositionalTrackingDeactivatingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialLocatorPositionalTrackingDeactivatingEventArgs,);
 impl SpatialLocatorPositionalTrackingDeactivatingEventArgs {
@@ -1428,6 +1425,9 @@ impl SpatialLocatorPositionalTrackingDeactivatingEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetCanceled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialLocatorPositionalTrackingDeactivatingEventArgs>();
+}
 unsafe impl windows_core::Interface for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     type Vtable = <ISpatialLocatorPositionalTrackingDeactivatingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialLocatorPositionalTrackingDeactivatingEventArgs as windows_core::Interface>::IID;
@@ -1438,9 +1438,6 @@ impl windows_core::RuntimeName for SpatialLocatorPositionalTrackingDeactivatingE
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialStageFrameOfReference(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialStageFrameOfReference {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialStageFrameOfReference>();
-}
 windows_core::imp::interface_hierarchy!(SpatialStageFrameOfReference, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialStageFrameOfReference,);
 impl SpatialStageFrameOfReference {
@@ -1515,6 +1512,9 @@ impl SpatialStageFrameOfReference {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SpatialStageFrameOfReference {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialStageFrameOfReference>();
+}
 unsafe impl windows_core::Interface for SpatialStageFrameOfReference {
     type Vtable = <ISpatialStageFrameOfReference as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialStageFrameOfReference as windows_core::Interface>::IID;
@@ -1525,9 +1525,6 @@ impl windows_core::RuntimeName for SpatialStageFrameOfReference {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialStationaryFrameOfReference(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialStationaryFrameOfReference {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialStationaryFrameOfReference>();
-}
 windows_core::imp::interface_hierarchy!(SpatialStationaryFrameOfReference, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialStationaryFrameOfReference,);
 impl SpatialStationaryFrameOfReference {
@@ -1538,6 +1535,9 @@ impl SpatialStationaryFrameOfReference {
             (windows_core::Interface::vtable(this).CoordinateSystem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for SpatialStationaryFrameOfReference {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialStationaryFrameOfReference>();
 }
 unsafe impl windows_core::Interface for SpatialStationaryFrameOfReference {
     type Vtable = <ISpatialStationaryFrameOfReference as windows_core::Interface>::Vtable;
@@ -1634,7 +1634,7 @@ impl windows_core::RuntimeType for SpatialPerceptionAccessStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialPerceptionAccessStatus;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct SpatialBoundingBox {
     pub Center: super::super::Foundation::Numerics::Vector3,
     pub Extents: super::super::Foundation::Numerics::Vector3,
@@ -1646,7 +1646,7 @@ impl windows_core::RuntimeType for SpatialBoundingBox {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingBox;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct SpatialBoundingFrustum {
     pub Near: super::super::Foundation::Numerics::Plane,
     pub Far: super::super::Foundation::Numerics::Plane,
@@ -1662,7 +1662,7 @@ impl windows_core::RuntimeType for SpatialBoundingFrustum {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingFrustum;struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4))");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct SpatialBoundingOrientedBox {
     pub Center: super::super::Foundation::Numerics::Vector3,
     pub Extents: super::super::Foundation::Numerics::Vector3,
@@ -1675,7 +1675,7 @@ impl windows_core::RuntimeType for SpatialBoundingOrientedBox {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingOrientedBox;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4))");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct SpatialBoundingSphere {
     pub Center: super::super::Foundation::Numerics::Vector3,
     pub Radius: f32,
@@ -1687,7 +1687,7 @@ impl windows_core::RuntimeType for SpatialBoundingSphere {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingSphere;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct SpatialRay {
     pub Origin: super::super::Foundation::Numerics::Vector3,
     pub Direction: super::super::Foundation::Numerics::Vector3,

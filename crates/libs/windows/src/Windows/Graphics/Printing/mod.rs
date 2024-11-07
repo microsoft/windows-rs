@@ -795,9 +795,6 @@ pub struct IStandardPrintTaskOptionsStatic3_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintManager>();
-}
 windows_core::imp::interface_hierarchy!(PrintManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintManager,);
 impl PrintManager {
@@ -842,6 +839,9 @@ impl PrintManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PrintManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintManager>();
+}
 unsafe impl windows_core::Interface for PrintManager {
     type Vtable = <IPrintManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintManager as windows_core::Interface>::IID;
@@ -852,9 +852,6 @@ impl windows_core::RuntimeName for PrintManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintPageInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintPageInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintPageInfo>();
-}
 windows_core::imp::interface_hierarchy!(PrintPageInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintPageInfo,);
 impl PrintPageInfo {
@@ -921,6 +918,9 @@ impl PrintPageInfo {
         }
     }
 }
+impl windows_core::RuntimeType for PrintPageInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintPageInfo>();
+}
 unsafe impl windows_core::Interface for PrintPageInfo {
     type Vtable = <IPrintPageInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintPageInfo as windows_core::Interface>::IID;
@@ -931,9 +931,6 @@ impl windows_core::RuntimeName for PrintPageInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintPageRange(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintPageRange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintPageRange>();
-}
 windows_core::imp::interface_hierarchy!(PrintPageRange, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintPageRange,);
 impl PrintPageRange {
@@ -968,6 +965,9 @@ impl PrintPageRange {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PrintPageRange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintPageRange>();
+}
 unsafe impl windows_core::Interface for PrintPageRange {
     type Vtable = <IPrintPageRange as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintPageRange as windows_core::Interface>::IID;
@@ -978,9 +978,6 @@ impl windows_core::RuntimeName for PrintPageRange {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintPageRangeOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintPageRangeOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintPageRangeOptions>();
-}
 windows_core::imp::interface_hierarchy!(PrintPageRangeOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintPageRangeOptions,);
 impl PrintPageRangeOptions {
@@ -1018,6 +1015,9 @@ impl PrintPageRangeOptions {
         }
     }
 }
+impl windows_core::RuntimeType for PrintPageRangeOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintPageRangeOptions>();
+}
 unsafe impl windows_core::Interface for PrintPageRangeOptions {
     type Vtable = <IPrintPageRangeOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintPageRangeOptions as windows_core::Interface>::IID;
@@ -1028,9 +1028,6 @@ impl windows_core::RuntimeName for PrintPageRangeOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTask(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTask {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTask>();
-}
 windows_core::imp::interface_hierarchy!(PrintTask, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTask,);
 impl PrintTask {
@@ -1146,6 +1143,9 @@ impl PrintTask {
         }
     }
 }
+impl windows_core::RuntimeType for PrintTask {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTask>();
+}
 unsafe impl windows_core::Interface for PrintTask {
     type Vtable = <IPrintTask as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTask as windows_core::Interface>::IID;
@@ -1156,9 +1156,6 @@ impl windows_core::RuntimeName for PrintTask {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskCompletedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTaskCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskCompletedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintTaskCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskCompletedEventArgs,);
 impl PrintTaskCompletedEventArgs {
@@ -1170,6 +1167,9 @@ impl PrintTaskCompletedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PrintTaskCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskCompletedEventArgs>();
+}
 unsafe impl windows_core::Interface for PrintTaskCompletedEventArgs {
     type Vtable = <IPrintTaskCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTaskCompletedEventArgs as windows_core::Interface>::IID;
@@ -1180,9 +1180,6 @@ impl windows_core::RuntimeName for PrintTaskCompletedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTaskOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskOptionsCore>();
-}
 windows_core::imp::interface_hierarchy!(PrintTaskOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskOptions, IPrintTaskOptionsCore, IPrintTaskOptionsCoreProperties, IPrintTaskOptionsCoreUIConfiguration);
 impl PrintTaskOptions {
@@ -1374,6 +1371,9 @@ impl PrintTaskOptions {
         }
     }
 }
+impl windows_core::RuntimeType for PrintTaskOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskOptionsCore>();
+}
 unsafe impl windows_core::Interface for PrintTaskOptions {
     type Vtable = <IPrintTaskOptionsCore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTaskOptionsCore as windows_core::Interface>::IID;
@@ -1384,9 +1384,6 @@ impl windows_core::RuntimeName for PrintTaskOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskProgressingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTaskProgressingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskProgressingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintTaskProgressingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskProgressingEventArgs,);
 impl PrintTaskProgressingEventArgs {
@@ -1398,6 +1395,9 @@ impl PrintTaskProgressingEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PrintTaskProgressingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskProgressingEventArgs>();
+}
 unsafe impl windows_core::Interface for PrintTaskProgressingEventArgs {
     type Vtable = <IPrintTaskProgressingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTaskProgressingEventArgs as windows_core::Interface>::IID;
@@ -1408,9 +1408,6 @@ impl windows_core::RuntimeName for PrintTaskProgressingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTaskRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskRequest>();
-}
 windows_core::imp::interface_hierarchy!(PrintTaskRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskRequest,);
 impl PrintTaskRequest {
@@ -1439,6 +1436,9 @@ impl PrintTaskRequest {
         }
     }
 }
+impl windows_core::RuntimeType for PrintTaskRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskRequest>();
+}
 unsafe impl windows_core::Interface for PrintTaskRequest {
     type Vtable = <IPrintTaskRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTaskRequest as windows_core::Interface>::IID;
@@ -1449,9 +1449,6 @@ impl windows_core::RuntimeName for PrintTaskRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskRequestedDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTaskRequestedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskRequestedDeferral>();
-}
 windows_core::imp::interface_hierarchy!(PrintTaskRequestedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskRequestedDeferral,);
 impl PrintTaskRequestedDeferral {
@@ -1459,6 +1456,9 @@ impl PrintTaskRequestedDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for PrintTaskRequestedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskRequestedDeferral>();
 }
 unsafe impl windows_core::Interface for PrintTaskRequestedDeferral {
     type Vtable = <IPrintTaskRequestedDeferral as windows_core::Interface>::Vtable;
@@ -1470,9 +1470,6 @@ impl windows_core::RuntimeName for PrintTaskRequestedDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTaskRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintTaskRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskRequestedEventArgs,);
 impl PrintTaskRequestedEventArgs {
@@ -1484,6 +1481,9 @@ impl PrintTaskRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PrintTaskRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for PrintTaskRequestedEventArgs {
     type Vtable = <IPrintTaskRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTaskRequestedEventArgs as windows_core::Interface>::IID;
@@ -1494,9 +1494,6 @@ impl windows_core::RuntimeName for PrintTaskRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskSourceRequestedArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTaskSourceRequestedArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskSourceRequestedArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintTaskSourceRequestedArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskSourceRequestedArgs,);
 impl PrintTaskSourceRequestedArgs {
@@ -1522,6 +1519,9 @@ impl PrintTaskSourceRequestedArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PrintTaskSourceRequestedArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskSourceRequestedArgs>();
+}
 unsafe impl windows_core::Interface for PrintTaskSourceRequestedArgs {
     type Vtable = <IPrintTaskSourceRequestedArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTaskSourceRequestedArgs as windows_core::Interface>::IID;
@@ -1532,9 +1532,6 @@ impl windows_core::RuntimeName for PrintTaskSourceRequestedArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskSourceRequestedDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTaskSourceRequestedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskSourceRequestedDeferral>();
-}
 windows_core::imp::interface_hierarchy!(PrintTaskSourceRequestedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskSourceRequestedDeferral,);
 impl PrintTaskSourceRequestedDeferral {
@@ -1542,6 +1539,9 @@ impl PrintTaskSourceRequestedDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for PrintTaskSourceRequestedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskSourceRequestedDeferral>();
 }
 unsafe impl windows_core::Interface for PrintTaskSourceRequestedDeferral {
     type Vtable = <IPrintTaskSourceRequestedDeferral as windows_core::Interface>::Vtable;
@@ -2138,7 +2138,7 @@ impl windows_core::RuntimeType for PrintTaskCompletion {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTaskCompletion;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct PrintPageDescription {
     pub PageSize: super::super::Foundation::Size,
     pub ImageableRect: super::super::Foundation::Rect,

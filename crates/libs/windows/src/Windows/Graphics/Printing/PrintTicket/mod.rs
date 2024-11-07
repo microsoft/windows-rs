@@ -172,9 +172,6 @@ pub struct IWorkflowPrintTicketValidationResult_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTicketCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTicketCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(PrintTicketCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTicketCapabilities,);
 impl PrintTicketCapabilities {
@@ -320,6 +317,9 @@ impl PrintTicketCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for PrintTicketCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketCapabilities>();
+}
 unsafe impl windows_core::Interface for PrintTicketCapabilities {
     type Vtable = <IPrintTicketCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTicketCapabilities as windows_core::Interface>::IID;
@@ -330,9 +330,6 @@ impl windows_core::RuntimeName for PrintTicketCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTicketFeature(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTicketFeature {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketFeature>();
-}
 windows_core::imp::interface_hierarchy!(PrintTicketFeature, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTicketFeature,);
 impl PrintTicketFeature {
@@ -402,6 +399,9 @@ impl PrintTicketFeature {
         }
     }
 }
+impl windows_core::RuntimeType for PrintTicketFeature {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketFeature>();
+}
 unsafe impl windows_core::Interface for PrintTicketFeature {
     type Vtable = <IPrintTicketFeature as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTicketFeature as windows_core::Interface>::IID;
@@ -412,9 +412,6 @@ impl windows_core::RuntimeName for PrintTicketFeature {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTicketOption(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTicketOption {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketOption>();
-}
 windows_core::imp::interface_hierarchy!(PrintTicketOption, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTicketOption,);
 impl PrintTicketOption {
@@ -478,6 +475,9 @@ impl PrintTicketOption {
         }
     }
 }
+impl windows_core::RuntimeType for PrintTicketOption {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketOption>();
+}
 unsafe impl windows_core::Interface for PrintTicketOption {
     type Vtable = <IPrintTicketOption as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTicketOption as windows_core::Interface>::IID;
@@ -488,9 +488,6 @@ impl windows_core::RuntimeName for PrintTicketOption {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTicketParameterDefinition(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTicketParameterDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketParameterDefinition>();
-}
 windows_core::imp::interface_hierarchy!(PrintTicketParameterDefinition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTicketParameterDefinition,);
 impl PrintTicketParameterDefinition {
@@ -545,6 +542,9 @@ impl PrintTicketParameterDefinition {
         }
     }
 }
+impl windows_core::RuntimeType for PrintTicketParameterDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketParameterDefinition>();
+}
 unsafe impl windows_core::Interface for PrintTicketParameterDefinition {
     type Vtable = <IPrintTicketParameterDefinition as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTicketParameterDefinition as windows_core::Interface>::IID;
@@ -555,9 +555,6 @@ impl windows_core::RuntimeName for PrintTicketParameterDefinition {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTicketParameterInitializer(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTicketParameterInitializer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketParameterInitializer>();
-}
 windows_core::imp::interface_hierarchy!(PrintTicketParameterInitializer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTicketParameterInitializer,);
 impl PrintTicketParameterInitializer {
@@ -598,6 +595,9 @@ impl PrintTicketParameterInitializer {
         }
     }
 }
+impl windows_core::RuntimeType for PrintTicketParameterInitializer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketParameterInitializer>();
+}
 unsafe impl windows_core::Interface for PrintTicketParameterInitializer {
     type Vtable = <IPrintTicketParameterInitializer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTicketParameterInitializer as windows_core::Interface>::IID;
@@ -608,9 +608,6 @@ impl windows_core::RuntimeName for PrintTicketParameterInitializer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTicketValue(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTicketValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketValue>();
-}
 windows_core::imp::interface_hierarchy!(PrintTicketValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTicketValue,);
 impl PrintTicketValue {
@@ -636,6 +633,9 @@ impl PrintTicketValue {
         }
     }
 }
+impl windows_core::RuntimeType for PrintTicketValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTicketValue>();
+}
 unsafe impl windows_core::Interface for PrintTicketValue {
     type Vtable = <IPrintTicketValue as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTicketValue as windows_core::Interface>::IID;
@@ -646,9 +646,6 @@ impl windows_core::RuntimeName for PrintTicketValue {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WorkflowPrintTicket(windows_core::IUnknown);
-impl windows_core::RuntimeType for WorkflowPrintTicket {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWorkflowPrintTicket>();
-}
 windows_core::imp::interface_hierarchy!(WorkflowPrintTicket, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WorkflowPrintTicket,);
 impl WorkflowPrintTicket {
@@ -839,6 +836,9 @@ impl WorkflowPrintTicket {
         }
     }
 }
+impl windows_core::RuntimeType for WorkflowPrintTicket {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWorkflowPrintTicket>();
+}
 unsafe impl windows_core::Interface for WorkflowPrintTicket {
     type Vtable = <IWorkflowPrintTicket as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWorkflowPrintTicket as windows_core::Interface>::IID;
@@ -849,9 +849,6 @@ impl windows_core::RuntimeName for WorkflowPrintTicket {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WorkflowPrintTicketValidationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for WorkflowPrintTicketValidationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWorkflowPrintTicketValidationResult>();
-}
 windows_core::imp::interface_hierarchy!(WorkflowPrintTicketValidationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WorkflowPrintTicketValidationResult,);
 impl WorkflowPrintTicketValidationResult {
@@ -869,6 +866,9 @@ impl WorkflowPrintTicketValidationResult {
             (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for WorkflowPrintTicketValidationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWorkflowPrintTicketValidationResult>();
 }
 unsafe impl windows_core::Interface for WorkflowPrintTicketValidationResult {
     type Vtable = <IWorkflowPrintTicketValidationResult as windows_core::Interface>::Vtable;

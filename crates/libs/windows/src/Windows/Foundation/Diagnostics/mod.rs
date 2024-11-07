@@ -1086,9 +1086,6 @@ impl windows_core::RuntimeName for AsyncCausalityTracer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ErrorDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for ErrorDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IErrorDetails>();
-}
 windows_core::imp::interface_hierarchy!(ErrorDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ErrorDetails,);
 impl ErrorDetails {
@@ -1124,6 +1121,9 @@ impl ErrorDetails {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ErrorDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IErrorDetails>();
+}
 unsafe impl windows_core::Interface for ErrorDetails {
     type Vtable = <IErrorDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IErrorDetails as windows_core::Interface>::IID;
@@ -1134,9 +1134,6 @@ impl windows_core::RuntimeName for ErrorDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileLoggingSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for FileLoggingSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileLoggingSession>();
-}
 windows_core::imp::interface_hierarchy!(FileLoggingSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileLoggingSession, IFileLoggingSession, super::IClosable);
 impl FileLoggingSession {
@@ -1205,6 +1202,9 @@ impl FileLoggingSession {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for FileLoggingSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileLoggingSession>();
+}
 unsafe impl windows_core::Interface for FileLoggingSession {
     type Vtable = <IFileLoggingSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileLoggingSession as windows_core::Interface>::IID;
@@ -1215,9 +1215,6 @@ impl windows_core::RuntimeName for FileLoggingSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LogFileGeneratedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for LogFileGeneratedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILogFileGeneratedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(LogFileGeneratedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LogFileGeneratedEventArgs,);
 impl LogFileGeneratedEventArgs {
@@ -1230,6 +1227,9 @@ impl LogFileGeneratedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for LogFileGeneratedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILogFileGeneratedEventArgs>();
+}
 unsafe impl windows_core::Interface for LogFileGeneratedEventArgs {
     type Vtable = <ILogFileGeneratedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILogFileGeneratedEventArgs as windows_core::Interface>::IID;
@@ -1240,9 +1240,6 @@ impl windows_core::RuntimeName for LogFileGeneratedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingActivity(windows_core::IUnknown);
-impl windows_core::RuntimeType for LoggingActivity {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingActivity>();
-}
 windows_core::imp::interface_hierarchy!(LoggingActivity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LoggingActivity, ILoggingTarget, super::IClosable);
 impl LoggingActivity {
@@ -1398,6 +1395,9 @@ impl LoggingActivity {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LoggingActivity {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingActivity>();
+}
 unsafe impl windows_core::Interface for LoggingActivity {
     type Vtable = <ILoggingActivity as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILoggingActivity as windows_core::Interface>::IID;
@@ -1408,9 +1408,6 @@ impl windows_core::RuntimeName for LoggingActivity {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingChannel(windows_core::IUnknown);
-impl windows_core::RuntimeType for LoggingChannel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingChannel>();
-}
 windows_core::imp::interface_hierarchy!(LoggingChannel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LoggingChannel, ILoggingChannel, ILoggingTarget, super::IClosable);
 impl LoggingChannel {
@@ -1594,6 +1591,9 @@ impl LoggingChannel {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LoggingChannel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingChannel>();
+}
 unsafe impl windows_core::Interface for LoggingChannel {
     type Vtable = <ILoggingChannel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILoggingChannel as windows_core::Interface>::IID;
@@ -1604,9 +1604,6 @@ impl windows_core::RuntimeName for LoggingChannel {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingChannelOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for LoggingChannelOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingChannelOptions>();
-}
 windows_core::imp::interface_hierarchy!(LoggingChannelOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LoggingChannelOptions,);
 impl LoggingChannelOptions {
@@ -1639,6 +1636,9 @@ impl LoggingChannelOptions {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LoggingChannelOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingChannelOptions>();
+}
 unsafe impl windows_core::Interface for LoggingChannelOptions {
     type Vtable = <ILoggingChannelOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILoggingChannelOptions as windows_core::Interface>::IID;
@@ -1649,9 +1649,6 @@ impl windows_core::RuntimeName for LoggingChannelOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingFields(windows_core::IUnknown);
-impl windows_core::RuntimeType for LoggingFields {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingFields>();
-}
 windows_core::imp::interface_hierarchy!(LoggingFields, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LoggingFields,);
 impl LoggingFields {
@@ -2123,6 +2120,9 @@ impl LoggingFields {
         unsafe { (windows_core::Interface::vtable(this).AddRectArrayWithFormatAndTags)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.len().try_into().unwrap(), value.as_ptr(), format, tags).ok() }
     }
 }
+impl windows_core::RuntimeType for LoggingFields {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingFields>();
+}
 unsafe impl windows_core::Interface for LoggingFields {
     type Vtable = <ILoggingFields as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILoggingFields as windows_core::Interface>::IID;
@@ -2133,9 +2133,6 @@ impl windows_core::RuntimeName for LoggingFields {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for LoggingOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingOptions>();
-}
 windows_core::imp::interface_hierarchy!(LoggingOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LoggingOptions,);
 impl LoggingOptions {
@@ -2223,6 +2220,9 @@ impl LoggingOptions {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LoggingOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingOptions>();
+}
 unsafe impl windows_core::Interface for LoggingOptions {
     type Vtable = <ILoggingOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILoggingOptions as windows_core::Interface>::IID;
@@ -2233,9 +2233,6 @@ impl windows_core::RuntimeName for LoggingOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LoggingSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for LoggingSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingSession>();
-}
 windows_core::imp::interface_hierarchy!(LoggingSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LoggingSession, ILoggingSession, super::IClosable);
 impl LoggingSession {
@@ -2293,6 +2290,9 @@ impl LoggingSession {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LoggingSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILoggingSession>();
+}
 unsafe impl windows_core::Interface for LoggingSession {
     type Vtable = <ILoggingSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILoggingSession as windows_core::Interface>::IID;
@@ -2303,9 +2303,6 @@ impl windows_core::RuntimeName for LoggingSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RuntimeBrokerErrorSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for RuntimeBrokerErrorSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IErrorReportingSettings>();
-}
 windows_core::imp::interface_hierarchy!(RuntimeBrokerErrorSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RuntimeBrokerErrorSettings, IErrorReportingSettings);
 impl RuntimeBrokerErrorSettings {
@@ -2328,6 +2325,9 @@ impl RuntimeBrokerErrorSettings {
         }
     }
 }
+impl windows_core::RuntimeType for RuntimeBrokerErrorSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IErrorReportingSettings>();
+}
 unsafe impl windows_core::Interface for RuntimeBrokerErrorSettings {
     type Vtable = <IErrorReportingSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IErrorReportingSettings as windows_core::Interface>::IID;
@@ -2338,9 +2338,6 @@ impl windows_core::RuntimeName for RuntimeBrokerErrorSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TracingStatusChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for TracingStatusChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITracingStatusChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(TracingStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TracingStatusChangedEventArgs,);
 impl TracingStatusChangedEventArgs {
@@ -2358,6 +2355,9 @@ impl TracingStatusChangedEventArgs {
             (windows_core::Interface::vtable(this).TraceLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for TracingStatusChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITracingStatusChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for TracingStatusChangedEventArgs {
     type Vtable = <ITracingStatusChangedEventArgs as windows_core::Interface>::Vtable;

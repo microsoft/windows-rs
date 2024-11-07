@@ -422,9 +422,6 @@ pub struct IThreadNetworkContext_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BufferProtectUnprotectResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for BufferProtectUnprotectResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBufferProtectUnprotectResult>();
-}
 windows_core::imp::interface_hierarchy!(BufferProtectUnprotectResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BufferProtectUnprotectResult,);
 impl BufferProtectUnprotectResult {
@@ -444,6 +441,9 @@ impl BufferProtectUnprotectResult {
         }
     }
 }
+impl windows_core::RuntimeType for BufferProtectUnprotectResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBufferProtectUnprotectResult>();
+}
 unsafe impl windows_core::Interface for BufferProtectUnprotectResult {
     type Vtable = <IBufferProtectUnprotectResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBufferProtectUnprotectResult as windows_core::Interface>::IID;
@@ -454,9 +454,6 @@ impl windows_core::RuntimeName for BufferProtectUnprotectResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataProtectionInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for DataProtectionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataProtectionInfo>();
-}
 windows_core::imp::interface_hierarchy!(DataProtectionInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DataProtectionInfo,);
 impl DataProtectionInfo {
@@ -474,6 +471,9 @@ impl DataProtectionInfo {
             (windows_core::Interface::vtable(this).Identity)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for DataProtectionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataProtectionInfo>();
 }
 unsafe impl windows_core::Interface for DataProtectionInfo {
     type Vtable = <IDataProtectionInfo as windows_core::Interface>::Vtable;
@@ -557,9 +557,6 @@ impl windows_core::RuntimeName for DataProtectionManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileProtectionInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for FileProtectionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileProtectionInfo>();
-}
 windows_core::imp::interface_hierarchy!(FileProtectionInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileProtectionInfo,);
 impl FileProtectionInfo {
@@ -591,6 +588,9 @@ impl FileProtectionInfo {
             (windows_core::Interface::vtable(this).IsProtectWhileOpenSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for FileProtectionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileProtectionInfo>();
 }
 unsafe impl windows_core::Interface for FileProtectionInfo {
     type Vtable = <IFileProtectionInfo as windows_core::Interface>::Vtable;
@@ -793,9 +793,6 @@ impl windows_core::RuntimeName for FileRevocationManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileUnprotectOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for FileUnprotectOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileUnprotectOptions>();
-}
 windows_core::imp::interface_hierarchy!(FileUnprotectOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileUnprotectOptions,);
 impl FileUnprotectOptions {
@@ -821,6 +818,9 @@ impl FileUnprotectOptions {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for FileUnprotectOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileUnprotectOptions>();
+}
 unsafe impl windows_core::Interface for FileUnprotectOptions {
     type Vtable = <IFileUnprotectOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileUnprotectOptions as windows_core::Interface>::IID;
@@ -831,9 +831,6 @@ impl windows_core::RuntimeName for FileUnprotectOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedAccessResumedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProtectedAccessResumedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedAccessResumedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ProtectedAccessResumedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProtectedAccessResumedEventArgs,);
 impl ProtectedAccessResumedEventArgs {
@@ -846,6 +843,9 @@ impl ProtectedAccessResumedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ProtectedAccessResumedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedAccessResumedEventArgs>();
+}
 unsafe impl windows_core::Interface for ProtectedAccessResumedEventArgs {
     type Vtable = <IProtectedAccessResumedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProtectedAccessResumedEventArgs as windows_core::Interface>::IID;
@@ -856,9 +856,6 @@ impl windows_core::RuntimeName for ProtectedAccessResumedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedAccessSuspendingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProtectedAccessSuspendingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedAccessSuspendingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ProtectedAccessSuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProtectedAccessSuspendingEventArgs,);
 impl ProtectedAccessSuspendingEventArgs {
@@ -885,6 +882,9 @@ impl ProtectedAccessSuspendingEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ProtectedAccessSuspendingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedAccessSuspendingEventArgs>();
+}
 unsafe impl windows_core::Interface for ProtectedAccessSuspendingEventArgs {
     type Vtable = <IProtectedAccessSuspendingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProtectedAccessSuspendingEventArgs as windows_core::Interface>::IID;
@@ -895,9 +895,6 @@ impl windows_core::RuntimeName for ProtectedAccessSuspendingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedContainerExportResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProtectedContainerExportResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedContainerExportResult>();
-}
 windows_core::imp::interface_hierarchy!(ProtectedContainerExportResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProtectedContainerExportResult,);
 impl ProtectedContainerExportResult {
@@ -917,6 +914,9 @@ impl ProtectedContainerExportResult {
         }
     }
 }
+impl windows_core::RuntimeType for ProtectedContainerExportResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedContainerExportResult>();
+}
 unsafe impl windows_core::Interface for ProtectedContainerExportResult {
     type Vtable = <IProtectedContainerExportResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProtectedContainerExportResult as windows_core::Interface>::IID;
@@ -927,9 +927,6 @@ impl windows_core::RuntimeName for ProtectedContainerExportResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedContainerImportResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProtectedContainerImportResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedContainerImportResult>();
-}
 windows_core::imp::interface_hierarchy!(ProtectedContainerImportResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProtectedContainerImportResult,);
 impl ProtectedContainerImportResult {
@@ -949,6 +946,9 @@ impl ProtectedContainerImportResult {
         }
     }
 }
+impl windows_core::RuntimeType for ProtectedContainerImportResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedContainerImportResult>();
+}
 unsafe impl windows_core::Interface for ProtectedContainerImportResult {
     type Vtable = <IProtectedContainerImportResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProtectedContainerImportResult as windows_core::Interface>::IID;
@@ -959,9 +959,6 @@ impl windows_core::RuntimeName for ProtectedContainerImportResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedContentRevokedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProtectedContentRevokedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedContentRevokedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ProtectedContentRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProtectedContentRevokedEventArgs,);
 impl ProtectedContentRevokedEventArgs {
@@ -974,6 +971,9 @@ impl ProtectedContentRevokedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ProtectedContentRevokedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedContentRevokedEventArgs>();
+}
 unsafe impl windows_core::Interface for ProtectedContentRevokedEventArgs {
     type Vtable = <IProtectedContentRevokedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProtectedContentRevokedEventArgs as windows_core::Interface>::IID;
@@ -984,9 +984,6 @@ impl windows_core::RuntimeName for ProtectedContentRevokedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectedFileCreateResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProtectedFileCreateResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedFileCreateResult>();
-}
 windows_core::imp::interface_hierarchy!(ProtectedFileCreateResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProtectedFileCreateResult,);
 impl ProtectedFileCreateResult {
@@ -1014,6 +1011,9 @@ impl ProtectedFileCreateResult {
         }
     }
 }
+impl windows_core::RuntimeType for ProtectedFileCreateResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectedFileCreateResult>();
+}
 unsafe impl windows_core::Interface for ProtectedFileCreateResult {
     type Vtable = <IProtectedFileCreateResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProtectedFileCreateResult as windows_core::Interface>::IID;
@@ -1024,9 +1024,6 @@ impl windows_core::RuntimeName for ProtectedFileCreateResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectionPolicyAuditInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProtectionPolicyAuditInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectionPolicyAuditInfo>();
-}
 windows_core::imp::interface_hierarchy!(ProtectionPolicyAuditInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProtectionPolicyAuditInfo,);
 impl ProtectionPolicyAuditInfo {
@@ -1091,6 +1088,9 @@ impl ProtectionPolicyAuditInfo {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ProtectionPolicyAuditInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectionPolicyAuditInfo>();
+}
 unsafe impl windows_core::Interface for ProtectionPolicyAuditInfo {
     type Vtable = <IProtectionPolicyAuditInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProtectionPolicyAuditInfo as windows_core::Interface>::IID;
@@ -1101,9 +1101,6 @@ impl windows_core::RuntimeName for ProtectionPolicyAuditInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectionPolicyManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProtectionPolicyManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectionPolicyManager>();
-}
 windows_core::imp::interface_hierarchy!(ProtectionPolicyManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProtectionPolicyManager,);
 impl ProtectionPolicyManager {
@@ -1430,6 +1427,9 @@ impl ProtectionPolicyManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ProtectionPolicyManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectionPolicyManager>();
+}
 unsafe impl windows_core::Interface for ProtectionPolicyManager {
     type Vtable = <IProtectionPolicyManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProtectionPolicyManager as windows_core::Interface>::IID;
@@ -1440,9 +1440,6 @@ impl windows_core::RuntimeName for ProtectionPolicyManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ThreadNetworkContext(windows_core::IUnknown);
-impl windows_core::RuntimeType for ThreadNetworkContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IThreadNetworkContext>();
-}
 windows_core::imp::interface_hierarchy!(ThreadNetworkContext, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ThreadNetworkContext, super::super::Foundation::IClosable);
 impl ThreadNetworkContext {
@@ -1450,6 +1447,9 @@ impl ThreadNetworkContext {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for ThreadNetworkContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IThreadNetworkContext>();
 }
 unsafe impl windows_core::Interface for ThreadNetworkContext {
     type Vtable = <IThreadNetworkContext as windows_core::Interface>::Vtable;

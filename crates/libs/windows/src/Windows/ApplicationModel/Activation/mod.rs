@@ -5039,9 +5039,6 @@ impl IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentsProviderAddAppointmentActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentsProviderAddAppointmentActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentsProviderAddAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentsProviderAddAppointmentActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderAddAppointmentActivatedEventArgs);
 impl AppointmentsProviderAddAppointmentActivatedEventArgs {
@@ -5090,6 +5087,9 @@ impl AppointmentsProviderAddAppointmentActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AppointmentsProviderAddAppointmentActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentsProviderAddAppointmentActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for AppointmentsProviderAddAppointmentActivatedEventArgs {
     type Vtable = <IAppointmentsProviderAddAppointmentActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentsProviderAddAppointmentActivatedEventArgs as windows_core::Interface>::IID;
@@ -5100,9 +5100,6 @@ impl windows_core::RuntimeName for AppointmentsProviderAddAppointmentActivatedEv
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentsProviderRemoveAppointmentActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentsProviderRemoveAppointmentActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentsProviderRemoveAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentsProviderRemoveAppointmentActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderRemoveAppointmentActivatedEventArgs);
 impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
@@ -5151,6 +5148,9 @@ impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentsProviderRemoveAppointmentActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     type Vtable = <IAppointmentsProviderRemoveAppointmentActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentsProviderRemoveAppointmentActivatedEventArgs as windows_core::Interface>::IID;
@@ -5161,9 +5161,6 @@ impl windows_core::RuntimeName for AppointmentsProviderRemoveAppointmentActivate
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentsProviderReplaceAppointmentActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentsProviderReplaceAppointmentActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentsProviderReplaceAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentsProviderReplaceAppointmentActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderReplaceAppointmentActivatedEventArgs);
 impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
@@ -5212,6 +5209,9 @@ impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentsProviderReplaceAppointmentActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     type Vtable = <IAppointmentsProviderReplaceAppointmentActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentsProviderReplaceAppointmentActivatedEventArgs as windows_core::Interface>::IID;
@@ -5222,9 +5222,6 @@ impl windows_core::RuntimeName for AppointmentsProviderReplaceAppointmentActivat
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentsProviderShowAppointmentDetailsActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentsProviderShowAppointmentDetailsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentsProviderShowAppointmentDetailsActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs);
 impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
@@ -5286,6 +5283,9 @@ impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     type Vtable = <IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as windows_core::Interface>::IID;
@@ -5296,9 +5296,6 @@ impl windows_core::RuntimeName for AppointmentsProviderShowAppointmentDetailsAct
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentsProviderShowTimeFrameActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentsProviderShowTimeFrameActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentsProviderShowTimeFrameActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentsProviderShowTimeFrameActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IAppointmentsProviderActivatedEventArgs, IAppointmentsProviderShowTimeFrameActivatedEventArgs);
 impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
@@ -5353,6 +5350,9 @@ impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AppointmentsProviderShowTimeFrameActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentsProviderShowTimeFrameActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     type Vtable = <IAppointmentsProviderShowTimeFrameActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppointmentsProviderShowTimeFrameActivatedEventArgs as windows_core::Interface>::IID;
@@ -5363,9 +5363,6 @@ impl windows_core::RuntimeName for AppointmentsProviderShowTimeFrameActivatedEve
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackgroundActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(BackgroundActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundActivatedEventArgs, IBackgroundActivatedEventArgs);
 impl BackgroundActivatedEventArgs {
@@ -5378,6 +5375,9 @@ impl BackgroundActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for BackgroundActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for BackgroundActivatedEventArgs {
     type Vtable = <IBackgroundActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundActivatedEventArgs as windows_core::Interface>::IID;
@@ -5388,9 +5388,6 @@ impl windows_core::RuntimeName for BackgroundActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerPreviewActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for BarcodeScannerPreviewActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerPreviewActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(BarcodeScannerPreviewActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarcodeScannerPreviewActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IBarcodeScannerPreviewActivatedEventArgs);
 impl BarcodeScannerPreviewActivatedEventArgs {
@@ -5431,6 +5428,9 @@ impl BarcodeScannerPreviewActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for BarcodeScannerPreviewActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerPreviewActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for BarcodeScannerPreviewActivatedEventArgs {
     type Vtable = <IBarcodeScannerPreviewActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBarcodeScannerPreviewActivatedEventArgs as windows_core::Interface>::IID;
@@ -5441,9 +5441,6 @@ impl windows_core::RuntimeName for BarcodeScannerPreviewActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CachedFileUpdaterActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CachedFileUpdaterActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICachedFileUpdaterActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CachedFileUpdaterActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CachedFileUpdaterActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, ICachedFileUpdaterActivatedEventArgs);
 impl CachedFileUpdaterActivatedEventArgs {
@@ -5485,6 +5482,9 @@ impl CachedFileUpdaterActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for CachedFileUpdaterActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICachedFileUpdaterActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for CachedFileUpdaterActivatedEventArgs {
     type Vtable = <ICachedFileUpdaterActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICachedFileUpdaterActivatedEventArgs as windows_core::Interface>::IID;
@@ -5495,9 +5495,6 @@ impl windows_core::RuntimeName for CachedFileUpdaterActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CameraSettingsActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CameraSettingsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICameraSettingsActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CameraSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CameraSettingsActivatedEventArgs, IActivatedEventArgs, ICameraSettingsActivatedEventArgs);
 impl CameraSettingsActivatedEventArgs {
@@ -5537,6 +5534,9 @@ impl CameraSettingsActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for CameraSettingsActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICameraSettingsActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for CameraSettingsActivatedEventArgs {
     type Vtable = <ICameraSettingsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICameraSettingsActivatedEventArgs as windows_core::Interface>::IID;
@@ -5547,9 +5547,6 @@ impl windows_core::RuntimeName for CameraSettingsActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CommandLineActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CommandLineActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICommandLineActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CommandLineActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CommandLineActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, ICommandLineActivatedEventArgs);
 impl CommandLineActivatedEventArgs {
@@ -5590,6 +5587,9 @@ impl CommandLineActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for CommandLineActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICommandLineActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for CommandLineActivatedEventArgs {
     type Vtable = <ICommandLineActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICommandLineActivatedEventArgs as windows_core::Interface>::IID;
@@ -5600,9 +5600,6 @@ impl windows_core::RuntimeName for CommandLineActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CommandLineActivationOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for CommandLineActivationOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICommandLineActivationOperation>();
-}
 windows_core::imp::interface_hierarchy!(CommandLineActivationOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CommandLineActivationOperation,);
 impl CommandLineActivationOperation {
@@ -5639,6 +5636,9 @@ impl CommandLineActivationOperation {
         }
     }
 }
+impl windows_core::RuntimeType for CommandLineActivationOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICommandLineActivationOperation>();
+}
 unsafe impl windows_core::Interface for CommandLineActivationOperation {
     type Vtable = <ICommandLineActivationOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICommandLineActivationOperation as windows_core::Interface>::IID;
@@ -5649,9 +5649,6 @@ impl windows_core::RuntimeName for CommandLineActivationOperation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactCallActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContactCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactCallActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ContactCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactCallActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs, IContactCallActivatedEventArgs);
 impl ContactCallActivatedEventArgs {
@@ -5706,6 +5703,9 @@ impl ContactCallActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ContactCallActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactCallActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for ContactCallActivatedEventArgs {
     type Vtable = <IContactCallActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactCallActivatedEventArgs as windows_core::Interface>::IID;
@@ -5716,9 +5716,6 @@ impl windows_core::RuntimeName for ContactCallActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactMapActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContactMapActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactMapActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ContactMapActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactMapActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs, IContactMapActivatedEventArgs);
 impl ContactMapActivatedEventArgs {
@@ -5767,6 +5764,9 @@ impl ContactMapActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ContactMapActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactMapActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for ContactMapActivatedEventArgs {
     type Vtable = <IContactMapActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactMapActivatedEventArgs as windows_core::Interface>::IID;
@@ -5777,9 +5777,6 @@ impl windows_core::RuntimeName for ContactMapActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactMessageActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContactMessageActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactMessageActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ContactMessageActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactMessageActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs, IContactMessageActivatedEventArgs);
 impl ContactMessageActivatedEventArgs {
@@ -5834,6 +5831,9 @@ impl ContactMessageActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ContactMessageActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactMessageActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for ContactMessageActivatedEventArgs {
     type Vtable = <IContactMessageActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactMessageActivatedEventArgs as windows_core::Interface>::IID;
@@ -5844,9 +5844,6 @@ impl windows_core::RuntimeName for ContactMessageActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPanelActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContactPanelActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPanelActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ContactPanelActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactPanelActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IContactPanelActivatedEventArgs);
 impl ContactPanelActivatedEventArgs {
@@ -5896,6 +5893,9 @@ impl ContactPanelActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ContactPanelActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPanelActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for ContactPanelActivatedEventArgs {
     type Vtable = <IContactPanelActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactPanelActivatedEventArgs as windows_core::Interface>::IID;
@@ -5906,9 +5906,6 @@ impl windows_core::RuntimeName for ContactPanelActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPickerActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContactPickerActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPickerActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ContactPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactPickerActivatedEventArgs, IActivatedEventArgs, IContactPickerActivatedEventArgs);
 impl ContactPickerActivatedEventArgs {
@@ -5942,6 +5939,9 @@ impl ContactPickerActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ContactPickerActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPickerActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for ContactPickerActivatedEventArgs {
     type Vtable = <IContactPickerActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactPickerActivatedEventArgs as windows_core::Interface>::IID;
@@ -5952,9 +5952,6 @@ impl windows_core::RuntimeName for ContactPickerActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPostActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContactPostActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPostActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ContactPostActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactPostActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs, IContactPostActivatedEventArgs);
 impl ContactPostActivatedEventArgs {
@@ -6009,6 +6006,9 @@ impl ContactPostActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ContactPostActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPostActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for ContactPostActivatedEventArgs {
     type Vtable = <IContactPostActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactPostActivatedEventArgs as windows_core::Interface>::IID;
@@ -6019,9 +6019,6 @@ impl windows_core::RuntimeName for ContactPostActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactVideoCallActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContactVideoCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactVideoCallActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ContactVideoCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactVideoCallActivatedEventArgs, IActivatedEventArgs, IContactActivatedEventArgs, IContactVideoCallActivatedEventArgs);
 impl ContactVideoCallActivatedEventArgs {
@@ -6076,6 +6073,9 @@ impl ContactVideoCallActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ContactVideoCallActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactVideoCallActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for ContactVideoCallActivatedEventArgs {
     type Vtable = <IContactVideoCallActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactVideoCallActivatedEventArgs as windows_core::Interface>::IID;
@@ -6086,9 +6086,6 @@ impl windows_core::RuntimeName for ContactVideoCallActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeviceActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DeviceActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeviceActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IDeviceActivatedEventArgs, IViewSwitcherProvider);
 impl DeviceActivatedEventArgs {
@@ -6151,6 +6148,9 @@ impl DeviceActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for DeviceActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for DeviceActivatedEventArgs {
     type Vtable = <IDeviceActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceActivatedEventArgs as windows_core::Interface>::IID;
@@ -6161,9 +6161,6 @@ impl windows_core::RuntimeName for DeviceActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePairingActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DevicePairingActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePairingActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DevicePairingActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DevicePairingActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IDevicePairingActivatedEventArgs);
 impl DevicePairingActivatedEventArgs {
@@ -6205,6 +6202,9 @@ impl DevicePairingActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for DevicePairingActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePairingActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for DevicePairingActivatedEventArgs {
     type Vtable = <IDevicePairingActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDevicePairingActivatedEventArgs as windows_core::Interface>::IID;
@@ -6215,9 +6215,6 @@ impl windows_core::RuntimeName for DevicePairingActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialReceiverActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DialReceiverActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialReceiverActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DialReceiverActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DialReceiverActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IDialReceiverActivatedEventArgs, ILaunchActivatedEventArgs, IViewSwitcherProvider);
 impl DialReceiverActivatedEventArgs {
@@ -6287,6 +6284,9 @@ impl DialReceiverActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for DialReceiverActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialReceiverActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for DialReceiverActivatedEventArgs {
     type Vtable = <IDialReceiverActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialReceiverActivatedEventArgs as windows_core::Interface>::IID;
@@ -6297,9 +6297,6 @@ impl windows_core::RuntimeName for DialReceiverActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for FileActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(FileActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IFileActivatedEventArgs, IFileActivatedEventArgsWithCallerPackageFamilyName, IFileActivatedEventArgsWithNeighboringFiles, IViewSwitcherProvider);
 impl FileActivatedEventArgs {
@@ -6378,6 +6375,9 @@ impl FileActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for FileActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for FileActivatedEventArgs {
     type Vtable = <IFileActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileActivatedEventArgs as windows_core::Interface>::IID;
@@ -6388,9 +6388,6 @@ impl windows_core::RuntimeName for FileActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileOpenPickerActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for FileOpenPickerActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileOpenPickerActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(FileOpenPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileOpenPickerActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IFileOpenPickerActivatedEventArgs, IFileOpenPickerActivatedEventArgs2);
 impl FileOpenPickerActivatedEventArgs {
@@ -6439,6 +6436,9 @@ impl FileOpenPickerActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for FileOpenPickerActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileOpenPickerActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for FileOpenPickerActivatedEventArgs {
     type Vtable = <IFileOpenPickerActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileOpenPickerActivatedEventArgs as windows_core::Interface>::IID;
@@ -6450,10 +6450,6 @@ impl windows_core::RuntimeName for FileOpenPickerActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileOpenPickerContinuationEventArgs(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for FileOpenPickerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileOpenPickerContinuationEventArgs>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(FileOpenPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -6510,6 +6506,10 @@ impl FileOpenPickerContinuationEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for FileOpenPickerContinuationEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileOpenPickerContinuationEventArgs>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for FileOpenPickerContinuationEventArgs {
     type Vtable = <IFileOpenPickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileOpenPickerContinuationEventArgs as windows_core::Interface>::IID;
@@ -6521,9 +6521,6 @@ impl windows_core::RuntimeName for FileOpenPickerContinuationEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileSavePickerActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for FileSavePickerActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileSavePickerActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(FileSavePickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileSavePickerActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IFileSavePickerActivatedEventArgs, IFileSavePickerActivatedEventArgs2);
 impl FileSavePickerActivatedEventArgs {
@@ -6579,6 +6576,9 @@ impl FileSavePickerActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for FileSavePickerActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileSavePickerActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for FileSavePickerActivatedEventArgs {
     type Vtable = <IFileSavePickerActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileSavePickerActivatedEventArgs as windows_core::Interface>::IID;
@@ -6590,10 +6590,6 @@ impl windows_core::RuntimeName for FileSavePickerActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileSavePickerContinuationEventArgs(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for FileSavePickerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileSavePickerContinuationEventArgs>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(FileSavePickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -6650,6 +6646,10 @@ impl FileSavePickerContinuationEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for FileSavePickerContinuationEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileSavePickerContinuationEventArgs>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for FileSavePickerContinuationEventArgs {
     type Vtable = <IFileSavePickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileSavePickerContinuationEventArgs as windows_core::Interface>::IID;
@@ -6662,10 +6662,6 @@ impl windows_core::RuntimeName for FileSavePickerContinuationEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FolderPickerContinuationEventArgs(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for FolderPickerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFolderPickerContinuationEventArgs>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(FolderPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -6722,6 +6718,10 @@ impl FolderPickerContinuationEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for FolderPickerContinuationEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFolderPickerContinuationEventArgs>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for FolderPickerContinuationEventArgs {
     type Vtable = <IFolderPickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFolderPickerContinuationEventArgs as windows_core::Interface>::IID;
@@ -6733,9 +6733,6 @@ impl windows_core::RuntimeName for FolderPickerContinuationEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LaunchActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for LaunchActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILaunchActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(LaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LaunchActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, ILaunchActivatedEventArgs, ILaunchActivatedEventArgs2, IPrelaunchActivatedEventArgs, IViewSwitcherProvider);
 impl LaunchActivatedEventArgs {
@@ -6812,6 +6809,9 @@ impl LaunchActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for LaunchActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILaunchActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for LaunchActivatedEventArgs {
     type Vtable = <ILaunchActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILaunchActivatedEventArgs as windows_core::Interface>::IID;
@@ -6822,9 +6822,6 @@ impl windows_core::RuntimeName for LaunchActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for LockScreenActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(LockScreenActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LockScreenActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, ILockScreenActivatedEventArgs);
 impl LockScreenActivatedEventArgs {
@@ -6865,6 +6862,9 @@ impl LockScreenActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for LockScreenActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for LockScreenActivatedEventArgs {
     type Vtable = <ILockScreenActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILockScreenActivatedEventArgs as windows_core::Interface>::IID;
@@ -6875,9 +6875,6 @@ impl windows_core::RuntimeName for LockScreenActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenCallActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for LockScreenCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(LockScreenCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LockScreenCallActivatedEventArgs, IActivatedEventArgs, IApplicationViewActivatedEventArgs, ILaunchActivatedEventArgs, ILockScreenCallActivatedEventArgs, IViewSwitcherProvider);
 impl LockScreenCallActivatedEventArgs {
@@ -6940,6 +6937,9 @@ impl LockScreenCallActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for LockScreenCallActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenCallActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for LockScreenCallActivatedEventArgs {
     type Vtable = <ILockScreenCallActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILockScreenCallActivatedEventArgs as windows_core::Interface>::IID;
@@ -6950,9 +6950,6 @@ impl windows_core::RuntimeName for LockScreenCallActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenComponentActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for LockScreenComponentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(LockScreenComponentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LockScreenComponentActivatedEventArgs, IActivatedEventArgs);
 impl LockScreenComponentActivatedEventArgs {
@@ -6978,6 +6975,9 @@ impl LockScreenComponentActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for LockScreenComponentActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for LockScreenComponentActivatedEventArgs {
     type Vtable = <IActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IActivatedEventArgs as windows_core::Interface>::IID;
@@ -6988,9 +6988,6 @@ impl windows_core::RuntimeName for LockScreenComponentActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PhoneCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PhoneCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhoneCallActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IPhoneCallActivatedEventArgs);
 impl PhoneCallActivatedEventArgs {
@@ -7031,6 +7028,9 @@ impl PhoneCallActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PhoneCallActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for PhoneCallActivatedEventArgs {
     type Vtable = <IPhoneCallActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneCallActivatedEventArgs as windows_core::Interface>::IID;
@@ -7041,9 +7041,6 @@ impl windows_core::RuntimeName for PhoneCallActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PickerReturnedActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PickerReturnedActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPickerReturnedActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PickerReturnedActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PickerReturnedActivatedEventArgs, IActivatedEventArgs, IPickerReturnedActivatedEventArgs);
 impl PickerReturnedActivatedEventArgs {
@@ -7076,6 +7073,9 @@ impl PickerReturnedActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PickerReturnedActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPickerReturnedActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for PickerReturnedActivatedEventArgs {
     type Vtable = <IPickerReturnedActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPickerReturnedActivatedEventArgs as windows_core::Interface>::IID;
@@ -7086,9 +7086,6 @@ impl windows_core::RuntimeName for PickerReturnedActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DWorkflowActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for Print3DWorkflowActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrint3DWorkflowActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(Print3DWorkflowActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Print3DWorkflowActivatedEventArgs, IActivatedEventArgs, IPrint3DWorkflowActivatedEventArgs);
 impl Print3DWorkflowActivatedEventArgs {
@@ -7122,6 +7119,9 @@ impl Print3DWorkflowActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for Print3DWorkflowActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrint3DWorkflowActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for Print3DWorkflowActivatedEventArgs {
     type Vtable = <IPrint3DWorkflowActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrint3DWorkflowActivatedEventArgs as windows_core::Interface>::IID;
@@ -7132,9 +7132,6 @@ impl windows_core::RuntimeName for Print3DWorkflowActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskSettingsActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTaskSettingsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskSettingsActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintTaskSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskSettingsActivatedEventArgs, IActivatedEventArgs, IPrintTaskSettingsActivatedEventArgs);
 impl PrintTaskSettingsActivatedEventArgs {
@@ -7168,6 +7165,9 @@ impl PrintTaskSettingsActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PrintTaskSettingsActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskSettingsActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for PrintTaskSettingsActivatedEventArgs {
     type Vtable = <IPrintTaskSettingsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTaskSettingsActivatedEventArgs as windows_core::Interface>::IID;
@@ -7178,9 +7178,6 @@ impl windows_core::RuntimeName for PrintTaskSettingsActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtocolActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProtocolActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtocolActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ProtocolActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProtocolActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IProtocolActivatedEventArgs, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IViewSwitcherProvider);
 impl ProtocolActivatedEventArgs {
@@ -7251,6 +7248,9 @@ impl ProtocolActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ProtocolActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtocolActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for ProtocolActivatedEventArgs {
     type Vtable = <IProtocolActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProtocolActivatedEventArgs as windows_core::Interface>::IID;
@@ -7261,9 +7261,6 @@ impl windows_core::RuntimeName for ProtocolActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtocolForResultsActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProtocolForResultsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtocolForResultsActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ProtocolForResultsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProtocolForResultsActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IProtocolActivatedEventArgs, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData, IProtocolForResultsActivatedEventArgs, IViewSwitcherProvider);
 impl ProtocolForResultsActivatedEventArgs {
@@ -7342,6 +7339,9 @@ impl ProtocolForResultsActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ProtocolForResultsActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtocolForResultsActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for ProtocolForResultsActivatedEventArgs {
     type Vtable = <IProtocolForResultsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProtocolForResultsActivatedEventArgs as windows_core::Interface>::IID;
@@ -7352,9 +7352,6 @@ impl windows_core::RuntimeName for ProtocolForResultsActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RestrictedLaunchActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RestrictedLaunchActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRestrictedLaunchActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RestrictedLaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RestrictedLaunchActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IRestrictedLaunchActivatedEventArgs);
 impl RestrictedLaunchActivatedEventArgs {
@@ -7395,6 +7392,9 @@ impl RestrictedLaunchActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RestrictedLaunchActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRestrictedLaunchActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for RestrictedLaunchActivatedEventArgs {
     type Vtable = <IRestrictedLaunchActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRestrictedLaunchActivatedEventArgs as windows_core::Interface>::IID;
@@ -7405,9 +7405,6 @@ impl windows_core::RuntimeName for RestrictedLaunchActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SearchActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SearchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SearchActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, ISearchActivatedEventArgs, ISearchActivatedEventArgsWithLinguisticDetails, IViewSwitcherProvider);
 impl SearchActivatedEventArgs {
@@ -7478,6 +7475,9 @@ impl SearchActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for SearchActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for SearchActivatedEventArgs {
     type Vtable = <ISearchActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchActivatedEventArgs as windows_core::Interface>::IID;
@@ -7488,9 +7488,6 @@ impl windows_core::RuntimeName for SearchActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareTargetActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ShareTargetActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareTargetActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ShareTargetActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ShareTargetActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IShareTargetActivatedEventArgs);
 impl ShareTargetActivatedEventArgs {
@@ -7532,6 +7529,9 @@ impl ShareTargetActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ShareTargetActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareTargetActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for ShareTargetActivatedEventArgs {
     type Vtable = <IShareTargetActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IShareTargetActivatedEventArgs as windows_core::Interface>::IID;
@@ -7542,9 +7542,6 @@ impl windows_core::RuntimeName for ShareTargetActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SplashScreen(windows_core::IUnknown);
-impl windows_core::RuntimeType for SplashScreen {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISplashScreen>();
-}
 windows_core::imp::interface_hierarchy!(SplashScreen, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SplashScreen,);
 impl SplashScreen {
@@ -7570,6 +7567,9 @@ impl SplashScreen {
         unsafe { (windows_core::Interface::vtable(this).RemoveDismissed)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
 }
+impl windows_core::RuntimeType for SplashScreen {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISplashScreen>();
+}
 unsafe impl windows_core::Interface for SplashScreen {
     type Vtable = <ISplashScreen as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISplashScreen as windows_core::Interface>::IID;
@@ -7580,9 +7580,6 @@ impl windows_core::RuntimeName for SplashScreen {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StartupTaskActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for StartupTaskActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStartupTaskActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(StartupTaskActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StartupTaskActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IStartupTaskActivatedEventArgs);
 impl StartupTaskActivatedEventArgs {
@@ -7623,6 +7620,9 @@ impl StartupTaskActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for StartupTaskActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStartupTaskActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for StartupTaskActivatedEventArgs {
     type Vtable = <IStartupTaskActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStartupTaskActivatedEventArgs as windows_core::Interface>::IID;
@@ -7633,9 +7633,6 @@ impl windows_core::RuntimeName for StartupTaskActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TileActivatedInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for TileActivatedInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITileActivatedInfo>();
-}
 windows_core::imp::interface_hierarchy!(TileActivatedInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TileActivatedInfo,);
 impl TileActivatedInfo {
@@ -7648,6 +7645,9 @@ impl TileActivatedInfo {
         }
     }
 }
+impl windows_core::RuntimeType for TileActivatedInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITileActivatedInfo>();
+}
 unsafe impl windows_core::Interface for TileActivatedInfo {
     type Vtable = <ITileActivatedInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITileActivatedInfo as windows_core::Interface>::IID;
@@ -7658,9 +7658,6 @@ impl windows_core::RuntimeName for TileActivatedInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotificationActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ToastNotificationActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastNotificationActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ToastNotificationActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ToastNotificationActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IApplicationViewActivatedEventArgs, IToastNotificationActivatedEventArgs);
 impl ToastNotificationActivatedEventArgs {
@@ -7716,6 +7713,9 @@ impl ToastNotificationActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ToastNotificationActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IToastNotificationActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for ToastNotificationActivatedEventArgs {
     type Vtable = <IToastNotificationActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IToastNotificationActivatedEventArgs as windows_core::Interface>::IID;
@@ -7726,9 +7726,6 @@ impl windows_core::RuntimeName for ToastNotificationActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAccountProviderActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataAccountProviderActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountProviderActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(UserDataAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountProviderActivatedEventArgs, IActivatedEventArgs, IUserDataAccountProviderActivatedEventArgs);
 impl UserDataAccountProviderActivatedEventArgs {
@@ -7762,6 +7759,9 @@ impl UserDataAccountProviderActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataAccountProviderActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAccountProviderActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for UserDataAccountProviderActivatedEventArgs {
     type Vtable = <IUserDataAccountProviderActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataAccountProviderActivatedEventArgs as windows_core::Interface>::IID;
@@ -7772,9 +7772,6 @@ impl windows_core::RuntimeName for UserDataAccountProviderActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for VoiceCommandActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoiceCommandActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(VoiceCommandActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VoiceCommandActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IVoiceCommandActivatedEventArgs);
 impl VoiceCommandActivatedEventArgs {
@@ -7816,6 +7813,9 @@ impl VoiceCommandActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for VoiceCommandActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoiceCommandActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for VoiceCommandActivatedEventArgs {
     type Vtable = <IVoiceCommandActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVoiceCommandActivatedEventArgs as windows_core::Interface>::IID;
@@ -7827,10 +7827,6 @@ impl windows_core::RuntimeName for VoiceCommandActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WalletActionActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for WalletActionActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletActionActivatedEventArgs>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(WalletActionActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -7887,6 +7883,10 @@ impl WalletActionActivatedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for WalletActionActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletActionActivatedEventArgs>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for WalletActionActivatedEventArgs {
     type Vtable = <IWalletActionActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWalletActionActivatedEventArgs as windows_core::Interface>::IID;
@@ -7898,9 +7898,6 @@ impl windows_core::RuntimeName for WalletActionActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebAccountProviderActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountProviderActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccountProviderActivatedEventArgs, IActivatedEventArgs, IActivatedEventArgsWithUser, IWebAccountProviderActivatedEventArgs);
 impl WebAccountProviderActivatedEventArgs {
@@ -7942,6 +7939,9 @@ impl WebAccountProviderActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WebAccountProviderActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountProviderActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for WebAccountProviderActivatedEventArgs {
     type Vtable = <IWebAccountProviderActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebAccountProviderActivatedEventArgs as windows_core::Interface>::IID;
@@ -7952,9 +7952,6 @@ impl windows_core::RuntimeName for WebAccountProviderActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAuthenticationBrokerContinuationEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebAuthenticationBrokerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAuthenticationBrokerContinuationEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebAuthenticationBrokerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAuthenticationBrokerContinuationEventArgs, IActivatedEventArgs, IContinuationActivatedEventArgs, IWebAuthenticationBrokerContinuationEventArgs);
 impl WebAuthenticationBrokerContinuationEventArgs {
@@ -7995,6 +7992,9 @@ impl WebAuthenticationBrokerContinuationEventArgs {
             (windows_core::Interface::vtable(this).WebAuthenticationResult)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for WebAuthenticationBrokerContinuationEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAuthenticationBrokerContinuationEventArgs>();
 }
 unsafe impl windows_core::Interface for WebAuthenticationBrokerContinuationEventArgs {
     type Vtable = <IWebAuthenticationBrokerContinuationEventArgs as windows_core::Interface>::Vtable;

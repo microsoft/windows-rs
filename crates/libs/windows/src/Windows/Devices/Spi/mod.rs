@@ -194,9 +194,6 @@ impl ISpiDeviceStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpiBusInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpiBusInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpiBusInfo>();
-}
 windows_core::imp::interface_hierarchy!(SpiBusInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpiBusInfo,);
 impl SpiBusInfo {
@@ -230,6 +227,9 @@ impl SpiBusInfo {
         }
     }
 }
+impl windows_core::RuntimeType for SpiBusInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpiBusInfo>();
+}
 unsafe impl windows_core::Interface for SpiBusInfo {
     type Vtable = <ISpiBusInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpiBusInfo as windows_core::Interface>::IID;
@@ -240,9 +240,6 @@ impl windows_core::RuntimeName for SpiBusInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpiConnectionSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpiConnectionSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpiConnectionSettings>();
-}
 windows_core::imp::interface_hierarchy!(SpiConnectionSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpiConnectionSettings,);
 impl SpiConnectionSettings {
@@ -312,6 +309,9 @@ impl SpiConnectionSettings {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SpiConnectionSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpiConnectionSettings>();
+}
 unsafe impl windows_core::Interface for SpiConnectionSettings {
     type Vtable = <ISpiConnectionSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpiConnectionSettings as windows_core::Interface>::IID;
@@ -322,9 +322,6 @@ impl windows_core::RuntimeName for SpiConnectionSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpiController(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpiController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpiController>();
-}
 windows_core::imp::interface_hierarchy!(SpiController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpiController,);
 impl SpiController {
@@ -359,6 +356,9 @@ impl SpiController {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SpiController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpiController>();
+}
 unsafe impl windows_core::Interface for SpiController {
     type Vtable = <ISpiController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpiController as windows_core::Interface>::IID;
@@ -369,9 +369,6 @@ impl windows_core::RuntimeName for SpiController {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpiDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpiDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpiDevice>();
-}
 windows_core::imp::interface_hierarchy!(SpiDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpiDevice, ISpiDeviceStatics, super::super::Foundation::IClosable);
 impl SpiDevice {
@@ -440,6 +437,9 @@ impl SpiDevice {
         static SHARED: windows_core::imp::FactoryCache<SpiDevice, ISpiDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for SpiDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpiDevice>();
 }
 unsafe impl windows_core::Interface for SpiDevice {
     type Vtable = <ISpiDevice as windows_core::Interface>::Vtable;

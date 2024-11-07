@@ -349,9 +349,6 @@ impl IInkAnalyzerFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisInkBullet(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkAnalysisInkBullet {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisInkBullet>();
-}
 windows_core::imp::interface_hierarchy!(InkAnalysisInkBullet, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisInkBullet, IInkAnalysisNode);
 impl InkAnalysisInkBullet {
@@ -415,6 +412,9 @@ impl InkAnalysisInkBullet {
         }
     }
 }
+impl windows_core::RuntimeType for InkAnalysisInkBullet {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisInkBullet>();
+}
 unsafe impl windows_core::Interface for InkAnalysisInkBullet {
     type Vtable = <IInkAnalysisInkBullet as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkAnalysisInkBullet as windows_core::Interface>::IID;
@@ -425,9 +425,6 @@ impl windows_core::RuntimeName for InkAnalysisInkBullet {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisInkDrawing(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkAnalysisInkDrawing {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisInkDrawing>();
-}
 windows_core::imp::interface_hierarchy!(InkAnalysisInkDrawing, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisInkDrawing, IInkAnalysisNode);
 impl InkAnalysisInkDrawing {
@@ -506,6 +503,9 @@ impl InkAnalysisInkDrawing {
         }
     }
 }
+impl windows_core::RuntimeType for InkAnalysisInkDrawing {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisInkDrawing>();
+}
 unsafe impl windows_core::Interface for InkAnalysisInkDrawing {
     type Vtable = <IInkAnalysisInkDrawing as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkAnalysisInkDrawing as windows_core::Interface>::IID;
@@ -516,9 +516,6 @@ impl windows_core::RuntimeName for InkAnalysisInkDrawing {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisInkWord(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkAnalysisInkWord {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisInkWord>();
-}
 windows_core::imp::interface_hierarchy!(InkAnalysisInkWord, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisInkWord, IInkAnalysisNode);
 impl InkAnalysisInkWord {
@@ -590,6 +587,9 @@ impl InkAnalysisInkWord {
         }
     }
 }
+impl windows_core::RuntimeType for InkAnalysisInkWord {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisInkWord>();
+}
 unsafe impl windows_core::Interface for InkAnalysisInkWord {
     type Vtable = <IInkAnalysisInkWord as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkAnalysisInkWord as windows_core::Interface>::IID;
@@ -600,9 +600,6 @@ impl windows_core::RuntimeName for InkAnalysisInkWord {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisLine(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkAnalysisLine {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisLine>();
-}
 windows_core::imp::interface_hierarchy!(InkAnalysisLine, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisLine, IInkAnalysisNode);
 impl InkAnalysisLine {
@@ -673,6 +670,9 @@ impl InkAnalysisLine {
         }
     }
 }
+impl windows_core::RuntimeType for InkAnalysisLine {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisLine>();
+}
 unsafe impl windows_core::Interface for InkAnalysisLine {
     type Vtable = <IInkAnalysisLine as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkAnalysisLine as windows_core::Interface>::IID;
@@ -683,9 +683,6 @@ impl windows_core::RuntimeName for InkAnalysisLine {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisListItem(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkAnalysisListItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisListItem>();
-}
 windows_core::imp::interface_hierarchy!(InkAnalysisListItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisListItem, IInkAnalysisNode);
 impl InkAnalysisListItem {
@@ -749,6 +746,9 @@ impl InkAnalysisListItem {
         }
     }
 }
+impl windows_core::RuntimeType for InkAnalysisListItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisListItem>();
+}
 unsafe impl windows_core::Interface for InkAnalysisListItem {
     type Vtable = <IInkAnalysisListItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkAnalysisListItem as windows_core::Interface>::IID;
@@ -759,9 +759,6 @@ impl windows_core::RuntimeName for InkAnalysisListItem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisNode(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkAnalysisNode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisNode>();
-}
 windows_core::imp::interface_hierarchy!(InkAnalysisNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisNode, IInkAnalysisNode);
 impl InkAnalysisNode {
@@ -818,6 +815,9 @@ impl InkAnalysisNode {
         }
     }
 }
+impl windows_core::RuntimeType for InkAnalysisNode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisNode>();
+}
 unsafe impl windows_core::Interface for InkAnalysisNode {
     type Vtable = <IInkAnalysisNode as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkAnalysisNode as windows_core::Interface>::IID;
@@ -828,9 +828,6 @@ impl windows_core::RuntimeName for InkAnalysisNode {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisParagraph(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkAnalysisParagraph {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisParagraph>();
-}
 windows_core::imp::interface_hierarchy!(InkAnalysisParagraph, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisParagraph, IInkAnalysisNode);
 impl InkAnalysisParagraph {
@@ -894,6 +891,9 @@ impl InkAnalysisParagraph {
         }
     }
 }
+impl windows_core::RuntimeType for InkAnalysisParagraph {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisParagraph>();
+}
 unsafe impl windows_core::Interface for InkAnalysisParagraph {
     type Vtable = <IInkAnalysisParagraph as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkAnalysisParagraph as windows_core::Interface>::IID;
@@ -904,9 +904,6 @@ impl windows_core::RuntimeName for InkAnalysisParagraph {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkAnalysisResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisResult>();
-}
 windows_core::imp::interface_hierarchy!(InkAnalysisResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisResult,);
 impl InkAnalysisResult {
@@ -918,6 +915,9 @@ impl InkAnalysisResult {
         }
     }
 }
+impl windows_core::RuntimeType for InkAnalysisResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisResult>();
+}
 unsafe impl windows_core::Interface for InkAnalysisResult {
     type Vtable = <IInkAnalysisResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkAnalysisResult as windows_core::Interface>::IID;
@@ -928,9 +928,6 @@ impl windows_core::RuntimeName for InkAnalysisResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisRoot(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkAnalysisRoot {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisRoot>();
-}
 windows_core::imp::interface_hierarchy!(InkAnalysisRoot, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisRoot, IInkAnalysisNode);
 impl InkAnalysisRoot {
@@ -1002,6 +999,9 @@ impl InkAnalysisRoot {
         }
     }
 }
+impl windows_core::RuntimeType for InkAnalysisRoot {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisRoot>();
+}
 unsafe impl windows_core::Interface for InkAnalysisRoot {
     type Vtable = <IInkAnalysisRoot as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkAnalysisRoot as windows_core::Interface>::IID;
@@ -1012,9 +1012,6 @@ impl windows_core::RuntimeName for InkAnalysisRoot {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalysisWritingRegion(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkAnalysisWritingRegion {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisWritingRegion>();
-}
 windows_core::imp::interface_hierarchy!(InkAnalysisWritingRegion, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalysisWritingRegion, IInkAnalysisNode);
 impl InkAnalysisWritingRegion {
@@ -1078,6 +1075,9 @@ impl InkAnalysisWritingRegion {
         }
     }
 }
+impl windows_core::RuntimeType for InkAnalysisWritingRegion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalysisWritingRegion>();
+}
 unsafe impl windows_core::Interface for InkAnalysisWritingRegion {
     type Vtable = <IInkAnalysisWritingRegion as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInkAnalysisWritingRegion as windows_core::Interface>::IID;
@@ -1088,9 +1088,6 @@ impl windows_core::RuntimeName for InkAnalysisWritingRegion {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkAnalyzer(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkAnalyzer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalyzer>();
-}
 windows_core::imp::interface_hierarchy!(InkAnalyzer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkAnalyzer,);
 impl InkAnalyzer {
@@ -1164,6 +1161,9 @@ impl InkAnalyzer {
             (windows_core::Interface::vtable(this).AnalyzeAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for InkAnalyzer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkAnalyzer>();
 }
 unsafe impl windows_core::Interface for InkAnalyzer {
     type Vtable = <IInkAnalyzer as windows_core::Interface>::Vtable;

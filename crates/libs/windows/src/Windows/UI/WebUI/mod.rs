@@ -355,9 +355,6 @@ pub struct IWebUIViewStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivatedDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for ActivatedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivatedDeferral>();
-}
 windows_core::imp::interface_hierarchy!(ActivatedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActivatedDeferral,);
 impl ActivatedDeferral {
@@ -365,6 +362,9 @@ impl ActivatedDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for ActivatedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivatedDeferral>();
 }
 unsafe impl windows_core::Interface for ActivatedDeferral {
     type Vtable = <IActivatedDeferral as windows_core::Interface>::Vtable;
@@ -376,9 +376,6 @@ impl windows_core::RuntimeName for ActivatedDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivatedOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for ActivatedOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivatedOperation>();
-}
 windows_core::imp::interface_hierarchy!(ActivatedOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActivatedOperation,);
 impl ActivatedOperation {
@@ -389,6 +386,9 @@ impl ActivatedOperation {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for ActivatedOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivatedOperation>();
 }
 unsafe impl windows_core::Interface for ActivatedOperation {
     type Vtable = <IActivatedOperation as windows_core::Interface>::Vtable;
@@ -401,10 +401,6 @@ impl windows_core::RuntimeName for ActivatedOperation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for BackgroundActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(BackgroundActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -421,6 +417,10 @@ impl BackgroundActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for BackgroundActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for BackgroundActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs as windows_core::Interface>::IID;
@@ -433,10 +433,6 @@ impl windows_core::RuntimeName for BackgroundActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnteredBackgroundEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel")]
-impl windows_core::RuntimeType for EnteredBackgroundEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::IEnteredBackgroundEventArgs>();
-}
 #[cfg(feature = "ApplicationModel")]
 windows_core::imp::interface_hierarchy!(EnteredBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel")]
@@ -452,6 +448,10 @@ impl EnteredBackgroundEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel")]
+impl windows_core::RuntimeType for EnteredBackgroundEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::IEnteredBackgroundEventArgs>();
+}
+#[cfg(feature = "ApplicationModel")]
 unsafe impl windows_core::Interface for EnteredBackgroundEventArgs {
     type Vtable = <super::super::ApplicationModel::IEnteredBackgroundEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::IEnteredBackgroundEventArgs as windows_core::Interface>::IID;
@@ -464,10 +464,6 @@ impl windows_core::RuntimeName for EnteredBackgroundEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HtmlPrintDocumentSource(windows_core::IUnknown);
-#[cfg(feature = "Graphics_Printing")]
-impl windows_core::RuntimeType for HtmlPrintDocumentSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHtmlPrintDocumentSource>();
-}
 #[cfg(feature = "Graphics_Printing")]
 windows_core::imp::interface_hierarchy!(HtmlPrintDocumentSource, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Graphics_Printing")]
@@ -582,6 +578,10 @@ impl HtmlPrintDocumentSource {
     }
 }
 #[cfg(feature = "Graphics_Printing")]
+impl windows_core::RuntimeType for HtmlPrintDocumentSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHtmlPrintDocumentSource>();
+}
+#[cfg(feature = "Graphics_Printing")]
 unsafe impl windows_core::Interface for HtmlPrintDocumentSource {
     type Vtable = <IHtmlPrintDocumentSource as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHtmlPrintDocumentSource as windows_core::Interface>::IID;
@@ -594,10 +594,6 @@ impl windows_core::RuntimeName for HtmlPrintDocumentSource {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LeavingBackgroundEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel")]
-impl windows_core::RuntimeType for LeavingBackgroundEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ILeavingBackgroundEventArgs>();
-}
 #[cfg(feature = "ApplicationModel")]
 windows_core::imp::interface_hierarchy!(LeavingBackgroundEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel")]
@@ -613,6 +609,10 @@ impl LeavingBackgroundEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel")]
+impl windows_core::RuntimeType for LeavingBackgroundEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ILeavingBackgroundEventArgs>();
+}
+#[cfg(feature = "ApplicationModel")]
 unsafe impl windows_core::Interface for LeavingBackgroundEventArgs {
     type Vtable = <super::super::ApplicationModel::ILeavingBackgroundEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::ILeavingBackgroundEventArgs as windows_core::Interface>::IID;
@@ -624,9 +624,6 @@ impl windows_core::RuntimeName for LeavingBackgroundEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NewWebUIViewCreatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for NewWebUIViewCreatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INewWebUIViewCreatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(NewWebUIViewCreatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NewWebUIViewCreatedEventArgs,);
 impl NewWebUIViewCreatedEventArgs {
@@ -661,6 +658,9 @@ impl NewWebUIViewCreatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for NewWebUIViewCreatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INewWebUIViewCreatedEventArgs>();
+}
 unsafe impl windows_core::Interface for NewWebUIViewCreatedEventArgs {
     type Vtable = <INewWebUIViewCreatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INewWebUIViewCreatedEventArgs as windows_core::Interface>::IID;
@@ -673,10 +673,6 @@ impl windows_core::RuntimeName for NewWebUIViewCreatedEventArgs {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingDeferral(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel")]
-impl windows_core::RuntimeType for SuspendingDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ISuspendingDeferral>();
-}
-#[cfg(feature = "ApplicationModel")]
 windows_core::imp::interface_hierarchy!(SuspendingDeferral, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel")]
 windows_core::imp::required_hierarchy!(SuspendingDeferral, super::super::ApplicationModel::ISuspendingDeferral);
@@ -686,6 +682,10 @@ impl SuspendingDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+#[cfg(feature = "ApplicationModel")]
+impl windows_core::RuntimeType for SuspendingDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ISuspendingDeferral>();
 }
 #[cfg(feature = "ApplicationModel")]
 unsafe impl windows_core::Interface for SuspendingDeferral {
@@ -700,10 +700,6 @@ impl windows_core::RuntimeName for SuspendingDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel")]
-impl windows_core::RuntimeType for SuspendingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ISuspendingEventArgs>();
-}
 #[cfg(feature = "ApplicationModel")]
 windows_core::imp::interface_hierarchy!(SuspendingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel")]
@@ -720,6 +716,10 @@ impl SuspendingEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel")]
+impl windows_core::RuntimeType for SuspendingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ISuspendingEventArgs>();
+}
+#[cfg(feature = "ApplicationModel")]
 unsafe impl windows_core::Interface for SuspendingEventArgs {
     type Vtable = <super::super::ApplicationModel::ISuspendingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::ISuspendingEventArgs as windows_core::Interface>::IID;
@@ -732,10 +732,6 @@ impl windows_core::RuntimeName for SuspendingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SuspendingOperation(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel")]
-impl windows_core::RuntimeType for SuspendingOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ISuspendingOperation>();
-}
 #[cfg(feature = "ApplicationModel")]
 windows_core::imp::interface_hierarchy!(SuspendingOperation, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel")]
@@ -757,6 +753,10 @@ impl SuspendingOperation {
             (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+#[cfg(feature = "ApplicationModel")]
+impl windows_core::RuntimeType for SuspendingOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::ISuspendingOperation>();
 }
 #[cfg(feature = "ApplicationModel")]
 unsafe impl windows_core::Interface for SuspendingOperation {
@@ -915,10 +915,6 @@ impl windows_core::RuntimeName for WebUIApplication {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIAppointmentsProviderAddAppointmentActivatedEventArgs(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs>();
-}
-#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderAddAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::required_hierarchy!(WebUIAppointmentsProviderAddAppointmentActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser, super::super::ApplicationModel::Activation::IAppointmentsProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs, IActivatedEventArgsDeferral);
@@ -980,6 +976,10 @@ impl WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs as windows_core::Interface>::IID;
@@ -992,10 +992,6 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderAddAppointmentActiva
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1058,6 +1054,10 @@ impl WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs as windows_core::Interface>::IID;
@@ -1070,10 +1070,6 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderRemoveAppointmentAct
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1136,6 +1132,10 @@ impl WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs as windows_core::Interface>::IID;
@@ -1148,10 +1148,6 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderReplaceAppointmentAc
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1227,6 +1223,10 @@ impl WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as windows_core::Interface>::IID;
@@ -1239,10 +1239,6 @@ impl windows_core::RuntimeName for WebUIAppointmentsProviderShowAppointmentDetai
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1311,6 +1307,10 @@ impl WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs as windows_core::Interface>::IID;
@@ -1339,10 +1339,6 @@ impl windows_core::RuntimeName for WebUIBackgroundTaskInstance {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIBackgroundTaskInstanceRuntimeClass(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Background")]
-impl windows_core::RuntimeType for WebUIBackgroundTaskInstanceRuntimeClass {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUIBackgroundTaskInstance>();
-}
 #[cfg(feature = "ApplicationModel_Background")]
 windows_core::imp::interface_hierarchy!(WebUIBackgroundTaskInstanceRuntimeClass, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Background")]
@@ -1425,6 +1421,10 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
+impl windows_core::RuntimeType for WebUIBackgroundTaskInstanceRuntimeClass {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUIBackgroundTaskInstance>();
+}
+#[cfg(feature = "ApplicationModel_Background")]
 unsafe impl windows_core::Interface for WebUIBackgroundTaskInstanceRuntimeClass {
     type Vtable = <IWebUIBackgroundTaskInstance as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUIBackgroundTaskInstance as windows_core::Interface>::IID;
@@ -1437,10 +1437,6 @@ impl windows_core::RuntimeName for WebUIBackgroundTaskInstanceRuntimeClass {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIBarcodeScannerPreviewActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIBarcodeScannerPreviewActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIBarcodeScannerPreviewActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1495,6 +1491,10 @@ impl WebUIBarcodeScannerPreviewActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIBarcodeScannerPreviewActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIBarcodeScannerPreviewActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs as windows_core::Interface>::IID;
@@ -1507,10 +1507,6 @@ impl windows_core::RuntimeName for WebUIBarcodeScannerPreviewActivatedEventArgs 
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICachedFileUpdaterActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUICachedFileUpdaterActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUICachedFileUpdaterActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1566,6 +1562,10 @@ impl WebUICachedFileUpdaterActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUICachedFileUpdaterActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUICachedFileUpdaterActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs as windows_core::Interface>::IID;
@@ -1578,10 +1578,6 @@ impl windows_core::RuntimeName for WebUICachedFileUpdaterActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICameraSettingsActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUICameraSettingsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUICameraSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1635,6 +1631,10 @@ impl WebUICameraSettingsActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUICameraSettingsActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUICameraSettingsActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs as windows_core::Interface>::IID;
@@ -1647,10 +1647,6 @@ impl windows_core::RuntimeName for WebUICameraSettingsActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUICommandLineActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUICommandLineActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUICommandLineActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1706,6 +1702,10 @@ impl WebUICommandLineActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUICommandLineActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUICommandLineActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs as windows_core::Interface>::IID;
@@ -1718,10 +1718,6 @@ impl windows_core::RuntimeName for WebUICommandLineActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactCallActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIContactCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIContactCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1790,6 +1786,10 @@ impl WebUIContactCallActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIContactCallActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactCallActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs as windows_core::Interface>::IID;
@@ -1802,10 +1802,6 @@ impl windows_core::RuntimeName for WebUIContactCallActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactMapActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIContactMapActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIContactMapActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1868,6 +1864,10 @@ impl WebUIContactMapActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIContactMapActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactMapActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs as windows_core::Interface>::IID;
@@ -1880,10 +1880,6 @@ impl windows_core::RuntimeName for WebUIContactMapActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactMessageActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIContactMessageActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIContactMessageActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1952,6 +1948,10 @@ impl WebUIContactMessageActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIContactMessageActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactMessageActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs as windows_core::Interface>::IID;
@@ -1964,10 +1964,6 @@ impl windows_core::RuntimeName for WebUIContactMessageActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactPanelActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIContactPanelActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIContactPanelActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2031,6 +2027,10 @@ impl WebUIContactPanelActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIContactPanelActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactPanelActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs as windows_core::Interface>::IID;
@@ -2043,10 +2043,6 @@ impl windows_core::RuntimeName for WebUIContactPanelActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactPickerActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIContactPickerActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIContactPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2094,6 +2090,10 @@ impl WebUIContactPickerActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIContactPickerActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactPickerActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs as windows_core::Interface>::IID;
@@ -2106,10 +2106,6 @@ impl windows_core::RuntimeName for WebUIContactPickerActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactPostActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIContactPostActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIContactPostActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2178,6 +2174,10 @@ impl WebUIContactPostActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIContactPostActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactPostActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs as windows_core::Interface>::IID;
@@ -2190,10 +2190,6 @@ impl windows_core::RuntimeName for WebUIContactPostActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIContactVideoCallActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIContactVideoCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIContactVideoCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2262,6 +2258,10 @@ impl WebUIContactVideoCallActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIContactVideoCallActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIContactVideoCallActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs as windows_core::Interface>::IID;
@@ -2274,10 +2274,6 @@ impl windows_core::RuntimeName for WebUIContactVideoCallActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIDeviceActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIDeviceActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIDeviceActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2346,6 +2342,10 @@ impl WebUIDeviceActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIDeviceActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIDeviceActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs as windows_core::Interface>::IID;
@@ -2358,10 +2358,6 @@ impl windows_core::RuntimeName for WebUIDeviceActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIDevicePairingActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIDevicePairingActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIDevicePairingActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2417,6 +2413,10 @@ impl WebUIDevicePairingActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIDevicePairingActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIDevicePairingActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs as windows_core::Interface>::IID;
@@ -2429,10 +2429,6 @@ impl windows_core::RuntimeName for WebUIDevicePairingActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIDialReceiverActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIDialReceiverActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIDialReceiverActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2508,6 +2504,10 @@ impl WebUIDialReceiverActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIDialReceiverActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIDialReceiverActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs as windows_core::Interface>::IID;
@@ -2520,10 +2520,6 @@ impl windows_core::RuntimeName for WebUIDialReceiverActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFileActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIFileActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIFileActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2601,6 +2597,10 @@ impl WebUIFileActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIFileActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIFileActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IFileActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IFileActivatedEventArgs as windows_core::Interface>::IID;
@@ -2613,10 +2613,6 @@ impl windows_core::RuntimeName for WebUIFileActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFileOpenPickerActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIFileOpenPickerActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIFileOpenPickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2679,6 +2675,10 @@ impl WebUIFileOpenPickerActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIFileOpenPickerActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIFileOpenPickerActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs as windows_core::Interface>::IID;
@@ -2691,10 +2691,6 @@ impl windows_core::RuntimeName for WebUIFileOpenPickerActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFileOpenPickerContinuationEventArgs(windows_core::IUnknown);
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl windows_core::RuntimeType for WebUIFileOpenPickerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs>();
-}
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 windows_core::imp::interface_hierarchy!(WebUIFileOpenPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
@@ -2759,6 +2755,10 @@ impl WebUIFileOpenPickerContinuationEventArgs {
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+impl windows_core::RuntimeType for WebUIFileOpenPickerContinuationEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs>();
+}
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl windows_core::Interface for WebUIFileOpenPickerContinuationEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs as windows_core::Interface>::IID;
@@ -2771,10 +2771,6 @@ impl windows_core::RuntimeName for WebUIFileOpenPickerContinuationEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFileSavePickerActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIFileSavePickerActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIFileSavePickerActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -2844,6 +2840,10 @@ impl WebUIFileSavePickerActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIFileSavePickerActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIFileSavePickerActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs as windows_core::Interface>::IID;
@@ -2856,10 +2856,6 @@ impl windows_core::RuntimeName for WebUIFileSavePickerActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFileSavePickerContinuationEventArgs(windows_core::IUnknown);
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl windows_core::RuntimeType for WebUIFileSavePickerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs>();
-}
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 windows_core::imp::interface_hierarchy!(WebUIFileSavePickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
@@ -2924,6 +2920,10 @@ impl WebUIFileSavePickerContinuationEventArgs {
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+impl windows_core::RuntimeType for WebUIFileSavePickerContinuationEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs>();
+}
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl windows_core::Interface for WebUIFileSavePickerContinuationEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs as windows_core::Interface>::IID;
@@ -2936,10 +2936,6 @@ impl windows_core::RuntimeName for WebUIFileSavePickerContinuationEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIFolderPickerContinuationEventArgs(windows_core::IUnknown);
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl windows_core::RuntimeType for WebUIFolderPickerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs>();
-}
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 windows_core::imp::interface_hierarchy!(WebUIFolderPickerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
@@ -3004,6 +3000,10 @@ impl WebUIFolderPickerContinuationEventArgs {
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+impl windows_core::RuntimeType for WebUIFolderPickerContinuationEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs>();
+}
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl windows_core::Interface for WebUIFolderPickerContinuationEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs as windows_core::Interface>::IID;
@@ -3016,10 +3016,6 @@ impl windows_core::RuntimeName for WebUIFolderPickerContinuationEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUILaunchActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUILaunchActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUILaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3112,6 +3108,10 @@ impl WebUILaunchActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUILaunchActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUILaunchActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs as windows_core::Interface>::IID;
@@ -3124,10 +3124,6 @@ impl windows_core::RuntimeName for WebUILaunchActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUILockScreenActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUILockScreenActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUILockScreenActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3189,6 +3185,10 @@ impl WebUILockScreenActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUILockScreenActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUILockScreenActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs as windows_core::Interface>::IID;
@@ -3201,10 +3201,6 @@ impl windows_core::RuntimeName for WebUILockScreenActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUILockScreenCallActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUILockScreenCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUILockScreenCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3273,6 +3269,10 @@ impl WebUILockScreenCallActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUILockScreenCallActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUILockScreenCallActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs as windows_core::Interface>::IID;
@@ -3285,10 +3285,6 @@ impl windows_core::RuntimeName for WebUILockScreenCallActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUILockScreenComponentActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUILockScreenComponentActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUILockScreenComponentActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3328,6 +3324,10 @@ impl WebUILockScreenComponentActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUILockScreenComponentActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUILockScreenComponentActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IActivatedEventArgs as windows_core::Interface>::IID;
@@ -3339,9 +3339,6 @@ impl windows_core::RuntimeName for WebUILockScreenComponentActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUINavigatedDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebUINavigatedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUINavigatedDeferral>();
-}
 windows_core::imp::interface_hierarchy!(WebUINavigatedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUINavigatedDeferral,);
 impl WebUINavigatedDeferral {
@@ -3349,6 +3346,9 @@ impl WebUINavigatedDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for WebUINavigatedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUINavigatedDeferral>();
 }
 unsafe impl windows_core::Interface for WebUINavigatedDeferral {
     type Vtable = <IWebUINavigatedDeferral as windows_core::Interface>::Vtable;
@@ -3360,9 +3360,6 @@ impl windows_core::RuntimeName for WebUINavigatedDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUINavigatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebUINavigatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUINavigatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebUINavigatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUINavigatedEventArgs, IWebUINavigatedEventArgs);
 impl WebUINavigatedEventArgs {
@@ -3374,6 +3371,9 @@ impl WebUINavigatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WebUINavigatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUINavigatedEventArgs>();
+}
 unsafe impl windows_core::Interface for WebUINavigatedEventArgs {
     type Vtable = <IWebUINavigatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUINavigatedEventArgs as windows_core::Interface>::IID;
@@ -3384,9 +3384,6 @@ impl windows_core::RuntimeName for WebUINavigatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUINavigatedOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebUINavigatedOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUINavigatedOperation>();
-}
 windows_core::imp::interface_hierarchy!(WebUINavigatedOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUINavigatedOperation,);
 impl WebUINavigatedOperation {
@@ -3397,6 +3394,9 @@ impl WebUINavigatedOperation {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for WebUINavigatedOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUINavigatedOperation>();
 }
 unsafe impl windows_core::Interface for WebUINavigatedOperation {
     type Vtable = <IWebUINavigatedOperation as windows_core::Interface>::Vtable;
@@ -3409,10 +3409,6 @@ impl windows_core::RuntimeName for WebUINavigatedOperation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIPhoneCallActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIPhoneCallActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIPhoneCallActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3467,6 +3463,10 @@ impl WebUIPhoneCallActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIPhoneCallActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIPhoneCallActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs as windows_core::Interface>::IID;
@@ -3479,10 +3479,6 @@ impl windows_core::RuntimeName for WebUIPhoneCallActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIPrint3DWorkflowActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIPrint3DWorkflowActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIPrint3DWorkflowActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3530,6 +3526,10 @@ impl WebUIPrint3DWorkflowActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIPrint3DWorkflowActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIPrint3DWorkflowActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs as windows_core::Interface>::IID;
@@ -3542,10 +3542,6 @@ impl windows_core::RuntimeName for WebUIPrint3DWorkflowActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIPrintTaskSettingsActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIPrintTaskSettingsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIPrintTaskSettingsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3593,6 +3589,10 @@ impl WebUIPrintTaskSettingsActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIPrintTaskSettingsActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIPrintTaskSettingsActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs as windows_core::Interface>::IID;
@@ -3605,10 +3605,6 @@ impl windows_core::RuntimeName for WebUIPrintTaskSettingsActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIPrintWorkflowForegroundTaskActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIPrintWorkflowForegroundTaskActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3648,6 +3644,10 @@ impl WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IActivatedEventArgs as windows_core::Interface>::IID;
@@ -3660,10 +3660,6 @@ impl windows_core::RuntimeName for WebUIPrintWorkflowForegroundTaskActivatedEven
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIProtocolActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIProtocolActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIProtocolActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3740,6 +3736,10 @@ impl WebUIProtocolActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIProtocolActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIProtocolActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs as windows_core::Interface>::IID;
@@ -3752,10 +3752,6 @@ impl windows_core::RuntimeName for WebUIProtocolActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIProtocolForResultsActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIProtocolForResultsActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIProtocolForResultsActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3849,6 +3845,10 @@ impl WebUIProtocolForResultsActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIProtocolForResultsActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIProtocolForResultsActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs as windows_core::Interface>::IID;
@@ -3861,10 +3861,6 @@ impl windows_core::RuntimeName for WebUIProtocolForResultsActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIRestrictedLaunchActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIRestrictedLaunchActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIRestrictedLaunchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3919,6 +3915,10 @@ impl WebUIRestrictedLaunchActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIRestrictedLaunchActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIRestrictedLaunchActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs as windows_core::Interface>::IID;
@@ -3931,10 +3931,6 @@ impl windows_core::RuntimeName for WebUIRestrictedLaunchActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUISearchActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUISearchActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUISearchActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4003,6 +3999,10 @@ impl WebUISearchActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUISearchActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::ISearchActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUISearchActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::ISearchActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::ISearchActivatedEventArgs as windows_core::Interface>::IID;
@@ -4015,10 +4015,6 @@ impl windows_core::RuntimeName for WebUISearchActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIShareTargetActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIShareTargetActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIShareTargetActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4074,6 +4070,10 @@ impl WebUIShareTargetActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIShareTargetActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIShareTargetActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs as windows_core::Interface>::IID;
@@ -4086,10 +4086,6 @@ impl windows_core::RuntimeName for WebUIShareTargetActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIStartupTaskActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIStartupTaskActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIStartupTaskActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4144,6 +4140,10 @@ impl WebUIStartupTaskActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIStartupTaskActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIStartupTaskActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs as windows_core::Interface>::IID;
@@ -4156,10 +4156,6 @@ impl windows_core::RuntimeName for WebUIStartupTaskActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIToastNotificationActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIToastNotificationActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIToastNotificationActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4222,6 +4218,10 @@ impl WebUIToastNotificationActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIToastNotificationActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIToastNotificationActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs as windows_core::Interface>::IID;
@@ -4234,10 +4234,6 @@ impl windows_core::RuntimeName for WebUIToastNotificationActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIUserDataAccountProviderActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIUserDataAccountProviderActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIUserDataAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4285,6 +4281,10 @@ impl WebUIUserDataAccountProviderActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIUserDataAccountProviderActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIUserDataAccountProviderActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs as windows_core::Interface>::IID;
@@ -4297,10 +4297,6 @@ impl windows_core::RuntimeName for WebUIUserDataAccountProviderActivatedEventArg
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIView(windows_core::IUnknown);
-#[cfg(feature = "Web_UI")]
-impl windows_core::RuntimeType for WebUIView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUIView>();
-}
 #[cfg(feature = "Web_UI")]
 windows_core::imp::interface_hierarchy!(WebUIView, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Web_UI")]
@@ -4787,6 +4783,10 @@ impl WebUIView {
     }
 }
 #[cfg(feature = "Web_UI")]
+impl windows_core::RuntimeType for WebUIView {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebUIView>();
+}
+#[cfg(feature = "Web_UI")]
 unsafe impl windows_core::Interface for WebUIView {
     type Vtable = <IWebUIView as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebUIView as windows_core::Interface>::IID;
@@ -4799,10 +4799,6 @@ impl windows_core::RuntimeName for WebUIView {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIVoiceCommandActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIVoiceCommandActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIVoiceCommandActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -4858,6 +4854,10 @@ impl WebUIVoiceCommandActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIVoiceCommandActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIVoiceCommandActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs as windows_core::Interface>::IID;
@@ -4870,10 +4870,6 @@ impl windows_core::RuntimeName for WebUIVoiceCommandActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIWalletActionActivatedEventArgs(windows_core::IUnknown);
-#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
-impl windows_core::RuntimeType for WebUIWalletActionActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs>();
-}
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 windows_core::imp::interface_hierarchy!(WebUIWalletActionActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
@@ -4938,6 +4934,10 @@ impl WebUIWalletActionActivatedEventArgs {
     }
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+impl windows_core::RuntimeType for WebUIWalletActionActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs>();
+}
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl windows_core::Interface for WebUIWalletActionActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs as windows_core::Interface>::IID;
@@ -4950,10 +4950,6 @@ impl windows_core::RuntimeName for WebUIWalletActionActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIWebAccountProviderActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIWebAccountProviderActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIWebAccountProviderActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -5009,6 +5005,10 @@ impl WebUIWebAccountProviderActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIWebAccountProviderActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIWebAccountProviderActivatedEventArgs {
     type Vtable = <super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs as windows_core::Interface>::IID;
@@ -5021,10 +5021,6 @@ impl windows_core::RuntimeName for WebUIWebAccountProviderActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebUIWebAuthenticationBrokerContinuationEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for WebUIWebAuthenticationBrokerContinuationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(WebUIWebAuthenticationBrokerContinuationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -5078,6 +5074,10 @@ impl WebUIWebAuthenticationBrokerContinuationEventArgs {
             (windows_core::Interface::vtable(this).ActivatedOperation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for WebUIWebAuthenticationBrokerContinuationEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs>();
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for WebUIWebAuthenticationBrokerContinuationEventArgs {

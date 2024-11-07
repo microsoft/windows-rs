@@ -22,9 +22,6 @@ pub struct IInkWorkspaceHostedAppManagerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InkWorkspaceHostedAppManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for InkWorkspaceHostedAppManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkWorkspaceHostedAppManager>();
-}
 windows_core::imp::interface_hierarchy!(InkWorkspaceHostedAppManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InkWorkspaceHostedAppManager,);
 impl InkWorkspaceHostedAppManager {
@@ -49,6 +46,9 @@ impl InkWorkspaceHostedAppManager {
         static SHARED: windows_core::imp::FactoryCache<InkWorkspaceHostedAppManager, IInkWorkspaceHostedAppManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for InkWorkspaceHostedAppManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInkWorkspaceHostedAppManager>();
 }
 unsafe impl windows_core::Interface for InkWorkspaceHostedAppManager {
     type Vtable = <IInkWorkspaceHostedAppManager as windows_core::Interface>::Vtable;

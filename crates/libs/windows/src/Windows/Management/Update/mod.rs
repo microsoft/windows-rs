@@ -297,9 +297,6 @@ pub struct IWindowsUpdateScanCompletedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PreviewBuildsManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for PreviewBuildsManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPreviewBuildsManager>();
-}
 windows_core::imp::interface_hierarchy!(PreviewBuildsManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PreviewBuildsManager,);
 impl PreviewBuildsManager {
@@ -345,6 +342,9 @@ impl PreviewBuildsManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PreviewBuildsManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPreviewBuildsManager>();
+}
 unsafe impl windows_core::Interface for PreviewBuildsManager {
     type Vtable = <IPreviewBuildsManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPreviewBuildsManager as windows_core::Interface>::IID;
@@ -355,9 +355,6 @@ impl windows_core::RuntimeName for PreviewBuildsManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PreviewBuildsState(windows_core::IUnknown);
-impl windows_core::RuntimeType for PreviewBuildsState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPreviewBuildsState>();
-}
 windows_core::imp::interface_hierarchy!(PreviewBuildsState, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PreviewBuildsState,);
 impl PreviewBuildsState {
@@ -370,6 +367,9 @@ impl PreviewBuildsState {
         }
     }
 }
+impl windows_core::RuntimeType for PreviewBuildsState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPreviewBuildsState>();
+}
 unsafe impl windows_core::Interface for PreviewBuildsState {
     type Vtable = <IPreviewBuildsState as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPreviewBuildsState as windows_core::Interface>::IID;
@@ -380,9 +380,6 @@ impl windows_core::RuntimeName for PreviewBuildsState {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdate(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowsUpdate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdate>();
-}
 windows_core::imp::interface_hierarchy!(WindowsUpdate, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowsUpdate,);
 impl WindowsUpdate {
@@ -552,6 +549,9 @@ impl WindowsUpdate {
         unsafe { (windows_core::Interface::vtable(this).AcceptEula)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for WindowsUpdate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdate>();
+}
 unsafe impl windows_core::Interface for WindowsUpdate {
     type Vtable = <IWindowsUpdate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdate as windows_core::Interface>::IID;
@@ -562,9 +562,6 @@ impl windows_core::RuntimeName for WindowsUpdate {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateActionCompletedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowsUpdateActionCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateActionCompletedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WindowsUpdateActionCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowsUpdateActionCompletedEventArgs,);
 impl WindowsUpdateActionCompletedEventArgs {
@@ -597,6 +594,9 @@ impl WindowsUpdateActionCompletedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WindowsUpdateActionCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateActionCompletedEventArgs>();
+}
 unsafe impl windows_core::Interface for WindowsUpdateActionCompletedEventArgs {
     type Vtable = <IWindowsUpdateActionCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateActionCompletedEventArgs as windows_core::Interface>::IID;
@@ -607,9 +607,6 @@ impl windows_core::RuntimeName for WindowsUpdateActionCompletedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateActionProgress(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowsUpdateActionProgress {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateActionProgress>();
-}
 windows_core::imp::interface_hierarchy!(WindowsUpdateActionProgress, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowsUpdateActionProgress,);
 impl WindowsUpdateActionProgress {
@@ -628,6 +625,9 @@ impl WindowsUpdateActionProgress {
         }
     }
 }
+impl windows_core::RuntimeType for WindowsUpdateActionProgress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateActionProgress>();
+}
 unsafe impl windows_core::Interface for WindowsUpdateActionProgress {
     type Vtable = <IWindowsUpdateActionProgress as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateActionProgress as windows_core::Interface>::IID;
@@ -638,9 +638,6 @@ impl windows_core::RuntimeName for WindowsUpdateActionProgress {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateActionResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowsUpdateActionResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateActionResult>();
-}
 windows_core::imp::interface_hierarchy!(WindowsUpdateActionResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowsUpdateActionResult,);
 impl WindowsUpdateActionResult {
@@ -673,6 +670,9 @@ impl WindowsUpdateActionResult {
         }
     }
 }
+impl windows_core::RuntimeType for WindowsUpdateActionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateActionResult>();
+}
 unsafe impl windows_core::Interface for WindowsUpdateActionResult {
     type Vtable = <IWindowsUpdateActionResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateActionResult as windows_core::Interface>::IID;
@@ -683,9 +683,6 @@ impl windows_core::RuntimeName for WindowsUpdateActionResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateAdministrator(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowsUpdateAdministrator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateAdministrator>();
-}
 windows_core::imp::interface_hierarchy!(WindowsUpdateAdministrator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowsUpdateAdministrator,);
 impl WindowsUpdateAdministrator {
@@ -761,6 +758,9 @@ impl WindowsUpdateAdministrator {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WindowsUpdateAdministrator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateAdministrator>();
+}
 unsafe impl windows_core::Interface for WindowsUpdateAdministrator {
     type Vtable = <IWindowsUpdateAdministrator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateAdministrator as windows_core::Interface>::IID;
@@ -771,9 +771,6 @@ impl windows_core::RuntimeName for WindowsUpdateAdministrator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateApprovalData(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowsUpdateApprovalData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateApprovalData>();
-}
 windows_core::imp::interface_hierarchy!(WindowsUpdateApprovalData, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowsUpdateApprovalData,);
 impl WindowsUpdateApprovalData {
@@ -855,6 +852,9 @@ impl WindowsUpdateApprovalData {
         unsafe { (windows_core::Interface::vtable(this).SetOptOutOfAutoReboot)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for WindowsUpdateApprovalData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateApprovalData>();
+}
 unsafe impl windows_core::Interface for WindowsUpdateApprovalData {
     type Vtable = <IWindowsUpdateApprovalData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateApprovalData as windows_core::Interface>::IID;
@@ -865,9 +865,6 @@ impl windows_core::RuntimeName for WindowsUpdateApprovalData {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateAttentionRequiredInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowsUpdateAttentionRequiredInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateAttentionRequiredInfo>();
-}
 windows_core::imp::interface_hierarchy!(WindowsUpdateAttentionRequiredInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowsUpdateAttentionRequiredInfo,);
 impl WindowsUpdateAttentionRequiredInfo {
@@ -886,6 +883,9 @@ impl WindowsUpdateAttentionRequiredInfo {
         }
     }
 }
+impl windows_core::RuntimeType for WindowsUpdateAttentionRequiredInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateAttentionRequiredInfo>();
+}
 unsafe impl windows_core::Interface for WindowsUpdateAttentionRequiredInfo {
     type Vtable = <IWindowsUpdateAttentionRequiredInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateAttentionRequiredInfo as windows_core::Interface>::IID;
@@ -896,9 +896,6 @@ impl windows_core::RuntimeName for WindowsUpdateAttentionRequiredInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateAttentionRequiredReasonChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateAttentionRequiredReasonChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WindowsUpdateAttentionRequiredReasonChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowsUpdateAttentionRequiredReasonChangedEventArgs,);
 impl WindowsUpdateAttentionRequiredReasonChangedEventArgs {
@@ -917,6 +914,9 @@ impl WindowsUpdateAttentionRequiredReasonChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateAttentionRequiredReasonChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for WindowsUpdateAttentionRequiredReasonChangedEventArgs {
     type Vtable = <IWindowsUpdateAttentionRequiredReasonChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateAttentionRequiredReasonChangedEventArgs as windows_core::Interface>::IID;
@@ -927,9 +927,6 @@ impl windows_core::RuntimeName for WindowsUpdateAttentionRequiredReasonChangedEv
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateGetAdministratorResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowsUpdateGetAdministratorResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateGetAdministratorResult>();
-}
 windows_core::imp::interface_hierarchy!(WindowsUpdateGetAdministratorResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowsUpdateGetAdministratorResult,);
 impl WindowsUpdateGetAdministratorResult {
@@ -948,6 +945,9 @@ impl WindowsUpdateGetAdministratorResult {
         }
     }
 }
+impl windows_core::RuntimeType for WindowsUpdateGetAdministratorResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateGetAdministratorResult>();
+}
 unsafe impl windows_core::Interface for WindowsUpdateGetAdministratorResult {
     type Vtable = <IWindowsUpdateGetAdministratorResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateGetAdministratorResult as windows_core::Interface>::IID;
@@ -958,9 +958,6 @@ impl windows_core::RuntimeName for WindowsUpdateGetAdministratorResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateItem(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowsUpdateItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateItem>();
-}
 windows_core::imp::interface_hierarchy!(WindowsUpdateItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowsUpdateItem,);
 impl WindowsUpdateItem {
@@ -1021,6 +1018,9 @@ impl WindowsUpdateItem {
         }
     }
 }
+impl windows_core::RuntimeType for WindowsUpdateItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateItem>();
+}
 unsafe impl windows_core::Interface for WindowsUpdateItem {
     type Vtable = <IWindowsUpdateItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateItem as windows_core::Interface>::IID;
@@ -1031,9 +1031,6 @@ impl windows_core::RuntimeName for WindowsUpdateItem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowsUpdateManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateManager>();
-}
 windows_core::imp::interface_hierarchy!(WindowsUpdateManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowsUpdateManager,);
 impl WindowsUpdateManager {
@@ -1181,6 +1178,9 @@ impl WindowsUpdateManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WindowsUpdateManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateManager>();
+}
 unsafe impl windows_core::Interface for WindowsUpdateManager {
     type Vtable = <IWindowsUpdateManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateManager as windows_core::Interface>::IID;
@@ -1191,9 +1191,6 @@ impl windows_core::RuntimeName for WindowsUpdateManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateProgressChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowsUpdateProgressChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateProgressChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WindowsUpdateProgressChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowsUpdateProgressChangedEventArgs,);
 impl WindowsUpdateProgressChangedEventArgs {
@@ -1212,6 +1209,9 @@ impl WindowsUpdateProgressChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WindowsUpdateProgressChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateProgressChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for WindowsUpdateProgressChangedEventArgs {
     type Vtable = <IWindowsUpdateProgressChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateProgressChangedEventArgs as windows_core::Interface>::IID;
@@ -1222,9 +1222,6 @@ impl windows_core::RuntimeName for WindowsUpdateProgressChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateRestartRequestOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowsUpdateRestartRequestOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateRestartRequestOptions>();
-}
 windows_core::imp::interface_hierarchy!(WindowsUpdateRestartRequestOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowsUpdateRestartRequestOptions,);
 impl WindowsUpdateRestartRequestOptions {
@@ -1329,6 +1326,9 @@ impl WindowsUpdateRestartRequestOptions {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WindowsUpdateRestartRequestOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateRestartRequestOptions>();
+}
 unsafe impl windows_core::Interface for WindowsUpdateRestartRequestOptions {
     type Vtable = <IWindowsUpdateRestartRequestOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowsUpdateRestartRequestOptions as windows_core::Interface>::IID;
@@ -1339,9 +1339,6 @@ impl windows_core::RuntimeName for WindowsUpdateRestartRequestOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowsUpdateScanCompletedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowsUpdateScanCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateScanCompletedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WindowsUpdateScanCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowsUpdateScanCompletedEventArgs,);
 impl WindowsUpdateScanCompletedEventArgs {
@@ -1374,6 +1371,9 @@ impl WindowsUpdateScanCompletedEventArgs {
             (windows_core::Interface::vtable(this).Updates)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for WindowsUpdateScanCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateScanCompletedEventArgs>();
 }
 unsafe impl windows_core::Interface for WindowsUpdateScanCompletedEventArgs {
     type Vtable = <IWindowsUpdateScanCompletedEventArgs as windows_core::Interface>::Vtable;

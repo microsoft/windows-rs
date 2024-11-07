@@ -361,9 +361,6 @@ pub struct IDetectionConfigurationAvailabilityInfo2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivationSignalDetectionConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for ActivationSignalDetectionConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivationSignalDetectionConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(ActivationSignalDetectionConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActivationSignalDetectionConfiguration, super::super::Foundation::IClosable);
 impl ActivationSignalDetectionConfiguration {
@@ -589,6 +586,9 @@ impl ActivationSignalDetectionConfiguration {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for ActivationSignalDetectionConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivationSignalDetectionConfiguration>();
+}
 unsafe impl windows_core::Interface for ActivationSignalDetectionConfiguration {
     type Vtable = <IActivationSignalDetectionConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IActivationSignalDetectionConfiguration as windows_core::Interface>::IID;
@@ -599,9 +599,6 @@ impl windows_core::RuntimeName for ActivationSignalDetectionConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivationSignalDetectionConfigurationCreationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationCreationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivationSignalDetectionConfigurationCreationResult>();
-}
 windows_core::imp::interface_hierarchy!(ActivationSignalDetectionConfigurationCreationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActivationSignalDetectionConfigurationCreationResult,);
 impl ActivationSignalDetectionConfigurationCreationResult {
@@ -620,6 +617,9 @@ impl ActivationSignalDetectionConfigurationCreationResult {
         }
     }
 }
+impl windows_core::RuntimeType for ActivationSignalDetectionConfigurationCreationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivationSignalDetectionConfigurationCreationResult>();
+}
 unsafe impl windows_core::Interface for ActivationSignalDetectionConfigurationCreationResult {
     type Vtable = <IActivationSignalDetectionConfigurationCreationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IActivationSignalDetectionConfigurationCreationResult as windows_core::Interface>::IID;
@@ -630,9 +630,6 @@ impl windows_core::RuntimeName for ActivationSignalDetectionConfigurationCreatio
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivationSignalDetector(windows_core::IUnknown);
-impl windows_core::RuntimeType for ActivationSignalDetector {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivationSignalDetector>();
-}
 windows_core::imp::interface_hierarchy!(ActivationSignalDetector, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActivationSignalDetector,);
 impl ActivationSignalDetector {
@@ -801,6 +798,9 @@ impl ActivationSignalDetector {
         }
     }
 }
+impl windows_core::RuntimeType for ActivationSignalDetector {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivationSignalDetector>();
+}
 unsafe impl windows_core::Interface for ActivationSignalDetector {
     type Vtable = <IActivationSignalDetector as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IActivationSignalDetector as windows_core::Interface>::IID;
@@ -811,9 +811,6 @@ impl windows_core::RuntimeName for ActivationSignalDetector {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentDetectorManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for ConversationalAgentDetectorManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentDetectorManager>();
-}
 windows_core::imp::interface_hierarchy!(ConversationalAgentDetectorManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConversationalAgentDetectorManager,);
 impl ConversationalAgentDetectorManager {
@@ -874,6 +871,9 @@ impl ConversationalAgentDetectorManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ConversationalAgentDetectorManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentDetectorManager>();
+}
 unsafe impl windows_core::Interface for ConversationalAgentDetectorManager {
     type Vtable = <IConversationalAgentDetectorManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IConversationalAgentDetectorManager as windows_core::Interface>::IID;
@@ -884,9 +884,6 @@ impl windows_core::RuntimeName for ConversationalAgentDetectorManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for ConversationalAgentSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSession>();
-}
 windows_core::imp::interface_hierarchy!(ConversationalAgentSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConversationalAgentSession, super::super::Foundation::IClosable);
 impl ConversationalAgentSession {
@@ -1200,6 +1197,9 @@ impl ConversationalAgentSession {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ConversationalAgentSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSession>();
+}
 unsafe impl windows_core::Interface for ConversationalAgentSession {
     type Vtable = <IConversationalAgentSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IConversationalAgentSession as windows_core::Interface>::IID;
@@ -1210,12 +1210,12 @@ impl windows_core::RuntimeName for ConversationalAgentSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentSessionInterruptedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ConversationalAgentSessionInterruptedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSessionInterruptedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ConversationalAgentSessionInterruptedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConversationalAgentSessionInterruptedEventArgs,);
 impl ConversationalAgentSessionInterruptedEventArgs {}
+impl windows_core::RuntimeType for ConversationalAgentSessionInterruptedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSessionInterruptedEventArgs>();
+}
 unsafe impl windows_core::Interface for ConversationalAgentSessionInterruptedEventArgs {
     type Vtable = <IConversationalAgentSessionInterruptedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IConversationalAgentSessionInterruptedEventArgs as windows_core::Interface>::IID;
@@ -1226,9 +1226,6 @@ impl windows_core::RuntimeName for ConversationalAgentSessionInterruptedEventArg
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentSignal(windows_core::IUnknown);
-impl windows_core::RuntimeType for ConversationalAgentSignal {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSignal>();
-}
 windows_core::imp::interface_hierarchy!(ConversationalAgentSignal, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConversationalAgentSignal,);
 impl ConversationalAgentSignal {
@@ -1316,6 +1313,9 @@ impl ConversationalAgentSignal {
         }
     }
 }
+impl windows_core::RuntimeType for ConversationalAgentSignal {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSignal>();
+}
 unsafe impl windows_core::Interface for ConversationalAgentSignal {
     type Vtable = <IConversationalAgentSignal as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IConversationalAgentSignal as windows_core::Interface>::IID;
@@ -1326,12 +1326,12 @@ impl windows_core::RuntimeName for ConversationalAgentSignal {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentSignalDetectedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ConversationalAgentSignalDetectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSignalDetectedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ConversationalAgentSignalDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConversationalAgentSignalDetectedEventArgs,);
 impl ConversationalAgentSignalDetectedEventArgs {}
+impl windows_core::RuntimeType for ConversationalAgentSignalDetectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSignalDetectedEventArgs>();
+}
 unsafe impl windows_core::Interface for ConversationalAgentSignalDetectedEventArgs {
     type Vtable = <IConversationalAgentSignalDetectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IConversationalAgentSignalDetectedEventArgs as windows_core::Interface>::IID;
@@ -1342,9 +1342,6 @@ impl windows_core::RuntimeName for ConversationalAgentSignalDetectedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentSystemStateChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ConversationalAgentSystemStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSystemStateChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ConversationalAgentSystemStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConversationalAgentSystemStateChangedEventArgs,);
 impl ConversationalAgentSystemStateChangedEventArgs {
@@ -1356,6 +1353,9 @@ impl ConversationalAgentSystemStateChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ConversationalAgentSystemStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConversationalAgentSystemStateChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for ConversationalAgentSystemStateChangedEventArgs {
     type Vtable = <IConversationalAgentSystemStateChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IConversationalAgentSystemStateChangedEventArgs as windows_core::Interface>::IID;
@@ -1366,9 +1366,6 @@ impl windows_core::RuntimeName for ConversationalAgentSystemStateChangedEventArg
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DetectionConfigurationAvailabilityChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DetectionConfigurationAvailabilityChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDetectionConfigurationAvailabilityChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DetectionConfigurationAvailabilityChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DetectionConfigurationAvailabilityChangedEventArgs,);
 impl DetectionConfigurationAvailabilityChangedEventArgs {
@@ -1380,6 +1377,9 @@ impl DetectionConfigurationAvailabilityChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for DetectionConfigurationAvailabilityChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDetectionConfigurationAvailabilityChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for DetectionConfigurationAvailabilityChangedEventArgs {
     type Vtable = <IDetectionConfigurationAvailabilityChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDetectionConfigurationAvailabilityChangedEventArgs as windows_core::Interface>::IID;
@@ -1390,9 +1390,6 @@ impl windows_core::RuntimeName for DetectionConfigurationAvailabilityChangedEven
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DetectionConfigurationAvailabilityInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for DetectionConfigurationAvailabilityInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDetectionConfigurationAvailabilityInfo>();
-}
 windows_core::imp::interface_hierarchy!(DetectionConfigurationAvailabilityInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DetectionConfigurationAvailabilityInfo,);
 impl DetectionConfigurationAvailabilityInfo {
@@ -1432,6 +1429,9 @@ impl DetectionConfigurationAvailabilityInfo {
             (windows_core::Interface::vtable(this).UnavailableSystemResources)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for DetectionConfigurationAvailabilityInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDetectionConfigurationAvailabilityInfo>();
 }
 unsafe impl windows_core::Interface for DetectionConfigurationAvailabilityInfo {
     type Vtable = <IDetectionConfigurationAvailabilityInfo as windows_core::Interface>::Vtable;

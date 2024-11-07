@@ -198,9 +198,6 @@ pub struct IGraphicsCaptureSessionStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Direct3D11CaptureFrame(windows_core::IUnknown);
-impl windows_core::RuntimeType for Direct3D11CaptureFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDirect3D11CaptureFrame>();
-}
 windows_core::imp::interface_hierarchy!(Direct3D11CaptureFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Direct3D11CaptureFrame, super::super::Foundation::IClosable);
 impl Direct3D11CaptureFrame {
@@ -246,6 +243,9 @@ impl Direct3D11CaptureFrame {
         }
     }
 }
+impl windows_core::RuntimeType for Direct3D11CaptureFrame {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDirect3D11CaptureFrame>();
+}
 unsafe impl windows_core::Interface for Direct3D11CaptureFrame {
     type Vtable = <IDirect3D11CaptureFrame as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDirect3D11CaptureFrame as windows_core::Interface>::IID;
@@ -256,9 +256,6 @@ impl windows_core::RuntimeName for Direct3D11CaptureFrame {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Direct3D11CaptureFramePool(windows_core::IUnknown);
-impl windows_core::RuntimeType for Direct3D11CaptureFramePool {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDirect3D11CaptureFramePool>();
-}
 windows_core::imp::interface_hierarchy!(Direct3D11CaptureFramePool, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Direct3D11CaptureFramePool, super::super::Foundation::IClosable);
 impl Direct3D11CaptureFramePool {
@@ -342,6 +339,9 @@ impl Direct3D11CaptureFramePool {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Direct3D11CaptureFramePool {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDirect3D11CaptureFramePool>();
+}
 unsafe impl windows_core::Interface for Direct3D11CaptureFramePool {
     type Vtable = <IDirect3D11CaptureFramePool as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDirect3D11CaptureFramePool as windows_core::Interface>::IID;
@@ -369,9 +369,6 @@ impl windows_core::RuntimeName for GraphicsCaptureAccess {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GraphicsCaptureItem(windows_core::IUnknown);
-impl windows_core::RuntimeType for GraphicsCaptureItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGraphicsCaptureItem>();
-}
 windows_core::imp::interface_hierarchy!(GraphicsCaptureItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GraphicsCaptureItem,);
 impl GraphicsCaptureItem {
@@ -435,6 +432,9 @@ impl GraphicsCaptureItem {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GraphicsCaptureItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGraphicsCaptureItem>();
+}
 unsafe impl windows_core::Interface for GraphicsCaptureItem {
     type Vtable = <IGraphicsCaptureItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGraphicsCaptureItem as windows_core::Interface>::IID;
@@ -445,9 +445,6 @@ impl windows_core::RuntimeName for GraphicsCaptureItem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GraphicsCapturePicker(windows_core::IUnknown);
-impl windows_core::RuntimeType for GraphicsCapturePicker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGraphicsCapturePicker>();
-}
 windows_core::imp::interface_hierarchy!(GraphicsCapturePicker, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GraphicsCapturePicker,);
 impl GraphicsCapturePicker {
@@ -466,6 +463,9 @@ impl GraphicsCapturePicker {
         }
     }
 }
+impl windows_core::RuntimeType for GraphicsCapturePicker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGraphicsCapturePicker>();
+}
 unsafe impl windows_core::Interface for GraphicsCapturePicker {
     type Vtable = <IGraphicsCapturePicker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGraphicsCapturePicker as windows_core::Interface>::IID;
@@ -476,9 +476,6 @@ impl windows_core::RuntimeName for GraphicsCapturePicker {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GraphicsCaptureSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for GraphicsCaptureSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGraphicsCaptureSession>();
-}
 windows_core::imp::interface_hierarchy!(GraphicsCaptureSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GraphicsCaptureSession, super::super::Foundation::IClosable);
 impl GraphicsCaptureSession {
@@ -555,6 +552,9 @@ impl GraphicsCaptureSession {
         static SHARED: windows_core::imp::FactoryCache<GraphicsCaptureSession, IGraphicsCaptureSessionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for GraphicsCaptureSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGraphicsCaptureSession>();
 }
 unsafe impl windows_core::Interface for GraphicsCaptureSession {
     type Vtable = <IGraphicsCaptureSession as windows_core::Interface>::Vtable;

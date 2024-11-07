@@ -79,9 +79,6 @@ pub struct IPnpObjectWatcher_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PnpObject(windows_core::IUnknown);
-impl windows_core::RuntimeType for PnpObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPnpObject>();
-}
 windows_core::imp::interface_hierarchy!(PnpObject, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PnpObject,);
 impl PnpObject {
@@ -169,6 +166,9 @@ impl PnpObject {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PnpObject {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPnpObject>();
+}
 unsafe impl windows_core::Interface for PnpObject {
     type Vtable = <IPnpObject as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPnpObject as windows_core::Interface>::IID;
@@ -180,10 +180,6 @@ impl windows_core::RuntimeName for PnpObject {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PnpObjectCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for PnpObjectCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IVectorView<PnpObject>>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(PnpObjectCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -231,6 +227,10 @@ impl PnpObjectCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for PnpObjectCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IVectorView<PnpObject>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PnpObjectCollection {
     type Vtable = <super::super::super::Foundation::Collections::IVectorView<PnpObject> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IVectorView<PnpObject> as windows_core::Interface>::IID;
@@ -242,9 +242,6 @@ impl windows_core::RuntimeName for PnpObjectCollection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PnpObjectUpdate(windows_core::IUnknown);
-impl windows_core::RuntimeType for PnpObjectUpdate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPnpObjectUpdate>();
-}
 windows_core::imp::interface_hierarchy!(PnpObjectUpdate, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PnpObjectUpdate,);
 impl PnpObjectUpdate {
@@ -271,6 +268,9 @@ impl PnpObjectUpdate {
         }
     }
 }
+impl windows_core::RuntimeType for PnpObjectUpdate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPnpObjectUpdate>();
+}
 unsafe impl windows_core::Interface for PnpObjectUpdate {
     type Vtable = <IPnpObjectUpdate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPnpObjectUpdate as windows_core::Interface>::IID;
@@ -281,9 +281,6 @@ impl windows_core::RuntimeName for PnpObjectUpdate {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PnpObjectWatcher(windows_core::IUnknown);
-impl windows_core::RuntimeType for PnpObjectWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPnpObjectWatcher>();
-}
 windows_core::imp::interface_hierarchy!(PnpObjectWatcher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PnpObjectWatcher,);
 impl PnpObjectWatcher {
@@ -372,6 +369,9 @@ impl PnpObjectWatcher {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for PnpObjectWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPnpObjectWatcher>();
 }
 unsafe impl windows_core::Interface for PnpObjectWatcher {
     type Vtable = <IPnpObjectWatcher as windows_core::Interface>::Vtable;

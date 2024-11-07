@@ -91,9 +91,6 @@ pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorAuthenticationManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for MicrosoftAccountMultiFactorAuthenticationManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMicrosoftAccountMultiFactorAuthenticationManager>();
-}
 windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorAuthenticationManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MicrosoftAccountMultiFactorAuthenticationManager,);
 impl MicrosoftAccountMultiFactorAuthenticationManager {
@@ -192,6 +189,9 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MicrosoftAccountMultiFactorAuthenticationManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMicrosoftAccountMultiFactorAuthenticationManager>();
+}
 unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorAuthenticationManager {
     type Vtable = <IMicrosoftAccountMultiFactorAuthenticationManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMicrosoftAccountMultiFactorAuthenticationManager as windows_core::Interface>::IID;
@@ -202,9 +202,6 @@ impl windows_core::RuntimeName for MicrosoftAccountMultiFactorAuthenticationMana
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorGetSessionsResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for MicrosoftAccountMultiFactorGetSessionsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMicrosoftAccountMultiFactorGetSessionsResult>();
-}
 windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorGetSessionsResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MicrosoftAccountMultiFactorGetSessionsResult,);
 impl MicrosoftAccountMultiFactorGetSessionsResult {
@@ -224,6 +221,9 @@ impl MicrosoftAccountMultiFactorGetSessionsResult {
         }
     }
 }
+impl windows_core::RuntimeType for MicrosoftAccountMultiFactorGetSessionsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMicrosoftAccountMultiFactorGetSessionsResult>();
+}
 unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorGetSessionsResult {
     type Vtable = <IMicrosoftAccountMultiFactorGetSessionsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMicrosoftAccountMultiFactorGetSessionsResult as windows_core::Interface>::IID;
@@ -234,9 +234,6 @@ impl windows_core::RuntimeName for MicrosoftAccountMultiFactorGetSessionsResult 
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorOneTimeCodedInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for MicrosoftAccountMultiFactorOneTimeCodedInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMicrosoftAccountMultiFactorOneTimeCodedInfo>();
-}
 windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorOneTimeCodedInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MicrosoftAccountMultiFactorOneTimeCodedInfo,);
 impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
@@ -269,6 +266,9 @@ impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
         }
     }
 }
+impl windows_core::RuntimeType for MicrosoftAccountMultiFactorOneTimeCodedInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMicrosoftAccountMultiFactorOneTimeCodedInfo>();
+}
 unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorOneTimeCodedInfo {
     type Vtable = <IMicrosoftAccountMultiFactorOneTimeCodedInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMicrosoftAccountMultiFactorOneTimeCodedInfo as windows_core::Interface>::IID;
@@ -279,9 +279,6 @@ impl windows_core::RuntimeName for MicrosoftAccountMultiFactorOneTimeCodedInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorSessionInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for MicrosoftAccountMultiFactorSessionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMicrosoftAccountMultiFactorSessionInfo>();
-}
 windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorSessionInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MicrosoftAccountMultiFactorSessionInfo,);
 impl MicrosoftAccountMultiFactorSessionInfo {
@@ -335,6 +332,9 @@ impl MicrosoftAccountMultiFactorSessionInfo {
         }
     }
 }
+impl windows_core::RuntimeType for MicrosoftAccountMultiFactorSessionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMicrosoftAccountMultiFactorSessionInfo>();
+}
 unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorSessionInfo {
     type Vtable = <IMicrosoftAccountMultiFactorSessionInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMicrosoftAccountMultiFactorSessionInfo as windows_core::Interface>::IID;
@@ -345,9 +345,6 @@ impl windows_core::RuntimeName for MicrosoftAccountMultiFactorSessionInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>();
-}
 windows_core::imp::interface_hierarchy!(MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo,);
 impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
@@ -374,6 +371,9 @@ impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
             (windows_core::Interface::vtable(this).ServiceResponse)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>();
 }
 unsafe impl windows_core::Interface for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     type Vtable = <IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo as windows_core::Interface>::Vtable;

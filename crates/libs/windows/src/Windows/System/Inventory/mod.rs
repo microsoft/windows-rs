@@ -25,9 +25,6 @@ pub struct IInstalledDesktopAppStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InstalledDesktopApp(windows_core::IUnknown);
-impl windows_core::RuntimeType for InstalledDesktopApp {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInstalledDesktopApp>();
-}
 windows_core::imp::interface_hierarchy!(InstalledDesktopApp, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InstalledDesktopApp, super::super::Foundation::IStringable);
 impl InstalledDesktopApp {
@@ -77,6 +74,9 @@ impl InstalledDesktopApp {
         static SHARED: windows_core::imp::FactoryCache<InstalledDesktopApp, IInstalledDesktopAppStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for InstalledDesktopApp {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInstalledDesktopApp>();
 }
 unsafe impl windows_core::Interface for InstalledDesktopApp {
     type Vtable = <IInstalledDesktopApp as windows_core::Interface>::Vtable;

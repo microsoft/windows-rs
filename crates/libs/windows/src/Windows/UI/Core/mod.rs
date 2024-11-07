@@ -2401,9 +2401,6 @@ pub struct IWindowSizeChangedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AcceleratorKeyEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AcceleratorKeyEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAcceleratorKeyEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AcceleratorKeyEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AcceleratorKeyEventArgs, ICoreWindowEventArgs);
 impl AcceleratorKeyEventArgs {
@@ -2448,6 +2445,9 @@ impl AcceleratorKeyEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for AcceleratorKeyEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAcceleratorKeyEventArgs>();
+}
 unsafe impl windows_core::Interface for AcceleratorKeyEventArgs {
     type Vtable = <IAcceleratorKeyEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAcceleratorKeyEventArgs as windows_core::Interface>::IID;
@@ -2458,9 +2458,6 @@ impl windows_core::RuntimeName for AcceleratorKeyEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutomationProviderRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AutomationProviderRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutomationProviderRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AutomationProviderRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AutomationProviderRequestedEventArgs, ICoreWindowEventArgs);
 impl AutomationProviderRequestedEventArgs {
@@ -2490,6 +2487,9 @@ impl AutomationProviderRequestedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for AutomationProviderRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutomationProviderRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for AutomationProviderRequestedEventArgs {
     type Vtable = <IAutomationProviderRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAutomationProviderRequestedEventArgs as windows_core::Interface>::IID;
@@ -2500,9 +2500,6 @@ impl windows_core::RuntimeName for AutomationProviderRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(BackRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackRequestedEventArgs,);
 impl BackRequestedEventArgs {
@@ -2518,6 +2515,9 @@ impl BackRequestedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for BackRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for BackRequestedEventArgs {
     type Vtable = <IBackRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackRequestedEventArgs as windows_core::Interface>::IID;
@@ -2528,9 +2528,6 @@ impl windows_core::RuntimeName for BackRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CharacterReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CharacterReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICharacterReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CharacterReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CharacterReceivedEventArgs, ICoreWindowEventArgs);
 impl CharacterReceivedEventArgs {
@@ -2560,6 +2557,9 @@ impl CharacterReceivedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CharacterReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICharacterReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for CharacterReceivedEventArgs {
     type Vtable = <ICharacterReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICharacterReceivedEventArgs as windows_core::Interface>::IID;
@@ -2570,9 +2570,6 @@ impl windows_core::RuntimeName for CharacterReceivedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClosestInteractiveBoundsRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ClosestInteractiveBoundsRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClosestInteractiveBoundsRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ClosestInteractiveBoundsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClosestInteractiveBoundsRequestedEventArgs,);
 impl ClosestInteractiveBoundsRequestedEventArgs {
@@ -2602,6 +2599,9 @@ impl ClosestInteractiveBoundsRequestedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetClosestInteractiveBounds)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for ClosestInteractiveBoundsRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClosestInteractiveBoundsRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for ClosestInteractiveBoundsRequestedEventArgs {
     type Vtable = <IClosestInteractiveBoundsRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClosestInteractiveBoundsRequestedEventArgs as windows_core::Interface>::IID;
@@ -2612,9 +2612,6 @@ impl windows_core::RuntimeName for ClosestInteractiveBoundsRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreAcceleratorKeys(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreAcceleratorKeys {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreAcceleratorKeys>();
-}
 windows_core::imp::interface_hierarchy!(CoreAcceleratorKeys, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreAcceleratorKeys, ICoreAcceleratorKeys);
 impl CoreAcceleratorKeys {
@@ -2633,6 +2630,9 @@ impl CoreAcceleratorKeys {
         unsafe { (windows_core::Interface::vtable(this).RemoveAcceleratorKeyActivated)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
 }
+impl windows_core::RuntimeType for CoreAcceleratorKeys {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreAcceleratorKeys>();
+}
 unsafe impl windows_core::Interface for CoreAcceleratorKeys {
     type Vtable = <ICoreAcceleratorKeys as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreAcceleratorKeys as windows_core::Interface>::IID;
@@ -2643,9 +2643,6 @@ impl windows_core::RuntimeName for CoreAcceleratorKeys {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreComponentInputSource(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreComponentInputSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputSourceBase>();
-}
 windows_core::imp::interface_hierarchy!(CoreComponentInputSource, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreComponentInputSource, ICoreInputSourceBase, ICorePointerInputSource, ICorePointerInputSource2);
 impl CoreComponentInputSource {
@@ -2944,6 +2941,9 @@ impl CoreComponentInputSource {
         unsafe { (windows_core::Interface::vtable(this).RemoveTouchHitTesting)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
 }
+impl windows_core::RuntimeType for CoreComponentInputSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputSourceBase>();
+}
 unsafe impl windows_core::Interface for CoreComponentInputSource {
     type Vtable = <ICoreInputSourceBase as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreInputSourceBase as windows_core::Interface>::IID;
@@ -2954,9 +2954,6 @@ impl windows_core::RuntimeName for CoreComponentInputSource {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreCursor(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreCursor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreCursor>();
-}
 windows_core::imp::interface_hierarchy!(CoreCursor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreCursor,);
 impl CoreCursor {
@@ -2985,6 +2982,9 @@ impl CoreCursor {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CoreCursor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreCursor>();
+}
 unsafe impl windows_core::Interface for CoreCursor {
     type Vtable = <ICoreCursor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreCursor as windows_core::Interface>::IID;
@@ -2995,9 +2995,6 @@ impl windows_core::RuntimeName for CoreCursor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreDispatcher(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreDispatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDispatcher>();
-}
 windows_core::imp::interface_hierarchy!(CoreDispatcher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreDispatcher, ICoreAcceleratorKeys);
 impl CoreDispatcher {
@@ -3096,6 +3093,9 @@ impl CoreDispatcher {
         unsafe { (windows_core::Interface::vtable(this).StopProcessEvents)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for CoreDispatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDispatcher>();
+}
 unsafe impl windows_core::Interface for CoreDispatcher {
     type Vtable = <ICoreDispatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreDispatcher as windows_core::Interface>::IID;
@@ -3106,9 +3106,6 @@ impl windows_core::RuntimeName for CoreDispatcher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreIndependentInputSource(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreIndependentInputSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputSourceBase>();
-}
 windows_core::imp::interface_hierarchy!(CoreIndependentInputSource, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreIndependentInputSource, ICoreInputSourceBase, ICorePointerInputSource, ICorePointerInputSource2, ICorePointerRedirector);
 impl CoreIndependentInputSource {
@@ -3329,6 +3326,9 @@ impl CoreIndependentInputSource {
         unsafe { (windows_core::Interface::vtable(this).RemovePointerRoutedReleased)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
 }
+impl windows_core::RuntimeType for CoreIndependentInputSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputSourceBase>();
+}
 unsafe impl windows_core::Interface for CoreIndependentInputSource {
     type Vtable = <ICoreInputSourceBase as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreInputSourceBase as windows_core::Interface>::IID;
@@ -3339,9 +3339,6 @@ impl windows_core::RuntimeName for CoreIndependentInputSource {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreIndependentInputSourceController(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreIndependentInputSourceController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreIndependentInputSourceController>();
-}
 windows_core::imp::interface_hierarchy!(CoreIndependentInputSourceController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreIndependentInputSourceController, super::super::Foundation::IClosable);
 impl CoreIndependentInputSourceController {
@@ -3411,6 +3408,9 @@ impl CoreIndependentInputSourceController {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CoreIndependentInputSourceController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreIndependentInputSourceController>();
+}
 unsafe impl windows_core::Interface for CoreIndependentInputSourceController {
     type Vtable = <ICoreIndependentInputSourceController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreIndependentInputSourceController as windows_core::Interface>::IID;
@@ -3421,9 +3421,6 @@ impl windows_core::RuntimeName for CoreIndependentInputSourceController {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreWindow(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreWindow {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWindow>();
-}
 windows_core::imp::interface_hierarchy!(CoreWindow, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreWindow, ICorePointerRedirector, ICoreWindow);
 impl CoreWindow {
@@ -3904,6 +3901,9 @@ impl CoreWindow {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CoreWindow {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWindow>();
+}
 unsafe impl windows_core::Interface for CoreWindow {
     type Vtable = <ICoreWindow as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreWindow as windows_core::Interface>::IID;
@@ -3914,9 +3914,6 @@ impl windows_core::RuntimeName for CoreWindow {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreWindowDialog(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreWindowDialog {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWindowDialog>();
-}
 windows_core::imp::interface_hierarchy!(CoreWindowDialog, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreWindowDialog,);
 impl CoreWindowDialog {
@@ -4042,6 +4039,9 @@ impl CoreWindowDialog {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CoreWindowDialog {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWindowDialog>();
+}
 unsafe impl windows_core::Interface for CoreWindowDialog {
     type Vtable = <ICoreWindowDialog as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreWindowDialog as windows_core::Interface>::IID;
@@ -4052,9 +4052,6 @@ impl windows_core::RuntimeName for CoreWindowDialog {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreWindowEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreWindowEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWindowEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CoreWindowEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreWindowEventArgs, ICoreWindowEventArgs);
 impl CoreWindowEventArgs {
@@ -4070,6 +4067,9 @@ impl CoreWindowEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CoreWindowEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWindowEventArgs>();
+}
 unsafe impl windows_core::Interface for CoreWindowEventArgs {
     type Vtable = <ICoreWindowEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreWindowEventArgs as windows_core::Interface>::IID;
@@ -4080,9 +4080,6 @@ impl windows_core::RuntimeName for CoreWindowEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreWindowFlyout(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreWindowFlyout {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWindowFlyout>();
-}
 windows_core::imp::interface_hierarchy!(CoreWindowFlyout, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreWindowFlyout,);
 impl CoreWindowFlyout {
@@ -4196,6 +4193,9 @@ impl CoreWindowFlyout {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CoreWindowFlyout {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWindowFlyout>();
+}
 unsafe impl windows_core::Interface for CoreWindowFlyout {
     type Vtable = <ICoreWindowFlyout as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreWindowFlyout as windows_core::Interface>::IID;
@@ -4206,9 +4206,6 @@ impl windows_core::RuntimeName for CoreWindowFlyout {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreWindowPopupShowingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreWindowPopupShowingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWindowPopupShowingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CoreWindowPopupShowingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreWindowPopupShowingEventArgs,);
 impl CoreWindowPopupShowingEventArgs {
@@ -4216,6 +4213,9 @@ impl CoreWindowPopupShowingEventArgs {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDesiredSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
+}
+impl windows_core::RuntimeType for CoreWindowPopupShowingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWindowPopupShowingEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreWindowPopupShowingEventArgs {
     type Vtable = <ICoreWindowPopupShowingEventArgs as windows_core::Interface>::Vtable;
@@ -4227,9 +4227,6 @@ impl windows_core::RuntimeName for CoreWindowPopupShowingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreWindowResizeManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreWindowResizeManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWindowResizeManager>();
-}
 windows_core::imp::interface_hierarchy!(CoreWindowResizeManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreWindowResizeManager,);
 impl CoreWindowResizeManager {
@@ -4259,6 +4256,9 @@ impl CoreWindowResizeManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CoreWindowResizeManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreWindowResizeManager>();
+}
 unsafe impl windows_core::Interface for CoreWindowResizeManager {
     type Vtable = <ICoreWindowResizeManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreWindowResizeManager as windows_core::Interface>::IID;
@@ -4269,9 +4269,6 @@ impl windows_core::RuntimeName for CoreWindowResizeManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IdleDispatchedHandlerArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for IdleDispatchedHandlerArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIdleDispatchedHandlerArgs>();
-}
 windows_core::imp::interface_hierarchy!(IdleDispatchedHandlerArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IdleDispatchedHandlerArgs,);
 impl IdleDispatchedHandlerArgs {
@@ -4283,6 +4280,9 @@ impl IdleDispatchedHandlerArgs {
         }
     }
 }
+impl windows_core::RuntimeType for IdleDispatchedHandlerArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIdleDispatchedHandlerArgs>();
+}
 unsafe impl windows_core::Interface for IdleDispatchedHandlerArgs {
     type Vtable = <IIdleDispatchedHandlerArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIdleDispatchedHandlerArgs as windows_core::Interface>::IID;
@@ -4293,9 +4293,6 @@ impl windows_core::RuntimeName for IdleDispatchedHandlerArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InputEnabledEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for InputEnabledEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputEnabledEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(InputEnabledEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InputEnabledEventArgs, ICoreWindowEventArgs);
 impl InputEnabledEventArgs {
@@ -4318,6 +4315,9 @@ impl InputEnabledEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for InputEnabledEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputEnabledEventArgs>();
+}
 unsafe impl windows_core::Interface for InputEnabledEventArgs {
     type Vtable = <IInputEnabledEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInputEnabledEventArgs as windows_core::Interface>::IID;
@@ -4328,9 +4328,6 @@ impl windows_core::RuntimeName for InputEnabledEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for KeyEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(KeyEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(KeyEventArgs, ICoreWindowEventArgs);
 impl KeyEventArgs {
@@ -4368,6 +4365,9 @@ impl KeyEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for KeyEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyEventArgs>();
+}
 unsafe impl windows_core::Interface for KeyEventArgs {
     type Vtable = <IKeyEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IKeyEventArgs as windows_core::Interface>::IID;
@@ -4378,9 +4378,6 @@ impl windows_core::RuntimeName for KeyEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PointerEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PointerEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPointerEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PointerEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PointerEventArgs, ICoreWindowEventArgs);
 impl PointerEventArgs {
@@ -4420,6 +4417,9 @@ impl PointerEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PointerEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPointerEventArgs>();
+}
 unsafe impl windows_core::Interface for PointerEventArgs {
     type Vtable = <IPointerEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPointerEventArgs as windows_core::Interface>::IID;
@@ -4430,9 +4430,6 @@ impl windows_core::RuntimeName for PointerEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemNavigationManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemNavigationManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemNavigationManager>();
-}
 windows_core::imp::interface_hierarchy!(SystemNavigationManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemNavigationManager,);
 impl SystemNavigationManager {
@@ -4472,6 +4469,9 @@ impl SystemNavigationManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SystemNavigationManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemNavigationManager>();
+}
 unsafe impl windows_core::Interface for SystemNavigationManager {
     type Vtable = <ISystemNavigationManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemNavigationManager as windows_core::Interface>::IID;
@@ -4482,9 +4482,6 @@ impl windows_core::RuntimeName for SystemNavigationManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TouchHitTestingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for TouchHitTestingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITouchHitTestingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(TouchHitTestingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TouchHitTestingEventArgs, ICoreWindowEventArgs);
 impl TouchHitTestingEventArgs {
@@ -4539,6 +4536,9 @@ impl TouchHitTestingEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for TouchHitTestingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITouchHitTestingEventArgs>();
+}
 unsafe impl windows_core::Interface for TouchHitTestingEventArgs {
     type Vtable = <ITouchHitTestingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITouchHitTestingEventArgs as windows_core::Interface>::IID;
@@ -4549,9 +4549,6 @@ impl windows_core::RuntimeName for TouchHitTestingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisibilityChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for VisibilityChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisibilityChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(VisibilityChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VisibilityChangedEventArgs, ICoreWindowEventArgs);
 impl VisibilityChangedEventArgs {
@@ -4574,6 +4571,9 @@ impl VisibilityChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for VisibilityChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisibilityChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for VisibilityChangedEventArgs {
     type Vtable = <IVisibilityChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVisibilityChangedEventArgs as windows_core::Interface>::IID;
@@ -4584,9 +4584,6 @@ impl windows_core::RuntimeName for VisibilityChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowActivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowActivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WindowActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowActivatedEventArgs, ICoreWindowEventArgs);
 impl WindowActivatedEventArgs {
@@ -4609,6 +4606,9 @@ impl WindowActivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WindowActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowActivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for WindowActivatedEventArgs {
     type Vtable = <IWindowActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowActivatedEventArgs as windows_core::Interface>::IID;
@@ -4619,9 +4619,6 @@ impl windows_core::RuntimeName for WindowActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowSizeChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowSizeChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowSizeChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WindowSizeChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowSizeChangedEventArgs, ICoreWindowEventArgs);
 impl WindowSizeChangedEventArgs {
@@ -4643,6 +4640,9 @@ impl WindowSizeChangedEventArgs {
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for WindowSizeChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowSizeChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for WindowSizeChangedEventArgs {
     type Vtable = <IWindowSizeChangedEventArgs as windows_core::Interface>::Vtable;
@@ -4961,7 +4961,7 @@ impl windows_core::RuntimeType for CoreWindowFlowDirection {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Core.CoreWindowFlowDirection;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct CorePhysicalKeyStatus {
     pub RepeatCount: u32,
     pub ScanCode: u32,
@@ -4977,7 +4977,7 @@ impl windows_core::RuntimeType for CorePhysicalKeyStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.UI.Core.CorePhysicalKeyStatus;u4;u4;b1;b1;b1;b1)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct CoreProximityEvaluation {
     pub Score: i32,
     pub AdjustedPoint: super::super::Foundation::Point,

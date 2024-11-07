@@ -181,9 +181,6 @@ pub struct IWiFiWpsConfigurationResult_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiAdapter(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiAdapter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiAdapter>();
-}
 windows_core::imp::interface_hierarchy!(WiFiAdapter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiAdapter,);
 impl WiFiAdapter {
@@ -313,6 +310,9 @@ impl WiFiAdapter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WiFiAdapter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiAdapter>();
+}
 unsafe impl windows_core::Interface for WiFiAdapter {
     type Vtable = <IWiFiAdapter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiAdapter as windows_core::Interface>::IID;
@@ -323,9 +323,6 @@ impl windows_core::RuntimeName for WiFiAdapter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiAvailableNetwork(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiAvailableNetwork {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiAvailableNetwork>();
-}
 windows_core::imp::interface_hierarchy!(WiFiAvailableNetwork, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiAvailableNetwork,);
 impl WiFiAvailableNetwork {
@@ -408,6 +405,9 @@ impl WiFiAvailableNetwork {
         }
     }
 }
+impl windows_core::RuntimeType for WiFiAvailableNetwork {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiAvailableNetwork>();
+}
 unsafe impl windows_core::Interface for WiFiAvailableNetwork {
     type Vtable = <IWiFiAvailableNetwork as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiAvailableNetwork as windows_core::Interface>::IID;
@@ -418,9 +418,6 @@ impl windows_core::RuntimeName for WiFiAvailableNetwork {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiConnectionResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiConnectionResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiConnectionResult>();
-}
 windows_core::imp::interface_hierarchy!(WiFiConnectionResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiConnectionResult,);
 impl WiFiConnectionResult {
@@ -432,6 +429,9 @@ impl WiFiConnectionResult {
         }
     }
 }
+impl windows_core::RuntimeType for WiFiConnectionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiConnectionResult>();
+}
 unsafe impl windows_core::Interface for WiFiConnectionResult {
     type Vtable = <IWiFiConnectionResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiConnectionResult as windows_core::Interface>::IID;
@@ -442,9 +442,6 @@ impl windows_core::RuntimeName for WiFiConnectionResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiNetworkReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiNetworkReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiNetworkReport>();
-}
 windows_core::imp::interface_hierarchy!(WiFiNetworkReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiNetworkReport,);
 impl WiFiNetworkReport {
@@ -464,6 +461,9 @@ impl WiFiNetworkReport {
         }
     }
 }
+impl windows_core::RuntimeType for WiFiNetworkReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiNetworkReport>();
+}
 unsafe impl windows_core::Interface for WiFiNetworkReport {
     type Vtable = <IWiFiNetworkReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiNetworkReport as windows_core::Interface>::IID;
@@ -474,9 +474,6 @@ impl windows_core::RuntimeName for WiFiNetworkReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotConnectTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiOnDemandHotspotConnectTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotConnectTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiOnDemandHotspotConnectTriggerDetails,);
 impl WiFiOnDemandHotspotConnectTriggerDetails {
@@ -506,6 +503,9 @@ impl WiFiOnDemandHotspotConnectTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiOnDemandHotspotConnectTriggerDetails>();
+}
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotConnectTriggerDetails {
     type Vtable = <IWiFiOnDemandHotspotConnectTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiOnDemandHotspotConnectTriggerDetails as windows_core::Interface>::IID;
@@ -516,9 +516,6 @@ impl windows_core::RuntimeName for WiFiOnDemandHotspotConnectTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotConnectionResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectionResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiOnDemandHotspotConnectionResult>();
-}
 windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotConnectionResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiOnDemandHotspotConnectionResult,);
 impl WiFiOnDemandHotspotConnectionResult {
@@ -530,6 +527,9 @@ impl WiFiOnDemandHotspotConnectionResult {
         }
     }
 }
+impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiOnDemandHotspotConnectionResult>();
+}
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotConnectionResult {
     type Vtable = <IWiFiOnDemandHotspotConnectionResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiOnDemandHotspotConnectionResult as windows_core::Interface>::IID;
@@ -540,9 +540,6 @@ impl windows_core::RuntimeName for WiFiOnDemandHotspotConnectionResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotNetwork(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiOnDemandHotspotNetwork {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiOnDemandHotspotNetwork>();
-}
 windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotNetwork, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiOnDemandHotspotNetwork,);
 impl WiFiOnDemandHotspotNetwork {
@@ -578,6 +575,9 @@ impl WiFiOnDemandHotspotNetwork {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WiFiOnDemandHotspotNetwork {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiOnDemandHotspotNetwork>();
+}
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotNetwork {
     type Vtable = <IWiFiOnDemandHotspotNetwork as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiOnDemandHotspotNetwork as windows_core::Interface>::IID;
@@ -588,9 +588,6 @@ impl windows_core::RuntimeName for WiFiOnDemandHotspotNetwork {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotNetworkProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiOnDemandHotspotNetworkProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiOnDemandHotspotNetworkProperties>();
-}
 windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotNetworkProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiOnDemandHotspotNetworkProperties,);
 impl WiFiOnDemandHotspotNetworkProperties {
@@ -683,6 +680,9 @@ impl WiFiOnDemandHotspotNetworkProperties {
         unsafe { (windows_core::Interface::vtable(this).SetPassword)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for WiFiOnDemandHotspotNetworkProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiOnDemandHotspotNetworkProperties>();
+}
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotNetworkProperties {
     type Vtable = <IWiFiOnDemandHotspotNetworkProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiOnDemandHotspotNetworkProperties as windows_core::Interface>::IID;
@@ -693,9 +693,6 @@ impl windows_core::RuntimeName for WiFiOnDemandHotspotNetworkProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiWpsConfigurationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiWpsConfigurationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiWpsConfigurationResult>();
-}
 windows_core::imp::interface_hierarchy!(WiFiWpsConfigurationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiWpsConfigurationResult,);
 impl WiFiWpsConfigurationResult {
@@ -714,6 +711,9 @@ impl WiFiWpsConfigurationResult {
             (windows_core::Interface::vtable(this).SupportedWpsKinds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for WiFiWpsConfigurationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiWpsConfigurationResult>();
 }
 unsafe impl windows_core::Interface for WiFiWpsConfigurationResult {
     type Vtable = <IWiFiWpsConfigurationResult as windows_core::Interface>::Vtable;

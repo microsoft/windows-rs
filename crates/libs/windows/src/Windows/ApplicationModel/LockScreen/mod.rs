@@ -91,9 +91,6 @@ pub struct ILockScreenUnlockingEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockApplicationHost(windows_core::IUnknown);
-impl windows_core::RuntimeType for LockApplicationHost {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockApplicationHost>();
-}
 windows_core::imp::interface_hierarchy!(LockApplicationHost, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LockApplicationHost,);
 impl LockApplicationHost {
@@ -126,6 +123,9 @@ impl LockApplicationHost {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LockApplicationHost {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockApplicationHost>();
+}
 unsafe impl windows_core::Interface for LockApplicationHost {
     type Vtable = <ILockApplicationHost as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILockApplicationHost as windows_core::Interface>::IID;
@@ -136,9 +136,6 @@ impl windows_core::RuntimeName for LockApplicationHost {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenBadge(windows_core::IUnknown);
-impl windows_core::RuntimeType for LockScreenBadge {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenBadge>();
-}
 windows_core::imp::interface_hierarchy!(LockScreenBadge, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LockScreenBadge,);
 impl LockScreenBadge {
@@ -177,6 +174,9 @@ impl LockScreenBadge {
         unsafe { (windows_core::Interface::vtable(this).LaunchApp)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for LockScreenBadge {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenBadge>();
+}
 unsafe impl windows_core::Interface for LockScreenBadge {
     type Vtable = <ILockScreenBadge as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILockScreenBadge as windows_core::Interface>::IID;
@@ -187,9 +187,6 @@ impl windows_core::RuntimeName for LockScreenBadge {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for LockScreenInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenInfo>();
-}
 windows_core::imp::interface_hierarchy!(LockScreenInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LockScreenInfo,);
 impl LockScreenInfo {
@@ -282,6 +279,9 @@ impl LockScreenInfo {
         }
     }
 }
+impl windows_core::RuntimeType for LockScreenInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenInfo>();
+}
 unsafe impl windows_core::Interface for LockScreenInfo {
     type Vtable = <ILockScreenInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILockScreenInfo as windows_core::Interface>::IID;
@@ -292,9 +292,6 @@ impl windows_core::RuntimeName for LockScreenInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenUnlockingDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for LockScreenUnlockingDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenUnlockingDeferral>();
-}
 windows_core::imp::interface_hierarchy!(LockScreenUnlockingDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LockScreenUnlockingDeferral,);
 impl LockScreenUnlockingDeferral {
@@ -302,6 +299,9 @@ impl LockScreenUnlockingDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for LockScreenUnlockingDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenUnlockingDeferral>();
 }
 unsafe impl windows_core::Interface for LockScreenUnlockingDeferral {
     type Vtable = <ILockScreenUnlockingDeferral as windows_core::Interface>::Vtable;
@@ -313,9 +313,6 @@ impl windows_core::RuntimeName for LockScreenUnlockingDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockScreenUnlockingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for LockScreenUnlockingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenUnlockingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(LockScreenUnlockingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LockScreenUnlockingEventArgs,);
 impl LockScreenUnlockingEventArgs {
@@ -333,6 +330,9 @@ impl LockScreenUnlockingEventArgs {
             (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for LockScreenUnlockingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockScreenUnlockingEventArgs>();
 }
 unsafe impl windows_core::Interface for LockScreenUnlockingEventArgs {
     type Vtable = <ILockScreenUnlockingEventArgs as windows_core::Interface>::Vtable;

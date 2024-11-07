@@ -129,10 +129,6 @@ pub struct IPhoneCallOriginManagerStatics3_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneCallOrigin(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for PhoneCallOrigin {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallOrigin>();
-}
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(PhoneCallOrigin, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(PhoneCallOrigin,);
@@ -213,6 +209,10 @@ impl PhoneCallOrigin {
         let this = &windows_core::Interface::cast::<IPhoneCallOrigin3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayPicture)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for PhoneCallOrigin {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneCallOrigin>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for PhoneCallOrigin {

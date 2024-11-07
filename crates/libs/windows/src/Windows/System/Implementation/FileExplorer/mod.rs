@@ -204,9 +204,6 @@ impl ISysStorageProviderHttpRequestProvider_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SysStorageProviderEventReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SysStorageProviderEventReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISysStorageProviderEventReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SysStorageProviderEventReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SysStorageProviderEventReceivedEventArgs,);
 impl SysStorageProviderEventReceivedEventArgs {
@@ -227,6 +224,9 @@ impl SysStorageProviderEventReceivedEventArgs {
         static SHARED: windows_core::imp::FactoryCache<SysStorageProviderEventReceivedEventArgs, ISysStorageProviderEventReceivedEventArgsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for SysStorageProviderEventReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISysStorageProviderEventReceivedEventArgs>();
 }
 unsafe impl windows_core::Interface for SysStorageProviderEventReceivedEventArgs {
     type Vtable = <ISysStorageProviderEventReceivedEventArgs as windows_core::Interface>::Vtable;

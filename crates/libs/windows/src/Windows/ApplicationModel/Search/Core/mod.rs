@@ -65,12 +65,12 @@ pub struct ISearchSuggestionsRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RequestingFocusOnKeyboardInputEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RequestingFocusOnKeyboardInputEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRequestingFocusOnKeyboardInputEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RequestingFocusOnKeyboardInputEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RequestingFocusOnKeyboardInputEventArgs,);
 impl RequestingFocusOnKeyboardInputEventArgs {}
+impl windows_core::RuntimeType for RequestingFocusOnKeyboardInputEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRequestingFocusOnKeyboardInputEventArgs>();
+}
 unsafe impl windows_core::Interface for RequestingFocusOnKeyboardInputEventArgs {
     type Vtable = <IRequestingFocusOnKeyboardInputEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRequestingFocusOnKeyboardInputEventArgs as windows_core::Interface>::IID;
@@ -81,9 +81,6 @@ impl windows_core::RuntimeName for RequestingFocusOnKeyboardInputEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchSuggestion(windows_core::IUnknown);
-impl windows_core::RuntimeType for SearchSuggestion {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestion>();
-}
 windows_core::imp::interface_hierarchy!(SearchSuggestion, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SearchSuggestion,);
 impl SearchSuggestion {
@@ -131,6 +128,9 @@ impl SearchSuggestion {
         }
     }
 }
+impl windows_core::RuntimeType for SearchSuggestion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestion>();
+}
 unsafe impl windows_core::Interface for SearchSuggestion {
     type Vtable = <ISearchSuggestion as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchSuggestion as windows_core::Interface>::IID;
@@ -141,9 +141,6 @@ impl windows_core::RuntimeName for SearchSuggestion {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchSuggestionManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for SearchSuggestionManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestionManager>();
-}
 windows_core::imp::interface_hierarchy!(SearchSuggestionManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SearchSuggestionManager,);
 impl SearchSuggestionManager {
@@ -247,6 +244,9 @@ impl SearchSuggestionManager {
         unsafe { (windows_core::Interface::vtable(this).RemoveRequestingFocusOnKeyboardInput)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for SearchSuggestionManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestionManager>();
+}
 unsafe impl windows_core::Interface for SearchSuggestionManager {
     type Vtable = <ISearchSuggestionManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISearchSuggestionManager as windows_core::Interface>::IID;
@@ -257,9 +257,6 @@ impl windows_core::RuntimeName for SearchSuggestionManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SearchSuggestionsRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SearchSuggestionsRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestionsRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SearchSuggestionsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SearchSuggestionsRequestedEventArgs,);
 impl SearchSuggestionsRequestedEventArgs {
@@ -291,6 +288,9 @@ impl SearchSuggestionsRequestedEventArgs {
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for SearchSuggestionsRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISearchSuggestionsRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for SearchSuggestionsRequestedEventArgs {
     type Vtable = <ISearchSuggestionsRequestedEventArgs as windows_core::Interface>::Vtable;

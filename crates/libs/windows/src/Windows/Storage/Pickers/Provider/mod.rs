@@ -131,9 +131,6 @@ pub struct ITargetFileRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileOpenPickerUI(windows_core::IUnknown);
-impl windows_core::RuntimeType for FileOpenPickerUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileOpenPickerUI>();
-}
 windows_core::imp::interface_hierarchy!(FileOpenPickerUI, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileOpenPickerUI,);
 impl FileOpenPickerUI {
@@ -232,6 +229,9 @@ impl FileOpenPickerUI {
         unsafe { (windows_core::Interface::vtable(this).RemoveClosing)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for FileOpenPickerUI {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileOpenPickerUI>();
+}
 unsafe impl windows_core::Interface for FileOpenPickerUI {
     type Vtable = <IFileOpenPickerUI as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileOpenPickerUI as windows_core::Interface>::IID;
@@ -243,10 +243,6 @@ impl windows_core::RuntimeName for FileOpenPickerUI {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileRemovedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for FileRemovedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileRemovedEventArgs>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(FileRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -263,6 +259,10 @@ impl FileRemovedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for FileRemovedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileRemovedEventArgs>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for FileRemovedEventArgs {
     type Vtable = <IFileRemovedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileRemovedEventArgs as windows_core::Interface>::IID;
@@ -274,9 +274,6 @@ impl windows_core::RuntimeName for FileRemovedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileSavePickerUI(windows_core::IUnknown);
-impl windows_core::RuntimeType for FileSavePickerUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileSavePickerUI>();
-}
 windows_core::imp::interface_hierarchy!(FileSavePickerUI, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileSavePickerUI,);
 impl FileSavePickerUI {
@@ -349,6 +346,9 @@ impl FileSavePickerUI {
         unsafe { (windows_core::Interface::vtable(this).RemoveTargetFileRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for FileSavePickerUI {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileSavePickerUI>();
+}
 unsafe impl windows_core::Interface for FileSavePickerUI {
     type Vtable = <IFileSavePickerUI as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileSavePickerUI as windows_core::Interface>::IID;
@@ -359,9 +359,6 @@ impl windows_core::RuntimeName for FileSavePickerUI {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PickerClosingDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for PickerClosingDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPickerClosingDeferral>();
-}
 windows_core::imp::interface_hierarchy!(PickerClosingDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PickerClosingDeferral,);
 impl PickerClosingDeferral {
@@ -369,6 +366,9 @@ impl PickerClosingDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for PickerClosingDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPickerClosingDeferral>();
 }
 unsafe impl windows_core::Interface for PickerClosingDeferral {
     type Vtable = <IPickerClosingDeferral as windows_core::Interface>::Vtable;
@@ -380,9 +380,6 @@ impl windows_core::RuntimeName for PickerClosingDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PickerClosingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PickerClosingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPickerClosingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PickerClosingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PickerClosingEventArgs,);
 impl PickerClosingEventArgs {
@@ -401,6 +398,9 @@ impl PickerClosingEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PickerClosingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPickerClosingEventArgs>();
+}
 unsafe impl windows_core::Interface for PickerClosingEventArgs {
     type Vtable = <IPickerClosingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPickerClosingEventArgs as windows_core::Interface>::IID;
@@ -411,9 +411,6 @@ impl windows_core::RuntimeName for PickerClosingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PickerClosingOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for PickerClosingOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPickerClosingOperation>();
-}
 windows_core::imp::interface_hierarchy!(PickerClosingOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PickerClosingOperation,);
 impl PickerClosingOperation {
@@ -432,6 +429,9 @@ impl PickerClosingOperation {
         }
     }
 }
+impl windows_core::RuntimeType for PickerClosingOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPickerClosingOperation>();
+}
 unsafe impl windows_core::Interface for PickerClosingOperation {
     type Vtable = <IPickerClosingOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPickerClosingOperation as windows_core::Interface>::IID;
@@ -442,9 +442,6 @@ impl windows_core::RuntimeName for PickerClosingOperation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetFileRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for TargetFileRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetFileRequest>();
-}
 windows_core::imp::interface_hierarchy!(TargetFileRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TargetFileRequest,);
 impl TargetFileRequest {
@@ -472,6 +469,9 @@ impl TargetFileRequest {
         }
     }
 }
+impl windows_core::RuntimeType for TargetFileRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetFileRequest>();
+}
 unsafe impl windows_core::Interface for TargetFileRequest {
     type Vtable = <ITargetFileRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITargetFileRequest as windows_core::Interface>::IID;
@@ -482,9 +482,6 @@ impl windows_core::RuntimeName for TargetFileRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetFileRequestDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for TargetFileRequestDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetFileRequestDeferral>();
-}
 windows_core::imp::interface_hierarchy!(TargetFileRequestDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TargetFileRequestDeferral,);
 impl TargetFileRequestDeferral {
@@ -492,6 +489,9 @@ impl TargetFileRequestDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for TargetFileRequestDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetFileRequestDeferral>();
 }
 unsafe impl windows_core::Interface for TargetFileRequestDeferral {
     type Vtable = <ITargetFileRequestDeferral as windows_core::Interface>::Vtable;
@@ -503,9 +503,6 @@ impl windows_core::RuntimeName for TargetFileRequestDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TargetFileRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for TargetFileRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetFileRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(TargetFileRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TargetFileRequestedEventArgs,);
 impl TargetFileRequestedEventArgs {
@@ -516,6 +513,9 @@ impl TargetFileRequestedEventArgs {
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for TargetFileRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITargetFileRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for TargetFileRequestedEventArgs {
     type Vtable = <ITargetFileRequestedEventArgs as windows_core::Interface>::Vtable;

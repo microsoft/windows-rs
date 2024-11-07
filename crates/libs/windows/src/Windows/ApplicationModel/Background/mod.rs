@@ -1860,9 +1860,6 @@ pub struct IUserNotificationChangedTriggerFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivitySensorTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for ActivitySensorTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivitySensorTrigger>();
-}
 windows_core::imp::interface_hierarchy!(ActivitySensorTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActivitySensorTrigger, IBackgroundTrigger);
 impl ActivitySensorTrigger {
@@ -1907,6 +1904,9 @@ impl ActivitySensorTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ActivitySensorTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivitySensorTrigger>();
+}
 unsafe impl windows_core::Interface for ActivitySensorTrigger {
     type Vtable = <IActivitySensorTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IActivitySensorTrigger as windows_core::Interface>::IID;
@@ -1939,9 +1939,6 @@ impl windows_core::RuntimeName for AlarmApplicationManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppBroadcastTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastTrigger>();
-}
 windows_core::imp::interface_hierarchy!(AppBroadcastTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppBroadcastTrigger, IBackgroundTrigger);
 impl AppBroadcastTrigger {
@@ -1970,6 +1967,9 @@ impl AppBroadcastTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AppBroadcastTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastTrigger>();
+}
 unsafe impl windows_core::Interface for AppBroadcastTrigger {
     type Vtable = <IAppBroadcastTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppBroadcastTrigger as windows_core::Interface>::IID;
@@ -1980,9 +1980,6 @@ impl windows_core::RuntimeName for AppBroadcastTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppBroadcastTriggerProviderInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppBroadcastTriggerProviderInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastTriggerProviderInfo>();
-}
 windows_core::imp::interface_hierarchy!(AppBroadcastTriggerProviderInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppBroadcastTriggerProviderInfo,);
 impl AppBroadcastTriggerProviderInfo {
@@ -2053,6 +2050,9 @@ impl AppBroadcastTriggerProviderInfo {
         }
     }
 }
+impl windows_core::RuntimeType for AppBroadcastTriggerProviderInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppBroadcastTriggerProviderInfo>();
+}
 unsafe impl windows_core::Interface for AppBroadcastTriggerProviderInfo {
     type Vtable = <IAppBroadcastTriggerProviderInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppBroadcastTriggerProviderInfo as windows_core::Interface>::IID;
@@ -2063,9 +2063,6 @@ impl windows_core::RuntimeName for AppBroadcastTriggerProviderInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for ApplicationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationTrigger>();
-}
 windows_core::imp::interface_hierarchy!(ApplicationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ApplicationTrigger, IBackgroundTrigger);
 impl ApplicationTrigger {
@@ -2095,6 +2092,9 @@ impl ApplicationTrigger {
         }
     }
 }
+impl windows_core::RuntimeType for ApplicationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationTrigger>();
+}
 unsafe impl windows_core::Interface for ApplicationTrigger {
     type Vtable = <IApplicationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IApplicationTrigger as windows_core::Interface>::IID;
@@ -2105,9 +2105,6 @@ impl windows_core::RuntimeName for ApplicationTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for ApplicationTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(ApplicationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ApplicationTriggerDetails,);
 impl ApplicationTriggerDetails {
@@ -2120,6 +2117,9 @@ impl ApplicationTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for ApplicationTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationTriggerDetails>();
+}
 unsafe impl windows_core::Interface for ApplicationTriggerDetails {
     type Vtable = <IApplicationTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IApplicationTriggerDetails as windows_core::Interface>::IID;
@@ -2130,9 +2130,6 @@ impl windows_core::RuntimeName for ApplicationTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppointmentStoreNotificationTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppointmentStoreNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStoreNotificationTrigger>();
-}
 windows_core::imp::interface_hierarchy!(AppointmentStoreNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentStoreNotificationTrigger, IBackgroundTrigger);
 impl AppointmentStoreNotificationTrigger {
@@ -2143,6 +2140,9 @@ impl AppointmentStoreNotificationTrigger {
         static SHARED: windows_core::imp::FactoryCache<AppointmentStoreNotificationTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for AppointmentStoreNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppointmentStoreNotificationTrigger>();
 }
 unsafe impl windows_core::Interface for AppointmentStoreNotificationTrigger {
     type Vtable = <IAppointmentStoreNotificationTrigger as windows_core::Interface>::Vtable;
@@ -2226,9 +2226,6 @@ impl windows_core::RuntimeName for BackgroundExecutionManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTaskBuilder(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackgroundTaskBuilder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskBuilder>();
-}
 windows_core::imp::interface_hierarchy!(BackgroundTaskBuilder, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundTaskBuilder,);
 impl BackgroundTaskBuilder {
@@ -2358,6 +2355,9 @@ impl BackgroundTaskBuilder {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BackgroundTaskBuilder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskBuilder>();
+}
 unsafe impl windows_core::Interface for BackgroundTaskBuilder {
     type Vtable = <IBackgroundTaskBuilder as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTaskBuilder as windows_core::Interface>::IID;
@@ -2368,9 +2368,6 @@ impl windows_core::RuntimeName for BackgroundTaskBuilder {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTaskCompletedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackgroundTaskCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskCompletedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(BackgroundTaskCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundTaskCompletedEventArgs,);
 impl BackgroundTaskCompletedEventArgs {
@@ -2386,6 +2383,9 @@ impl BackgroundTaskCompletedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).CheckResult)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for BackgroundTaskCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskCompletedEventArgs>();
+}
 unsafe impl windows_core::Interface for BackgroundTaskCompletedEventArgs {
     type Vtable = <IBackgroundTaskCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTaskCompletedEventArgs as windows_core::Interface>::IID;
@@ -2396,9 +2396,6 @@ impl windows_core::RuntimeName for BackgroundTaskCompletedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTaskDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackgroundTaskDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskDeferral>();
-}
 windows_core::imp::interface_hierarchy!(BackgroundTaskDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundTaskDeferral,);
 impl BackgroundTaskDeferral {
@@ -2406,6 +2403,9 @@ impl BackgroundTaskDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for BackgroundTaskDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskDeferral>();
 }
 unsafe impl windows_core::Interface for BackgroundTaskDeferral {
     type Vtable = <IBackgroundTaskDeferral as windows_core::Interface>::Vtable;
@@ -2417,9 +2417,6 @@ impl windows_core::RuntimeName for BackgroundTaskDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTaskProgressEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackgroundTaskProgressEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskProgressEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(BackgroundTaskProgressEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundTaskProgressEventArgs,);
 impl BackgroundTaskProgressEventArgs {
@@ -2438,6 +2435,9 @@ impl BackgroundTaskProgressEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for BackgroundTaskProgressEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskProgressEventArgs>();
+}
 unsafe impl windows_core::Interface for BackgroundTaskProgressEventArgs {
     type Vtable = <IBackgroundTaskProgressEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTaskProgressEventArgs as windows_core::Interface>::IID;
@@ -2448,9 +2448,6 @@ impl windows_core::RuntimeName for BackgroundTaskProgressEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTaskRegistration(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackgroundTaskRegistration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskRegistration>();
-}
 windows_core::imp::interface_hierarchy!(BackgroundTaskRegistration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundTaskRegistration, IBackgroundTaskRegistration, IBackgroundTaskRegistration2, IBackgroundTaskRegistration3);
 impl BackgroundTaskRegistration {
@@ -2557,6 +2554,9 @@ impl BackgroundTaskRegistration {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BackgroundTaskRegistration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskRegistration>();
+}
 unsafe impl windows_core::Interface for BackgroundTaskRegistration {
     type Vtable = <IBackgroundTaskRegistration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTaskRegistration as windows_core::Interface>::IID;
@@ -2567,9 +2567,6 @@ impl windows_core::RuntimeName for BackgroundTaskRegistration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTaskRegistrationGroup(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackgroundTaskRegistrationGroup {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskRegistrationGroup>();
-}
 windows_core::imp::interface_hierarchy!(BackgroundTaskRegistrationGroup, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundTaskRegistrationGroup,);
 impl BackgroundTaskRegistrationGroup {
@@ -2627,6 +2624,9 @@ impl BackgroundTaskRegistrationGroup {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BackgroundTaskRegistrationGroup {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTaskRegistrationGroup>();
+}
 unsafe impl windows_core::Interface for BackgroundTaskRegistrationGroup {
     type Vtable = <IBackgroundTaskRegistrationGroup as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTaskRegistrationGroup as windows_core::Interface>::IID;
@@ -2675,9 +2675,6 @@ impl windows_core::RuntimeName for BackgroundWorkCost {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementPublisherTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEAdvertisementPublisherTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementPublisherTrigger>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementPublisherTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEAdvertisementPublisherTrigger, IBackgroundTrigger);
 impl BluetoothLEAdvertisementPublisherTrigger {
@@ -2744,6 +2741,9 @@ impl BluetoothLEAdvertisementPublisherTrigger {
         unsafe { (windows_core::Interface::vtable(this).SetIncludeTransmitPowerLevel)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for BluetoothLEAdvertisementPublisherTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementPublisherTrigger>();
+}
 unsafe impl windows_core::Interface for BluetoothLEAdvertisementPublisherTrigger {
     type Vtable = <IBluetoothLEAdvertisementPublisherTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEAdvertisementPublisherTrigger as windows_core::Interface>::IID;
@@ -2754,9 +2754,6 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementPublisherTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementWatcherTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEAdvertisementWatcherTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementWatcherTrigger>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementWatcherTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEAdvertisementWatcherTrigger, IBackgroundTrigger);
 impl BluetoothLEAdvertisementWatcherTrigger {
@@ -2839,6 +2836,9 @@ impl BluetoothLEAdvertisementWatcherTrigger {
         unsafe { (windows_core::Interface::vtable(this).SetAllowExtendedAdvertisements)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for BluetoothLEAdvertisementWatcherTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementWatcherTrigger>();
+}
 unsafe impl windows_core::Interface for BluetoothLEAdvertisementWatcherTrigger {
     type Vtable = <IBluetoothLEAdvertisementWatcherTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEAdvertisementWatcherTrigger as windows_core::Interface>::IID;
@@ -2849,9 +2849,6 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementWatcherTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CachedFileUpdaterTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for CachedFileUpdaterTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICachedFileUpdaterTrigger>();
-}
 windows_core::imp::interface_hierarchy!(CachedFileUpdaterTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CachedFileUpdaterTrigger, IBackgroundTrigger);
 impl CachedFileUpdaterTrigger {
@@ -2863,6 +2860,9 @@ impl CachedFileUpdaterTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CachedFileUpdaterTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICachedFileUpdaterTrigger>();
+}
 unsafe impl windows_core::Interface for CachedFileUpdaterTrigger {
     type Vtable = <ICachedFileUpdaterTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICachedFileUpdaterTrigger as windows_core::Interface>::IID;
@@ -2873,9 +2873,6 @@ impl windows_core::RuntimeName for CachedFileUpdaterTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CachedFileUpdaterTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for CachedFileUpdaterTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICachedFileUpdaterTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(CachedFileUpdaterTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CachedFileUpdaterTriggerDetails,);
 impl CachedFileUpdaterTriggerDetails {
@@ -2903,6 +2900,9 @@ impl CachedFileUpdaterTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for CachedFileUpdaterTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICachedFileUpdaterTriggerDetails>();
+}
 unsafe impl windows_core::Interface for CachedFileUpdaterTriggerDetails {
     type Vtable = <ICachedFileUpdaterTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICachedFileUpdaterTriggerDetails as windows_core::Interface>::IID;
@@ -2913,9 +2913,6 @@ impl windows_core::RuntimeName for CachedFileUpdaterTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageNotificationTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatMessageNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageNotificationTrigger>();
-}
 windows_core::imp::interface_hierarchy!(ChatMessageNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageNotificationTrigger, IBackgroundTrigger);
 impl ChatMessageNotificationTrigger {
@@ -2927,6 +2924,9 @@ impl ChatMessageNotificationTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ChatMessageNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageNotificationTrigger>();
+}
 unsafe impl windows_core::Interface for ChatMessageNotificationTrigger {
     type Vtable = <IChatMessageNotificationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatMessageNotificationTrigger as windows_core::Interface>::IID;
@@ -2937,9 +2937,6 @@ impl windows_core::RuntimeName for ChatMessageNotificationTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageReceivedNotificationTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatMessageReceivedNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageReceivedNotificationTrigger>();
-}
 windows_core::imp::interface_hierarchy!(ChatMessageReceivedNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageReceivedNotificationTrigger, IBackgroundTrigger);
 impl ChatMessageReceivedNotificationTrigger {
@@ -2951,6 +2948,9 @@ impl ChatMessageReceivedNotificationTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ChatMessageReceivedNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageReceivedNotificationTrigger>();
+}
 unsafe impl windows_core::Interface for ChatMessageReceivedNotificationTrigger {
     type Vtable = <IChatMessageReceivedNotificationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatMessageReceivedNotificationTrigger as windows_core::Interface>::IID;
@@ -2961,9 +2961,6 @@ impl windows_core::RuntimeName for ChatMessageReceivedNotificationTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CommunicationBlockingAppSetAsActiveTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for CommunicationBlockingAppSetAsActiveTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICommunicationBlockingAppSetAsActiveTrigger>();
-}
 windows_core::imp::interface_hierarchy!(CommunicationBlockingAppSetAsActiveTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CommunicationBlockingAppSetAsActiveTrigger, IBackgroundTrigger);
 impl CommunicationBlockingAppSetAsActiveTrigger {
@@ -2975,6 +2972,9 @@ impl CommunicationBlockingAppSetAsActiveTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CommunicationBlockingAppSetAsActiveTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICommunicationBlockingAppSetAsActiveTrigger>();
+}
 unsafe impl windows_core::Interface for CommunicationBlockingAppSetAsActiveTrigger {
     type Vtable = <ICommunicationBlockingAppSetAsActiveTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICommunicationBlockingAppSetAsActiveTrigger as windows_core::Interface>::IID;
@@ -2985,9 +2985,6 @@ impl windows_core::RuntimeName for CommunicationBlockingAppSetAsActiveTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactStoreNotificationTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContactStoreNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactStoreNotificationTrigger>();
-}
 windows_core::imp::interface_hierarchy!(ContactStoreNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactStoreNotificationTrigger, IBackgroundTrigger);
 impl ContactStoreNotificationTrigger {
@@ -2999,6 +2996,9 @@ impl ContactStoreNotificationTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ContactStoreNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactStoreNotificationTrigger>();
+}
 unsafe impl windows_core::Interface for ContactStoreNotificationTrigger {
     type Vtable = <IContactStoreNotificationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactStoreNotificationTrigger as windows_core::Interface>::IID;
@@ -3009,9 +3009,6 @@ impl windows_core::RuntimeName for ContactStoreNotificationTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContentPrefetchTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContentPrefetchTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentPrefetchTrigger>();
-}
 windows_core::imp::interface_hierarchy!(ContentPrefetchTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContentPrefetchTrigger, IBackgroundTrigger);
 impl ContentPrefetchTrigger {
@@ -3040,6 +3037,9 @@ impl ContentPrefetchTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ContentPrefetchTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentPrefetchTrigger>();
+}
 unsafe impl windows_core::Interface for ContentPrefetchTrigger {
     type Vtable = <IContentPrefetchTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContentPrefetchTrigger as windows_core::Interface>::IID;
@@ -3050,9 +3050,6 @@ impl windows_core::RuntimeName for ContentPrefetchTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConversationalAgentTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for ConversationalAgentTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(ConversationalAgentTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConversationalAgentTrigger, IBackgroundTrigger);
 impl ConversationalAgentTrigger {
@@ -3064,6 +3061,9 @@ impl ConversationalAgentTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ConversationalAgentTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for ConversationalAgentTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -3074,9 +3074,6 @@ impl windows_core::RuntimeName for ConversationalAgentTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CustomSystemEventTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for CustomSystemEventTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICustomSystemEventTrigger>();
-}
 windows_core::imp::interface_hierarchy!(CustomSystemEventTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CustomSystemEventTrigger, IBackgroundTrigger);
 impl CustomSystemEventTrigger {
@@ -3105,6 +3102,9 @@ impl CustomSystemEventTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CustomSystemEventTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICustomSystemEventTrigger>();
+}
 unsafe impl windows_core::Interface for CustomSystemEventTrigger {
     type Vtable = <ICustomSystemEventTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICustomSystemEventTrigger as windows_core::Interface>::IID;
@@ -3115,9 +3115,6 @@ impl windows_core::RuntimeName for CustomSystemEventTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceConnectionChangeTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeviceConnectionChangeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceConnectionChangeTrigger>();
-}
 windows_core::imp::interface_hierarchy!(DeviceConnectionChangeTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeviceConnectionChangeTrigger, IBackgroundTrigger);
 impl DeviceConnectionChangeTrigger {
@@ -3157,6 +3154,9 @@ impl DeviceConnectionChangeTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DeviceConnectionChangeTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceConnectionChangeTrigger>();
+}
 unsafe impl windows_core::Interface for DeviceConnectionChangeTrigger {
     type Vtable = <IDeviceConnectionChangeTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceConnectionChangeTrigger as windows_core::Interface>::IID;
@@ -3168,10 +3168,6 @@ impl windows_core::RuntimeName for DeviceConnectionChangeTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceManufacturerNotificationTrigger(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for DeviceManufacturerNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceManufacturerNotificationTrigger>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(DeviceManufacturerNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -3207,6 +3203,10 @@ impl DeviceManufacturerNotificationTrigger {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for DeviceManufacturerNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceManufacturerNotificationTrigger>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for DeviceManufacturerNotificationTrigger {
     type Vtable = <IDeviceManufacturerNotificationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceManufacturerNotificationTrigger as windows_core::Interface>::IID;
@@ -3218,9 +3218,6 @@ impl windows_core::RuntimeName for DeviceManufacturerNotificationTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceServicingTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeviceServicingTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceServicingTrigger>();
-}
 windows_core::imp::interface_hierarchy!(DeviceServicingTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeviceServicingTrigger, IBackgroundTrigger);
 impl DeviceServicingTrigger {
@@ -3246,6 +3243,9 @@ impl DeviceServicingTrigger {
         }
     }
 }
+impl windows_core::RuntimeType for DeviceServicingTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceServicingTrigger>();
+}
 unsafe impl windows_core::Interface for DeviceServicingTrigger {
     type Vtable = <IDeviceServicingTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceServicingTrigger as windows_core::Interface>::IID;
@@ -3256,9 +3256,6 @@ impl windows_core::RuntimeName for DeviceServicingTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceUseTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeviceUseTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceUseTrigger>();
-}
 windows_core::imp::interface_hierarchy!(DeviceUseTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeviceUseTrigger, IBackgroundTrigger);
 impl DeviceUseTrigger {
@@ -3284,6 +3281,9 @@ impl DeviceUseTrigger {
         }
     }
 }
+impl windows_core::RuntimeType for DeviceUseTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceUseTrigger>();
+}
 unsafe impl windows_core::Interface for DeviceUseTrigger {
     type Vtable = <IDeviceUseTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceUseTrigger as windows_core::Interface>::IID;
@@ -3294,12 +3294,12 @@ impl windows_core::RuntimeName for DeviceUseTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceWatcherTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeviceWatcherTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceWatcherTrigger>();
-}
 windows_core::imp::interface_hierarchy!(DeviceWatcherTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeviceWatcherTrigger, IBackgroundTrigger);
 impl DeviceWatcherTrigger {}
+impl windows_core::RuntimeType for DeviceWatcherTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceWatcherTrigger>();
+}
 unsafe impl windows_core::Interface for DeviceWatcherTrigger {
     type Vtable = <IDeviceWatcherTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceWatcherTrigger as windows_core::Interface>::IID;
@@ -3310,9 +3310,6 @@ impl windows_core::RuntimeName for DeviceWatcherTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EmailStoreNotificationTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for EmailStoreNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailStoreNotificationTrigger>();
-}
 windows_core::imp::interface_hierarchy!(EmailStoreNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EmailStoreNotificationTrigger, IBackgroundTrigger);
 impl EmailStoreNotificationTrigger {
@@ -3324,6 +3321,9 @@ impl EmailStoreNotificationTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for EmailStoreNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEmailStoreNotificationTrigger>();
+}
 unsafe impl windows_core::Interface for EmailStoreNotificationTrigger {
     type Vtable = <IEmailStoreNotificationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEmailStoreNotificationTrigger as windows_core::Interface>::IID;
@@ -3334,9 +3334,6 @@ impl windows_core::RuntimeName for EmailStoreNotificationTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattCharacteristicNotificationTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattCharacteristicNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattCharacteristicNotificationTrigger>();
-}
 windows_core::imp::interface_hierarchy!(GattCharacteristicNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattCharacteristicNotificationTrigger, IBackgroundTrigger);
 impl GattCharacteristicNotificationTrigger {
@@ -3385,6 +3382,9 @@ impl GattCharacteristicNotificationTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GattCharacteristicNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattCharacteristicNotificationTrigger>();
+}
 unsafe impl windows_core::Interface for GattCharacteristicNotificationTrigger {
     type Vtable = <IGattCharacteristicNotificationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattCharacteristicNotificationTrigger as windows_core::Interface>::IID;
@@ -3395,9 +3395,6 @@ impl windows_core::RuntimeName for GattCharacteristicNotificationTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattServiceProviderTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderTrigger>();
-}
 windows_core::imp::interface_hierarchy!(GattServiceProviderTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattServiceProviderTrigger, IBackgroundTrigger);
 impl GattServiceProviderTrigger {
@@ -3443,6 +3440,9 @@ impl GattServiceProviderTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GattServiceProviderTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderTrigger>();
+}
 unsafe impl windows_core::Interface for GattServiceProviderTrigger {
     type Vtable = <IGattServiceProviderTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattServiceProviderTrigger as windows_core::Interface>::IID;
@@ -3453,9 +3453,6 @@ impl windows_core::RuntimeName for GattServiceProviderTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderTriggerResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattServiceProviderTriggerResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderTriggerResult>();
-}
 windows_core::imp::interface_hierarchy!(GattServiceProviderTriggerResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattServiceProviderTriggerResult,);
 impl GattServiceProviderTriggerResult {
@@ -3475,6 +3472,9 @@ impl GattServiceProviderTriggerResult {
         }
     }
 }
+impl windows_core::RuntimeType for GattServiceProviderTriggerResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderTriggerResult>();
+}
 unsafe impl windows_core::Interface for GattServiceProviderTriggerResult {
     type Vtable = <IGattServiceProviderTriggerResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattServiceProviderTriggerResult as windows_core::Interface>::IID;
@@ -3485,9 +3485,6 @@ impl windows_core::RuntimeName for GattServiceProviderTriggerResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeovisitTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for GeovisitTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeovisitTrigger>();
-}
 windows_core::imp::interface_hierarchy!(GeovisitTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GeovisitTrigger, IBackgroundTrigger);
 impl GeovisitTrigger {
@@ -3512,6 +3509,9 @@ impl GeovisitTrigger {
         unsafe { (windows_core::Interface::vtable(this).SetMonitoringScope)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for GeovisitTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeovisitTrigger>();
+}
 unsafe impl windows_core::Interface for GeovisitTrigger {
     type Vtable = <IGeovisitTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeovisitTrigger as windows_core::Interface>::IID;
@@ -3522,9 +3522,6 @@ impl windows_core::RuntimeName for GeovisitTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LocationTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for LocationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocationTrigger>();
-}
 windows_core::imp::interface_hierarchy!(LocationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LocationTrigger, IBackgroundTrigger);
 impl LocationTrigger {
@@ -3546,6 +3543,9 @@ impl LocationTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LocationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILocationTrigger>();
+}
 unsafe impl windows_core::Interface for LocationTrigger {
     type Vtable = <ILocationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILocationTrigger as windows_core::Interface>::IID;
@@ -3556,9 +3556,6 @@ impl windows_core::RuntimeName for LocationTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MaintenanceTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for MaintenanceTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMaintenanceTrigger>();
-}
 windows_core::imp::interface_hierarchy!(MaintenanceTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MaintenanceTrigger, IBackgroundTrigger);
 impl MaintenanceTrigger {
@@ -3587,6 +3584,9 @@ impl MaintenanceTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MaintenanceTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMaintenanceTrigger>();
+}
 unsafe impl windows_core::Interface for MaintenanceTrigger {
     type Vtable = <IMaintenanceTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMaintenanceTrigger as windows_core::Interface>::IID;
@@ -3597,9 +3597,6 @@ impl windows_core::RuntimeName for MaintenanceTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaProcessingTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaProcessingTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaProcessingTrigger>();
-}
 windows_core::imp::interface_hierarchy!(MediaProcessingTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaProcessingTrigger, IBackgroundTrigger);
 impl MediaProcessingTrigger {
@@ -3629,6 +3626,9 @@ impl MediaProcessingTrigger {
         }
     }
 }
+impl windows_core::RuntimeType for MediaProcessingTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaProcessingTrigger>();
+}
 unsafe impl windows_core::Interface for MediaProcessingTrigger {
     type Vtable = <IMediaProcessingTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaProcessingTrigger as windows_core::Interface>::IID;
@@ -3639,9 +3639,6 @@ impl windows_core::RuntimeName for MediaProcessingTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandDeviceServiceNotificationTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandDeviceServiceNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandDeviceServiceNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandDeviceServiceNotificationTrigger, IBackgroundTrigger);
 impl MobileBroadbandDeviceServiceNotificationTrigger {
@@ -3653,6 +3650,9 @@ impl MobileBroadbandDeviceServiceNotificationTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandDeviceServiceNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandDeviceServiceNotificationTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -3663,9 +3663,6 @@ impl windows_core::RuntimeName for MobileBroadbandDeviceServiceNotificationTrigg
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandPcoDataChangeTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandPcoDataChangeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandPcoDataChangeTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandPcoDataChangeTrigger, IBackgroundTrigger);
 impl MobileBroadbandPcoDataChangeTrigger {
@@ -3677,6 +3674,9 @@ impl MobileBroadbandPcoDataChangeTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandPcoDataChangeTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandPcoDataChangeTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -3687,9 +3687,6 @@ impl windows_core::RuntimeName for MobileBroadbandPcoDataChangeTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandPinLockStateChangeTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandPinLockStateChangeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandPinLockStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandPinLockStateChangeTrigger, IBackgroundTrigger);
 impl MobileBroadbandPinLockStateChangeTrigger {
@@ -3701,6 +3698,9 @@ impl MobileBroadbandPinLockStateChangeTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandPinLockStateChangeTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandPinLockStateChangeTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -3711,9 +3711,6 @@ impl windows_core::RuntimeName for MobileBroadbandPinLockStateChangeTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandRadioStateChangeTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandRadioStateChangeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandRadioStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandRadioStateChangeTrigger, IBackgroundTrigger);
 impl MobileBroadbandRadioStateChangeTrigger {
@@ -3725,6 +3722,9 @@ impl MobileBroadbandRadioStateChangeTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandRadioStateChangeTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandRadioStateChangeTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -3735,9 +3735,6 @@ impl windows_core::RuntimeName for MobileBroadbandRadioStateChangeTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MobileBroadbandRegistrationStateChangeTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for MobileBroadbandRegistrationStateChangeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(MobileBroadbandRegistrationStateChangeTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MobileBroadbandRegistrationStateChangeTrigger, IBackgroundTrigger);
 impl MobileBroadbandRegistrationStateChangeTrigger {
@@ -3749,6 +3746,9 @@ impl MobileBroadbandRegistrationStateChangeTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MobileBroadbandRegistrationStateChangeTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for MobileBroadbandRegistrationStateChangeTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -3759,9 +3759,6 @@ impl windows_core::RuntimeName for MobileBroadbandRegistrationStateChangeTrigger
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkOperatorDataUsageTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for NetworkOperatorDataUsageTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(NetworkOperatorDataUsageTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkOperatorDataUsageTrigger, IBackgroundTrigger);
 impl NetworkOperatorDataUsageTrigger {
@@ -3773,6 +3770,9 @@ impl NetworkOperatorDataUsageTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for NetworkOperatorDataUsageTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for NetworkOperatorDataUsageTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -3783,9 +3783,6 @@ impl windows_core::RuntimeName for NetworkOperatorDataUsageTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkOperatorHotspotAuthenticationTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for NetworkOperatorHotspotAuthenticationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorHotspotAuthenticationTrigger>();
-}
 windows_core::imp::interface_hierarchy!(NetworkOperatorHotspotAuthenticationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkOperatorHotspotAuthenticationTrigger, IBackgroundTrigger);
 impl NetworkOperatorHotspotAuthenticationTrigger {
@@ -3797,6 +3794,9 @@ impl NetworkOperatorHotspotAuthenticationTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for NetworkOperatorHotspotAuthenticationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorHotspotAuthenticationTrigger>();
+}
 unsafe impl windows_core::Interface for NetworkOperatorHotspotAuthenticationTrigger {
     type Vtable = <INetworkOperatorHotspotAuthenticationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorHotspotAuthenticationTrigger as windows_core::Interface>::IID;
@@ -3807,9 +3807,6 @@ impl windows_core::RuntimeName for NetworkOperatorHotspotAuthenticationTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NetworkOperatorNotificationTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for NetworkOperatorNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorNotificationTrigger>();
-}
 windows_core::imp::interface_hierarchy!(NetworkOperatorNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NetworkOperatorNotificationTrigger, IBackgroundTrigger);
 impl NetworkOperatorNotificationTrigger {
@@ -3831,6 +3828,9 @@ impl NetworkOperatorNotificationTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for NetworkOperatorNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INetworkOperatorNotificationTrigger>();
+}
 unsafe impl windows_core::Interface for NetworkOperatorNotificationTrigger {
     type Vtable = <INetworkOperatorNotificationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INetworkOperatorNotificationTrigger as windows_core::Interface>::IID;
@@ -3841,9 +3841,6 @@ impl windows_core::RuntimeName for NetworkOperatorNotificationTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentAppCanMakePaymentTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentAppCanMakePaymentTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(PaymentAppCanMakePaymentTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentAppCanMakePaymentTrigger, IBackgroundTrigger);
 impl PaymentAppCanMakePaymentTrigger {
@@ -3855,6 +3852,9 @@ impl PaymentAppCanMakePaymentTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PaymentAppCanMakePaymentTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for PaymentAppCanMakePaymentTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -3865,9 +3865,6 @@ impl windows_core::RuntimeName for PaymentAppCanMakePaymentTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhoneTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for PhoneTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneTrigger>();
-}
 windows_core::imp::interface_hierarchy!(PhoneTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhoneTrigger, IBackgroundTrigger);
 impl PhoneTrigger {
@@ -3898,6 +3895,9 @@ impl PhoneTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PhoneTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhoneTrigger>();
+}
 unsafe impl windows_core::Interface for PhoneTrigger {
     type Vtable = <IPhoneTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhoneTrigger as windows_core::Interface>::IID;
@@ -3908,9 +3908,6 @@ impl windows_core::RuntimeName for PhoneTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PushNotificationTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for PushNotificationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(PushNotificationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PushNotificationTrigger, IBackgroundTrigger);
 impl PushNotificationTrigger {
@@ -3932,6 +3929,9 @@ impl PushNotificationTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PushNotificationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for PushNotificationTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -3942,9 +3942,6 @@ impl windows_core::RuntimeName for PushNotificationTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessageAvailableTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for RcsEndUserMessageAvailableTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageAvailableTrigger>();
-}
 windows_core::imp::interface_hierarchy!(RcsEndUserMessageAvailableTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RcsEndUserMessageAvailableTrigger, IBackgroundTrigger);
 impl RcsEndUserMessageAvailableTrigger {
@@ -3956,6 +3953,9 @@ impl RcsEndUserMessageAvailableTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RcsEndUserMessageAvailableTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageAvailableTrigger>();
+}
 unsafe impl windows_core::Interface for RcsEndUserMessageAvailableTrigger {
     type Vtable = <IRcsEndUserMessageAvailableTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRcsEndUserMessageAvailableTrigger as windows_core::Interface>::IID;
@@ -3966,9 +3966,6 @@ impl windows_core::RuntimeName for RcsEndUserMessageAvailableTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommConnectionTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for RfcommConnectionTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommConnectionTrigger>();
-}
 windows_core::imp::interface_hierarchy!(RfcommConnectionTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RfcommConnectionTrigger, IBackgroundTrigger);
 impl RfcommConnectionTrigger {
@@ -4036,6 +4033,9 @@ impl RfcommConnectionTrigger {
         unsafe { (windows_core::Interface::vtable(this).SetRemoteHostName)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for RfcommConnectionTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommConnectionTrigger>();
+}
 unsafe impl windows_core::Interface for RfcommConnectionTrigger {
     type Vtable = <IRfcommConnectionTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRfcommConnectionTrigger as windows_core::Interface>::IID;
@@ -4047,10 +4047,6 @@ impl windows_core::RuntimeName for RfcommConnectionTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SecondaryAuthenticationFactorAuthenticationTrigger(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for SecondaryAuthenticationFactorAuthenticationTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISecondaryAuthenticationFactorAuthenticationTrigger>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SecondaryAuthenticationFactorAuthenticationTrigger, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -4066,6 +4062,10 @@ impl SecondaryAuthenticationFactorAuthenticationTrigger {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for SecondaryAuthenticationFactorAuthenticationTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISecondaryAuthenticationFactorAuthenticationTrigger>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SecondaryAuthenticationFactorAuthenticationTrigger {
     type Vtable = <ISecondaryAuthenticationFactorAuthenticationTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISecondaryAuthenticationFactorAuthenticationTrigger as windows_core::Interface>::IID;
@@ -4077,9 +4077,6 @@ impl windows_core::RuntimeName for SecondaryAuthenticationFactorAuthenticationTr
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SensorDataThresholdTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for SensorDataThresholdTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISensorDataThresholdTrigger>();
-}
 windows_core::imp::interface_hierarchy!(SensorDataThresholdTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SensorDataThresholdTrigger, IBackgroundTrigger);
 impl SensorDataThresholdTrigger {
@@ -4098,6 +4095,9 @@ impl SensorDataThresholdTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SensorDataThresholdTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISensorDataThresholdTrigger>();
+}
 unsafe impl windows_core::Interface for SensorDataThresholdTrigger {
     type Vtable = <ISensorDataThresholdTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISensorDataThresholdTrigger as windows_core::Interface>::IID;
@@ -4108,9 +4108,6 @@ impl windows_core::RuntimeName for SensorDataThresholdTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardTrigger>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardTrigger, IBackgroundTrigger);
 impl SmartCardTrigger {
@@ -4134,6 +4131,9 @@ impl SmartCardTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SmartCardTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardTrigger>();
+}
 unsafe impl windows_core::Interface for SmartCardTrigger {
     type Vtable = <ISmartCardTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardTrigger as windows_core::Interface>::IID;
@@ -4144,9 +4144,6 @@ impl windows_core::RuntimeName for SmartCardTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmsMessageReceivedTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmsMessageReceivedTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(SmsMessageReceivedTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmsMessageReceivedTrigger, IBackgroundTrigger);
 impl SmsMessageReceivedTrigger {
@@ -4165,6 +4162,9 @@ impl SmsMessageReceivedTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SmsMessageReceivedTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for SmsMessageReceivedTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -4175,9 +4175,6 @@ impl windows_core::RuntimeName for SmsMessageReceivedTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SocketActivityTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for SocketActivityTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(SocketActivityTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SocketActivityTrigger, IBackgroundTrigger);
 impl SocketActivityTrigger {
@@ -4196,6 +4193,9 @@ impl SocketActivityTrigger {
         }
     }
 }
+impl windows_core::RuntimeType for SocketActivityTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for SocketActivityTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -4206,9 +4206,6 @@ impl windows_core::RuntimeName for SocketActivityTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageLibraryChangeTrackerTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageLibraryChangeTrackerTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(StorageLibraryChangeTrackerTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageLibraryChangeTrackerTrigger, IBackgroundTrigger);
 impl StorageLibraryChangeTrackerTrigger {
@@ -4227,6 +4224,9 @@ impl StorageLibraryChangeTrackerTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for StorageLibraryChangeTrackerTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for StorageLibraryChangeTrackerTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -4237,9 +4237,6 @@ impl windows_core::RuntimeName for StorageLibraryChangeTrackerTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageLibraryContentChangedTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageLibraryContentChangedTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryContentChangedTrigger>();
-}
 windows_core::imp::interface_hierarchy!(StorageLibraryContentChangedTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageLibraryContentChangedTrigger, IBackgroundTrigger);
 impl StorageLibraryContentChangedTrigger {
@@ -4268,6 +4265,9 @@ impl StorageLibraryContentChangedTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for StorageLibraryContentChangedTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryContentChangedTrigger>();
+}
 unsafe impl windows_core::Interface for StorageLibraryContentChangedTrigger {
     type Vtable = <IStorageLibraryContentChangedTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageLibraryContentChangedTrigger as windows_core::Interface>::IID;
@@ -4278,9 +4278,6 @@ impl windows_core::RuntimeName for StorageLibraryContentChangedTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemCondition(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemCondition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemCondition>();
-}
 windows_core::imp::interface_hierarchy!(SystemCondition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemCondition, IBackgroundCondition);
 impl SystemCondition {
@@ -4302,6 +4299,9 @@ impl SystemCondition {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SystemCondition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemCondition>();
+}
 unsafe impl windows_core::Interface for SystemCondition {
     type Vtable = <ISystemCondition as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemCondition as windows_core::Interface>::IID;
@@ -4312,9 +4312,6 @@ impl windows_core::RuntimeName for SystemCondition {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemTrigger>();
-}
 windows_core::imp::interface_hierarchy!(SystemTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemTrigger, IBackgroundTrigger);
 impl SystemTrigger {
@@ -4343,6 +4340,9 @@ impl SystemTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SystemTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemTrigger>();
+}
 unsafe impl windows_core::Interface for SystemTrigger {
     type Vtable = <ISystemTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemTrigger as windows_core::Interface>::IID;
@@ -4353,9 +4353,6 @@ impl windows_core::RuntimeName for SystemTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TetheringEntitlementCheckTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for TetheringEntitlementCheckTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(TetheringEntitlementCheckTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TetheringEntitlementCheckTrigger, IBackgroundTrigger);
 impl TetheringEntitlementCheckTrigger {
@@ -4367,6 +4364,9 @@ impl TetheringEntitlementCheckTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TetheringEntitlementCheckTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for TetheringEntitlementCheckTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -4377,9 +4377,6 @@ impl windows_core::RuntimeName for TetheringEntitlementCheckTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TimeTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for TimeTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITimeTrigger>();
-}
 windows_core::imp::interface_hierarchy!(TimeTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TimeTrigger, IBackgroundTrigger);
 impl TimeTrigger {
@@ -4408,6 +4405,9 @@ impl TimeTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TimeTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITimeTrigger>();
+}
 unsafe impl windows_core::Interface for TimeTrigger {
     type Vtable = <ITimeTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITimeTrigger as windows_core::Interface>::IID;
@@ -4418,9 +4418,6 @@ impl windows_core::RuntimeName for TimeTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotificationActionTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for ToastNotificationActionTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(ToastNotificationActionTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ToastNotificationActionTrigger, IBackgroundTrigger);
 impl ToastNotificationActionTrigger {
@@ -4442,6 +4439,9 @@ impl ToastNotificationActionTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ToastNotificationActionTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for ToastNotificationActionTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -4452,9 +4452,6 @@ impl windows_core::RuntimeName for ToastNotificationActionTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ToastNotificationHistoryChangedTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for ToastNotificationHistoryChangedTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(ToastNotificationHistoryChangedTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ToastNotificationHistoryChangedTrigger, IBackgroundTrigger);
 impl ToastNotificationHistoryChangedTrigger {
@@ -4476,6 +4473,9 @@ impl ToastNotificationHistoryChangedTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ToastNotificationHistoryChangedTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for ToastNotificationHistoryChangedTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -4486,9 +4486,6 @@ impl windows_core::RuntimeName for ToastNotificationHistoryChangedTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserNotificationChangedTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserNotificationChangedTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(UserNotificationChangedTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserNotificationChangedTrigger, IBackgroundTrigger);
 impl UserNotificationChangedTrigger {
@@ -4504,6 +4501,9 @@ impl UserNotificationChangedTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for UserNotificationChangedTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for UserNotificationChangedTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -4514,9 +4514,6 @@ impl windows_core::RuntimeName for UserNotificationChangedTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotConnectTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotConnectTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiOnDemandHotspotConnectTrigger, IBackgroundTrigger);
 impl WiFiOnDemandHotspotConnectTrigger {
@@ -4528,6 +4525,9 @@ impl WiFiOnDemandHotspotConnectTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WiFiOnDemandHotspotConnectTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
+}
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotConnectTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTrigger as windows_core::Interface>::IID;
@@ -4538,9 +4538,6 @@ impl windows_core::RuntimeName for WiFiOnDemandHotspotConnectTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiOnDemandHotspotUpdateMetadataTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiOnDemandHotspotUpdateMetadataTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
-}
 windows_core::imp::interface_hierarchy!(WiFiOnDemandHotspotUpdateMetadataTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiOnDemandHotspotUpdateMetadataTrigger, IBackgroundTrigger);
 impl WiFiOnDemandHotspotUpdateMetadataTrigger {
@@ -4551,6 +4548,9 @@ impl WiFiOnDemandHotspotUpdateMetadataTrigger {
         static SHARED: windows_core::imp::FactoryCache<WiFiOnDemandHotspotUpdateMetadataTrigger, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for WiFiOnDemandHotspotUpdateMetadataTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTrigger>();
 }
 unsafe impl windows_core::Interface for WiFiOnDemandHotspotUpdateMetadataTrigger {
     type Vtable = <IBackgroundTrigger as windows_core::Interface>::Vtable;

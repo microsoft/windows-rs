@@ -280,9 +280,6 @@ pub struct IWebAccountProviderCommandFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AccountsSettingsPane(windows_core::IUnknown);
-impl windows_core::RuntimeType for AccountsSettingsPane {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccountsSettingsPane>();
-}
 windows_core::imp::interface_hierarchy!(AccountsSettingsPane, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AccountsSettingsPane,);
 impl AccountsSettingsPane {
@@ -354,6 +351,9 @@ impl AccountsSettingsPane {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AccountsSettingsPane {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccountsSettingsPane>();
+}
 unsafe impl windows_core::Interface for AccountsSettingsPane {
     type Vtable = <IAccountsSettingsPane as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAccountsSettingsPane as windows_core::Interface>::IID;
@@ -364,9 +364,6 @@ impl windows_core::RuntimeName for AccountsSettingsPane {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AccountsSettingsPaneCommandsRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AccountsSettingsPaneCommandsRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccountsSettingsPaneCommandsRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AccountsSettingsPaneCommandsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AccountsSettingsPaneCommandsRequestedEventArgs,);
 impl AccountsSettingsPaneCommandsRequestedEventArgs {
@@ -429,6 +426,9 @@ impl AccountsSettingsPaneCommandsRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AccountsSettingsPaneCommandsRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccountsSettingsPaneCommandsRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for AccountsSettingsPaneCommandsRequestedEventArgs {
     type Vtable = <IAccountsSettingsPaneCommandsRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAccountsSettingsPaneCommandsRequestedEventArgs as windows_core::Interface>::IID;
@@ -439,9 +439,6 @@ impl windows_core::RuntimeName for AccountsSettingsPaneCommandsRequestedEventArg
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AccountsSettingsPaneEventDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for AccountsSettingsPaneEventDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccountsSettingsPaneEventDeferral>();
-}
 windows_core::imp::interface_hierarchy!(AccountsSettingsPaneEventDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AccountsSettingsPaneEventDeferral,);
 impl AccountsSettingsPaneEventDeferral {
@@ -449,6 +446,9 @@ impl AccountsSettingsPaneEventDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for AccountsSettingsPaneEventDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccountsSettingsPaneEventDeferral>();
 }
 unsafe impl windows_core::Interface for AccountsSettingsPaneEventDeferral {
     type Vtable = <IAccountsSettingsPaneEventDeferral as windows_core::Interface>::Vtable;
@@ -460,9 +460,6 @@ impl windows_core::RuntimeName for AccountsSettingsPaneEventDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CredentialCommand(windows_core::IUnknown);
-impl windows_core::RuntimeType for CredentialCommand {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICredentialCommand>();
-}
 windows_core::imp::interface_hierarchy!(CredentialCommand, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CredentialCommand,);
 impl CredentialCommand {
@@ -507,6 +504,9 @@ impl CredentialCommand {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CredentialCommand {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICredentialCommand>();
+}
 unsafe impl windows_core::Interface for CredentialCommand {
     type Vtable = <ICredentialCommand as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICredentialCommand as windows_core::Interface>::IID;
@@ -518,10 +518,6 @@ impl windows_core::RuntimeName for CredentialCommand {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SettingsCommand(windows_core::IUnknown);
-#[cfg(feature = "UI_Popups")]
-impl windows_core::RuntimeType for SettingsCommand {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::Popups::IUICommand>();
-}
 #[cfg(feature = "UI_Popups")]
 windows_core::imp::interface_hierarchy!(SettingsCommand, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "UI_Popups")]
@@ -596,6 +592,10 @@ impl SettingsCommand {
     }
 }
 #[cfg(feature = "UI_Popups")]
+impl windows_core::RuntimeType for SettingsCommand {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::Popups::IUICommand>();
+}
+#[cfg(feature = "UI_Popups")]
 unsafe impl windows_core::Interface for SettingsCommand {
     type Vtable = <super::Popups::IUICommand as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::Popups::IUICommand as windows_core::Interface>::IID;
@@ -608,10 +608,6 @@ impl windows_core::RuntimeName for SettingsCommand {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SettingsPane(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for SettingsPane {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISettingsPane>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SettingsPane, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -658,6 +654,10 @@ impl SettingsPane {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for SettingsPane {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISettingsPane>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SettingsPane {
     type Vtable = <ISettingsPane as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISettingsPane as windows_core::Interface>::IID;
@@ -670,10 +670,6 @@ impl windows_core::RuntimeName for SettingsPane {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SettingsPaneCommandsRequest(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for SettingsPaneCommandsRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISettingsPaneCommandsRequest>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SettingsPaneCommandsRequest, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -690,6 +686,10 @@ impl SettingsPaneCommandsRequest {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for SettingsPaneCommandsRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISettingsPaneCommandsRequest>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SettingsPaneCommandsRequest {
     type Vtable = <ISettingsPaneCommandsRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISettingsPaneCommandsRequest as windows_core::Interface>::IID;
@@ -702,10 +702,6 @@ impl windows_core::RuntimeName for SettingsPaneCommandsRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SettingsPaneCommandsRequestedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for SettingsPaneCommandsRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISettingsPaneCommandsRequestedEventArgs>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(SettingsPaneCommandsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -722,6 +718,10 @@ impl SettingsPaneCommandsRequestedEventArgs {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for SettingsPaneCommandsRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISettingsPaneCommandsRequestedEventArgs>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for SettingsPaneCommandsRequestedEventArgs {
     type Vtable = <ISettingsPaneCommandsRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISettingsPaneCommandsRequestedEventArgs as windows_core::Interface>::IID;
@@ -733,9 +733,6 @@ impl windows_core::RuntimeName for SettingsPaneCommandsRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountCommand(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebAccountCommand {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountCommand>();
-}
 windows_core::imp::interface_hierarchy!(WebAccountCommand, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccountCommand,);
 impl WebAccountCommand {
@@ -777,6 +774,9 @@ impl WebAccountCommand {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WebAccountCommand {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountCommand>();
+}
 unsafe impl windows_core::Interface for WebAccountCommand {
     type Vtable = <IWebAccountCommand as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebAccountCommand as windows_core::Interface>::IID;
@@ -787,9 +787,6 @@ impl windows_core::RuntimeName for WebAccountCommand {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountInvokedArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebAccountInvokedArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountInvokedArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebAccountInvokedArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccountInvokedArgs,);
 impl WebAccountInvokedArgs {
@@ -801,6 +798,9 @@ impl WebAccountInvokedArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WebAccountInvokedArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountInvokedArgs>();
+}
 unsafe impl windows_core::Interface for WebAccountInvokedArgs {
     type Vtable = <IWebAccountInvokedArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebAccountInvokedArgs as windows_core::Interface>::IID;
@@ -811,9 +811,6 @@ impl windows_core::RuntimeName for WebAccountInvokedArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProviderCommand(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebAccountProviderCommand {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountProviderCommand>();
-}
 windows_core::imp::interface_hierarchy!(WebAccountProviderCommand, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccountProviderCommand,);
 impl WebAccountProviderCommand {
@@ -847,6 +844,9 @@ impl WebAccountProviderCommand {
         static SHARED: windows_core::imp::FactoryCache<WebAccountProviderCommand, IWebAccountProviderCommandFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for WebAccountProviderCommand {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountProviderCommand>();
 }
 unsafe impl windows_core::Interface for WebAccountProviderCommand {
     type Vtable = <IWebAccountProviderCommand as windows_core::Interface>::Vtable;

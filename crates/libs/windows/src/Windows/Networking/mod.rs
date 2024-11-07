@@ -79,9 +79,6 @@ pub struct IHostNameStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EndpointPair(windows_core::IUnknown);
-impl windows_core::RuntimeType for EndpointPair {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEndpointPair>();
-}
 windows_core::imp::interface_hierarchy!(EndpointPair, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EndpointPair,);
 impl EndpointPair {
@@ -150,6 +147,9 @@ impl EndpointPair {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for EndpointPair {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEndpointPair>();
+}
 unsafe impl windows_core::Interface for EndpointPair {
     type Vtable = <IEndpointPair as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEndpointPair as windows_core::Interface>::IID;
@@ -160,9 +160,6 @@ impl windows_core::RuntimeName for EndpointPair {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HostName(windows_core::IUnknown);
-impl windows_core::RuntimeType for HostName {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHostName>();
-}
 windows_core::imp::interface_hierarchy!(HostName, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HostName, super::Foundation::IStringable);
 impl HostName {
@@ -239,6 +236,9 @@ impl HostName {
         static SHARED: windows_core::imp::FactoryCache<HostName, IHostNameStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for HostName {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHostName>();
 }
 unsafe impl windows_core::Interface for HostName {
     type Vtable = <IHostName as windows_core::Interface>::Vtable;

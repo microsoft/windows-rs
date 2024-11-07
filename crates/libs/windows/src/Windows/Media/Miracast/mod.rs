@@ -288,9 +288,6 @@ pub struct IMiracastTransmitter_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiver(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiver {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiver>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiver, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiver,);
 impl MiracastReceiver {
@@ -404,6 +401,9 @@ impl MiracastReceiver {
         unsafe { (windows_core::Interface::vtable(this).RemoveKnownTransmitter)(windows_core::Interface::as_raw(this), transmitter.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiver {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiver>();
+}
 unsafe impl windows_core::Interface for MiracastReceiver {
     type Vtable = <IMiracastReceiver as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiver as windows_core::Interface>::IID;
@@ -414,9 +414,6 @@ impl windows_core::RuntimeName for MiracastReceiver {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverApplySettingsResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiverApplySettingsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverApplySettingsResult>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiverApplySettingsResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiverApplySettingsResult,);
 impl MiracastReceiverApplySettingsResult {
@@ -435,6 +432,9 @@ impl MiracastReceiverApplySettingsResult {
         }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiverApplySettingsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverApplySettingsResult>();
+}
 unsafe impl windows_core::Interface for MiracastReceiverApplySettingsResult {
     type Vtable = <IMiracastReceiverApplySettingsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiverApplySettingsResult as windows_core::Interface>::IID;
@@ -445,9 +445,6 @@ impl windows_core::RuntimeName for MiracastReceiverApplySettingsResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverConnection(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiverConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverConnection>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiverConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiverConnection, super::super::Foundation::IClosable);
 impl MiracastReceiverConnection {
@@ -514,6 +511,9 @@ impl MiracastReceiverConnection {
         }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiverConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverConnection>();
+}
 unsafe impl windows_core::Interface for MiracastReceiverConnection {
     type Vtable = <IMiracastReceiverConnection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiverConnection as windows_core::Interface>::IID;
@@ -524,9 +524,6 @@ impl windows_core::RuntimeName for MiracastReceiverConnection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverConnectionCreatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiverConnectionCreatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverConnectionCreatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiverConnectionCreatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiverConnectionCreatedEventArgs,);
 impl MiracastReceiverConnectionCreatedEventArgs {
@@ -552,6 +549,9 @@ impl MiracastReceiverConnectionCreatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiverConnectionCreatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverConnectionCreatedEventArgs>();
+}
 unsafe impl windows_core::Interface for MiracastReceiverConnectionCreatedEventArgs {
     type Vtable = <IMiracastReceiverConnectionCreatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiverConnectionCreatedEventArgs as windows_core::Interface>::IID;
@@ -562,9 +562,6 @@ impl windows_core::RuntimeName for MiracastReceiverConnectionCreatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverCursorImageChannel(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiverCursorImageChannel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverCursorImageChannel>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiverCursorImageChannel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiverCursorImageChannel,);
 impl MiracastReceiverCursorImageChannel {
@@ -628,6 +625,9 @@ impl MiracastReceiverCursorImageChannel {
         unsafe { (windows_core::Interface::vtable(this).RemovePositionChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiverCursorImageChannel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverCursorImageChannel>();
+}
 unsafe impl windows_core::Interface for MiracastReceiverCursorImageChannel {
     type Vtable = <IMiracastReceiverCursorImageChannel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiverCursorImageChannel as windows_core::Interface>::IID;
@@ -638,9 +638,6 @@ impl windows_core::RuntimeName for MiracastReceiverCursorImageChannel {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverCursorImageChannelSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiverCursorImageChannelSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverCursorImageChannelSettings>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiverCursorImageChannelSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiverCursorImageChannelSettings,);
 impl MiracastReceiverCursorImageChannelSettings {
@@ -669,6 +666,9 @@ impl MiracastReceiverCursorImageChannelSettings {
         unsafe { (windows_core::Interface::vtable(this).SetMaxImageSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiverCursorImageChannelSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverCursorImageChannelSettings>();
+}
 unsafe impl windows_core::Interface for MiracastReceiverCursorImageChannelSettings {
     type Vtable = <IMiracastReceiverCursorImageChannelSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiverCursorImageChannelSettings as windows_core::Interface>::IID;
@@ -679,9 +679,6 @@ impl windows_core::RuntimeName for MiracastReceiverCursorImageChannelSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverDisconnectedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiverDisconnectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverDisconnectedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiverDisconnectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiverDisconnectedEventArgs,);
 impl MiracastReceiverDisconnectedEventArgs {
@@ -693,6 +690,9 @@ impl MiracastReceiverDisconnectedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiverDisconnectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverDisconnectedEventArgs>();
+}
 unsafe impl windows_core::Interface for MiracastReceiverDisconnectedEventArgs {
     type Vtable = <IMiracastReceiverDisconnectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiverDisconnectedEventArgs as windows_core::Interface>::IID;
@@ -703,9 +703,6 @@ impl windows_core::RuntimeName for MiracastReceiverDisconnectedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverGameControllerDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiverGameControllerDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverGameControllerDevice>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiverGameControllerDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiverGameControllerDevice,);
 impl MiracastReceiverGameControllerDevice {
@@ -760,6 +757,9 @@ impl MiracastReceiverGameControllerDevice {
         unsafe { (windows_core::Interface::vtable(this).RemoveChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiverGameControllerDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverGameControllerDevice>();
+}
 unsafe impl windows_core::Interface for MiracastReceiverGameControllerDevice {
     type Vtable = <IMiracastReceiverGameControllerDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiverGameControllerDevice as windows_core::Interface>::IID;
@@ -770,9 +770,6 @@ impl windows_core::RuntimeName for MiracastReceiverGameControllerDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverInputDevices(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiverInputDevices {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverInputDevices>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiverInputDevices, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiverInputDevices,);
 impl MiracastReceiverInputDevices {
@@ -791,6 +788,9 @@ impl MiracastReceiverInputDevices {
         }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiverInputDevices {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverInputDevices>();
+}
 unsafe impl windows_core::Interface for MiracastReceiverInputDevices {
     type Vtable = <IMiracastReceiverInputDevices as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiverInputDevices as windows_core::Interface>::IID;
@@ -801,9 +801,6 @@ impl windows_core::RuntimeName for MiracastReceiverInputDevices {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverKeyboardDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiverKeyboardDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverKeyboardDevice>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiverKeyboardDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiverKeyboardDevice,);
 impl MiracastReceiverKeyboardDevice {
@@ -847,6 +844,9 @@ impl MiracastReceiverKeyboardDevice {
         unsafe { (windows_core::Interface::vtable(this).RemoveChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiverKeyboardDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverKeyboardDevice>();
+}
 unsafe impl windows_core::Interface for MiracastReceiverKeyboardDevice {
     type Vtable = <IMiracastReceiverKeyboardDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiverKeyboardDevice as windows_core::Interface>::IID;
@@ -857,9 +857,6 @@ impl windows_core::RuntimeName for MiracastReceiverKeyboardDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverMediaSourceCreatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiverMediaSourceCreatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverMediaSourceCreatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiverMediaSourceCreatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiverMediaSourceCreatedEventArgs,);
 impl MiracastReceiverMediaSourceCreatedEventArgs {
@@ -893,6 +890,9 @@ impl MiracastReceiverMediaSourceCreatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiverMediaSourceCreatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverMediaSourceCreatedEventArgs>();
+}
 unsafe impl windows_core::Interface for MiracastReceiverMediaSourceCreatedEventArgs {
     type Vtable = <IMiracastReceiverMediaSourceCreatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiverMediaSourceCreatedEventArgs as windows_core::Interface>::IID;
@@ -903,9 +903,6 @@ impl windows_core::RuntimeName for MiracastReceiverMediaSourceCreatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiverSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverSession>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiverSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiverSession, super::super::Foundation::IClosable);
 impl MiracastReceiverSession {
@@ -992,6 +989,9 @@ impl MiracastReceiverSession {
         }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiverSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverSession>();
+}
 unsafe impl windows_core::Interface for MiracastReceiverSession {
     type Vtable = <IMiracastReceiverSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiverSession as windows_core::Interface>::IID;
@@ -1002,9 +1002,6 @@ impl windows_core::RuntimeName for MiracastReceiverSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverSessionStartResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiverSessionStartResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverSessionStartResult>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiverSessionStartResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiverSessionStartResult,);
 impl MiracastReceiverSessionStartResult {
@@ -1023,6 +1020,9 @@ impl MiracastReceiverSessionStartResult {
         }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiverSessionStartResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverSessionStartResult>();
+}
 unsafe impl windows_core::Interface for MiracastReceiverSessionStartResult {
     type Vtable = <IMiracastReceiverSessionStartResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiverSessionStartResult as windows_core::Interface>::IID;
@@ -1033,9 +1033,6 @@ impl windows_core::RuntimeName for MiracastReceiverSessionStartResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiverSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverSettings>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiverSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiverSettings,);
 impl MiracastReceiverSettings {
@@ -1095,6 +1092,9 @@ impl MiracastReceiverSettings {
         unsafe { (windows_core::Interface::vtable(this).SetRequireAuthorizationFromKnownTransmitters)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiverSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverSettings>();
+}
 unsafe impl windows_core::Interface for MiracastReceiverSettings {
     type Vtable = <IMiracastReceiverSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiverSettings as windows_core::Interface>::IID;
@@ -1105,9 +1105,6 @@ impl windows_core::RuntimeName for MiracastReceiverSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverStatus(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiverStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverStatus>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiverStatus, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiverStatus,);
 impl MiracastReceiverStatus {
@@ -1148,6 +1145,9 @@ impl MiracastReceiverStatus {
         }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiverStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverStatus>();
+}
 unsafe impl windows_core::Interface for MiracastReceiverStatus {
     type Vtable = <IMiracastReceiverStatus as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiverStatus as windows_core::Interface>::IID;
@@ -1158,9 +1158,6 @@ impl windows_core::RuntimeName for MiracastReceiverStatus {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverStreamControl(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiverStreamControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverStreamControl>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiverStreamControl, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiverStreamControl,);
 impl MiracastReceiverStreamControl {
@@ -1207,6 +1204,9 @@ impl MiracastReceiverStreamControl {
         unsafe { (windows_core::Interface::vtable(this).SetMuteAudio)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiverStreamControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverStreamControl>();
+}
 unsafe impl windows_core::Interface for MiracastReceiverStreamControl {
     type Vtable = <IMiracastReceiverStreamControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiverStreamControl as windows_core::Interface>::IID;
@@ -1217,9 +1217,6 @@ impl windows_core::RuntimeName for MiracastReceiverStreamControl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastReceiverVideoStreamSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastReceiverVideoStreamSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverVideoStreamSettings>();
-}
 windows_core::imp::interface_hierarchy!(MiracastReceiverVideoStreamSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastReceiverVideoStreamSettings,);
 impl MiracastReceiverVideoStreamSettings {
@@ -1248,6 +1245,9 @@ impl MiracastReceiverVideoStreamSettings {
         unsafe { (windows_core::Interface::vtable(this).SetBitrate)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for MiracastReceiverVideoStreamSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastReceiverVideoStreamSettings>();
+}
 unsafe impl windows_core::Interface for MiracastReceiverVideoStreamSettings {
     type Vtable = <IMiracastReceiverVideoStreamSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMiracastReceiverVideoStreamSettings as windows_core::Interface>::IID;
@@ -1258,9 +1258,6 @@ impl windows_core::RuntimeName for MiracastReceiverVideoStreamSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MiracastTransmitter(windows_core::IUnknown);
-impl windows_core::RuntimeType for MiracastTransmitter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastTransmitter>();
-}
 windows_core::imp::interface_hierarchy!(MiracastTransmitter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MiracastTransmitter,);
 impl MiracastTransmitter {
@@ -1308,6 +1305,9 @@ impl MiracastTransmitter {
             (windows_core::Interface::vtable(this).LastConnectionTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for MiracastTransmitter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMiracastTransmitter>();
 }
 unsafe impl windows_core::Interface for MiracastTransmitter {
     type Vtable = <IMiracastTransmitter as windows_core::Interface>::Vtable;

@@ -285,9 +285,6 @@ pub struct ILampArrayUpdateRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayBitmapEffect(windows_core::IUnknown);
-impl windows_core::RuntimeType for LampArrayBitmapEffect {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArrayBitmapEffect>();
-}
 windows_core::imp::interface_hierarchy!(LampArrayBitmapEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArrayBitmapEffect, ILampArrayEffect);
 impl LampArrayBitmapEffect {
@@ -370,6 +367,9 @@ impl LampArrayBitmapEffect {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LampArrayBitmapEffect {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArrayBitmapEffect>();
+}
 unsafe impl windows_core::Interface for LampArrayBitmapEffect {
     type Vtable = <ILampArrayBitmapEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArrayBitmapEffect as windows_core::Interface>::IID;
@@ -380,9 +380,6 @@ impl windows_core::RuntimeName for LampArrayBitmapEffect {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayBitmapRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for LampArrayBitmapRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArrayBitmapRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(LampArrayBitmapRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArrayBitmapRequestedEventArgs,);
 impl LampArrayBitmapRequestedEventArgs {
@@ -402,6 +399,9 @@ impl LampArrayBitmapRequestedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).UpdateBitmap)(windows_core::Interface::as_raw(this), bitmap.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for LampArrayBitmapRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArrayBitmapRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for LampArrayBitmapRequestedEventArgs {
     type Vtable = <ILampArrayBitmapRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArrayBitmapRequestedEventArgs as windows_core::Interface>::IID;
@@ -412,9 +412,6 @@ impl windows_core::RuntimeName for LampArrayBitmapRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayBlinkEffect(windows_core::IUnknown);
-impl windows_core::RuntimeType for LampArrayBlinkEffect {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArrayBlinkEffect>();
-}
 windows_core::imp::interface_hierarchy!(LampArrayBlinkEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArrayBlinkEffect, ILampArrayEffect);
 impl LampArrayBlinkEffect {
@@ -533,6 +530,9 @@ impl LampArrayBlinkEffect {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LampArrayBlinkEffect {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArrayBlinkEffect>();
+}
 unsafe impl windows_core::Interface for LampArrayBlinkEffect {
     type Vtable = <ILampArrayBlinkEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArrayBlinkEffect as windows_core::Interface>::IID;
@@ -543,9 +543,6 @@ impl windows_core::RuntimeName for LampArrayBlinkEffect {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayColorRampEffect(windows_core::IUnknown);
-impl windows_core::RuntimeType for LampArrayColorRampEffect {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArrayColorRampEffect>();
-}
 windows_core::imp::interface_hierarchy!(LampArrayColorRampEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArrayColorRampEffect, ILampArrayEffect);
 impl LampArrayColorRampEffect {
@@ -620,6 +617,9 @@ impl LampArrayColorRampEffect {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LampArrayColorRampEffect {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArrayColorRampEffect>();
+}
 unsafe impl windows_core::Interface for LampArrayColorRampEffect {
     type Vtable = <ILampArrayColorRampEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArrayColorRampEffect as windows_core::Interface>::IID;
@@ -630,9 +630,6 @@ impl windows_core::RuntimeName for LampArrayColorRampEffect {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayCustomEffect(windows_core::IUnknown);
-impl windows_core::RuntimeType for LampArrayCustomEffect {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArrayCustomEffect>();
-}
 windows_core::imp::interface_hierarchy!(LampArrayCustomEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArrayCustomEffect, ILampArrayEffect);
 impl LampArrayCustomEffect {
@@ -697,6 +694,9 @@ impl LampArrayCustomEffect {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LampArrayCustomEffect {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArrayCustomEffect>();
+}
 unsafe impl windows_core::Interface for LampArrayCustomEffect {
     type Vtable = <ILampArrayCustomEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArrayCustomEffect as windows_core::Interface>::IID;
@@ -708,10 +708,6 @@ impl windows_core::RuntimeName for LampArrayCustomEffect {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayEffectPlaylist(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for LampArrayEffectPlaylist {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArrayEffectPlaylist>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(LampArrayEffectPlaylist, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -844,6 +840,10 @@ impl LampArrayEffectPlaylist {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for LampArrayEffectPlaylist {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArrayEffectPlaylist>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for LampArrayEffectPlaylist {
     type Vtable = <ILampArrayEffectPlaylist as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArrayEffectPlaylist as windows_core::Interface>::IID;
@@ -855,9 +855,6 @@ impl windows_core::RuntimeName for LampArrayEffectPlaylist {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArraySolidEffect(windows_core::IUnknown);
-impl windows_core::RuntimeType for LampArraySolidEffect {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArraySolidEffect>();
-}
 windows_core::imp::interface_hierarchy!(LampArraySolidEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArraySolidEffect, ILampArrayEffect);
 impl LampArraySolidEffect {
@@ -932,6 +929,9 @@ impl LampArraySolidEffect {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LampArraySolidEffect {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArraySolidEffect>();
+}
 unsafe impl windows_core::Interface for LampArraySolidEffect {
     type Vtable = <ILampArraySolidEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArraySolidEffect as windows_core::Interface>::IID;
@@ -942,9 +942,6 @@ impl windows_core::RuntimeName for LampArraySolidEffect {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArrayUpdateRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for LampArrayUpdateRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArrayUpdateRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(LampArrayUpdateRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArrayUpdateRequestedEventArgs,);
 impl LampArrayUpdateRequestedEventArgs {
@@ -975,6 +972,9 @@ impl LampArrayUpdateRequestedEventArgs {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetColorsForIndices)(windows_core::Interface::as_raw(this), desiredcolors.len().try_into().unwrap(), desiredcolors.as_ptr(), lampindexes.len().try_into().unwrap(), lampindexes.as_ptr()).ok() }
     }
+}
+impl windows_core::RuntimeType for LampArrayUpdateRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArrayUpdateRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for LampArrayUpdateRequestedEventArgs {
     type Vtable = <ILampArrayUpdateRequestedEventArgs as windows_core::Interface>::Vtable;

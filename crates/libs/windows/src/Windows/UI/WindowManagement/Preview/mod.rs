@@ -18,9 +18,6 @@ pub struct IWindowManagementPreviewStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowManagementPreview(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowManagementPreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowManagementPreview>();
-}
 windows_core::imp::interface_hierarchy!(WindowManagementPreview, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowManagementPreview,);
 impl WindowManagementPreview {
@@ -34,6 +31,9 @@ impl WindowManagementPreview {
         static SHARED: windows_core::imp::FactoryCache<WindowManagementPreview, IWindowManagementPreviewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for WindowManagementPreview {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowManagementPreview>();
 }
 unsafe impl windows_core::Interface for WindowManagementPreview {
     type Vtable = <IWindowManagementPreview as windows_core::Interface>::Vtable;

@@ -156,9 +156,6 @@ impl II2cDeviceStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct I2cConnectionSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for I2cConnectionSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, II2cConnectionSettings>();
-}
 windows_core::imp::interface_hierarchy!(I2cConnectionSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(I2cConnectionSettings,);
 impl I2cConnectionSettings {
@@ -206,6 +203,9 @@ impl I2cConnectionSettings {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for I2cConnectionSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, II2cConnectionSettings>();
+}
 unsafe impl windows_core::Interface for I2cConnectionSettings {
     type Vtable = <II2cConnectionSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <II2cConnectionSettings as windows_core::Interface>::IID;
@@ -216,9 +216,6 @@ impl windows_core::RuntimeName for I2cConnectionSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct I2cController(windows_core::IUnknown);
-impl windows_core::RuntimeType for I2cController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, II2cController>();
-}
 windows_core::imp::interface_hierarchy!(I2cController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(I2cController,);
 impl I2cController {
@@ -253,6 +250,9 @@ impl I2cController {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for I2cController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, II2cController>();
+}
 unsafe impl windows_core::Interface for I2cController {
     type Vtable = <II2cController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <II2cController as windows_core::Interface>::IID;
@@ -263,9 +263,6 @@ impl windows_core::RuntimeName for I2cController {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct I2cDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for I2cDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, II2cDevice>();
-}
 windows_core::imp::interface_hierarchy!(I2cDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(I2cDevice, II2cDeviceStatics, super::super::Foundation::IClosable);
 impl I2cDevice {
@@ -346,6 +343,9 @@ impl I2cDevice {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for I2cDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, II2cDevice>();
+}
 unsafe impl windows_core::Interface for I2cDevice {
     type Vtable = <II2cDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <II2cDevice as windows_core::Interface>::IID;
@@ -396,7 +396,7 @@ impl windows_core::RuntimeType for I2cTransferStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.I2cTransferStatus;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct I2cTransferResult {
     pub Status: I2cTransferStatus,
     pub BytesTransferred: u32,

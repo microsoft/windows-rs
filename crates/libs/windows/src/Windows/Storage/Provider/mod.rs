@@ -920,9 +920,6 @@ impl windows_core::RuntimeName for CachedFileUpdater {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CachedFileUpdaterUI(windows_core::IUnknown);
-impl windows_core::RuntimeType for CachedFileUpdaterUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICachedFileUpdaterUI>();
-}
 windows_core::imp::interface_hierarchy!(CachedFileUpdaterUI, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CachedFileUpdaterUI,);
 impl CachedFileUpdaterUI {
@@ -994,6 +991,9 @@ impl CachedFileUpdaterUI {
         }
     }
 }
+impl windows_core::RuntimeType for CachedFileUpdaterUI {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICachedFileUpdaterUI>();
+}
 unsafe impl windows_core::Interface for CachedFileUpdaterUI {
     type Vtable = <ICachedFileUpdaterUI as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICachedFileUpdaterUI as windows_core::Interface>::IID;
@@ -1004,9 +1004,6 @@ impl windows_core::RuntimeName for CachedFileUpdaterUI {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileUpdateRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for FileUpdateRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileUpdateRequest>();
-}
 windows_core::imp::interface_hierarchy!(FileUpdateRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileUpdateRequest,);
 impl FileUpdateRequest {
@@ -1063,6 +1060,9 @@ impl FileUpdateRequest {
         unsafe { (windows_core::Interface::vtable(this).SetUserInputNeededMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for FileUpdateRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileUpdateRequest>();
+}
 unsafe impl windows_core::Interface for FileUpdateRequest {
     type Vtable = <IFileUpdateRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileUpdateRequest as windows_core::Interface>::IID;
@@ -1073,9 +1073,6 @@ impl windows_core::RuntimeName for FileUpdateRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileUpdateRequestDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for FileUpdateRequestDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileUpdateRequestDeferral>();
-}
 windows_core::imp::interface_hierarchy!(FileUpdateRequestDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileUpdateRequestDeferral,);
 impl FileUpdateRequestDeferral {
@@ -1083,6 +1080,9 @@ impl FileUpdateRequestDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for FileUpdateRequestDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileUpdateRequestDeferral>();
 }
 unsafe impl windows_core::Interface for FileUpdateRequestDeferral {
     type Vtable = <IFileUpdateRequestDeferral as windows_core::Interface>::Vtable;
@@ -1094,9 +1094,6 @@ impl windows_core::RuntimeName for FileUpdateRequestDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileUpdateRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for FileUpdateRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileUpdateRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(FileUpdateRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileUpdateRequestedEventArgs,);
 impl FileUpdateRequestedEventArgs {
@@ -1108,6 +1105,9 @@ impl FileUpdateRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for FileUpdateRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileUpdateRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for FileUpdateRequestedEventArgs {
     type Vtable = <IFileUpdateRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileUpdateRequestedEventArgs as windows_core::Interface>::IID;
@@ -1118,9 +1118,6 @@ impl windows_core::RuntimeName for FileUpdateRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderFileTypeInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageProviderFileTypeInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderFileTypeInfo>();
-}
 windows_core::imp::interface_hierarchy!(StorageProviderFileTypeInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageProviderFileTypeInfo,);
 impl StorageProviderFileTypeInfo {
@@ -1149,6 +1146,9 @@ impl StorageProviderFileTypeInfo {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for StorageProviderFileTypeInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderFileTypeInfo>();
+}
 unsafe impl windows_core::Interface for StorageProviderFileTypeInfo {
     type Vtable = <IStorageProviderFileTypeInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageProviderFileTypeInfo as windows_core::Interface>::IID;
@@ -1159,9 +1159,6 @@ impl windows_core::RuntimeName for StorageProviderFileTypeInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderGetContentInfoForPathResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageProviderGetContentInfoForPathResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderGetContentInfoForPathResult>();
-}
 windows_core::imp::interface_hierarchy!(StorageProviderGetContentInfoForPathResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageProviderGetContentInfoForPathResult,);
 impl StorageProviderGetContentInfoForPathResult {
@@ -1206,6 +1203,9 @@ impl StorageProviderGetContentInfoForPathResult {
         unsafe { (windows_core::Interface::vtable(this).SetContentId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for StorageProviderGetContentInfoForPathResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderGetContentInfoForPathResult>();
+}
 unsafe impl windows_core::Interface for StorageProviderGetContentInfoForPathResult {
     type Vtable = <IStorageProviderGetContentInfoForPathResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageProviderGetContentInfoForPathResult as windows_core::Interface>::IID;
@@ -1216,9 +1216,6 @@ impl windows_core::RuntimeName for StorageProviderGetContentInfoForPathResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderGetPathForContentUriResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageProviderGetPathForContentUriResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderGetPathForContentUriResult>();
-}
 windows_core::imp::interface_hierarchy!(StorageProviderGetPathForContentUriResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageProviderGetPathForContentUriResult,);
 impl StorageProviderGetPathForContentUriResult {
@@ -1252,6 +1249,9 @@ impl StorageProviderGetPathForContentUriResult {
         unsafe { (windows_core::Interface::vtable(this).SetPath)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for StorageProviderGetPathForContentUriResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderGetPathForContentUriResult>();
+}
 unsafe impl windows_core::Interface for StorageProviderGetPathForContentUriResult {
     type Vtable = <IStorageProviderGetPathForContentUriResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageProviderGetPathForContentUriResult as windows_core::Interface>::IID;
@@ -1283,9 +1283,6 @@ impl windows_core::RuntimeName for StorageProviderItemProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderItemProperty(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageProviderItemProperty {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderItemProperty>();
-}
 windows_core::imp::interface_hierarchy!(StorageProviderItemProperty, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageProviderItemProperty,);
 impl StorageProviderItemProperty {
@@ -1330,6 +1327,9 @@ impl StorageProviderItemProperty {
         }
     }
 }
+impl windows_core::RuntimeType for StorageProviderItemProperty {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderItemProperty>();
+}
 unsafe impl windows_core::Interface for StorageProviderItemProperty {
     type Vtable = <IStorageProviderItemProperty as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageProviderItemProperty as windows_core::Interface>::IID;
@@ -1340,9 +1340,6 @@ impl windows_core::RuntimeName for StorageProviderItemProperty {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderItemPropertyDefinition(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageProviderItemPropertyDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderItemPropertyDefinition>();
-}
 windows_core::imp::interface_hierarchy!(StorageProviderItemPropertyDefinition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageProviderItemPropertyDefinition,);
 impl StorageProviderItemPropertyDefinition {
@@ -1376,6 +1373,9 @@ impl StorageProviderItemPropertyDefinition {
         unsafe { (windows_core::Interface::vtable(this).SetDisplayNameResource)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for StorageProviderItemPropertyDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderItemPropertyDefinition>();
+}
 unsafe impl windows_core::Interface for StorageProviderItemPropertyDefinition {
     type Vtable = <IStorageProviderItemPropertyDefinition as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageProviderItemPropertyDefinition as windows_core::Interface>::IID;
@@ -1386,9 +1386,6 @@ impl windows_core::RuntimeName for StorageProviderItemPropertyDefinition {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderKnownFolderEntry(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageProviderKnownFolderEntry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderKnownFolderEntry>();
-}
 windows_core::imp::interface_hierarchy!(StorageProviderKnownFolderEntry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageProviderKnownFolderEntry,);
 impl StorageProviderKnownFolderEntry {
@@ -1422,6 +1419,9 @@ impl StorageProviderKnownFolderEntry {
         unsafe { (windows_core::Interface::vtable(this).SetStatus)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for StorageProviderKnownFolderEntry {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderKnownFolderEntry>();
+}
 unsafe impl windows_core::Interface for StorageProviderKnownFolderEntry {
     type Vtable = <IStorageProviderKnownFolderEntry as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageProviderKnownFolderEntry as windows_core::Interface>::IID;
@@ -1432,9 +1432,6 @@ impl windows_core::RuntimeName for StorageProviderKnownFolderEntry {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderKnownFolderSyncInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageProviderKnownFolderSyncInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderKnownFolderSyncInfo>();
-}
 windows_core::imp::interface_hierarchy!(StorageProviderKnownFolderSyncInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageProviderKnownFolderSyncInfo,);
 impl StorageProviderKnownFolderSyncInfo {
@@ -1479,6 +1476,9 @@ impl StorageProviderKnownFolderSyncInfo {
         unsafe { (windows_core::Interface::vtable(this).SetSyncRequested)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for StorageProviderKnownFolderSyncInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderKnownFolderSyncInfo>();
+}
 unsafe impl windows_core::Interface for StorageProviderKnownFolderSyncInfo {
     type Vtable = <IStorageProviderKnownFolderSyncInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageProviderKnownFolderSyncInfo as windows_core::Interface>::IID;
@@ -1489,9 +1489,6 @@ impl windows_core::RuntimeName for StorageProviderKnownFolderSyncInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderKnownFolderSyncRequestArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageProviderKnownFolderSyncRequestArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderKnownFolderSyncRequestArgs>();
-}
 windows_core::imp::interface_hierarchy!(StorageProviderKnownFolderSyncRequestArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageProviderKnownFolderSyncRequestArgs,);
 impl StorageProviderKnownFolderSyncRequestArgs {
@@ -1512,6 +1509,9 @@ impl StorageProviderKnownFolderSyncRequestArgs {
         }
     }
 }
+impl windows_core::RuntimeType for StorageProviderKnownFolderSyncRequestArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderKnownFolderSyncRequestArgs>();
+}
 unsafe impl windows_core::Interface for StorageProviderKnownFolderSyncRequestArgs {
     type Vtable = <IStorageProviderKnownFolderSyncRequestArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageProviderKnownFolderSyncRequestArgs as windows_core::Interface>::IID;
@@ -1522,9 +1522,6 @@ impl windows_core::RuntimeName for StorageProviderKnownFolderSyncRequestArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderMoreInfoUI(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageProviderMoreInfoUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderMoreInfoUI>();
-}
 windows_core::imp::interface_hierarchy!(StorageProviderMoreInfoUI, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageProviderMoreInfoUI,);
 impl StorageProviderMoreInfoUI {
@@ -1561,6 +1558,9 @@ impl StorageProviderMoreInfoUI {
         unsafe { (windows_core::Interface::vtable(this).SetCommand)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for StorageProviderMoreInfoUI {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderMoreInfoUI>();
+}
 unsafe impl windows_core::Interface for StorageProviderMoreInfoUI {
     type Vtable = <IStorageProviderMoreInfoUI as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageProviderMoreInfoUI as windows_core::Interface>::IID;
@@ -1571,9 +1571,6 @@ impl windows_core::RuntimeName for StorageProviderMoreInfoUI {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderQuotaUI(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageProviderQuotaUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderQuotaUI>();
-}
 windows_core::imp::interface_hierarchy!(StorageProviderQuotaUI, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageProviderQuotaUI,);
 impl StorageProviderQuotaUI {
@@ -1634,6 +1631,9 @@ impl StorageProviderQuotaUI {
         unsafe { (windows_core::Interface::vtable(this).SetQuotaUsedColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for StorageProviderQuotaUI {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderQuotaUI>();
+}
 unsafe impl windows_core::Interface for StorageProviderQuotaUI {
     type Vtable = <IStorageProviderQuotaUI as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageProviderQuotaUI as windows_core::Interface>::IID;
@@ -1644,9 +1644,6 @@ impl windows_core::RuntimeName for StorageProviderQuotaUI {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderStatusUI(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageProviderStatusUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderStatusUI>();
-}
 windows_core::imp::interface_hierarchy!(StorageProviderStatusUI, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageProviderStatusUI,);
 impl StorageProviderStatusUI {
@@ -1766,6 +1763,9 @@ impl StorageProviderStatusUI {
         unsafe { (windows_core::Interface::vtable(this).SetProviderSecondaryCommands)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for StorageProviderStatusUI {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderStatusUI>();
+}
 unsafe impl windows_core::Interface for StorageProviderStatusUI {
     type Vtable = <IStorageProviderStatusUI as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageProviderStatusUI as windows_core::Interface>::IID;
@@ -1776,9 +1776,6 @@ impl windows_core::RuntimeName for StorageProviderStatusUI {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageProviderSyncRootInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageProviderSyncRootInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderSyncRootInfo>();
-}
 windows_core::imp::interface_hierarchy!(StorageProviderSyncRootInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageProviderSyncRootInfo,);
 impl StorageProviderSyncRootInfo {
@@ -1992,6 +1989,9 @@ impl StorageProviderSyncRootInfo {
             (windows_core::Interface::vtable(this).FallbackFileTypeInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for StorageProviderSyncRootInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageProviderSyncRootInfo>();
 }
 unsafe impl windows_core::Interface for StorageProviderSyncRootInfo {
     type Vtable = <IStorageProviderSyncRootInfo as windows_core::Interface>::Vtable;

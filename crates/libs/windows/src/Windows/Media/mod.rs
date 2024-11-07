@@ -1087,9 +1087,6 @@ pub struct IVideoFrameStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioBuffer(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioBuffer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioBuffer>();
-}
 windows_core::imp::interface_hierarchy!(AudioBuffer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioBuffer, super::Foundation::IClosable, super::Foundation::IMemoryBuffer);
 impl AudioBuffer {
@@ -1123,6 +1120,9 @@ impl AudioBuffer {
         unsafe { (windows_core::Interface::vtable(this).SetLength)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for AudioBuffer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioBuffer>();
+}
 unsafe impl windows_core::Interface for AudioBuffer {
     type Vtable = <IAudioBuffer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioBuffer as windows_core::Interface>::IID;
@@ -1133,9 +1133,6 @@ impl windows_core::RuntimeName for AudioBuffer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFrame(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioFrame>();
-}
 windows_core::imp::interface_hierarchy!(AudioFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioFrame, super::Foundation::IClosable, IMediaFrame);
 impl AudioFrame {
@@ -1236,6 +1233,9 @@ impl AudioFrame {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AudioFrame {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioFrame>();
+}
 unsafe impl windows_core::Interface for AudioFrame {
     type Vtable = <IAudioFrame as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioFrame as windows_core::Interface>::IID;
@@ -1246,9 +1246,6 @@ impl windows_core::RuntimeName for AudioFrame {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutoRepeatModeChangeRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AutoRepeatModeChangeRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutoRepeatModeChangeRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AutoRepeatModeChangeRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AutoRepeatModeChangeRequestedEventArgs,);
 impl AutoRepeatModeChangeRequestedEventArgs {
@@ -1260,6 +1257,9 @@ impl AutoRepeatModeChangeRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AutoRepeatModeChangeRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutoRepeatModeChangeRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for AutoRepeatModeChangeRequestedEventArgs {
     type Vtable = <IAutoRepeatModeChangeRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAutoRepeatModeChangeRequestedEventArgs as windows_core::Interface>::IID;
@@ -1270,9 +1270,6 @@ impl windows_core::RuntimeName for AutoRepeatModeChangeRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageDisplayProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for ImageDisplayProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageDisplayProperties>();
-}
 windows_core::imp::interface_hierarchy!(ImageDisplayProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageDisplayProperties,);
 impl ImageDisplayProperties {
@@ -1298,6 +1295,9 @@ impl ImageDisplayProperties {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSubtitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
+}
+impl windows_core::RuntimeType for ImageDisplayProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageDisplayProperties>();
 }
 unsafe impl windows_core::Interface for ImageDisplayProperties {
     type Vtable = <IImageDisplayProperties as windows_core::Interface>::Vtable;
@@ -1544,9 +1544,6 @@ impl windows_core::RuntimeName for MediaControl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaExtensionManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaExtensionManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaExtensionManager>();
-}
 windows_core::imp::interface_hierarchy!(MediaExtensionManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaExtensionManager,);
 impl MediaExtensionManager {
@@ -1639,6 +1636,9 @@ impl MediaExtensionManager {
         unsafe { (windows_core::Interface::vtable(this).RegisterMediaExtensionForAppService)(windows_core::Interface::as_raw(this), extension.param().abi(), connection.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for MediaExtensionManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaExtensionManager>();
+}
 unsafe impl windows_core::Interface for MediaExtensionManager {
     type Vtable = <IMediaExtensionManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaExtensionManager as windows_core::Interface>::IID;
@@ -1665,9 +1665,6 @@ impl windows_core::RuntimeName for MediaMarkerTypes {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaProcessingTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaProcessingTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaProcessingTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(MediaProcessingTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaProcessingTriggerDetails,);
 impl MediaProcessingTriggerDetails {
@@ -1680,6 +1677,9 @@ impl MediaProcessingTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for MediaProcessingTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaProcessingTriggerDetails>();
+}
 unsafe impl windows_core::Interface for MediaProcessingTriggerDetails {
     type Vtable = <IMediaProcessingTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaProcessingTriggerDetails as windows_core::Interface>::IID;
@@ -1690,9 +1690,6 @@ impl windows_core::RuntimeName for MediaProcessingTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaTimelineController(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaTimelineController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaTimelineController>();
-}
 windows_core::imp::interface_hierarchy!(MediaTimelineController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaTimelineController,);
 impl MediaTimelineController {
@@ -1826,6 +1823,9 @@ impl MediaTimelineController {
         unsafe { (windows_core::Interface::vtable(this).RemoveEnded)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for MediaTimelineController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaTimelineController>();
+}
 unsafe impl windows_core::Interface for MediaTimelineController {
     type Vtable = <IMediaTimelineController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaTimelineController as windows_core::Interface>::IID;
@@ -1836,9 +1836,6 @@ impl windows_core::RuntimeName for MediaTimelineController {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaTimelineControllerFailedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaTimelineControllerFailedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaTimelineControllerFailedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MediaTimelineControllerFailedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaTimelineControllerFailedEventArgs,);
 impl MediaTimelineControllerFailedEventArgs {
@@ -1850,6 +1847,9 @@ impl MediaTimelineControllerFailedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MediaTimelineControllerFailedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaTimelineControllerFailedEventArgs>();
+}
 unsafe impl windows_core::Interface for MediaTimelineControllerFailedEventArgs {
     type Vtable = <IMediaTimelineControllerFailedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaTimelineControllerFailedEventArgs as windows_core::Interface>::IID;
@@ -1860,9 +1860,6 @@ impl windows_core::RuntimeName for MediaTimelineControllerFailedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MusicDisplayProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for MusicDisplayProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMusicDisplayProperties>();
-}
 windows_core::imp::interface_hierarchy!(MusicDisplayProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MusicDisplayProperties,);
 impl MusicDisplayProperties {
@@ -1941,6 +1938,9 @@ impl MusicDisplayProperties {
         unsafe { (windows_core::Interface::vtable(this).SetAlbumTrackCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for MusicDisplayProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMusicDisplayProperties>();
+}
 unsafe impl windows_core::Interface for MusicDisplayProperties {
     type Vtable = <IMusicDisplayProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMusicDisplayProperties as windows_core::Interface>::IID;
@@ -1951,9 +1951,6 @@ impl windows_core::RuntimeName for MusicDisplayProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaybackPositionChangeRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlaybackPositionChangeRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaybackPositionChangeRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PlaybackPositionChangeRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlaybackPositionChangeRequestedEventArgs,);
 impl PlaybackPositionChangeRequestedEventArgs {
@@ -1965,6 +1962,9 @@ impl PlaybackPositionChangeRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PlaybackPositionChangeRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaybackPositionChangeRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for PlaybackPositionChangeRequestedEventArgs {
     type Vtable = <IPlaybackPositionChangeRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlaybackPositionChangeRequestedEventArgs as windows_core::Interface>::IID;
@@ -1975,9 +1975,6 @@ impl windows_core::RuntimeName for PlaybackPositionChangeRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaybackRateChangeRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlaybackRateChangeRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaybackRateChangeRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PlaybackRateChangeRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlaybackRateChangeRequestedEventArgs,);
 impl PlaybackRateChangeRequestedEventArgs {
@@ -1989,6 +1986,9 @@ impl PlaybackRateChangeRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PlaybackRateChangeRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaybackRateChangeRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for PlaybackRateChangeRequestedEventArgs {
     type Vtable = <IPlaybackRateChangeRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlaybackRateChangeRequestedEventArgs as windows_core::Interface>::IID;
@@ -1999,9 +1999,6 @@ impl windows_core::RuntimeName for PlaybackRateChangeRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShuffleEnabledChangeRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ShuffleEnabledChangeRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShuffleEnabledChangeRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ShuffleEnabledChangeRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ShuffleEnabledChangeRequestedEventArgs,);
 impl ShuffleEnabledChangeRequestedEventArgs {
@@ -2013,6 +2010,9 @@ impl ShuffleEnabledChangeRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ShuffleEnabledChangeRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShuffleEnabledChangeRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for ShuffleEnabledChangeRequestedEventArgs {
     type Vtable = <IShuffleEnabledChangeRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IShuffleEnabledChangeRequestedEventArgs as windows_core::Interface>::IID;
@@ -2023,9 +2023,6 @@ impl windows_core::RuntimeName for ShuffleEnabledChangeRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMediaTransportControls(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemMediaTransportControls {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMediaTransportControls>();
-}
 windows_core::imp::interface_hierarchy!(SystemMediaTransportControls, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemMediaTransportControls,);
 impl SystemMediaTransportControls {
@@ -2310,6 +2307,9 @@ impl SystemMediaTransportControls {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SystemMediaTransportControls {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMediaTransportControls>();
+}
 unsafe impl windows_core::Interface for SystemMediaTransportControls {
     type Vtable = <ISystemMediaTransportControls as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemMediaTransportControls as windows_core::Interface>::IID;
@@ -2320,9 +2320,6 @@ impl windows_core::RuntimeName for SystemMediaTransportControls {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMediaTransportControlsButtonPressedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemMediaTransportControlsButtonPressedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMediaTransportControlsButtonPressedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SystemMediaTransportControlsButtonPressedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemMediaTransportControlsButtonPressedEventArgs,);
 impl SystemMediaTransportControlsButtonPressedEventArgs {
@@ -2334,6 +2331,9 @@ impl SystemMediaTransportControlsButtonPressedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for SystemMediaTransportControlsButtonPressedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMediaTransportControlsButtonPressedEventArgs>();
+}
 unsafe impl windows_core::Interface for SystemMediaTransportControlsButtonPressedEventArgs {
     type Vtable = <ISystemMediaTransportControlsButtonPressedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemMediaTransportControlsButtonPressedEventArgs as windows_core::Interface>::IID;
@@ -2344,9 +2344,6 @@ impl windows_core::RuntimeName for SystemMediaTransportControlsButtonPressedEven
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMediaTransportControlsDisplayUpdater(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemMediaTransportControlsDisplayUpdater {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMediaTransportControlsDisplayUpdater>();
-}
 windows_core::imp::interface_hierarchy!(SystemMediaTransportControlsDisplayUpdater, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemMediaTransportControlsDisplayUpdater,);
 impl SystemMediaTransportControlsDisplayUpdater {
@@ -2429,6 +2426,9 @@ impl SystemMediaTransportControlsDisplayUpdater {
         unsafe { (windows_core::Interface::vtable(this).Update)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for SystemMediaTransportControlsDisplayUpdater {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMediaTransportControlsDisplayUpdater>();
+}
 unsafe impl windows_core::Interface for SystemMediaTransportControlsDisplayUpdater {
     type Vtable = <ISystemMediaTransportControlsDisplayUpdater as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemMediaTransportControlsDisplayUpdater as windows_core::Interface>::IID;
@@ -2439,9 +2439,6 @@ impl windows_core::RuntimeName for SystemMediaTransportControlsDisplayUpdater {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMediaTransportControlsPropertyChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemMediaTransportControlsPropertyChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMediaTransportControlsPropertyChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SystemMediaTransportControlsPropertyChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemMediaTransportControlsPropertyChangedEventArgs,);
 impl SystemMediaTransportControlsPropertyChangedEventArgs {
@@ -2453,6 +2450,9 @@ impl SystemMediaTransportControlsPropertyChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for SystemMediaTransportControlsPropertyChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMediaTransportControlsPropertyChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for SystemMediaTransportControlsPropertyChangedEventArgs {
     type Vtable = <ISystemMediaTransportControlsPropertyChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemMediaTransportControlsPropertyChangedEventArgs as windows_core::Interface>::IID;
@@ -2463,9 +2463,6 @@ impl windows_core::RuntimeName for SystemMediaTransportControlsPropertyChangedEv
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMediaTransportControlsTimelineProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemMediaTransportControlsTimelineProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMediaTransportControlsTimelineProperties>();
-}
 windows_core::imp::interface_hierarchy!(SystemMediaTransportControlsTimelineProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemMediaTransportControlsTimelineProperties,);
 impl SystemMediaTransportControlsTimelineProperties {
@@ -2532,6 +2529,9 @@ impl SystemMediaTransportControlsTimelineProperties {
         unsafe { (windows_core::Interface::vtable(this).SetPosition)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for SystemMediaTransportControlsTimelineProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMediaTransportControlsTimelineProperties>();
+}
 unsafe impl windows_core::Interface for SystemMediaTransportControlsTimelineProperties {
     type Vtable = <ISystemMediaTransportControlsTimelineProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemMediaTransportControlsTimelineProperties as windows_core::Interface>::IID;
@@ -2542,9 +2542,6 @@ impl windows_core::RuntimeName for SystemMediaTransportControlsTimelinePropertie
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoDisplayProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for VideoDisplayProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoDisplayProperties>();
-}
 windows_core::imp::interface_hierarchy!(VideoDisplayProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoDisplayProperties,);
 impl VideoDisplayProperties {
@@ -2579,6 +2576,9 @@ impl VideoDisplayProperties {
         }
     }
 }
+impl windows_core::RuntimeType for VideoDisplayProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoDisplayProperties>();
+}
 unsafe impl windows_core::Interface for VideoDisplayProperties {
     type Vtable = <IVideoDisplayProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVideoDisplayProperties as windows_core::Interface>::IID;
@@ -2605,9 +2605,6 @@ impl windows_core::RuntimeName for VideoEffects {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoFrame(windows_core::IUnknown);
-impl windows_core::RuntimeType for VideoFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoFrame>();
-}
 windows_core::imp::interface_hierarchy!(VideoFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoFrame, super::Foundation::IClosable, IMediaFrame);
 impl VideoFrame {
@@ -2789,6 +2786,9 @@ impl VideoFrame {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for VideoFrame {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoFrame>();
+}
 unsafe impl windows_core::Interface for VideoFrame {
     type Vtable = <IVideoFrame as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVideoFrame as windows_core::Interface>::IID;
@@ -2931,7 +2931,7 @@ impl windows_core::RuntimeType for SystemMediaTransportControlsProperty {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SystemMediaTransportControlsProperty;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct MediaTimeRange {
     pub Start: super::Foundation::TimeSpan,
     pub End: super::Foundation::TimeSpan,

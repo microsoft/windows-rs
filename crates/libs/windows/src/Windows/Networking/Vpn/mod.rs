@@ -1742,9 +1742,6 @@ pub struct IVpnTrafficFilterFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnAppId(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnAppId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnAppId>();
-}
 windows_core::imp::interface_hierarchy!(VpnAppId, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnAppId,);
 impl VpnAppId {
@@ -1781,6 +1778,9 @@ impl VpnAppId {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for VpnAppId {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnAppId>();
+}
 unsafe impl windows_core::Interface for VpnAppId {
     type Vtable = <IVpnAppId as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnAppId as windows_core::Interface>::IID;
@@ -1791,9 +1791,6 @@ impl windows_core::RuntimeName for VpnAppId {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnChannel(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnChannel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnChannel>();
-}
 windows_core::imp::interface_hierarchy!(VpnChannel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnChannel, IVpnChannelStatics);
 impl VpnChannel {
@@ -2119,6 +2116,9 @@ impl VpnChannel {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for VpnChannel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnChannel>();
+}
 unsafe impl windows_core::Interface for VpnChannel {
     type Vtable = <IVpnChannel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnChannel as windows_core::Interface>::IID;
@@ -2129,9 +2129,6 @@ impl windows_core::RuntimeName for VpnChannel {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnChannelActivityEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnChannelActivityEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnChannelActivityEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(VpnChannelActivityEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnChannelActivityEventArgs,);
 impl VpnChannelActivityEventArgs {
@@ -2143,6 +2140,9 @@ impl VpnChannelActivityEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for VpnChannelActivityEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnChannelActivityEventArgs>();
+}
 unsafe impl windows_core::Interface for VpnChannelActivityEventArgs {
     type Vtable = <IVpnChannelActivityEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnChannelActivityEventArgs as windows_core::Interface>::IID;
@@ -2153,9 +2153,6 @@ impl windows_core::RuntimeName for VpnChannelActivityEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnChannelActivityStateChangedArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnChannelActivityStateChangedArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnChannelActivityStateChangedArgs>();
-}
 windows_core::imp::interface_hierarchy!(VpnChannelActivityStateChangedArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnChannelActivityStateChangedArgs,);
 impl VpnChannelActivityStateChangedArgs {
@@ -2167,6 +2164,9 @@ impl VpnChannelActivityStateChangedArgs {
         }
     }
 }
+impl windows_core::RuntimeType for VpnChannelActivityStateChangedArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnChannelActivityStateChangedArgs>();
+}
 unsafe impl windows_core::Interface for VpnChannelActivityStateChangedArgs {
     type Vtable = <IVpnChannelActivityStateChangedArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnChannelActivityStateChangedArgs as windows_core::Interface>::IID;
@@ -2177,9 +2177,6 @@ impl windows_core::RuntimeName for VpnChannelActivityStateChangedArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnChannelConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnChannelConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnChannelConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(VpnChannelConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnChannelConfiguration,);
 impl VpnChannelConfiguration {
@@ -2214,6 +2211,9 @@ impl VpnChannelConfiguration {
         }
     }
 }
+impl windows_core::RuntimeType for VpnChannelConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnChannelConfiguration>();
+}
 unsafe impl windows_core::Interface for VpnChannelConfiguration {
     type Vtable = <IVpnChannelConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnChannelConfiguration as windows_core::Interface>::IID;
@@ -2224,9 +2224,6 @@ impl windows_core::RuntimeName for VpnChannelConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCredential(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnCredential {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCredential>();
-}
 windows_core::imp::interface_hierarchy!(VpnCredential, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCredential, IVpnCredential);
 impl VpnCredential {
@@ -2262,6 +2259,9 @@ impl VpnCredential {
         }
     }
 }
+impl windows_core::RuntimeType for VpnCredential {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCredential>();
+}
 unsafe impl windows_core::Interface for VpnCredential {
     type Vtable = <IVpnCredential as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnCredential as windows_core::Interface>::IID;
@@ -2272,9 +2272,6 @@ impl windows_core::RuntimeName for VpnCredential {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomCheckBox(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnCustomCheckBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomCheckBox>();
-}
 windows_core::imp::interface_hierarchy!(VpnCustomCheckBox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomCheckBox, IVpnCustomPrompt);
 impl VpnCustomCheckBox {
@@ -2337,6 +2334,9 @@ impl VpnCustomCheckBox {
         }
     }
 }
+impl windows_core::RuntimeType for VpnCustomCheckBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomCheckBox>();
+}
 unsafe impl windows_core::Interface for VpnCustomCheckBox {
     type Vtable = <IVpnCustomCheckBox as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnCustomCheckBox as windows_core::Interface>::IID;
@@ -2347,9 +2347,6 @@ impl windows_core::RuntimeName for VpnCustomCheckBox {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomComboBox(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnCustomComboBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomComboBox>();
-}
 windows_core::imp::interface_hierarchy!(VpnCustomComboBox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomComboBox, IVpnCustomPrompt);
 impl VpnCustomComboBox {
@@ -2417,6 +2414,9 @@ impl VpnCustomComboBox {
         }
     }
 }
+impl windows_core::RuntimeType for VpnCustomComboBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomComboBox>();
+}
 unsafe impl windows_core::Interface for VpnCustomComboBox {
     type Vtable = <IVpnCustomComboBox as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnCustomComboBox as windows_core::Interface>::IID;
@@ -2427,9 +2427,6 @@ impl windows_core::RuntimeName for VpnCustomComboBox {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomEditBox(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnCustomEditBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomEditBox>();
-}
 windows_core::imp::interface_hierarchy!(VpnCustomEditBox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomEditBox, IVpnCustomPrompt);
 impl VpnCustomEditBox {
@@ -2503,6 +2500,9 @@ impl VpnCustomEditBox {
         }
     }
 }
+impl windows_core::RuntimeType for VpnCustomEditBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomEditBox>();
+}
 unsafe impl windows_core::Interface for VpnCustomEditBox {
     type Vtable = <IVpnCustomEditBox as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnCustomEditBox as windows_core::Interface>::IID;
@@ -2513,9 +2513,6 @@ impl windows_core::RuntimeName for VpnCustomEditBox {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomErrorBox(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnCustomErrorBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomErrorBox>();
-}
 windows_core::imp::interface_hierarchy!(VpnCustomErrorBox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomErrorBox, IVpnCustomPrompt);
 impl VpnCustomErrorBox {
@@ -2560,6 +2557,9 @@ impl VpnCustomErrorBox {
         }
     }
 }
+impl windows_core::RuntimeType for VpnCustomErrorBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomErrorBox>();
+}
 unsafe impl windows_core::Interface for VpnCustomErrorBox {
     type Vtable = <IVpnCustomErrorBox as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnCustomErrorBox as windows_core::Interface>::IID;
@@ -2570,9 +2570,6 @@ impl windows_core::RuntimeName for VpnCustomErrorBox {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomPromptBooleanInput(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnCustomPromptBooleanInput {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomPromptBooleanInput>();
-}
 windows_core::imp::interface_hierarchy!(VpnCustomPromptBooleanInput, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomPromptBooleanInput, IVpnCustomPromptElement);
 impl VpnCustomPromptBooleanInput {
@@ -2635,6 +2632,9 @@ impl VpnCustomPromptBooleanInput {
         }
     }
 }
+impl windows_core::RuntimeType for VpnCustomPromptBooleanInput {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomPromptBooleanInput>();
+}
 unsafe impl windows_core::Interface for VpnCustomPromptBooleanInput {
     type Vtable = <IVpnCustomPromptBooleanInput as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnCustomPromptBooleanInput as windows_core::Interface>::IID;
@@ -2645,9 +2645,6 @@ impl windows_core::RuntimeName for VpnCustomPromptBooleanInput {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomPromptOptionSelector(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnCustomPromptOptionSelector {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomPromptOptionSelector>();
-}
 windows_core::imp::interface_hierarchy!(VpnCustomPromptOptionSelector, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomPromptOptionSelector, IVpnCustomPromptElement);
 impl VpnCustomPromptOptionSelector {
@@ -2707,6 +2704,9 @@ impl VpnCustomPromptOptionSelector {
         }
     }
 }
+impl windows_core::RuntimeType for VpnCustomPromptOptionSelector {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomPromptOptionSelector>();
+}
 unsafe impl windows_core::Interface for VpnCustomPromptOptionSelector {
     type Vtable = <IVpnCustomPromptOptionSelector as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnCustomPromptOptionSelector as windows_core::Interface>::IID;
@@ -2717,9 +2717,6 @@ impl windows_core::RuntimeName for VpnCustomPromptOptionSelector {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomPromptText(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnCustomPromptText {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomPromptText>();
-}
 windows_core::imp::interface_hierarchy!(VpnCustomPromptText, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomPromptText, IVpnCustomPromptElement);
 impl VpnCustomPromptText {
@@ -2775,6 +2772,9 @@ impl VpnCustomPromptText {
         }
     }
 }
+impl windows_core::RuntimeType for VpnCustomPromptText {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomPromptText>();
+}
 unsafe impl windows_core::Interface for VpnCustomPromptText {
     type Vtable = <IVpnCustomPromptText as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnCustomPromptText as windows_core::Interface>::IID;
@@ -2785,9 +2785,6 @@ impl windows_core::RuntimeName for VpnCustomPromptText {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomPromptTextInput(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnCustomPromptTextInput {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomPromptTextInput>();
-}
 windows_core::imp::interface_hierarchy!(VpnCustomPromptTextInput, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomPromptTextInput, IVpnCustomPromptElement);
 impl VpnCustomPromptTextInput {
@@ -2861,6 +2858,9 @@ impl VpnCustomPromptTextInput {
         }
     }
 }
+impl windows_core::RuntimeType for VpnCustomPromptTextInput {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomPromptTextInput>();
+}
 unsafe impl windows_core::Interface for VpnCustomPromptTextInput {
     type Vtable = <IVpnCustomPromptTextInput as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnCustomPromptTextInput as windows_core::Interface>::IID;
@@ -2871,9 +2871,6 @@ impl windows_core::RuntimeName for VpnCustomPromptTextInput {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnCustomTextBox(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnCustomTextBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomTextBox>();
-}
 windows_core::imp::interface_hierarchy!(VpnCustomTextBox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnCustomTextBox, IVpnCustomPrompt);
 impl VpnCustomTextBox {
@@ -2929,6 +2926,9 @@ impl VpnCustomTextBox {
         }
     }
 }
+impl windows_core::RuntimeType for VpnCustomTextBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnCustomTextBox>();
+}
 unsafe impl windows_core::Interface for VpnCustomTextBox {
     type Vtable = <IVpnCustomTextBox as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnCustomTextBox as windows_core::Interface>::IID;
@@ -2939,9 +2939,6 @@ impl windows_core::RuntimeName for VpnCustomTextBox {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnDomainNameAssignment(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnDomainNameAssignment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnDomainNameAssignment>();
-}
 windows_core::imp::interface_hierarchy!(VpnDomainNameAssignment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnDomainNameAssignment,);
 impl VpnDomainNameAssignment {
@@ -2975,6 +2972,9 @@ impl VpnDomainNameAssignment {
         }
     }
 }
+impl windows_core::RuntimeType for VpnDomainNameAssignment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnDomainNameAssignment>();
+}
 unsafe impl windows_core::Interface for VpnDomainNameAssignment {
     type Vtable = <IVpnDomainNameAssignment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnDomainNameAssignment as windows_core::Interface>::IID;
@@ -2985,9 +2985,6 @@ impl windows_core::RuntimeName for VpnDomainNameAssignment {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnDomainNameInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnDomainNameInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnDomainNameInfo>();
-}
 windows_core::imp::interface_hierarchy!(VpnDomainNameInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnDomainNameInfo, IVpnDomainNameInfoFactory);
 impl VpnDomainNameInfo {
@@ -3056,6 +3053,9 @@ impl VpnDomainNameInfo {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for VpnDomainNameInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnDomainNameInfo>();
+}
 unsafe impl windows_core::Interface for VpnDomainNameInfo {
     type Vtable = <IVpnDomainNameInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnDomainNameInfo as windows_core::Interface>::IID;
@@ -3067,10 +3067,6 @@ impl windows_core::RuntimeName for VpnDomainNameInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnForegroundActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for VpnForegroundActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnForegroundActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(VpnForegroundActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -3133,6 +3129,10 @@ impl VpnForegroundActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for VpnForegroundActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnForegroundActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for VpnForegroundActivatedEventArgs {
     type Vtable = <IVpnForegroundActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnForegroundActivatedEventArgs as windows_core::Interface>::IID;
@@ -3144,9 +3144,6 @@ impl windows_core::RuntimeName for VpnForegroundActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnForegroundActivationOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnForegroundActivationOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnForegroundActivationOperation>();
-}
 windows_core::imp::interface_hierarchy!(VpnForegroundActivationOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnForegroundActivationOperation,);
 impl VpnForegroundActivationOperation {
@@ -3159,6 +3156,9 @@ impl VpnForegroundActivationOperation {
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this), result.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for VpnForegroundActivationOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnForegroundActivationOperation>();
+}
 unsafe impl windows_core::Interface for VpnForegroundActivationOperation {
     type Vtable = <IVpnForegroundActivationOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnForegroundActivationOperation as windows_core::Interface>::IID;
@@ -3169,9 +3169,6 @@ impl windows_core::RuntimeName for VpnForegroundActivationOperation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnInterfaceId(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnInterfaceId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnInterfaceId>();
-}
 windows_core::imp::interface_hierarchy!(VpnInterfaceId, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnInterfaceId, IVpnInterfaceIdFactory);
 impl VpnInterfaceId {
@@ -3190,6 +3187,9 @@ impl VpnInterfaceId {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for VpnInterfaceId {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnInterfaceId>();
+}
 unsafe impl windows_core::Interface for VpnInterfaceId {
     type Vtable = <IVpnInterfaceId as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnInterfaceId as windows_core::Interface>::IID;
@@ -3200,9 +3200,6 @@ impl windows_core::RuntimeName for VpnInterfaceId {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnManagementAgent(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnManagementAgent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnManagementAgent>();
-}
 windows_core::imp::interface_hierarchy!(VpnManagementAgent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnManagementAgent,);
 impl VpnManagementAgent {
@@ -3298,6 +3295,9 @@ impl VpnManagementAgent {
         }
     }
 }
+impl windows_core::RuntimeType for VpnManagementAgent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnManagementAgent>();
+}
 unsafe impl windows_core::Interface for VpnManagementAgent {
     type Vtable = <IVpnManagementAgent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnManagementAgent as windows_core::Interface>::IID;
@@ -3308,9 +3308,6 @@ impl windows_core::RuntimeName for VpnManagementAgent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnNamespaceAssignment(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnNamespaceAssignment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnNamespaceAssignment>();
-}
 windows_core::imp::interface_hierarchy!(VpnNamespaceAssignment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnNamespaceAssignment,);
 impl VpnNamespaceAssignment {
@@ -3352,6 +3349,9 @@ impl VpnNamespaceAssignment {
         }
     }
 }
+impl windows_core::RuntimeType for VpnNamespaceAssignment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnNamespaceAssignment>();
+}
 unsafe impl windows_core::Interface for VpnNamespaceAssignment {
     type Vtable = <IVpnNamespaceAssignment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnNamespaceAssignment as windows_core::Interface>::IID;
@@ -3362,9 +3362,6 @@ impl windows_core::RuntimeName for VpnNamespaceAssignment {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnNamespaceInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnNamespaceInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnNamespaceInfo>();
-}
 windows_core::imp::interface_hierarchy!(VpnNamespaceInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnNamespaceInfo, IVpnNamespaceInfoFactory);
 impl VpnNamespaceInfo {
@@ -3427,6 +3424,9 @@ impl VpnNamespaceInfo {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for VpnNamespaceInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnNamespaceInfo>();
+}
 unsafe impl windows_core::Interface for VpnNamespaceInfo {
     type Vtable = <IVpnNamespaceInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnNamespaceInfo as windows_core::Interface>::IID;
@@ -3437,9 +3437,6 @@ impl windows_core::RuntimeName for VpnNamespaceInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnNativeProfile(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnNativeProfile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnNativeProfile>();
-}
 windows_core::imp::interface_hierarchy!(VpnNativeProfile, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnNativeProfile, IVpnProfile);
 impl VpnNativeProfile {
@@ -3597,6 +3594,9 @@ impl VpnNativeProfile {
         unsafe { (windows_core::Interface::vtable(this).SetAlwaysOn)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for VpnNativeProfile {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnNativeProfile>();
+}
 unsafe impl windows_core::Interface for VpnNativeProfile {
     type Vtable = <IVpnNativeProfile as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnNativeProfile as windows_core::Interface>::IID;
@@ -3607,9 +3607,6 @@ impl windows_core::RuntimeName for VpnNativeProfile {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnPacketBuffer(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnPacketBuffer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnPacketBuffer>();
-}
 windows_core::imp::interface_hierarchy!(VpnPacketBuffer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnPacketBuffer, IVpnPacketBufferFactory);
 impl VpnPacketBuffer {
@@ -3678,6 +3675,9 @@ impl VpnPacketBuffer {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for VpnPacketBuffer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnPacketBuffer>();
+}
 unsafe impl windows_core::Interface for VpnPacketBuffer {
     type Vtable = <IVpnPacketBuffer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnPacketBuffer as windows_core::Interface>::IID;
@@ -3689,10 +3689,6 @@ impl windows_core::RuntimeName for VpnPacketBuffer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnPacketBufferList(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for VpnPacketBufferList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnPacketBufferList>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(VpnPacketBufferList, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -3759,6 +3755,10 @@ impl VpnPacketBufferList {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for VpnPacketBufferList {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnPacketBufferList>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for VpnPacketBufferList {
     type Vtable = <IVpnPacketBufferList as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnPacketBufferList as windows_core::Interface>::IID;
@@ -3770,9 +3770,6 @@ impl windows_core::RuntimeName for VpnPacketBufferList {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnPickedCredential(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnPickedCredential {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnPickedCredential>();
-}
 windows_core::imp::interface_hierarchy!(VpnPickedCredential, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnPickedCredential,);
 impl VpnPickedCredential {
@@ -3800,6 +3797,9 @@ impl VpnPickedCredential {
         }
     }
 }
+impl windows_core::RuntimeType for VpnPickedCredential {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnPickedCredential>();
+}
 unsafe impl windows_core::Interface for VpnPickedCredential {
     type Vtable = <IVpnPickedCredential as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnPickedCredential as windows_core::Interface>::IID;
@@ -3810,9 +3810,6 @@ impl windows_core::RuntimeName for VpnPickedCredential {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnPlugInProfile(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnPlugInProfile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnPlugInProfile>();
-}
 windows_core::imp::interface_hierarchy!(VpnPlugInProfile, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnPlugInProfile, IVpnProfile);
 impl VpnPlugInProfile {
@@ -3937,6 +3934,9 @@ impl VpnPlugInProfile {
         unsafe { (windows_core::Interface::vtable(this).SetAlwaysOn)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for VpnPlugInProfile {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnPlugInProfile>();
+}
 unsafe impl windows_core::Interface for VpnPlugInProfile {
     type Vtable = <IVpnPlugInProfile as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnPlugInProfile as windows_core::Interface>::IID;
@@ -3947,9 +3947,6 @@ impl windows_core::RuntimeName for VpnPlugInProfile {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnRoute(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnRoute {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnRoute>();
-}
 windows_core::imp::interface_hierarchy!(VpnRoute, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnRoute, IVpnRouteFactory);
 impl VpnRoute {
@@ -3992,6 +3989,9 @@ impl VpnRoute {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for VpnRoute {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnRoute>();
+}
 unsafe impl windows_core::Interface for VpnRoute {
     type Vtable = <IVpnRoute as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnRoute as windows_core::Interface>::IID;
@@ -4002,9 +4002,6 @@ impl windows_core::RuntimeName for VpnRoute {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnRouteAssignment(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnRouteAssignment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnRouteAssignment>();
-}
 windows_core::imp::interface_hierarchy!(VpnRouteAssignment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnRouteAssignment,);
 impl VpnRouteAssignment {
@@ -4091,6 +4088,9 @@ impl VpnRouteAssignment {
         }
     }
 }
+impl windows_core::RuntimeType for VpnRouteAssignment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnRouteAssignment>();
+}
 unsafe impl windows_core::Interface for VpnRouteAssignment {
     type Vtable = <IVpnRouteAssignment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnRouteAssignment as windows_core::Interface>::IID;
@@ -4101,9 +4101,6 @@ impl windows_core::RuntimeName for VpnRouteAssignment {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnSystemHealth(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnSystemHealth {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnSystemHealth>();
-}
 windows_core::imp::interface_hierarchy!(VpnSystemHealth, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnSystemHealth,);
 impl VpnSystemHealth {
@@ -4116,6 +4113,9 @@ impl VpnSystemHealth {
         }
     }
 }
+impl windows_core::RuntimeType for VpnSystemHealth {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnSystemHealth>();
+}
 unsafe impl windows_core::Interface for VpnSystemHealth {
     type Vtable = <IVpnSystemHealth as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnSystemHealth as windows_core::Interface>::IID;
@@ -4126,9 +4126,6 @@ impl windows_core::RuntimeName for VpnSystemHealth {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnTrafficFilter(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnTrafficFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnTrafficFilter>();
-}
 windows_core::imp::interface_hierarchy!(VpnTrafficFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnTrafficFilter,);
 impl VpnTrafficFilter {
@@ -4222,6 +4219,9 @@ impl VpnTrafficFilter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for VpnTrafficFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnTrafficFilter>();
+}
 unsafe impl windows_core::Interface for VpnTrafficFilter {
     type Vtable = <IVpnTrafficFilter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVpnTrafficFilter as windows_core::Interface>::IID;
@@ -4232,9 +4232,6 @@ impl windows_core::RuntimeName for VpnTrafficFilter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VpnTrafficFilterAssignment(windows_core::IUnknown);
-impl windows_core::RuntimeType for VpnTrafficFilterAssignment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnTrafficFilterAssignment>();
-}
 windows_core::imp::interface_hierarchy!(VpnTrafficFilterAssignment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VpnTrafficFilterAssignment,);
 impl VpnTrafficFilterAssignment {
@@ -4275,6 +4272,9 @@ impl VpnTrafficFilterAssignment {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAllowInbound)(windows_core::Interface::as_raw(this), value).ok() }
     }
+}
+impl windows_core::RuntimeType for VpnTrafficFilterAssignment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnTrafficFilterAssignment>();
 }
 unsafe impl windows_core::Interface for VpnTrafficFilterAssignment {
     type Vtable = <IVpnTrafficFilterAssignment as windows_core::Interface>::Vtable;

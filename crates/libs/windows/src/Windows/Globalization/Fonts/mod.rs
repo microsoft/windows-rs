@@ -51,9 +51,6 @@ pub struct ILanguageFontGroupFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LanguageFont(windows_core::IUnknown);
-impl windows_core::RuntimeType for LanguageFont {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanguageFont>();
-}
 windows_core::imp::interface_hierarchy!(LanguageFont, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LanguageFont,);
 impl LanguageFont {
@@ -96,6 +93,9 @@ impl LanguageFont {
         }
     }
 }
+impl windows_core::RuntimeType for LanguageFont {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanguageFont>();
+}
 unsafe impl windows_core::Interface for LanguageFont {
     type Vtable = <ILanguageFont as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILanguageFont as windows_core::Interface>::IID;
@@ -106,9 +106,6 @@ impl windows_core::RuntimeName for LanguageFont {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LanguageFontGroup(windows_core::IUnknown);
-impl windows_core::RuntimeType for LanguageFontGroup {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanguageFontGroup>();
-}
 windows_core::imp::interface_hierarchy!(LanguageFontGroup, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LanguageFontGroup,);
 impl LanguageFontGroup {
@@ -199,6 +196,9 @@ impl LanguageFontGroup {
         static SHARED: windows_core::imp::FactoryCache<LanguageFontGroup, ILanguageFontGroupFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for LanguageFontGroup {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanguageFontGroup>();
 }
 unsafe impl windows_core::Interface for LanguageFontGroup {
     type Vtable = <ILanguageFontGroup as windows_core::Interface>::Vtable;

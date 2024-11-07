@@ -106,9 +106,6 @@ pub struct IWebViewControlSite2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControl(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::IWebViewControl>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControl, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControl, super::IWebViewControl, super::IWebViewControl2);
 impl WebViewControl {
@@ -613,6 +610,9 @@ impl WebViewControl {
         unsafe { (windows_core::Interface::vtable(this).RemoveLostFocus)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for WebViewControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::IWebViewControl>();
+}
 unsafe impl windows_core::Interface for WebViewControl {
     type Vtable = <super::IWebViewControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::IWebViewControl as windows_core::Interface>::IID;
@@ -623,9 +623,6 @@ impl windows_core::RuntimeName for WebViewControl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlAcceleratorKeyPressedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlAcceleratorKeyPressedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlAcceleratorKeyPressedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlAcceleratorKeyPressedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlAcceleratorKeyPressedEventArgs,);
 impl WebViewControlAcceleratorKeyPressedEventArgs {
@@ -672,6 +669,9 @@ impl WebViewControlAcceleratorKeyPressedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for WebViewControlAcceleratorKeyPressedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlAcceleratorKeyPressedEventArgs>();
+}
 unsafe impl windows_core::Interface for WebViewControlAcceleratorKeyPressedEventArgs {
     type Vtable = <IWebViewControlAcceleratorKeyPressedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlAcceleratorKeyPressedEventArgs as windows_core::Interface>::IID;
@@ -682,9 +682,6 @@ impl windows_core::RuntimeName for WebViewControlAcceleratorKeyPressedEventArgs 
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlMoveFocusRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlMoveFocusRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlMoveFocusRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlMoveFocusRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlMoveFocusRequestedEventArgs,);
 impl WebViewControlMoveFocusRequestedEventArgs {
@@ -696,6 +693,9 @@ impl WebViewControlMoveFocusRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WebViewControlMoveFocusRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlMoveFocusRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for WebViewControlMoveFocusRequestedEventArgs {
     type Vtable = <IWebViewControlMoveFocusRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlMoveFocusRequestedEventArgs as windows_core::Interface>::IID;
@@ -706,9 +706,6 @@ impl windows_core::RuntimeName for WebViewControlMoveFocusRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlProcess(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlProcess {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlProcess>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlProcess, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlProcess,);
 impl WebViewControlProcess {
@@ -787,6 +784,9 @@ impl WebViewControlProcess {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WebViewControlProcess {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlProcess>();
+}
 unsafe impl windows_core::Interface for WebViewControlProcess {
     type Vtable = <IWebViewControlProcess as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebViewControlProcess as windows_core::Interface>::IID;
@@ -797,9 +797,6 @@ impl windows_core::RuntimeName for WebViewControlProcess {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebViewControlProcessOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebViewControlProcessOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlProcessOptions>();
-}
 windows_core::imp::interface_hierarchy!(WebViewControlProcessOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebViewControlProcessOptions,);
 impl WebViewControlProcessOptions {
@@ -832,6 +829,9 @@ impl WebViewControlProcessOptions {
             (windows_core::Interface::vtable(this).PrivateNetworkClientServerCapability)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for WebViewControlProcessOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebViewControlProcessOptions>();
 }
 unsafe impl windows_core::Interface for WebViewControlProcessOptions {
     type Vtable = <IWebViewControlProcessOptions as windows_core::Interface>::Vtable;

@@ -22,9 +22,6 @@ pub struct IBatteryStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Battery(windows_core::IUnknown);
-impl windows_core::RuntimeType for Battery {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBattery>();
-}
 windows_core::imp::interface_hierarchy!(Battery, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Battery,);
 impl Battery {
@@ -66,6 +63,9 @@ impl Battery {
         static SHARED: windows_core::imp::FactoryCache<Battery, IBatteryStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for Battery {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBattery>();
 }
 unsafe impl windows_core::Interface for Battery {
     type Vtable = <IBattery as windows_core::Interface>::Vtable;

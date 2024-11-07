@@ -242,9 +242,6 @@ pub struct ISystemMemoryUsageReport_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DiagnosticActionResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for DiagnosticActionResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDiagnosticActionResult>();
-}
 windows_core::imp::interface_hierarchy!(DiagnosticActionResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DiagnosticActionResult,);
 impl DiagnosticActionResult {
@@ -264,6 +261,9 @@ impl DiagnosticActionResult {
         }
     }
 }
+impl windows_core::RuntimeType for DiagnosticActionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDiagnosticActionResult>();
+}
 unsafe impl windows_core::Interface for DiagnosticActionResult {
     type Vtable = <IDiagnosticActionResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDiagnosticActionResult as windows_core::Interface>::IID;
@@ -274,9 +274,6 @@ impl windows_core::RuntimeName for DiagnosticActionResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DiagnosticInvoker(windows_core::IUnknown);
-impl windows_core::RuntimeType for DiagnosticInvoker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDiagnosticInvoker>();
-}
 windows_core::imp::interface_hierarchy!(DiagnosticInvoker, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DiagnosticInvoker,);
 impl DiagnosticInvoker {
@@ -324,6 +321,9 @@ impl DiagnosticInvoker {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DiagnosticInvoker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDiagnosticInvoker>();
+}
 unsafe impl windows_core::Interface for DiagnosticInvoker {
     type Vtable = <IDiagnosticInvoker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDiagnosticInvoker as windows_core::Interface>::IID;
@@ -334,9 +334,6 @@ impl windows_core::RuntimeName for DiagnosticInvoker {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessCpuUsage(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProcessCpuUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessCpuUsage>();
-}
 windows_core::imp::interface_hierarchy!(ProcessCpuUsage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProcessCpuUsage,);
 impl ProcessCpuUsage {
@@ -348,6 +345,9 @@ impl ProcessCpuUsage {
         }
     }
 }
+impl windows_core::RuntimeType for ProcessCpuUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessCpuUsage>();
+}
 unsafe impl windows_core::Interface for ProcessCpuUsage {
     type Vtable = <IProcessCpuUsage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProcessCpuUsage as windows_core::Interface>::IID;
@@ -358,9 +358,6 @@ impl windows_core::RuntimeName for ProcessCpuUsage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessCpuUsageReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProcessCpuUsageReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessCpuUsageReport>();
-}
 windows_core::imp::interface_hierarchy!(ProcessCpuUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProcessCpuUsageReport,);
 impl ProcessCpuUsageReport {
@@ -379,6 +376,9 @@ impl ProcessCpuUsageReport {
         }
     }
 }
+impl windows_core::RuntimeType for ProcessCpuUsageReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessCpuUsageReport>();
+}
 unsafe impl windows_core::Interface for ProcessCpuUsageReport {
     type Vtable = <IProcessCpuUsageReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProcessCpuUsageReport as windows_core::Interface>::IID;
@@ -389,9 +389,6 @@ impl windows_core::RuntimeName for ProcessCpuUsageReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessDiagnosticInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProcessDiagnosticInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessDiagnosticInfo>();
-}
 windows_core::imp::interface_hierarchy!(ProcessDiagnosticInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProcessDiagnosticInfo,);
 impl ProcessDiagnosticInfo {
@@ -487,6 +484,9 @@ impl ProcessDiagnosticInfo {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ProcessDiagnosticInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessDiagnosticInfo>();
+}
 unsafe impl windows_core::Interface for ProcessDiagnosticInfo {
     type Vtable = <IProcessDiagnosticInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProcessDiagnosticInfo as windows_core::Interface>::IID;
@@ -497,9 +497,6 @@ impl windows_core::RuntimeName for ProcessDiagnosticInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessDiskUsage(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProcessDiskUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessDiskUsage>();
-}
 windows_core::imp::interface_hierarchy!(ProcessDiskUsage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProcessDiskUsage,);
 impl ProcessDiskUsage {
@@ -511,6 +508,9 @@ impl ProcessDiskUsage {
         }
     }
 }
+impl windows_core::RuntimeType for ProcessDiskUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessDiskUsage>();
+}
 unsafe impl windows_core::Interface for ProcessDiskUsage {
     type Vtable = <IProcessDiskUsage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProcessDiskUsage as windows_core::Interface>::IID;
@@ -521,9 +521,6 @@ impl windows_core::RuntimeName for ProcessDiskUsage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessDiskUsageReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProcessDiskUsageReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessDiskUsageReport>();
-}
 windows_core::imp::interface_hierarchy!(ProcessDiskUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProcessDiskUsageReport,);
 impl ProcessDiskUsageReport {
@@ -570,6 +567,9 @@ impl ProcessDiskUsageReport {
         }
     }
 }
+impl windows_core::RuntimeType for ProcessDiskUsageReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessDiskUsageReport>();
+}
 unsafe impl windows_core::Interface for ProcessDiskUsageReport {
     type Vtable = <IProcessDiskUsageReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProcessDiskUsageReport as windows_core::Interface>::IID;
@@ -580,9 +580,6 @@ impl windows_core::RuntimeName for ProcessDiskUsageReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessMemoryUsage(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProcessMemoryUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessMemoryUsage>();
-}
 windows_core::imp::interface_hierarchy!(ProcessMemoryUsage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProcessMemoryUsage,);
 impl ProcessMemoryUsage {
@@ -594,6 +591,9 @@ impl ProcessMemoryUsage {
         }
     }
 }
+impl windows_core::RuntimeType for ProcessMemoryUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessMemoryUsage>();
+}
 unsafe impl windows_core::Interface for ProcessMemoryUsage {
     type Vtable = <IProcessMemoryUsage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProcessMemoryUsage as windows_core::Interface>::IID;
@@ -604,9 +604,6 @@ impl windows_core::RuntimeName for ProcessMemoryUsage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessMemoryUsageReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProcessMemoryUsageReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessMemoryUsageReport>();
-}
 windows_core::imp::interface_hierarchy!(ProcessMemoryUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProcessMemoryUsageReport,);
 impl ProcessMemoryUsageReport {
@@ -695,6 +692,9 @@ impl ProcessMemoryUsageReport {
         }
     }
 }
+impl windows_core::RuntimeType for ProcessMemoryUsageReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessMemoryUsageReport>();
+}
 unsafe impl windows_core::Interface for ProcessMemoryUsageReport {
     type Vtable = <IProcessMemoryUsageReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProcessMemoryUsageReport as windows_core::Interface>::IID;
@@ -705,9 +705,6 @@ impl windows_core::RuntimeName for ProcessMemoryUsageReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemCpuUsage(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemCpuUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemCpuUsage>();
-}
 windows_core::imp::interface_hierarchy!(SystemCpuUsage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemCpuUsage,);
 impl SystemCpuUsage {
@@ -719,6 +716,9 @@ impl SystemCpuUsage {
         }
     }
 }
+impl windows_core::RuntimeType for SystemCpuUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemCpuUsage>();
+}
 unsafe impl windows_core::Interface for SystemCpuUsage {
     type Vtable = <ISystemCpuUsage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemCpuUsage as windows_core::Interface>::IID;
@@ -729,9 +729,6 @@ impl windows_core::RuntimeName for SystemCpuUsage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemCpuUsageReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemCpuUsageReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemCpuUsageReport>();
-}
 windows_core::imp::interface_hierarchy!(SystemCpuUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemCpuUsageReport,);
 impl SystemCpuUsageReport {
@@ -757,6 +754,9 @@ impl SystemCpuUsageReport {
         }
     }
 }
+impl windows_core::RuntimeType for SystemCpuUsageReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemCpuUsageReport>();
+}
 unsafe impl windows_core::Interface for SystemCpuUsageReport {
     type Vtable = <ISystemCpuUsageReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemCpuUsageReport as windows_core::Interface>::IID;
@@ -767,9 +767,6 @@ impl windows_core::RuntimeName for SystemCpuUsageReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemDiagnosticInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemDiagnosticInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemDiagnosticInfo>();
-}
 windows_core::imp::interface_hierarchy!(SystemDiagnosticInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemDiagnosticInfo,);
 impl SystemDiagnosticInfo {
@@ -814,6 +811,9 @@ impl SystemDiagnosticInfo {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SystemDiagnosticInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemDiagnosticInfo>();
+}
 unsafe impl windows_core::Interface for SystemDiagnosticInfo {
     type Vtable = <ISystemDiagnosticInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemDiagnosticInfo as windows_core::Interface>::IID;
@@ -824,9 +824,6 @@ impl windows_core::RuntimeName for SystemDiagnosticInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMemoryUsage(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemMemoryUsage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMemoryUsage>();
-}
 windows_core::imp::interface_hierarchy!(SystemMemoryUsage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemMemoryUsage,);
 impl SystemMemoryUsage {
@@ -838,6 +835,9 @@ impl SystemMemoryUsage {
         }
     }
 }
+impl windows_core::RuntimeType for SystemMemoryUsage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMemoryUsage>();
+}
 unsafe impl windows_core::Interface for SystemMemoryUsage {
     type Vtable = <ISystemMemoryUsage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemMemoryUsage as windows_core::Interface>::IID;
@@ -848,9 +848,6 @@ impl windows_core::RuntimeName for SystemMemoryUsage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemMemoryUsageReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemMemoryUsageReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMemoryUsageReport>();
-}
 windows_core::imp::interface_hierarchy!(SystemMemoryUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemMemoryUsageReport,);
 impl SystemMemoryUsageReport {
@@ -875,6 +872,9 @@ impl SystemMemoryUsageReport {
             (windows_core::Interface::vtable(this).CommittedSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for SystemMemoryUsageReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemMemoryUsageReport>();
 }
 unsafe impl windows_core::Interface for SystemMemoryUsageReport {
     type Vtable = <ISystemMemoryUsageReport as windows_core::Interface>::Vtable;

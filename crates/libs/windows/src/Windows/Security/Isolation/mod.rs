@@ -710,10 +710,6 @@ pub struct IIsolatedWindowsHostMessengerStatics2_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironment(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IsolatedWindowsEnvironment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironment>();
-}
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironment, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(IsolatedWindowsEnvironment,);
@@ -920,6 +916,10 @@ impl IsolatedWindowsEnvironment {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironment>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironment {
     type Vtable = <IIsolatedWindowsEnvironment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironment as windows_core::Interface>::IID;
@@ -932,10 +932,6 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironment {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentCreateResult(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentCreateResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentCreateResult>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentCreateResult, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -973,6 +969,10 @@ impl IsolatedWindowsEnvironmentCreateResult {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentCreateResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentCreateResult>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentCreateResult {
     type Vtable = <IIsolatedWindowsEnvironmentCreateResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentCreateResult as windows_core::Interface>::IID;
@@ -985,10 +985,6 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentCreateResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentFile(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentFile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentFile>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentFile, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1034,6 +1030,10 @@ impl IsolatedWindowsEnvironmentFile {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentFile {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentFile>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentFile {
     type Vtable = <IIsolatedWindowsEnvironmentFile as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentFile as windows_core::Interface>::IID;
@@ -1074,10 +1074,6 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentHost {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentLaunchFileResult(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentLaunchFileResult>();
-}
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentLaunchFileResult, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(IsolatedWindowsEnvironmentLaunchFileResult,);
@@ -1109,6 +1105,10 @@ impl IsolatedWindowsEnvironmentLaunchFileResult {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentLaunchFileResult>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentLaunchFileResult {
     type Vtable = <IIsolatedWindowsEnvironmentLaunchFileResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentLaunchFileResult as windows_core::Interface>::IID;
@@ -1121,10 +1121,6 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentLaunchFileResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentOptions(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentOptions>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentOptions, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1304,6 +1300,10 @@ impl IsolatedWindowsEnvironmentOptions {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentOptions>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentOptions {
     type Vtable = <IIsolatedWindowsEnvironmentOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentOptions as windows_core::Interface>::IID;
@@ -1343,10 +1343,6 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationData(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentOwnerRegistrationData>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentOwnerRegistrationData, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1394,6 +1390,10 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentOwnerRegistrationData>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentOwnerRegistrationData {
     type Vtable = <IIsolatedWindowsEnvironmentOwnerRegistrationData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentOwnerRegistrationData as windows_core::Interface>::IID;
@@ -1406,10 +1406,6 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationDa
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationResult(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentOwnerRegistrationResult>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentOwnerRegistrationResult, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1434,6 +1430,10 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationResult {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentOwnerRegistrationResult>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentOwnerRegistrationResult {
     type Vtable = <IIsolatedWindowsEnvironmentOwnerRegistrationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentOwnerRegistrationResult as windows_core::Interface>::IID;
@@ -1446,10 +1446,6 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationRe
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentPostMessageResult(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentPostMessageResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentPostMessageResult>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentPostMessageResult, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1474,6 +1470,10 @@ impl IsolatedWindowsEnvironmentPostMessageResult {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentPostMessageResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentPostMessageResult>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentPostMessageResult {
     type Vtable = <IIsolatedWindowsEnvironmentPostMessageResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentPostMessageResult as windows_core::Interface>::IID;
@@ -1486,10 +1486,6 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentPostMessageResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentProcess(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentProcess {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentProcess>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentProcess, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1532,6 +1528,10 @@ impl IsolatedWindowsEnvironmentProcess {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentProcess {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentProcess>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentProcess {
     type Vtable = <IIsolatedWindowsEnvironmentProcess as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentProcess as windows_core::Interface>::IID;
@@ -1544,10 +1544,6 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentProcess {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentShareFileRequestOptions(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFileRequestOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentShareFileRequestOptions>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFileRequestOptions, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1576,6 +1572,10 @@ impl IsolatedWindowsEnvironmentShareFileRequestOptions {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFileRequestOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentShareFileRequestOptions>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentShareFileRequestOptions {
     type Vtable = <IIsolatedWindowsEnvironmentShareFileRequestOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentShareFileRequestOptions as windows_core::Interface>::IID;
@@ -1588,10 +1588,6 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFileRequestOpt
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentShareFileResult(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFileResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentShareFileResult>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFileResult, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1624,6 +1620,10 @@ impl IsolatedWindowsEnvironmentShareFileResult {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFileResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentShareFileResult>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentShareFileResult {
     type Vtable = <IIsolatedWindowsEnvironmentShareFileResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentShareFileResult as windows_core::Interface>::IID;
@@ -1636,10 +1636,6 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFileResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentShareFolderRequestOptions(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFolderRequestOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentShareFolderRequestOptions>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFolderRequestOptions, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1668,6 +1664,10 @@ impl IsolatedWindowsEnvironmentShareFolderRequestOptions {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFolderRequestOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentShareFolderRequestOptions>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentShareFolderRequestOptions {
     type Vtable = <IIsolatedWindowsEnvironmentShareFolderRequestOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentShareFolderRequestOptions as windows_core::Interface>::IID;
@@ -1680,10 +1680,6 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFolderRequestO
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentShareFolderResult(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFolderResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentShareFolderResult>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentShareFolderResult, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1708,6 +1704,10 @@ impl IsolatedWindowsEnvironmentShareFolderResult {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentShareFolderResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentShareFolderResult>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentShareFolderResult {
     type Vtable = <IIsolatedWindowsEnvironmentShareFolderResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentShareFolderResult as windows_core::Interface>::IID;
@@ -1720,10 +1720,6 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentShareFolderResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentStartProcessResult(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentStartProcessResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentStartProcessResult>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentStartProcessResult, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1756,6 +1752,10 @@ impl IsolatedWindowsEnvironmentStartProcessResult {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentStartProcessResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentStartProcessResult>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentStartProcessResult {
     type Vtable = <IIsolatedWindowsEnvironmentStartProcessResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentStartProcessResult as windows_core::Interface>::IID;
@@ -1768,10 +1768,6 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentStartProcessResult 
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentTelemetryParameters(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentTelemetryParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentTelemetryParameters>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentTelemetryParameters, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1800,6 +1796,10 @@ impl IsolatedWindowsEnvironmentTelemetryParameters {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentTelemetryParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentTelemetryParameters>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentTelemetryParameters {
     type Vtable = <IIsolatedWindowsEnvironmentTelemetryParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIsolatedWindowsEnvironmentTelemetryParameters as windows_core::Interface>::IID;
@@ -1812,10 +1812,6 @@ impl windows_core::RuntimeName for IsolatedWindowsEnvironmentTelemetryParameters
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IsolatedWindowsEnvironmentUserInfo(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for IsolatedWindowsEnvironmentUserInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentUserInfo>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(IsolatedWindowsEnvironmentUserInfo, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1854,6 +1850,10 @@ impl IsolatedWindowsEnvironmentUserInfo {
             (windows_core::Interface::vtable(this).TryWaitForSignInWithProgressAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for IsolatedWindowsEnvironmentUserInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIsolatedWindowsEnvironmentUserInfo>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for IsolatedWindowsEnvironmentUserInfo {
@@ -2273,7 +2273,7 @@ impl windows_core::RuntimeType for IsolatedWindowsEnvironmentStartProcessStatus 
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessStatus;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct IsolatedWindowsEnvironmentCreateProgress {
     pub State: IsolatedWindowsEnvironmentProgressState,
     pub PercentComplete: u32,

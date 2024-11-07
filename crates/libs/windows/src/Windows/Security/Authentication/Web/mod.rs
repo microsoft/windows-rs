@@ -122,9 +122,6 @@ impl windows_core::RuntimeName for WebAuthenticationBroker {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAuthenticationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebAuthenticationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAuthenticationResult>();
-}
 windows_core::imp::interface_hierarchy!(WebAuthenticationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAuthenticationResult,);
 impl WebAuthenticationResult {
@@ -149,6 +146,9 @@ impl WebAuthenticationResult {
             (windows_core::Interface::vtable(this).ResponseErrorDetail)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for WebAuthenticationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAuthenticationResult>();
 }
 unsafe impl windows_core::Interface for WebAuthenticationResult {
     type Vtable = <IWebAuthenticationResult as windows_core::Interface>::Vtable;

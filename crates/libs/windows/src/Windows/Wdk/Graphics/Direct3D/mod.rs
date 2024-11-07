@@ -6443,19 +6443,19 @@ impl windows_core::TypeKind for D3DHAL_DP2LINESTRIP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
-#[derive(Copy, Clone)]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct D3DHAL_DP2MULTIPLYTRANSFORM {
     pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
-    pub matrix: super::super::super::Win32::Graphics::Direct3D::D3DMATRIX,
+    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl Default for D3DHAL_DP2MULTIPLYTRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl windows_core::TypeKind for D3DHAL_DP2MULTIPLYTRANSFORM {
     type TypeKind = windows_core::CopyType;
 }
@@ -6765,19 +6765,19 @@ impl windows_core::TypeKind for D3DHAL_DP2SETTEXLOD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
-#[derive(Copy, Clone)]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct D3DHAL_DP2SETTRANSFORM {
     pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
-    pub matrix: super::super::super::Win32::Graphics::Direct3D::D3DMATRIX,
+    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl Default for D3DHAL_DP2SETTRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl windows_core::TypeKind for D3DHAL_DP2SETTRANSFORM {
     type TypeKind = windows_core::CopyType;
 }
@@ -17275,19 +17275,19 @@ impl windows_core::TypeKind for D3DNTHAL_DP2LINESTRIP {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
-#[derive(Copy, Clone)]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct D3DNTHAL_DP2MULTIPLYTRANSFORM {
     pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
-    pub matrix: super::super::super::Win32::Graphics::Direct3D::D3DMATRIX,
+    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl Default for D3DNTHAL_DP2MULTIPLYTRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl windows_core::TypeKind for D3DNTHAL_DP2MULTIPLYTRANSFORM {
     type TypeKind = windows_core::CopyType;
 }
@@ -17611,19 +17611,19 @@ impl windows_core::TypeKind for D3DNTHAL_DP2SETTEXLOD {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
-#[derive(Copy, Clone)]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct D3DNTHAL_DP2SETTRANSFORM {
     pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
-    pub matrix: super::super::super::Win32::Graphics::Direct3D::D3DMATRIX,
+    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl Default for D3DNTHAL_DP2SETTRANSFORM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Direct3D9"))]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
 impl windows_core::TypeKind for D3DNTHAL_DP2SETTRANSFORM {
     type TypeKind = windows_core::CopyType;
 }

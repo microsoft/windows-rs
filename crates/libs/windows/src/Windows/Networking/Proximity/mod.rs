@@ -188,9 +188,6 @@ pub struct ITriggeredConnectionStateChangedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConnectionRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ConnectionRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConnectionRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ConnectionRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConnectionRequestedEventArgs,);
 impl ConnectionRequestedEventArgs {
@@ -201,6 +198,9 @@ impl ConnectionRequestedEventArgs {
             (windows_core::Interface::vtable(this).PeerInformation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for ConnectionRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IConnectionRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for ConnectionRequestedEventArgs {
     type Vtable = <IConnectionRequestedEventArgs as windows_core::Interface>::Vtable;
@@ -354,9 +354,6 @@ impl windows_core::RuntimeName for PeerFinder {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PeerInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for PeerInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPeerInformation>();
-}
 windows_core::imp::interface_hierarchy!(PeerInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PeerInformation,);
 impl PeerInformation {
@@ -397,6 +394,9 @@ impl PeerInformation {
         }
     }
 }
+impl windows_core::RuntimeType for PeerInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPeerInformation>();
+}
 unsafe impl windows_core::Interface for PeerInformation {
     type Vtable = <IPeerInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPeerInformation as windows_core::Interface>::IID;
@@ -407,9 +407,6 @@ impl windows_core::RuntimeName for PeerInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PeerWatcher(windows_core::IUnknown);
-impl windows_core::RuntimeType for PeerWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPeerWatcher>();
-}
 windows_core::imp::interface_hierarchy!(PeerWatcher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PeerWatcher,);
 impl PeerWatcher {
@@ -499,6 +496,9 @@ impl PeerWatcher {
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for PeerWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPeerWatcher>();
+}
 unsafe impl windows_core::Interface for PeerWatcher {
     type Vtable = <IPeerWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPeerWatcher as windows_core::Interface>::IID;
@@ -509,9 +509,6 @@ impl windows_core::RuntimeName for PeerWatcher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProximityDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProximityDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProximityDevice>();
-}
 windows_core::imp::interface_hierarchy!(ProximityDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProximityDevice,);
 impl ProximityDevice {
@@ -666,6 +663,9 @@ impl ProximityDevice {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ProximityDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProximityDevice>();
+}
 unsafe impl windows_core::Interface for ProximityDevice {
     type Vtable = <IProximityDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProximityDevice as windows_core::Interface>::IID;
@@ -676,9 +676,6 @@ impl windows_core::RuntimeName for ProximityDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProximityMessage(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProximityMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProximityMessage>();
-}
 windows_core::imp::interface_hierarchy!(ProximityMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProximityMessage,);
 impl ProximityMessage {
@@ -712,6 +709,9 @@ impl ProximityMessage {
         }
     }
 }
+impl windows_core::RuntimeType for ProximityMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProximityMessage>();
+}
 unsafe impl windows_core::Interface for ProximityMessage {
     type Vtable = <IProximityMessage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProximityMessage as windows_core::Interface>::IID;
@@ -722,9 +722,6 @@ impl windows_core::RuntimeName for ProximityMessage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TriggeredConnectionStateChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for TriggeredConnectionStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITriggeredConnectionStateChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(TriggeredConnectionStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TriggeredConnectionStateChangedEventArgs,);
 impl TriggeredConnectionStateChangedEventArgs {
@@ -750,6 +747,9 @@ impl TriggeredConnectionStateChangedEventArgs {
             (windows_core::Interface::vtable(this).Socket)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for TriggeredConnectionStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITriggeredConnectionStateChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for TriggeredConnectionStateChangedEventArgs {
     type Vtable = <ITriggeredConnectionStateChangedEventArgs as windows_core::Interface>::Vtable;

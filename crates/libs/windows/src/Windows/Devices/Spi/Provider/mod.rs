@@ -246,9 +246,6 @@ impl ISpiProvider_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProviderSpiConnectionSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProviderSpiConnectionSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProviderSpiConnectionSettings>();
-}
 windows_core::imp::interface_hierarchy!(ProviderSpiConnectionSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProviderSpiConnectionSettings,);
 impl ProviderSpiConnectionSettings {
@@ -317,6 +314,9 @@ impl ProviderSpiConnectionSettings {
         static SHARED: windows_core::imp::FactoryCache<ProviderSpiConnectionSettings, IProviderSpiConnectionSettingsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for ProviderSpiConnectionSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProviderSpiConnectionSettings>();
 }
 unsafe impl windows_core::Interface for ProviderSpiConnectionSettings {
     type Vtable = <IProviderSpiConnectionSettings as windows_core::Interface>::Vtable;

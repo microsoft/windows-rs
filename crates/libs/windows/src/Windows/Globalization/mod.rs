@@ -700,9 +700,6 @@ impl windows_core::RuntimeName for ApplicationLanguages {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Calendar(windows_core::IUnknown);
-impl windows_core::RuntimeType for Calendar {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICalendar>();
-}
 windows_core::imp::interface_hierarchy!(Calendar, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Calendar,);
 impl Calendar {
@@ -1389,6 +1386,9 @@ impl Calendar {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Calendar {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICalendar>();
+}
 unsafe impl windows_core::Interface for Calendar {
     type Vtable = <ICalendar as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICalendar as windows_core::Interface>::IID;
@@ -1529,9 +1529,6 @@ impl windows_core::RuntimeName for ClockIdentifiers {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CurrencyAmount(windows_core::IUnknown);
-impl windows_core::RuntimeType for CurrencyAmount {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICurrencyAmount>();
-}
 windows_core::imp::interface_hierarchy!(CurrencyAmount, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CurrencyAmount,);
 impl CurrencyAmount {
@@ -1559,6 +1556,9 @@ impl CurrencyAmount {
         static SHARED: windows_core::imp::FactoryCache<CurrencyAmount, ICurrencyAmountFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for CurrencyAmount {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICurrencyAmount>();
 }
 unsafe impl windows_core::Interface for CurrencyAmount {
     type Vtable = <ICurrencyAmount as windows_core::Interface>::Vtable;
@@ -2560,9 +2560,6 @@ impl windows_core::RuntimeName for CurrencyIdentifiers {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeographicRegion(windows_core::IUnknown);
-impl windows_core::RuntimeType for GeographicRegion {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeographicRegion>();
-}
 windows_core::imp::interface_hierarchy!(GeographicRegion, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GeographicRegion,);
 impl GeographicRegion {
@@ -2644,6 +2641,9 @@ impl GeographicRegion {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GeographicRegion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeographicRegion>();
+}
 unsafe impl windows_core::Interface for GeographicRegion {
     type Vtable = <IGeographicRegion as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeographicRegion as windows_core::Interface>::IID;
@@ -2654,9 +2654,6 @@ impl windows_core::RuntimeName for GeographicRegion {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JapanesePhoneme(windows_core::IUnknown);
-impl windows_core::RuntimeType for JapanesePhoneme {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJapanesePhoneme>();
-}
 windows_core::imp::interface_hierarchy!(JapanesePhoneme, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(JapanesePhoneme,);
 impl JapanesePhoneme {
@@ -2681,6 +2678,9 @@ impl JapanesePhoneme {
             (windows_core::Interface::vtable(this).IsPhraseStart)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for JapanesePhoneme {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJapanesePhoneme>();
 }
 unsafe impl windows_core::Interface for JapanesePhoneme {
     type Vtable = <IJapanesePhoneme as windows_core::Interface>::Vtable;
@@ -2716,9 +2716,6 @@ impl windows_core::RuntimeName for JapanesePhoneticAnalyzer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Language(windows_core::IUnknown);
-impl windows_core::RuntimeType for Language {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanguage>();
-}
 windows_core::imp::interface_hierarchy!(Language, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Language,);
 impl Language {
@@ -2822,6 +2819,9 @@ impl Language {
         static SHARED: windows_core::imp::FactoryCache<Language, ILanguageStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for Language {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILanguage>();
 }
 unsafe impl windows_core::Interface for Language {
     type Vtable = <ILanguage as windows_core::Interface>::Vtable;

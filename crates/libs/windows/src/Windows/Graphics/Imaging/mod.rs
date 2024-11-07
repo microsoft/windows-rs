@@ -802,9 +802,6 @@ pub struct ISoftwareBitmapStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapBuffer(windows_core::IUnknown);
-impl windows_core::RuntimeType for BitmapBuffer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapBuffer>();
-}
 windows_core::imp::interface_hierarchy!(BitmapBuffer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapBuffer, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
 impl BitmapBuffer {
@@ -834,6 +831,9 @@ impl BitmapBuffer {
         }
     }
 }
+impl windows_core::RuntimeType for BitmapBuffer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapBuffer>();
+}
 unsafe impl windows_core::Interface for BitmapBuffer {
     type Vtable = <IBitmapBuffer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBitmapBuffer as windows_core::Interface>::IID;
@@ -844,9 +844,6 @@ impl windows_core::RuntimeName for BitmapBuffer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapCodecInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for BitmapCodecInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapCodecInformation>();
-}
 windows_core::imp::interface_hierarchy!(BitmapCodecInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapCodecInformation,);
 impl BitmapCodecInformation {
@@ -881,6 +878,9 @@ impl BitmapCodecInformation {
         }
     }
 }
+impl windows_core::RuntimeType for BitmapCodecInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapCodecInformation>();
+}
 unsafe impl windows_core::Interface for BitmapCodecInformation {
     type Vtable = <IBitmapCodecInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBitmapCodecInformation as windows_core::Interface>::IID;
@@ -891,9 +891,6 @@ impl windows_core::RuntimeName for BitmapCodecInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapDecoder(windows_core::IUnknown);
-impl windows_core::RuntimeType for BitmapDecoder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapDecoder>();
-}
 windows_core::imp::interface_hierarchy!(BitmapDecoder, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapDecoder, IBitmapFrame, IBitmapFrameWithSoftwareBitmap);
 impl BitmapDecoder {
@@ -1135,6 +1132,9 @@ impl BitmapDecoder {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BitmapDecoder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapDecoder>();
+}
 unsafe impl windows_core::Interface for BitmapDecoder {
     type Vtable = <IBitmapDecoder as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBitmapDecoder as windows_core::Interface>::IID;
@@ -1145,9 +1145,6 @@ impl windows_core::RuntimeName for BitmapDecoder {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapEncoder(windows_core::IUnknown);
-impl windows_core::RuntimeType for BitmapEncoder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapEncoder>();
-}
 windows_core::imp::interface_hierarchy!(BitmapEncoder, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapEncoder,);
 impl BitmapEncoder {
@@ -1347,6 +1344,9 @@ impl BitmapEncoder {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BitmapEncoder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapEncoder>();
+}
 unsafe impl windows_core::Interface for BitmapEncoder {
     type Vtable = <IBitmapEncoder as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBitmapEncoder as windows_core::Interface>::IID;
@@ -1357,9 +1357,6 @@ impl windows_core::RuntimeName for BitmapEncoder {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapFrame(windows_core::IUnknown);
-impl windows_core::RuntimeType for BitmapFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapFrame>();
-}
 windows_core::imp::interface_hierarchy!(BitmapFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapFrame, IBitmapFrame, IBitmapFrameWithSoftwareBitmap);
 impl BitmapFrame {
@@ -1476,6 +1473,9 @@ impl BitmapFrame {
         }
     }
 }
+impl windows_core::RuntimeType for BitmapFrame {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapFrame>();
+}
 unsafe impl windows_core::Interface for BitmapFrame {
     type Vtable = <IBitmapFrame as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBitmapFrame as windows_core::Interface>::IID;
@@ -1486,9 +1486,6 @@ impl windows_core::RuntimeName for BitmapFrame {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for BitmapProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapProperties>();
-}
 windows_core::imp::interface_hierarchy!(BitmapProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapProperties, IBitmapPropertiesView);
 impl BitmapProperties {
@@ -1515,6 +1512,9 @@ impl BitmapProperties {
         }
     }
 }
+impl windows_core::RuntimeType for BitmapProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapProperties>();
+}
 unsafe impl windows_core::Interface for BitmapProperties {
     type Vtable = <IBitmapProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBitmapProperties as windows_core::Interface>::IID;
@@ -1525,9 +1525,6 @@ impl windows_core::RuntimeName for BitmapProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapPropertiesView(windows_core::IUnknown);
-impl windows_core::RuntimeType for BitmapPropertiesView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapPropertiesView>();
-}
 windows_core::imp::interface_hierarchy!(BitmapPropertiesView, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapPropertiesView, IBitmapPropertiesView);
 impl BitmapPropertiesView {
@@ -1543,6 +1540,9 @@ impl BitmapPropertiesView {
         }
     }
 }
+impl windows_core::RuntimeType for BitmapPropertiesView {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapPropertiesView>();
+}
 unsafe impl windows_core::Interface for BitmapPropertiesView {
     type Vtable = <IBitmapPropertiesView as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBitmapPropertiesView as windows_core::Interface>::IID;
@@ -1554,10 +1554,6 @@ impl windows_core::RuntimeName for BitmapPropertiesView {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapPropertySet(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for BitmapPropertySet {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IMap<windows_core::HSTRING, BitmapTypedValue>>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(BitmapPropertySet, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -1628,6 +1624,10 @@ impl BitmapPropertySet {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for BitmapPropertySet {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IMap<windows_core::HSTRING, BitmapTypedValue>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for BitmapPropertySet {
     type Vtable = <super::super::Foundation::Collections::IMap<windows_core::HSTRING, BitmapTypedValue> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::Foundation::Collections::IMap<windows_core::HSTRING, BitmapTypedValue> as windows_core::Interface>::IID;
@@ -1639,9 +1639,6 @@ impl windows_core::RuntimeName for BitmapPropertySet {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapTransform(windows_core::IUnknown);
-impl windows_core::RuntimeType for BitmapTransform {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapTransform>();
-}
 windows_core::imp::interface_hierarchy!(BitmapTransform, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapTransform,);
 impl BitmapTransform {
@@ -1719,6 +1716,9 @@ impl BitmapTransform {
         unsafe { (windows_core::Interface::vtable(this).SetBounds)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for BitmapTransform {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapTransform>();
+}
 unsafe impl windows_core::Interface for BitmapTransform {
     type Vtable = <IBitmapTransform as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBitmapTransform as windows_core::Interface>::IID;
@@ -1729,9 +1729,6 @@ impl windows_core::RuntimeName for BitmapTransform {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BitmapTypedValue(windows_core::IUnknown);
-impl windows_core::RuntimeType for BitmapTypedValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapTypedValue>();
-}
 windows_core::imp::interface_hierarchy!(BitmapTypedValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BitmapTypedValue,);
 impl BitmapTypedValue {
@@ -1763,6 +1760,9 @@ impl BitmapTypedValue {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BitmapTypedValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBitmapTypedValue>();
+}
 unsafe impl windows_core::Interface for BitmapTypedValue {
     type Vtable = <IBitmapTypedValue as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBitmapTypedValue as windows_core::Interface>::IID;
@@ -1774,10 +1774,6 @@ impl windows_core::RuntimeName for BitmapTypedValue {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageStream(windows_core::IUnknown);
-#[cfg(feature = "Storage_Streams")]
-impl windows_core::RuntimeType for ImageStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Storage::Streams::IRandomAccessStreamWithContentType>();
-}
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(ImageStream, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
@@ -1883,6 +1879,10 @@ impl ImageStream {
     }
 }
 #[cfg(feature = "Storage_Streams")]
+impl windows_core::RuntimeType for ImageStream {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Storage::Streams::IRandomAccessStreamWithContentType>();
+}
+#[cfg(feature = "Storage_Streams")]
 unsafe impl windows_core::Interface for ImageStream {
     type Vtable = <super::super::Storage::Streams::IRandomAccessStreamWithContentType as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::Storage::Streams::IRandomAccessStreamWithContentType as windows_core::Interface>::IID;
@@ -1894,9 +1894,6 @@ impl windows_core::RuntimeName for ImageStream {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PixelDataProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for PixelDataProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPixelDataProvider>();
-}
 windows_core::imp::interface_hierarchy!(PixelDataProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PixelDataProvider,);
 impl PixelDataProvider {
@@ -1908,6 +1905,9 @@ impl PixelDataProvider {
         }
     }
 }
+impl windows_core::RuntimeType for PixelDataProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPixelDataProvider>();
+}
 unsafe impl windows_core::Interface for PixelDataProvider {
     type Vtable = <IPixelDataProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPixelDataProvider as windows_core::Interface>::IID;
@@ -1918,9 +1918,6 @@ impl windows_core::RuntimeName for PixelDataProvider {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SoftwareBitmap(windows_core::IUnknown);
-impl windows_core::RuntimeType for SoftwareBitmap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISoftwareBitmap>();
-}
 windows_core::imp::interface_hierarchy!(SoftwareBitmap, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SoftwareBitmap, super::super::Foundation::IClosable);
 impl SoftwareBitmap {
@@ -2110,6 +2107,9 @@ impl SoftwareBitmap {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SoftwareBitmap {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISoftwareBitmap>();
+}
 unsafe impl windows_core::Interface for SoftwareBitmap {
     type Vtable = <ISoftwareBitmap as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISoftwareBitmap as windows_core::Interface>::IID;
@@ -2288,7 +2288,7 @@ impl windows_core::RuntimeType for TiffCompressionMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Imaging.TiffCompressionMode;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct BitmapBounds {
     pub X: u32,
     pub Y: u32,
@@ -2302,7 +2302,7 @@ impl windows_core::RuntimeType for BitmapBounds {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapBounds;u4;u4;u4;u4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct BitmapPlaneDescription {
     pub StartIndex: i32,
     pub Width: i32,
@@ -2316,7 +2316,7 @@ impl windows_core::RuntimeType for BitmapPlaneDescription {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Imaging.BitmapPlaneDescription;i4;i4;i4;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct BitmapSize {
     pub Width: u32,
     pub Height: u32,

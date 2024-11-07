@@ -141,9 +141,6 @@ pub struct IUserDataAccountSystemAccessManagerStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceAccountConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeviceAccountConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceAccountConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(DeviceAccountConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeviceAccountConfiguration,);
 impl DeviceAccountConfiguration {
@@ -657,6 +654,9 @@ impl DeviceAccountConfiguration {
         let this = &windows_core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsSyncScheduleManagedBySystem)(windows_core::Interface::as_raw(this), value).ok() }
     }
+}
+impl windows_core::RuntimeType for DeviceAccountConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceAccountConfiguration>();
 }
 unsafe impl windows_core::Interface for DeviceAccountConfiguration {
     type Vtable = <IDeviceAccountConfiguration as windows_core::Interface>::Vtable;

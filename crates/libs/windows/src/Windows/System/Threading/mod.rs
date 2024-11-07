@@ -74,9 +74,6 @@ impl windows_core::RuntimeName for ThreadPool {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ThreadPoolTimer(windows_core::IUnknown);
-impl windows_core::RuntimeType for ThreadPoolTimer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IThreadPoolTimer>();
-}
 windows_core::imp::interface_hierarchy!(ThreadPoolTimer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ThreadPoolTimer,);
 impl ThreadPoolTimer {
@@ -140,6 +137,9 @@ impl ThreadPoolTimer {
         static SHARED: windows_core::imp::FactoryCache<ThreadPoolTimer, IThreadPoolTimerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for ThreadPoolTimer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IThreadPoolTimer>();
 }
 unsafe impl windows_core::Interface for ThreadPoolTimer {
     type Vtable = <IThreadPoolTimer as windows_core::Interface>::Vtable;

@@ -162,9 +162,6 @@ pub struct ILampStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Lamp(windows_core::IUnknown);
-impl windows_core::RuntimeType for Lamp {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILamp>();
-}
 windows_core::imp::interface_hierarchy!(Lamp, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Lamp, super::super::Foundation::IClosable);
 impl Lamp {
@@ -258,6 +255,9 @@ impl Lamp {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Lamp {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILamp>();
+}
 unsafe impl windows_core::Interface for Lamp {
     type Vtable = <ILamp as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILamp as windows_core::Interface>::IID;
@@ -268,9 +268,6 @@ impl windows_core::RuntimeName for Lamp {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampArray(windows_core::IUnknown);
-impl windows_core::RuntimeType for LampArray {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArray>();
-}
 windows_core::imp::interface_hierarchy!(LampArray, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampArray,);
 impl LampArray {
@@ -481,6 +478,9 @@ impl LampArray {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LampArray {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampArray>();
+}
 unsafe impl windows_core::Interface for LampArray {
     type Vtable = <ILampArray as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampArray as windows_core::Interface>::IID;
@@ -491,9 +491,6 @@ impl windows_core::RuntimeName for LampArray {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampAvailabilityChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for LampAvailabilityChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampAvailabilityChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(LampAvailabilityChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampAvailabilityChangedEventArgs,);
 impl LampAvailabilityChangedEventArgs {
@@ -505,6 +502,9 @@ impl LampAvailabilityChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for LampAvailabilityChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampAvailabilityChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for LampAvailabilityChangedEventArgs {
     type Vtable = <ILampAvailabilityChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILampAvailabilityChangedEventArgs as windows_core::Interface>::IID;
@@ -515,9 +515,6 @@ impl windows_core::RuntimeName for LampAvailabilityChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LampInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for LampInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampInfo>();
-}
 windows_core::imp::interface_hierarchy!(LampInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LampInfo,);
 impl LampInfo {
@@ -594,6 +591,9 @@ impl LampInfo {
             (windows_core::Interface::vtable(this).UpdateLatency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for LampInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILampInfo>();
 }
 unsafe impl windows_core::Interface for LampInfo {
     type Vtable = <ILampInfo as windows_core::Interface>::Vtable;

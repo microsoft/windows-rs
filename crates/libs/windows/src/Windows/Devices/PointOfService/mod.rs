@@ -2895,9 +2895,6 @@ pub struct IUnifiedPosErrorDataFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScanner(windows_core::IUnknown);
-impl windows_core::RuntimeType for BarcodeScanner {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScanner>();
-}
 windows_core::imp::interface_hierarchy!(BarcodeScanner, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarcodeScanner, super::super::Foundation::IClosable);
 impl BarcodeScanner {
@@ -3028,6 +3025,9 @@ impl BarcodeScanner {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BarcodeScanner {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScanner>();
+}
 unsafe impl windows_core::Interface for BarcodeScanner {
     type Vtable = <IBarcodeScanner as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBarcodeScanner as windows_core::Interface>::IID;
@@ -3038,9 +3038,6 @@ impl windows_core::RuntimeName for BarcodeScanner {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for BarcodeScannerCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(BarcodeScannerCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarcodeScannerCapabilities,);
 impl BarcodeScannerCapabilities {
@@ -3087,6 +3084,9 @@ impl BarcodeScannerCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for BarcodeScannerCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerCapabilities>();
+}
 unsafe impl windows_core::Interface for BarcodeScannerCapabilities {
     type Vtable = <IBarcodeScannerCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBarcodeScannerCapabilities as windows_core::Interface>::IID;
@@ -3097,9 +3097,6 @@ impl windows_core::RuntimeName for BarcodeScannerCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerDataReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for BarcodeScannerDataReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerDataReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(BarcodeScannerDataReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarcodeScannerDataReceivedEventArgs,);
 impl BarcodeScannerDataReceivedEventArgs {
@@ -3111,6 +3108,9 @@ impl BarcodeScannerDataReceivedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for BarcodeScannerDataReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerDataReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for BarcodeScannerDataReceivedEventArgs {
     type Vtable = <IBarcodeScannerDataReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBarcodeScannerDataReceivedEventArgs as windows_core::Interface>::IID;
@@ -3121,9 +3121,6 @@ impl windows_core::RuntimeName for BarcodeScannerDataReceivedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerErrorOccurredEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for BarcodeScannerErrorOccurredEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerErrorOccurredEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(BarcodeScannerErrorOccurredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarcodeScannerErrorOccurredEventArgs,);
 impl BarcodeScannerErrorOccurredEventArgs {
@@ -3149,6 +3146,9 @@ impl BarcodeScannerErrorOccurredEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for BarcodeScannerErrorOccurredEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerErrorOccurredEventArgs>();
+}
 unsafe impl windows_core::Interface for BarcodeScannerErrorOccurredEventArgs {
     type Vtable = <IBarcodeScannerErrorOccurredEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBarcodeScannerErrorOccurredEventArgs as windows_core::Interface>::IID;
@@ -3159,9 +3159,6 @@ impl windows_core::RuntimeName for BarcodeScannerErrorOccurredEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerImagePreviewReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for BarcodeScannerImagePreviewReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerImagePreviewReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(BarcodeScannerImagePreviewReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarcodeScannerImagePreviewReceivedEventArgs,);
 impl BarcodeScannerImagePreviewReceivedEventArgs {
@@ -3174,6 +3171,9 @@ impl BarcodeScannerImagePreviewReceivedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for BarcodeScannerImagePreviewReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerImagePreviewReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for BarcodeScannerImagePreviewReceivedEventArgs {
     type Vtable = <IBarcodeScannerImagePreviewReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBarcodeScannerImagePreviewReceivedEventArgs as windows_core::Interface>::IID;
@@ -3184,9 +3184,6 @@ impl windows_core::RuntimeName for BarcodeScannerImagePreviewReceivedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for BarcodeScannerReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerReport>();
-}
 windows_core::imp::interface_hierarchy!(BarcodeScannerReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarcodeScannerReport,);
 impl BarcodeScannerReport {
@@ -3229,6 +3226,9 @@ impl BarcodeScannerReport {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BarcodeScannerReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerReport>();
+}
 unsafe impl windows_core::Interface for BarcodeScannerReport {
     type Vtable = <IBarcodeScannerReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBarcodeScannerReport as windows_core::Interface>::IID;
@@ -3239,9 +3239,6 @@ impl windows_core::RuntimeName for BarcodeScannerReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeScannerStatusUpdatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for BarcodeScannerStatusUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerStatusUpdatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(BarcodeScannerStatusUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarcodeScannerStatusUpdatedEventArgs,);
 impl BarcodeScannerStatusUpdatedEventArgs {
@@ -3259,6 +3256,9 @@ impl BarcodeScannerStatusUpdatedEventArgs {
             (windows_core::Interface::vtable(this).ExtendedStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for BarcodeScannerStatusUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeScannerStatusUpdatedEventArgs>();
 }
 unsafe impl windows_core::Interface for BarcodeScannerStatusUpdatedEventArgs {
     type Vtable = <IBarcodeScannerStatusUpdatedEventArgs as windows_core::Interface>::Vtable;
@@ -3854,9 +3854,6 @@ impl windows_core::RuntimeName for BarcodeSymbologies {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarcodeSymbologyAttributes(windows_core::IUnknown);
-impl windows_core::RuntimeType for BarcodeSymbologyAttributes {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeSymbologyAttributes>();
-}
 windows_core::imp::interface_hierarchy!(BarcodeSymbologyAttributes, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarcodeSymbologyAttributes,);
 impl BarcodeSymbologyAttributes {
@@ -3937,6 +3934,9 @@ impl BarcodeSymbologyAttributes {
         }
     }
 }
+impl windows_core::RuntimeType for BarcodeSymbologyAttributes {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarcodeSymbologyAttributes>();
+}
 unsafe impl windows_core::Interface for BarcodeSymbologyAttributes {
     type Vtable = <IBarcodeSymbologyAttributes as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBarcodeSymbologyAttributes as windows_core::Interface>::IID;
@@ -3947,9 +3947,6 @@ impl windows_core::RuntimeName for BarcodeSymbologyAttributes {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawer(windows_core::IUnknown);
-impl windows_core::RuntimeType for CashDrawer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICashDrawer>();
-}
 windows_core::imp::interface_hierarchy!(CashDrawer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CashDrawer, super::super::Foundation::IClosable);
 impl CashDrawer {
@@ -4064,6 +4061,9 @@ impl CashDrawer {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CashDrawer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICashDrawer>();
+}
 unsafe impl windows_core::Interface for CashDrawer {
     type Vtable = <ICashDrawer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICashDrawer as windows_core::Interface>::IID;
@@ -4074,9 +4074,6 @@ impl windows_core::RuntimeName for CashDrawer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for CashDrawerCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICashDrawerCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(CashDrawerCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CashDrawerCapabilities,);
 impl CashDrawerCapabilities {
@@ -4123,6 +4120,9 @@ impl CashDrawerCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for CashDrawerCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICashDrawerCapabilities>();
+}
 unsafe impl windows_core::Interface for CashDrawerCapabilities {
     type Vtable = <ICashDrawerCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICashDrawerCapabilities as windows_core::Interface>::IID;
@@ -4133,9 +4133,6 @@ impl windows_core::RuntimeName for CashDrawerCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerCloseAlarm(windows_core::IUnknown);
-impl windows_core::RuntimeType for CashDrawerCloseAlarm {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICashDrawerCloseAlarm>();
-}
 windows_core::imp::interface_hierarchy!(CashDrawerCloseAlarm, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CashDrawerCloseAlarm,);
 impl CashDrawerCloseAlarm {
@@ -4205,6 +4202,9 @@ impl CashDrawerCloseAlarm {
         }
     }
 }
+impl windows_core::RuntimeType for CashDrawerCloseAlarm {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICashDrawerCloseAlarm>();
+}
 unsafe impl windows_core::Interface for CashDrawerCloseAlarm {
     type Vtable = <ICashDrawerCloseAlarm as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICashDrawerCloseAlarm as windows_core::Interface>::IID;
@@ -4215,9 +4215,6 @@ impl windows_core::RuntimeName for CashDrawerCloseAlarm {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerClosedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CashDrawerClosedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICashDrawerEventSourceEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CashDrawerClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CashDrawerClosedEventArgs, ICashDrawerEventSourceEventArgs);
 impl CashDrawerClosedEventArgs {
@@ -4229,6 +4226,9 @@ impl CashDrawerClosedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for CashDrawerClosedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICashDrawerEventSourceEventArgs>();
+}
 unsafe impl windows_core::Interface for CashDrawerClosedEventArgs {
     type Vtable = <ICashDrawerEventSourceEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICashDrawerEventSourceEventArgs as windows_core::Interface>::IID;
@@ -4239,9 +4239,6 @@ impl windows_core::RuntimeName for CashDrawerClosedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerEventSource(windows_core::IUnknown);
-impl windows_core::RuntimeType for CashDrawerEventSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICashDrawerEventSource>();
-}
 windows_core::imp::interface_hierarchy!(CashDrawerEventSource, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CashDrawerEventSource,);
 impl CashDrawerEventSource {
@@ -4274,6 +4271,9 @@ impl CashDrawerEventSource {
         unsafe { (windows_core::Interface::vtable(this).RemoveDrawerOpened)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for CashDrawerEventSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICashDrawerEventSource>();
+}
 unsafe impl windows_core::Interface for CashDrawerEventSource {
     type Vtable = <ICashDrawerEventSource as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICashDrawerEventSource as windows_core::Interface>::IID;
@@ -4284,9 +4284,6 @@ impl windows_core::RuntimeName for CashDrawerEventSource {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerOpenedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CashDrawerOpenedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICashDrawerEventSourceEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CashDrawerOpenedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CashDrawerOpenedEventArgs, ICashDrawerEventSourceEventArgs);
 impl CashDrawerOpenedEventArgs {
@@ -4298,6 +4295,9 @@ impl CashDrawerOpenedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for CashDrawerOpenedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICashDrawerEventSourceEventArgs>();
+}
 unsafe impl windows_core::Interface for CashDrawerOpenedEventArgs {
     type Vtable = <ICashDrawerEventSourceEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICashDrawerEventSourceEventArgs as windows_core::Interface>::IID;
@@ -4308,9 +4308,6 @@ impl windows_core::RuntimeName for CashDrawerOpenedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerStatus(windows_core::IUnknown);
-impl windows_core::RuntimeType for CashDrawerStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICashDrawerStatus>();
-}
 windows_core::imp::interface_hierarchy!(CashDrawerStatus, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CashDrawerStatus,);
 impl CashDrawerStatus {
@@ -4329,6 +4326,9 @@ impl CashDrawerStatus {
         }
     }
 }
+impl windows_core::RuntimeType for CashDrawerStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICashDrawerStatus>();
+}
 unsafe impl windows_core::Interface for CashDrawerStatus {
     type Vtable = <ICashDrawerStatus as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICashDrawerStatus as windows_core::Interface>::IID;
@@ -4339,9 +4339,6 @@ impl windows_core::RuntimeName for CashDrawerStatus {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CashDrawerStatusUpdatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CashDrawerStatusUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICashDrawerStatusUpdatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CashDrawerStatusUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CashDrawerStatusUpdatedEventArgs,);
 impl CashDrawerStatusUpdatedEventArgs {
@@ -4353,6 +4350,9 @@ impl CashDrawerStatusUpdatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for CashDrawerStatusUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICashDrawerStatusUpdatedEventArgs>();
+}
 unsafe impl windows_core::Interface for CashDrawerStatusUpdatedEventArgs {
     type Vtable = <ICashDrawerStatusUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICashDrawerStatusUpdatedEventArgs as windows_core::Interface>::IID;
@@ -4363,9 +4363,6 @@ impl windows_core::RuntimeName for CashDrawerStatusUpdatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedBarcodeScanner(windows_core::IUnknown);
-impl windows_core::RuntimeType for ClaimedBarcodeScanner {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedBarcodeScanner>();
-}
 windows_core::imp::interface_hierarchy!(ClaimedBarcodeScanner, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedBarcodeScanner, super::super::Foundation::IClosable);
 impl ClaimedBarcodeScanner {
@@ -4619,6 +4616,9 @@ impl ClaimedBarcodeScanner {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for ClaimedBarcodeScanner {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedBarcodeScanner>();
+}
 unsafe impl windows_core::Interface for ClaimedBarcodeScanner {
     type Vtable = <IClaimedBarcodeScanner as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClaimedBarcodeScanner as windows_core::Interface>::IID;
@@ -4629,12 +4629,12 @@ impl windows_core::RuntimeName for ClaimedBarcodeScanner {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedBarcodeScannerClosedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ClaimedBarcodeScannerClosedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedBarcodeScannerClosedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ClaimedBarcodeScannerClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedBarcodeScannerClosedEventArgs,);
 impl ClaimedBarcodeScannerClosedEventArgs {}
+impl windows_core::RuntimeType for ClaimedBarcodeScannerClosedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedBarcodeScannerClosedEventArgs>();
+}
 unsafe impl windows_core::Interface for ClaimedBarcodeScannerClosedEventArgs {
     type Vtable = <IClaimedBarcodeScannerClosedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClaimedBarcodeScannerClosedEventArgs as windows_core::Interface>::IID;
@@ -4645,9 +4645,6 @@ impl windows_core::RuntimeName for ClaimedBarcodeScannerClosedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedCashDrawer(windows_core::IUnknown);
-impl windows_core::RuntimeType for ClaimedCashDrawer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedCashDrawer>();
-}
 windows_core::imp::interface_hierarchy!(ClaimedCashDrawer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedCashDrawer, super::super::Foundation::IClosable);
 impl ClaimedCashDrawer {
@@ -4762,6 +4759,9 @@ impl ClaimedCashDrawer {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for ClaimedCashDrawer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedCashDrawer>();
+}
 unsafe impl windows_core::Interface for ClaimedCashDrawer {
     type Vtable = <IClaimedCashDrawer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClaimedCashDrawer as windows_core::Interface>::IID;
@@ -4772,12 +4772,12 @@ impl windows_core::RuntimeName for ClaimedCashDrawer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedCashDrawerClosedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ClaimedCashDrawerClosedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedCashDrawerClosedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ClaimedCashDrawerClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedCashDrawerClosedEventArgs,);
 impl ClaimedCashDrawerClosedEventArgs {}
+impl windows_core::RuntimeType for ClaimedCashDrawerClosedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedCashDrawerClosedEventArgs>();
+}
 unsafe impl windows_core::Interface for ClaimedCashDrawerClosedEventArgs {
     type Vtable = <IClaimedCashDrawerClosedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClaimedCashDrawerClosedEventArgs as windows_core::Interface>::IID;
@@ -4788,9 +4788,6 @@ impl windows_core::RuntimeName for ClaimedCashDrawerClosedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedJournalPrinter(windows_core::IUnknown);
-impl windows_core::RuntimeType for ClaimedJournalPrinter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedJournalPrinter>();
-}
 windows_core::imp::interface_hierarchy!(ClaimedJournalPrinter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedJournalPrinter, ICommonClaimedPosPrinterStation);
 impl ClaimedJournalPrinter {
@@ -4920,6 +4917,9 @@ impl ClaimedJournalPrinter {
         }
     }
 }
+impl windows_core::RuntimeType for ClaimedJournalPrinter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedJournalPrinter>();
+}
 unsafe impl windows_core::Interface for ClaimedJournalPrinter {
     type Vtable = <IClaimedJournalPrinter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClaimedJournalPrinter as windows_core::Interface>::IID;
@@ -4930,9 +4930,6 @@ impl windows_core::RuntimeName for ClaimedJournalPrinter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedLineDisplay(windows_core::IUnknown);
-impl windows_core::RuntimeType for ClaimedLineDisplay {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedLineDisplay>();
-}
 windows_core::imp::interface_hierarchy!(ClaimedLineDisplay, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedLineDisplay, super::super::Foundation::IClosable);
 impl ClaimedLineDisplay {
@@ -5191,6 +5188,9 @@ impl ClaimedLineDisplay {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ClaimedLineDisplay {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedLineDisplay>();
+}
 unsafe impl windows_core::Interface for ClaimedLineDisplay {
     type Vtable = <IClaimedLineDisplay as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClaimedLineDisplay as windows_core::Interface>::IID;
@@ -5201,12 +5201,12 @@ impl windows_core::RuntimeName for ClaimedLineDisplay {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedLineDisplayClosedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ClaimedLineDisplayClosedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedLineDisplayClosedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ClaimedLineDisplayClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedLineDisplayClosedEventArgs,);
 impl ClaimedLineDisplayClosedEventArgs {}
+impl windows_core::RuntimeType for ClaimedLineDisplayClosedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedLineDisplayClosedEventArgs>();
+}
 unsafe impl windows_core::Interface for ClaimedLineDisplayClosedEventArgs {
     type Vtable = <IClaimedLineDisplayClosedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClaimedLineDisplayClosedEventArgs as windows_core::Interface>::IID;
@@ -5217,9 +5217,6 @@ impl windows_core::RuntimeName for ClaimedLineDisplayClosedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedMagneticStripeReader(windows_core::IUnknown);
-impl windows_core::RuntimeType for ClaimedMagneticStripeReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedMagneticStripeReader>();
-}
 windows_core::imp::interface_hierarchy!(ClaimedMagneticStripeReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedMagneticStripeReader, super::super::Foundation::IClosable);
 impl ClaimedMagneticStripeReader {
@@ -5461,6 +5458,9 @@ impl ClaimedMagneticStripeReader {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for ClaimedMagneticStripeReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedMagneticStripeReader>();
+}
 unsafe impl windows_core::Interface for ClaimedMagneticStripeReader {
     type Vtable = <IClaimedMagneticStripeReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClaimedMagneticStripeReader as windows_core::Interface>::IID;
@@ -5471,12 +5471,12 @@ impl windows_core::RuntimeName for ClaimedMagneticStripeReader {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedMagneticStripeReaderClosedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ClaimedMagneticStripeReaderClosedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedMagneticStripeReaderClosedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ClaimedMagneticStripeReaderClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedMagneticStripeReaderClosedEventArgs,);
 impl ClaimedMagneticStripeReaderClosedEventArgs {}
+impl windows_core::RuntimeType for ClaimedMagneticStripeReaderClosedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedMagneticStripeReaderClosedEventArgs>();
+}
 unsafe impl windows_core::Interface for ClaimedMagneticStripeReaderClosedEventArgs {
     type Vtable = <IClaimedMagneticStripeReaderClosedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClaimedMagneticStripeReaderClosedEventArgs as windows_core::Interface>::IID;
@@ -5487,9 +5487,6 @@ impl windows_core::RuntimeName for ClaimedMagneticStripeReaderClosedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedPosPrinter(windows_core::IUnknown);
-impl windows_core::RuntimeType for ClaimedPosPrinter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedPosPrinter>();
-}
 windows_core::imp::interface_hierarchy!(ClaimedPosPrinter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedPosPrinter, super::super::Foundation::IClosable);
 impl ClaimedPosPrinter {
@@ -5644,6 +5641,9 @@ impl ClaimedPosPrinter {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for ClaimedPosPrinter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedPosPrinter>();
+}
 unsafe impl windows_core::Interface for ClaimedPosPrinter {
     type Vtable = <IClaimedPosPrinter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClaimedPosPrinter as windows_core::Interface>::IID;
@@ -5654,12 +5654,12 @@ impl windows_core::RuntimeName for ClaimedPosPrinter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedPosPrinterClosedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ClaimedPosPrinterClosedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedPosPrinterClosedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ClaimedPosPrinterClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedPosPrinterClosedEventArgs,);
 impl ClaimedPosPrinterClosedEventArgs {}
+impl windows_core::RuntimeType for ClaimedPosPrinterClosedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedPosPrinterClosedEventArgs>();
+}
 unsafe impl windows_core::Interface for ClaimedPosPrinterClosedEventArgs {
     type Vtable = <IClaimedPosPrinterClosedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClaimedPosPrinterClosedEventArgs as windows_core::Interface>::IID;
@@ -5670,9 +5670,6 @@ impl windows_core::RuntimeName for ClaimedPosPrinterClosedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedReceiptPrinter(windows_core::IUnknown);
-impl windows_core::RuntimeType for ClaimedReceiptPrinter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedReceiptPrinter>();
-}
 windows_core::imp::interface_hierarchy!(ClaimedReceiptPrinter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedReceiptPrinter, ICommonClaimedPosPrinterStation);
 impl ClaimedReceiptPrinter {
@@ -5837,6 +5834,9 @@ impl ClaimedReceiptPrinter {
         }
     }
 }
+impl windows_core::RuntimeType for ClaimedReceiptPrinter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedReceiptPrinter>();
+}
 unsafe impl windows_core::Interface for ClaimedReceiptPrinter {
     type Vtable = <IClaimedReceiptPrinter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClaimedReceiptPrinter as windows_core::Interface>::IID;
@@ -5847,9 +5847,6 @@ impl windows_core::RuntimeName for ClaimedReceiptPrinter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ClaimedSlipPrinter(windows_core::IUnknown);
-impl windows_core::RuntimeType for ClaimedSlipPrinter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedSlipPrinter>();
-}
 windows_core::imp::interface_hierarchy!(ClaimedSlipPrinter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ClaimedSlipPrinter, ICommonClaimedPosPrinterStation);
 impl ClaimedSlipPrinter {
@@ -6054,6 +6051,9 @@ impl ClaimedSlipPrinter {
         }
     }
 }
+impl windows_core::RuntimeType for ClaimedSlipPrinter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IClaimedSlipPrinter>();
+}
 unsafe impl windows_core::Interface for ClaimedSlipPrinter {
     type Vtable = <IClaimedSlipPrinter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IClaimedSlipPrinter as windows_core::Interface>::IID;
@@ -6064,9 +6064,6 @@ impl windows_core::RuntimeName for ClaimedSlipPrinter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JournalPrintJob(windows_core::IUnknown);
-impl windows_core::RuntimeType for JournalPrintJob {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinterJob>();
-}
 windows_core::imp::interface_hierarchy!(JournalPrintJob, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(JournalPrintJob, IPosPrinterJob);
 impl JournalPrintJob {
@@ -6105,6 +6102,9 @@ impl JournalPrintJob {
         }
     }
 }
+impl windows_core::RuntimeType for JournalPrintJob {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinterJob>();
+}
 unsafe impl windows_core::Interface for JournalPrintJob {
     type Vtable = <IPosPrinterJob as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPosPrinterJob as windows_core::Interface>::IID;
@@ -6115,9 +6115,6 @@ impl windows_core::RuntimeName for JournalPrintJob {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JournalPrinterCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for JournalPrinterCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJournalPrinterCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(JournalPrinterCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(JournalPrinterCapabilities, ICommonPosPrintStationCapabilities);
 impl JournalPrinterCapabilities {
@@ -6256,6 +6253,9 @@ impl JournalPrinterCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for JournalPrinterCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJournalPrinterCapabilities>();
+}
 unsafe impl windows_core::Interface for JournalPrinterCapabilities {
     type Vtable = <IJournalPrinterCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IJournalPrinterCapabilities as windows_core::Interface>::IID;
@@ -6266,9 +6266,6 @@ impl windows_core::RuntimeName for JournalPrinterCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplay(windows_core::IUnknown);
-impl windows_core::RuntimeType for LineDisplay {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplay>();
-}
 windows_core::imp::interface_hierarchy!(LineDisplay, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LineDisplay, super::super::Foundation::IClosable);
 impl LineDisplay {
@@ -6378,6 +6375,9 @@ impl LineDisplay {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LineDisplay {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplay>();
+}
 unsafe impl windows_core::Interface for LineDisplay {
     type Vtable = <ILineDisplay as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILineDisplay as windows_core::Interface>::IID;
@@ -6388,9 +6388,6 @@ impl windows_core::RuntimeName for LineDisplay {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayAttributes(windows_core::IUnknown);
-impl windows_core::RuntimeType for LineDisplayAttributes {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayAttributes>();
-}
 windows_core::imp::interface_hierarchy!(LineDisplayAttributes, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LineDisplayAttributes,);
 impl LineDisplayAttributes {
@@ -6475,6 +6472,9 @@ impl LineDisplayAttributes {
         unsafe { (windows_core::Interface::vtable(this).SetCurrentWindow)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for LineDisplayAttributes {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayAttributes>();
+}
 unsafe impl windows_core::Interface for LineDisplayAttributes {
     type Vtable = <ILineDisplayAttributes as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILineDisplayAttributes as windows_core::Interface>::IID;
@@ -6485,9 +6485,6 @@ impl windows_core::RuntimeName for LineDisplayAttributes {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for LineDisplayCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(LineDisplayCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LineDisplayCapabilities,);
 impl LineDisplayCapabilities {
@@ -6618,6 +6615,9 @@ impl LineDisplayCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for LineDisplayCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayCapabilities>();
+}
 unsafe impl windows_core::Interface for LineDisplayCapabilities {
     type Vtable = <ILineDisplayCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILineDisplayCapabilities as windows_core::Interface>::IID;
@@ -6628,9 +6628,6 @@ impl windows_core::RuntimeName for LineDisplayCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayCursor(windows_core::IUnknown);
-impl windows_core::RuntimeType for LineDisplayCursor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayCursor>();
-}
 windows_core::imp::interface_hierarchy!(LineDisplayCursor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LineDisplayCursor,);
 impl LineDisplayCursor {
@@ -6701,6 +6698,9 @@ impl LineDisplayCursor {
         }
     }
 }
+impl windows_core::RuntimeType for LineDisplayCursor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayCursor>();
+}
 unsafe impl windows_core::Interface for LineDisplayCursor {
     type Vtable = <ILineDisplayCursor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILineDisplayCursor as windows_core::Interface>::IID;
@@ -6711,9 +6711,6 @@ impl windows_core::RuntimeName for LineDisplayCursor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayCursorAttributes(windows_core::IUnknown);
-impl windows_core::RuntimeType for LineDisplayCursorAttributes {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayCursorAttributes>();
-}
 windows_core::imp::interface_hierarchy!(LineDisplayCursorAttributes, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LineDisplayCursorAttributes,);
 impl LineDisplayCursorAttributes {
@@ -6762,6 +6759,9 @@ impl LineDisplayCursorAttributes {
         unsafe { (windows_core::Interface::vtable(this).SetPosition)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for LineDisplayCursorAttributes {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayCursorAttributes>();
+}
 unsafe impl windows_core::Interface for LineDisplayCursorAttributes {
     type Vtable = <ILineDisplayCursorAttributes as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILineDisplayCursorAttributes as windows_core::Interface>::IID;
@@ -6772,9 +6772,6 @@ impl windows_core::RuntimeName for LineDisplayCursorAttributes {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayCustomGlyphs(windows_core::IUnknown);
-impl windows_core::RuntimeType for LineDisplayCustomGlyphs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayCustomGlyphs>();
-}
 windows_core::imp::interface_hierarchy!(LineDisplayCustomGlyphs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LineDisplayCustomGlyphs,);
 impl LineDisplayCustomGlyphs {
@@ -6805,6 +6802,9 @@ impl LineDisplayCustomGlyphs {
         }
     }
 }
+impl windows_core::RuntimeType for LineDisplayCustomGlyphs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayCustomGlyphs>();
+}
 unsafe impl windows_core::Interface for LineDisplayCustomGlyphs {
     type Vtable = <ILineDisplayCustomGlyphs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILineDisplayCustomGlyphs as windows_core::Interface>::IID;
@@ -6815,9 +6815,6 @@ impl windows_core::RuntimeName for LineDisplayCustomGlyphs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayMarquee(windows_core::IUnknown);
-impl windows_core::RuntimeType for LineDisplayMarquee {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayMarquee>();
-}
 windows_core::imp::interface_hierarchy!(LineDisplayMarquee, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LineDisplayMarquee,);
 impl LineDisplayMarquee {
@@ -6869,6 +6866,9 @@ impl LineDisplayMarquee {
         }
     }
 }
+impl windows_core::RuntimeType for LineDisplayMarquee {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayMarquee>();
+}
 unsafe impl windows_core::Interface for LineDisplayMarquee {
     type Vtable = <ILineDisplayMarquee as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILineDisplayMarquee as windows_core::Interface>::IID;
@@ -6879,9 +6879,6 @@ impl windows_core::RuntimeName for LineDisplayMarquee {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayStatisticsCategorySelector(windows_core::IUnknown);
-impl windows_core::RuntimeType for LineDisplayStatisticsCategorySelector {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayStatisticsCategorySelector>();
-}
 windows_core::imp::interface_hierarchy!(LineDisplayStatisticsCategorySelector, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LineDisplayStatisticsCategorySelector,);
 impl LineDisplayStatisticsCategorySelector {
@@ -6907,6 +6904,9 @@ impl LineDisplayStatisticsCategorySelector {
         }
     }
 }
+impl windows_core::RuntimeType for LineDisplayStatisticsCategorySelector {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayStatisticsCategorySelector>();
+}
 unsafe impl windows_core::Interface for LineDisplayStatisticsCategorySelector {
     type Vtable = <ILineDisplayStatisticsCategorySelector as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILineDisplayStatisticsCategorySelector as windows_core::Interface>::IID;
@@ -6917,9 +6917,6 @@ impl windows_core::RuntimeName for LineDisplayStatisticsCategorySelector {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayStatusUpdatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for LineDisplayStatusUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayStatusUpdatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(LineDisplayStatusUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LineDisplayStatusUpdatedEventArgs,);
 impl LineDisplayStatusUpdatedEventArgs {
@@ -6931,6 +6928,9 @@ impl LineDisplayStatusUpdatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for LineDisplayStatusUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayStatusUpdatedEventArgs>();
+}
 unsafe impl windows_core::Interface for LineDisplayStatusUpdatedEventArgs {
     type Vtable = <ILineDisplayStatusUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILineDisplayStatusUpdatedEventArgs as windows_core::Interface>::IID;
@@ -6941,9 +6941,6 @@ impl windows_core::RuntimeName for LineDisplayStatusUpdatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayStoredBitmap(windows_core::IUnknown);
-impl windows_core::RuntimeType for LineDisplayStoredBitmap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayStoredBitmap>();
-}
 windows_core::imp::interface_hierarchy!(LineDisplayStoredBitmap, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LineDisplayStoredBitmap,);
 impl LineDisplayStoredBitmap {
@@ -6962,6 +6959,9 @@ impl LineDisplayStoredBitmap {
         }
     }
 }
+impl windows_core::RuntimeType for LineDisplayStoredBitmap {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayStoredBitmap>();
+}
 unsafe impl windows_core::Interface for LineDisplayStoredBitmap {
     type Vtable = <ILineDisplayStoredBitmap as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILineDisplayStoredBitmap as windows_core::Interface>::IID;
@@ -6972,9 +6972,6 @@ impl windows_core::RuntimeName for LineDisplayStoredBitmap {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LineDisplayWindow(windows_core::IUnknown);
-impl windows_core::RuntimeType for LineDisplayWindow {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayWindow>();
-}
 windows_core::imp::interface_hierarchy!(LineDisplayWindow, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LineDisplayWindow, super::super::Foundation::IClosable);
 impl LineDisplayWindow {
@@ -7129,6 +7126,9 @@ impl LineDisplayWindow {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for LineDisplayWindow {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILineDisplayWindow>();
+}
 unsafe impl windows_core::Interface for LineDisplayWindow {
     type Vtable = <ILineDisplayWindow as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILineDisplayWindow as windows_core::Interface>::IID;
@@ -7139,9 +7139,6 @@ impl windows_core::RuntimeName for LineDisplayWindow {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReader(windows_core::IUnknown);
-impl windows_core::RuntimeType for MagneticStripeReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReader>();
-}
 windows_core::imp::interface_hierarchy!(MagneticStripeReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MagneticStripeReader, super::super::Foundation::IClosable);
 impl MagneticStripeReader {
@@ -7256,6 +7253,9 @@ impl MagneticStripeReader {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MagneticStripeReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReader>();
+}
 unsafe impl windows_core::Interface for MagneticStripeReader {
     type Vtable = <IMagneticStripeReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMagneticStripeReader as windows_core::Interface>::IID;
@@ -7266,9 +7266,6 @@ impl windows_core::RuntimeName for MagneticStripeReader {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderAamvaCardDataReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReaderAamvaCardDataReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MagneticStripeReaderAamvaCardDataReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MagneticStripeReaderAamvaCardDataReceivedEventArgs,);
 impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
@@ -7406,6 +7403,9 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReaderAamvaCardDataReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     type Vtable = <IMagneticStripeReaderAamvaCardDataReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMagneticStripeReaderAamvaCardDataReceivedEventArgs as windows_core::Interface>::IID;
@@ -7416,9 +7416,6 @@ impl windows_core::RuntimeName for MagneticStripeReaderAamvaCardDataReceivedEven
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderBankCardDataReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MagneticStripeReaderBankCardDataReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReaderBankCardDataReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MagneticStripeReaderBankCardDataReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MagneticStripeReaderBankCardDataReceivedEventArgs,);
 impl MagneticStripeReaderBankCardDataReceivedEventArgs {
@@ -7486,6 +7483,9 @@ impl MagneticStripeReaderBankCardDataReceivedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MagneticStripeReaderBankCardDataReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReaderBankCardDataReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for MagneticStripeReaderBankCardDataReceivedEventArgs {
     type Vtable = <IMagneticStripeReaderBankCardDataReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMagneticStripeReaderBankCardDataReceivedEventArgs as windows_core::Interface>::IID;
@@ -7496,9 +7496,6 @@ impl windows_core::RuntimeName for MagneticStripeReaderBankCardDataReceivedEvent
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for MagneticStripeReaderCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReaderCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(MagneticStripeReaderCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MagneticStripeReaderCapabilities,);
 impl MagneticStripeReaderCapabilities {
@@ -7580,6 +7577,9 @@ impl MagneticStripeReaderCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for MagneticStripeReaderCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReaderCapabilities>();
+}
 unsafe impl windows_core::Interface for MagneticStripeReaderCapabilities {
     type Vtable = <IMagneticStripeReaderCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMagneticStripeReaderCapabilities as windows_core::Interface>::IID;
@@ -7652,9 +7652,6 @@ impl windows_core::RuntimeName for MagneticStripeReaderEncryptionAlgorithms {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderErrorOccurredEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MagneticStripeReaderErrorOccurredEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReaderErrorOccurredEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MagneticStripeReaderErrorOccurredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MagneticStripeReaderErrorOccurredEventArgs,);
 impl MagneticStripeReaderErrorOccurredEventArgs {
@@ -7701,6 +7698,9 @@ impl MagneticStripeReaderErrorOccurredEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MagneticStripeReaderErrorOccurredEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReaderErrorOccurredEventArgs>();
+}
 unsafe impl windows_core::Interface for MagneticStripeReaderErrorOccurredEventArgs {
     type Vtable = <IMagneticStripeReaderErrorOccurredEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMagneticStripeReaderErrorOccurredEventArgs as windows_core::Interface>::IID;
@@ -7711,9 +7711,6 @@ impl windows_core::RuntimeName for MagneticStripeReaderErrorOccurredEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for MagneticStripeReaderReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReaderReport>();
-}
 windows_core::imp::interface_hierarchy!(MagneticStripeReaderReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MagneticStripeReaderReport,);
 impl MagneticStripeReaderReport {
@@ -7784,6 +7781,9 @@ impl MagneticStripeReaderReport {
         }
     }
 }
+impl windows_core::RuntimeType for MagneticStripeReaderReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReaderReport>();
+}
 unsafe impl windows_core::Interface for MagneticStripeReaderReport {
     type Vtable = <IMagneticStripeReaderReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMagneticStripeReaderReport as windows_core::Interface>::IID;
@@ -7794,9 +7794,6 @@ impl windows_core::RuntimeName for MagneticStripeReaderReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderStatusUpdatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MagneticStripeReaderStatusUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReaderStatusUpdatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MagneticStripeReaderStatusUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MagneticStripeReaderStatusUpdatedEventArgs,);
 impl MagneticStripeReaderStatusUpdatedEventArgs {
@@ -7815,6 +7812,9 @@ impl MagneticStripeReaderStatusUpdatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MagneticStripeReaderStatusUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReaderStatusUpdatedEventArgs>();
+}
 unsafe impl windows_core::Interface for MagneticStripeReaderStatusUpdatedEventArgs {
     type Vtable = <IMagneticStripeReaderStatusUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMagneticStripeReaderStatusUpdatedEventArgs as windows_core::Interface>::IID;
@@ -7825,9 +7825,6 @@ impl windows_core::RuntimeName for MagneticStripeReaderStatusUpdatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderTrackData(windows_core::IUnknown);
-impl windows_core::RuntimeType for MagneticStripeReaderTrackData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReaderTrackData>();
-}
 windows_core::imp::interface_hierarchy!(MagneticStripeReaderTrackData, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MagneticStripeReaderTrackData,);
 impl MagneticStripeReaderTrackData {
@@ -7856,6 +7853,9 @@ impl MagneticStripeReaderTrackData {
         }
     }
 }
+impl windows_core::RuntimeType for MagneticStripeReaderTrackData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReaderTrackData>();
+}
 unsafe impl windows_core::Interface for MagneticStripeReaderTrackData {
     type Vtable = <IMagneticStripeReaderTrackData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMagneticStripeReaderTrackData as windows_core::Interface>::IID;
@@ -7866,9 +7866,6 @@ impl windows_core::RuntimeName for MagneticStripeReaderTrackData {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs,);
 impl MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
@@ -7880,6 +7877,9 @@ impl MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     type Vtable = <IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs as windows_core::Interface>::IID;
@@ -7890,9 +7890,6 @@ impl windows_core::RuntimeName for MagneticStripeReaderVendorSpecificCardDataRec
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinter(windows_core::IUnknown);
-impl windows_core::RuntimeType for PosPrinter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinter>();
-}
 windows_core::imp::interface_hierarchy!(PosPrinter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PosPrinter, super::super::Foundation::IClosable);
 impl PosPrinter {
@@ -8024,6 +8021,9 @@ impl PosPrinter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PosPrinter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinter>();
+}
 unsafe impl windows_core::Interface for PosPrinter {
     type Vtable = <IPosPrinter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPosPrinter as windows_core::Interface>::IID;
@@ -8034,9 +8034,6 @@ impl windows_core::RuntimeName for PosPrinter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for PosPrinterCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinterCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(PosPrinterCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PosPrinterCapabilities,);
 impl PosPrinterCapabilities {
@@ -8111,6 +8108,9 @@ impl PosPrinterCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for PosPrinterCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinterCapabilities>();
+}
 unsafe impl windows_core::Interface for PosPrinterCapabilities {
     type Vtable = <IPosPrinterCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPosPrinterCapabilities as windows_core::Interface>::IID;
@@ -8149,9 +8149,6 @@ impl windows_core::RuntimeName for PosPrinterCharacterSetIds {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterFontProperty(windows_core::IUnknown);
-impl windows_core::RuntimeType for PosPrinterFontProperty {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinterFontProperty>();
-}
 windows_core::imp::interface_hierarchy!(PosPrinterFontProperty, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PosPrinterFontProperty,);
 impl PosPrinterFontProperty {
@@ -8178,6 +8175,9 @@ impl PosPrinterFontProperty {
         }
     }
 }
+impl windows_core::RuntimeType for PosPrinterFontProperty {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinterFontProperty>();
+}
 unsafe impl windows_core::Interface for PosPrinterFontProperty {
     type Vtable = <IPosPrinterFontProperty as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPosPrinterFontProperty as windows_core::Interface>::IID;
@@ -8188,9 +8188,6 @@ impl windows_core::RuntimeName for PosPrinterFontProperty {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterPrintOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for PosPrinterPrintOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinterPrintOptions>();
-}
 windows_core::imp::interface_hierarchy!(PosPrinterPrintOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PosPrinterPrintOptions,);
 impl PosPrinterPrintOptions {
@@ -8345,6 +8342,9 @@ impl PosPrinterPrintOptions {
         unsafe { (windows_core::Interface::vtable(this).SetCharacterSet)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for PosPrinterPrintOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinterPrintOptions>();
+}
 unsafe impl windows_core::Interface for PosPrinterPrintOptions {
     type Vtable = <IPosPrinterPrintOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPosPrinterPrintOptions as windows_core::Interface>::IID;
@@ -8355,12 +8355,12 @@ impl windows_core::RuntimeName for PosPrinterPrintOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterReleaseDeviceRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PosPrinterReleaseDeviceRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinterReleaseDeviceRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PosPrinterReleaseDeviceRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PosPrinterReleaseDeviceRequestedEventArgs,);
 impl PosPrinterReleaseDeviceRequestedEventArgs {}
+impl windows_core::RuntimeType for PosPrinterReleaseDeviceRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinterReleaseDeviceRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for PosPrinterReleaseDeviceRequestedEventArgs {
     type Vtable = <IPosPrinterReleaseDeviceRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPosPrinterReleaseDeviceRequestedEventArgs as windows_core::Interface>::IID;
@@ -8371,9 +8371,6 @@ impl windows_core::RuntimeName for PosPrinterReleaseDeviceRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterStatus(windows_core::IUnknown);
-impl windows_core::RuntimeType for PosPrinterStatus {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinterStatus>();
-}
 windows_core::imp::interface_hierarchy!(PosPrinterStatus, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PosPrinterStatus,);
 impl PosPrinterStatus {
@@ -8392,6 +8389,9 @@ impl PosPrinterStatus {
         }
     }
 }
+impl windows_core::RuntimeType for PosPrinterStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinterStatus>();
+}
 unsafe impl windows_core::Interface for PosPrinterStatus {
     type Vtable = <IPosPrinterStatus as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPosPrinterStatus as windows_core::Interface>::IID;
@@ -8402,9 +8402,6 @@ impl windows_core::RuntimeName for PosPrinterStatus {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PosPrinterStatusUpdatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PosPrinterStatusUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinterStatusUpdatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PosPrinterStatusUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PosPrinterStatusUpdatedEventArgs,);
 impl PosPrinterStatusUpdatedEventArgs {
@@ -8416,6 +8413,9 @@ impl PosPrinterStatusUpdatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PosPrinterStatusUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPosPrinterStatusUpdatedEventArgs>();
+}
 unsafe impl windows_core::Interface for PosPrinterStatusUpdatedEventArgs {
     type Vtable = <IPosPrinterStatusUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPosPrinterStatusUpdatedEventArgs as windows_core::Interface>::IID;
@@ -8426,9 +8426,6 @@ impl windows_core::RuntimeName for PosPrinterStatusUpdatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ReceiptPrintJob(windows_core::IUnknown);
-impl windows_core::RuntimeType for ReceiptPrintJob {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IReceiptPrintJob>();
-}
 windows_core::imp::interface_hierarchy!(ReceiptPrintJob, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ReceiptPrintJob, IPosPrinterJob, IReceiptOrSlipJob);
 impl ReceiptPrintJob {
@@ -8575,6 +8572,9 @@ impl ReceiptPrintJob {
         unsafe { (windows_core::Interface::vtable(this).FeedPaperByMapModeUnit)(windows_core::Interface::as_raw(this), distance).ok() }
     }
 }
+impl windows_core::RuntimeType for ReceiptPrintJob {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IReceiptPrintJob>();
+}
 unsafe impl windows_core::Interface for ReceiptPrintJob {
     type Vtable = <IReceiptPrintJob as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IReceiptPrintJob as windows_core::Interface>::IID;
@@ -8585,9 +8585,6 @@ impl windows_core::RuntimeName for ReceiptPrintJob {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ReceiptPrinterCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for ReceiptPrinterCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IReceiptPrinterCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(ReceiptPrinterCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ReceiptPrinterCapabilities, ICommonPosPrintStationCapabilities, ICommonReceiptSlipCapabilities);
 impl ReceiptPrinterCapabilities {
@@ -8812,6 +8809,9 @@ impl ReceiptPrinterCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for ReceiptPrinterCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IReceiptPrinterCapabilities>();
+}
 unsafe impl windows_core::Interface for ReceiptPrinterCapabilities {
     type Vtable = <IReceiptPrinterCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IReceiptPrinterCapabilities as windows_core::Interface>::IID;
@@ -8822,9 +8822,6 @@ impl windows_core::RuntimeName for ReceiptPrinterCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SlipPrintJob(windows_core::IUnknown);
-impl windows_core::RuntimeType for SlipPrintJob {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IReceiptOrSlipJob>();
-}
 windows_core::imp::interface_hierarchy!(SlipPrintJob, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SlipPrintJob, IPosPrinterJob, IReceiptOrSlipJob);
 impl SlipPrintJob {
@@ -8955,6 +8952,9 @@ impl SlipPrintJob {
         unsafe { (windows_core::Interface::vtable(this).FeedPaperByMapModeUnit)(windows_core::Interface::as_raw(this), distance).ok() }
     }
 }
+impl windows_core::RuntimeType for SlipPrintJob {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IReceiptOrSlipJob>();
+}
 unsafe impl windows_core::Interface for SlipPrintJob {
     type Vtable = <IReceiptOrSlipJob as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IReceiptOrSlipJob as windows_core::Interface>::IID;
@@ -8965,9 +8965,6 @@ impl windows_core::RuntimeName for SlipPrintJob {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SlipPrinterCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for SlipPrinterCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISlipPrinterCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(SlipPrinterCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SlipPrinterCapabilities, ICommonPosPrintStationCapabilities, ICommonReceiptSlipCapabilities);
 impl SlipPrinterCapabilities {
@@ -9185,6 +9182,9 @@ impl SlipPrinterCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for SlipPrinterCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISlipPrinterCapabilities>();
+}
 unsafe impl windows_core::Interface for SlipPrinterCapabilities {
     type Vtable = <ISlipPrinterCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISlipPrinterCapabilities as windows_core::Interface>::IID;
@@ -9195,9 +9195,6 @@ impl windows_core::RuntimeName for SlipPrinterCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UnifiedPosErrorData(windows_core::IUnknown);
-impl windows_core::RuntimeType for UnifiedPosErrorData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUnifiedPosErrorData>();
-}
 windows_core::imp::interface_hierarchy!(UnifiedPosErrorData, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UnifiedPosErrorData,);
 impl UnifiedPosErrorData {
@@ -9239,6 +9236,9 @@ impl UnifiedPosErrorData {
         static SHARED: windows_core::imp::FactoryCache<UnifiedPosErrorData, IUnifiedPosErrorDataFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for UnifiedPosErrorData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUnifiedPosErrorData>();
 }
 unsafe impl windows_core::Interface for UnifiedPosErrorData {
     type Vtable = <IUnifiedPosErrorData as windows_core::Interface>::Vtable;
@@ -9819,7 +9819,7 @@ impl windows_core::RuntimeType for UnifiedPosPowerReportingType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.PointOfService.UnifiedPosPowerReportingType;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct SizeUInt32 {
     pub Width: u32,
     pub Height: u32,

@@ -1787,9 +1787,6 @@ impl IRandomAccessStreamWithContentType_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Buffer(windows_core::IUnknown);
-impl windows_core::RuntimeType for Buffer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBuffer>();
-}
 windows_core::imp::interface_hierarchy!(Buffer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Buffer, IBuffer);
 impl Buffer {
@@ -1844,6 +1841,9 @@ impl Buffer {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Buffer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBuffer>();
+}
 unsafe impl windows_core::Interface for Buffer {
     type Vtable = <IBuffer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBuffer as windows_core::Interface>::IID;
@@ -1854,9 +1854,6 @@ impl windows_core::RuntimeName for Buffer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataReader(windows_core::IUnknown);
-impl windows_core::RuntimeType for DataReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataReader>();
-}
 windows_core::imp::interface_hierarchy!(DataReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DataReader, super::super::Foundation::IClosable, IDataReader);
 impl DataReader {
@@ -2061,6 +2058,9 @@ impl DataReader {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DataReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataReader>();
+}
 unsafe impl windows_core::Interface for DataReader {
     type Vtable = <IDataReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataReader as windows_core::Interface>::IID;
@@ -2071,9 +2071,6 @@ impl windows_core::RuntimeName for DataReader {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataReaderLoadOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for DataReaderLoadOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IAsyncOperation<u32>>();
-}
 windows_core::imp::interface_hierarchy!(DataReaderLoadOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DataReaderLoadOperation, super::super::Foundation::IAsyncInfo, super::super::Foundation::IAsyncOperation<u32>);
 impl DataReaderLoadOperation {
@@ -2128,6 +2125,9 @@ impl DataReaderLoadOperation {
         }
     }
 }
+impl windows_core::RuntimeType for DataReaderLoadOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IAsyncOperation<u32>>();
+}
 unsafe impl windows_core::Interface for DataReaderLoadOperation {
     type Vtable = <super::super::Foundation::IAsyncOperation<u32> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::Foundation::IAsyncOperation<u32> as windows_core::Interface>::IID;
@@ -2138,9 +2138,6 @@ impl windows_core::RuntimeName for DataReaderLoadOperation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataWriter(windows_core::IUnknown);
-impl windows_core::RuntimeType for DataWriter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataWriter>();
-}
 windows_core::imp::interface_hierarchy!(DataWriter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DataWriter, super::super::Foundation::IClosable, IDataWriter);
 impl DataWriter {
@@ -2310,6 +2307,9 @@ impl DataWriter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DataWriter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDataWriter>();
+}
 unsafe impl windows_core::Interface for DataWriter {
     type Vtable = <IDataWriter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDataWriter as windows_core::Interface>::IID;
@@ -2320,9 +2320,6 @@ impl windows_core::RuntimeName for DataWriter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DataWriterStoreOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for DataWriterStoreOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IAsyncOperation<u32>>();
-}
 windows_core::imp::interface_hierarchy!(DataWriterStoreOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DataWriterStoreOperation, super::super::Foundation::IAsyncInfo, super::super::Foundation::IAsyncOperation<u32>);
 impl DataWriterStoreOperation {
@@ -2377,6 +2374,9 @@ impl DataWriterStoreOperation {
         }
     }
 }
+impl windows_core::RuntimeType for DataWriterStoreOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IAsyncOperation<u32>>();
+}
 unsafe impl windows_core::Interface for DataWriterStoreOperation {
     type Vtable = <super::super::Foundation::IAsyncOperation<u32> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::Foundation::IAsyncOperation<u32> as windows_core::Interface>::IID;
@@ -2387,9 +2387,6 @@ impl windows_core::RuntimeName for DataWriterStoreOperation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileInputStream(windows_core::IUnknown);
-impl windows_core::RuntimeType for FileInputStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputStream>();
-}
 windows_core::imp::interface_hierarchy!(FileInputStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileInputStream, super::super::Foundation::IClosable, IInputStream);
 impl FileInputStream {
@@ -2408,6 +2405,9 @@ impl FileInputStream {
         }
     }
 }
+impl windows_core::RuntimeType for FileInputStream {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputStream>();
+}
 unsafe impl windows_core::Interface for FileInputStream {
     type Vtable = <IInputStream as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInputStream as windows_core::Interface>::IID;
@@ -2418,9 +2418,6 @@ impl windows_core::RuntimeName for FileInputStream {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileOutputStream(windows_core::IUnknown);
-impl windows_core::RuntimeType for FileOutputStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOutputStream>();
-}
 windows_core::imp::interface_hierarchy!(FileOutputStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileOutputStream, super::super::Foundation::IClosable, IOutputStream);
 impl FileOutputStream {
@@ -2446,6 +2443,9 @@ impl FileOutputStream {
         }
     }
 }
+impl windows_core::RuntimeType for FileOutputStream {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOutputStream>();
+}
 unsafe impl windows_core::Interface for FileOutputStream {
     type Vtable = <IOutputStream as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOutputStream as windows_core::Interface>::IID;
@@ -2456,9 +2456,6 @@ impl windows_core::RuntimeName for FileOutputStream {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileRandomAccessStream(windows_core::IUnknown);
-impl windows_core::RuntimeType for FileRandomAccessStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStream>();
-}
 windows_core::imp::interface_hierarchy!(FileRandomAccessStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileRandomAccessStream, super::super::Foundation::IClosable, IInputStream, IOutputStream, IRandomAccessStream);
 impl FileRandomAccessStream {
@@ -2619,6 +2616,9 @@ impl FileRandomAccessStream {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for FileRandomAccessStream {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStream>();
+}
 unsafe impl windows_core::Interface for FileRandomAccessStream {
     type Vtable = <IRandomAccessStream as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRandomAccessStream as windows_core::Interface>::IID;
@@ -2629,9 +2629,6 @@ impl windows_core::RuntimeName for FileRandomAccessStream {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InMemoryRandomAccessStream(windows_core::IUnknown);
-impl windows_core::RuntimeType for InMemoryRandomAccessStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStream>();
-}
 windows_core::imp::interface_hierarchy!(InMemoryRandomAccessStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InMemoryRandomAccessStream, super::super::Foundation::IClosable, IInputStream, IOutputStream, IRandomAccessStream);
 impl InMemoryRandomAccessStream {
@@ -2731,6 +2728,9 @@ impl InMemoryRandomAccessStream {
         }
     }
 }
+impl windows_core::RuntimeType for InMemoryRandomAccessStream {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStream>();
+}
 unsafe impl windows_core::Interface for InMemoryRandomAccessStream {
     type Vtable = <IRandomAccessStream as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRandomAccessStream as windows_core::Interface>::IID;
@@ -2741,9 +2741,6 @@ impl windows_core::RuntimeName for InMemoryRandomAccessStream {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InputStreamOverStream(windows_core::IUnknown);
-impl windows_core::RuntimeType for InputStreamOverStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputStream>();
-}
 windows_core::imp::interface_hierarchy!(InputStreamOverStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InputStreamOverStream, super::super::Foundation::IClosable, IInputStream);
 impl InputStreamOverStream {
@@ -2762,6 +2759,9 @@ impl InputStreamOverStream {
         }
     }
 }
+impl windows_core::RuntimeType for InputStreamOverStream {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputStream>();
+}
 unsafe impl windows_core::Interface for InputStreamOverStream {
     type Vtable = <IInputStream as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInputStream as windows_core::Interface>::IID;
@@ -2772,9 +2772,6 @@ impl windows_core::RuntimeName for InputStreamOverStream {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OutputStreamOverStream(windows_core::IUnknown);
-impl windows_core::RuntimeType for OutputStreamOverStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOutputStream>();
-}
 windows_core::imp::interface_hierarchy!(OutputStreamOverStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OutputStreamOverStream, super::super::Foundation::IClosable, IOutputStream);
 impl OutputStreamOverStream {
@@ -2799,6 +2796,9 @@ impl OutputStreamOverStream {
             (windows_core::Interface::vtable(this).FlushAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for OutputStreamOverStream {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOutputStream>();
 }
 unsafe impl windows_core::Interface for OutputStreamOverStream {
     type Vtable = <IOutputStream as windows_core::Interface>::Vtable;
@@ -2850,9 +2850,6 @@ impl windows_core::RuntimeName for RandomAccessStream {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RandomAccessStreamOverStream(windows_core::IUnknown);
-impl windows_core::RuntimeType for RandomAccessStreamOverStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStream>();
-}
 windows_core::imp::interface_hierarchy!(RandomAccessStreamOverStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RandomAccessStreamOverStream, super::super::Foundation::IClosable, IInputStream, IOutputStream, IRandomAccessStream);
 impl RandomAccessStreamOverStream {
@@ -2945,6 +2942,9 @@ impl RandomAccessStreamOverStream {
         }
     }
 }
+impl windows_core::RuntimeType for RandomAccessStreamOverStream {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStream>();
+}
 unsafe impl windows_core::Interface for RandomAccessStreamOverStream {
     type Vtable = <IRandomAccessStream as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRandomAccessStream as windows_core::Interface>::IID;
@@ -2955,9 +2955,6 @@ impl windows_core::RuntimeName for RandomAccessStreamOverStream {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RandomAccessStreamReference(windows_core::IUnknown);
-impl windows_core::RuntimeType for RandomAccessStreamReference {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStreamReference>();
-}
 windows_core::imp::interface_hierarchy!(RandomAccessStreamReference, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RandomAccessStreamReference, IRandomAccessStreamReference);
 impl RandomAccessStreamReference {
@@ -2999,6 +2996,9 @@ impl RandomAccessStreamReference {
         static SHARED: windows_core::imp::FactoryCache<RandomAccessStreamReference, IRandomAccessStreamReferenceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for RandomAccessStreamReference {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRandomAccessStreamReference>();
 }
 unsafe impl windows_core::Interface for RandomAccessStreamReference {
     type Vtable = <IRandomAccessStreamReference as windows_core::Interface>::Vtable;

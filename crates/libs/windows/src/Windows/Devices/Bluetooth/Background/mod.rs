@@ -158,9 +158,6 @@ pub struct IRfcommOutboundConnectionInformation_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementPublisherTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEAdvertisementPublisherTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementPublisherTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementPublisherTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEAdvertisementPublisherTriggerDetails,);
 impl BluetoothLEAdvertisementPublisherTriggerDetails {
@@ -187,6 +184,9 @@ impl BluetoothLEAdvertisementPublisherTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for BluetoothLEAdvertisementPublisherTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementPublisherTriggerDetails>();
+}
 unsafe impl windows_core::Interface for BluetoothLEAdvertisementPublisherTriggerDetails {
     type Vtable = <IBluetoothLEAdvertisementPublisherTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEAdvertisementPublisherTriggerDetails as windows_core::Interface>::IID;
@@ -197,9 +197,6 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementPublisherTriggerDetai
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAdvertisementWatcherTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEAdvertisementWatcherTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementWatcherTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEAdvertisementWatcherTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEAdvertisementWatcherTriggerDetails,);
 impl BluetoothLEAdvertisementWatcherTriggerDetails {
@@ -226,6 +223,9 @@ impl BluetoothLEAdvertisementWatcherTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for BluetoothLEAdvertisementWatcherTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementWatcherTriggerDetails>();
+}
 unsafe impl windows_core::Interface for BluetoothLEAdvertisementWatcherTriggerDetails {
     type Vtable = <IBluetoothLEAdvertisementWatcherTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEAdvertisementWatcherTriggerDetails as windows_core::Interface>::IID;
@@ -236,9 +236,6 @@ impl windows_core::RuntimeName for BluetoothLEAdvertisementWatcherTriggerDetails
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattCharacteristicNotificationTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattCharacteristicNotificationTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattCharacteristicNotificationTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(GattCharacteristicNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattCharacteristicNotificationTriggerDetails,);
 impl GattCharacteristicNotificationTriggerDetails {
@@ -281,6 +278,9 @@ impl GattCharacteristicNotificationTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for GattCharacteristicNotificationTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattCharacteristicNotificationTriggerDetails>();
+}
 unsafe impl windows_core::Interface for GattCharacteristicNotificationTriggerDetails {
     type Vtable = <IGattCharacteristicNotificationTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattCharacteristicNotificationTriggerDetails as windows_core::Interface>::IID;
@@ -291,9 +291,6 @@ impl windows_core::RuntimeName for GattCharacteristicNotificationTriggerDetails 
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderConnection(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattServiceProviderConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderConnection>();
-}
 windows_core::imp::interface_hierarchy!(GattServiceProviderConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattServiceProviderConnection,);
 impl GattServiceProviderConnection {
@@ -328,6 +325,9 @@ impl GattServiceProviderConnection {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GattServiceProviderConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderConnection>();
+}
 unsafe impl windows_core::Interface for GattServiceProviderConnection {
     type Vtable = <IGattServiceProviderConnection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattServiceProviderConnection as windows_core::Interface>::IID;
@@ -338,9 +338,6 @@ impl windows_core::RuntimeName for GattServiceProviderConnection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GattServiceProviderTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for GattServiceProviderTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(GattServiceProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattServiceProviderTriggerDetails,);
 impl GattServiceProviderTriggerDetails {
@@ -352,6 +349,9 @@ impl GattServiceProviderTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for GattServiceProviderTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGattServiceProviderTriggerDetails>();
+}
 unsafe impl windows_core::Interface for GattServiceProviderTriggerDetails {
     type Vtable = <IGattServiceProviderTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGattServiceProviderTriggerDetails as windows_core::Interface>::IID;
@@ -362,9 +362,6 @@ impl windows_core::RuntimeName for GattServiceProviderTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommConnectionTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for RfcommConnectionTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommConnectionTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(RfcommConnectionTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RfcommConnectionTriggerDetails,);
 impl RfcommConnectionTriggerDetails {
@@ -391,6 +388,9 @@ impl RfcommConnectionTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for RfcommConnectionTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommConnectionTriggerDetails>();
+}
 unsafe impl windows_core::Interface for RfcommConnectionTriggerDetails {
     type Vtable = <IRfcommConnectionTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRfcommConnectionTriggerDetails as windows_core::Interface>::IID;
@@ -401,9 +401,6 @@ impl windows_core::RuntimeName for RfcommConnectionTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommInboundConnectionInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for RfcommInboundConnectionInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommInboundConnectionInformation>();
-}
 windows_core::imp::interface_hierarchy!(RfcommInboundConnectionInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RfcommInboundConnectionInformation,);
 impl RfcommInboundConnectionInformation {
@@ -451,6 +448,9 @@ impl RfcommInboundConnectionInformation {
         unsafe { (windows_core::Interface::vtable(this).SetServiceCapabilities)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for RfcommInboundConnectionInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommInboundConnectionInformation>();
+}
 unsafe impl windows_core::Interface for RfcommInboundConnectionInformation {
     type Vtable = <IRfcommInboundConnectionInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRfcommInboundConnectionInformation as windows_core::Interface>::IID;
@@ -461,9 +461,6 @@ impl windows_core::RuntimeName for RfcommInboundConnectionInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommOutboundConnectionInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for RfcommOutboundConnectionInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommOutboundConnectionInformation>();
-}
 windows_core::imp::interface_hierarchy!(RfcommOutboundConnectionInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RfcommOutboundConnectionInformation,);
 impl RfcommOutboundConnectionInformation {
@@ -483,6 +480,9 @@ impl RfcommOutboundConnectionInformation {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRemoteServiceId)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
+}
+impl windows_core::RuntimeType for RfcommOutboundConnectionInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommOutboundConnectionInformation>();
 }
 unsafe impl windows_core::Interface for RfcommOutboundConnectionInformation {
     type Vtable = <IRfcommOutboundConnectionInformation as windows_core::Interface>::Vtable;

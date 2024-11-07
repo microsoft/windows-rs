@@ -35,9 +35,6 @@ pub struct ICharacterGroupingsFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CharacterGrouping(windows_core::IUnknown);
-impl windows_core::RuntimeType for CharacterGrouping {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICharacterGrouping>();
-}
 windows_core::imp::interface_hierarchy!(CharacterGrouping, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CharacterGrouping,);
 impl CharacterGrouping {
@@ -56,6 +53,9 @@ impl CharacterGrouping {
         }
     }
 }
+impl windows_core::RuntimeType for CharacterGrouping {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICharacterGrouping>();
+}
 unsafe impl windows_core::Interface for CharacterGrouping {
     type Vtable = <ICharacterGrouping as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICharacterGrouping as windows_core::Interface>::IID;
@@ -67,10 +67,6 @@ impl windows_core::RuntimeName for CharacterGrouping {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CharacterGroupings(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for CharacterGroupings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICharacterGroupings>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CharacterGroupings, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -140,6 +136,10 @@ impl CharacterGroupings {
         static SHARED: windows_core::imp::FactoryCache<CharacterGroupings, ICharacterGroupingsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for CharacterGroupings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICharacterGroupings>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for CharacterGroupings {

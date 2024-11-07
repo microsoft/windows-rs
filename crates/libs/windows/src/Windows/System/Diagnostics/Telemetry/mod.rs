@@ -57,9 +57,6 @@ impl windows_core::RuntimeName for PlatformTelemetryClient {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlatformTelemetryRegistrationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlatformTelemetryRegistrationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlatformTelemetryRegistrationResult>();
-}
 windows_core::imp::interface_hierarchy!(PlatformTelemetryRegistrationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlatformTelemetryRegistrationResult,);
 impl PlatformTelemetryRegistrationResult {
@@ -71,6 +68,9 @@ impl PlatformTelemetryRegistrationResult {
         }
     }
 }
+impl windows_core::RuntimeType for PlatformTelemetryRegistrationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlatformTelemetryRegistrationResult>();
+}
 unsafe impl windows_core::Interface for PlatformTelemetryRegistrationResult {
     type Vtable = <IPlatformTelemetryRegistrationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlatformTelemetryRegistrationResult as windows_core::Interface>::IID;
@@ -81,9 +81,6 @@ impl windows_core::RuntimeName for PlatformTelemetryRegistrationResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlatformTelemetryRegistrationSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlatformTelemetryRegistrationSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlatformTelemetryRegistrationSettings>();
-}
 windows_core::imp::interface_hierarchy!(PlatformTelemetryRegistrationSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlatformTelemetryRegistrationSettings,);
 impl PlatformTelemetryRegistrationSettings {
@@ -116,6 +113,9 @@ impl PlatformTelemetryRegistrationSettings {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetUploadQuotaSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
+}
+impl windows_core::RuntimeType for PlatformTelemetryRegistrationSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlatformTelemetryRegistrationSettings>();
 }
 unsafe impl windows_core::Interface for PlatformTelemetryRegistrationSettings {
     type Vtable = <IPlatformTelemetryRegistrationSettings as windows_core::Interface>::Vtable;

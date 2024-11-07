@@ -228,9 +228,6 @@ pub struct IXboxLiveQualityOfServicePrivatePayloadResult_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveDeviceAddress(windows_core::IUnknown);
-impl windows_core::RuntimeType for XboxLiveDeviceAddress {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveDeviceAddress>();
-}
 windows_core::imp::interface_hierarchy!(XboxLiveDeviceAddress, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XboxLiveDeviceAddress,);
 impl XboxLiveDeviceAddress {
@@ -337,6 +334,9 @@ impl XboxLiveDeviceAddress {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for XboxLiveDeviceAddress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveDeviceAddress>();
+}
 unsafe impl windows_core::Interface for XboxLiveDeviceAddress {
     type Vtable = <IXboxLiveDeviceAddress as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXboxLiveDeviceAddress as windows_core::Interface>::IID;
@@ -347,9 +347,6 @@ impl windows_core::RuntimeName for XboxLiveDeviceAddress {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveEndpointPair(windows_core::IUnknown);
-impl windows_core::RuntimeType for XboxLiveEndpointPair {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveEndpointPair>();
-}
 windows_core::imp::interface_hierarchy!(XboxLiveEndpointPair, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XboxLiveEndpointPair,);
 impl XboxLiveEndpointPair {
@@ -452,6 +449,9 @@ impl XboxLiveEndpointPair {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for XboxLiveEndpointPair {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveEndpointPair>();
+}
 unsafe impl windows_core::Interface for XboxLiveEndpointPair {
     type Vtable = <IXboxLiveEndpointPair as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXboxLiveEndpointPair as windows_core::Interface>::IID;
@@ -462,9 +462,6 @@ impl windows_core::RuntimeName for XboxLiveEndpointPair {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveEndpointPairCreationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for XboxLiveEndpointPairCreationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveEndpointPairCreationResult>();
-}
 windows_core::imp::interface_hierarchy!(XboxLiveEndpointPairCreationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XboxLiveEndpointPairCreationResult,);
 impl XboxLiveEndpointPairCreationResult {
@@ -497,6 +494,9 @@ impl XboxLiveEndpointPairCreationResult {
         }
     }
 }
+impl windows_core::RuntimeType for XboxLiveEndpointPairCreationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveEndpointPairCreationResult>();
+}
 unsafe impl windows_core::Interface for XboxLiveEndpointPairCreationResult {
     type Vtable = <IXboxLiveEndpointPairCreationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXboxLiveEndpointPairCreationResult as windows_core::Interface>::IID;
@@ -507,9 +507,6 @@ impl windows_core::RuntimeName for XboxLiveEndpointPairCreationResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveEndpointPairStateChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for XboxLiveEndpointPairStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveEndpointPairStateChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(XboxLiveEndpointPairStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XboxLiveEndpointPairStateChangedEventArgs,);
 impl XboxLiveEndpointPairStateChangedEventArgs {
@@ -528,6 +525,9 @@ impl XboxLiveEndpointPairStateChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for XboxLiveEndpointPairStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveEndpointPairStateChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for XboxLiveEndpointPairStateChangedEventArgs {
     type Vtable = <IXboxLiveEndpointPairStateChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXboxLiveEndpointPairStateChangedEventArgs as windows_core::Interface>::IID;
@@ -538,9 +538,6 @@ impl windows_core::RuntimeName for XboxLiveEndpointPairStateChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveEndpointPairTemplate(windows_core::IUnknown);
-impl windows_core::RuntimeType for XboxLiveEndpointPairTemplate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveEndpointPairTemplate>();
-}
 windows_core::imp::interface_hierarchy!(XboxLiveEndpointPairTemplate, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XboxLiveEndpointPairTemplate,);
 impl XboxLiveEndpointPairTemplate {
@@ -666,6 +663,9 @@ impl XboxLiveEndpointPairTemplate {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for XboxLiveEndpointPairTemplate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveEndpointPairTemplate>();
+}
 unsafe impl windows_core::Interface for XboxLiveEndpointPairTemplate {
     type Vtable = <IXboxLiveEndpointPairTemplate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXboxLiveEndpointPairTemplate as windows_core::Interface>::IID;
@@ -676,9 +676,6 @@ impl windows_core::RuntimeName for XboxLiveEndpointPairTemplate {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveInboundEndpointPairCreatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for XboxLiveInboundEndpointPairCreatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveInboundEndpointPairCreatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(XboxLiveInboundEndpointPairCreatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XboxLiveInboundEndpointPairCreatedEventArgs,);
 impl XboxLiveInboundEndpointPairCreatedEventArgs {
@@ -690,6 +687,9 @@ impl XboxLiveInboundEndpointPairCreatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for XboxLiveInboundEndpointPairCreatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveInboundEndpointPairCreatedEventArgs>();
+}
 unsafe impl windows_core::Interface for XboxLiveInboundEndpointPairCreatedEventArgs {
     type Vtable = <IXboxLiveInboundEndpointPairCreatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXboxLiveInboundEndpointPairCreatedEventArgs as windows_core::Interface>::IID;
@@ -700,9 +700,6 @@ impl windows_core::RuntimeName for XboxLiveInboundEndpointPairCreatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveQualityOfServiceMeasurement(windows_core::IUnknown);
-impl windows_core::RuntimeType for XboxLiveQualityOfServiceMeasurement {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveQualityOfServiceMeasurement>();
-}
 windows_core::imp::interface_hierarchy!(XboxLiveQualityOfServiceMeasurement, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XboxLiveQualityOfServiceMeasurement,);
 impl XboxLiveQualityOfServiceMeasurement {
@@ -889,6 +886,9 @@ impl XboxLiveQualityOfServiceMeasurement {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for XboxLiveQualityOfServiceMeasurement {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveQualityOfServiceMeasurement>();
+}
 unsafe impl windows_core::Interface for XboxLiveQualityOfServiceMeasurement {
     type Vtable = <IXboxLiveQualityOfServiceMeasurement as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXboxLiveQualityOfServiceMeasurement as windows_core::Interface>::IID;
@@ -899,9 +899,6 @@ impl windows_core::RuntimeName for XboxLiveQualityOfServiceMeasurement {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveQualityOfServiceMetricResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for XboxLiveQualityOfServiceMetricResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveQualityOfServiceMetricResult>();
-}
 windows_core::imp::interface_hierarchy!(XboxLiveQualityOfServiceMetricResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XboxLiveQualityOfServiceMetricResult,);
 impl XboxLiveQualityOfServiceMetricResult {
@@ -934,6 +931,9 @@ impl XboxLiveQualityOfServiceMetricResult {
         }
     }
 }
+impl windows_core::RuntimeType for XboxLiveQualityOfServiceMetricResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveQualityOfServiceMetricResult>();
+}
 unsafe impl windows_core::Interface for XboxLiveQualityOfServiceMetricResult {
     type Vtable = <IXboxLiveQualityOfServiceMetricResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXboxLiveQualityOfServiceMetricResult as windows_core::Interface>::IID;
@@ -944,9 +944,6 @@ impl windows_core::RuntimeName for XboxLiveQualityOfServiceMetricResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XboxLiveQualityOfServicePrivatePayloadResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for XboxLiveQualityOfServicePrivatePayloadResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveQualityOfServicePrivatePayloadResult>();
-}
 windows_core::imp::interface_hierarchy!(XboxLiveQualityOfServicePrivatePayloadResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XboxLiveQualityOfServicePrivatePayloadResult,);
 impl XboxLiveQualityOfServicePrivatePayloadResult {
@@ -972,6 +969,9 @@ impl XboxLiveQualityOfServicePrivatePayloadResult {
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for XboxLiveQualityOfServicePrivatePayloadResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXboxLiveQualityOfServicePrivatePayloadResult>();
 }
 unsafe impl windows_core::Interface for XboxLiveQualityOfServicePrivatePayloadResult {
     type Vtable = <IXboxLiveQualityOfServicePrivatePayloadResult as windows_core::Interface>::Vtable;

@@ -670,9 +670,6 @@ pub struct IVp9ProfileIdsStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioEncodingProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioEncodingProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioEncodingProperties>();
-}
 windows_core::imp::interface_hierarchy!(AudioEncodingProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioEncodingProperties, IMediaEncodingProperties);
 impl AudioEncodingProperties {
@@ -826,6 +823,9 @@ impl AudioEncodingProperties {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AudioEncodingProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioEncodingProperties>();
+}
 unsafe impl windows_core::Interface for AudioEncodingProperties {
     type Vtable = <IAudioEncodingProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioEncodingProperties as windows_core::Interface>::IID;
@@ -918,9 +918,6 @@ impl windows_core::RuntimeName for Av1ProfileIds {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContainerEncodingProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContainerEncodingProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContainerEncodingProperties>();
-}
 windows_core::imp::interface_hierarchy!(ContainerEncodingProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContainerEncodingProperties, IMediaEncodingProperties);
 impl ContainerEncodingProperties {
@@ -964,6 +961,9 @@ impl ContainerEncodingProperties {
             (windows_core::Interface::vtable(this).Subtype)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for ContainerEncodingProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContainerEncodingProperties>();
 }
 unsafe impl windows_core::Interface for ContainerEncodingProperties {
     type Vtable = <IContainerEncodingProperties as windows_core::Interface>::Vtable;
@@ -1187,9 +1187,6 @@ impl windows_core::RuntimeName for HevcProfileIds {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageEncodingProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for ImageEncodingProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageEncodingProperties>();
-}
 windows_core::imp::interface_hierarchy!(ImageEncodingProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageEncodingProperties, IMediaEncodingProperties);
 impl ImageEncodingProperties {
@@ -1304,6 +1301,9 @@ impl ImageEncodingProperties {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ImageEncodingProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageEncodingProperties>();
+}
 unsafe impl windows_core::Interface for ImageEncodingProperties {
     type Vtable = <IImageEncodingProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IImageEncodingProperties as windows_core::Interface>::IID;
@@ -1314,9 +1314,6 @@ impl windows_core::RuntimeName for ImageEncodingProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaEncodingProfile(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaEncodingProfile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaEncodingProfile>();
-}
 windows_core::imp::interface_hierarchy!(MediaEncodingProfile, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaEncodingProfile,);
 impl MediaEncodingProfile {
@@ -1525,6 +1522,9 @@ impl MediaEncodingProfile {
         static SHARED: windows_core::imp::FactoryCache<MediaEncodingProfile, IMediaEncodingProfileStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for MediaEncodingProfile {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaEncodingProfile>();
 }
 unsafe impl windows_core::Interface for MediaEncodingProfile {
     type Vtable = <IMediaEncodingProfile as windows_core::Interface>::Vtable;
@@ -1890,10 +1890,6 @@ impl windows_core::RuntimeName for MediaEncodingSubtypes {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaPropertySet(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for MediaPropertySet {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IMap<windows_core::GUID, windows_core::IInspectable>>();
-}
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(MediaPropertySet, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::required_hierarchy ! ( MediaPropertySet , super::super::Foundation::Collections:: IIterable < super::super::Foundation::Collections:: IKeyValuePair < windows_core::GUID , windows_core::IInspectable > > , super::super::Foundation::Collections:: IMap < windows_core::GUID , windows_core::IInspectable > );
@@ -1963,6 +1959,10 @@ impl MediaPropertySet {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for MediaPropertySet {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IMap<windows_core::GUID, windows_core::IInspectable>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for MediaPropertySet {
     type Vtable = <super::super::Foundation::Collections::IMap<windows_core::GUID, windows_core::IInspectable> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::Foundation::Collections::IMap<windows_core::GUID, windows_core::IInspectable> as windows_core::Interface>::IID;
@@ -1974,9 +1974,6 @@ impl windows_core::RuntimeName for MediaPropertySet {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaRatio(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaRatio {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaRatio>();
-}
 windows_core::imp::interface_hierarchy!(MediaRatio, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaRatio,);
 impl MediaRatio {
@@ -2002,6 +1999,9 @@ impl MediaRatio {
             (windows_core::Interface::vtable(this).Denominator)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for MediaRatio {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaRatio>();
 }
 unsafe impl windows_core::Interface for MediaRatio {
     type Vtable = <IMediaRatio as windows_core::Interface>::Vtable;
@@ -2053,9 +2053,6 @@ impl windows_core::RuntimeName for Mpeg2ProfileIds {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TimedMetadataEncodingProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for TimedMetadataEncodingProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaEncodingProperties>();
-}
 windows_core::imp::interface_hierarchy!(TimedMetadataEncodingProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TimedMetadataEncodingProperties, IMediaEncodingProperties);
 impl TimedMetadataEncodingProperties {
@@ -2136,6 +2133,9 @@ impl TimedMetadataEncodingProperties {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TimedMetadataEncodingProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaEncodingProperties>();
+}
 unsafe impl windows_core::Interface for TimedMetadataEncodingProperties {
     type Vtable = <IMediaEncodingProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaEncodingProperties as windows_core::Interface>::IID;
@@ -2146,9 +2146,6 @@ impl windows_core::RuntimeName for TimedMetadataEncodingProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoEncodingProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for VideoEncodingProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoEncodingProperties>();
-}
 windows_core::imp::interface_hierarchy!(VideoEncodingProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoEncodingProperties, IMediaEncodingProperties);
 impl VideoEncodingProperties {
@@ -2320,6 +2317,9 @@ impl VideoEncodingProperties {
         static SHARED: windows_core::imp::FactoryCache<VideoEncodingProperties, IVideoEncodingPropertiesStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for VideoEncodingProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoEncodingProperties>();
 }
 unsafe impl windows_core::Interface for VideoEncodingProperties {
     type Vtable = <IVideoEncodingProperties as windows_core::Interface>::Vtable;

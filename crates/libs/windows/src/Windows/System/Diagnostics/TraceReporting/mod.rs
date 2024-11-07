@@ -114,9 +114,6 @@ impl windows_core::RuntimeName for PlatformDiagnosticActions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlatformDiagnosticTraceInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlatformDiagnosticTraceInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlatformDiagnosticTraceInfo>();
-}
 windows_core::imp::interface_hierarchy!(PlatformDiagnosticTraceInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlatformDiagnosticTraceInfo,);
 impl PlatformDiagnosticTraceInfo {
@@ -163,6 +160,9 @@ impl PlatformDiagnosticTraceInfo {
         }
     }
 }
+impl windows_core::RuntimeType for PlatformDiagnosticTraceInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlatformDiagnosticTraceInfo>();
+}
 unsafe impl windows_core::Interface for PlatformDiagnosticTraceInfo {
     type Vtable = <IPlatformDiagnosticTraceInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlatformDiagnosticTraceInfo as windows_core::Interface>::IID;
@@ -173,9 +173,6 @@ impl windows_core::RuntimeName for PlatformDiagnosticTraceInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlatformDiagnosticTraceRuntimeInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlatformDiagnosticTraceRuntimeInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlatformDiagnosticTraceRuntimeInfo>();
-}
 windows_core::imp::interface_hierarchy!(PlatformDiagnosticTraceRuntimeInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlatformDiagnosticTraceRuntimeInfo,);
 impl PlatformDiagnosticTraceRuntimeInfo {
@@ -193,6 +190,9 @@ impl PlatformDiagnosticTraceRuntimeInfo {
             (windows_core::Interface::vtable(this).EtwRuntimeFileTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for PlatformDiagnosticTraceRuntimeInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlatformDiagnosticTraceRuntimeInfo>();
 }
 unsafe impl windows_core::Interface for PlatformDiagnosticTraceRuntimeInfo {
     type Vtable = <IPlatformDiagnosticTraceRuntimeInfo as windows_core::Interface>::Vtable;

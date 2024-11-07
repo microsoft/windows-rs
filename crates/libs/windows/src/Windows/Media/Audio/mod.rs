@@ -1621,9 +1621,6 @@ pub struct ISpatialAudioFormatSubtypeStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioDeviceInputNode(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioDeviceInputNode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioDeviceInputNode>();
-}
 windows_core::imp::interface_hierarchy!(AudioDeviceInputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioDeviceInputNode, super::super::Foundation::IClosable, IAudioInputNode, IAudioInputNode2, IAudioNode);
 impl AudioDeviceInputNode {
@@ -1742,6 +1739,9 @@ impl AudioDeviceInputNode {
         unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for AudioDeviceInputNode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioDeviceInputNode>();
+}
 unsafe impl windows_core::Interface for AudioDeviceInputNode {
     type Vtable = <IAudioDeviceInputNode as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioDeviceInputNode as windows_core::Interface>::IID;
@@ -1752,9 +1752,6 @@ impl windows_core::RuntimeName for AudioDeviceInputNode {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioDeviceOutputNode(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioDeviceOutputNode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioDeviceOutputNode>();
-}
 windows_core::imp::interface_hierarchy!(AudioDeviceOutputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioDeviceOutputNode, super::super::Foundation::IClosable, IAudioNode, IAudioNodeWithListener);
 impl AudioDeviceOutputNode {
@@ -1851,6 +1848,9 @@ impl AudioDeviceOutputNode {
         }
     }
 }
+impl windows_core::RuntimeType for AudioDeviceOutputNode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioDeviceOutputNode>();
+}
 unsafe impl windows_core::Interface for AudioDeviceOutputNode {
     type Vtable = <IAudioDeviceOutputNode as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioDeviceOutputNode as windows_core::Interface>::IID;
@@ -1861,9 +1861,6 @@ impl windows_core::RuntimeName for AudioDeviceOutputNode {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioEffectsPackConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioEffectsPackConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioEffectsPackConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(AudioEffectsPackConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioEffectsPackConfiguration,);
 impl AudioEffectsPackConfiguration {
@@ -1919,6 +1916,9 @@ impl AudioEffectsPackConfiguration {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AudioEffectsPackConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioEffectsPackConfiguration>();
+}
 unsafe impl windows_core::Interface for AudioEffectsPackConfiguration {
     type Vtable = <IAudioEffectsPackConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioEffectsPackConfiguration as windows_core::Interface>::IID;
@@ -1929,9 +1929,6 @@ impl windows_core::RuntimeName for AudioEffectsPackConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFileInputNode(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioFileInputNode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioFileInputNode>();
-}
 windows_core::imp::interface_hierarchy!(AudioFileInputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioFileInputNode, super::super::Foundation::IClosable, IAudioInputNode, IAudioInputNode2, IAudioNode);
 impl AudioFileInputNode {
@@ -2135,6 +2132,9 @@ impl AudioFileInputNode {
         unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for AudioFileInputNode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioFileInputNode>();
+}
 unsafe impl windows_core::Interface for AudioFileInputNode {
     type Vtable = <IAudioFileInputNode as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioFileInputNode as windows_core::Interface>::IID;
@@ -2145,9 +2145,6 @@ impl windows_core::RuntimeName for AudioFileInputNode {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFileOutputNode(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioFileOutputNode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioFileOutputNode>();
-}
 windows_core::imp::interface_hierarchy!(AudioFileOutputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioFileOutputNode, super::super::Foundation::IClosable, IAudioNode);
 impl AudioFileOutputNode {
@@ -2246,6 +2243,9 @@ impl AudioFileOutputNode {
         unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for AudioFileOutputNode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioFileOutputNode>();
+}
 unsafe impl windows_core::Interface for AudioFileOutputNode {
     type Vtable = <IAudioFileOutputNode as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioFileOutputNode as windows_core::Interface>::IID;
@@ -2256,9 +2256,6 @@ impl windows_core::RuntimeName for AudioFileOutputNode {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFrameCompletedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioFrameCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioFrameCompletedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AudioFrameCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioFrameCompletedEventArgs,);
 impl AudioFrameCompletedEventArgs {
@@ -2270,6 +2267,9 @@ impl AudioFrameCompletedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AudioFrameCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioFrameCompletedEventArgs>();
+}
 unsafe impl windows_core::Interface for AudioFrameCompletedEventArgs {
     type Vtable = <IAudioFrameCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioFrameCompletedEventArgs as windows_core::Interface>::IID;
@@ -2280,9 +2280,6 @@ impl windows_core::RuntimeName for AudioFrameCompletedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFrameInputNode(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioFrameInputNode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioFrameInputNode>();
-}
 windows_core::imp::interface_hierarchy!(AudioFrameInputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioFrameInputNode, super::super::Foundation::IClosable, IAudioInputNode, IAudioInputNode2, IAudioNode);
 impl AudioFrameInputNode {
@@ -2450,6 +2447,9 @@ impl AudioFrameInputNode {
         unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for AudioFrameInputNode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioFrameInputNode>();
+}
 unsafe impl windows_core::Interface for AudioFrameInputNode {
     type Vtable = <IAudioFrameInputNode as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioFrameInputNode as windows_core::Interface>::IID;
@@ -2460,9 +2460,6 @@ impl windows_core::RuntimeName for AudioFrameInputNode {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioFrameOutputNode(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioFrameOutputNode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioFrameOutputNode>();
-}
 windows_core::imp::interface_hierarchy!(AudioFrameOutputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioFrameOutputNode, super::super::Foundation::IClosable, IAudioNode);
 impl AudioFrameOutputNode {
@@ -2544,6 +2541,9 @@ impl AudioFrameOutputNode {
         unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for AudioFrameOutputNode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioFrameOutputNode>();
+}
 unsafe impl windows_core::Interface for AudioFrameOutputNode {
     type Vtable = <IAudioFrameOutputNode as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioFrameOutputNode as windows_core::Interface>::IID;
@@ -2554,9 +2554,6 @@ impl windows_core::RuntimeName for AudioFrameOutputNode {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioGraph(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioGraph {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioGraph>();
-}
 windows_core::imp::interface_hierarchy!(AudioGraph, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioGraph, super::super::Foundation::IClosable);
 impl AudioGraph {
@@ -2881,6 +2878,9 @@ impl AudioGraph {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AudioGraph {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioGraph>();
+}
 unsafe impl windows_core::Interface for AudioGraph {
     type Vtable = <IAudioGraph as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioGraph as windows_core::Interface>::IID;
@@ -2891,9 +2891,6 @@ impl windows_core::RuntimeName for AudioGraph {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioGraphBatchUpdater(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioGraphBatchUpdater {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IClosable>();
-}
 windows_core::imp::interface_hierarchy!(AudioGraphBatchUpdater, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioGraphBatchUpdater, super::super::Foundation::IClosable);
 impl AudioGraphBatchUpdater {
@@ -2901,6 +2898,9 @@ impl AudioGraphBatchUpdater {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for AudioGraphBatchUpdater {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IClosable>();
 }
 unsafe impl windows_core::Interface for AudioGraphBatchUpdater {
     type Vtable = <super::super::Foundation::IClosable as windows_core::Interface>::Vtable;
@@ -2912,9 +2912,6 @@ impl windows_core::RuntimeName for AudioGraphBatchUpdater {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioGraphConnection(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioGraphConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioGraphConnection>();
-}
 windows_core::imp::interface_hierarchy!(AudioGraphConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioGraphConnection,);
 impl AudioGraphConnection {
@@ -2937,6 +2934,9 @@ impl AudioGraphConnection {
         }
     }
 }
+impl windows_core::RuntimeType for AudioGraphConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioGraphConnection>();
+}
 unsafe impl windows_core::Interface for AudioGraphConnection {
     type Vtable = <IAudioGraphConnection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioGraphConnection as windows_core::Interface>::IID;
@@ -2947,9 +2947,6 @@ impl windows_core::RuntimeName for AudioGraphConnection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioGraphSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioGraphSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioGraphSettings>();
-}
 windows_core::imp::interface_hierarchy!(AudioGraphSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioGraphSettings,);
 impl AudioGraphSettings {
@@ -3054,6 +3051,9 @@ impl AudioGraphSettings {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AudioGraphSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioGraphSettings>();
+}
 unsafe impl windows_core::Interface for AudioGraphSettings {
     type Vtable = <IAudioGraphSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioGraphSettings as windows_core::Interface>::IID;
@@ -3064,9 +3064,6 @@ impl windows_core::RuntimeName for AudioGraphSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioGraphUnrecoverableErrorOccurredEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioGraphUnrecoverableErrorOccurredEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioGraphUnrecoverableErrorOccurredEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AudioGraphUnrecoverableErrorOccurredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioGraphUnrecoverableErrorOccurredEventArgs,);
 impl AudioGraphUnrecoverableErrorOccurredEventArgs {
@@ -3078,6 +3075,9 @@ impl AudioGraphUnrecoverableErrorOccurredEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AudioGraphUnrecoverableErrorOccurredEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioGraphUnrecoverableErrorOccurredEventArgs>();
+}
 unsafe impl windows_core::Interface for AudioGraphUnrecoverableErrorOccurredEventArgs {
     type Vtable = <IAudioGraphUnrecoverableErrorOccurredEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioGraphUnrecoverableErrorOccurredEventArgs as windows_core::Interface>::IID;
@@ -3088,9 +3088,6 @@ impl windows_core::RuntimeName for AudioGraphUnrecoverableErrorOccurredEventArgs
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeEmitter(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioNodeEmitter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioNodeEmitter>();
-}
 windows_core::imp::interface_hierarchy!(AudioNodeEmitter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioNodeEmitter,);
 impl AudioNodeEmitter {
@@ -3220,6 +3217,9 @@ impl AudioNodeEmitter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AudioNodeEmitter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioNodeEmitter>();
+}
 unsafe impl windows_core::Interface for AudioNodeEmitter {
     type Vtable = <IAudioNodeEmitter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioNodeEmitter as windows_core::Interface>::IID;
@@ -3230,9 +3230,6 @@ impl windows_core::RuntimeName for AudioNodeEmitter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeEmitterConeProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioNodeEmitterConeProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioNodeEmitterConeProperties>();
-}
 windows_core::imp::interface_hierarchy!(AudioNodeEmitterConeProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioNodeEmitterConeProperties,);
 impl AudioNodeEmitterConeProperties {
@@ -3258,6 +3255,9 @@ impl AudioNodeEmitterConeProperties {
         }
     }
 }
+impl windows_core::RuntimeType for AudioNodeEmitterConeProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioNodeEmitterConeProperties>();
+}
 unsafe impl windows_core::Interface for AudioNodeEmitterConeProperties {
     type Vtable = <IAudioNodeEmitterConeProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioNodeEmitterConeProperties as windows_core::Interface>::IID;
@@ -3268,9 +3268,6 @@ impl windows_core::RuntimeName for AudioNodeEmitterConeProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeEmitterDecayModel(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioNodeEmitterDecayModel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioNodeEmitterDecayModel>();
-}
 windows_core::imp::interface_hierarchy!(AudioNodeEmitterDecayModel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioNodeEmitterDecayModel,);
 impl AudioNodeEmitterDecayModel {
@@ -3319,6 +3316,9 @@ impl AudioNodeEmitterDecayModel {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AudioNodeEmitterDecayModel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioNodeEmitterDecayModel>();
+}
 unsafe impl windows_core::Interface for AudioNodeEmitterDecayModel {
     type Vtable = <IAudioNodeEmitterDecayModel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioNodeEmitterDecayModel as windows_core::Interface>::IID;
@@ -3329,9 +3329,6 @@ impl windows_core::RuntimeName for AudioNodeEmitterDecayModel {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeEmitterNaturalDecayModelProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioNodeEmitterNaturalDecayModelProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioNodeEmitterNaturalDecayModelProperties>();
-}
 windows_core::imp::interface_hierarchy!(AudioNodeEmitterNaturalDecayModelProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioNodeEmitterNaturalDecayModelProperties,);
 impl AudioNodeEmitterNaturalDecayModelProperties {
@@ -3350,6 +3347,9 @@ impl AudioNodeEmitterNaturalDecayModelProperties {
         }
     }
 }
+impl windows_core::RuntimeType for AudioNodeEmitterNaturalDecayModelProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioNodeEmitterNaturalDecayModelProperties>();
+}
 unsafe impl windows_core::Interface for AudioNodeEmitterNaturalDecayModelProperties {
     type Vtable = <IAudioNodeEmitterNaturalDecayModelProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioNodeEmitterNaturalDecayModelProperties as windows_core::Interface>::IID;
@@ -3360,9 +3360,6 @@ impl windows_core::RuntimeName for AudioNodeEmitterNaturalDecayModelProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeEmitterShape(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioNodeEmitterShape {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioNodeEmitterShape>();
-}
 windows_core::imp::interface_hierarchy!(AudioNodeEmitterShape, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioNodeEmitterShape,);
 impl AudioNodeEmitterShape {
@@ -3397,6 +3394,9 @@ impl AudioNodeEmitterShape {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AudioNodeEmitterShape {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioNodeEmitterShape>();
+}
 unsafe impl windows_core::Interface for AudioNodeEmitterShape {
     type Vtable = <IAudioNodeEmitterShape as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioNodeEmitterShape as windows_core::Interface>::IID;
@@ -3407,9 +3407,6 @@ impl windows_core::RuntimeName for AudioNodeEmitterShape {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioNodeListener(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioNodeListener {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioNodeListener>();
-}
 windows_core::imp::interface_hierarchy!(AudioNodeListener, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioNodeListener,);
 impl AudioNodeListener {
@@ -3471,6 +3468,9 @@ impl AudioNodeListener {
         unsafe { (windows_core::Interface::vtable(this).SetDopplerVelocity)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for AudioNodeListener {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioNodeListener>();
+}
 unsafe impl windows_core::Interface for AudioNodeListener {
     type Vtable = <IAudioNodeListener as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioNodeListener as windows_core::Interface>::IID;
@@ -3481,9 +3481,6 @@ impl windows_core::RuntimeName for AudioNodeListener {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioPlaybackConnection(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioPlaybackConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioPlaybackConnection>();
-}
 windows_core::imp::interface_hierarchy!(AudioPlaybackConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioPlaybackConnection, super::super::Foundation::IClosable);
 impl AudioPlaybackConnection {
@@ -3561,6 +3558,9 @@ impl AudioPlaybackConnection {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AudioPlaybackConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioPlaybackConnection>();
+}
 unsafe impl windows_core::Interface for AudioPlaybackConnection {
     type Vtable = <IAudioPlaybackConnection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioPlaybackConnection as windows_core::Interface>::IID;
@@ -3571,9 +3571,6 @@ impl windows_core::RuntimeName for AudioPlaybackConnection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioPlaybackConnectionOpenResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioPlaybackConnectionOpenResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioPlaybackConnectionOpenResult>();
-}
 windows_core::imp::interface_hierarchy!(AudioPlaybackConnectionOpenResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioPlaybackConnectionOpenResult,);
 impl AudioPlaybackConnectionOpenResult {
@@ -3592,6 +3589,9 @@ impl AudioPlaybackConnectionOpenResult {
         }
     }
 }
+impl windows_core::RuntimeType for AudioPlaybackConnectionOpenResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioPlaybackConnectionOpenResult>();
+}
 unsafe impl windows_core::Interface for AudioPlaybackConnectionOpenResult {
     type Vtable = <IAudioPlaybackConnectionOpenResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioPlaybackConnectionOpenResult as windows_core::Interface>::IID;
@@ -3602,9 +3602,6 @@ impl windows_core::RuntimeName for AudioPlaybackConnectionOpenResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioStateMonitor(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioStateMonitor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioStateMonitor>();
-}
 windows_core::imp::interface_hierarchy!(AudioStateMonitor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioStateMonitor,);
 impl AudioStateMonitor {
@@ -3688,6 +3685,9 @@ impl AudioStateMonitor {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AudioStateMonitor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioStateMonitor>();
+}
 unsafe impl windows_core::Interface for AudioStateMonitor {
     type Vtable = <IAudioStateMonitor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioStateMonitor as windows_core::Interface>::IID;
@@ -3698,9 +3698,6 @@ impl windows_core::RuntimeName for AudioStateMonitor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioSubmixNode(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioSubmixNode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioInputNode>();
-}
 windows_core::imp::interface_hierarchy!(AudioSubmixNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioSubmixNode, super::super::Foundation::IClosable, IAudioInputNode, IAudioInputNode2, IAudioNode);
 impl AudioSubmixNode {
@@ -3811,6 +3808,9 @@ impl AudioSubmixNode {
         unsafe { (windows_core::Interface::vtable(this).EnableEffectsByDefinition)(windows_core::Interface::as_raw(this), definition.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for AudioSubmixNode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioInputNode>();
+}
 unsafe impl windows_core::Interface for AudioSubmixNode {
     type Vtable = <IAudioInputNode as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioInputNode as windows_core::Interface>::IID;
@@ -3821,9 +3821,6 @@ impl windows_core::RuntimeName for AudioSubmixNode {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateAudioDeviceInputNodeResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for CreateAudioDeviceInputNodeResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICreateAudioDeviceInputNodeResult>();
-}
 windows_core::imp::interface_hierarchy!(CreateAudioDeviceInputNodeResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CreateAudioDeviceInputNodeResult,);
 impl CreateAudioDeviceInputNodeResult {
@@ -3849,6 +3846,9 @@ impl CreateAudioDeviceInputNodeResult {
         }
     }
 }
+impl windows_core::RuntimeType for CreateAudioDeviceInputNodeResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICreateAudioDeviceInputNodeResult>();
+}
 unsafe impl windows_core::Interface for CreateAudioDeviceInputNodeResult {
     type Vtable = <ICreateAudioDeviceInputNodeResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICreateAudioDeviceInputNodeResult as windows_core::Interface>::IID;
@@ -3859,9 +3859,6 @@ impl windows_core::RuntimeName for CreateAudioDeviceInputNodeResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateAudioDeviceOutputNodeResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for CreateAudioDeviceOutputNodeResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICreateAudioDeviceOutputNodeResult>();
-}
 windows_core::imp::interface_hierarchy!(CreateAudioDeviceOutputNodeResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CreateAudioDeviceOutputNodeResult,);
 impl CreateAudioDeviceOutputNodeResult {
@@ -3887,6 +3884,9 @@ impl CreateAudioDeviceOutputNodeResult {
         }
     }
 }
+impl windows_core::RuntimeType for CreateAudioDeviceOutputNodeResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICreateAudioDeviceOutputNodeResult>();
+}
 unsafe impl windows_core::Interface for CreateAudioDeviceOutputNodeResult {
     type Vtable = <ICreateAudioDeviceOutputNodeResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICreateAudioDeviceOutputNodeResult as windows_core::Interface>::IID;
@@ -3897,9 +3897,6 @@ impl windows_core::RuntimeName for CreateAudioDeviceOutputNodeResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateAudioFileInputNodeResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for CreateAudioFileInputNodeResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICreateAudioFileInputNodeResult>();
-}
 windows_core::imp::interface_hierarchy!(CreateAudioFileInputNodeResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CreateAudioFileInputNodeResult,);
 impl CreateAudioFileInputNodeResult {
@@ -3925,6 +3922,9 @@ impl CreateAudioFileInputNodeResult {
         }
     }
 }
+impl windows_core::RuntimeType for CreateAudioFileInputNodeResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICreateAudioFileInputNodeResult>();
+}
 unsafe impl windows_core::Interface for CreateAudioFileInputNodeResult {
     type Vtable = <ICreateAudioFileInputNodeResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICreateAudioFileInputNodeResult as windows_core::Interface>::IID;
@@ -3935,9 +3935,6 @@ impl windows_core::RuntimeName for CreateAudioFileInputNodeResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateAudioFileOutputNodeResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for CreateAudioFileOutputNodeResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICreateAudioFileOutputNodeResult>();
-}
 windows_core::imp::interface_hierarchy!(CreateAudioFileOutputNodeResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CreateAudioFileOutputNodeResult,);
 impl CreateAudioFileOutputNodeResult {
@@ -3963,6 +3960,9 @@ impl CreateAudioFileOutputNodeResult {
         }
     }
 }
+impl windows_core::RuntimeType for CreateAudioFileOutputNodeResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICreateAudioFileOutputNodeResult>();
+}
 unsafe impl windows_core::Interface for CreateAudioFileOutputNodeResult {
     type Vtable = <ICreateAudioFileOutputNodeResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICreateAudioFileOutputNodeResult as windows_core::Interface>::IID;
@@ -3973,9 +3973,6 @@ impl windows_core::RuntimeName for CreateAudioFileOutputNodeResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateAudioGraphResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for CreateAudioGraphResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICreateAudioGraphResult>();
-}
 windows_core::imp::interface_hierarchy!(CreateAudioGraphResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CreateAudioGraphResult,);
 impl CreateAudioGraphResult {
@@ -4001,6 +3998,9 @@ impl CreateAudioGraphResult {
         }
     }
 }
+impl windows_core::RuntimeType for CreateAudioGraphResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICreateAudioGraphResult>();
+}
 unsafe impl windows_core::Interface for CreateAudioGraphResult {
     type Vtable = <ICreateAudioGraphResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICreateAudioGraphResult as windows_core::Interface>::IID;
@@ -4011,9 +4011,6 @@ impl windows_core::RuntimeName for CreateAudioGraphResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateMediaSourceAudioInputNodeResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for CreateMediaSourceAudioInputNodeResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICreateMediaSourceAudioInputNodeResult>();
-}
 windows_core::imp::interface_hierarchy!(CreateMediaSourceAudioInputNodeResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CreateMediaSourceAudioInputNodeResult,);
 impl CreateMediaSourceAudioInputNodeResult {
@@ -4039,6 +4036,9 @@ impl CreateMediaSourceAudioInputNodeResult {
         }
     }
 }
+impl windows_core::RuntimeType for CreateMediaSourceAudioInputNodeResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICreateMediaSourceAudioInputNodeResult>();
+}
 unsafe impl windows_core::Interface for CreateMediaSourceAudioInputNodeResult {
     type Vtable = <ICreateMediaSourceAudioInputNodeResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICreateMediaSourceAudioInputNodeResult as windows_core::Interface>::IID;
@@ -4050,10 +4050,6 @@ impl windows_core::RuntimeName for CreateMediaSourceAudioInputNodeResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EchoEffectDefinition(windows_core::IUnknown);
-#[cfg(feature = "Media_Effects")]
-impl windows_core::RuntimeType for EchoEffectDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEchoEffectDefinition>();
-}
 #[cfg(feature = "Media_Effects")]
 windows_core::imp::interface_hierarchy!(EchoEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Media_Effects")]
@@ -4123,6 +4119,10 @@ impl EchoEffectDefinition {
     }
 }
 #[cfg(feature = "Media_Effects")]
+impl windows_core::RuntimeType for EchoEffectDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEchoEffectDefinition>();
+}
+#[cfg(feature = "Media_Effects")]
 unsafe impl windows_core::Interface for EchoEffectDefinition {
     type Vtable = <IEchoEffectDefinition as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEchoEffectDefinition as windows_core::Interface>::IID;
@@ -4134,9 +4134,6 @@ impl windows_core::RuntimeName for EchoEffectDefinition {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EqualizerBand(windows_core::IUnknown);
-impl windows_core::RuntimeType for EqualizerBand {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEqualizerBand>();
-}
 windows_core::imp::interface_hierarchy!(EqualizerBand, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EqualizerBand,);
 impl EqualizerBand {
@@ -4174,6 +4171,9 @@ impl EqualizerBand {
         unsafe { (windows_core::Interface::vtable(this).SetGain)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for EqualizerBand {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEqualizerBand>();
+}
 unsafe impl windows_core::Interface for EqualizerBand {
     type Vtable = <IEqualizerBand as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEqualizerBand as windows_core::Interface>::IID;
@@ -4185,10 +4185,6 @@ impl windows_core::RuntimeName for EqualizerBand {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EqualizerEffectDefinition(windows_core::IUnknown);
-#[cfg(feature = "Media_Effects")]
-impl windows_core::RuntimeType for EqualizerEffectDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEqualizerEffectDefinition>();
-}
 #[cfg(feature = "Media_Effects")]
 windows_core::imp::interface_hierarchy!(EqualizerEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Media_Effects")]
@@ -4233,6 +4229,10 @@ impl EqualizerEffectDefinition {
     }
 }
 #[cfg(feature = "Media_Effects")]
+impl windows_core::RuntimeType for EqualizerEffectDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEqualizerEffectDefinition>();
+}
+#[cfg(feature = "Media_Effects")]
 unsafe impl windows_core::Interface for EqualizerEffectDefinition {
     type Vtable = <IEqualizerEffectDefinition as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEqualizerEffectDefinition as windows_core::Interface>::IID;
@@ -4244,9 +4244,6 @@ impl windows_core::RuntimeName for EqualizerEffectDefinition {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameInputNodeQuantumStartedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for FrameInputNodeQuantumStartedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameInputNodeQuantumStartedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(FrameInputNodeQuantumStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FrameInputNodeQuantumStartedEventArgs,);
 impl FrameInputNodeQuantumStartedEventArgs {
@@ -4257,6 +4254,9 @@ impl FrameInputNodeQuantumStartedEventArgs {
             (windows_core::Interface::vtable(this).RequiredSamples)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for FrameInputNodeQuantumStartedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameInputNodeQuantumStartedEventArgs>();
 }
 unsafe impl windows_core::Interface for FrameInputNodeQuantumStartedEventArgs {
     type Vtable = <IFrameInputNodeQuantumStartedEventArgs as windows_core::Interface>::Vtable;
@@ -4269,10 +4269,6 @@ impl windows_core::RuntimeName for FrameInputNodeQuantumStartedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LimiterEffectDefinition(windows_core::IUnknown);
-#[cfg(feature = "Media_Effects")]
-impl windows_core::RuntimeType for LimiterEffectDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILimiterEffectDefinition>();
-}
 #[cfg(feature = "Media_Effects")]
 windows_core::imp::interface_hierarchy!(LimiterEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Media_Effects")]
@@ -4331,6 +4327,10 @@ impl LimiterEffectDefinition {
     }
 }
 #[cfg(feature = "Media_Effects")]
+impl windows_core::RuntimeType for LimiterEffectDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILimiterEffectDefinition>();
+}
+#[cfg(feature = "Media_Effects")]
 unsafe impl windows_core::Interface for LimiterEffectDefinition {
     type Vtable = <ILimiterEffectDefinition as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILimiterEffectDefinition as windows_core::Interface>::IID;
@@ -4342,9 +4342,6 @@ impl windows_core::RuntimeName for LimiterEffectDefinition {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaSourceAudioInputNode(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaSourceAudioInputNode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaSourceAudioInputNode>();
-}
 windows_core::imp::interface_hierarchy!(MediaSourceAudioInputNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaSourceAudioInputNode, super::super::Foundation::IClosable, IAudioInputNode, IAudioInputNode2, IAudioNode);
 impl MediaSourceAudioInputNode {
@@ -4548,6 +4545,9 @@ impl MediaSourceAudioInputNode {
         unsafe { (windows_core::Interface::vtable(this).RemoveMediaSourceCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for MediaSourceAudioInputNode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaSourceAudioInputNode>();
+}
 unsafe impl windows_core::Interface for MediaSourceAudioInputNode {
     type Vtable = <IMediaSourceAudioInputNode as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaSourceAudioInputNode as windows_core::Interface>::IID;
@@ -4559,10 +4559,6 @@ impl windows_core::RuntimeName for MediaSourceAudioInputNode {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ReverbEffectDefinition(windows_core::IUnknown);
-#[cfg(feature = "Media_Effects")]
-impl windows_core::RuntimeType for ReverbEffectDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IReverbEffectDefinition>();
-}
 #[cfg(feature = "Media_Effects")]
 windows_core::imp::interface_hierarchy!(ReverbEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Media_Effects")]
@@ -4852,6 +4848,10 @@ impl ReverbEffectDefinition {
     }
 }
 #[cfg(feature = "Media_Effects")]
+impl windows_core::RuntimeType for ReverbEffectDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IReverbEffectDefinition>();
+}
+#[cfg(feature = "Media_Effects")]
 unsafe impl windows_core::Interface for ReverbEffectDefinition {
     type Vtable = <IReverbEffectDefinition as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IReverbEffectDefinition as windows_core::Interface>::IID;
@@ -4863,9 +4863,6 @@ impl windows_core::RuntimeName for ReverbEffectDefinition {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SetDefaultSpatialAudioFormatResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for SetDefaultSpatialAudioFormatResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISetDefaultSpatialAudioFormatResult>();
-}
 windows_core::imp::interface_hierarchy!(SetDefaultSpatialAudioFormatResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SetDefaultSpatialAudioFormatResult,);
 impl SetDefaultSpatialAudioFormatResult {
@@ -4877,6 +4874,9 @@ impl SetDefaultSpatialAudioFormatResult {
         }
     }
 }
+impl windows_core::RuntimeType for SetDefaultSpatialAudioFormatResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISetDefaultSpatialAudioFormatResult>();
+}
 unsafe impl windows_core::Interface for SetDefaultSpatialAudioFormatResult {
     type Vtable = <ISetDefaultSpatialAudioFormatResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISetDefaultSpatialAudioFormatResult as windows_core::Interface>::IID;
@@ -4887,9 +4887,6 @@ impl windows_core::RuntimeName for SetDefaultSpatialAudioFormatResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAudioDeviceConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialAudioDeviceConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialAudioDeviceConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(SpatialAudioDeviceConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialAudioDeviceConfiguration,);
 impl SpatialAudioDeviceConfiguration {
@@ -4960,6 +4957,9 @@ impl SpatialAudioDeviceConfiguration {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SpatialAudioDeviceConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialAudioDeviceConfiguration>();
+}
 unsafe impl windows_core::Interface for SpatialAudioDeviceConfiguration {
     type Vtable = <ISpatialAudioDeviceConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpatialAudioDeviceConfiguration as windows_core::Interface>::IID;
@@ -4970,9 +4970,6 @@ impl windows_core::RuntimeName for SpatialAudioDeviceConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialAudioFormatConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialAudioFormatConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialAudioFormatConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(SpatialAudioFormatConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialAudioFormatConfiguration,);
 impl SpatialAudioFormatConfiguration {
@@ -5011,6 +5008,9 @@ impl SpatialAudioFormatConfiguration {
         static SHARED: windows_core::imp::FactoryCache<SpatialAudioFormatConfiguration, ISpatialAudioFormatConfigurationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for SpatialAudioFormatConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialAudioFormatConfiguration>();
 }
 unsafe impl windows_core::Interface for SpatialAudioFormatConfiguration {
     type Vtable = <ISpatialAudioFormatConfiguration as windows_core::Interface>::Vtable;

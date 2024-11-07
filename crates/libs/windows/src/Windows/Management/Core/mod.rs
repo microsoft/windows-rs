@@ -21,9 +21,6 @@ pub struct IApplicationDataManagerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ApplicationDataManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for ApplicationDataManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationDataManager>();
-}
 windows_core::imp::interface_hierarchy!(ApplicationDataManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ApplicationDataManager,);
 impl ApplicationDataManager {
@@ -38,6 +35,9 @@ impl ApplicationDataManager {
         static SHARED: windows_core::imp::FactoryCache<ApplicationDataManager, IApplicationDataManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for ApplicationDataManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IApplicationDataManager>();
 }
 unsafe impl windows_core::Interface for ApplicationDataManager {
     type Vtable = <IApplicationDataManager as windows_core::Interface>::Vtable;

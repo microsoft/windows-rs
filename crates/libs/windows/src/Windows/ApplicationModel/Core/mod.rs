@@ -456,9 +456,6 @@ pub struct IUnhandledErrorDetectedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppListEntry(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppListEntry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppListEntry>();
-}
 windows_core::imp::interface_hierarchy!(AppListEntry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppListEntry,);
 impl AppListEntry {
@@ -501,6 +498,9 @@ impl AppListEntry {
             (windows_core::Interface::vtable(this).AppInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for AppListEntry {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppListEntry>();
 }
 unsafe impl windows_core::Interface for AppListEntry {
     type Vtable = <IAppListEntry as windows_core::Interface>::Vtable;
@@ -732,9 +732,6 @@ impl windows_core::RuntimeName for CoreApplication {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreApplicationView(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreApplicationView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreApplicationView>();
-}
 windows_core::imp::interface_hierarchy!(CoreApplicationView, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreApplicationView,);
 impl CoreApplicationView {
@@ -828,6 +825,9 @@ impl CoreApplicationView {
         }
     }
 }
+impl windows_core::RuntimeType for CoreApplicationView {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreApplicationView>();
+}
 unsafe impl windows_core::Interface for CoreApplicationView {
     type Vtable = <ICoreApplicationView as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreApplicationView as windows_core::Interface>::IID;
@@ -838,9 +838,6 @@ impl windows_core::RuntimeName for CoreApplicationView {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreApplicationViewTitleBar(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreApplicationViewTitleBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreApplicationViewTitleBar>();
-}
 windows_core::imp::interface_hierarchy!(CoreApplicationViewTitleBar, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreApplicationViewTitleBar,);
 impl CoreApplicationViewTitleBar {
@@ -912,6 +909,9 @@ impl CoreApplicationViewTitleBar {
         unsafe { (windows_core::Interface::vtable(this).RemoveIsVisibleChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for CoreApplicationViewTitleBar {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreApplicationViewTitleBar>();
+}
 unsafe impl windows_core::Interface for CoreApplicationViewTitleBar {
     type Vtable = <ICoreApplicationViewTitleBar as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreApplicationViewTitleBar as windows_core::Interface>::IID;
@@ -922,9 +922,6 @@ impl windows_core::RuntimeName for CoreApplicationViewTitleBar {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HostedViewClosingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for HostedViewClosingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHostedViewClosingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(HostedViewClosingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HostedViewClosingEventArgs,);
 impl HostedViewClosingEventArgs {
@@ -936,6 +933,9 @@ impl HostedViewClosingEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for HostedViewClosingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHostedViewClosingEventArgs>();
+}
 unsafe impl windows_core::Interface for HostedViewClosingEventArgs {
     type Vtable = <IHostedViewClosingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHostedViewClosingEventArgs as windows_core::Interface>::IID;
@@ -946,9 +946,6 @@ impl windows_core::RuntimeName for HostedViewClosingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UnhandledError(windows_core::IUnknown);
-impl windows_core::RuntimeType for UnhandledError {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUnhandledError>();
-}
 windows_core::imp::interface_hierarchy!(UnhandledError, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UnhandledError,);
 impl UnhandledError {
@@ -964,6 +961,9 @@ impl UnhandledError {
         unsafe { (windows_core::Interface::vtable(this).Propagate)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for UnhandledError {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUnhandledError>();
+}
 unsafe impl windows_core::Interface for UnhandledError {
     type Vtable = <IUnhandledError as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUnhandledError as windows_core::Interface>::IID;
@@ -974,9 +974,6 @@ impl windows_core::RuntimeName for UnhandledError {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UnhandledErrorDetectedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for UnhandledErrorDetectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUnhandledErrorDetectedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(UnhandledErrorDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UnhandledErrorDetectedEventArgs,);
 impl UnhandledErrorDetectedEventArgs {
@@ -987,6 +984,9 @@ impl UnhandledErrorDetectedEventArgs {
             (windows_core::Interface::vtable(this).UnhandledError)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for UnhandledErrorDetectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUnhandledErrorDetectedEventArgs>();
 }
 unsafe impl windows_core::Interface for UnhandledErrorDetectedEventArgs {
     type Vtable = <IUnhandledErrorDetectedEventArgs as windows_core::Interface>::Vtable;

@@ -51,9 +51,6 @@ pub struct ISystemNavigationManagerPreviewStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreAppWindowPreview(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreAppWindowPreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreAppWindowPreview>();
-}
 windows_core::imp::interface_hierarchy!(CoreAppWindowPreview, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreAppWindowPreview,);
 impl CoreAppWindowPreview {
@@ -72,6 +69,9 @@ impl CoreAppWindowPreview {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CoreAppWindowPreview {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreAppWindowPreview>();
+}
 unsafe impl windows_core::Interface for CoreAppWindowPreview {
     type Vtable = <ICoreAppWindowPreview as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreAppWindowPreview as windows_core::Interface>::IID;
@@ -82,9 +82,6 @@ impl windows_core::RuntimeName for CoreAppWindowPreview {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemNavigationCloseRequestedPreviewEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemNavigationCloseRequestedPreviewEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemNavigationCloseRequestedPreviewEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SystemNavigationCloseRequestedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemNavigationCloseRequestedPreviewEventArgs,);
 impl SystemNavigationCloseRequestedPreviewEventArgs {
@@ -107,6 +104,9 @@ impl SystemNavigationCloseRequestedPreviewEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for SystemNavigationCloseRequestedPreviewEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemNavigationCloseRequestedPreviewEventArgs>();
+}
 unsafe impl windows_core::Interface for SystemNavigationCloseRequestedPreviewEventArgs {
     type Vtable = <ISystemNavigationCloseRequestedPreviewEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemNavigationCloseRequestedPreviewEventArgs as windows_core::Interface>::IID;
@@ -117,9 +117,6 @@ impl windows_core::RuntimeName for SystemNavigationCloseRequestedPreviewEventArg
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemNavigationManagerPreview(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemNavigationManagerPreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemNavigationManagerPreview>();
-}
 windows_core::imp::interface_hierarchy!(SystemNavigationManagerPreview, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemNavigationManagerPreview,);
 impl SystemNavigationManagerPreview {
@@ -147,6 +144,9 @@ impl SystemNavigationManagerPreview {
         static SHARED: windows_core::imp::FactoryCache<SystemNavigationManagerPreview, ISystemNavigationManagerPreviewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for SystemNavigationManagerPreview {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemNavigationManagerPreview>();
 }
 unsafe impl windows_core::Interface for SystemNavigationManagerPreview {
     type Vtable = <ISystemNavigationManagerPreview as windows_core::Interface>::Vtable;

@@ -820,9 +820,6 @@ pub struct IUpdateSharedPackageContainerResult_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AddPackageOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for AddPackageOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAddPackageOptions>();
-}
 windows_core::imp::interface_hierarchy!(AddPackageOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AddPackageOptions,);
 impl AddPackageOptions {
@@ -1034,6 +1031,9 @@ impl AddPackageOptions {
         unsafe { (windows_core::Interface::vtable(this).SetLimitToExistingPackages)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for AddPackageOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAddPackageOptions>();
+}
 unsafe impl windows_core::Interface for AddPackageOptions {
     type Vtable = <IAddPackageOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAddPackageOptions as windows_core::Interface>::IID;
@@ -1044,9 +1044,6 @@ impl windows_core::RuntimeName for AddPackageOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppInstallerManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppInstallerManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppInstallerManager>();
-}
 windows_core::imp::interface_hierarchy!(AppInstallerManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppInstallerManager,);
 impl AppInstallerManager {
@@ -1082,6 +1079,9 @@ impl AppInstallerManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AppInstallerManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppInstallerManager>();
+}
 unsafe impl windows_core::Interface for AppInstallerManager {
     type Vtable = <IAppInstallerManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppInstallerManager as windows_core::Interface>::IID;
@@ -1092,9 +1092,6 @@ impl windows_core::RuntimeName for AppInstallerManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AutoUpdateSettingsOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for AutoUpdateSettingsOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutoUpdateSettingsOptions>();
-}
 windows_core::imp::interface_hierarchy!(AutoUpdateSettingsOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AutoUpdateSettingsOptions,);
 impl AutoUpdateSettingsOptions {
@@ -1256,6 +1253,9 @@ impl AutoUpdateSettingsOptions {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AutoUpdateSettingsOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAutoUpdateSettingsOptions>();
+}
 unsafe impl windows_core::Interface for AutoUpdateSettingsOptions {
     type Vtable = <IAutoUpdateSettingsOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAutoUpdateSettingsOptions as windows_core::Interface>::IID;
@@ -1266,9 +1266,6 @@ impl windows_core::RuntimeName for AutoUpdateSettingsOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateSharedPackageContainerOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for CreateSharedPackageContainerOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICreateSharedPackageContainerOptions>();
-}
 windows_core::imp::interface_hierarchy!(CreateSharedPackageContainerOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CreateSharedPackageContainerOptions,);
 impl CreateSharedPackageContainerOptions {
@@ -1310,6 +1307,9 @@ impl CreateSharedPackageContainerOptions {
         unsafe { (windows_core::Interface::vtable(this).SetCreateCollisionOption)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CreateSharedPackageContainerOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICreateSharedPackageContainerOptions>();
+}
 unsafe impl windows_core::Interface for CreateSharedPackageContainerOptions {
     type Vtable = <ICreateSharedPackageContainerOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICreateSharedPackageContainerOptions as windows_core::Interface>::IID;
@@ -1320,9 +1320,6 @@ impl windows_core::RuntimeName for CreateSharedPackageContainerOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CreateSharedPackageContainerResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for CreateSharedPackageContainerResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICreateSharedPackageContainerResult>();
-}
 windows_core::imp::interface_hierarchy!(CreateSharedPackageContainerResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CreateSharedPackageContainerResult,);
 impl CreateSharedPackageContainerResult {
@@ -1348,6 +1345,9 @@ impl CreateSharedPackageContainerResult {
         }
     }
 }
+impl windows_core::RuntimeType for CreateSharedPackageContainerResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICreateSharedPackageContainerResult>();
+}
 unsafe impl windows_core::Interface for CreateSharedPackageContainerResult {
     type Vtable = <ICreateSharedPackageContainerResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICreateSharedPackageContainerResult as windows_core::Interface>::IID;
@@ -1358,9 +1358,6 @@ impl windows_core::RuntimeName for CreateSharedPackageContainerResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeleteSharedPackageContainerOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeleteSharedPackageContainerOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeleteSharedPackageContainerOptions>();
-}
 windows_core::imp::interface_hierarchy!(DeleteSharedPackageContainerOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeleteSharedPackageContainerOptions,);
 impl DeleteSharedPackageContainerOptions {
@@ -1394,6 +1391,9 @@ impl DeleteSharedPackageContainerOptions {
         unsafe { (windows_core::Interface::vtable(this).SetAllUsers)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for DeleteSharedPackageContainerOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeleteSharedPackageContainerOptions>();
+}
 unsafe impl windows_core::Interface for DeleteSharedPackageContainerOptions {
     type Vtable = <IDeleteSharedPackageContainerOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeleteSharedPackageContainerOptions as windows_core::Interface>::IID;
@@ -1404,9 +1404,6 @@ impl windows_core::RuntimeName for DeleteSharedPackageContainerOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeleteSharedPackageContainerResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeleteSharedPackageContainerResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeleteSharedPackageContainerResult>();
-}
 windows_core::imp::interface_hierarchy!(DeleteSharedPackageContainerResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeleteSharedPackageContainerResult,);
 impl DeleteSharedPackageContainerResult {
@@ -1425,6 +1422,9 @@ impl DeleteSharedPackageContainerResult {
         }
     }
 }
+impl windows_core::RuntimeType for DeleteSharedPackageContainerResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeleteSharedPackageContainerResult>();
+}
 unsafe impl windows_core::Interface for DeleteSharedPackageContainerResult {
     type Vtable = <IDeleteSharedPackageContainerResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeleteSharedPackageContainerResult as windows_core::Interface>::IID;
@@ -1435,9 +1435,6 @@ impl windows_core::RuntimeName for DeleteSharedPackageContainerResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeploymentResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeploymentResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeploymentResult>();
-}
 windows_core::imp::interface_hierarchy!(DeploymentResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeploymentResult,);
 impl DeploymentResult {
@@ -1470,6 +1467,9 @@ impl DeploymentResult {
         }
     }
 }
+impl windows_core::RuntimeType for DeploymentResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeploymentResult>();
+}
 unsafe impl windows_core::Interface for DeploymentResult {
     type Vtable = <IDeploymentResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeploymentResult as windows_core::Interface>::IID;
@@ -1480,9 +1480,6 @@ impl windows_core::RuntimeName for DeploymentResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FindSharedPackageContainerOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for FindSharedPackageContainerOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFindSharedPackageContainerOptions>();
-}
 windows_core::imp::interface_hierarchy!(FindSharedPackageContainerOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FindSharedPackageContainerOptions,);
 impl FindSharedPackageContainerOptions {
@@ -1516,6 +1513,9 @@ impl FindSharedPackageContainerOptions {
         unsafe { (windows_core::Interface::vtable(this).SetPackageFamilyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for FindSharedPackageContainerOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFindSharedPackageContainerOptions>();
+}
 unsafe impl windows_core::Interface for FindSharedPackageContainerOptions {
     type Vtable = <IFindSharedPackageContainerOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFindSharedPackageContainerOptions as windows_core::Interface>::IID;
@@ -1526,9 +1526,6 @@ impl windows_core::RuntimeName for FindSharedPackageContainerOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageAllUserProvisioningOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for PackageAllUserProvisioningOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageAllUserProvisioningOptions>();
-}
 windows_core::imp::interface_hierarchy!(PackageAllUserProvisioningOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PackageAllUserProvisioningOptions,);
 impl PackageAllUserProvisioningOptions {
@@ -1567,6 +1564,9 @@ impl PackageAllUserProvisioningOptions {
         unsafe { (windows_core::Interface::vtable(this).SetDeferAutomaticRegistration)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for PackageAllUserProvisioningOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageAllUserProvisioningOptions>();
+}
 unsafe impl windows_core::Interface for PackageAllUserProvisioningOptions {
     type Vtable = <IPackageAllUserProvisioningOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageAllUserProvisioningOptions as windows_core::Interface>::IID;
@@ -1577,9 +1577,6 @@ impl windows_core::RuntimeName for PackageAllUserProvisioningOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for PackageManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageManager>();
-}
 windows_core::imp::interface_hierarchy!(PackageManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PackageManager,);
 impl PackageManager {
@@ -2186,6 +2183,9 @@ impl PackageManager {
         }
     }
 }
+impl windows_core::RuntimeType for PackageManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageManager>();
+}
 unsafe impl windows_core::Interface for PackageManager {
     type Vtable = <IPackageManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageManager as windows_core::Interface>::IID;
@@ -2196,9 +2196,6 @@ impl windows_core::RuntimeName for PackageManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageManagerDebugSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for PackageManagerDebugSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageManagerDebugSettings>();
-}
 windows_core::imp::interface_hierarchy!(PackageManagerDebugSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PackageManagerDebugSettings,);
 impl PackageManagerDebugSettings {
@@ -2225,6 +2222,9 @@ impl PackageManagerDebugSettings {
         }
     }
 }
+impl windows_core::RuntimeType for PackageManagerDebugSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageManagerDebugSettings>();
+}
 unsafe impl windows_core::Interface for PackageManagerDebugSettings {
     type Vtable = <IPackageManagerDebugSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageManagerDebugSettings as windows_core::Interface>::IID;
@@ -2235,9 +2235,6 @@ impl windows_core::RuntimeName for PackageManagerDebugSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageUserInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for PackageUserInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageUserInformation>();
-}
 windows_core::imp::interface_hierarchy!(PackageUserInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PackageUserInformation,);
 impl PackageUserInformation {
@@ -2256,6 +2253,9 @@ impl PackageUserInformation {
         }
     }
 }
+impl windows_core::RuntimeType for PackageUserInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageUserInformation>();
+}
 unsafe impl windows_core::Interface for PackageUserInformation {
     type Vtable = <IPackageUserInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageUserInformation as windows_core::Interface>::IID;
@@ -2266,9 +2266,6 @@ impl windows_core::RuntimeName for PackageUserInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PackageVolume(windows_core::IUnknown);
-impl windows_core::RuntimeType for PackageVolume {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageVolume>();
-}
 windows_core::imp::interface_hierarchy!(PackageVolume, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PackageVolume,);
 impl PackageVolume {
@@ -2448,6 +2445,9 @@ impl PackageVolume {
         }
     }
 }
+impl windows_core::RuntimeType for PackageVolume {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPackageVolume>();
+}
 unsafe impl windows_core::Interface for PackageVolume {
     type Vtable = <IPackageVolume as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPackageVolume as windows_core::Interface>::IID;
@@ -2458,9 +2458,6 @@ impl windows_core::RuntimeName for PackageVolume {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RegisterPackageOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for RegisterPackageOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRegisterPackageOptions>();
-}
 windows_core::imp::interface_hierarchy!(RegisterPackageOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RegisterPackageOptions,);
 impl RegisterPackageOptions {
@@ -2612,6 +2609,9 @@ impl RegisterPackageOptions {
         }
     }
 }
+impl windows_core::RuntimeType for RegisterPackageOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRegisterPackageOptions>();
+}
 unsafe impl windows_core::Interface for RegisterPackageOptions {
     type Vtable = <IRegisterPackageOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRegisterPackageOptions as windows_core::Interface>::IID;
@@ -2622,9 +2622,6 @@ impl windows_core::RuntimeName for RegisterPackageOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemovePackageOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemovePackageOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemovePackageOptions>();
-}
 windows_core::imp::interface_hierarchy!(RemovePackageOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemovePackageOptions,);
 impl RemovePackageOptions {
@@ -2669,6 +2666,9 @@ impl RemovePackageOptions {
         unsafe { (windows_core::Interface::vtable(this).SetRemoveForAllUsers)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for RemovePackageOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemovePackageOptions>();
+}
 unsafe impl windows_core::Interface for RemovePackageOptions {
     type Vtable = <IRemovePackageOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemovePackageOptions as windows_core::Interface>::IID;
@@ -2679,9 +2679,6 @@ impl windows_core::RuntimeName for RemovePackageOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SharedPackageContainer(windows_core::IUnknown);
-impl windows_core::RuntimeType for SharedPackageContainer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISharedPackageContainer>();
-}
 windows_core::imp::interface_hierarchy!(SharedPackageContainer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SharedPackageContainer,);
 impl SharedPackageContainer {
@@ -2725,6 +2722,9 @@ impl SharedPackageContainer {
         }
     }
 }
+impl windows_core::RuntimeType for SharedPackageContainer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISharedPackageContainer>();
+}
 unsafe impl windows_core::Interface for SharedPackageContainer {
     type Vtable = <ISharedPackageContainer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISharedPackageContainer as windows_core::Interface>::IID;
@@ -2735,9 +2735,6 @@ impl windows_core::RuntimeName for SharedPackageContainer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SharedPackageContainerManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for SharedPackageContainerManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISharedPackageContainerManager>();
-}
 windows_core::imp::interface_hierarchy!(SharedPackageContainerManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SharedPackageContainerManager,);
 impl SharedPackageContainerManager {
@@ -2810,6 +2807,9 @@ impl SharedPackageContainerManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SharedPackageContainerManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISharedPackageContainerManager>();
+}
 unsafe impl windows_core::Interface for SharedPackageContainerManager {
     type Vtable = <ISharedPackageContainerManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISharedPackageContainerManager as windows_core::Interface>::IID;
@@ -2820,9 +2820,6 @@ impl windows_core::RuntimeName for SharedPackageContainerManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SharedPackageContainerMember(windows_core::IUnknown);
-impl windows_core::RuntimeType for SharedPackageContainerMember {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISharedPackageContainerMember>();
-}
 windows_core::imp::interface_hierarchy!(SharedPackageContainerMember, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SharedPackageContainerMember,);
 impl SharedPackageContainerMember {
@@ -2844,6 +2841,9 @@ impl SharedPackageContainerMember {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SharedPackageContainerMember {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISharedPackageContainerMember>();
+}
 unsafe impl windows_core::Interface for SharedPackageContainerMember {
     type Vtable = <ISharedPackageContainerMember as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISharedPackageContainerMember as windows_core::Interface>::IID;
@@ -2854,9 +2854,6 @@ impl windows_core::RuntimeName for SharedPackageContainerMember {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StagePackageOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for StagePackageOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStagePackageOptions>();
-}
 windows_core::imp::interface_hierarchy!(StagePackageOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StagePackageOptions,);
 impl StagePackageOptions {
@@ -3013,6 +3010,9 @@ impl StagePackageOptions {
         }
     }
 }
+impl windows_core::RuntimeType for StagePackageOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStagePackageOptions>();
+}
 unsafe impl windows_core::Interface for StagePackageOptions {
     type Vtable = <IStagePackageOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStagePackageOptions as windows_core::Interface>::IID;
@@ -3023,9 +3023,6 @@ impl windows_core::RuntimeName for StagePackageOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UpdateSharedPackageContainerOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for UpdateSharedPackageContainerOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUpdateSharedPackageContainerOptions>();
-}
 windows_core::imp::interface_hierarchy!(UpdateSharedPackageContainerOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UpdateSharedPackageContainerOptions,);
 impl UpdateSharedPackageContainerOptions {
@@ -3059,6 +3056,9 @@ impl UpdateSharedPackageContainerOptions {
         unsafe { (windows_core::Interface::vtable(this).SetRequirePackagesPresent)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for UpdateSharedPackageContainerOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUpdateSharedPackageContainerOptions>();
+}
 unsafe impl windows_core::Interface for UpdateSharedPackageContainerOptions {
     type Vtable = <IUpdateSharedPackageContainerOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUpdateSharedPackageContainerOptions as windows_core::Interface>::IID;
@@ -3069,9 +3069,6 @@ impl windows_core::RuntimeName for UpdateSharedPackageContainerOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UpdateSharedPackageContainerResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for UpdateSharedPackageContainerResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUpdateSharedPackageContainerResult>();
-}
 windows_core::imp::interface_hierarchy!(UpdateSharedPackageContainerResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UpdateSharedPackageContainerResult,);
 impl UpdateSharedPackageContainerResult {
@@ -3089,6 +3086,9 @@ impl UpdateSharedPackageContainerResult {
             (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for UpdateSharedPackageContainerResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUpdateSharedPackageContainerResult>();
 }
 unsafe impl windows_core::Interface for UpdateSharedPackageContainerResult {
     type Vtable = <IUpdateSharedPackageContainerResult as windows_core::Interface>::Vtable;
@@ -3286,7 +3286,7 @@ impl windows_core::RuntimeType for StubPackageOption {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.StubPackageOption;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct DeploymentProgress {
     pub state: DeploymentProgressState,
     pub percentage: u32,

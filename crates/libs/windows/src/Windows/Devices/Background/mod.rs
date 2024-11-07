@@ -22,9 +22,6 @@ pub struct IDeviceUseDetails_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceServicingDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeviceServicingDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceServicingDetails>();
-}
 windows_core::imp::interface_hierarchy!(DeviceServicingDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeviceServicingDetails,);
 impl DeviceServicingDetails {
@@ -50,6 +47,9 @@ impl DeviceServicingDetails {
         }
     }
 }
+impl windows_core::RuntimeType for DeviceServicingDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceServicingDetails>();
+}
 unsafe impl windows_core::Interface for DeviceServicingDetails {
     type Vtable = <IDeviceServicingDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeviceServicingDetails as windows_core::Interface>::IID;
@@ -60,9 +60,6 @@ impl windows_core::RuntimeName for DeviceServicingDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeviceUseDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeviceUseDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceUseDetails>();
-}
 windows_core::imp::interface_hierarchy!(DeviceUseDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeviceUseDetails,);
 impl DeviceUseDetails {
@@ -80,6 +77,9 @@ impl DeviceUseDetails {
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for DeviceUseDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeviceUseDetails>();
 }
 unsafe impl windows_core::Interface for DeviceUseDetails {
     type Vtable = <IDeviceUseDetails as windows_core::Interface>::Vtable;

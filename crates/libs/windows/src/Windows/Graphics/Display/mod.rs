@@ -328,9 +328,6 @@ pub struct IDisplayServicesStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdvancedColorInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for AdvancedColorInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAdvancedColorInfo>();
-}
 windows_core::imp::interface_hierarchy!(AdvancedColorInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AdvancedColorInfo,);
 impl AdvancedColorInfo {
@@ -412,6 +409,9 @@ impl AdvancedColorInfo {
         }
     }
 }
+impl windows_core::RuntimeType for AdvancedColorInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAdvancedColorInfo>();
+}
 unsafe impl windows_core::Interface for AdvancedColorInfo {
     type Vtable = <IAdvancedColorInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAdvancedColorInfo as windows_core::Interface>::IID;
@@ -422,9 +422,6 @@ impl windows_core::RuntimeName for AdvancedColorInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BrightnessOverride(windows_core::IUnknown);
-impl windows_core::RuntimeType for BrightnessOverride {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBrightnessOverride>();
-}
 windows_core::imp::interface_hierarchy!(BrightnessOverride, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BrightnessOverride,);
 impl BrightnessOverride {
@@ -540,6 +537,9 @@ impl BrightnessOverride {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BrightnessOverride {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBrightnessOverride>();
+}
 unsafe impl windows_core::Interface for BrightnessOverride {
     type Vtable = <IBrightnessOverride as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBrightnessOverride as windows_core::Interface>::IID;
@@ -550,9 +550,6 @@ impl windows_core::RuntimeName for BrightnessOverride {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BrightnessOverrideSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for BrightnessOverrideSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBrightnessOverrideSettings>();
-}
 windows_core::imp::interface_hierarchy!(BrightnessOverrideSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BrightnessOverrideSettings,);
 impl BrightnessOverrideSettings {
@@ -593,6 +590,9 @@ impl BrightnessOverrideSettings {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BrightnessOverrideSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBrightnessOverrideSettings>();
+}
 unsafe impl windows_core::Interface for BrightnessOverrideSettings {
     type Vtable = <IBrightnessOverrideSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBrightnessOverrideSettings as windows_core::Interface>::IID;
@@ -603,9 +603,6 @@ impl windows_core::RuntimeName for BrightnessOverrideSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ColorOverrideSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for ColorOverrideSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IColorOverrideSettings>();
-}
 windows_core::imp::interface_hierarchy!(ColorOverrideSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ColorOverrideSettings,);
 impl ColorOverrideSettings {
@@ -627,6 +624,9 @@ impl ColorOverrideSettings {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ColorOverrideSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IColorOverrideSettings>();
+}
 unsafe impl windows_core::Interface for ColorOverrideSettings {
     type Vtable = <IColorOverrideSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IColorOverrideSettings as windows_core::Interface>::IID;
@@ -637,9 +637,6 @@ impl windows_core::RuntimeName for ColorOverrideSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayEnhancementOverride(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayEnhancementOverride {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayEnhancementOverride>();
-}
 windows_core::imp::interface_hierarchy!(DisplayEnhancementOverride, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayEnhancementOverride,);
 impl DisplayEnhancementOverride {
@@ -753,6 +750,9 @@ impl DisplayEnhancementOverride {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DisplayEnhancementOverride {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayEnhancementOverride>();
+}
 unsafe impl windows_core::Interface for DisplayEnhancementOverride {
     type Vtable = <IDisplayEnhancementOverride as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayEnhancementOverride as windows_core::Interface>::IID;
@@ -763,9 +763,6 @@ impl windows_core::RuntimeName for DisplayEnhancementOverride {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayEnhancementOverrideCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayEnhancementOverrideCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayEnhancementOverrideCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(DisplayEnhancementOverrideCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayEnhancementOverrideCapabilities,);
 impl DisplayEnhancementOverrideCapabilities {
@@ -792,6 +789,9 @@ impl DisplayEnhancementOverrideCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for DisplayEnhancementOverrideCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayEnhancementOverrideCapabilities>();
+}
 unsafe impl windows_core::Interface for DisplayEnhancementOverrideCapabilities {
     type Vtable = <IDisplayEnhancementOverrideCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayEnhancementOverrideCapabilities as windows_core::Interface>::IID;
@@ -802,9 +802,6 @@ impl windows_core::RuntimeName for DisplayEnhancementOverrideCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayEnhancementOverrideCapabilitiesChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayEnhancementOverrideCapabilitiesChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DisplayEnhancementOverrideCapabilitiesChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayEnhancementOverrideCapabilitiesChangedEventArgs,);
 impl DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
@@ -816,6 +813,9 @@ impl DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayEnhancementOverrideCapabilitiesChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     type Vtable = <IDisplayEnhancementOverrideCapabilitiesChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayEnhancementOverrideCapabilitiesChangedEventArgs as windows_core::Interface>::IID;
@@ -826,9 +826,6 @@ impl windows_core::RuntimeName for DisplayEnhancementOverrideCapabilitiesChanged
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayInformation>();
-}
 windows_core::imp::interface_hierarchy!(DisplayInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayInformation,);
 impl DisplayInformation {
@@ -1026,6 +1023,9 @@ impl DisplayInformation {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DisplayInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayInformation>();
+}
 unsafe impl windows_core::Interface for DisplayInformation {
     type Vtable = <IDisplayInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDisplayInformation as windows_core::Interface>::IID;
@@ -1172,9 +1172,6 @@ impl windows_core::RuntimeName for DisplayProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DisplayServices(windows_core::IUnknown);
-impl windows_core::RuntimeType for DisplayServices {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayServices>();
-}
 windows_core::imp::interface_hierarchy!(DisplayServices, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DisplayServices,);
 impl DisplayServices {
@@ -1188,6 +1185,9 @@ impl DisplayServices {
         static SHARED: windows_core::imp::FactoryCache<DisplayServices, IDisplayServicesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for DisplayServices {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDisplayServices>();
 }
 unsafe impl windows_core::Interface for DisplayServices {
     type Vtable = <IDisplayServices as windows_core::Interface>::Vtable;
@@ -1382,7 +1382,7 @@ impl windows_core::RuntimeType for ResolutionScale {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.ResolutionScale;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct NitRange {
     pub MinNits: f32,
     pub MaxNits: f32,

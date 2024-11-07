@@ -14,9 +14,6 @@ pub struct IGeolocationProvider_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeolocationProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for GeolocationProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeolocationProvider>();
-}
 windows_core::imp::interface_hierarchy!(GeolocationProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GeolocationProvider,);
 impl GeolocationProvider {
@@ -59,6 +56,9 @@ impl GeolocationProvider {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveIsOverriddenChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
+}
+impl windows_core::RuntimeType for GeolocationProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeolocationProvider>();
 }
 unsafe impl windows_core::Interface for GeolocationProvider {
     type Vtable = <IGeolocationProvider as windows_core::Interface>::Vtable;

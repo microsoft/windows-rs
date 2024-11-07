@@ -226,9 +226,6 @@ pub struct IUISettingsControllerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreFrameworkInputView(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreFrameworkInputView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreFrameworkInputView>();
-}
 windows_core::imp::interface_hierarchy!(CoreFrameworkInputView, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreFrameworkInputView,);
 impl CoreFrameworkInputView {
@@ -280,6 +277,9 @@ impl CoreFrameworkInputView {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CoreFrameworkInputView {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreFrameworkInputView>();
+}
 unsafe impl windows_core::Interface for CoreFrameworkInputView {
     type Vtable = <ICoreFrameworkInputView as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreFrameworkInputView as windows_core::Interface>::IID;
@@ -290,9 +290,6 @@ impl windows_core::RuntimeName for CoreFrameworkInputView {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreFrameworkInputViewAnimationStartingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreFrameworkInputViewAnimationStartingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreFrameworkInputViewAnimationStartingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CoreFrameworkInputViewAnimationStartingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreFrameworkInputViewAnimationStartingEventArgs,);
 impl CoreFrameworkInputViewAnimationStartingEventArgs {
@@ -319,6 +316,9 @@ impl CoreFrameworkInputViewAnimationStartingEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for CoreFrameworkInputViewAnimationStartingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreFrameworkInputViewAnimationStartingEventArgs>();
+}
 unsafe impl windows_core::Interface for CoreFrameworkInputViewAnimationStartingEventArgs {
     type Vtable = <ICoreFrameworkInputViewAnimationStartingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreFrameworkInputViewAnimationStartingEventArgs as windows_core::Interface>::IID;
@@ -329,9 +329,6 @@ impl windows_core::RuntimeName for CoreFrameworkInputViewAnimationStartingEventA
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreFrameworkInputViewOcclusionsChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreFrameworkInputViewOcclusionsChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreFrameworkInputViewOcclusionsChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CoreFrameworkInputViewOcclusionsChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreFrameworkInputViewOcclusionsChangedEventArgs,);
 impl CoreFrameworkInputViewOcclusionsChangedEventArgs {
@@ -351,6 +348,9 @@ impl CoreFrameworkInputViewOcclusionsChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for CoreFrameworkInputViewOcclusionsChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreFrameworkInputViewOcclusionsChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for CoreFrameworkInputViewOcclusionsChangedEventArgs {
     type Vtable = <ICoreFrameworkInputViewOcclusionsChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreFrameworkInputViewOcclusionsChangedEventArgs as windows_core::Interface>::IID;
@@ -361,9 +361,6 @@ impl windows_core::RuntimeName for CoreFrameworkInputViewOcclusionsChangedEventA
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputView(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreInputView {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputView>();
-}
 windows_core::imp::interface_hierarchy!(CoreInputView, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreInputView,);
 impl CoreInputView {
@@ -546,6 +543,9 @@ impl CoreInputView {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CoreInputView {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputView>();
+}
 unsafe impl windows_core::Interface for CoreInputView {
     type Vtable = <ICoreInputView as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreInputView as windows_core::Interface>::IID;
@@ -556,9 +556,6 @@ impl windows_core::RuntimeName for CoreInputView {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewAnimationStartingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreInputViewAnimationStartingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewAnimationStartingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CoreInputViewAnimationStartingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreInputViewAnimationStartingEventArgs,);
 impl CoreInputViewAnimationStartingEventArgs {
@@ -589,6 +586,9 @@ impl CoreInputViewAnimationStartingEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for CoreInputViewAnimationStartingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewAnimationStartingEventArgs>();
+}
 unsafe impl windows_core::Interface for CoreInputViewAnimationStartingEventArgs {
     type Vtable = <ICoreInputViewAnimationStartingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreInputViewAnimationStartingEventArgs as windows_core::Interface>::IID;
@@ -599,9 +599,6 @@ impl windows_core::RuntimeName for CoreInputViewAnimationStartingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewHidingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreInputViewHidingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewHidingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CoreInputViewHidingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreInputViewHidingEventArgs,);
 impl CoreInputViewHidingEventArgs {
@@ -613,6 +610,9 @@ impl CoreInputViewHidingEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for CoreInputViewHidingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewHidingEventArgs>();
+}
 unsafe impl windows_core::Interface for CoreInputViewHidingEventArgs {
     type Vtable = <ICoreInputViewHidingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreInputViewHidingEventArgs as windows_core::Interface>::IID;
@@ -623,9 +623,6 @@ impl windows_core::RuntimeName for CoreInputViewHidingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewOcclusion(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreInputViewOcclusion {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewOcclusion>();
-}
 windows_core::imp::interface_hierarchy!(CoreInputViewOcclusion, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreInputViewOcclusion,);
 impl CoreInputViewOcclusion {
@@ -644,6 +641,9 @@ impl CoreInputViewOcclusion {
         }
     }
 }
+impl windows_core::RuntimeType for CoreInputViewOcclusion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewOcclusion>();
+}
 unsafe impl windows_core::Interface for CoreInputViewOcclusion {
     type Vtable = <ICoreInputViewOcclusion as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreInputViewOcclusion as windows_core::Interface>::IID;
@@ -654,9 +654,6 @@ impl windows_core::RuntimeName for CoreInputViewOcclusion {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewOcclusionsChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreInputViewOcclusionsChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewOcclusionsChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CoreInputViewOcclusionsChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreInputViewOcclusionsChangedEventArgs,);
 impl CoreInputViewOcclusionsChangedEventArgs {
@@ -680,6 +677,9 @@ impl CoreInputViewOcclusionsChangedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CoreInputViewOcclusionsChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewOcclusionsChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for CoreInputViewOcclusionsChangedEventArgs {
     type Vtable = <ICoreInputViewOcclusionsChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreInputViewOcclusionsChangedEventArgs as windows_core::Interface>::IID;
@@ -690,9 +690,6 @@ impl windows_core::RuntimeName for CoreInputViewOcclusionsChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewShowingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreInputViewShowingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewShowingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CoreInputViewShowingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreInputViewShowingEventArgs,);
 impl CoreInputViewShowingEventArgs {
@@ -704,6 +701,9 @@ impl CoreInputViewShowingEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for CoreInputViewShowingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewShowingEventArgs>();
+}
 unsafe impl windows_core::Interface for CoreInputViewShowingEventArgs {
     type Vtable = <ICoreInputViewShowingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreInputViewShowingEventArgs as windows_core::Interface>::IID;
@@ -714,9 +714,6 @@ impl windows_core::RuntimeName for CoreInputViewShowingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreInputViewTransferringXYFocusEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreInputViewTransferringXYFocusEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewTransferringXYFocusEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CoreInputViewTransferringXYFocusEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreInputViewTransferringXYFocusEventArgs,);
 impl CoreInputViewTransferringXYFocusEventArgs {
@@ -757,6 +754,9 @@ impl CoreInputViewTransferringXYFocusEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for CoreInputViewTransferringXYFocusEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreInputViewTransferringXYFocusEventArgs>();
+}
 unsafe impl windows_core::Interface for CoreInputViewTransferringXYFocusEventArgs {
     type Vtable = <ICoreInputViewTransferringXYFocusEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreInputViewTransferringXYFocusEventArgs as windows_core::Interface>::IID;
@@ -767,9 +767,6 @@ impl windows_core::RuntimeName for CoreInputViewTransferringXYFocusEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UISettingsController(windows_core::IUnknown);
-impl windows_core::RuntimeType for UISettingsController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsController>();
-}
 windows_core::imp::interface_hierarchy!(UISettingsController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UISettingsController,);
 impl UISettingsController {
@@ -803,6 +800,9 @@ impl UISettingsController {
         static SHARED: windows_core::imp::FactoryCache<UISettingsController, IUISettingsControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for UISettingsController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUISettingsController>();
 }
 unsafe impl windows_core::Interface for UISettingsController {
     type Vtable = <IUISettingsController as windows_core::Interface>::Vtable;

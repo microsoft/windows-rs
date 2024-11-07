@@ -888,9 +888,6 @@ impl IPrintTextOptionDetails_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintBindingOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintBindingOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintBindingOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintBindingOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintBindingOptionDetails {
@@ -978,6 +975,9 @@ impl PrintBindingOptionDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintBindingOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
 unsafe impl windows_core::Interface for PrintBindingOptionDetails {
     type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
@@ -988,9 +988,6 @@ impl windows_core::RuntimeName for PrintBindingOptionDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintBorderingOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintBorderingOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintBorderingOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintBorderingOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintBorderingOptionDetails {
@@ -1078,6 +1075,9 @@ impl PrintBorderingOptionDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintBorderingOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
 unsafe impl windows_core::Interface for PrintBorderingOptionDetails {
     type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
@@ -1088,9 +1088,6 @@ impl windows_core::RuntimeName for PrintBorderingOptionDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCollationOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintCollationOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintCollationOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintCollationOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintCollationOptionDetails {
@@ -1178,6 +1175,9 @@ impl PrintCollationOptionDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintCollationOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
 unsafe impl windows_core::Interface for PrintCollationOptionDetails {
     type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
@@ -1188,9 +1188,6 @@ impl windows_core::RuntimeName for PrintCollationOptionDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintColorModeOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintColorModeOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintColorModeOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintColorModeOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintColorModeOptionDetails {
@@ -1278,6 +1275,9 @@ impl PrintColorModeOptionDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintColorModeOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
 unsafe impl windows_core::Interface for PrintColorModeOptionDetails {
     type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
@@ -1288,9 +1288,6 @@ impl windows_core::RuntimeName for PrintColorModeOptionDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCopiesOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintCopiesOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintCopiesOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintCopiesOptionDetails, IPrintNumberOptionDetails, IPrintOptionDetails);
 impl PrintCopiesOptionDetails {
@@ -1384,6 +1381,9 @@ impl PrintCopiesOptionDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintCopiesOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
 unsafe impl windows_core::Interface for PrintCopiesOptionDetails {
     type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
@@ -1394,9 +1394,6 @@ impl windows_core::RuntimeName for PrintCopiesOptionDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCustomItemDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintCustomItemDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintCustomItemDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintCustomItemDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintCustomItemDetails,);
 impl PrintCustomItemDetails {
@@ -1419,6 +1416,9 @@ impl PrintCustomItemDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintCustomItemDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintCustomItemDetails>();
+}
 unsafe impl windows_core::Interface for PrintCustomItemDetails {
     type Vtable = <IPrintCustomItemDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintCustomItemDetails as windows_core::Interface>::IID;
@@ -1429,9 +1429,6 @@ impl windows_core::RuntimeName for PrintCustomItemDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCustomItemListOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintCustomItemListOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintCustomItemListOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintCustomItemListOptionDetails, IPrintCustomOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintCustomItemListOptionDetails {
@@ -1542,6 +1539,9 @@ impl PrintCustomItemListOptionDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintCustomItemListOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
 unsafe impl windows_core::Interface for PrintCustomItemListOptionDetails {
     type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
@@ -1552,9 +1552,6 @@ impl windows_core::RuntimeName for PrintCustomItemListOptionDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCustomTextOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintCustomTextOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintCustomTextOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintCustomTextOptionDetails, IPrintCustomOptionDetails, IPrintOptionDetails);
 impl PrintCustomTextOptionDetails {
@@ -1656,6 +1653,9 @@ impl PrintCustomTextOptionDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintCustomTextOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
 unsafe impl windows_core::Interface for PrintCustomTextOptionDetails {
     type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
@@ -1666,9 +1666,6 @@ impl windows_core::RuntimeName for PrintCustomTextOptionDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintCustomToggleOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintCustomToggleOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintCustomToggleOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintCustomToggleOptionDetails, IPrintCustomOptionDetails, IPrintOptionDetails);
 impl PrintCustomToggleOptionDetails {
@@ -1759,6 +1756,9 @@ impl PrintCustomToggleOptionDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintCustomToggleOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
 unsafe impl windows_core::Interface for PrintCustomToggleOptionDetails {
     type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
@@ -1769,9 +1769,6 @@ impl windows_core::RuntimeName for PrintCustomToggleOptionDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintDuplexOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintDuplexOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintDuplexOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintDuplexOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintDuplexOptionDetails {
@@ -1859,6 +1856,9 @@ impl PrintDuplexOptionDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintDuplexOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
 unsafe impl windows_core::Interface for PrintDuplexOptionDetails {
     type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
@@ -1869,9 +1869,6 @@ impl windows_core::RuntimeName for PrintDuplexOptionDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintHolePunchOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintHolePunchOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintHolePunchOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintHolePunchOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintHolePunchOptionDetails {
@@ -1959,6 +1956,9 @@ impl PrintHolePunchOptionDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintHolePunchOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
 unsafe impl windows_core::Interface for PrintHolePunchOptionDetails {
     type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
@@ -1969,9 +1969,6 @@ impl windows_core::RuntimeName for PrintHolePunchOptionDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintMediaSizeOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintMediaSizeOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintMediaSizeOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintMediaSizeOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintMediaSizeOptionDetails {
@@ -2059,6 +2056,9 @@ impl PrintMediaSizeOptionDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintMediaSizeOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
 unsafe impl windows_core::Interface for PrintMediaSizeOptionDetails {
     type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
@@ -2069,9 +2069,6 @@ impl windows_core::RuntimeName for PrintMediaSizeOptionDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintMediaTypeOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintMediaTypeOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintMediaTypeOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintMediaTypeOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintMediaTypeOptionDetails {
@@ -2159,6 +2156,9 @@ impl PrintMediaTypeOptionDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintMediaTypeOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
 unsafe impl windows_core::Interface for PrintMediaTypeOptionDetails {
     type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
@@ -2169,9 +2169,6 @@ impl windows_core::RuntimeName for PrintMediaTypeOptionDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintOrientationOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintOrientationOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintOrientationOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintOrientationOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintOrientationOptionDetails {
@@ -2259,6 +2256,9 @@ impl PrintOrientationOptionDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintOrientationOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
 unsafe impl windows_core::Interface for PrintOrientationOptionDetails {
     type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
@@ -2269,9 +2269,6 @@ impl windows_core::RuntimeName for PrintOrientationOptionDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintPageRangeOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintPageRangeOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintPageRangeOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintPageRangeOptionDetails, IPrintOptionDetails);
 impl PrintPageRangeOptionDetails {
@@ -2351,6 +2348,9 @@ impl PrintPageRangeOptionDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintPageRangeOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
 unsafe impl windows_core::Interface for PrintPageRangeOptionDetails {
     type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
@@ -2361,9 +2361,6 @@ impl windows_core::RuntimeName for PrintPageRangeOptionDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintQualityOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintQualityOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintQualityOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintQualityOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintQualityOptionDetails {
@@ -2451,6 +2448,9 @@ impl PrintQualityOptionDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintQualityOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
 unsafe impl windows_core::Interface for PrintQualityOptionDetails {
     type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
@@ -2461,9 +2461,6 @@ impl windows_core::RuntimeName for PrintQualityOptionDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintStapleOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintStapleOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintStapleOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintStapleOptionDetails, IPrintItemListOptionDetails, IPrintOptionDetails);
 impl PrintStapleOptionDetails {
@@ -2551,6 +2548,9 @@ impl PrintStapleOptionDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintStapleOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintOptionDetails>();
+}
 unsafe impl windows_core::Interface for PrintStapleOptionDetails {
     type Vtable = <IPrintOptionDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintOptionDetails as windows_core::Interface>::IID;
@@ -2561,9 +2561,6 @@ impl windows_core::RuntimeName for PrintStapleOptionDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskOptionChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTaskOptionChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskOptionChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintTaskOptionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskOptionChangedEventArgs,);
 impl PrintTaskOptionChangedEventArgs {
@@ -2575,6 +2572,9 @@ impl PrintTaskOptionChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PrintTaskOptionChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskOptionChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for PrintTaskOptionChangedEventArgs {
     type Vtable = <IPrintTaskOptionChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTaskOptionChangedEventArgs as windows_core::Interface>::IID;
@@ -2585,9 +2585,6 @@ impl windows_core::RuntimeName for PrintTaskOptionChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskOptionDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTaskOptionDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskOptionDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintTaskOptionDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskOptionDetails, super::IPrintTaskOptionsCore, super::IPrintTaskOptionsCoreUIConfiguration);
 impl PrintTaskOptionDetails {
@@ -2676,6 +2673,9 @@ impl PrintTaskOptionDetails {
         static SHARED: windows_core::imp::FactoryCache<PrintTaskOptionDetails, IPrintTaskOptionDetailsStatic> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for PrintTaskOptionDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskOptionDetails>();
 }
 unsafe impl windows_core::Interface for PrintTaskOptionDetails {
     type Vtable = <IPrintTaskOptionDetails as windows_core::Interface>::Vtable;

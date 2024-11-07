@@ -105,9 +105,6 @@ impl windows_core::RuntimeName for CredentialPicker {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CredentialPickerOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for CredentialPickerOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICredentialPickerOptions>();
-}
 windows_core::imp::interface_hierarchy!(CredentialPickerOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CredentialPickerOptions,);
 impl CredentialPickerOptions {
@@ -234,6 +231,9 @@ impl CredentialPickerOptions {
         }
     }
 }
+impl windows_core::RuntimeType for CredentialPickerOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICredentialPickerOptions>();
+}
 unsafe impl windows_core::Interface for CredentialPickerOptions {
     type Vtable = <ICredentialPickerOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICredentialPickerOptions as windows_core::Interface>::IID;
@@ -244,9 +244,6 @@ impl windows_core::RuntimeName for CredentialPickerOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CredentialPickerResults(windows_core::IUnknown);
-impl windows_core::RuntimeType for CredentialPickerResults {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICredentialPickerResults>();
-}
 windows_core::imp::interface_hierarchy!(CredentialPickerResults, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CredentialPickerResults,);
 impl CredentialPickerResults {
@@ -300,6 +297,9 @@ impl CredentialPickerResults {
             (windows_core::Interface::vtable(this).CredentialPassword)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for CredentialPickerResults {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICredentialPickerResults>();
 }
 unsafe impl windows_core::Interface for CredentialPickerResults {
     type Vtable = <ICredentialPickerResults as windows_core::Interface>::Vtable;

@@ -150,9 +150,6 @@ pub struct IMachineProvisioningProgressReporterStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AgentProvisioningProgressReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for AgentProvisioningProgressReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAgentProvisioningProgressReport>();
-}
 windows_core::imp::interface_hierarchy!(AgentProvisioningProgressReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AgentProvisioningProgressReport,);
 impl AgentProvisioningProgressReport {
@@ -238,6 +235,9 @@ impl AgentProvisioningProgressReport {
         unsafe { (windows_core::Interface::vtable(this).SetCurrentBatchIndex)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for AgentProvisioningProgressReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAgentProvisioningProgressReport>();
+}
 unsafe impl windows_core::Interface for AgentProvisioningProgressReport {
     type Vtable = <IAgentProvisioningProgressReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAgentProvisioningProgressReport as windows_core::Interface>::IID;
@@ -248,9 +248,6 @@ impl windows_core::RuntimeName for AgentProvisioningProgressReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeploymentSessionConnectionChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeploymentSessionConnectionChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeploymentSessionConnectionChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DeploymentSessionConnectionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeploymentSessionConnectionChangedEventArgs,);
 impl DeploymentSessionConnectionChangedEventArgs {
@@ -269,6 +266,9 @@ impl DeploymentSessionConnectionChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for DeploymentSessionConnectionChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeploymentSessionConnectionChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for DeploymentSessionConnectionChangedEventArgs {
     type Vtable = <IDeploymentSessionConnectionChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeploymentSessionConnectionChangedEventArgs as windows_core::Interface>::IID;
@@ -279,9 +279,6 @@ impl windows_core::RuntimeName for DeploymentSessionConnectionChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeploymentSessionHeartbeatRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeploymentSessionHeartbeatRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeploymentSessionHeartbeatRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DeploymentSessionHeartbeatRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeploymentSessionHeartbeatRequestedEventArgs,);
 impl DeploymentSessionHeartbeatRequestedEventArgs {
@@ -297,6 +294,9 @@ impl DeploymentSessionHeartbeatRequestedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for DeploymentSessionHeartbeatRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeploymentSessionHeartbeatRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for DeploymentSessionHeartbeatRequestedEventArgs {
     type Vtable = <IDeploymentSessionHeartbeatRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeploymentSessionHeartbeatRequestedEventArgs as windows_core::Interface>::IID;
@@ -307,9 +307,6 @@ impl windows_core::RuntimeName for DeploymentSessionHeartbeatRequestedEventArgs 
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeploymentSessionStateChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeploymentSessionStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeploymentSessionStateChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DeploymentSessionStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeploymentSessionStateChangedEventArgs,);
 impl DeploymentSessionStateChangedEventArgs {
@@ -328,6 +325,9 @@ impl DeploymentSessionStateChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for DeploymentSessionStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeploymentSessionStateChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for DeploymentSessionStateChangedEventArgs {
     type Vtable = <IDeploymentSessionStateChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeploymentSessionStateChangedEventArgs as windows_core::Interface>::IID;
@@ -338,9 +338,6 @@ impl windows_core::RuntimeName for DeploymentSessionStateChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeploymentWorkload(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeploymentWorkload {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeploymentWorkload>();
-}
 windows_core::imp::interface_hierarchy!(DeploymentWorkload, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeploymentWorkload,);
 impl DeploymentWorkload {
@@ -467,6 +464,9 @@ impl DeploymentWorkload {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DeploymentWorkload {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeploymentWorkload>();
+}
 unsafe impl windows_core::Interface for DeploymentWorkload {
     type Vtable = <IDeploymentWorkload as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeploymentWorkload as windows_core::Interface>::IID;
@@ -477,9 +477,6 @@ impl windows_core::RuntimeName for DeploymentWorkload {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DeploymentWorkloadBatch(windows_core::IUnknown);
-impl windows_core::RuntimeType for DeploymentWorkloadBatch {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeploymentWorkloadBatch>();
-}
 windows_core::imp::interface_hierarchy!(DeploymentWorkloadBatch, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DeploymentWorkloadBatch,);
 impl DeploymentWorkloadBatch {
@@ -520,6 +517,9 @@ impl DeploymentWorkloadBatch {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DeploymentWorkloadBatch {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDeploymentWorkloadBatch>();
+}
 unsafe impl windows_core::Interface for DeploymentWorkloadBatch {
     type Vtable = <IDeploymentWorkloadBatch as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDeploymentWorkloadBatch as windows_core::Interface>::IID;
@@ -530,9 +530,6 @@ impl windows_core::RuntimeName for DeploymentWorkloadBatch {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DevicePreparationExecutionContext(windows_core::IUnknown);
-impl windows_core::RuntimeType for DevicePreparationExecutionContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePreparationExecutionContext>();
-}
 windows_core::imp::interface_hierarchy!(DevicePreparationExecutionContext, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DevicePreparationExecutionContext,);
 impl DevicePreparationExecutionContext {
@@ -544,6 +541,9 @@ impl DevicePreparationExecutionContext {
         }
     }
 }
+impl windows_core::RuntimeType for DevicePreparationExecutionContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDevicePreparationExecutionContext>();
+}
 unsafe impl windows_core::Interface for DevicePreparationExecutionContext {
     type Vtable = <IDevicePreparationExecutionContext as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDevicePreparationExecutionContext as windows_core::Interface>::IID;
@@ -554,9 +554,6 @@ impl windows_core::RuntimeName for DevicePreparationExecutionContext {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MachineProvisioningProgressReporter(windows_core::IUnknown);
-impl windows_core::RuntimeType for MachineProvisioningProgressReporter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMachineProvisioningProgressReporter>();
-}
 windows_core::imp::interface_hierarchy!(MachineProvisioningProgressReporter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MachineProvisioningProgressReporter,);
 impl MachineProvisioningProgressReporter {
@@ -637,6 +634,9 @@ impl MachineProvisioningProgressReporter {
         static SHARED: windows_core::imp::FactoryCache<MachineProvisioningProgressReporter, IMachineProvisioningProgressReporterStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for MachineProvisioningProgressReporter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMachineProvisioningProgressReporter>();
 }
 unsafe impl windows_core::Interface for MachineProvisioningProgressReporter {
     type Vtable = <IMachineProvisioningProgressReporter as windows_core::Interface>::Vtable;

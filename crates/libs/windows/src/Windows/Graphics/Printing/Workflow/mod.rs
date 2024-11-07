@@ -556,9 +556,6 @@ pub struct IPrintWorkflowXpsDataAvailableEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowBackgroundSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowBackgroundSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowBackgroundSession>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowBackgroundSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowBackgroundSession,);
 impl PrintWorkflowBackgroundSession {
@@ -602,6 +599,9 @@ impl PrintWorkflowBackgroundSession {
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowBackgroundSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowBackgroundSession>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowBackgroundSession {
     type Vtable = <IPrintWorkflowBackgroundSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowBackgroundSession as windows_core::Interface>::IID;
@@ -612,9 +612,6 @@ impl windows_core::RuntimeName for PrintWorkflowBackgroundSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowBackgroundSetupRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowBackgroundSetupRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowBackgroundSetupRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowBackgroundSetupRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowBackgroundSetupRequestedEventArgs,);
 impl PrintWorkflowBackgroundSetupRequestedEventArgs {
@@ -645,6 +642,9 @@ impl PrintWorkflowBackgroundSetupRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowBackgroundSetupRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowBackgroundSetupRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowBackgroundSetupRequestedEventArgs {
     type Vtable = <IPrintWorkflowBackgroundSetupRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowBackgroundSetupRequestedEventArgs as windows_core::Interface>::IID;
@@ -655,9 +655,6 @@ impl windows_core::RuntimeName for PrintWorkflowBackgroundSetupRequestedEventArg
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowConfiguration,);
 impl PrintWorkflowConfiguration {
@@ -687,6 +684,9 @@ impl PrintWorkflowConfiguration {
         unsafe { (windows_core::Interface::vtable(this).AbortPrintFlow)(windows_core::Interface::as_raw(this), reason).ok() }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowConfiguration>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowConfiguration {
     type Vtable = <IPrintWorkflowConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowConfiguration as windows_core::Interface>::IID;
@@ -697,9 +697,6 @@ impl windows_core::RuntimeName for PrintWorkflowConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowForegroundSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowForegroundSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowForegroundSession>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowForegroundSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowForegroundSession,);
 impl PrintWorkflowForegroundSession {
@@ -743,6 +740,9 @@ impl PrintWorkflowForegroundSession {
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowForegroundSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowForegroundSession>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowForegroundSession {
     type Vtable = <IPrintWorkflowForegroundSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowForegroundSession as windows_core::Interface>::IID;
@@ -753,9 +753,6 @@ impl windows_core::RuntimeName for PrintWorkflowForegroundSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowForegroundSetupRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowForegroundSetupRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowForegroundSetupRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowForegroundSetupRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowForegroundSetupRequestedEventArgs,);
 impl PrintWorkflowForegroundSetupRequestedEventArgs {
@@ -782,6 +779,9 @@ impl PrintWorkflowForegroundSetupRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowForegroundSetupRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowForegroundSetupRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowForegroundSetupRequestedEventArgs {
     type Vtable = <IPrintWorkflowForegroundSetupRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowForegroundSetupRequestedEventArgs as windows_core::Interface>::IID;
@@ -793,10 +793,6 @@ impl windows_core::RuntimeName for PrintWorkflowForegroundSetupRequestedEventArg
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for PrintWorkflowJobActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -844,6 +840,10 @@ impl PrintWorkflowJobActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for PrintWorkflowJobActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for PrintWorkflowJobActivatedEventArgs {
     type Vtable = <IPrintWorkflowJobActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowJobActivatedEventArgs as windows_core::Interface>::IID;
@@ -855,9 +855,6 @@ impl windows_core::RuntimeName for PrintWorkflowJobActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobBackgroundSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowJobBackgroundSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobBackgroundSession>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobBackgroundSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowJobBackgroundSession,);
 impl PrintWorkflowJobBackgroundSession {
@@ -915,6 +912,9 @@ impl PrintWorkflowJobBackgroundSession {
         unsafe { (windows_core::Interface::vtable(this).RemoveJobIssueDetected)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowJobBackgroundSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobBackgroundSession>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowJobBackgroundSession {
     type Vtable = <IPrintWorkflowJobBackgroundSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowJobBackgroundSession as windows_core::Interface>::IID;
@@ -925,9 +925,6 @@ impl windows_core::RuntimeName for PrintWorkflowJobBackgroundSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobIssueDetectedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowJobIssueDetectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobIssueDetectedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobIssueDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowJobIssueDetectedEventArgs,);
 impl PrintWorkflowJobIssueDetectedEventArgs {
@@ -985,6 +982,9 @@ impl PrintWorkflowJobIssueDetectedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowJobIssueDetectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobIssueDetectedEventArgs>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowJobIssueDetectedEventArgs {
     type Vtable = <IPrintWorkflowJobIssueDetectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowJobIssueDetectedEventArgs as windows_core::Interface>::IID;
@@ -995,9 +995,6 @@ impl windows_core::RuntimeName for PrintWorkflowJobIssueDetectedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobNotificationEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowJobNotificationEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobNotificationEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobNotificationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowJobNotificationEventArgs,);
 impl PrintWorkflowJobNotificationEventArgs {
@@ -1023,6 +1020,9 @@ impl PrintWorkflowJobNotificationEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowJobNotificationEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobNotificationEventArgs>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowJobNotificationEventArgs {
     type Vtable = <IPrintWorkflowJobNotificationEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowJobNotificationEventArgs as windows_core::Interface>::IID;
@@ -1033,9 +1033,6 @@ impl windows_core::RuntimeName for PrintWorkflowJobNotificationEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobStartingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowJobStartingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobStartingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobStartingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowJobStartingEventArgs,);
 impl PrintWorkflowJobStartingEventArgs {
@@ -1088,6 +1085,9 @@ impl PrintWorkflowJobStartingEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetSkipSystemFaxUI)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowJobStartingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobStartingEventArgs>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowJobStartingEventArgs {
     type Vtable = <IPrintWorkflowJobStartingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowJobStartingEventArgs as windows_core::Interface>::IID;
@@ -1098,9 +1098,6 @@ impl windows_core::RuntimeName for PrintWorkflowJobStartingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowJobTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowJobTriggerDetails,);
 impl PrintWorkflowJobTriggerDetails {
@@ -1112,6 +1109,9 @@ impl PrintWorkflowJobTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowJobTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobTriggerDetails>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowJobTriggerDetails {
     type Vtable = <IPrintWorkflowJobTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowJobTriggerDetails as windows_core::Interface>::IID;
@@ -1122,9 +1122,6 @@ impl windows_core::RuntimeName for PrintWorkflowJobTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowJobUISession(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowJobUISession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobUISession>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobUISession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowJobUISession,);
 impl PrintWorkflowJobUISession {
@@ -1182,6 +1179,9 @@ impl PrintWorkflowJobUISession {
         unsafe { (windows_core::Interface::vtable(this).RemoveVirtualPrinterUIDataAvailable)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowJobUISession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowJobUISession>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowJobUISession {
     type Vtable = <IPrintWorkflowJobUISession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowJobUISession as windows_core::Interface>::IID;
@@ -1192,9 +1192,6 @@ impl windows_core::RuntimeName for PrintWorkflowJobUISession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowObjectModelSourceFileContent(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowObjectModelSourceFileContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowObjectModelSourceFileContent>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowObjectModelSourceFileContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowObjectModelSourceFileContent,);
 impl PrintWorkflowObjectModelSourceFileContent {
@@ -1213,6 +1210,9 @@ impl PrintWorkflowObjectModelSourceFileContent {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowObjectModelSourceFileContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowObjectModelSourceFileContent>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowObjectModelSourceFileContent {
     type Vtable = <IPrintWorkflowObjectModelSourceFileContent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowObjectModelSourceFileContent as windows_core::Interface>::IID;
@@ -1223,12 +1223,12 @@ impl windows_core::RuntimeName for PrintWorkflowObjectModelSourceFileContent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowObjectModelTargetPackage(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowObjectModelTargetPackage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowObjectModelTargetPackage>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowObjectModelTargetPackage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowObjectModelTargetPackage,);
 impl PrintWorkflowObjectModelTargetPackage {}
+impl windows_core::RuntimeType for PrintWorkflowObjectModelTargetPackage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowObjectModelTargetPackage>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowObjectModelTargetPackage {
     type Vtable = <IPrintWorkflowObjectModelTargetPackage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowObjectModelTargetPackage as windows_core::Interface>::IID;
@@ -1239,9 +1239,6 @@ impl windows_core::RuntimeName for PrintWorkflowObjectModelTargetPackage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlConverter(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowPdlConverter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPdlConverter>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlConverter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowPdlConverter,);
 impl PrintWorkflowPdlConverter {
@@ -1272,6 +1269,9 @@ impl PrintWorkflowPdlConverter {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowPdlConverter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPdlConverter>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowPdlConverter {
     type Vtable = <IPrintWorkflowPdlConverter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowPdlConverter as windows_core::Interface>::IID;
@@ -1282,9 +1282,6 @@ impl windows_core::RuntimeName for PrintWorkflowPdlConverter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlDataAvailableEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowPdlDataAvailableEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPdlDataAvailableEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlDataAvailableEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowPdlDataAvailableEventArgs,);
 impl PrintWorkflowPdlDataAvailableEventArgs {
@@ -1317,6 +1314,9 @@ impl PrintWorkflowPdlDataAvailableEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowPdlDataAvailableEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPdlDataAvailableEventArgs>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowPdlDataAvailableEventArgs {
     type Vtable = <IPrintWorkflowPdlDataAvailableEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowPdlDataAvailableEventArgs as windows_core::Interface>::IID;
@@ -1327,9 +1327,6 @@ impl windows_core::RuntimeName for PrintWorkflowPdlDataAvailableEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlModificationRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowPdlModificationRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPdlModificationRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlModificationRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowPdlModificationRequestedEventArgs,);
 impl PrintWorkflowPdlModificationRequestedEventArgs {
@@ -1429,6 +1426,9 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowPdlModificationRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPdlModificationRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowPdlModificationRequestedEventArgs {
     type Vtable = <IPrintWorkflowPdlModificationRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowPdlModificationRequestedEventArgs as windows_core::Interface>::IID;
@@ -1439,9 +1439,6 @@ impl windows_core::RuntimeName for PrintWorkflowPdlModificationRequestedEventArg
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlSourceContent(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowPdlSourceContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPdlSourceContent>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlSourceContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowPdlSourceContent,);
 impl PrintWorkflowPdlSourceContent {
@@ -1469,6 +1466,9 @@ impl PrintWorkflowPdlSourceContent {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowPdlSourceContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPdlSourceContent>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowPdlSourceContent {
     type Vtable = <IPrintWorkflowPdlSourceContent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowPdlSourceContent as windows_core::Interface>::IID;
@@ -1479,9 +1479,6 @@ impl windows_core::RuntimeName for PrintWorkflowPdlSourceContent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPdlTargetStream(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowPdlTargetStream {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPdlTargetStream>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlTargetStream, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowPdlTargetStream,);
 impl PrintWorkflowPdlTargetStream {
@@ -1498,6 +1495,9 @@ impl PrintWorkflowPdlTargetStream {
         unsafe { (windows_core::Interface::vtable(this).CompleteStreamSubmission)(windows_core::Interface::as_raw(this), status).ok() }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowPdlTargetStream {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPdlTargetStream>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowPdlTargetStream {
     type Vtable = <IPrintWorkflowPdlTargetStream as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowPdlTargetStream as windows_core::Interface>::IID;
@@ -1508,9 +1508,6 @@ impl windows_core::RuntimeName for PrintWorkflowPdlTargetStream {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowPrinterJob(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowPrinterJob {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPrinterJob>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowPrinterJob, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowPrinterJob,);
 impl PrintWorkflowPrinterJob {
@@ -1600,6 +1597,9 @@ impl PrintWorkflowPrinterJob {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowPrinterJob {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowPrinterJob>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowPrinterJob {
     type Vtable = <IPrintWorkflowPrinterJob as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowPrinterJob as windows_core::Interface>::IID;
@@ -1610,9 +1610,6 @@ impl windows_core::RuntimeName for PrintWorkflowPrinterJob {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowSourceContent(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowSourceContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowSourceContent>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowSourceContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowSourceContent,);
 impl PrintWorkflowSourceContent {
@@ -1639,6 +1636,9 @@ impl PrintWorkflowSourceContent {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowSourceContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowSourceContent>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowSourceContent {
     type Vtable = <IPrintWorkflowSourceContent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowSourceContent as windows_core::Interface>::IID;
@@ -1649,9 +1649,6 @@ impl windows_core::RuntimeName for PrintWorkflowSourceContent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowSpoolStreamContent(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowSpoolStreamContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowSpoolStreamContent>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowSpoolStreamContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowSpoolStreamContent,);
 impl PrintWorkflowSpoolStreamContent {
@@ -1664,6 +1661,9 @@ impl PrintWorkflowSpoolStreamContent {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowSpoolStreamContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowSpoolStreamContent>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowSpoolStreamContent {
     type Vtable = <IPrintWorkflowSpoolStreamContent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowSpoolStreamContent as windows_core::Interface>::IID;
@@ -1674,9 +1674,6 @@ impl windows_core::RuntimeName for PrintWorkflowSpoolStreamContent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowStreamTarget(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowStreamTarget {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowStreamTarget>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowStreamTarget, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowStreamTarget,);
 impl PrintWorkflowStreamTarget {
@@ -1689,6 +1686,9 @@ impl PrintWorkflowStreamTarget {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowStreamTarget {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowStreamTarget>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowStreamTarget {
     type Vtable = <IPrintWorkflowStreamTarget as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowStreamTarget as windows_core::Interface>::IID;
@@ -1699,9 +1699,6 @@ impl windows_core::RuntimeName for PrintWorkflowStreamTarget {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowSubmittedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowSubmittedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowSubmittedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowSubmittedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowSubmittedEventArgs,);
 impl PrintWorkflowSubmittedEventArgs {
@@ -1731,6 +1728,9 @@ impl PrintWorkflowSubmittedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowSubmittedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowSubmittedEventArgs>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowSubmittedEventArgs {
     type Vtable = <IPrintWorkflowSubmittedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowSubmittedEventArgs as windows_core::Interface>::IID;
@@ -1741,9 +1741,6 @@ impl windows_core::RuntimeName for PrintWorkflowSubmittedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowSubmittedOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowSubmittedOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowSubmittedOperation>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowSubmittedOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowSubmittedOperation,);
 impl PrintWorkflowSubmittedOperation {
@@ -1766,6 +1763,9 @@ impl PrintWorkflowSubmittedOperation {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowSubmittedOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowSubmittedOperation>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowSubmittedOperation {
     type Vtable = <IPrintWorkflowSubmittedOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowSubmittedOperation as windows_core::Interface>::IID;
@@ -1776,9 +1776,6 @@ impl windows_core::RuntimeName for PrintWorkflowSubmittedOperation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowTarget(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowTarget {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowTarget>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowTarget, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowTarget,);
 impl PrintWorkflowTarget {
@@ -1797,6 +1794,9 @@ impl PrintWorkflowTarget {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowTarget {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowTarget>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowTarget {
     type Vtable = <IPrintWorkflowTarget as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowTarget as windows_core::Interface>::IID;
@@ -1807,9 +1807,6 @@ impl windows_core::RuntimeName for PrintWorkflowTarget {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowTriggerDetails,);
 impl PrintWorkflowTriggerDetails {
@@ -1820,6 +1817,9 @@ impl PrintWorkflowTriggerDetails {
             (windows_core::Interface::vtable(this).PrintWorkflowSession)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for PrintWorkflowTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowTriggerDetails>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowTriggerDetails {
     type Vtable = <IPrintWorkflowTriggerDetails as windows_core::Interface>::Vtable;
@@ -1832,10 +1832,6 @@ impl windows_core::RuntimeName for PrintWorkflowTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowUIActivatedEventArgs(windows_core::IUnknown);
-#[cfg(feature = "ApplicationModel_Activation")]
-impl windows_core::RuntimeType for PrintWorkflowUIActivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowUIActivatedEventArgs>();
-}
 #[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(PrintWorkflowUIActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Activation")]
@@ -1883,6 +1879,10 @@ impl PrintWorkflowUIActivatedEventArgs {
     }
 }
 #[cfg(feature = "ApplicationModel_Activation")]
+impl windows_core::RuntimeType for PrintWorkflowUIActivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowUIActivatedEventArgs>();
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for PrintWorkflowUIActivatedEventArgs {
     type Vtable = <IPrintWorkflowUIActivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowUIActivatedEventArgs as windows_core::Interface>::IID;
@@ -1894,9 +1894,6 @@ impl windows_core::RuntimeName for PrintWorkflowUIActivatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowUILauncher(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowUILauncher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowUILauncher>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowUILauncher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowUILauncher,);
 impl PrintWorkflowUILauncher {
@@ -1915,6 +1912,9 @@ impl PrintWorkflowUILauncher {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowUILauncher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowUILauncher>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowUILauncher {
     type Vtable = <IPrintWorkflowUILauncher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowUILauncher as windows_core::Interface>::IID;
@@ -1925,9 +1925,6 @@ impl windows_core::RuntimeName for PrintWorkflowUILauncher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowVirtualPrinterDataAvailableEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowVirtualPrinterDataAvailableEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowVirtualPrinterDataAvailableEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowVirtualPrinterDataAvailableEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowVirtualPrinterDataAvailableEventArgs,);
 impl PrintWorkflowVirtualPrinterDataAvailableEventArgs {
@@ -1980,6 +1977,9 @@ impl PrintWorkflowVirtualPrinterDataAvailableEventArgs {
         unsafe { (windows_core::Interface::vtable(this).CompleteJob)(windows_core::Interface::as_raw(this), status).ok() }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowVirtualPrinterDataAvailableEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowVirtualPrinterDataAvailableEventArgs>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowVirtualPrinterDataAvailableEventArgs {
     type Vtable = <IPrintWorkflowVirtualPrinterDataAvailableEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowVirtualPrinterDataAvailableEventArgs as windows_core::Interface>::IID;
@@ -1990,9 +1990,6 @@ impl windows_core::RuntimeName for PrintWorkflowVirtualPrinterDataAvailableEvent
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowVirtualPrinterSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowVirtualPrinterSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowVirtualPrinterSession>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowVirtualPrinterSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowVirtualPrinterSession,);
 impl PrintWorkflowVirtualPrinterSession {
@@ -2030,6 +2027,9 @@ impl PrintWorkflowVirtualPrinterSession {
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowVirtualPrinterSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowVirtualPrinterSession>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowVirtualPrinterSession {
     type Vtable = <IPrintWorkflowVirtualPrinterSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowVirtualPrinterSession as windows_core::Interface>::IID;
@@ -2040,9 +2040,6 @@ impl windows_core::RuntimeName for PrintWorkflowVirtualPrinterSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowVirtualPrinterTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowVirtualPrinterTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowVirtualPrinterTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowVirtualPrinterTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowVirtualPrinterTriggerDetails,);
 impl PrintWorkflowVirtualPrinterTriggerDetails {
@@ -2054,6 +2051,9 @@ impl PrintWorkflowVirtualPrinterTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowVirtualPrinterTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowVirtualPrinterTriggerDetails>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowVirtualPrinterTriggerDetails {
     type Vtable = <IPrintWorkflowVirtualPrinterTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowVirtualPrinterTriggerDetails as windows_core::Interface>::IID;
@@ -2064,9 +2064,6 @@ impl windows_core::RuntimeName for PrintWorkflowVirtualPrinterTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowVirtualPrinterUIEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowVirtualPrinterUIEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowVirtualPrinterUIEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowVirtualPrinterUIEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowVirtualPrinterUIEventArgs,);
 impl PrintWorkflowVirtualPrinterUIEventArgs {
@@ -2108,6 +2105,9 @@ impl PrintWorkflowVirtualPrinterUIEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PrintWorkflowVirtualPrinterUIEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowVirtualPrinterUIEventArgs>();
+}
 unsafe impl windows_core::Interface for PrintWorkflowVirtualPrinterUIEventArgs {
     type Vtable = <IPrintWorkflowVirtualPrinterUIEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintWorkflowVirtualPrinterUIEventArgs as windows_core::Interface>::IID;
@@ -2118,9 +2118,6 @@ impl windows_core::RuntimeName for PrintWorkflowVirtualPrinterUIEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintWorkflowXpsDataAvailableEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintWorkflowXpsDataAvailableEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowXpsDataAvailableEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintWorkflowXpsDataAvailableEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintWorkflowXpsDataAvailableEventArgs,);
 impl PrintWorkflowXpsDataAvailableEventArgs {
@@ -2138,6 +2135,9 @@ impl PrintWorkflowXpsDataAvailableEventArgs {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for PrintWorkflowXpsDataAvailableEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintWorkflowXpsDataAvailableEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintWorkflowXpsDataAvailableEventArgs {
     type Vtable = <IPrintWorkflowXpsDataAvailableEventArgs as windows_core::Interface>::Vtable;

@@ -704,9 +704,6 @@ pub struct IVisualInteractionSourceStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionConditionalValue(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionConditionalValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionConditionalValue>();
-}
 windows_core::imp::interface_hierarchy!(CompositionConditionalValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionConditionalValue, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl CompositionConditionalValue {
@@ -860,6 +857,9 @@ impl CompositionConditionalValue {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CompositionConditionalValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionConditionalValue>();
+}
 unsafe impl windows_core::Interface for CompositionConditionalValue {
     type Vtable = <ICompositionConditionalValue as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionConditionalValue as windows_core::Interface>::IID;
@@ -871,10 +871,6 @@ impl windows_core::RuntimeName for CompositionConditionalValue {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionInteractionSourceCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for CompositionInteractionSourceCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionInteractionSourceCollection>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionInteractionSourceCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -1024,6 +1020,10 @@ impl CompositionInteractionSourceCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for CompositionInteractionSourceCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionInteractionSourceCollection>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for CompositionInteractionSourceCollection {
     type Vtable = <ICompositionInteractionSourceCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionInteractionSourceCollection as windows_core::Interface>::IID;
@@ -1035,9 +1035,6 @@ impl windows_core::RuntimeName for CompositionInteractionSourceCollection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionSourceConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for InteractionSourceConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionSourceConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(InteractionSourceConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionSourceConfiguration, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl InteractionSourceConfiguration {
@@ -1183,6 +1180,9 @@ impl InteractionSourceConfiguration {
         unsafe { (windows_core::Interface::vtable(this).SetScaleSourceMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for InteractionSourceConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionSourceConfiguration>();
+}
 unsafe impl windows_core::Interface for InteractionSourceConfiguration {
     type Vtable = <IInteractionSourceConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInteractionSourceConfiguration as windows_core::Interface>::IID;
@@ -1193,9 +1193,6 @@ impl windows_core::RuntimeName for InteractionSourceConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTracker(windows_core::IUnknown);
-impl windows_core::RuntimeType for InteractionTracker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTracker>();
-}
 windows_core::imp::interface_hierarchy!(InteractionTracker, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTracker, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl InteractionTracker {
@@ -1645,6 +1642,9 @@ impl InteractionTracker {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for InteractionTracker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTracker>();
+}
 unsafe impl windows_core::Interface for InteractionTracker {
     type Vtable = <IInteractionTracker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInteractionTracker as windows_core::Interface>::IID;
@@ -1655,9 +1655,6 @@ impl windows_core::RuntimeName for InteractionTracker {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerCustomAnimationStateEnteredArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for InteractionTrackerCustomAnimationStateEnteredArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerCustomAnimationStateEnteredArgs>();
-}
 windows_core::imp::interface_hierarchy!(InteractionTrackerCustomAnimationStateEnteredArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerCustomAnimationStateEnteredArgs,);
 impl InteractionTrackerCustomAnimationStateEnteredArgs {
@@ -1676,6 +1673,9 @@ impl InteractionTrackerCustomAnimationStateEnteredArgs {
         }
     }
 }
+impl windows_core::RuntimeType for InteractionTrackerCustomAnimationStateEnteredArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerCustomAnimationStateEnteredArgs>();
+}
 unsafe impl windows_core::Interface for InteractionTrackerCustomAnimationStateEnteredArgs {
     type Vtable = <IInteractionTrackerCustomAnimationStateEnteredArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInteractionTrackerCustomAnimationStateEnteredArgs as windows_core::Interface>::IID;
@@ -1686,9 +1686,6 @@ impl windows_core::RuntimeName for InteractionTrackerCustomAnimationStateEntered
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerIdleStateEnteredArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for InteractionTrackerIdleStateEnteredArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerIdleStateEnteredArgs>();
-}
 windows_core::imp::interface_hierarchy!(InteractionTrackerIdleStateEnteredArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerIdleStateEnteredArgs,);
 impl InteractionTrackerIdleStateEnteredArgs {
@@ -1707,6 +1704,9 @@ impl InteractionTrackerIdleStateEnteredArgs {
         }
     }
 }
+impl windows_core::RuntimeType for InteractionTrackerIdleStateEnteredArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerIdleStateEnteredArgs>();
+}
 unsafe impl windows_core::Interface for InteractionTrackerIdleStateEnteredArgs {
     type Vtable = <IInteractionTrackerIdleStateEnteredArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInteractionTrackerIdleStateEnteredArgs as windows_core::Interface>::IID;
@@ -1717,9 +1717,6 @@ impl windows_core::RuntimeName for InteractionTrackerIdleStateEnteredArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInertiaModifier(windows_core::IUnknown);
-impl windows_core::RuntimeType for InteractionTrackerInertiaModifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerInertiaModifier>();
-}
 windows_core::imp::interface_hierarchy!(InteractionTrackerInertiaModifier, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerInertiaModifier, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl InteractionTrackerInertiaModifier {
@@ -1832,6 +1829,9 @@ impl InteractionTrackerInertiaModifier {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for InteractionTrackerInertiaModifier {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerInertiaModifier>();
+}
 unsafe impl windows_core::Interface for InteractionTrackerInertiaModifier {
     type Vtable = <IInteractionTrackerInertiaModifier as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInteractionTrackerInertiaModifier as windows_core::Interface>::IID;
@@ -1842,9 +1842,6 @@ impl windows_core::RuntimeName for InteractionTrackerInertiaModifier {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInertiaMotion(windows_core::IUnknown);
-impl windows_core::RuntimeType for InteractionTrackerInertiaMotion {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerInertiaMotion>();
-}
 windows_core::imp::interface_hierarchy!(InteractionTrackerInertiaMotion, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerInertiaMotion, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl InteractionTrackerInertiaMotion {
@@ -1998,6 +1995,9 @@ impl InteractionTrackerInertiaMotion {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for InteractionTrackerInertiaMotion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerInertiaMotion>();
+}
 unsafe impl windows_core::Interface for InteractionTrackerInertiaMotion {
     type Vtable = <IInteractionTrackerInertiaMotion as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInteractionTrackerInertiaMotion as windows_core::Interface>::IID;
@@ -2008,9 +2008,6 @@ impl windows_core::RuntimeName for InteractionTrackerInertiaMotion {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInertiaNaturalMotion(windows_core::IUnknown);
-impl windows_core::RuntimeType for InteractionTrackerInertiaNaturalMotion {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerInertiaNaturalMotion>();
-}
 windows_core::imp::interface_hierarchy!(InteractionTrackerInertiaNaturalMotion, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerInertiaNaturalMotion, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl InteractionTrackerInertiaNaturalMotion {
@@ -2164,6 +2161,9 @@ impl InteractionTrackerInertiaNaturalMotion {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for InteractionTrackerInertiaNaturalMotion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerInertiaNaturalMotion>();
+}
 unsafe impl windows_core::Interface for InteractionTrackerInertiaNaturalMotion {
     type Vtable = <IInteractionTrackerInertiaNaturalMotion as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInteractionTrackerInertiaNaturalMotion as windows_core::Interface>::IID;
@@ -2174,9 +2174,6 @@ impl windows_core::RuntimeName for InteractionTrackerInertiaNaturalMotion {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInertiaRestingValue(windows_core::IUnknown);
-impl windows_core::RuntimeType for InteractionTrackerInertiaRestingValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerInertiaRestingValue>();
-}
 windows_core::imp::interface_hierarchy!(InteractionTrackerInertiaRestingValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerInertiaRestingValue, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl InteractionTrackerInertiaRestingValue {
@@ -2330,6 +2327,9 @@ impl InteractionTrackerInertiaRestingValue {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for InteractionTrackerInertiaRestingValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerInertiaRestingValue>();
+}
 unsafe impl windows_core::Interface for InteractionTrackerInertiaRestingValue {
     type Vtable = <IInteractionTrackerInertiaRestingValue as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInteractionTrackerInertiaRestingValue as windows_core::Interface>::IID;
@@ -2340,9 +2340,6 @@ impl windows_core::RuntimeName for InteractionTrackerInertiaRestingValue {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInertiaStateEnteredArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for InteractionTrackerInertiaStateEnteredArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerInertiaStateEnteredArgs>();
-}
 windows_core::imp::interface_hierarchy!(InteractionTrackerInertiaStateEnteredArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerInertiaStateEnteredArgs,);
 impl InteractionTrackerInertiaStateEnteredArgs {
@@ -2413,6 +2410,9 @@ impl InteractionTrackerInertiaStateEnteredArgs {
         }
     }
 }
+impl windows_core::RuntimeType for InteractionTrackerInertiaStateEnteredArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerInertiaStateEnteredArgs>();
+}
 unsafe impl windows_core::Interface for InteractionTrackerInertiaStateEnteredArgs {
     type Vtable = <IInteractionTrackerInertiaStateEnteredArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInteractionTrackerInertiaStateEnteredArgs as windows_core::Interface>::IID;
@@ -2423,9 +2423,6 @@ impl windows_core::RuntimeName for InteractionTrackerInertiaStateEnteredArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerInteractingStateEnteredArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for InteractionTrackerInteractingStateEnteredArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerInteractingStateEnteredArgs>();
-}
 windows_core::imp::interface_hierarchy!(InteractionTrackerInteractingStateEnteredArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerInteractingStateEnteredArgs,);
 impl InteractionTrackerInteractingStateEnteredArgs {
@@ -2444,6 +2441,9 @@ impl InteractionTrackerInteractingStateEnteredArgs {
         }
     }
 }
+impl windows_core::RuntimeType for InteractionTrackerInteractingStateEnteredArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerInteractingStateEnteredArgs>();
+}
 unsafe impl windows_core::Interface for InteractionTrackerInteractingStateEnteredArgs {
     type Vtable = <IInteractionTrackerInteractingStateEnteredArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInteractionTrackerInteractingStateEnteredArgs as windows_core::Interface>::IID;
@@ -2454,9 +2454,6 @@ impl windows_core::RuntimeName for InteractionTrackerInteractingStateEnteredArgs
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerRequestIgnoredArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for InteractionTrackerRequestIgnoredArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerRequestIgnoredArgs>();
-}
 windows_core::imp::interface_hierarchy!(InteractionTrackerRequestIgnoredArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerRequestIgnoredArgs,);
 impl InteractionTrackerRequestIgnoredArgs {
@@ -2468,6 +2465,9 @@ impl InteractionTrackerRequestIgnoredArgs {
         }
     }
 }
+impl windows_core::RuntimeType for InteractionTrackerRequestIgnoredArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerRequestIgnoredArgs>();
+}
 unsafe impl windows_core::Interface for InteractionTrackerRequestIgnoredArgs {
     type Vtable = <IInteractionTrackerRequestIgnoredArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInteractionTrackerRequestIgnoredArgs as windows_core::Interface>::IID;
@@ -2478,9 +2478,6 @@ impl windows_core::RuntimeName for InteractionTrackerRequestIgnoredArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerValuesChangedArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for InteractionTrackerValuesChangedArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerValuesChangedArgs>();
-}
 windows_core::imp::interface_hierarchy!(InteractionTrackerValuesChangedArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerValuesChangedArgs,);
 impl InteractionTrackerValuesChangedArgs {
@@ -2507,6 +2504,9 @@ impl InteractionTrackerValuesChangedArgs {
         }
     }
 }
+impl windows_core::RuntimeType for InteractionTrackerValuesChangedArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerValuesChangedArgs>();
+}
 unsafe impl windows_core::Interface for InteractionTrackerValuesChangedArgs {
     type Vtable = <IInteractionTrackerValuesChangedArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInteractionTrackerValuesChangedArgs as windows_core::Interface>::IID;
@@ -2517,9 +2517,6 @@ impl windows_core::RuntimeName for InteractionTrackerValuesChangedArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerVector2InertiaModifier(windows_core::IUnknown);
-impl windows_core::RuntimeType for InteractionTrackerVector2InertiaModifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerVector2InertiaModifier>();
-}
 windows_core::imp::interface_hierarchy!(InteractionTrackerVector2InertiaModifier, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerVector2InertiaModifier, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl InteractionTrackerVector2InertiaModifier {
@@ -2632,6 +2629,9 @@ impl InteractionTrackerVector2InertiaModifier {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for InteractionTrackerVector2InertiaModifier {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerVector2InertiaModifier>();
+}
 unsafe impl windows_core::Interface for InteractionTrackerVector2InertiaModifier {
     type Vtable = <IInteractionTrackerVector2InertiaModifier as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInteractionTrackerVector2InertiaModifier as windows_core::Interface>::IID;
@@ -2642,9 +2642,6 @@ impl windows_core::RuntimeName for InteractionTrackerVector2InertiaModifier {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InteractionTrackerVector2InertiaNaturalMotion(windows_core::IUnknown);
-impl windows_core::RuntimeType for InteractionTrackerVector2InertiaNaturalMotion {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerVector2InertiaNaturalMotion>();
-}
 windows_core::imp::interface_hierarchy!(InteractionTrackerVector2InertiaNaturalMotion, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InteractionTrackerVector2InertiaNaturalMotion, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl InteractionTrackerVector2InertiaNaturalMotion {
@@ -2798,6 +2795,9 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for InteractionTrackerVector2InertiaNaturalMotion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInteractionTrackerVector2InertiaNaturalMotion>();
+}
 unsafe impl windows_core::Interface for InteractionTrackerVector2InertiaNaturalMotion {
     type Vtable = <IInteractionTrackerVector2InertiaNaturalMotion as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInteractionTrackerVector2InertiaNaturalMotion as windows_core::Interface>::IID;
@@ -2808,9 +2808,6 @@ impl windows_core::RuntimeName for InteractionTrackerVector2InertiaNaturalMotion
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualInteractionSource(windows_core::IUnknown);
-impl windows_core::RuntimeType for VisualInteractionSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisualInteractionSource>();
-}
 windows_core::imp::interface_hierarchy!(VisualInteractionSource, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VisualInteractionSource, super::super::super::Foundation::IClosable, super::IAnimationObject, ICompositionInteractionSource);
 impl VisualInteractionSource {
@@ -3154,6 +3151,9 @@ impl VisualInteractionSource {
         static SHARED: windows_core::imp::FactoryCache<VisualInteractionSource, IVisualInteractionSourceStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for VisualInteractionSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisualInteractionSource>();
 }
 unsafe impl windows_core::Interface for VisualInteractionSource {
     type Vtable = <IVisualInteractionSource as windows_core::Interface>::Vtable;

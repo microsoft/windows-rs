@@ -511,9 +511,6 @@ pub struct IUINavigationControllerStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ArcadeStick(windows_core::IUnknown);
-impl windows_core::RuntimeType for ArcadeStick {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IArcadeStick>();
-}
 windows_core::imp::interface_hierarchy!(ArcadeStick, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ArcadeStick, IGameController, IGameControllerBatteryInfo);
 impl ArcadeStick {
@@ -653,6 +650,9 @@ impl ArcadeStick {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ArcadeStick {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IArcadeStick>();
+}
 unsafe impl windows_core::Interface for ArcadeStick {
     type Vtable = <IArcadeStick as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IArcadeStick as windows_core::Interface>::IID;
@@ -663,9 +663,6 @@ impl windows_core::RuntimeName for ArcadeStick {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FlightStick(windows_core::IUnknown);
-impl windows_core::RuntimeType for FlightStick {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFlightStick>();
-}
 windows_core::imp::interface_hierarchy!(FlightStick, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FlightStick, IGameController, IGameControllerBatteryInfo);
 impl FlightStick {
@@ -808,6 +805,9 @@ impl FlightStick {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for FlightStick {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFlightStick>();
+}
 unsafe impl windows_core::Interface for FlightStick {
     type Vtable = <IFlightStick as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFlightStick as windows_core::Interface>::IID;
@@ -818,9 +818,6 @@ impl windows_core::RuntimeName for FlightStick {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Gamepad(windows_core::IUnknown);
-impl windows_core::RuntimeType for Gamepad {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGamepad>();
-}
 windows_core::imp::interface_hierarchy!(Gamepad, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Gamepad, IGameController, IGameControllerBatteryInfo);
 impl Gamepad {
@@ -971,6 +968,9 @@ impl Gamepad {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Gamepad {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGamepad>();
+}
 unsafe impl windows_core::Interface for Gamepad {
     type Vtable = <IGamepad as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGamepad as windows_core::Interface>::IID;
@@ -981,9 +981,6 @@ impl windows_core::RuntimeName for Gamepad {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Headset(windows_core::IUnknown);
-impl windows_core::RuntimeType for Headset {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHeadset>();
-}
 windows_core::imp::interface_hierarchy!(Headset, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Headset, IGameControllerBatteryInfo);
 impl Headset {
@@ -1010,6 +1007,9 @@ impl Headset {
         }
     }
 }
+impl windows_core::RuntimeType for Headset {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHeadset>();
+}
 unsafe impl windows_core::Interface for Headset {
     type Vtable = <IHeadset as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHeadset as windows_core::Interface>::IID;
@@ -1020,9 +1020,6 @@ impl windows_core::RuntimeName for Headset {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RacingWheel(windows_core::IUnknown);
-impl windows_core::RuntimeType for RacingWheel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRacingWheel>();
-}
 windows_core::imp::interface_hierarchy!(RacingWheel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RacingWheel, IGameController, IGameControllerBatteryInfo);
 impl RacingWheel {
@@ -1205,6 +1202,9 @@ impl RacingWheel {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RacingWheel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRacingWheel>();
+}
 unsafe impl windows_core::Interface for RacingWheel {
     type Vtable = <IRacingWheel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRacingWheel as windows_core::Interface>::IID;
@@ -1215,9 +1215,6 @@ impl windows_core::RuntimeName for RacingWheel {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RawGameController(windows_core::IUnknown);
-impl windows_core::RuntimeType for RawGameController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRawGameController>();
-}
 windows_core::imp::interface_hierarchy!(RawGameController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RawGameController, IGameController, IGameControllerBatteryInfo);
 impl RawGameController {
@@ -1425,6 +1422,9 @@ impl RawGameController {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RawGameController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRawGameController>();
+}
 unsafe impl windows_core::Interface for RawGameController {
     type Vtable = <IRawGameController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRawGameController as windows_core::Interface>::IID;
@@ -1435,9 +1435,6 @@ impl windows_core::RuntimeName for RawGameController {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UINavigationController(windows_core::IUnknown);
-impl windows_core::RuntimeType for UINavigationController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUINavigationController>();
-}
 windows_core::imp::interface_hierarchy!(UINavigationController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UINavigationController, IGameController, IGameControllerBatteryInfo);
 impl UINavigationController {
@@ -1583,6 +1580,9 @@ impl UINavigationController {
         static SHARED: windows_core::imp::FactoryCache<UINavigationController, IUINavigationControllerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for UINavigationController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUINavigationController>();
 }
 unsafe impl windows_core::Interface for UINavigationController {
     type Vtable = <IUINavigationController as windows_core::Interface>::Vtable;
@@ -1852,7 +1852,7 @@ impl windows_core::RuntimeType for RequiredUINavigationButtons {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.Input.RequiredUINavigationButtons;u4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct ArcadeStickReading {
     pub Timestamp: u64,
     pub Buttons: ArcadeStickButtons,
@@ -1864,7 +1864,7 @@ impl windows_core::RuntimeType for ArcadeStickReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.ArcadeStickReading;u8;enum(Windows.Gaming.Input.ArcadeStickButtons;u4))");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct FlightStickReading {
     pub Timestamp: u64,
     pub Buttons: FlightStickButtons,
@@ -1881,7 +1881,7 @@ impl windows_core::RuntimeType for FlightStickReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.FlightStickReading;u8;enum(Windows.Gaming.Input.FlightStickButtons;u4);enum(Windows.Gaming.Input.GameControllerSwitchPosition;i4);f8;f8;f8;f8)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct GamepadReading {
     pub Timestamp: u64,
     pub Buttons: GamepadButtons,
@@ -1899,7 +1899,7 @@ impl windows_core::RuntimeType for GamepadReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadReading;u8;enum(Windows.Gaming.Input.GamepadButtons;u4);f8;f8;f8;f8;f8;f8)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct GamepadVibration {
     pub LeftMotor: f64,
     pub RightMotor: f64,
@@ -1913,7 +1913,7 @@ impl windows_core::RuntimeType for GamepadVibration {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.GamepadVibration;f8;f8;f8;f8)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct RacingWheelReading {
     pub Timestamp: u64,
     pub Buttons: RacingWheelButtons,
@@ -1931,7 +1931,7 @@ impl windows_core::RuntimeType for RacingWheelReading {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Gaming.Input.RacingWheelReading;u8;enum(Windows.Gaming.Input.RacingWheelButtons;u4);i4;f8;f8;f8;f8;f8)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct UINavigationReading {
     pub Timestamp: u64,
     pub RequiredButtons: RequiredUINavigationButtons,

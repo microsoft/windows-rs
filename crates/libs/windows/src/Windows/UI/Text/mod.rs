@@ -3575,9 +3575,6 @@ impl ITextSelection_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContentLinkInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContentLinkInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentLinkInfo>();
-}
 windows_core::imp::interface_hierarchy!(ContentLinkInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContentLinkInfo,);
 impl ContentLinkInfo {
@@ -3647,6 +3644,9 @@ impl ContentLinkInfo {
         unsafe { (windows_core::Interface::vtable(this).SetLinkContentKind)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for ContentLinkInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentLinkInfo>();
+}
 unsafe impl windows_core::Interface for ContentLinkInfo {
     type Vtable = <IContentLinkInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContentLinkInfo as windows_core::Interface>::IID;
@@ -3657,9 +3657,6 @@ impl windows_core::RuntimeName for ContentLinkInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FontWeights(windows_core::IUnknown);
-impl windows_core::RuntimeType for FontWeights {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFontWeights>();
-}
 windows_core::imp::interface_hierarchy!(FontWeights, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FontWeights,);
 impl FontWeights {
@@ -3734,6 +3731,9 @@ impl FontWeights {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for FontWeights {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFontWeights>();
+}
 unsafe impl windows_core::Interface for FontWeights {
     type Vtable = <IFontWeights as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFontWeights as windows_core::Interface>::IID;
@@ -3744,9 +3744,6 @@ impl windows_core::RuntimeName for FontWeights {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RichEditTextDocument(windows_core::IUnknown);
-impl windows_core::RuntimeType for RichEditTextDocument {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextDocument>();
-}
 windows_core::imp::interface_hierarchy!(RichEditTextDocument, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RichEditTextDocument, ITextDocument);
 impl RichEditTextDocument {
@@ -3953,6 +3950,9 @@ impl RichEditTextDocument {
         unsafe { (windows_core::Interface::vtable(this).SetMathMode)(windows_core::Interface::as_raw(this), mode).ok() }
     }
 }
+impl windows_core::RuntimeType for RichEditTextDocument {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextDocument>();
+}
 unsafe impl windows_core::Interface for RichEditTextDocument {
     type Vtable = <ITextDocument as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITextDocument as windows_core::Interface>::IID;
@@ -3963,9 +3963,6 @@ impl windows_core::RuntimeName for RichEditTextDocument {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RichEditTextRange(windows_core::IUnknown);
-impl windows_core::RuntimeType for RichEditTextRange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextRange>();
-}
 windows_core::imp::interface_hierarchy!(RichEditTextRange, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RichEditTextRange, ITextRange);
 impl RichEditTextRange {
@@ -4296,6 +4293,9 @@ impl RichEditTextRange {
             (windows_core::Interface::vtable(this).StartOf)(windows_core::Interface::as_raw(this), unit, extend, &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for RichEditTextRange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITextRange>();
 }
 unsafe impl windows_core::Interface for RichEditTextRange {
     type Vtable = <ITextRange as windows_core::Interface>::Vtable;
@@ -4943,7 +4943,7 @@ impl windows_core::RuntimeType for VerticalCharacterAlignment {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Text.VerticalCharacterAlignment;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct FontWeight {
     pub Weight: u16,
 }

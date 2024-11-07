@@ -3222,10 +3222,6 @@ pub struct IPlayReadyStatics5_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NDClient(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for NDClient {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDClient>();
-}
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(NDClient, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(NDClient,);
@@ -3369,6 +3365,10 @@ impl NDClient {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for NDClient {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDClient>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDClient {
     type Vtable = <INDClient as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INDClient as windows_core::Interface>::IID;
@@ -3381,10 +3381,6 @@ impl windows_core::RuntimeName for NDClient {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NDCustomData(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for NDCustomData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDCustomData>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(NDCustomData, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -3420,6 +3416,10 @@ impl NDCustomData {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for NDCustomData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDCustomData>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDCustomData {
     type Vtable = <INDCustomData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INDCustomData as windows_core::Interface>::IID;
@@ -3432,10 +3432,6 @@ impl windows_core::RuntimeName for NDCustomData {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NDDownloadEngineNotifier(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for NDDownloadEngineNotifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDDownloadEngineNotifier>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(NDDownloadEngineNotifier, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -3484,6 +3480,10 @@ impl NDDownloadEngineNotifier {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for NDDownloadEngineNotifier {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDDownloadEngineNotifier>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDDownloadEngineNotifier {
     type Vtable = <INDDownloadEngineNotifier as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INDDownloadEngineNotifier as windows_core::Interface>::IID;
@@ -3496,10 +3496,6 @@ impl windows_core::RuntimeName for NDDownloadEngineNotifier {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NDLicenseFetchDescriptor(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for NDLicenseFetchDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDLicenseFetchDescriptor>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(NDLicenseFetchDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -3554,6 +3550,10 @@ impl NDLicenseFetchDescriptor {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for NDLicenseFetchDescriptor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDLicenseFetchDescriptor>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDLicenseFetchDescriptor {
     type Vtable = <INDLicenseFetchDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INDLicenseFetchDescriptor as windows_core::Interface>::IID;
@@ -3566,10 +3566,6 @@ impl windows_core::RuntimeName for NDLicenseFetchDescriptor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NDStorageFileHelper(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for NDStorageFileHelper {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDStorageFileHelper>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(NDStorageFileHelper, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -3596,6 +3592,10 @@ impl NDStorageFileHelper {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for NDStorageFileHelper {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDStorageFileHelper>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDStorageFileHelper {
     type Vtable = <INDStorageFileHelper as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INDStorageFileHelper as windows_core::Interface>::IID;
@@ -3608,10 +3608,6 @@ impl windows_core::RuntimeName for NDStorageFileHelper {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NDStreamParserNotifier(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for NDStreamParserNotifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDStreamParserNotifier>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(NDStreamParserNotifier, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -3660,6 +3656,10 @@ impl NDStreamParserNotifier {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for NDStreamParserNotifier {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDStreamParserNotifier>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDStreamParserNotifier {
     type Vtable = <INDStreamParserNotifier as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INDStreamParserNotifier as windows_core::Interface>::IID;
@@ -3672,10 +3672,6 @@ impl windows_core::RuntimeName for NDStreamParserNotifier {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NDTCPMessenger(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for NDTCPMessenger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDMessenger>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(NDTCPMessenger, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -3727,6 +3723,10 @@ impl NDTCPMessenger {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for NDTCPMessenger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INDMessenger>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for NDTCPMessenger {
     type Vtable = <INDMessenger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INDMessenger as windows_core::Interface>::IID;
@@ -3738,9 +3738,6 @@ impl windows_core::RuntimeName for NDTCPMessenger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyContentHeader(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlayReadyContentHeader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyContentHeader>();
-}
 windows_core::imp::interface_hierarchy!(PlayReadyContentHeader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadyContentHeader,);
 impl PlayReadyContentHeader {
@@ -3873,6 +3870,9 @@ impl PlayReadyContentHeader {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PlayReadyContentHeader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyContentHeader>();
+}
 unsafe impl windows_core::Interface for PlayReadyContentHeader {
     type Vtable = <IPlayReadyContentHeader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayReadyContentHeader as windows_core::Interface>::IID;
@@ -3902,9 +3902,6 @@ impl windows_core::RuntimeName for PlayReadyContentResolver {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyDomain(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlayReadyDomain {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyDomain>();
-}
 windows_core::imp::interface_hierarchy!(PlayReadyDomain, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadyDomain, IPlayReadyDomain);
 impl PlayReadyDomain {
@@ -3944,6 +3941,9 @@ impl PlayReadyDomain {
         }
     }
 }
+impl windows_core::RuntimeType for PlayReadyDomain {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyDomain>();
+}
 unsafe impl windows_core::Interface for PlayReadyDomain {
     type Vtable = <IPlayReadyDomain as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayReadyDomain as windows_core::Interface>::IID;
@@ -3955,10 +3955,6 @@ impl windows_core::RuntimeName for PlayReadyDomain {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyDomainIterable(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for PlayReadyDomainIterable {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(PlayReadyDomainIterable, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -3985,6 +3981,10 @@ impl PlayReadyDomainIterable {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for PlayReadyDomainIterable {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadyDomainIterable {
     type Vtable = <super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain> as windows_core::Interface>::IID;
@@ -3997,10 +3997,6 @@ impl windows_core::RuntimeName for PlayReadyDomainIterable {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyDomainIterator(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for PlayReadyDomainIterator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(PlayReadyDomainIterator, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -4037,6 +4033,10 @@ impl PlayReadyDomainIterator {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for PlayReadyDomainIterator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadyDomainIterator {
     type Vtable = <super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain> as windows_core::Interface>::IID;
@@ -4048,9 +4048,6 @@ impl windows_core::RuntimeName for PlayReadyDomainIterator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyDomainJoinServiceRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlayReadyDomainJoinServiceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyDomainJoinServiceRequest>();
-}
 windows_core::imp::interface_hierarchy!(PlayReadyDomainJoinServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadyDomainJoinServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyServiceRequest);
 impl PlayReadyDomainJoinServiceRequest {
@@ -4169,6 +4166,9 @@ impl PlayReadyDomainJoinServiceRequest {
         }
     }
 }
+impl windows_core::RuntimeType for PlayReadyDomainJoinServiceRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyDomainJoinServiceRequest>();
+}
 unsafe impl windows_core::Interface for PlayReadyDomainJoinServiceRequest {
     type Vtable = <IPlayReadyDomainJoinServiceRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayReadyDomainJoinServiceRequest as windows_core::Interface>::IID;
@@ -4179,9 +4179,6 @@ impl windows_core::RuntimeName for PlayReadyDomainJoinServiceRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyDomainLeaveServiceRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlayReadyDomainLeaveServiceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyDomainLeaveServiceRequest>();
-}
 windows_core::imp::interface_hierarchy!(PlayReadyDomainLeaveServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadyDomainLeaveServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyServiceRequest);
 impl PlayReadyDomainLeaveServiceRequest {
@@ -4289,6 +4286,9 @@ impl PlayReadyDomainLeaveServiceRequest {
         }
     }
 }
+impl windows_core::RuntimeType for PlayReadyDomainLeaveServiceRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyDomainLeaveServiceRequest>();
+}
 unsafe impl windows_core::Interface for PlayReadyDomainLeaveServiceRequest {
     type Vtable = <IPlayReadyDomainLeaveServiceRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayReadyDomainLeaveServiceRequest as windows_core::Interface>::IID;
@@ -4299,9 +4299,6 @@ impl windows_core::RuntimeName for PlayReadyDomainLeaveServiceRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyITADataGenerator(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlayReadyITADataGenerator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyITADataGenerator>();
-}
 windows_core::imp::interface_hierarchy!(PlayReadyITADataGenerator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadyITADataGenerator,);
 impl PlayReadyITADataGenerator {
@@ -4324,6 +4321,9 @@ impl PlayReadyITADataGenerator {
         }
     }
 }
+impl windows_core::RuntimeType for PlayReadyITADataGenerator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyITADataGenerator>();
+}
 unsafe impl windows_core::Interface for PlayReadyITADataGenerator {
     type Vtable = <IPlayReadyITADataGenerator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayReadyITADataGenerator as windows_core::Interface>::IID;
@@ -4334,9 +4334,6 @@ impl windows_core::RuntimeName for PlayReadyITADataGenerator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyIndividualizationServiceRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlayReadyIndividualizationServiceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyIndividualizationServiceRequest>();
-}
 windows_core::imp::interface_hierarchy!(PlayReadyIndividualizationServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadyIndividualizationServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyServiceRequest);
 impl PlayReadyIndividualizationServiceRequest {
@@ -4422,6 +4419,9 @@ impl PlayReadyIndividualizationServiceRequest {
         }
     }
 }
+impl windows_core::RuntimeType for PlayReadyIndividualizationServiceRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyIndividualizationServiceRequest>();
+}
 unsafe impl windows_core::Interface for PlayReadyIndividualizationServiceRequest {
     type Vtable = <IPlayReadyIndividualizationServiceRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayReadyIndividualizationServiceRequest as windows_core::Interface>::IID;
@@ -4432,9 +4432,6 @@ impl windows_core::RuntimeName for PlayReadyIndividualizationServiceRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyLicense(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlayReadyLicense {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyLicense>();
-}
 windows_core::imp::interface_hierarchy!(PlayReadyLicense, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadyLicense, IPlayReadyLicense);
 impl PlayReadyLicense {
@@ -4516,6 +4513,9 @@ impl PlayReadyLicense {
         }
     }
 }
+impl windows_core::RuntimeType for PlayReadyLicense {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyLicense>();
+}
 unsafe impl windows_core::Interface for PlayReadyLicense {
     type Vtable = <IPlayReadyLicense as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayReadyLicense as windows_core::Interface>::IID;
@@ -4526,9 +4526,6 @@ impl windows_core::RuntimeName for PlayReadyLicense {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyLicenseAcquisitionServiceRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlayReadyLicenseAcquisitionServiceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyLicenseAcquisitionServiceRequest>();
-}
 windows_core::imp::interface_hierarchy!(PlayReadyLicenseAcquisitionServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadyLicenseAcquisitionServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyLicenseAcquisitionServiceRequest, IPlayReadyServiceRequest);
 impl PlayReadyLicenseAcquisitionServiceRequest {
@@ -4657,6 +4654,9 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
         }
     }
 }
+impl windows_core::RuntimeType for PlayReadyLicenseAcquisitionServiceRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyLicenseAcquisitionServiceRequest>();
+}
 unsafe impl windows_core::Interface for PlayReadyLicenseAcquisitionServiceRequest {
     type Vtable = <IPlayReadyLicenseAcquisitionServiceRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayReadyLicenseAcquisitionServiceRequest as windows_core::Interface>::IID;
@@ -4668,10 +4668,6 @@ impl windows_core::RuntimeName for PlayReadyLicenseAcquisitionServiceRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyLicenseIterable(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for PlayReadyLicenseIterable {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(PlayReadyLicenseIterable, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -4708,6 +4704,10 @@ impl PlayReadyLicenseIterable {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for PlayReadyLicenseIterable {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadyLicenseIterable {
     type Vtable = <super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense> as windows_core::Interface>::IID;
@@ -4720,10 +4720,6 @@ impl windows_core::RuntimeName for PlayReadyLicenseIterable {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyLicenseIterator(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for PlayReadyLicenseIterator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(PlayReadyLicenseIterator, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -4760,6 +4756,10 @@ impl PlayReadyLicenseIterator {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for PlayReadyLicenseIterator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadyLicenseIterator {
     type Vtable = <super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense> as windows_core::Interface>::IID;
@@ -4790,9 +4790,6 @@ impl windows_core::RuntimeName for PlayReadyLicenseManagement {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyLicenseSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlayReadyLicenseSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyLicenseSession>();
-}
 windows_core::imp::interface_hierarchy!(PlayReadyLicenseSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadyLicenseSession, IPlayReadyLicenseSession, IPlayReadyLicenseSession2);
 impl PlayReadyLicenseSession {
@@ -4836,6 +4833,9 @@ impl PlayReadyLicenseSession {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PlayReadyLicenseSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyLicenseSession>();
+}
 unsafe impl windows_core::Interface for PlayReadyLicenseSession {
     type Vtable = <IPlayReadyLicenseSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayReadyLicenseSession as windows_core::Interface>::IID;
@@ -4846,9 +4846,6 @@ impl windows_core::RuntimeName for PlayReadyLicenseSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyMeteringReportServiceRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlayReadyMeteringReportServiceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyMeteringReportServiceRequest>();
-}
 windows_core::imp::interface_hierarchy!(PlayReadyMeteringReportServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadyMeteringReportServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyServiceRequest);
 impl PlayReadyMeteringReportServiceRequest {
@@ -4945,6 +4942,9 @@ impl PlayReadyMeteringReportServiceRequest {
         }
     }
 }
+impl windows_core::RuntimeType for PlayReadyMeteringReportServiceRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyMeteringReportServiceRequest>();
+}
 unsafe impl windows_core::Interface for PlayReadyMeteringReportServiceRequest {
     type Vtable = <IPlayReadyMeteringReportServiceRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayReadyMeteringReportServiceRequest as windows_core::Interface>::IID;
@@ -4955,9 +4955,6 @@ impl windows_core::RuntimeName for PlayReadyMeteringReportServiceRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadyRevocationServiceRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlayReadyRevocationServiceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyRevocationServiceRequest>();
-}
 windows_core::imp::interface_hierarchy!(PlayReadyRevocationServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadyRevocationServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyServiceRequest);
 impl PlayReadyRevocationServiceRequest {
@@ -5043,6 +5040,9 @@ impl PlayReadyRevocationServiceRequest {
         }
     }
 }
+impl windows_core::RuntimeType for PlayReadyRevocationServiceRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadyRevocationServiceRequest>();
+}
 unsafe impl windows_core::Interface for PlayReadyRevocationServiceRequest {
     type Vtable = <IPlayReadyRevocationServiceRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayReadyRevocationServiceRequest as windows_core::Interface>::IID;
@@ -5054,10 +5054,6 @@ impl windows_core::RuntimeName for PlayReadyRevocationServiceRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadySecureStopIterable(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for PlayReadySecureStopIterable {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(PlayReadySecureStopIterable, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -5084,6 +5080,10 @@ impl PlayReadySecureStopIterable {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for PlayReadySecureStopIterable {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadySecureStopIterable {
     type Vtable = <super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest> as windows_core::Interface>::IID;
@@ -5096,10 +5096,6 @@ impl windows_core::RuntimeName for PlayReadySecureStopIterable {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadySecureStopIterator(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for PlayReadySecureStopIterator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(PlayReadySecureStopIterator, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -5136,6 +5132,10 @@ impl PlayReadySecureStopIterator {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for PlayReadySecureStopIterator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PlayReadySecureStopIterator {
     type Vtable = <super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest> as windows_core::Interface>::IID;
@@ -5147,9 +5147,6 @@ impl windows_core::RuntimeName for PlayReadySecureStopIterator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadySecureStopServiceRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlayReadySecureStopServiceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadySecureStopServiceRequest>();
-}
 windows_core::imp::interface_hierarchy!(PlayReadySecureStopServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadySecureStopServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadySecureStopServiceRequest, IPlayReadyServiceRequest);
 impl PlayReadySecureStopServiceRequest {
@@ -5279,6 +5276,9 @@ impl PlayReadySecureStopServiceRequest {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PlayReadySecureStopServiceRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadySecureStopServiceRequest>();
+}
 unsafe impl windows_core::Interface for PlayReadySecureStopServiceRequest {
     type Vtable = <IPlayReadySecureStopServiceRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlayReadySecureStopServiceRequest as windows_core::Interface>::IID;
@@ -5289,9 +5289,6 @@ impl windows_core::RuntimeName for PlayReadySecureStopServiceRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlayReadySoapMessage(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlayReadySoapMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadySoapMessage>();
-}
 windows_core::imp::interface_hierarchy!(PlayReadySoapMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadySoapMessage,);
 impl PlayReadySoapMessage {
@@ -5317,6 +5314,9 @@ impl PlayReadySoapMessage {
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for PlayReadySoapMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlayReadySoapMessage>();
 }
 unsafe impl windows_core::Interface for PlayReadySoapMessage {
     type Vtable = <IPlayReadySoapMessage as windows_core::Interface>::Vtable;

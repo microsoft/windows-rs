@@ -494,9 +494,6 @@ pub struct IVoiceCommandSet_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechContinuousRecognitionCompletedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechContinuousRecognitionCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechContinuousRecognitionCompletedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SpeechContinuousRecognitionCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechContinuousRecognitionCompletedEventArgs,);
 impl SpeechContinuousRecognitionCompletedEventArgs {
@@ -508,6 +505,9 @@ impl SpeechContinuousRecognitionCompletedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for SpeechContinuousRecognitionCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechContinuousRecognitionCompletedEventArgs>();
+}
 unsafe impl windows_core::Interface for SpeechContinuousRecognitionCompletedEventArgs {
     type Vtable = <ISpeechContinuousRecognitionCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechContinuousRecognitionCompletedEventArgs as windows_core::Interface>::IID;
@@ -518,9 +518,6 @@ impl windows_core::RuntimeName for SpeechContinuousRecognitionCompletedEventArgs
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechContinuousRecognitionResultGeneratedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechContinuousRecognitionResultGeneratedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechContinuousRecognitionResultGeneratedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SpeechContinuousRecognitionResultGeneratedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechContinuousRecognitionResultGeneratedEventArgs,);
 impl SpeechContinuousRecognitionResultGeneratedEventArgs {
@@ -532,6 +529,9 @@ impl SpeechContinuousRecognitionResultGeneratedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for SpeechContinuousRecognitionResultGeneratedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechContinuousRecognitionResultGeneratedEventArgs>();
+}
 unsafe impl windows_core::Interface for SpeechContinuousRecognitionResultGeneratedEventArgs {
     type Vtable = <ISpeechContinuousRecognitionResultGeneratedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechContinuousRecognitionResultGeneratedEventArgs as windows_core::Interface>::IID;
@@ -542,9 +542,6 @@ impl windows_core::RuntimeName for SpeechContinuousRecognitionResultGeneratedEve
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechContinuousRecognitionSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechContinuousRecognitionSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechContinuousRecognitionSession>();
-}
 windows_core::imp::interface_hierarchy!(SpeechContinuousRecognitionSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechContinuousRecognitionSession,);
 impl SpeechContinuousRecognitionSession {
@@ -627,6 +624,9 @@ impl SpeechContinuousRecognitionSession {
         unsafe { (windows_core::Interface::vtable(this).RemoveResultGenerated)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for SpeechContinuousRecognitionSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechContinuousRecognitionSession>();
+}
 unsafe impl windows_core::Interface for SpeechContinuousRecognitionSession {
     type Vtable = <ISpeechContinuousRecognitionSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechContinuousRecognitionSession as windows_core::Interface>::IID;
@@ -637,9 +637,6 @@ impl windows_core::RuntimeName for SpeechContinuousRecognitionSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionCompilationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechRecognitionCompilationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionCompilationResult>();
-}
 windows_core::imp::interface_hierarchy!(SpeechRecognitionCompilationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognitionCompilationResult,);
 impl SpeechRecognitionCompilationResult {
@@ -651,6 +648,9 @@ impl SpeechRecognitionCompilationResult {
         }
     }
 }
+impl windows_core::RuntimeType for SpeechRecognitionCompilationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionCompilationResult>();
+}
 unsafe impl windows_core::Interface for SpeechRecognitionCompilationResult {
     type Vtable = <ISpeechRecognitionCompilationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechRecognitionCompilationResult as windows_core::Interface>::IID;
@@ -661,9 +661,6 @@ impl windows_core::RuntimeName for SpeechRecognitionCompilationResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionGrammarFileConstraint(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechRecognitionGrammarFileConstraint {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionGrammarFileConstraint>();
-}
 windows_core::imp::interface_hierarchy!(SpeechRecognitionGrammarFileConstraint, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognitionGrammarFileConstraint, ISpeechRecognitionConstraint);
 impl SpeechRecognitionGrammarFileConstraint {
@@ -740,6 +737,9 @@ impl SpeechRecognitionGrammarFileConstraint {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SpeechRecognitionGrammarFileConstraint {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionGrammarFileConstraint>();
+}
 unsafe impl windows_core::Interface for SpeechRecognitionGrammarFileConstraint {
     type Vtable = <ISpeechRecognitionGrammarFileConstraint as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechRecognitionGrammarFileConstraint as windows_core::Interface>::IID;
@@ -750,9 +750,6 @@ impl windows_core::RuntimeName for SpeechRecognitionGrammarFileConstraint {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionHypothesis(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechRecognitionHypothesis {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionHypothesis>();
-}
 windows_core::imp::interface_hierarchy!(SpeechRecognitionHypothesis, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognitionHypothesis,);
 impl SpeechRecognitionHypothesis {
@@ -764,6 +761,9 @@ impl SpeechRecognitionHypothesis {
         }
     }
 }
+impl windows_core::RuntimeType for SpeechRecognitionHypothesis {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionHypothesis>();
+}
 unsafe impl windows_core::Interface for SpeechRecognitionHypothesis {
     type Vtable = <ISpeechRecognitionHypothesis as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechRecognitionHypothesis as windows_core::Interface>::IID;
@@ -774,9 +774,6 @@ impl windows_core::RuntimeName for SpeechRecognitionHypothesis {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionHypothesisGeneratedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechRecognitionHypothesisGeneratedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionHypothesisGeneratedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SpeechRecognitionHypothesisGeneratedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognitionHypothesisGeneratedEventArgs,);
 impl SpeechRecognitionHypothesisGeneratedEventArgs {
@@ -788,6 +785,9 @@ impl SpeechRecognitionHypothesisGeneratedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for SpeechRecognitionHypothesisGeneratedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionHypothesisGeneratedEventArgs>();
+}
 unsafe impl windows_core::Interface for SpeechRecognitionHypothesisGeneratedEventArgs {
     type Vtable = <ISpeechRecognitionHypothesisGeneratedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechRecognitionHypothesisGeneratedEventArgs as windows_core::Interface>::IID;
@@ -798,9 +798,6 @@ impl windows_core::RuntimeName for SpeechRecognitionHypothesisGeneratedEventArgs
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionListConstraint(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechRecognitionListConstraint {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionListConstraint>();
-}
 windows_core::imp::interface_hierarchy!(SpeechRecognitionListConstraint, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognitionListConstraint, ISpeechRecognitionConstraint);
 impl SpeechRecognitionListConstraint {
@@ -877,6 +874,9 @@ impl SpeechRecognitionListConstraint {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SpeechRecognitionListConstraint {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionListConstraint>();
+}
 unsafe impl windows_core::Interface for SpeechRecognitionListConstraint {
     type Vtable = <ISpeechRecognitionListConstraint as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechRecognitionListConstraint as windows_core::Interface>::IID;
@@ -887,9 +887,6 @@ impl windows_core::RuntimeName for SpeechRecognitionListConstraint {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionQualityDegradingEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechRecognitionQualityDegradingEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionQualityDegradingEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SpeechRecognitionQualityDegradingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognitionQualityDegradingEventArgs,);
 impl SpeechRecognitionQualityDegradingEventArgs {
@@ -901,6 +898,9 @@ impl SpeechRecognitionQualityDegradingEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for SpeechRecognitionQualityDegradingEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionQualityDegradingEventArgs>();
+}
 unsafe impl windows_core::Interface for SpeechRecognitionQualityDegradingEventArgs {
     type Vtable = <ISpeechRecognitionQualityDegradingEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechRecognitionQualityDegradingEventArgs as windows_core::Interface>::IID;
@@ -911,9 +911,6 @@ impl windows_core::RuntimeName for SpeechRecognitionQualityDegradingEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechRecognitionResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionResult>();
-}
 windows_core::imp::interface_hierarchy!(SpeechRecognitionResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognitionResult,);
 impl SpeechRecognitionResult {
@@ -990,6 +987,9 @@ impl SpeechRecognitionResult {
         }
     }
 }
+impl windows_core::RuntimeType for SpeechRecognitionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionResult>();
+}
 unsafe impl windows_core::Interface for SpeechRecognitionResult {
     type Vtable = <ISpeechRecognitionResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechRecognitionResult as windows_core::Interface>::IID;
@@ -1000,9 +1000,6 @@ impl windows_core::RuntimeName for SpeechRecognitionResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionSemanticInterpretation(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechRecognitionSemanticInterpretation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionSemanticInterpretation>();
-}
 windows_core::imp::interface_hierarchy!(SpeechRecognitionSemanticInterpretation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognitionSemanticInterpretation,);
 impl SpeechRecognitionSemanticInterpretation {
@@ -1015,6 +1012,9 @@ impl SpeechRecognitionSemanticInterpretation {
         }
     }
 }
+impl windows_core::RuntimeType for SpeechRecognitionSemanticInterpretation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionSemanticInterpretation>();
+}
 unsafe impl windows_core::Interface for SpeechRecognitionSemanticInterpretation {
     type Vtable = <ISpeechRecognitionSemanticInterpretation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechRecognitionSemanticInterpretation as windows_core::Interface>::IID;
@@ -1025,9 +1025,6 @@ impl windows_core::RuntimeName for SpeechRecognitionSemanticInterpretation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionTopicConstraint(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechRecognitionTopicConstraint {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionTopicConstraint>();
-}
 windows_core::imp::interface_hierarchy!(SpeechRecognitionTopicConstraint, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognitionTopicConstraint, ISpeechRecognitionConstraint);
 impl SpeechRecognitionTopicConstraint {
@@ -1102,6 +1099,9 @@ impl SpeechRecognitionTopicConstraint {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SpeechRecognitionTopicConstraint {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionTopicConstraint>();
+}
 unsafe impl windows_core::Interface for SpeechRecognitionTopicConstraint {
     type Vtable = <ISpeechRecognitionTopicConstraint as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechRecognitionTopicConstraint as windows_core::Interface>::IID;
@@ -1112,9 +1112,6 @@ impl windows_core::RuntimeName for SpeechRecognitionTopicConstraint {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognitionVoiceCommandDefinitionConstraint(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechRecognitionVoiceCommandDefinitionConstraint {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionVoiceCommandDefinitionConstraint>();
-}
 windows_core::imp::interface_hierarchy!(SpeechRecognitionVoiceCommandDefinitionConstraint, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognitionVoiceCommandDefinitionConstraint, ISpeechRecognitionConstraint);
 impl SpeechRecognitionVoiceCommandDefinitionConstraint {
@@ -1159,6 +1156,9 @@ impl SpeechRecognitionVoiceCommandDefinitionConstraint {
         unsafe { (windows_core::Interface::vtable(this).SetProbability)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for SpeechRecognitionVoiceCommandDefinitionConstraint {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognitionVoiceCommandDefinitionConstraint>();
+}
 unsafe impl windows_core::Interface for SpeechRecognitionVoiceCommandDefinitionConstraint {
     type Vtable = <ISpeechRecognitionVoiceCommandDefinitionConstraint as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechRecognitionVoiceCommandDefinitionConstraint as windows_core::Interface>::IID;
@@ -1169,9 +1169,6 @@ impl windows_core::RuntimeName for SpeechRecognitionVoiceCommandDefinitionConstr
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognizer(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechRecognizer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognizer>();
-}
 windows_core::imp::interface_hierarchy!(SpeechRecognizer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognizer, super::super::Foundation::IClosable);
 impl SpeechRecognizer {
@@ -1354,6 +1351,9 @@ impl SpeechRecognizer {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SpeechRecognizer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognizer>();
+}
 unsafe impl windows_core::Interface for SpeechRecognizer {
     type Vtable = <ISpeechRecognizer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechRecognizer as windows_core::Interface>::IID;
@@ -1364,9 +1364,6 @@ impl windows_core::RuntimeName for SpeechRecognizer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognizerStateChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechRecognizerStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognizerStateChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SpeechRecognizerStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognizerStateChangedEventArgs,);
 impl SpeechRecognizerStateChangedEventArgs {
@@ -1378,6 +1375,9 @@ impl SpeechRecognizerStateChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for SpeechRecognizerStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognizerStateChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for SpeechRecognizerStateChangedEventArgs {
     type Vtable = <ISpeechRecognizerStateChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechRecognizerStateChangedEventArgs as windows_core::Interface>::IID;
@@ -1388,9 +1388,6 @@ impl windows_core::RuntimeName for SpeechRecognizerStateChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognizerTimeouts(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechRecognizerTimeouts {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognizerTimeouts>();
-}
 windows_core::imp::interface_hierarchy!(SpeechRecognizerTimeouts, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognizerTimeouts,);
 impl SpeechRecognizerTimeouts {
@@ -1428,6 +1425,9 @@ impl SpeechRecognizerTimeouts {
         unsafe { (windows_core::Interface::vtable(this).SetBabbleTimeout)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for SpeechRecognizerTimeouts {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognizerTimeouts>();
+}
 unsafe impl windows_core::Interface for SpeechRecognizerTimeouts {
     type Vtable = <ISpeechRecognizerTimeouts as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechRecognizerTimeouts as windows_core::Interface>::IID;
@@ -1438,9 +1438,6 @@ impl windows_core::RuntimeName for SpeechRecognizerTimeouts {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpeechRecognizerUIOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpeechRecognizerUIOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognizerUIOptions>();
-}
 windows_core::imp::interface_hierarchy!(SpeechRecognizerUIOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpeechRecognizerUIOptions,);
 impl SpeechRecognizerUIOptions {
@@ -1489,6 +1486,9 @@ impl SpeechRecognizerUIOptions {
         unsafe { (windows_core::Interface::vtable(this).SetShowConfirmation)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for SpeechRecognizerUIOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpeechRecognizerUIOptions>();
+}
 unsafe impl windows_core::Interface for SpeechRecognizerUIOptions {
     type Vtable = <ISpeechRecognizerUIOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpeechRecognizerUIOptions as windows_core::Interface>::IID;
@@ -1526,9 +1526,6 @@ impl windows_core::RuntimeName for VoiceCommandManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VoiceCommandSet(windows_core::IUnknown);
-impl windows_core::RuntimeType for VoiceCommandSet {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoiceCommandSet>();
-}
 windows_core::imp::interface_hierarchy!(VoiceCommandSet, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VoiceCommandSet,);
 impl VoiceCommandSet {
@@ -1557,6 +1554,9 @@ impl VoiceCommandSet {
             (windows_core::Interface::vtable(this).SetPhraseListAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(phraselistname), phraselist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for VoiceCommandSet {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoiceCommandSet>();
 }
 unsafe impl windows_core::Interface for VoiceCommandSet {
     type Vtable = <IVoiceCommandSet as windows_core::Interface>::Vtable;

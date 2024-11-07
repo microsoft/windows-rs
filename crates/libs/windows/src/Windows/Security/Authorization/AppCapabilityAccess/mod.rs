@@ -57,9 +57,6 @@ pub struct IAppCapabilityStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppCapability(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppCapability {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppCapability>();
-}
 windows_core::imp::interface_hierarchy!(AppCapability, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppCapability,);
 impl AppCapability {
@@ -159,6 +156,9 @@ impl AppCapability {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AppCapability {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppCapability>();
+}
 unsafe impl windows_core::Interface for AppCapability {
     type Vtable = <IAppCapability as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppCapability as windows_core::Interface>::IID;
@@ -169,12 +169,12 @@ impl windows_core::RuntimeName for AppCapability {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AppCapabilityAccessChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AppCapabilityAccessChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppCapabilityAccessChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AppCapabilityAccessChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppCapabilityAccessChangedEventArgs,);
 impl AppCapabilityAccessChangedEventArgs {}
+impl windows_core::RuntimeType for AppCapabilityAccessChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAppCapabilityAccessChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for AppCapabilityAccessChangedEventArgs {
     type Vtable = <IAppCapabilityAccessChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAppCapabilityAccessChangedEventArgs as windows_core::Interface>::IID;

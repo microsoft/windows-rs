@@ -41,9 +41,6 @@ pub struct IContactRemovedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactPickerUI(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContactPickerUI {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPickerUI>();
-}
 windows_core::imp::interface_hierarchy!(ContactPickerUI, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactPickerUI,);
 impl ContactPickerUI {
@@ -116,6 +113,9 @@ impl ContactPickerUI {
         }
     }
 }
+impl windows_core::RuntimeType for ContactPickerUI {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactPickerUI>();
+}
 unsafe impl windows_core::Interface for ContactPickerUI {
     type Vtable = <IContactPickerUI as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContactPickerUI as windows_core::Interface>::IID;
@@ -126,9 +126,6 @@ impl windows_core::RuntimeName for ContactPickerUI {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContactRemovedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContactRemovedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactRemovedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ContactRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactRemovedEventArgs,);
 impl ContactRemovedEventArgs {
@@ -139,6 +136,9 @@ impl ContactRemovedEventArgs {
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for ContactRemovedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContactRemovedEventArgs>();
 }
 unsafe impl windows_core::Interface for ContactRemovedEventArgs {
     type Vtable = <IContactRemovedEventArgs as windows_core::Interface>::Vtable;

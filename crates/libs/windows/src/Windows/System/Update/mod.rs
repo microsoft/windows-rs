@@ -66,9 +66,6 @@ pub struct ISystemUpdateManagerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemUpdateItem(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemUpdateItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemUpdateItem>();
-}
 windows_core::imp::interface_hierarchy!(SystemUpdateItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemUpdateItem,);
 impl SystemUpdateItem {
@@ -129,6 +126,9 @@ impl SystemUpdateItem {
         }
     }
 }
+impl windows_core::RuntimeType for SystemUpdateItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemUpdateItem>();
+}
 unsafe impl windows_core::Interface for SystemUpdateItem {
     type Vtable = <ISystemUpdateItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISystemUpdateItem as windows_core::Interface>::IID;
@@ -139,9 +139,6 @@ impl windows_core::RuntimeName for SystemUpdateItem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SystemUpdateLastErrorInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for SystemUpdateLastErrorInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemUpdateLastErrorInfo>();
-}
 windows_core::imp::interface_hierarchy!(SystemUpdateLastErrorInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemUpdateLastErrorInfo,);
 impl SystemUpdateLastErrorInfo {
@@ -166,6 +163,9 @@ impl SystemUpdateLastErrorInfo {
             (windows_core::Interface::vtable(this).IsInteractive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for SystemUpdateLastErrorInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISystemUpdateLastErrorInfo>();
 }
 unsafe impl windows_core::Interface for SystemUpdateLastErrorInfo {
     type Vtable = <ISystemUpdateLastErrorInfo as windows_core::Interface>::Vtable;

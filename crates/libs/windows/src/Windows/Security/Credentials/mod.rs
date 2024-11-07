@@ -296,9 +296,6 @@ pub struct IWebAccountProviderFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyCredential(windows_core::IUnknown);
-impl windows_core::RuntimeType for KeyCredential {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyCredential>();
-}
 windows_core::imp::interface_hierarchy!(KeyCredential, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(KeyCredential,);
 impl KeyCredential {
@@ -344,6 +341,9 @@ impl KeyCredential {
         }
     }
 }
+impl windows_core::RuntimeType for KeyCredential {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyCredential>();
+}
 unsafe impl windows_core::Interface for KeyCredential {
     type Vtable = <IKeyCredential as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IKeyCredential as windows_core::Interface>::IID;
@@ -354,9 +354,6 @@ impl windows_core::RuntimeName for KeyCredential {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyCredentialAttestationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for KeyCredentialAttestationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyCredentialAttestationResult>();
-}
 windows_core::imp::interface_hierarchy!(KeyCredentialAttestationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(KeyCredentialAttestationResult,);
 impl KeyCredentialAttestationResult {
@@ -383,6 +380,9 @@ impl KeyCredentialAttestationResult {
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for KeyCredentialAttestationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyCredentialAttestationResult>();
 }
 unsafe impl windows_core::Interface for KeyCredentialAttestationResult {
     type Vtable = <IKeyCredentialAttestationResult as windows_core::Interface>::Vtable;
@@ -434,9 +434,6 @@ impl windows_core::RuntimeName for KeyCredentialManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyCredentialOperationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for KeyCredentialOperationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyCredentialOperationResult>();
-}
 windows_core::imp::interface_hierarchy!(KeyCredentialOperationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(KeyCredentialOperationResult,);
 impl KeyCredentialOperationResult {
@@ -456,6 +453,9 @@ impl KeyCredentialOperationResult {
         }
     }
 }
+impl windows_core::RuntimeType for KeyCredentialOperationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyCredentialOperationResult>();
+}
 unsafe impl windows_core::Interface for KeyCredentialOperationResult {
     type Vtable = <IKeyCredentialOperationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IKeyCredentialOperationResult as windows_core::Interface>::IID;
@@ -466,9 +466,6 @@ impl windows_core::RuntimeName for KeyCredentialOperationResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyCredentialRetrievalResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for KeyCredentialRetrievalResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyCredentialRetrievalResult>();
-}
 windows_core::imp::interface_hierarchy!(KeyCredentialRetrievalResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(KeyCredentialRetrievalResult,);
 impl KeyCredentialRetrievalResult {
@@ -487,6 +484,9 @@ impl KeyCredentialRetrievalResult {
         }
     }
 }
+impl windows_core::RuntimeType for KeyCredentialRetrievalResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyCredentialRetrievalResult>();
+}
 unsafe impl windows_core::Interface for KeyCredentialRetrievalResult {
     type Vtable = <IKeyCredentialRetrievalResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IKeyCredentialRetrievalResult as windows_core::Interface>::IID;
@@ -497,9 +497,6 @@ impl windows_core::RuntimeName for KeyCredentialRetrievalResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PasswordCredential(windows_core::IUnknown);
-impl windows_core::RuntimeType for PasswordCredential {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPasswordCredential>();
-}
 windows_core::imp::interface_hierarchy!(PasswordCredential, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PasswordCredential,);
 impl PasswordCredential {
@@ -566,6 +563,9 @@ impl PasswordCredential {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PasswordCredential {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPasswordCredential>();
+}
 unsafe impl windows_core::Interface for PasswordCredential {
     type Vtable = <IPasswordCredential as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPasswordCredential as windows_core::Interface>::IID;
@@ -577,10 +577,6 @@ impl windows_core::RuntimeName for PasswordCredential {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PasswordCredentialPropertyStore(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for PasswordCredentialPropertyStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IPropertySet>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(PasswordCredentialPropertyStore, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -666,6 +662,10 @@ impl PasswordCredentialPropertyStore {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for PasswordCredentialPropertyStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IPropertySet>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for PasswordCredentialPropertyStore {
     type Vtable = <super::super::Foundation::Collections::IPropertySet as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::Foundation::Collections::IPropertySet as windows_core::Interface>::IID;
@@ -677,9 +677,6 @@ impl windows_core::RuntimeName for PasswordCredentialPropertyStore {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PasswordVault(windows_core::IUnknown);
-impl windows_core::RuntimeType for PasswordVault {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPasswordVault>();
-}
 windows_core::imp::interface_hierarchy!(PasswordVault, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PasswordVault,);
 impl PasswordVault {
@@ -736,6 +733,9 @@ impl PasswordVault {
         }
     }
 }
+impl windows_core::RuntimeType for PasswordVault {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPasswordVault>();
+}
 unsafe impl windows_core::Interface for PasswordVault {
     type Vtable = <IPasswordVault as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPasswordVault as windows_core::Interface>::IID;
@@ -746,9 +746,6 @@ impl windows_core::RuntimeName for PasswordVault {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccount(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebAccount {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccount>();
-}
 windows_core::imp::interface_hierarchy!(WebAccount, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccount, IWebAccount);
 impl WebAccount {
@@ -824,6 +821,9 @@ impl WebAccount {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WebAccount {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccount>();
+}
 unsafe impl windows_core::Interface for WebAccount {
     type Vtable = <IWebAccount as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebAccount as windows_core::Interface>::IID;
@@ -834,9 +834,6 @@ impl windows_core::RuntimeName for WebAccount {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebAccountProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountProvider>();
-}
 windows_core::imp::interface_hierarchy!(WebAccountProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccountProvider,);
 impl WebAccountProvider {
@@ -903,6 +900,9 @@ impl WebAccountProvider {
         static SHARED: windows_core::imp::FactoryCache<WebAccountProvider, IWebAccountProviderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for WebAccountProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountProvider>();
 }
 unsafe impl windows_core::Interface for WebAccountProvider {
     type Vtable = <IWebAccountProvider as windows_core::Interface>::Vtable;

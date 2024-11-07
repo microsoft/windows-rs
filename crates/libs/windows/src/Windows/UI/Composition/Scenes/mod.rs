@@ -378,9 +378,6 @@ pub struct ISceneVisualStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneObject(windows_core::IUnknown);
-impl windows_core::RuntimeType for SceneObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneObject>();
-}
 windows_core::imp::interface_hierarchy!(SceneObject, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneObject, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl SceneObject {
@@ -493,6 +490,9 @@ impl SceneObject {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for SceneObject {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneObject>();
+}
 unsafe impl windows_core::Interface for SceneObject {
     type Vtable = <ISceneObject as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISceneObject as windows_core::Interface>::IID;
@@ -503,9 +503,6 @@ impl windows_core::RuntimeName for SceneObject {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneBoundingBox(windows_core::IUnknown);
-impl windows_core::RuntimeType for SceneBoundingBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneBoundingBox>();
-}
 windows_core::imp::interface_hierarchy!(SceneBoundingBox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneBoundingBox, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl SceneBoundingBox {
@@ -658,6 +655,9 @@ impl SceneBoundingBox {
         }
     }
 }
+impl windows_core::RuntimeType for SceneBoundingBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneBoundingBox>();
+}
 unsafe impl windows_core::Interface for SceneBoundingBox {
     type Vtable = <ISceneBoundingBox as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISceneBoundingBox as windows_core::Interface>::IID;
@@ -668,9 +668,6 @@ impl windows_core::RuntimeName for SceneBoundingBox {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneComponent(windows_core::IUnknown);
-impl windows_core::RuntimeType for SceneComponent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneComponent>();
-}
 windows_core::imp::interface_hierarchy!(SceneComponent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneComponent, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl SceneComponent {
@@ -790,6 +787,9 @@ impl SceneComponent {
         }
     }
 }
+impl windows_core::RuntimeType for SceneComponent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneComponent>();
+}
 unsafe impl windows_core::Interface for SceneComponent {
     type Vtable = <ISceneComponent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISceneComponent as windows_core::Interface>::IID;
@@ -801,10 +801,6 @@ impl windows_core::RuntimeName for SceneComponent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneComponentCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for SceneComponentCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IVector<SceneComponent>>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(SceneComponentCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -1005,6 +1001,10 @@ impl SceneComponentCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for SceneComponentCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IVector<SceneComponent>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for SceneComponentCollection {
     type Vtable = <super::super::super::Foundation::Collections::IVector<SceneComponent> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IVector<SceneComponent> as windows_core::Interface>::IID;
@@ -1016,9 +1016,6 @@ impl windows_core::RuntimeName for SceneComponentCollection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneMaterial(windows_core::IUnknown);
-impl windows_core::RuntimeType for SceneMaterial {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMaterial>();
-}
 windows_core::imp::interface_hierarchy!(SceneMaterial, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneMaterial, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl SceneMaterial {
@@ -1131,6 +1128,9 @@ impl SceneMaterial {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for SceneMaterial {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMaterial>();
+}
 unsafe impl windows_core::Interface for SceneMaterial {
     type Vtable = <ISceneMaterial as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISceneMaterial as windows_core::Interface>::IID;
@@ -1141,9 +1141,6 @@ impl windows_core::RuntimeName for SceneMaterial {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneMaterialInput(windows_core::IUnknown);
-impl windows_core::RuntimeType for SceneMaterialInput {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMaterialInput>();
-}
 windows_core::imp::interface_hierarchy!(SceneMaterialInput, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneMaterialInput, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl SceneMaterialInput {
@@ -1256,6 +1253,9 @@ impl SceneMaterialInput {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for SceneMaterialInput {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMaterialInput>();
+}
 unsafe impl windows_core::Interface for SceneMaterialInput {
     type Vtable = <ISceneMaterialInput as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISceneMaterialInput as windows_core::Interface>::IID;
@@ -1266,9 +1266,6 @@ impl windows_core::RuntimeName for SceneMaterialInput {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneMesh(windows_core::IUnknown);
-impl windows_core::RuntimeType for SceneMesh {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMesh>();
-}
 windows_core::imp::interface_hierarchy!(SceneMesh, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneMesh, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl SceneMesh {
@@ -1422,6 +1419,9 @@ impl SceneMesh {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SceneMesh {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMesh>();
+}
 unsafe impl windows_core::Interface for SceneMesh {
     type Vtable = <ISceneMesh as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISceneMesh as windows_core::Interface>::IID;
@@ -1433,10 +1433,6 @@ impl windows_core::RuntimeName for SceneMesh {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneMeshMaterialAttributeMap(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for SceneMeshMaterialAttributeMap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMeshMaterialAttributeMap>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(SceneMeshMaterialAttributeMap, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -1603,6 +1599,10 @@ impl SceneMeshMaterialAttributeMap {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for SceneMeshMaterialAttributeMap {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMeshMaterialAttributeMap>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for SceneMeshMaterialAttributeMap {
     type Vtable = <ISceneMeshMaterialAttributeMap as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISceneMeshMaterialAttributeMap as windows_core::Interface>::IID;
@@ -1614,9 +1614,6 @@ impl windows_core::RuntimeName for SceneMeshMaterialAttributeMap {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneRendererComponent(windows_core::IUnknown);
-impl windows_core::RuntimeType for SceneRendererComponent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneRendererComponent>();
-}
 windows_core::imp::interface_hierarchy!(SceneRendererComponent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneRendererComponent, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl SceneRendererComponent {
@@ -1736,6 +1733,9 @@ impl SceneRendererComponent {
         }
     }
 }
+impl windows_core::RuntimeType for SceneRendererComponent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneRendererComponent>();
+}
 unsafe impl windows_core::Interface for SceneRendererComponent {
     type Vtable = <ISceneRendererComponent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISceneRendererComponent as windows_core::Interface>::IID;
@@ -1746,9 +1746,6 @@ impl windows_core::RuntimeName for SceneRendererComponent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneMeshRendererComponent(windows_core::IUnknown);
-impl windows_core::RuntimeType for SceneMeshRendererComponent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMeshRendererComponent>();
-}
 windows_core::imp::interface_hierarchy!(SceneMeshRendererComponent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneMeshRendererComponent, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl SceneMeshRendererComponent {
@@ -1917,6 +1914,9 @@ impl SceneMeshRendererComponent {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SceneMeshRendererComponent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMeshRendererComponent>();
+}
 unsafe impl windows_core::Interface for SceneMeshRendererComponent {
     type Vtable = <ISceneMeshRendererComponent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISceneMeshRendererComponent as windows_core::Interface>::IID;
@@ -1927,9 +1927,6 @@ impl windows_core::RuntimeName for SceneMeshRendererComponent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScenePbrMaterial(windows_core::IUnknown);
-impl windows_core::RuntimeType for ScenePbrMaterial {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScenePbrMaterial>();
-}
 windows_core::imp::interface_hierarchy!(ScenePbrMaterial, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ScenePbrMaterial, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl ScenePbrMaterial {
@@ -2152,6 +2149,9 @@ impl ScenePbrMaterial {
         unsafe { (windows_core::Interface::vtable(this).SetOcclusionStrength)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for ScenePbrMaterial {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScenePbrMaterial>();
+}
 unsafe impl windows_core::Interface for ScenePbrMaterial {
     type Vtable = <IScenePbrMaterial as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IScenePbrMaterial as windows_core::Interface>::IID;
@@ -2162,9 +2162,6 @@ impl windows_core::RuntimeName for ScenePbrMaterial {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneMetallicRoughnessMaterial(windows_core::IUnknown);
-impl windows_core::RuntimeType for SceneMetallicRoughnessMaterial {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMetallicRoughnessMaterial>();
-}
 windows_core::imp::interface_hierarchy!(SceneMetallicRoughnessMaterial, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneMetallicRoughnessMaterial, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl SceneMetallicRoughnessMaterial {
@@ -2463,6 +2460,9 @@ impl SceneMetallicRoughnessMaterial {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SceneMetallicRoughnessMaterial {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneMetallicRoughnessMaterial>();
+}
 unsafe impl windows_core::Interface for SceneMetallicRoughnessMaterial {
     type Vtable = <ISceneMetallicRoughnessMaterial as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISceneMetallicRoughnessMaterial as windows_core::Interface>::IID;
@@ -2473,9 +2473,6 @@ impl windows_core::RuntimeName for SceneMetallicRoughnessMaterial {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneModelTransform(windows_core::IUnknown);
-impl windows_core::RuntimeType for SceneModelTransform {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneModelTransform>();
-}
 windows_core::imp::interface_hierarchy!(SceneModelTransform, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneModelTransform, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl SceneModelTransform {
@@ -2662,6 +2659,9 @@ impl SceneModelTransform {
         unsafe { (windows_core::Interface::vtable(this).SetTranslation)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for SceneModelTransform {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneModelTransform>();
+}
 unsafe impl windows_core::Interface for SceneModelTransform {
     type Vtable = <ISceneModelTransform as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISceneModelTransform as windows_core::Interface>::IID;
@@ -2672,9 +2672,6 @@ impl windows_core::RuntimeName for SceneModelTransform {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneNode(windows_core::IUnknown);
-impl windows_core::RuntimeType for SceneNode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneNode>();
-}
 windows_core::imp::interface_hierarchy!(SceneNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneNode, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl SceneNode {
@@ -2837,6 +2834,9 @@ impl SceneNode {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SceneNode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneNode>();
+}
 unsafe impl windows_core::Interface for SceneNode {
     type Vtable = <ISceneNode as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISceneNode as windows_core::Interface>::IID;
@@ -2848,10 +2848,6 @@ impl windows_core::RuntimeName for SceneNode {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneNodeCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for SceneNodeCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IVector<SceneNode>>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(SceneNodeCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -3052,6 +3048,10 @@ impl SceneNodeCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for SceneNodeCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IVector<SceneNode>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for SceneNodeCollection {
     type Vtable = <super::super::super::Foundation::Collections::IVector<SceneNode> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IVector<SceneNode> as windows_core::Interface>::IID;
@@ -3063,9 +3063,6 @@ impl windows_core::RuntimeName for SceneNodeCollection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneSurfaceMaterialInput(windows_core::IUnknown);
-impl windows_core::RuntimeType for SceneSurfaceMaterialInput {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneSurfaceMaterialInput>();
-}
 windows_core::imp::interface_hierarchy!(SceneSurfaceMaterialInput, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneSurfaceMaterialInput, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl SceneSurfaceMaterialInput {
@@ -3238,6 +3235,9 @@ impl SceneSurfaceMaterialInput {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SceneSurfaceMaterialInput {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneSurfaceMaterialInput>();
+}
 unsafe impl windows_core::Interface for SceneSurfaceMaterialInput {
     type Vtable = <ISceneSurfaceMaterialInput as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISceneSurfaceMaterialInput as windows_core::Interface>::IID;
@@ -3248,9 +3248,6 @@ impl windows_core::RuntimeName for SceneSurfaceMaterialInput {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneVisual(windows_core::IUnknown);
-impl windows_core::RuntimeType for SceneVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneVisual>();
-}
 windows_core::imp::interface_hierarchy!(SceneVisual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SceneVisual, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl SceneVisual {
@@ -3661,6 +3658,9 @@ impl SceneVisual {
         static SHARED: windows_core::imp::FactoryCache<SceneVisual, ISceneVisualStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for SceneVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneVisual>();
 }
 unsafe impl windows_core::Interface for SceneVisual {
     type Vtable = <ISceneVisual as windows_core::Interface>::Vtable;

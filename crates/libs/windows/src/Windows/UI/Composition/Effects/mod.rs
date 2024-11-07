@@ -37,10 +37,6 @@ pub struct ISceneLightingEffect2_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SceneLightingEffect(windows_core::IUnknown);
 #[cfg(feature = "Graphics_Effects")]
-impl windows_core::RuntimeType for SceneLightingEffect {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneLightingEffect>();
-}
-#[cfg(feature = "Graphics_Effects")]
 windows_core::imp::interface_hierarchy!(SceneLightingEffect, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Graphics_Effects")]
 windows_core::imp::required_hierarchy!(SceneLightingEffect, super::super::super::Graphics::Effects::IGraphicsEffect, super::super::super::Graphics::Effects::IGraphicsEffectSource);
@@ -133,6 +129,10 @@ impl SceneLightingEffect {
         let this = &windows_core::Interface::cast::<ISceneLightingEffect2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetReflectanceModel)(windows_core::Interface::as_raw(this), value).ok() }
     }
+}
+#[cfg(feature = "Graphics_Effects")]
+impl windows_core::RuntimeType for SceneLightingEffect {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISceneLightingEffect>();
 }
 #[cfg(feature = "Graphics_Effects")]
 unsafe impl windows_core::Interface for SceneLightingEffect {

@@ -323,9 +323,6 @@ pub struct IVisualElementsRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JumpList(windows_core::IUnknown);
-impl windows_core::RuntimeType for JumpList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJumpList>();
-}
 windows_core::imp::interface_hierarchy!(JumpList, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(JumpList,);
 impl JumpList {
@@ -372,6 +369,9 @@ impl JumpList {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for JumpList {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJumpList>();
+}
 unsafe impl windows_core::Interface for JumpList {
     type Vtable = <IJumpList as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IJumpList as windows_core::Interface>::IID;
@@ -382,9 +382,6 @@ impl windows_core::RuntimeName for JumpList {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JumpListItem(windows_core::IUnknown);
-impl windows_core::RuntimeType for JumpListItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJumpListItem>();
-}
 windows_core::imp::interface_hierarchy!(JumpListItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(JumpListItem,);
 impl JumpListItem {
@@ -473,6 +470,9 @@ impl JumpListItem {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for JumpListItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJumpListItem>();
+}
 unsafe impl windows_core::Interface for JumpListItem {
     type Vtable = <IJumpListItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IJumpListItem as windows_core::Interface>::IID;
@@ -483,9 +483,6 @@ impl windows_core::RuntimeName for JumpListItem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SecondaryTile(windows_core::IUnknown);
-impl windows_core::RuntimeType for SecondaryTile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISecondaryTile>();
-}
 windows_core::imp::interface_hierarchy!(SecondaryTile, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SecondaryTile,);
 impl SecondaryTile {
@@ -822,6 +819,9 @@ impl SecondaryTile {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SecondaryTile {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISecondaryTile>();
+}
 unsafe impl windows_core::Interface for SecondaryTile {
     type Vtable = <ISecondaryTile as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISecondaryTile as windows_core::Interface>::IID;
@@ -832,9 +832,6 @@ impl windows_core::RuntimeName for SecondaryTile {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SecondaryTileVisualElements(windows_core::IUnknown);
-impl windows_core::RuntimeType for SecondaryTileVisualElements {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISecondaryTileVisualElements>();
-}
 windows_core::imp::interface_hierarchy!(SecondaryTileVisualElements, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SecondaryTileVisualElements,);
 impl SecondaryTileVisualElements {
@@ -999,6 +996,9 @@ impl SecondaryTileVisualElements {
         }
     }
 }
+impl windows_core::RuntimeType for SecondaryTileVisualElements {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISecondaryTileVisualElements>();
+}
 unsafe impl windows_core::Interface for SecondaryTileVisualElements {
     type Vtable = <ISecondaryTileVisualElements as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISecondaryTileVisualElements as windows_core::Interface>::IID;
@@ -1009,9 +1009,6 @@ impl windows_core::RuntimeName for SecondaryTileVisualElements {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StartScreenManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for StartScreenManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStartScreenManager>();
-}
 windows_core::imp::interface_hierarchy!(StartScreenManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StartScreenManager,);
 impl StartScreenManager {
@@ -1091,6 +1088,9 @@ impl StartScreenManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for StartScreenManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStartScreenManager>();
+}
 unsafe impl windows_core::Interface for StartScreenManager {
     type Vtable = <IStartScreenManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStartScreenManager as windows_core::Interface>::IID;
@@ -1101,9 +1101,6 @@ impl windows_core::RuntimeName for StartScreenManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TileMixedRealityModel(windows_core::IUnknown);
-impl windows_core::RuntimeType for TileMixedRealityModel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITileMixedRealityModel>();
-}
 windows_core::imp::interface_hierarchy!(TileMixedRealityModel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TileMixedRealityModel,);
 impl TileMixedRealityModel {
@@ -1149,6 +1146,9 @@ impl TileMixedRealityModel {
         }
     }
 }
+impl windows_core::RuntimeType for TileMixedRealityModel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITileMixedRealityModel>();
+}
 unsafe impl windows_core::Interface for TileMixedRealityModel {
     type Vtable = <ITileMixedRealityModel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITileMixedRealityModel as windows_core::Interface>::IID;
@@ -1159,9 +1159,6 @@ impl windows_core::RuntimeName for TileMixedRealityModel {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualElementsRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for VisualElementsRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisualElementsRequest>();
-}
 windows_core::imp::interface_hierarchy!(VisualElementsRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VisualElementsRequest,);
 impl VisualElementsRequest {
@@ -1195,6 +1192,9 @@ impl VisualElementsRequest {
         }
     }
 }
+impl windows_core::RuntimeType for VisualElementsRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisualElementsRequest>();
+}
 unsafe impl windows_core::Interface for VisualElementsRequest {
     type Vtable = <IVisualElementsRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVisualElementsRequest as windows_core::Interface>::IID;
@@ -1205,9 +1205,6 @@ impl windows_core::RuntimeName for VisualElementsRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualElementsRequestDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for VisualElementsRequestDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisualElementsRequestDeferral>();
-}
 windows_core::imp::interface_hierarchy!(VisualElementsRequestDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VisualElementsRequestDeferral,);
 impl VisualElementsRequestDeferral {
@@ -1215,6 +1212,9 @@ impl VisualElementsRequestDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for VisualElementsRequestDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisualElementsRequestDeferral>();
 }
 unsafe impl windows_core::Interface for VisualElementsRequestDeferral {
     type Vtable = <IVisualElementsRequestDeferral as windows_core::Interface>::Vtable;
@@ -1226,9 +1226,6 @@ impl windows_core::RuntimeName for VisualElementsRequestDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualElementsRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for VisualElementsRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisualElementsRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(VisualElementsRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VisualElementsRequestedEventArgs,);
 impl VisualElementsRequestedEventArgs {
@@ -1239,6 +1236,9 @@ impl VisualElementsRequestedEventArgs {
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for VisualElementsRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisualElementsRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for VisualElementsRequestedEventArgs {
     type Vtable = <IVisualElementsRequestedEventArgs as windows_core::Interface>::Vtable;

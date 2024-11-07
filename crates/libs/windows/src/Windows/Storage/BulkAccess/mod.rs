@@ -309,10 +309,6 @@ impl IStorageItemInformation_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileInformation(windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
-impl windows_core::RuntimeType for FileInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageItemInformation>();
-}
-#[cfg(feature = "Storage_Streams")]
 windows_core::imp::interface_hierarchy!(FileInformation, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 windows_core::imp::required_hierarchy!(FileInformation, IStorageItemInformation, super::IStorageFile, super::IStorageFile2, super::IStorageFilePropertiesWithAvailability, super::IStorageItem, super::IStorageItem2, super::IStorageItemProperties, super::IStorageItemPropertiesWithProvider, super::Streams::IInputStreamReference, super::Streams::IRandomAccessStreamReference);
@@ -692,6 +688,10 @@ impl FileInformation {
     }
 }
 #[cfg(feature = "Storage_Streams")]
+impl windows_core::RuntimeType for FileInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageItemInformation>();
+}
+#[cfg(feature = "Storage_Streams")]
 unsafe impl windows_core::Interface for FileInformation {
     type Vtable = <IStorageItemInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageItemInformation as windows_core::Interface>::IID;
@@ -703,9 +703,6 @@ impl windows_core::RuntimeName for FileInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FileInformationFactory(windows_core::IUnknown);
-impl windows_core::RuntimeType for FileInformationFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileInformationFactory>();
-}
 windows_core::imp::interface_hierarchy!(FileInformationFactory, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileInformationFactory,);
 impl FileInformationFactory {
@@ -823,6 +820,9 @@ impl FileInformationFactory {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for FileInformationFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFileInformationFactory>();
+}
 unsafe impl windows_core::Interface for FileInformationFactory {
     type Vtable = <IFileInformationFactory as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFileInformationFactory as windows_core::Interface>::IID;
@@ -834,10 +834,6 @@ impl windows_core::RuntimeName for FileInformationFactory {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FolderInformation(windows_core::IUnknown);
-#[cfg(feature = "Storage_Search")]
-impl windows_core::RuntimeType for FolderInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageItemInformation>();
-}
 #[cfg(feature = "Storage_Search")]
 windows_core::imp::interface_hierarchy!(FolderInformation, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Storage_Search")]
@@ -1299,6 +1295,10 @@ impl FolderInformation {
             (windows_core::Interface::vtable(this).IsCommonFileQuerySupported)(windows_core::Interface::as_raw(this), query, &mut result__).map(|| result__)
         }
     }
+}
+#[cfg(feature = "Storage_Search")]
+impl windows_core::RuntimeType for FolderInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageItemInformation>();
 }
 #[cfg(feature = "Storage_Search")]
 unsafe impl windows_core::Interface for FolderInformation {

@@ -1037,9 +1037,6 @@ pub struct ISyndicationTextFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationAttribute(windows_core::IUnknown);
-impl windows_core::RuntimeType for SyndicationAttribute {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationAttribute>();
-}
 windows_core::imp::interface_hierarchy!(SyndicationAttribute, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationAttribute,);
 impl SyndicationAttribute {
@@ -1094,6 +1091,9 @@ impl SyndicationAttribute {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SyndicationAttribute {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationAttribute>();
+}
 unsafe impl windows_core::Interface for SyndicationAttribute {
     type Vtable = <ISyndicationAttribute as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISyndicationAttribute as windows_core::Interface>::IID;
@@ -1104,9 +1104,6 @@ impl windows_core::RuntimeName for SyndicationAttribute {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationCategory(windows_core::IUnknown);
-impl windows_core::RuntimeType for SyndicationCategory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationCategory>();
-}
 windows_core::imp::interface_hierarchy!(SyndicationCategory, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationCategory, ISyndicationNode);
 impl SyndicationCategory {
@@ -1249,6 +1246,9 @@ impl SyndicationCategory {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SyndicationCategory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationCategory>();
+}
 unsafe impl windows_core::Interface for SyndicationCategory {
     type Vtable = <ISyndicationCategory as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISyndicationCategory as windows_core::Interface>::IID;
@@ -1259,9 +1259,6 @@ impl windows_core::RuntimeName for SyndicationCategory {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationClient(windows_core::IUnknown);
-impl windows_core::RuntimeType for SyndicationClient {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationClient>();
-}
 windows_core::imp::interface_hierarchy!(SyndicationClient, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationClient, ISyndicationClient);
 impl SyndicationClient {
@@ -1366,6 +1363,9 @@ impl SyndicationClient {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SyndicationClient {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationClient>();
+}
 unsafe impl windows_core::Interface for SyndicationClient {
     type Vtable = <ISyndicationClient as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISyndicationClient as windows_core::Interface>::IID;
@@ -1376,9 +1376,6 @@ impl windows_core::RuntimeName for SyndicationClient {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationContent(windows_core::IUnknown);
-impl windows_core::RuntimeType for SyndicationContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationContent>();
-}
 windows_core::imp::interface_hierarchy!(SyndicationContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationContent, ISyndicationNode, ISyndicationText);
 impl SyndicationContent {
@@ -1543,6 +1540,9 @@ impl SyndicationContent {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SyndicationContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationContent>();
+}
 unsafe impl windows_core::Interface for SyndicationContent {
     type Vtable = <ISyndicationContent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISyndicationContent as windows_core::Interface>::IID;
@@ -1569,9 +1569,6 @@ impl windows_core::RuntimeName for SyndicationError {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationFeed(windows_core::IUnknown);
-impl windows_core::RuntimeType for SyndicationFeed {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationFeed>();
-}
 windows_core::imp::interface_hierarchy!(SyndicationFeed, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationFeed, ISyndicationNode);
 impl SyndicationFeed {
@@ -1871,6 +1868,9 @@ impl SyndicationFeed {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SyndicationFeed {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationFeed>();
+}
 unsafe impl windows_core::Interface for SyndicationFeed {
     type Vtable = <ISyndicationFeed as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISyndicationFeed as windows_core::Interface>::IID;
@@ -1881,9 +1881,6 @@ impl windows_core::RuntimeName for SyndicationFeed {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationGenerator(windows_core::IUnknown);
-impl windows_core::RuntimeType for SyndicationGenerator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationGenerator>();
-}
 windows_core::imp::interface_hierarchy!(SyndicationGenerator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationGenerator, ISyndicationNode);
 impl SyndicationGenerator {
@@ -2023,6 +2020,9 @@ impl SyndicationGenerator {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SyndicationGenerator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationGenerator>();
+}
 unsafe impl windows_core::Interface for SyndicationGenerator {
     type Vtable = <ISyndicationGenerator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISyndicationGenerator as windows_core::Interface>::IID;
@@ -2033,9 +2033,6 @@ impl windows_core::RuntimeName for SyndicationGenerator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationItem(windows_core::IUnknown);
-impl windows_core::RuntimeType for SyndicationItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationItem>();
-}
 windows_core::imp::interface_hierarchy!(SyndicationItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationItem, ISyndicationNode);
 impl SyndicationItem {
@@ -2332,6 +2329,9 @@ impl SyndicationItem {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SyndicationItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationItem>();
+}
 unsafe impl windows_core::Interface for SyndicationItem {
     type Vtable = <ISyndicationItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISyndicationItem as windows_core::Interface>::IID;
@@ -2342,9 +2342,6 @@ impl windows_core::RuntimeName for SyndicationItem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationLink(windows_core::IUnknown);
-impl windows_core::RuntimeType for SyndicationLink {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationLink>();
-}
 windows_core::imp::interface_hierarchy!(SyndicationLink, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationLink, ISyndicationNode);
 impl SyndicationLink {
@@ -2529,6 +2526,9 @@ impl SyndicationLink {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SyndicationLink {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationLink>();
+}
 unsafe impl windows_core::Interface for SyndicationLink {
     type Vtable = <ISyndicationLink as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISyndicationLink as windows_core::Interface>::IID;
@@ -2539,9 +2539,6 @@ impl windows_core::RuntimeName for SyndicationLink {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationNode(windows_core::IUnknown);
-impl windows_core::RuntimeType for SyndicationNode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationNode>();
-}
 windows_core::imp::interface_hierarchy!(SyndicationNode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationNode, ISyndicationNode);
 impl SyndicationNode {
@@ -2645,6 +2642,9 @@ impl SyndicationNode {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SyndicationNode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationNode>();
+}
 unsafe impl windows_core::Interface for SyndicationNode {
     type Vtable = <ISyndicationNode as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISyndicationNode as windows_core::Interface>::IID;
@@ -2655,9 +2655,6 @@ impl windows_core::RuntimeName for SyndicationNode {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationPerson(windows_core::IUnknown);
-impl windows_core::RuntimeType for SyndicationPerson {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationPerson>();
-}
 windows_core::imp::interface_hierarchy!(SyndicationPerson, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationPerson, ISyndicationNode);
 impl SyndicationPerson {
@@ -2806,6 +2803,9 @@ impl SyndicationPerson {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SyndicationPerson {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationPerson>();
+}
 unsafe impl windows_core::Interface for SyndicationPerson {
     type Vtable = <ISyndicationPerson as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISyndicationPerson as windows_core::Interface>::IID;
@@ -2816,9 +2816,6 @@ impl windows_core::RuntimeName for SyndicationPerson {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SyndicationText(windows_core::IUnknown);
-impl windows_core::RuntimeType for SyndicationText {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationText>();
-}
 windows_core::imp::interface_hierarchy!(SyndicationText, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SyndicationText, ISyndicationNode, ISyndicationText);
 impl SyndicationText {
@@ -2966,6 +2963,9 @@ impl SyndicationText {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SyndicationText {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISyndicationText>();
+}
 unsafe impl windows_core::Interface for SyndicationText {
     type Vtable = <ISyndicationText as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISyndicationText as windows_core::Interface>::IID;
@@ -3022,7 +3022,7 @@ impl windows_core::RuntimeType for SyndicationTextType {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Syndication.SyndicationTextType;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct RetrievalProgress {
     pub BytesRetrieved: u32,
     pub TotalBytesToRetrieve: u32,
@@ -3034,7 +3034,7 @@ impl windows_core::RuntimeType for RetrievalProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Web.Syndication.RetrievalProgress;u4;u4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct TransferProgress {
     pub BytesSent: u32,
     pub TotalBytesToSend: u32,

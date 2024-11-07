@@ -195,9 +195,6 @@ pub struct IHttpServerCustomValidationRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpBaseProtocolFilter(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpBaseProtocolFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpBaseProtocolFilter>();
-}
 windows_core::imp::interface_hierarchy!(HttpBaseProtocolFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpBaseProtocolFilter, super::super::super::Foundation::IClosable, IHttpFilter);
 impl HttpBaseProtocolFilter {
@@ -410,6 +407,9 @@ impl HttpBaseProtocolFilter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HttpBaseProtocolFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpBaseProtocolFilter>();
+}
 unsafe impl windows_core::Interface for HttpBaseProtocolFilter {
     type Vtable = <IHttpBaseProtocolFilter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpBaseProtocolFilter as windows_core::Interface>::IID;
@@ -420,9 +420,6 @@ impl windows_core::RuntimeName for HttpBaseProtocolFilter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpCacheControl(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpCacheControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpCacheControl>();
-}
 windows_core::imp::interface_hierarchy!(HttpCacheControl, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpCacheControl,);
 impl HttpCacheControl {
@@ -449,6 +446,9 @@ impl HttpCacheControl {
         unsafe { (windows_core::Interface::vtable(this).SetWriteBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for HttpCacheControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpCacheControl>();
+}
 unsafe impl windows_core::Interface for HttpCacheControl {
     type Vtable = <IHttpCacheControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHttpCacheControl as windows_core::Interface>::IID;
@@ -459,9 +459,6 @@ impl windows_core::RuntimeName for HttpCacheControl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HttpServerCustomValidationRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for HttpServerCustomValidationRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpServerCustomValidationRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(HttpServerCustomValidationRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HttpServerCustomValidationRequestedEventArgs,);
 impl HttpServerCustomValidationRequestedEventArgs {
@@ -515,6 +512,9 @@ impl HttpServerCustomValidationRequestedEventArgs {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for HttpServerCustomValidationRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHttpServerCustomValidationRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for HttpServerCustomValidationRequestedEventArgs {
     type Vtable = <IHttpServerCustomValidationRequestedEventArgs as windows_core::Interface>::Vtable;

@@ -284,9 +284,6 @@ pub struct IVariablePhotoSequenceController_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CameraIntrinsics(windows_core::IUnknown);
-impl windows_core::RuntimeType for CameraIntrinsics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICameraIntrinsics>();
-}
 windows_core::imp::interface_hierarchy!(CameraIntrinsics, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CameraIntrinsics,);
 impl CameraIntrinsics {
@@ -404,6 +401,9 @@ impl CameraIntrinsics {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CameraIntrinsics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICameraIntrinsics>();
+}
 unsafe impl windows_core::Interface for CameraIntrinsics {
     type Vtable = <ICameraIntrinsics as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICameraIntrinsics as windows_core::Interface>::IID;
@@ -414,9 +414,6 @@ impl windows_core::RuntimeName for CameraIntrinsics {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DepthCorrelatedCoordinateMapper(windows_core::IUnknown);
-impl windows_core::RuntimeType for DepthCorrelatedCoordinateMapper {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDepthCorrelatedCoordinateMapper>();
-}
 windows_core::imp::interface_hierarchy!(DepthCorrelatedCoordinateMapper, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DepthCorrelatedCoordinateMapper, super::super::super::Foundation::IClosable);
 impl DepthCorrelatedCoordinateMapper {
@@ -465,6 +462,9 @@ impl DepthCorrelatedCoordinateMapper {
         unsafe { (windows_core::Interface::vtable(this).MapPoints)(windows_core::Interface::as_raw(this), sourcepoints.len().try_into().unwrap(), sourcepoints.as_ptr(), targetcoordinatesystem.param().abi(), targetcameraintrinsics.param().abi(), results.len().try_into().unwrap(), results.as_mut_ptr()).ok() }
     }
 }
+impl windows_core::RuntimeType for DepthCorrelatedCoordinateMapper {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDepthCorrelatedCoordinateMapper>();
+}
 unsafe impl windows_core::Interface for DepthCorrelatedCoordinateMapper {
     type Vtable = <IDepthCorrelatedCoordinateMapper as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDepthCorrelatedCoordinateMapper as windows_core::Interface>::IID;
@@ -475,9 +475,6 @@ impl windows_core::RuntimeName for DepthCorrelatedCoordinateMapper {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameControlCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for FrameControlCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameControlCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(FrameControlCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FrameControlCapabilities,);
 impl FrameControlCapabilities {
@@ -524,6 +521,9 @@ impl FrameControlCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for FrameControlCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameControlCapabilities>();
+}
 unsafe impl windows_core::Interface for FrameControlCapabilities {
     type Vtable = <IFrameControlCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameControlCapabilities as windows_core::Interface>::IID;
@@ -534,9 +534,6 @@ impl windows_core::RuntimeName for FrameControlCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameController(windows_core::IUnknown);
-impl windows_core::RuntimeType for FrameController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameController>();
-}
 windows_core::imp::interface_hierarchy!(FrameController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FrameController,);
 impl FrameController {
@@ -597,6 +594,9 @@ impl FrameController {
         }
     }
 }
+impl windows_core::RuntimeType for FrameController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameController>();
+}
 unsafe impl windows_core::Interface for FrameController {
     type Vtable = <IFrameController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameController as windows_core::Interface>::IID;
@@ -607,9 +607,6 @@ impl windows_core::RuntimeName for FrameController {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameExposureCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for FrameExposureCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameExposureCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(FrameExposureCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FrameExposureCapabilities,);
 impl FrameExposureCapabilities {
@@ -642,6 +639,9 @@ impl FrameExposureCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for FrameExposureCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameExposureCapabilities>();
+}
 unsafe impl windows_core::Interface for FrameExposureCapabilities {
     type Vtable = <IFrameExposureCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameExposureCapabilities as windows_core::Interface>::IID;
@@ -652,9 +652,6 @@ impl windows_core::RuntimeName for FrameExposureCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameExposureCompensationCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for FrameExposureCompensationCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameExposureCompensationCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(FrameExposureCompensationCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FrameExposureCompensationCapabilities,);
 impl FrameExposureCompensationCapabilities {
@@ -687,6 +684,9 @@ impl FrameExposureCompensationCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for FrameExposureCompensationCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameExposureCompensationCapabilities>();
+}
 unsafe impl windows_core::Interface for FrameExposureCompensationCapabilities {
     type Vtable = <IFrameExposureCompensationCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameExposureCompensationCapabilities as windows_core::Interface>::IID;
@@ -697,9 +697,6 @@ impl windows_core::RuntimeName for FrameExposureCompensationCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameExposureCompensationControl(windows_core::IUnknown);
-impl windows_core::RuntimeType for FrameExposureCompensationControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameExposureCompensationControl>();
-}
 windows_core::imp::interface_hierarchy!(FrameExposureCompensationControl, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FrameExposureCompensationControl,);
 impl FrameExposureCompensationControl {
@@ -718,6 +715,9 @@ impl FrameExposureCompensationControl {
         unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for FrameExposureCompensationControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameExposureCompensationControl>();
+}
 unsafe impl windows_core::Interface for FrameExposureCompensationControl {
     type Vtable = <IFrameExposureCompensationControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameExposureCompensationControl as windows_core::Interface>::IID;
@@ -728,9 +728,6 @@ impl windows_core::RuntimeName for FrameExposureCompensationControl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameExposureControl(windows_core::IUnknown);
-impl windows_core::RuntimeType for FrameExposureControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameExposureControl>();
-}
 windows_core::imp::interface_hierarchy!(FrameExposureControl, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FrameExposureControl,);
 impl FrameExposureControl {
@@ -760,6 +757,9 @@ impl FrameExposureControl {
         unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for FrameExposureControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameExposureControl>();
+}
 unsafe impl windows_core::Interface for FrameExposureControl {
     type Vtable = <IFrameExposureControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameExposureControl as windows_core::Interface>::IID;
@@ -770,9 +770,6 @@ impl windows_core::RuntimeName for FrameExposureControl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameFlashCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for FrameFlashCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameFlashCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(FrameFlashCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FrameFlashCapabilities,);
 impl FrameFlashCapabilities {
@@ -798,6 +795,9 @@ impl FrameFlashCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for FrameFlashCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameFlashCapabilities>();
+}
 unsafe impl windows_core::Interface for FrameFlashCapabilities {
     type Vtable = <IFrameFlashCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameFlashCapabilities as windows_core::Interface>::IID;
@@ -808,9 +808,6 @@ impl windows_core::RuntimeName for FrameFlashCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameFlashControl(windows_core::IUnknown);
-impl windows_core::RuntimeType for FrameFlashControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameFlashControl>();
-}
 windows_core::imp::interface_hierarchy!(FrameFlashControl, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FrameFlashControl,);
 impl FrameFlashControl {
@@ -859,6 +856,9 @@ impl FrameFlashControl {
         unsafe { (windows_core::Interface::vtable(this).SetPowerPercent)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for FrameFlashControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameFlashControl>();
+}
 unsafe impl windows_core::Interface for FrameFlashControl {
     type Vtable = <IFrameFlashControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameFlashControl as windows_core::Interface>::IID;
@@ -869,9 +869,6 @@ impl windows_core::RuntimeName for FrameFlashControl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameFocusCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for FrameFocusCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameFocusCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(FrameFocusCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FrameFocusCapabilities,);
 impl FrameFocusCapabilities {
@@ -904,6 +901,9 @@ impl FrameFocusCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for FrameFocusCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameFocusCapabilities>();
+}
 unsafe impl windows_core::Interface for FrameFocusCapabilities {
     type Vtable = <IFrameFocusCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameFocusCapabilities as windows_core::Interface>::IID;
@@ -914,9 +914,6 @@ impl windows_core::RuntimeName for FrameFocusCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameFocusControl(windows_core::IUnknown);
-impl windows_core::RuntimeType for FrameFocusControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameFocusControl>();
-}
 windows_core::imp::interface_hierarchy!(FrameFocusControl, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FrameFocusControl,);
 impl FrameFocusControl {
@@ -935,6 +932,9 @@ impl FrameFocusControl {
         unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for FrameFocusControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameFocusControl>();
+}
 unsafe impl windows_core::Interface for FrameFocusControl {
     type Vtable = <IFrameFocusControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameFocusControl as windows_core::Interface>::IID;
@@ -945,9 +945,6 @@ impl windows_core::RuntimeName for FrameFocusControl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameIsoSpeedCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for FrameIsoSpeedCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameIsoSpeedCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(FrameIsoSpeedCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FrameIsoSpeedCapabilities,);
 impl FrameIsoSpeedCapabilities {
@@ -980,6 +977,9 @@ impl FrameIsoSpeedCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for FrameIsoSpeedCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameIsoSpeedCapabilities>();
+}
 unsafe impl windows_core::Interface for FrameIsoSpeedCapabilities {
     type Vtable = <IFrameIsoSpeedCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameIsoSpeedCapabilities as windows_core::Interface>::IID;
@@ -990,9 +990,6 @@ impl windows_core::RuntimeName for FrameIsoSpeedCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FrameIsoSpeedControl(windows_core::IUnknown);
-impl windows_core::RuntimeType for FrameIsoSpeedControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameIsoSpeedControl>();
-}
 windows_core::imp::interface_hierarchy!(FrameIsoSpeedControl, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FrameIsoSpeedControl,);
 impl FrameIsoSpeedControl {
@@ -1022,6 +1019,9 @@ impl FrameIsoSpeedControl {
         unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for FrameIsoSpeedControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFrameIsoSpeedControl>();
+}
 unsafe impl windows_core::Interface for FrameIsoSpeedControl {
     type Vtable = <IFrameIsoSpeedControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFrameIsoSpeedControl as windows_core::Interface>::IID;
@@ -1032,9 +1032,6 @@ impl windows_core::RuntimeName for FrameIsoSpeedControl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VariablePhotoSequenceController(windows_core::IUnknown);
-impl windows_core::RuntimeType for VariablePhotoSequenceController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVariablePhotoSequenceController>();
-}
 windows_core::imp::interface_hierarchy!(VariablePhotoSequenceController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VariablePhotoSequenceController,);
 impl VariablePhotoSequenceController {
@@ -1097,6 +1094,9 @@ impl VariablePhotoSequenceController {
             (windows_core::Interface::vtable(this).DesiredFrameControllers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for VariablePhotoSequenceController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVariablePhotoSequenceController>();
 }
 unsafe impl windows_core::Interface for VariablePhotoSequenceController {
     type Vtable = <IVariablePhotoSequenceController as windows_core::Interface>::Vtable;

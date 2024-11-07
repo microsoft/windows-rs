@@ -1004,9 +1004,6 @@ pub struct IValueAndLanguage_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContentIndexer(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContentIndexer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentIndexer>();
-}
 windows_core::imp::interface_hierarchy!(ContentIndexer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContentIndexer,);
 impl ContentIndexer {
@@ -1125,6 +1122,9 @@ impl ContentIndexer {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ContentIndexer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentIndexer>();
+}
 unsafe impl windows_core::Interface for ContentIndexer {
     type Vtable = <IContentIndexer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContentIndexer as windows_core::Interface>::IID;
@@ -1135,9 +1135,6 @@ impl windows_core::RuntimeName for ContentIndexer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContentIndexerQuery(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContentIndexerQuery {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentIndexerQuery>();
-}
 windows_core::imp::interface_hierarchy!(ContentIndexerQuery, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContentIndexerQuery,);
 impl ContentIndexerQuery {
@@ -1188,6 +1185,9 @@ impl ContentIndexerQuery {
         }
     }
 }
+impl windows_core::RuntimeType for ContentIndexerQuery {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentIndexerQuery>();
+}
 unsafe impl windows_core::Interface for ContentIndexerQuery {
     type Vtable = <IContentIndexerQuery as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContentIndexerQuery as windows_core::Interface>::IID;
@@ -1198,9 +1198,6 @@ impl windows_core::RuntimeName for ContentIndexerQuery {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IndexableContent(windows_core::IUnknown);
-impl windows_core::RuntimeType for IndexableContent {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIndexableContent>();
-}
 windows_core::imp::interface_hierarchy!(IndexableContent, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IndexableContent, IIndexableContent);
 impl IndexableContent {
@@ -1258,6 +1255,9 @@ impl IndexableContent {
         unsafe { (windows_core::Interface::vtable(this).SetStreamContentType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for IndexableContent {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIndexableContent>();
+}
 unsafe impl windows_core::Interface for IndexableContent {
     type Vtable = <IIndexableContent as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIndexableContent as windows_core::Interface>::IID;
@@ -1268,9 +1268,6 @@ impl windows_core::RuntimeName for IndexableContent {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct QueryOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for QueryOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IQueryOptions>();
-}
 windows_core::imp::interface_hierarchy!(QueryOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(QueryOptions,);
 impl QueryOptions {
@@ -1419,6 +1416,9 @@ impl QueryOptions {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for QueryOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IQueryOptions>();
+}
 unsafe impl windows_core::Interface for QueryOptions {
     type Vtable = <IQueryOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IQueryOptions as windows_core::Interface>::IID;
@@ -1430,10 +1430,6 @@ impl windows_core::RuntimeName for QueryOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SortEntryVector(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for SortEntryVector {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVector<SortEntry>>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(SortEntryVector, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -1514,6 +1510,10 @@ impl SortEntryVector {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for SortEntryVector {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVector<SortEntry>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for SortEntryVector {
     type Vtable = <super::super::Foundation::Collections::IVector<SortEntry> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::Foundation::Collections::IVector<SortEntry> as windows_core::Interface>::IID;
@@ -1525,9 +1525,6 @@ impl windows_core::RuntimeName for SortEntryVector {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageFileQueryResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageFileQueryResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageFileQueryResult>();
-}
 windows_core::imp::interface_hierarchy!(StorageFileQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageFileQueryResult, IStorageQueryResultBase);
 impl StorageFileQueryResult {
@@ -1625,6 +1622,9 @@ impl StorageFileQueryResult {
         unsafe { (windows_core::Interface::vtable(this).ApplyNewQueryOptions)(windows_core::Interface::as_raw(this), newqueryoptions.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for StorageFileQueryResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageFileQueryResult>();
+}
 unsafe impl windows_core::Interface for StorageFileQueryResult {
     type Vtable = <IStorageFileQueryResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageFileQueryResult as windows_core::Interface>::IID;
@@ -1635,9 +1635,6 @@ impl windows_core::RuntimeName for StorageFileQueryResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageFolderQueryResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageFolderQueryResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageFolderQueryResult>();
-}
 windows_core::imp::interface_hierarchy!(StorageFolderQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageFolderQueryResult, IStorageQueryResultBase);
 impl StorageFolderQueryResult {
@@ -1724,6 +1721,9 @@ impl StorageFolderQueryResult {
         unsafe { (windows_core::Interface::vtable(this).ApplyNewQueryOptions)(windows_core::Interface::as_raw(this), newqueryoptions.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for StorageFolderQueryResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageFolderQueryResult>();
+}
 unsafe impl windows_core::Interface for StorageFolderQueryResult {
     type Vtable = <IStorageFolderQueryResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageFolderQueryResult as windows_core::Interface>::IID;
@@ -1734,9 +1734,6 @@ impl windows_core::RuntimeName for StorageFolderQueryResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageItemQueryResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageItemQueryResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageItemQueryResult>();
-}
 windows_core::imp::interface_hierarchy!(StorageItemQueryResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageItemQueryResult, IStorageQueryResultBase);
 impl StorageItemQueryResult {
@@ -1823,6 +1820,9 @@ impl StorageItemQueryResult {
         unsafe { (windows_core::Interface::vtable(this).ApplyNewQueryOptions)(windows_core::Interface::as_raw(this), newqueryoptions.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for StorageItemQueryResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageItemQueryResult>();
+}
 unsafe impl windows_core::Interface for StorageItemQueryResult {
     type Vtable = <IStorageItemQueryResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageItemQueryResult as windows_core::Interface>::IID;
@@ -1833,9 +1833,6 @@ impl windows_core::RuntimeName for StorageItemQueryResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageLibraryChangeTrackerTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageLibraryChangeTrackerTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryChangeTrackerTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(StorageLibraryChangeTrackerTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageLibraryChangeTrackerTriggerDetails,);
 impl StorageLibraryChangeTrackerTriggerDetails {
@@ -1854,6 +1851,9 @@ impl StorageLibraryChangeTrackerTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for StorageLibraryChangeTrackerTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryChangeTrackerTriggerDetails>();
+}
 unsafe impl windows_core::Interface for StorageLibraryChangeTrackerTriggerDetails {
     type Vtable = <IStorageLibraryChangeTrackerTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageLibraryChangeTrackerTriggerDetails as windows_core::Interface>::IID;
@@ -1864,9 +1864,6 @@ impl windows_core::RuntimeName for StorageLibraryChangeTrackerTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StorageLibraryContentChangedTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for StorageLibraryContentChangedTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryContentChangedTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(StorageLibraryContentChangedTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StorageLibraryContentChangedTriggerDetails,);
 impl StorageLibraryContentChangedTriggerDetails {
@@ -1885,6 +1882,9 @@ impl StorageLibraryContentChangedTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for StorageLibraryContentChangedTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStorageLibraryContentChangedTriggerDetails>();
+}
 unsafe impl windows_core::Interface for StorageLibraryContentChangedTriggerDetails {
     type Vtable = <IStorageLibraryContentChangedTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStorageLibraryContentChangedTriggerDetails as windows_core::Interface>::IID;
@@ -1895,9 +1895,6 @@ impl windows_core::RuntimeName for StorageLibraryContentChangedTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ValueAndLanguage(windows_core::IUnknown);
-impl windows_core::RuntimeType for ValueAndLanguage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IValueAndLanguage>();
-}
 windows_core::imp::interface_hierarchy!(ValueAndLanguage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ValueAndLanguage,);
 impl ValueAndLanguage {
@@ -1933,6 +1930,9 @@ impl ValueAndLanguage {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
+}
+impl windows_core::RuntimeType for ValueAndLanguage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IValueAndLanguage>();
 }
 unsafe impl windows_core::Interface for ValueAndLanguage {
     type Vtable = <IValueAndLanguage as windows_core::Interface>::Vtable;

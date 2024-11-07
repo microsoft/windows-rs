@@ -188,9 +188,6 @@ pub struct IUICommandFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MessageDialog(windows_core::IUnknown);
-impl windows_core::RuntimeType for MessageDialog {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMessageDialog>();
-}
 windows_core::imp::interface_hierarchy!(MessageDialog, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MessageDialog,);
 impl MessageDialog {
@@ -281,6 +278,9 @@ impl MessageDialog {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MessageDialog {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMessageDialog>();
+}
 unsafe impl windows_core::Interface for MessageDialog {
     type Vtable = <IMessageDialog as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMessageDialog as windows_core::Interface>::IID;
@@ -291,9 +291,6 @@ impl windows_core::RuntimeName for MessageDialog {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PopupMenu(windows_core::IUnknown);
-impl windows_core::RuntimeType for PopupMenu {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPopupMenu>();
-}
 windows_core::imp::interface_hierarchy!(PopupMenu, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PopupMenu,);
 impl PopupMenu {
@@ -334,6 +331,9 @@ impl PopupMenu {
         }
     }
 }
+impl windows_core::RuntimeType for PopupMenu {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPopupMenu>();
+}
 unsafe impl windows_core::Interface for PopupMenu {
     type Vtable = <IPopupMenu as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPopupMenu as windows_core::Interface>::IID;
@@ -344,9 +344,6 @@ impl windows_core::RuntimeName for PopupMenu {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UICommand(windows_core::IUnknown);
-impl windows_core::RuntimeType for UICommand {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUICommand>();
-}
 windows_core::imp::interface_hierarchy!(UICommand, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UICommand, IUICommand);
 impl UICommand {
@@ -426,6 +423,9 @@ impl UICommand {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for UICommand {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUICommand>();
+}
 unsafe impl windows_core::Interface for UICommand {
     type Vtable = <IUICommand as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUICommand as windows_core::Interface>::IID;
@@ -436,9 +436,6 @@ impl windows_core::RuntimeName for UICommand {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UICommandSeparator(windows_core::IUnknown);
-impl windows_core::RuntimeType for UICommandSeparator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUICommand>();
-}
 windows_core::imp::interface_hierarchy!(UICommandSeparator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UICommandSeparator, IUICommand);
 impl UICommandSeparator {
@@ -488,6 +485,9 @@ impl UICommandSeparator {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetId)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
+}
+impl windows_core::RuntimeType for UICommandSeparator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUICommand>();
 }
 unsafe impl windows_core::Interface for UICommandSeparator {
     type Vtable = <IUICommand as windows_core::Interface>::Vtable;

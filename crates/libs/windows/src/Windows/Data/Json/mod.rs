@@ -307,10 +307,6 @@ pub struct IJsonValueStatics2_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JsonArray(windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for JsonArray {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJsonArray>();
-}
-#[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(JsonArray, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::required_hierarchy!(JsonArray, IJsonValue, super::super::Foundation::Collections::IIterable<IJsonValue>, super::super::Foundation::Collections::IVector<IJsonValue>, super::super::Foundation::IStringable);
@@ -518,6 +514,10 @@ impl JsonArray {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for JsonArray {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJsonArray>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for JsonArray {
     type Vtable = <IJsonArray as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IJsonArray as windows_core::Interface>::IID;
@@ -546,10 +546,6 @@ impl windows_core::RuntimeName for JsonError {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JsonObject(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for JsonObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJsonObject>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(JsonObject, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -795,6 +791,10 @@ impl JsonObject {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for JsonObject {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJsonObject>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for JsonObject {
     type Vtable = <IJsonObject as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IJsonObject as windows_core::Interface>::IID;
@@ -806,9 +806,6 @@ impl windows_core::RuntimeName for JsonObject {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct JsonValue(windows_core::IUnknown);
-impl windows_core::RuntimeType for JsonValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJsonValue>();
-}
 windows_core::imp::interface_hierarchy!(JsonValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(JsonValue, IJsonValue, super::super::Foundation::IStringable);
 impl JsonValue {
@@ -914,6 +911,9 @@ impl JsonValue {
         static SHARED: windows_core::imp::FactoryCache<JsonValue, IJsonValueStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for JsonValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IJsonValue>();
 }
 unsafe impl windows_core::Interface for JsonValue {
     type Vtable = <IJsonValue as windows_core::Interface>::Vtable;

@@ -74,9 +74,6 @@ pub struct IResourceLoaderStatics4_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceLoader(windows_core::IUnknown);
-impl windows_core::RuntimeType for ResourceLoader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IResourceLoader>();
-}
 windows_core::imp::interface_hierarchy!(ResourceLoader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ResourceLoader,);
 impl ResourceLoader {
@@ -179,6 +176,9 @@ impl ResourceLoader {
         static SHARED: windows_core::imp::FactoryCache<ResourceLoader, IResourceLoaderStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for ResourceLoader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IResourceLoader>();
 }
 unsafe impl windows_core::Interface for ResourceLoader {
     type Vtable = <IResourceLoader as windows_core::Interface>::Vtable;

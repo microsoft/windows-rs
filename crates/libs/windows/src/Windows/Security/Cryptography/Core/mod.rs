@@ -667,9 +667,6 @@ impl windows_core::RuntimeName for AsymmetricAlgorithmNames {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AsymmetricKeyAlgorithmProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for AsymmetricKeyAlgorithmProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAsymmetricKeyAlgorithmProvider>();
-}
 windows_core::imp::interface_hierarchy!(AsymmetricKeyAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AsymmetricKeyAlgorithmProvider,);
 impl AsymmetricKeyAlgorithmProvider {
@@ -755,6 +752,9 @@ impl AsymmetricKeyAlgorithmProvider {
         static SHARED: windows_core::imp::FactoryCache<AsymmetricKeyAlgorithmProvider, IAsymmetricKeyAlgorithmProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for AsymmetricKeyAlgorithmProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAsymmetricKeyAlgorithmProvider>();
 }
 unsafe impl windows_core::Interface for AsymmetricKeyAlgorithmProvider {
     type Vtable = <IAsymmetricKeyAlgorithmProvider as windows_core::Interface>::Vtable;
@@ -922,9 +922,6 @@ impl windows_core::RuntimeName for CryptographicEngine {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CryptographicHash(windows_core::IUnknown);
-impl windows_core::RuntimeType for CryptographicHash {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHashComputation>();
-}
 windows_core::imp::interface_hierarchy!(CryptographicHash, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CryptographicHash,);
 impl CryptographicHash {
@@ -945,6 +942,9 @@ impl CryptographicHash {
         }
     }
 }
+impl windows_core::RuntimeType for CryptographicHash {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHashComputation>();
+}
 unsafe impl windows_core::Interface for CryptographicHash {
     type Vtable = <IHashComputation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHashComputation as windows_core::Interface>::IID;
@@ -955,9 +955,6 @@ impl windows_core::RuntimeName for CryptographicHash {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CryptographicKey(windows_core::IUnknown);
-impl windows_core::RuntimeType for CryptographicKey {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICryptographicKey>();
-}
 windows_core::imp::interface_hierarchy!(CryptographicKey, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CryptographicKey,);
 impl CryptographicKey {
@@ -1000,6 +997,9 @@ impl CryptographicKey {
             (windows_core::Interface::vtable(this).ExportPublicKeyWithBlobType)(windows_core::Interface::as_raw(this), blobtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for CryptographicKey {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICryptographicKey>();
 }
 unsafe impl windows_core::Interface for CryptographicKey {
     type Vtable = <ICryptographicKey as windows_core::Interface>::Vtable;
@@ -1298,9 +1298,6 @@ impl windows_core::RuntimeName for EccCurveNames {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EncryptedAndAuthenticatedData(windows_core::IUnknown);
-impl windows_core::RuntimeType for EncryptedAndAuthenticatedData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEncryptedAndAuthenticatedData>();
-}
 windows_core::imp::interface_hierarchy!(EncryptedAndAuthenticatedData, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EncryptedAndAuthenticatedData,);
 impl EncryptedAndAuthenticatedData {
@@ -1320,6 +1317,9 @@ impl EncryptedAndAuthenticatedData {
             (windows_core::Interface::vtable(this).AuthenticationTag)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for EncryptedAndAuthenticatedData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEncryptedAndAuthenticatedData>();
 }
 unsafe impl windows_core::Interface for EncryptedAndAuthenticatedData {
     type Vtable = <IEncryptedAndAuthenticatedData as windows_core::Interface>::Vtable;
@@ -1371,9 +1371,6 @@ impl windows_core::RuntimeName for HashAlgorithmNames {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HashAlgorithmProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for HashAlgorithmProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHashAlgorithmProvider>();
-}
 windows_core::imp::interface_hierarchy!(HashAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HashAlgorithmProvider,);
 impl HashAlgorithmProvider {
@@ -1419,6 +1416,9 @@ impl HashAlgorithmProvider {
         static SHARED: windows_core::imp::FactoryCache<HashAlgorithmProvider, IHashAlgorithmProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for HashAlgorithmProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHashAlgorithmProvider>();
 }
 unsafe impl windows_core::Interface for HashAlgorithmProvider {
     type Vtable = <IHashAlgorithmProvider as windows_core::Interface>::Vtable;
@@ -1564,9 +1564,6 @@ impl windows_core::RuntimeName for KeyDerivationAlgorithmNames {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyDerivationAlgorithmProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for KeyDerivationAlgorithmProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyDerivationAlgorithmProvider>();
-}
 windows_core::imp::interface_hierarchy!(KeyDerivationAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(KeyDerivationAlgorithmProvider,);
 impl KeyDerivationAlgorithmProvider {
@@ -1599,6 +1596,9 @@ impl KeyDerivationAlgorithmProvider {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for KeyDerivationAlgorithmProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyDerivationAlgorithmProvider>();
+}
 unsafe impl windows_core::Interface for KeyDerivationAlgorithmProvider {
     type Vtable = <IKeyDerivationAlgorithmProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IKeyDerivationAlgorithmProvider as windows_core::Interface>::IID;
@@ -1609,9 +1609,6 @@ impl windows_core::RuntimeName for KeyDerivationAlgorithmProvider {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyDerivationParameters(windows_core::IUnknown);
-impl windows_core::RuntimeType for KeyDerivationParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyDerivationParameters>();
-}
 windows_core::imp::interface_hierarchy!(KeyDerivationParameters, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(KeyDerivationParameters,);
 impl KeyDerivationParameters {
@@ -1699,6 +1696,9 @@ impl KeyDerivationParameters {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for KeyDerivationParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyDerivationParameters>();
+}
 unsafe impl windows_core::Interface for KeyDerivationParameters {
     type Vtable = <IKeyDerivationParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IKeyDerivationParameters as windows_core::Interface>::IID;
@@ -1755,9 +1755,6 @@ impl windows_core::RuntimeName for MacAlgorithmNames {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MacAlgorithmProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for MacAlgorithmProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMacAlgorithmProvider>();
-}
 windows_core::imp::interface_hierarchy!(MacAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MacAlgorithmProvider,);
 impl MacAlgorithmProvider {
@@ -1807,6 +1804,9 @@ impl MacAlgorithmProvider {
         static SHARED: windows_core::imp::FactoryCache<MacAlgorithmProvider, IMacAlgorithmProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for MacAlgorithmProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMacAlgorithmProvider>();
 }
 unsafe impl windows_core::Interface for MacAlgorithmProvider {
     type Vtable = <IMacAlgorithmProvider as windows_core::Interface>::Vtable;
@@ -1972,9 +1972,6 @@ impl windows_core::RuntimeName for SymmetricAlgorithmNames {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SymmetricKeyAlgorithmProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for SymmetricKeyAlgorithmProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISymmetricKeyAlgorithmProvider>();
-}
 windows_core::imp::interface_hierarchy!(SymmetricKeyAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SymmetricKeyAlgorithmProvider,);
 impl SymmetricKeyAlgorithmProvider {
@@ -2013,6 +2010,9 @@ impl SymmetricKeyAlgorithmProvider {
         static SHARED: windows_core::imp::FactoryCache<SymmetricKeyAlgorithmProvider, ISymmetricKeyAlgorithmProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for SymmetricKeyAlgorithmProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISymmetricKeyAlgorithmProvider>();
 }
 unsafe impl windows_core::Interface for SymmetricKeyAlgorithmProvider {
     type Vtable = <ISymmetricKeyAlgorithmProvider as windows_core::Interface>::Vtable;

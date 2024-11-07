@@ -72,9 +72,6 @@ pub struct IUserDataStorageItemProtectionInfo_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataAvailabilityStateChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataAvailabilityStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAvailabilityStateChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(UserDataAvailabilityStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAvailabilityStateChangedEventArgs,);
 impl UserDataAvailabilityStateChangedEventArgs {
@@ -86,6 +83,9 @@ impl UserDataAvailabilityStateChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataAvailabilityStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataAvailabilityStateChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for UserDataAvailabilityStateChangedEventArgs {
     type Vtable = <IUserDataAvailabilityStateChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataAvailabilityStateChangedEventArgs as windows_core::Interface>::IID;
@@ -96,9 +96,6 @@ impl windows_core::RuntimeName for UserDataAvailabilityStateChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataBufferUnprotectResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataBufferUnprotectResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataBufferUnprotectResult>();
-}
 windows_core::imp::interface_hierarchy!(UserDataBufferUnprotectResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataBufferUnprotectResult,);
 impl UserDataBufferUnprotectResult {
@@ -118,6 +115,9 @@ impl UserDataBufferUnprotectResult {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataBufferUnprotectResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataBufferUnprotectResult>();
+}
 unsafe impl windows_core::Interface for UserDataBufferUnprotectResult {
     type Vtable = <IUserDataBufferUnprotectResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataBufferUnprotectResult as windows_core::Interface>::IID;
@@ -128,9 +128,6 @@ impl windows_core::RuntimeName for UserDataBufferUnprotectResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataProtectionManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataProtectionManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataProtectionManager>();
-}
 windows_core::imp::interface_hierarchy!(UserDataProtectionManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataProtectionManager,);
 impl UserDataProtectionManager {
@@ -220,6 +217,9 @@ impl UserDataProtectionManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for UserDataProtectionManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataProtectionManager>();
+}
 unsafe impl windows_core::Interface for UserDataProtectionManager {
     type Vtable = <IUserDataProtectionManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataProtectionManager as windows_core::Interface>::IID;
@@ -230,9 +230,6 @@ impl windows_core::RuntimeName for UserDataProtectionManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataStorageItemProtectionInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataStorageItemProtectionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataStorageItemProtectionInfo>();
-}
 windows_core::imp::interface_hierarchy!(UserDataStorageItemProtectionInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataStorageItemProtectionInfo,);
 impl UserDataStorageItemProtectionInfo {
@@ -243,6 +240,9 @@ impl UserDataStorageItemProtectionInfo {
             (windows_core::Interface::vtable(this).Availability)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for UserDataStorageItemProtectionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataStorageItemProtectionInfo>();
 }
 unsafe impl windows_core::Interface for UserDataStorageItemProtectionInfo {
     type Vtable = <IUserDataStorageItemProtectionInfo as windows_core::Interface>::Vtable;

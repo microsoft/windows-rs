@@ -271,9 +271,6 @@ pub struct IWebTokenResponseFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FindAllAccountsResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for FindAllAccountsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFindAllAccountsResult>();
-}
 windows_core::imp::interface_hierarchy!(FindAllAccountsResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FindAllAccountsResult,);
 impl FindAllAccountsResult {
@@ -300,6 +297,9 @@ impl FindAllAccountsResult {
         }
     }
 }
+impl windows_core::RuntimeType for FindAllAccountsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFindAllAccountsResult>();
+}
 unsafe impl windows_core::Interface for FindAllAccountsResult {
     type Vtable = <IFindAllAccountsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFindAllAccountsResult as windows_core::Interface>::IID;
@@ -310,9 +310,6 @@ impl windows_core::RuntimeName for FindAllAccountsResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebAccountEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebAccountEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccountEventArgs,);
 impl WebAccountEventArgs {
@@ -325,6 +322,9 @@ impl WebAccountEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WebAccountEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountEventArgs>();
+}
 unsafe impl windows_core::Interface for WebAccountEventArgs {
     type Vtable = <IWebAccountEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebAccountEventArgs as windows_core::Interface>::IID;
@@ -335,9 +335,6 @@ impl windows_core::RuntimeName for WebAccountEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebAccountMonitor(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebAccountMonitor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountMonitor>();
-}
 windows_core::imp::interface_hierarchy!(WebAccountMonitor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebAccountMonitor,);
 impl WebAccountMonitor {
@@ -397,6 +394,9 @@ impl WebAccountMonitor {
         let this = &windows_core::Interface::cast::<IWebAccountMonitor2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAccountPictureUpdated)(windows_core::Interface::as_raw(this), token).ok() }
     }
+}
+impl windows_core::RuntimeType for WebAccountMonitor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebAccountMonitor>();
 }
 unsafe impl windows_core::Interface for WebAccountMonitor {
     type Vtable = <IWebAccountMonitor as windows_core::Interface>::Vtable;
@@ -558,9 +558,6 @@ impl windows_core::RuntimeName for WebAuthenticationCoreManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebProviderError(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebProviderError {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebProviderError>();
-}
 windows_core::imp::interface_hierarchy!(WebProviderError, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebProviderError,);
 impl WebProviderError {
@@ -597,6 +594,9 @@ impl WebProviderError {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WebProviderError {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebProviderError>();
+}
 unsafe impl windows_core::Interface for WebProviderError {
     type Vtable = <IWebProviderError as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebProviderError as windows_core::Interface>::IID;
@@ -607,9 +607,6 @@ impl windows_core::RuntimeName for WebProviderError {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebTokenRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebTokenRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebTokenRequest>();
-}
 windows_core::imp::interface_hierarchy!(WebTokenRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebTokenRequest,);
 impl WebTokenRequest {
@@ -714,6 +711,9 @@ impl WebTokenRequest {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WebTokenRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebTokenRequest>();
+}
 unsafe impl windows_core::Interface for WebTokenRequest {
     type Vtable = <IWebTokenRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebTokenRequest as windows_core::Interface>::IID;
@@ -724,9 +724,6 @@ impl windows_core::RuntimeName for WebTokenRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebTokenRequestResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebTokenRequestResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebTokenRequestResult>();
-}
 windows_core::imp::interface_hierarchy!(WebTokenRequestResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebTokenRequestResult,);
 impl WebTokenRequestResult {
@@ -760,6 +757,9 @@ impl WebTokenRequestResult {
         }
     }
 }
+impl windows_core::RuntimeType for WebTokenRequestResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebTokenRequestResult>();
+}
 unsafe impl windows_core::Interface for WebTokenRequestResult {
     type Vtable = <IWebTokenRequestResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebTokenRequestResult as windows_core::Interface>::IID;
@@ -770,9 +770,6 @@ impl windows_core::RuntimeName for WebTokenRequestResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebTokenResponse(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebTokenResponse {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebTokenResponse>();
-}
 windows_core::imp::interface_hierarchy!(WebTokenResponse, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebTokenResponse,);
 impl WebTokenResponse {
@@ -844,6 +841,9 @@ impl WebTokenResponse {
         static SHARED: windows_core::imp::FactoryCache<WebTokenResponse, IWebTokenResponseFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for WebTokenResponse {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebTokenResponse>();
 }
 unsafe impl windows_core::Interface for WebTokenResponse {
     type Vtable = <IWebTokenResponse as windows_core::Interface>::Vtable;

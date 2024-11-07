@@ -231,9 +231,6 @@ pub struct ICoreDropOperationTargetRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreDragDropManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreDragDropManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDragDropManager>();
-}
 windows_core::imp::interface_hierarchy!(CoreDragDropManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreDragDropManager,);
 impl CoreDragDropManager {
@@ -273,6 +270,9 @@ impl CoreDragDropManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CoreDragDropManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDragDropManager>();
+}
 unsafe impl windows_core::Interface for CoreDragDropManager {
     type Vtable = <ICoreDragDropManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreDragDropManager as windows_core::Interface>::IID;
@@ -283,9 +283,6 @@ impl windows_core::RuntimeName for CoreDragDropManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreDragInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreDragInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDragInfo>();
-}
 windows_core::imp::interface_hierarchy!(CoreDragInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreDragInfo,);
 impl CoreDragInfo {
@@ -318,6 +315,9 @@ impl CoreDragInfo {
         }
     }
 }
+impl windows_core::RuntimeType for CoreDragInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDragInfo>();
+}
 unsafe impl windows_core::Interface for CoreDragInfo {
     type Vtable = <ICoreDragInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreDragInfo as windows_core::Interface>::IID;
@@ -328,9 +328,6 @@ impl windows_core::RuntimeName for CoreDragInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreDragOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreDragOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDragOperation>();
-}
 windows_core::imp::interface_hierarchy!(CoreDragOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreDragOperation,);
 impl CoreDragOperation {
@@ -398,6 +395,9 @@ impl CoreDragOperation {
         unsafe { (windows_core::Interface::vtable(this).SetAllowedOperations)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CoreDragOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDragOperation>();
+}
 unsafe impl windows_core::Interface for CoreDragOperation {
     type Vtable = <ICoreDragOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreDragOperation as windows_core::Interface>::IID;
@@ -408,9 +408,6 @@ impl windows_core::RuntimeName for CoreDragOperation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreDragUIOverride(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreDragUIOverride {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDragUIOverride>();
-}
 windows_core::imp::interface_hierarchy!(CoreDragUIOverride, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreDragUIOverride,);
 impl CoreDragUIOverride {
@@ -479,6 +476,9 @@ impl CoreDragUIOverride {
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for CoreDragUIOverride {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDragUIOverride>();
+}
 unsafe impl windows_core::Interface for CoreDragUIOverride {
     type Vtable = <ICoreDragUIOverride as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICoreDragUIOverride as windows_core::Interface>::IID;
@@ -489,9 +489,6 @@ impl windows_core::RuntimeName for CoreDragUIOverride {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CoreDropOperationTargetRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CoreDropOperationTargetRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDropOperationTargetRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CoreDropOperationTargetRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CoreDropOperationTargetRequestedEventArgs,);
 impl CoreDropOperationTargetRequestedEventArgs {
@@ -502,6 +499,9 @@ impl CoreDropOperationTargetRequestedEventArgs {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTarget)(windows_core::Interface::as_raw(this), target.param().abi()).ok() }
     }
+}
+impl windows_core::RuntimeType for CoreDropOperationTargetRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICoreDropOperationTargetRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for CoreDropOperationTargetRequestedEventArgs {
     type Vtable = <ICoreDropOperationTargetRequestedEventArgs as windows_core::Interface>::Vtable;

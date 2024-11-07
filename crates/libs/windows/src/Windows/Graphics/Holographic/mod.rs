@@ -578,9 +578,6 @@ pub struct IHolographicViewConfiguration2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicCamera(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicCamera {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicCamera>();
-}
 windows_core::imp::interface_hierarchy!(HolographicCamera, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicCamera,);
 impl HolographicCamera {
@@ -704,6 +701,9 @@ impl HolographicCamera {
         }
     }
 }
+impl windows_core::RuntimeType for HolographicCamera {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicCamera>();
+}
 unsafe impl windows_core::Interface for HolographicCamera {
     type Vtable = <IHolographicCamera as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicCamera as windows_core::Interface>::IID;
@@ -714,9 +714,6 @@ impl windows_core::RuntimeName for HolographicCamera {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicCameraPose(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicCameraPose {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicCameraPose>();
-}
 windows_core::imp::interface_hierarchy!(HolographicCameraPose, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicCameraPose,);
 impl HolographicCameraPose {
@@ -807,6 +804,9 @@ impl HolographicCameraPose {
         unsafe { (windows_core::Interface::vtable(this).OverrideViewport)(windows_core::Interface::as_raw(this), leftviewport, rightviewport).ok() }
     }
 }
+impl windows_core::RuntimeType for HolographicCameraPose {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicCameraPose>();
+}
 unsafe impl windows_core::Interface for HolographicCameraPose {
     type Vtable = <IHolographicCameraPose as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicCameraPose as windows_core::Interface>::IID;
@@ -817,9 +817,6 @@ impl windows_core::RuntimeName for HolographicCameraPose {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicCameraRenderingParameters(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicCameraRenderingParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicCameraRenderingParameters>();
-}
 windows_core::imp::interface_hierarchy!(HolographicCameraRenderingParameters, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicCameraRenderingParameters,);
 impl HolographicCameraRenderingParameters {
@@ -905,6 +902,9 @@ impl HolographicCameraRenderingParameters {
         unsafe { (windows_core::Interface::vtable(this).SetDepthReprojectionMethod)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for HolographicCameraRenderingParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicCameraRenderingParameters>();
+}
 unsafe impl windows_core::Interface for HolographicCameraRenderingParameters {
     type Vtable = <IHolographicCameraRenderingParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicCameraRenderingParameters as windows_core::Interface>::IID;
@@ -915,9 +915,6 @@ impl windows_core::RuntimeName for HolographicCameraRenderingParameters {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicCameraViewportParameters(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicCameraViewportParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicCameraViewportParameters>();
-}
 windows_core::imp::interface_hierarchy!(HolographicCameraViewportParameters, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicCameraViewportParameters,);
 impl HolographicCameraViewportParameters {
@@ -938,6 +935,9 @@ impl HolographicCameraViewportParameters {
         }
     }
 }
+impl windows_core::RuntimeType for HolographicCameraViewportParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicCameraViewportParameters>();
+}
 unsafe impl windows_core::Interface for HolographicCameraViewportParameters {
     type Vtable = <IHolographicCameraViewportParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicCameraViewportParameters as windows_core::Interface>::IID;
@@ -948,9 +948,6 @@ impl windows_core::RuntimeName for HolographicCameraViewportParameters {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicDisplay(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicDisplay {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicDisplay>();
-}
 windows_core::imp::interface_hierarchy!(HolographicDisplay, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicDisplay,);
 impl HolographicDisplay {
@@ -1022,6 +1019,9 @@ impl HolographicDisplay {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HolographicDisplay {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicDisplay>();
+}
 unsafe impl windows_core::Interface for HolographicDisplay {
     type Vtable = <IHolographicDisplay as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicDisplay as windows_core::Interface>::IID;
@@ -1032,9 +1032,6 @@ impl windows_core::RuntimeName for HolographicDisplay {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFrame(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicFrame {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFrame>();
-}
 windows_core::imp::interface_hierarchy!(HolographicFrame, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicFrame,);
 impl HolographicFrame {
@@ -1118,6 +1115,9 @@ impl HolographicFrame {
         }
     }
 }
+impl windows_core::RuntimeType for HolographicFrame {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFrame>();
+}
 unsafe impl windows_core::Interface for HolographicFrame {
     type Vtable = <IHolographicFrame as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicFrame as windows_core::Interface>::IID;
@@ -1128,9 +1128,6 @@ impl windows_core::RuntimeName for HolographicFrame {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFramePrediction(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicFramePrediction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFramePrediction>();
-}
 windows_core::imp::interface_hierarchy!(HolographicFramePrediction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicFramePrediction,);
 impl HolographicFramePrediction {
@@ -1151,6 +1148,9 @@ impl HolographicFramePrediction {
         }
     }
 }
+impl windows_core::RuntimeType for HolographicFramePrediction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFramePrediction>();
+}
 unsafe impl windows_core::Interface for HolographicFramePrediction {
     type Vtable = <IHolographicFramePrediction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicFramePrediction as windows_core::Interface>::IID;
@@ -1162,10 +1162,6 @@ impl windows_core::RuntimeName for HolographicFramePrediction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFramePresentationMonitor(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for HolographicFramePresentationMonitor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFramePresentationMonitor>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(HolographicFramePresentationMonitor, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1187,6 +1183,10 @@ impl HolographicFramePresentationMonitor {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for HolographicFramePresentationMonitor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFramePresentationMonitor>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for HolographicFramePresentationMonitor {
     type Vtable = <IHolographicFramePresentationMonitor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicFramePresentationMonitor as windows_core::Interface>::IID;
@@ -1199,10 +1199,6 @@ impl windows_core::RuntimeName for HolographicFramePresentationMonitor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFramePresentationReport(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for HolographicFramePresentationReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFramePresentationReport>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(HolographicFramePresentationReport, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -1251,6 +1247,10 @@ impl HolographicFramePresentationReport {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for HolographicFramePresentationReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFramePresentationReport>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for HolographicFramePresentationReport {
     type Vtable = <IHolographicFramePresentationReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicFramePresentationReport as windows_core::Interface>::IID;
@@ -1262,9 +1262,6 @@ impl windows_core::RuntimeName for HolographicFramePresentationReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFrameRenderingReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicFrameRenderingReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFrameRenderingReport>();
-}
 windows_core::imp::interface_hierarchy!(HolographicFrameRenderingReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicFrameRenderingReport,);
 impl HolographicFrameRenderingReport {
@@ -1304,6 +1301,9 @@ impl HolographicFrameRenderingReport {
         }
     }
 }
+impl windows_core::RuntimeType for HolographicFrameRenderingReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFrameRenderingReport>();
+}
 unsafe impl windows_core::Interface for HolographicFrameRenderingReport {
     type Vtable = <IHolographicFrameRenderingReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicFrameRenderingReport as windows_core::Interface>::IID;
@@ -1314,9 +1314,6 @@ impl windows_core::RuntimeName for HolographicFrameRenderingReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFrameScanoutMonitor(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicFrameScanoutMonitor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFrameScanoutMonitor>();
-}
 windows_core::imp::interface_hierarchy!(HolographicFrameScanoutMonitor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicFrameScanoutMonitor, super::super::Foundation::IClosable);
 impl HolographicFrameScanoutMonitor {
@@ -1333,6 +1330,9 @@ impl HolographicFrameScanoutMonitor {
         }
     }
 }
+impl windows_core::RuntimeType for HolographicFrameScanoutMonitor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFrameScanoutMonitor>();
+}
 unsafe impl windows_core::Interface for HolographicFrameScanoutMonitor {
     type Vtable = <IHolographicFrameScanoutMonitor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicFrameScanoutMonitor as windows_core::Interface>::IID;
@@ -1343,9 +1343,6 @@ impl windows_core::RuntimeName for HolographicFrameScanoutMonitor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicFrameScanoutReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicFrameScanoutReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFrameScanoutReport>();
-}
 windows_core::imp::interface_hierarchy!(HolographicFrameScanoutReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicFrameScanoutReport,);
 impl HolographicFrameScanoutReport {
@@ -1385,6 +1382,9 @@ impl HolographicFrameScanoutReport {
         }
     }
 }
+impl windows_core::RuntimeType for HolographicFrameScanoutReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicFrameScanoutReport>();
+}
 unsafe impl windows_core::Interface for HolographicFrameScanoutReport {
     type Vtable = <IHolographicFrameScanoutReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicFrameScanoutReport as windows_core::Interface>::IID;
@@ -1395,9 +1395,6 @@ impl windows_core::RuntimeName for HolographicFrameScanoutReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicQuadLayer(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicQuadLayer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicQuadLayer>();
-}
 windows_core::imp::interface_hierarchy!(HolographicQuadLayer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicQuadLayer, super::super::Foundation::IClosable);
 impl HolographicQuadLayer {
@@ -1438,6 +1435,9 @@ impl HolographicQuadLayer {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HolographicQuadLayer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicQuadLayer>();
+}
 unsafe impl windows_core::Interface for HolographicQuadLayer {
     type Vtable = <IHolographicQuadLayer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicQuadLayer as windows_core::Interface>::IID;
@@ -1448,9 +1448,6 @@ impl windows_core::RuntimeName for HolographicQuadLayer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicQuadLayerUpdateParameters(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicQuadLayerUpdateParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicQuadLayerUpdateParameters>();
-}
 windows_core::imp::interface_hierarchy!(HolographicQuadLayerUpdateParameters, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicQuadLayerUpdateParameters,);
 impl HolographicQuadLayerUpdateParameters {
@@ -1504,6 +1501,9 @@ impl HolographicQuadLayerUpdateParameters {
         }
     }
 }
+impl windows_core::RuntimeType for HolographicQuadLayerUpdateParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicQuadLayerUpdateParameters>();
+}
 unsafe impl windows_core::Interface for HolographicQuadLayerUpdateParameters {
     type Vtable = <IHolographicQuadLayerUpdateParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicQuadLayerUpdateParameters as windows_core::Interface>::IID;
@@ -1514,9 +1514,6 @@ impl windows_core::RuntimeName for HolographicQuadLayerUpdateParameters {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicSpace(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicSpace {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicSpace>();
-}
 windows_core::imp::interface_hierarchy!(HolographicSpace, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicSpace,);
 impl HolographicSpace {
@@ -1666,6 +1663,9 @@ impl HolographicSpace {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HolographicSpace {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicSpace>();
+}
 unsafe impl windows_core::Interface for HolographicSpace {
     type Vtable = <IHolographicSpace as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicSpace as windows_core::Interface>::IID;
@@ -1676,9 +1676,6 @@ impl windows_core::RuntimeName for HolographicSpace {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicSpaceCameraAddedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicSpaceCameraAddedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicSpaceCameraAddedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(HolographicSpaceCameraAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicSpaceCameraAddedEventArgs,);
 impl HolographicSpaceCameraAddedEventArgs {
@@ -1697,6 +1694,9 @@ impl HolographicSpaceCameraAddedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for HolographicSpaceCameraAddedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicSpaceCameraAddedEventArgs>();
+}
 unsafe impl windows_core::Interface for HolographicSpaceCameraAddedEventArgs {
     type Vtable = <IHolographicSpaceCameraAddedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicSpaceCameraAddedEventArgs as windows_core::Interface>::IID;
@@ -1707,9 +1707,6 @@ impl windows_core::RuntimeName for HolographicSpaceCameraAddedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicSpaceCameraRemovedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicSpaceCameraRemovedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicSpaceCameraRemovedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(HolographicSpaceCameraRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicSpaceCameraRemovedEventArgs,);
 impl HolographicSpaceCameraRemovedEventArgs {
@@ -1721,6 +1718,9 @@ impl HolographicSpaceCameraRemovedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for HolographicSpaceCameraRemovedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicSpaceCameraRemovedEventArgs>();
+}
 unsafe impl windows_core::Interface for HolographicSpaceCameraRemovedEventArgs {
     type Vtable = <IHolographicSpaceCameraRemovedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicSpaceCameraRemovedEventArgs as windows_core::Interface>::IID;
@@ -1731,9 +1731,6 @@ impl windows_core::RuntimeName for HolographicSpaceCameraRemovedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicViewConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicViewConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicViewConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(HolographicViewConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicViewConfiguration,);
 impl HolographicViewConfiguration {
@@ -1827,6 +1824,9 @@ impl HolographicViewConfiguration {
         }
     }
 }
+impl windows_core::RuntimeType for HolographicViewConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicViewConfiguration>();
+}
 unsafe impl windows_core::Interface for HolographicViewConfiguration {
     type Vtable = <IHolographicViewConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHolographicViewConfiguration as windows_core::Interface>::IID;
@@ -1915,7 +1915,7 @@ impl windows_core::RuntimeType for HolographicViewConfigurationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Holographic.HolographicViewConfigurationKind;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct HolographicAdapterId {
     pub LowPart: u32,
     pub HighPart: i32,
@@ -1927,7 +1927,7 @@ impl windows_core::RuntimeType for HolographicAdapterId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicAdapterId;u4;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct HolographicFrameId {
     pub Value: u64,
 }
@@ -1938,7 +1938,7 @@ impl windows_core::RuntimeType for HolographicFrameId {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Graphics.Holographic.HolographicFrameId;u8)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct HolographicStereoTransform {
     pub Left: super::super::Foundation::Numerics::Matrix4x4,
     pub Right: super::super::Foundation::Numerics::Matrix4x4,

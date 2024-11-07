@@ -530,9 +530,6 @@ pub struct IBluetoothUuidHelperStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothAdapter(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothAdapter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothAdapter>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothAdapter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothAdapter,);
 impl BluetoothAdapter {
@@ -644,6 +641,9 @@ impl BluetoothAdapter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BluetoothAdapter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothAdapter>();
+}
 unsafe impl windows_core::Interface for BluetoothAdapter {
     type Vtable = <IBluetoothAdapter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothAdapter as windows_core::Interface>::IID;
@@ -654,9 +654,6 @@ impl windows_core::RuntimeName for BluetoothAdapter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothClassOfDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothClassOfDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothClassOfDevice>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothClassOfDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothClassOfDevice,);
 impl BluetoothClassOfDevice {
@@ -705,6 +702,9 @@ impl BluetoothClassOfDevice {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BluetoothClassOfDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothClassOfDevice>();
+}
 unsafe impl windows_core::Interface for BluetoothClassOfDevice {
     type Vtable = <IBluetoothClassOfDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothClassOfDevice as windows_core::Interface>::IID;
@@ -715,9 +715,6 @@ impl windows_core::RuntimeName for BluetoothClassOfDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothDevice>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothDevice, super::super::Foundation::IClosable);
 impl BluetoothDevice {
@@ -972,6 +969,9 @@ impl BluetoothDevice {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BluetoothDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothDevice>();
+}
 unsafe impl windows_core::Interface for BluetoothDevice {
     type Vtable = <IBluetoothDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothDevice as windows_core::Interface>::IID;
@@ -982,9 +982,6 @@ impl windows_core::RuntimeName for BluetoothDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothDeviceId(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothDeviceId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothDeviceId>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothDeviceId, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothDeviceId,);
 impl BluetoothDeviceId {
@@ -1020,6 +1017,9 @@ impl BluetoothDeviceId {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BluetoothDeviceId {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothDeviceId>();
+}
 unsafe impl windows_core::Interface for BluetoothDeviceId {
     type Vtable = <IBluetoothDeviceId as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothDeviceId as windows_core::Interface>::IID;
@@ -1030,9 +1030,6 @@ impl windows_core::RuntimeName for BluetoothDeviceId {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEAppearance(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEAppearance {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAppearance>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEAppearance, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEAppearance,);
 impl BluetoothLEAppearance {
@@ -1073,6 +1070,9 @@ impl BluetoothLEAppearance {
         static SHARED: windows_core::imp::FactoryCache<BluetoothLEAppearance, IBluetoothLEAppearanceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for BluetoothLEAppearance {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAppearance>();
 }
 unsafe impl windows_core::Interface for BluetoothLEAppearance {
     type Vtable = <IBluetoothLEAppearance as windows_core::Interface>::Vtable;
@@ -1404,9 +1404,6 @@ impl windows_core::RuntimeName for BluetoothLEAppearanceSubcategories {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEConnectionParameters(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEConnectionParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEConnectionParameters>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEConnectionParameters, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEConnectionParameters,);
 impl BluetoothLEConnectionParameters {
@@ -1432,6 +1429,9 @@ impl BluetoothLEConnectionParameters {
         }
     }
 }
+impl windows_core::RuntimeType for BluetoothLEConnectionParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEConnectionParameters>();
+}
 unsafe impl windows_core::Interface for BluetoothLEConnectionParameters {
     type Vtable = <IBluetoothLEConnectionParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEConnectionParameters as windows_core::Interface>::IID;
@@ -1442,9 +1442,6 @@ impl windows_core::RuntimeName for BluetoothLEConnectionParameters {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEConnectionPhy(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEConnectionPhy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEConnectionPhy>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEConnectionPhy, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEConnectionPhy,);
 impl BluetoothLEConnectionPhy {
@@ -1463,6 +1460,9 @@ impl BluetoothLEConnectionPhy {
         }
     }
 }
+impl windows_core::RuntimeType for BluetoothLEConnectionPhy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEConnectionPhy>();
+}
 unsafe impl windows_core::Interface for BluetoothLEConnectionPhy {
     type Vtable = <IBluetoothLEConnectionPhy as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEConnectionPhy as windows_core::Interface>::IID;
@@ -1473,9 +1473,6 @@ impl windows_core::RuntimeName for BluetoothLEConnectionPhy {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEConnectionPhyInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEConnectionPhyInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEConnectionPhyInfo>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEConnectionPhyInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEConnectionPhyInfo,);
 impl BluetoothLEConnectionPhyInfo {
@@ -1501,6 +1498,9 @@ impl BluetoothLEConnectionPhyInfo {
         }
     }
 }
+impl windows_core::RuntimeType for BluetoothLEConnectionPhyInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEConnectionPhyInfo>();
+}
 unsafe impl windows_core::Interface for BluetoothLEConnectionPhyInfo {
     type Vtable = <IBluetoothLEConnectionPhyInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEConnectionPhyInfo as windows_core::Interface>::IID;
@@ -1511,9 +1511,6 @@ impl windows_core::RuntimeName for BluetoothLEConnectionPhyInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEDevice>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEDevice, super::super::Foundation::IClosable);
 impl BluetoothLEDevice {
@@ -1815,6 +1812,9 @@ impl BluetoothLEDevice {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BluetoothLEDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEDevice>();
+}
 unsafe impl windows_core::Interface for BluetoothLEDevice {
     type Vtable = <IBluetoothLEDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEDevice as windows_core::Interface>::IID;
@@ -1825,9 +1825,6 @@ impl windows_core::RuntimeName for BluetoothLEDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEPreferredConnectionParameters(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEPreferredConnectionParameters {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEPreferredConnectionParameters>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEPreferredConnectionParameters, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEPreferredConnectionParameters,);
 impl BluetoothLEPreferredConnectionParameters {
@@ -1882,6 +1879,9 @@ impl BluetoothLEPreferredConnectionParameters {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BluetoothLEPreferredConnectionParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEPreferredConnectionParameters>();
+}
 unsafe impl windows_core::Interface for BluetoothLEPreferredConnectionParameters {
     type Vtable = <IBluetoothLEPreferredConnectionParameters as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEPreferredConnectionParameters as windows_core::Interface>::IID;
@@ -1892,9 +1892,6 @@ impl windows_core::RuntimeName for BluetoothLEPreferredConnectionParameters {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothLEPreferredConnectionParametersRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothLEPreferredConnectionParametersRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEPreferredConnectionParametersRequest>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothLEPreferredConnectionParametersRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothLEPreferredConnectionParametersRequest, super::super::Foundation::IClosable);
 impl BluetoothLEPreferredConnectionParametersRequest {
@@ -1910,6 +1907,9 @@ impl BluetoothLEPreferredConnectionParametersRequest {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for BluetoothLEPreferredConnectionParametersRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEPreferredConnectionParametersRequest>();
+}
 unsafe impl windows_core::Interface for BluetoothLEPreferredConnectionParametersRequest {
     type Vtable = <IBluetoothLEPreferredConnectionParametersRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBluetoothLEPreferredConnectionParametersRequest as windows_core::Interface>::IID;
@@ -1920,9 +1920,6 @@ impl windows_core::RuntimeName for BluetoothLEPreferredConnectionParametersReque
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BluetoothSignalStrengthFilter(windows_core::IUnknown);
-impl windows_core::RuntimeType for BluetoothSignalStrengthFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothSignalStrengthFilter>();
-}
 windows_core::imp::interface_hierarchy!(BluetoothSignalStrengthFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BluetoothSignalStrengthFilter,);
 impl BluetoothSignalStrengthFilter {
@@ -1989,6 +1986,9 @@ impl BluetoothSignalStrengthFilter {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSamplingInterval)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
+}
+impl windows_core::RuntimeType for BluetoothSignalStrengthFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothSignalStrengthFilter>();
 }
 unsafe impl windows_core::Interface for BluetoothSignalStrengthFilter {
     type Vtable = <IBluetoothSignalStrengthFilter as windows_core::Interface>::Vtable;

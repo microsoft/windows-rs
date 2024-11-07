@@ -138,9 +138,6 @@ pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskDataProviderConnection(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataTaskDataProviderConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskDataProviderConnection>();
-}
 windows_core::imp::interface_hierarchy!(UserDataTaskDataProviderConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataTaskDataProviderConnection,);
 impl UserDataTaskDataProviderConnection {
@@ -219,6 +216,9 @@ impl UserDataTaskDataProviderConnection {
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for UserDataTaskDataProviderConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskDataProviderConnection>();
+}
 unsafe impl windows_core::Interface for UserDataTaskDataProviderConnection {
     type Vtable = <IUserDataTaskDataProviderConnection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskDataProviderConnection as windows_core::Interface>::IID;
@@ -229,9 +229,6 @@ impl windows_core::RuntimeName for UserDataTaskDataProviderConnection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskDataProviderTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataTaskDataProviderTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskDataProviderTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(UserDataTaskDataProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataTaskDataProviderTriggerDetails,);
 impl UserDataTaskDataProviderTriggerDetails {
@@ -243,6 +240,9 @@ impl UserDataTaskDataProviderTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataTaskDataProviderTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskDataProviderTriggerDetails>();
+}
 unsafe impl windows_core::Interface for UserDataTaskDataProviderTriggerDetails {
     type Vtable = <IUserDataTaskDataProviderTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskDataProviderTriggerDetails as windows_core::Interface>::IID;
@@ -253,9 +253,6 @@ impl windows_core::RuntimeName for UserDataTaskDataProviderTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListCompleteTaskRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataTaskListCompleteTaskRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListCompleteTaskRequest>();
-}
 windows_core::imp::interface_hierarchy!(UserDataTaskListCompleteTaskRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataTaskListCompleteTaskRequest,);
 impl UserDataTaskListCompleteTaskRequest {
@@ -288,6 +285,9 @@ impl UserDataTaskListCompleteTaskRequest {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataTaskListCompleteTaskRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListCompleteTaskRequest>();
+}
 unsafe impl windows_core::Interface for UserDataTaskListCompleteTaskRequest {
     type Vtable = <IUserDataTaskListCompleteTaskRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskListCompleteTaskRequest as windows_core::Interface>::IID;
@@ -298,9 +298,6 @@ impl windows_core::RuntimeName for UserDataTaskListCompleteTaskRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListCompleteTaskRequestEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataTaskListCompleteTaskRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListCompleteTaskRequestEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(UserDataTaskListCompleteTaskRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataTaskListCompleteTaskRequestEventArgs,);
 impl UserDataTaskListCompleteTaskRequestEventArgs {
@@ -319,6 +316,9 @@ impl UserDataTaskListCompleteTaskRequestEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataTaskListCompleteTaskRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListCompleteTaskRequestEventArgs>();
+}
 unsafe impl windows_core::Interface for UserDataTaskListCompleteTaskRequestEventArgs {
     type Vtable = <IUserDataTaskListCompleteTaskRequestEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskListCompleteTaskRequestEventArgs as windows_core::Interface>::IID;
@@ -329,9 +329,6 @@ impl windows_core::RuntimeName for UserDataTaskListCompleteTaskRequestEventArgs 
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListCreateOrUpdateTaskRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataTaskListCreateOrUpdateTaskRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListCreateOrUpdateTaskRequest>();
-}
 windows_core::imp::interface_hierarchy!(UserDataTaskListCreateOrUpdateTaskRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataTaskListCreateOrUpdateTaskRequest,);
 impl UserDataTaskListCreateOrUpdateTaskRequest {
@@ -367,6 +364,9 @@ impl UserDataTaskListCreateOrUpdateTaskRequest {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataTaskListCreateOrUpdateTaskRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListCreateOrUpdateTaskRequest>();
+}
 unsafe impl windows_core::Interface for UserDataTaskListCreateOrUpdateTaskRequest {
     type Vtable = <IUserDataTaskListCreateOrUpdateTaskRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskListCreateOrUpdateTaskRequest as windows_core::Interface>::IID;
@@ -377,9 +377,6 @@ impl windows_core::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListCreateOrUpdateTaskRequestEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListCreateOrUpdateTaskRequestEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(UserDataTaskListCreateOrUpdateTaskRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataTaskListCreateOrUpdateTaskRequestEventArgs,);
 impl UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
@@ -398,6 +395,9 @@ impl UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListCreateOrUpdateTaskRequestEventArgs>();
+}
 unsafe impl windows_core::Interface for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     type Vtable = <IUserDataTaskListCreateOrUpdateTaskRequestEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskListCreateOrUpdateTaskRequestEventArgs as windows_core::Interface>::IID;
@@ -408,9 +408,6 @@ impl windows_core::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequestEven
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListDeleteTaskRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataTaskListDeleteTaskRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListDeleteTaskRequest>();
-}
 windows_core::imp::interface_hierarchy!(UserDataTaskListDeleteTaskRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataTaskListDeleteTaskRequest,);
 impl UserDataTaskListDeleteTaskRequest {
@@ -443,6 +440,9 @@ impl UserDataTaskListDeleteTaskRequest {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataTaskListDeleteTaskRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListDeleteTaskRequest>();
+}
 unsafe impl windows_core::Interface for UserDataTaskListDeleteTaskRequest {
     type Vtable = <IUserDataTaskListDeleteTaskRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskListDeleteTaskRequest as windows_core::Interface>::IID;
@@ -453,9 +453,6 @@ impl windows_core::RuntimeName for UserDataTaskListDeleteTaskRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListDeleteTaskRequestEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataTaskListDeleteTaskRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListDeleteTaskRequestEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(UserDataTaskListDeleteTaskRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataTaskListDeleteTaskRequestEventArgs,);
 impl UserDataTaskListDeleteTaskRequestEventArgs {
@@ -474,6 +471,9 @@ impl UserDataTaskListDeleteTaskRequestEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataTaskListDeleteTaskRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListDeleteTaskRequestEventArgs>();
+}
 unsafe impl windows_core::Interface for UserDataTaskListDeleteTaskRequestEventArgs {
     type Vtable = <IUserDataTaskListDeleteTaskRequestEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskListDeleteTaskRequestEventArgs as windows_core::Interface>::IID;
@@ -484,9 +484,6 @@ impl windows_core::RuntimeName for UserDataTaskListDeleteTaskRequestEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListSkipOccurrenceRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataTaskListSkipOccurrenceRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListSkipOccurrenceRequest>();
-}
 windows_core::imp::interface_hierarchy!(UserDataTaskListSkipOccurrenceRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataTaskListSkipOccurrenceRequest,);
 impl UserDataTaskListSkipOccurrenceRequest {
@@ -519,6 +516,9 @@ impl UserDataTaskListSkipOccurrenceRequest {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataTaskListSkipOccurrenceRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListSkipOccurrenceRequest>();
+}
 unsafe impl windows_core::Interface for UserDataTaskListSkipOccurrenceRequest {
     type Vtable = <IUserDataTaskListSkipOccurrenceRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskListSkipOccurrenceRequest as windows_core::Interface>::IID;
@@ -529,9 +529,6 @@ impl windows_core::RuntimeName for UserDataTaskListSkipOccurrenceRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListSkipOccurrenceRequestEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataTaskListSkipOccurrenceRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListSkipOccurrenceRequestEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(UserDataTaskListSkipOccurrenceRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataTaskListSkipOccurrenceRequestEventArgs,);
 impl UserDataTaskListSkipOccurrenceRequestEventArgs {
@@ -550,6 +547,9 @@ impl UserDataTaskListSkipOccurrenceRequestEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataTaskListSkipOccurrenceRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListSkipOccurrenceRequestEventArgs>();
+}
 unsafe impl windows_core::Interface for UserDataTaskListSkipOccurrenceRequestEventArgs {
     type Vtable = <IUserDataTaskListSkipOccurrenceRequestEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskListSkipOccurrenceRequestEventArgs as windows_core::Interface>::IID;
@@ -560,9 +560,6 @@ impl windows_core::RuntimeName for UserDataTaskListSkipOccurrenceRequestEventArg
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListSyncManagerSyncRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataTaskListSyncManagerSyncRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListSyncManagerSyncRequest>();
-}
 windows_core::imp::interface_hierarchy!(UserDataTaskListSyncManagerSyncRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataTaskListSyncManagerSyncRequest,);
 impl UserDataTaskListSyncManagerSyncRequest {
@@ -588,6 +585,9 @@ impl UserDataTaskListSyncManagerSyncRequest {
         }
     }
 }
+impl windows_core::RuntimeType for UserDataTaskListSyncManagerSyncRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListSyncManagerSyncRequest>();
+}
 unsafe impl windows_core::Interface for UserDataTaskListSyncManagerSyncRequest {
     type Vtable = <IUserDataTaskListSyncManagerSyncRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUserDataTaskListSyncManagerSyncRequest as windows_core::Interface>::IID;
@@ -598,9 +598,6 @@ impl windows_core::RuntimeName for UserDataTaskListSyncManagerSyncRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UserDataTaskListSyncManagerSyncRequestEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for UserDataTaskListSyncManagerSyncRequestEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListSyncManagerSyncRequestEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(UserDataTaskListSyncManagerSyncRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataTaskListSyncManagerSyncRequestEventArgs,);
 impl UserDataTaskListSyncManagerSyncRequestEventArgs {
@@ -618,6 +615,9 @@ impl UserDataTaskListSyncManagerSyncRequestEventArgs {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for UserDataTaskListSyncManagerSyncRequestEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUserDataTaskListSyncManagerSyncRequestEventArgs>();
 }
 unsafe impl windows_core::Interface for UserDataTaskListSyncManagerSyncRequestEventArgs {
     type Vtable = <IUserDataTaskListSyncManagerSyncRequestEventArgs as windows_core::Interface>::Vtable;

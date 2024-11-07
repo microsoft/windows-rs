@@ -40,9 +40,6 @@ pub struct IVariablePhotoSequenceCapture2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VariablePhotoCapturedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for VariablePhotoCapturedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVariablePhotoCapturedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(VariablePhotoCapturedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VariablePhotoCapturedEventArgs,);
 impl VariablePhotoCapturedEventArgs {
@@ -76,6 +73,9 @@ impl VariablePhotoCapturedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for VariablePhotoCapturedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVariablePhotoCapturedEventArgs>();
+}
 unsafe impl windows_core::Interface for VariablePhotoCapturedEventArgs {
     type Vtable = <IVariablePhotoCapturedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVariablePhotoCapturedEventArgs as windows_core::Interface>::IID;
@@ -86,9 +86,6 @@ impl windows_core::RuntimeName for VariablePhotoCapturedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VariablePhotoSequenceCapture(windows_core::IUnknown);
-impl windows_core::RuntimeType for VariablePhotoSequenceCapture {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVariablePhotoSequenceCapture>();
-}
 windows_core::imp::interface_hierarchy!(VariablePhotoSequenceCapture, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VariablePhotoSequenceCapture,);
 impl VariablePhotoSequenceCapture {
@@ -148,6 +145,9 @@ impl VariablePhotoSequenceCapture {
             (windows_core::Interface::vtable(this).UpdateSettingsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for VariablePhotoSequenceCapture {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVariablePhotoSequenceCapture>();
 }
 unsafe impl windows_core::Interface for VariablePhotoSequenceCapture {
     type Vtable = <IVariablePhotoSequenceCapture as windows_core::Interface>::Vtable;

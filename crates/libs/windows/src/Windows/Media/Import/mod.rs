@@ -320,9 +320,6 @@ pub struct IPhotoImportVideoSegment_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportDeleteImportedItemsFromSourceResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for PhotoImportDeleteImportedItemsFromSourceResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportDeleteImportedItemsFromSourceResult>();
-}
 windows_core::imp::interface_hierarchy!(PhotoImportDeleteImportedItemsFromSourceResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhotoImportDeleteImportedItemsFromSourceResult,);
 impl PhotoImportDeleteImportedItemsFromSourceResult {
@@ -419,6 +416,9 @@ impl PhotoImportDeleteImportedItemsFromSourceResult {
         }
     }
 }
+impl windows_core::RuntimeType for PhotoImportDeleteImportedItemsFromSourceResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportDeleteImportedItemsFromSourceResult>();
+}
 unsafe impl windows_core::Interface for PhotoImportDeleteImportedItemsFromSourceResult {
     type Vtable = <IPhotoImportDeleteImportedItemsFromSourceResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhotoImportDeleteImportedItemsFromSourceResult as windows_core::Interface>::IID;
@@ -429,9 +429,6 @@ impl windows_core::RuntimeName for PhotoImportDeleteImportedItemsFromSourceResul
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportFindItemsResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for PhotoImportFindItemsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportFindItemsResult>();
-}
 windows_core::imp::interface_hierarchy!(PhotoImportFindItemsResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhotoImportFindItemsResult,);
 impl PhotoImportFindItemsResult {
@@ -663,6 +660,9 @@ impl PhotoImportFindItemsResult {
         unsafe { (windows_core::Interface::vtable(this).AddItemsInDateRangeToSelection)(windows_core::Interface::as_raw(this), rangestart, rangelength).ok() }
     }
 }
+impl windows_core::RuntimeType for PhotoImportFindItemsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportFindItemsResult>();
+}
 unsafe impl windows_core::Interface for PhotoImportFindItemsResult {
     type Vtable = <IPhotoImportFindItemsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhotoImportFindItemsResult as windows_core::Interface>::IID;
@@ -673,9 +673,6 @@ impl windows_core::RuntimeName for PhotoImportFindItemsResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportImportItemsResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for PhotoImportImportItemsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportImportItemsResult>();
-}
 windows_core::imp::interface_hierarchy!(PhotoImportImportItemsResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhotoImportImportItemsResult,);
 impl PhotoImportImportItemsResult {
@@ -779,6 +776,9 @@ impl PhotoImportImportItemsResult {
         }
     }
 }
+impl windows_core::RuntimeType for PhotoImportImportItemsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportImportItemsResult>();
+}
 unsafe impl windows_core::Interface for PhotoImportImportItemsResult {
     type Vtable = <IPhotoImportImportItemsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhotoImportImportItemsResult as windows_core::Interface>::IID;
@@ -789,9 +789,6 @@ impl windows_core::RuntimeName for PhotoImportImportItemsResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportItem(windows_core::IUnknown);
-impl windows_core::RuntimeType for PhotoImportItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportItem>();
-}
 windows_core::imp::interface_hierarchy!(PhotoImportItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhotoImportItem,);
 impl PhotoImportItem {
@@ -896,6 +893,9 @@ impl PhotoImportItem {
         }
     }
 }
+impl windows_core::RuntimeType for PhotoImportItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportItem>();
+}
 unsafe impl windows_core::Interface for PhotoImportItem {
     type Vtable = <IPhotoImportItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhotoImportItem as windows_core::Interface>::IID;
@@ -906,9 +906,6 @@ impl windows_core::RuntimeName for PhotoImportItem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportItemImportedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PhotoImportItemImportedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportItemImportedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PhotoImportItemImportedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhotoImportItemImportedEventArgs,);
 impl PhotoImportItemImportedEventArgs {
@@ -919,6 +916,9 @@ impl PhotoImportItemImportedEventArgs {
             (windows_core::Interface::vtable(this).ImportedItem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for PhotoImportItemImportedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportItemImportedEventArgs>();
 }
 unsafe impl windows_core::Interface for PhotoImportItemImportedEventArgs {
     type Vtable = <IPhotoImportItemImportedEventArgs as windows_core::Interface>::Vtable;
@@ -960,9 +960,6 @@ impl windows_core::RuntimeName for PhotoImportManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for PhotoImportOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportOperation>();
-}
 windows_core::imp::interface_hierarchy!(PhotoImportOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhotoImportOperation,);
 impl PhotoImportOperation {
@@ -1002,6 +999,9 @@ impl PhotoImportOperation {
         }
     }
 }
+impl windows_core::RuntimeType for PhotoImportOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportOperation>();
+}
 unsafe impl windows_core::Interface for PhotoImportOperation {
     type Vtable = <IPhotoImportOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhotoImportOperation as windows_core::Interface>::IID;
@@ -1012,9 +1012,6 @@ impl windows_core::RuntimeName for PhotoImportOperation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportSelectionChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PhotoImportSelectionChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportSelectionChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PhotoImportSelectionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhotoImportSelectionChangedEventArgs,);
 impl PhotoImportSelectionChangedEventArgs {
@@ -1026,6 +1023,9 @@ impl PhotoImportSelectionChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PhotoImportSelectionChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportSelectionChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for PhotoImportSelectionChangedEventArgs {
     type Vtable = <IPhotoImportSelectionChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhotoImportSelectionChangedEventArgs as windows_core::Interface>::IID;
@@ -1036,9 +1036,6 @@ impl windows_core::RuntimeName for PhotoImportSelectionChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for PhotoImportSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportSession>();
-}
 windows_core::imp::interface_hierarchy!(PhotoImportSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhotoImportSession, super::super::Foundation::IClosable);
 impl PhotoImportSession {
@@ -1139,6 +1136,9 @@ impl PhotoImportSession {
         }
     }
 }
+impl windows_core::RuntimeType for PhotoImportSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportSession>();
+}
 unsafe impl windows_core::Interface for PhotoImportSession {
     type Vtable = <IPhotoImportSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhotoImportSession as windows_core::Interface>::IID;
@@ -1149,9 +1149,6 @@ impl windows_core::RuntimeName for PhotoImportSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportSidecar(windows_core::IUnknown);
-impl windows_core::RuntimeType for PhotoImportSidecar {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportSidecar>();
-}
 windows_core::imp::interface_hierarchy!(PhotoImportSidecar, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhotoImportSidecar,);
 impl PhotoImportSidecar {
@@ -1177,6 +1174,9 @@ impl PhotoImportSidecar {
         }
     }
 }
+impl windows_core::RuntimeType for PhotoImportSidecar {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportSidecar>();
+}
 unsafe impl windows_core::Interface for PhotoImportSidecar {
     type Vtable = <IPhotoImportSidecar as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhotoImportSidecar as windows_core::Interface>::IID;
@@ -1187,9 +1187,6 @@ impl windows_core::RuntimeName for PhotoImportSidecar {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportSource(windows_core::IUnknown);
-impl windows_core::RuntimeType for PhotoImportSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportSource>();
-}
 windows_core::imp::interface_hierarchy!(PhotoImportSource, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhotoImportSource,);
 impl PhotoImportSource {
@@ -1335,6 +1332,9 @@ impl PhotoImportSource {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PhotoImportSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportSource>();
+}
 unsafe impl windows_core::Interface for PhotoImportSource {
     type Vtable = <IPhotoImportSource as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhotoImportSource as windows_core::Interface>::IID;
@@ -1345,9 +1345,6 @@ impl windows_core::RuntimeName for PhotoImportSource {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportStorageMedium(windows_core::IUnknown);
-impl windows_core::RuntimeType for PhotoImportStorageMedium {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportStorageMedium>();
-}
 windows_core::imp::interface_hierarchy!(PhotoImportStorageMedium, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhotoImportStorageMedium,);
 impl PhotoImportStorageMedium {
@@ -1405,6 +1402,9 @@ impl PhotoImportStorageMedium {
         unsafe { (windows_core::Interface::vtable(this).Refresh)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for PhotoImportStorageMedium {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportStorageMedium>();
+}
 unsafe impl windows_core::Interface for PhotoImportStorageMedium {
     type Vtable = <IPhotoImportStorageMedium as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPhotoImportStorageMedium as windows_core::Interface>::IID;
@@ -1415,9 +1415,6 @@ impl windows_core::RuntimeName for PhotoImportStorageMedium {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PhotoImportVideoSegment(windows_core::IUnknown);
-impl windows_core::RuntimeType for PhotoImportVideoSegment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportVideoSegment>();
-}
 windows_core::imp::interface_hierarchy!(PhotoImportVideoSegment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhotoImportVideoSegment,);
 impl PhotoImportVideoSegment {
@@ -1457,6 +1454,9 @@ impl PhotoImportVideoSegment {
             (windows_core::Interface::vtable(this).Sidecars)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for PhotoImportVideoSegment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPhotoImportVideoSegment>();
 }
 unsafe impl windows_core::Interface for PhotoImportVideoSegment {
     type Vtable = <IPhotoImportVideoSegment as windows_core::Interface>::Vtable;
@@ -1643,7 +1643,7 @@ impl windows_core::RuntimeType for PhotoImportSubfolderDateFormat {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderDateFormat;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct PhotoImportProgress {
     pub ItemsImported: u32,
     pub TotalItemsToImport: u32,

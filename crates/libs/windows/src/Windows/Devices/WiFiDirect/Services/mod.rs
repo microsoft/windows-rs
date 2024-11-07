@@ -220,9 +220,6 @@ pub struct IWiFiDirectServiceStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectService(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiDirectService {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectService>();
-}
 windows_core::imp::interface_hierarchy!(WiFiDirectService, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiDirectService,);
 impl WiFiDirectService {
@@ -338,6 +335,9 @@ impl WiFiDirectService {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WiFiDirectService {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectService>();
+}
 unsafe impl windows_core::Interface for WiFiDirectService {
     type Vtable = <IWiFiDirectService as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiDirectService as windows_core::Interface>::IID;
@@ -348,9 +348,6 @@ impl windows_core::RuntimeName for WiFiDirectService {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceAdvertiser(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiDirectServiceAdvertiser {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceAdvertiser>();
-}
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceAdvertiser, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiDirectServiceAdvertiser,);
 impl WiFiDirectServiceAdvertiser {
@@ -550,6 +547,9 @@ impl WiFiDirectServiceAdvertiser {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WiFiDirectServiceAdvertiser {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceAdvertiser>();
+}
 unsafe impl windows_core::Interface for WiFiDirectServiceAdvertiser {
     type Vtable = <IWiFiDirectServiceAdvertiser as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiDirectServiceAdvertiser as windows_core::Interface>::IID;
@@ -560,9 +560,6 @@ impl windows_core::RuntimeName for WiFiDirectServiceAdvertiser {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceAutoAcceptSessionConnectedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceAutoAcceptSessionConnectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiDirectServiceAutoAcceptSessionConnectedEventArgs,);
 impl WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
@@ -582,6 +579,9 @@ impl WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs>();
+}
 unsafe impl windows_core::Interface for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
     type Vtable = <IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiDirectServiceAutoAcceptSessionConnectedEventArgs as windows_core::Interface>::IID;
@@ -592,9 +592,6 @@ impl windows_core::RuntimeName for WiFiDirectServiceAutoAcceptSessionConnectedEv
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceProvisioningInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiDirectServiceProvisioningInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceProvisioningInfo>();
-}
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceProvisioningInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiDirectServiceProvisioningInfo,);
 impl WiFiDirectServiceProvisioningInfo {
@@ -613,6 +610,9 @@ impl WiFiDirectServiceProvisioningInfo {
         }
     }
 }
+impl windows_core::RuntimeType for WiFiDirectServiceProvisioningInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceProvisioningInfo>();
+}
 unsafe impl windows_core::Interface for WiFiDirectServiceProvisioningInfo {
     type Vtable = <IWiFiDirectServiceProvisioningInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiDirectServiceProvisioningInfo as windows_core::Interface>::IID;
@@ -623,9 +623,6 @@ impl windows_core::RuntimeName for WiFiDirectServiceProvisioningInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceRemotePortAddedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiDirectServiceRemotePortAddedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceRemotePortAddedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceRemotePortAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiDirectServiceRemotePortAddedEventArgs,);
 impl WiFiDirectServiceRemotePortAddedEventArgs {
@@ -645,6 +642,9 @@ impl WiFiDirectServiceRemotePortAddedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WiFiDirectServiceRemotePortAddedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceRemotePortAddedEventArgs>();
+}
 unsafe impl windows_core::Interface for WiFiDirectServiceRemotePortAddedEventArgs {
     type Vtable = <IWiFiDirectServiceRemotePortAddedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiDirectServiceRemotePortAddedEventArgs as windows_core::Interface>::IID;
@@ -655,9 +655,6 @@ impl windows_core::RuntimeName for WiFiDirectServiceRemotePortAddedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiDirectServiceSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceSession>();
-}
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiDirectServiceSession, super::super::super::Foundation::IClosable);
 impl WiFiDirectServiceSession {
@@ -773,6 +770,9 @@ impl WiFiDirectServiceSession {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for WiFiDirectServiceSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceSession>();
+}
 unsafe impl windows_core::Interface for WiFiDirectServiceSession {
     type Vtable = <IWiFiDirectServiceSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiDirectServiceSession as windows_core::Interface>::IID;
@@ -783,9 +783,6 @@ impl windows_core::RuntimeName for WiFiDirectServiceSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceSessionDeferredEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiDirectServiceSessionDeferredEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceSessionDeferredEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceSessionDeferredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiDirectServiceSessionDeferredEventArgs,);
 impl WiFiDirectServiceSessionDeferredEventArgs {
@@ -798,6 +795,9 @@ impl WiFiDirectServiceSessionDeferredEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WiFiDirectServiceSessionDeferredEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceSessionDeferredEventArgs>();
+}
 unsafe impl windows_core::Interface for WiFiDirectServiceSessionDeferredEventArgs {
     type Vtable = <IWiFiDirectServiceSessionDeferredEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiDirectServiceSessionDeferredEventArgs as windows_core::Interface>::IID;
@@ -808,9 +808,6 @@ impl windows_core::RuntimeName for WiFiDirectServiceSessionDeferredEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceSessionRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiDirectServiceSessionRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceSessionRequest>();
-}
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceSessionRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiDirectServiceSessionRequest, super::super::super::Foundation::IClosable);
 impl WiFiDirectServiceSessionRequest {
@@ -842,6 +839,9 @@ impl WiFiDirectServiceSessionRequest {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for WiFiDirectServiceSessionRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceSessionRequest>();
+}
 unsafe impl windows_core::Interface for WiFiDirectServiceSessionRequest {
     type Vtable = <IWiFiDirectServiceSessionRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWiFiDirectServiceSessionRequest as windows_core::Interface>::IID;
@@ -852,9 +852,6 @@ impl windows_core::RuntimeName for WiFiDirectServiceSessionRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WiFiDirectServiceSessionRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WiFiDirectServiceSessionRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceSessionRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WiFiDirectServiceSessionRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WiFiDirectServiceSessionRequestedEventArgs,);
 impl WiFiDirectServiceSessionRequestedEventArgs {
@@ -865,6 +862,9 @@ impl WiFiDirectServiceSessionRequestedEventArgs {
             (windows_core::Interface::vtable(this).GetSessionRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for WiFiDirectServiceSessionRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWiFiDirectServiceSessionRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for WiFiDirectServiceSessionRequestedEventArgs {
     type Vtable = <IWiFiDirectServiceSessionRequestedEventArgs as windows_core::Interface>::Vtable;

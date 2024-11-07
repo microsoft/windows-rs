@@ -68,10 +68,6 @@ pub struct IWalletManagerSystemStatics_Vtbl {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WalletItemSystemStore(windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for WalletItemSystemStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletItemSystemStore>();
-}
-#[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(WalletItemSystemStore, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
 windows_core::imp::required_hierarchy!(WalletItemSystemStore,);
@@ -145,6 +141,10 @@ impl WalletItemSystemStore {
         let this = &windows_core::Interface::cast::<IWalletItemSystemStore2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveItemsChanged)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for WalletItemSystemStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWalletItemSystemStore>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for WalletItemSystemStore {

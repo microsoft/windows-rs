@@ -3015,9 +3015,6 @@ pub struct IVisualUnorderedCollection_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionObject(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionObject {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionObject>();
-}
 windows_core::imp::interface_hierarchy!(CompositionObject, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionObject, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionObject {
@@ -3148,6 +3145,9 @@ impl CompositionObject {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CompositionObject {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionObject>();
+}
 unsafe impl windows_core::Interface for CompositionObject {
     type Vtable = <ICompositionObject as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionObject as windows_core::Interface>::IID;
@@ -3158,9 +3158,6 @@ impl windows_core::RuntimeName for CompositionObject {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionLight(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionLight {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionLight>();
-}
 windows_core::imp::interface_hierarchy!(CompositionLight, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionLight, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionLight {
@@ -3300,6 +3297,9 @@ impl CompositionLight {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionLight {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionLight>();
+}
 unsafe impl windows_core::Interface for CompositionLight {
     type Vtable = <ICompositionLight as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionLight as windows_core::Interface>::IID;
@@ -3310,9 +3310,6 @@ impl windows_core::RuntimeName for CompositionLight {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AmbientLight(windows_core::IUnknown);
-impl windows_core::RuntimeType for AmbientLight {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAmbientLight>();
-}
 windows_core::imp::interface_hierarchy!(AmbientLight, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AmbientLight, super::super::Foundation::IClosable, IAnimationObject);
 impl AmbientLight {
@@ -3474,6 +3471,9 @@ impl AmbientLight {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for AmbientLight {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAmbientLight>();
+}
 unsafe impl windows_core::Interface for AmbientLight {
     type Vtable = <IAmbientLight as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAmbientLight as windows_core::Interface>::IID;
@@ -3484,9 +3484,6 @@ impl windows_core::RuntimeName for AmbientLight {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AnimationController(windows_core::IUnknown);
-impl windows_core::RuntimeType for AnimationController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAnimationController>();
-}
 windows_core::imp::interface_hierarchy!(AnimationController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AnimationController, super::super::Foundation::IClosable, IAnimationObject);
 impl AnimationController {
@@ -3656,6 +3653,9 @@ impl AnimationController {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for AnimationController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAnimationController>();
+}
 unsafe impl windows_core::Interface for AnimationController {
     type Vtable = <IAnimationController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAnimationController as windows_core::Interface>::IID;
@@ -3666,9 +3666,6 @@ impl windows_core::RuntimeName for AnimationController {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AnimationPropertyInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for AnimationPropertyInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAnimationPropertyInfo>();
-}
 windows_core::imp::interface_hierarchy!(AnimationPropertyInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AnimationPropertyInfo, super::super::Foundation::IClosable, IAnimationObject);
 impl AnimationPropertyInfo {
@@ -3806,6 +3803,9 @@ impl AnimationPropertyInfo {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for AnimationPropertyInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAnimationPropertyInfo>();
+}
 unsafe impl windows_core::Interface for AnimationPropertyInfo {
     type Vtable = <IAnimationPropertyInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAnimationPropertyInfo as windows_core::Interface>::IID;
@@ -3816,9 +3816,6 @@ impl windows_core::RuntimeName for AnimationPropertyInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionEasingFunction(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionEasingFunction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionEasingFunction>();
-}
 windows_core::imp::interface_hierarchy!(CompositionEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionEasingFunction {
@@ -4035,6 +4032,9 @@ impl CompositionEasingFunction {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CompositionEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionEasingFunction>();
+}
 unsafe impl windows_core::Interface for CompositionEasingFunction {
     type Vtable = <ICompositionEasingFunction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionEasingFunction as windows_core::Interface>::IID;
@@ -4045,9 +4045,6 @@ impl windows_core::RuntimeName for CompositionEasingFunction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackEasingFunction(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackEasingFunction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackEasingFunction>();
-}
 windows_core::imp::interface_hierarchy!(BackEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
 impl BackEasingFunction {
@@ -4174,6 +4171,9 @@ impl BackEasingFunction {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for BackEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackEasingFunction>();
+}
 unsafe impl windows_core::Interface for BackEasingFunction {
     type Vtable = <IBackEasingFunction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackEasingFunction as windows_core::Interface>::IID;
@@ -4184,9 +4184,6 @@ impl windows_core::RuntimeName for BackEasingFunction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionAnimation>();
-}
 windows_core::imp::interface_hierarchy!(CompositionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl CompositionAnimation {
@@ -4382,6 +4379,9 @@ impl CompositionAnimation {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionAnimation>();
+}
 unsafe impl windows_core::Interface for CompositionAnimation {
     type Vtable = <ICompositionAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionAnimation as windows_core::Interface>::IID;
@@ -4392,9 +4392,6 @@ impl windows_core::RuntimeName for CompositionAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct KeyFrameAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for KeyFrameAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyFrameAnimation>();
-}
 windows_core::imp::interface_hierarchy!(KeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(KeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl KeyFrameAnimation {
@@ -4685,6 +4682,9 @@ impl KeyFrameAnimation {
         unsafe { (windows_core::Interface::vtable(this).SetDelayBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for KeyFrameAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IKeyFrameAnimation>();
+}
 unsafe impl windows_core::Interface for KeyFrameAnimation {
     type Vtable = <IKeyFrameAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IKeyFrameAnimation as windows_core::Interface>::IID;
@@ -4695,9 +4695,6 @@ impl windows_core::RuntimeName for KeyFrameAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BooleanKeyFrameAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for BooleanKeyFrameAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBooleanKeyFrameAnimation>();
-}
 windows_core::imp::interface_hierarchy!(BooleanKeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BooleanKeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl BooleanKeyFrameAnimation {
@@ -4992,6 +4989,9 @@ impl BooleanKeyFrameAnimation {
         unsafe { (windows_core::Interface::vtable(this).SetDelayBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for BooleanKeyFrameAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBooleanKeyFrameAnimation>();
+}
 unsafe impl windows_core::Interface for BooleanKeyFrameAnimation {
     type Vtable = <IBooleanKeyFrameAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBooleanKeyFrameAnimation as windows_core::Interface>::IID;
@@ -5002,9 +5002,6 @@ impl windows_core::RuntimeName for BooleanKeyFrameAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BounceEasingFunction(windows_core::IUnknown);
-impl windows_core::RuntimeType for BounceEasingFunction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBounceEasingFunction>();
-}
 windows_core::imp::interface_hierarchy!(BounceEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BounceEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
 impl BounceEasingFunction {
@@ -5138,6 +5135,9 @@ impl BounceEasingFunction {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for BounceEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBounceEasingFunction>();
+}
 unsafe impl windows_core::Interface for BounceEasingFunction {
     type Vtable = <IBounceEasingFunction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBounceEasingFunction as windows_core::Interface>::IID;
@@ -5148,9 +5148,6 @@ impl windows_core::RuntimeName for BounceEasingFunction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NaturalMotionAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for NaturalMotionAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INaturalMotionAnimation>();
-}
 windows_core::imp::interface_hierarchy!(NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl NaturalMotionAnimation {
@@ -5379,6 +5376,9 @@ impl NaturalMotionAnimation {
         unsafe { (windows_core::Interface::vtable(this).SetStopBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for NaturalMotionAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INaturalMotionAnimation>();
+}
 unsafe impl windows_core::Interface for NaturalMotionAnimation {
     type Vtable = <INaturalMotionAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INaturalMotionAnimation as windows_core::Interface>::IID;
@@ -5389,9 +5389,6 @@ impl windows_core::RuntimeName for NaturalMotionAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScalarNaturalMotionAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for ScalarNaturalMotionAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScalarNaturalMotionAnimation>();
-}
 windows_core::imp::interface_hierarchy!(ScalarNaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ScalarNaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl ScalarNaturalMotionAnimation {
@@ -5659,6 +5656,9 @@ impl ScalarNaturalMotionAnimation {
         unsafe { (windows_core::Interface::vtable(this).SetInitialVelocity)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for ScalarNaturalMotionAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScalarNaturalMotionAnimation>();
+}
 unsafe impl windows_core::Interface for ScalarNaturalMotionAnimation {
     type Vtable = <IScalarNaturalMotionAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IScalarNaturalMotionAnimation as windows_core::Interface>::IID;
@@ -5669,9 +5669,6 @@ impl windows_core::RuntimeName for ScalarNaturalMotionAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BounceScalarNaturalMotionAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for BounceScalarNaturalMotionAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBounceScalarNaturalMotionAnimation>();
-}
 windows_core::imp::interface_hierarchy!(BounceScalarNaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BounceScalarNaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl BounceScalarNaturalMotionAnimation {
@@ -5961,6 +5958,9 @@ impl BounceScalarNaturalMotionAnimation {
         unsafe { (windows_core::Interface::vtable(this).SetInitialVelocity)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for BounceScalarNaturalMotionAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBounceScalarNaturalMotionAnimation>();
+}
 unsafe impl windows_core::Interface for BounceScalarNaturalMotionAnimation {
     type Vtable = <IBounceScalarNaturalMotionAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBounceScalarNaturalMotionAnimation as windows_core::Interface>::IID;
@@ -5971,9 +5971,6 @@ impl windows_core::RuntimeName for BounceScalarNaturalMotionAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Vector2NaturalMotionAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for Vector2NaturalMotionAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVector2NaturalMotionAnimation>();
-}
 windows_core::imp::interface_hierarchy!(Vector2NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Vector2NaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl Vector2NaturalMotionAnimation {
@@ -6247,6 +6244,9 @@ impl Vector2NaturalMotionAnimation {
         unsafe { (windows_core::Interface::vtable(this).SetInitialVelocity)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for Vector2NaturalMotionAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVector2NaturalMotionAnimation>();
+}
 unsafe impl windows_core::Interface for Vector2NaturalMotionAnimation {
     type Vtable = <IVector2NaturalMotionAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVector2NaturalMotionAnimation as windows_core::Interface>::IID;
@@ -6257,9 +6257,6 @@ impl windows_core::RuntimeName for Vector2NaturalMotionAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BounceVector2NaturalMotionAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for BounceVector2NaturalMotionAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBounceVector2NaturalMotionAnimation>();
-}
 windows_core::imp::interface_hierarchy!(BounceVector2NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BounceVector2NaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl BounceVector2NaturalMotionAnimation {
@@ -6555,6 +6552,9 @@ impl BounceVector2NaturalMotionAnimation {
         unsafe { (windows_core::Interface::vtable(this).SetInitialVelocity)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for BounceVector2NaturalMotionAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBounceVector2NaturalMotionAnimation>();
+}
 unsafe impl windows_core::Interface for BounceVector2NaturalMotionAnimation {
     type Vtable = <IBounceVector2NaturalMotionAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBounceVector2NaturalMotionAnimation as windows_core::Interface>::IID;
@@ -6565,9 +6565,6 @@ impl windows_core::RuntimeName for BounceVector2NaturalMotionAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Vector3NaturalMotionAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for Vector3NaturalMotionAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVector3NaturalMotionAnimation>();
-}
 windows_core::imp::interface_hierarchy!(Vector3NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Vector3NaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl Vector3NaturalMotionAnimation {
@@ -6841,6 +6838,9 @@ impl Vector3NaturalMotionAnimation {
         unsafe { (windows_core::Interface::vtable(this).SetInitialVelocity)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for Vector3NaturalMotionAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVector3NaturalMotionAnimation>();
+}
 unsafe impl windows_core::Interface for Vector3NaturalMotionAnimation {
     type Vtable = <IVector3NaturalMotionAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVector3NaturalMotionAnimation as windows_core::Interface>::IID;
@@ -6851,9 +6851,6 @@ impl windows_core::RuntimeName for Vector3NaturalMotionAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BounceVector3NaturalMotionAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for BounceVector3NaturalMotionAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBounceVector3NaturalMotionAnimation>();
-}
 windows_core::imp::interface_hierarchy!(BounceVector3NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BounceVector3NaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl BounceVector3NaturalMotionAnimation {
@@ -7149,6 +7146,9 @@ impl BounceVector3NaturalMotionAnimation {
         unsafe { (windows_core::Interface::vtable(this).SetInitialVelocity)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for BounceVector3NaturalMotionAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBounceVector3NaturalMotionAnimation>();
+}
 unsafe impl windows_core::Interface for BounceVector3NaturalMotionAnimation {
     type Vtable = <IBounceVector3NaturalMotionAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBounceVector3NaturalMotionAnimation as windows_core::Interface>::IID;
@@ -7159,9 +7159,6 @@ impl windows_core::RuntimeName for BounceVector3NaturalMotionAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CircleEasingFunction(windows_core::IUnknown);
-impl windows_core::RuntimeType for CircleEasingFunction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICircleEasingFunction>();
-}
 windows_core::imp::interface_hierarchy!(CircleEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CircleEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
 impl CircleEasingFunction {
@@ -7281,6 +7278,9 @@ impl CircleEasingFunction {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CircleEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICircleEasingFunction>();
+}
 unsafe impl windows_core::Interface for CircleEasingFunction {
     type Vtable = <ICircleEasingFunction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICircleEasingFunction as windows_core::Interface>::IID;
@@ -7291,9 +7291,6 @@ impl windows_core::RuntimeName for CircleEasingFunction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ColorKeyFrameAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for ColorKeyFrameAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IColorKeyFrameAnimation>();
-}
 windows_core::imp::interface_hierarchy!(ColorKeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ColorKeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl ColorKeyFrameAnimation {
@@ -7606,6 +7603,9 @@ impl ColorKeyFrameAnimation {
         unsafe { (windows_core::Interface::vtable(this).SetDelayBehavior)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for ColorKeyFrameAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IColorKeyFrameAnimation>();
+}
 unsafe impl windows_core::Interface for ColorKeyFrameAnimation {
     type Vtable = <IColorKeyFrameAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IColorKeyFrameAnimation as windows_core::Interface>::IID;
@@ -7617,10 +7617,6 @@ impl windows_core::RuntimeName for ColorKeyFrameAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionAnimationGroup(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for CompositionAnimationGroup {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionAnimationGroup>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionAnimationGroup, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -7770,6 +7766,10 @@ impl CompositionAnimationGroup {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for CompositionAnimationGroup {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionAnimationGroup>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for CompositionAnimationGroup {
     type Vtable = <ICompositionAnimationGroup as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionAnimationGroup as windows_core::Interface>::IID;
@@ -7781,9 +7781,6 @@ impl windows_core::RuntimeName for CompositionAnimationGroup {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionBrush(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionBrush {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionBrush>();
-}
 windows_core::imp::interface_hierarchy!(CompositionBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionBrush, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionBrush {
@@ -7896,6 +7893,9 @@ impl CompositionBrush {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionBrush {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionBrush>();
+}
 unsafe impl windows_core::Interface for CompositionBrush {
     type Vtable = <ICompositionBrush as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionBrush as windows_core::Interface>::IID;
@@ -7906,9 +7906,6 @@ impl windows_core::RuntimeName for CompositionBrush {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionBackdropBrush(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionBackdropBrush {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionBackdropBrush>();
-}
 windows_core::imp::interface_hierarchy!(CompositionBackdropBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionBackdropBrush, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionBackdropBrush {
@@ -8021,6 +8018,9 @@ impl CompositionBackdropBrush {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionBackdropBrush {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionBackdropBrush>();
+}
 unsafe impl windows_core::Interface for CompositionBackdropBrush {
     type Vtable = <ICompositionBackdropBrush as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionBackdropBrush as windows_core::Interface>::IID;
@@ -8031,9 +8031,6 @@ impl windows_core::RuntimeName for CompositionBackdropBrush {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionBatchCompletedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionBatchCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionBatchCompletedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CompositionBatchCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionBatchCompletedEventArgs, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionBatchCompletedEventArgs {
@@ -8146,6 +8143,9 @@ impl CompositionBatchCompletedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionBatchCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionBatchCompletedEventArgs>();
+}
 unsafe impl windows_core::Interface for CompositionBatchCompletedEventArgs {
     type Vtable = <ICompositionBatchCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionBatchCompletedEventArgs as windows_core::Interface>::IID;
@@ -8156,9 +8156,6 @@ impl windows_core::RuntimeName for CompositionBatchCompletedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(CompositionCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionCapabilities,);
 impl CompositionCapabilities {
@@ -8201,6 +8198,9 @@ impl CompositionCapabilities {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CompositionCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionCapabilities>();
+}
 unsafe impl windows_core::Interface for CompositionCapabilities {
     type Vtable = <ICompositionCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionCapabilities as windows_core::Interface>::IID;
@@ -8211,9 +8211,6 @@ impl windows_core::RuntimeName for CompositionCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionClip(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionClip {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionClip>();
-}
 windows_core::imp::interface_hierarchy!(CompositionClip, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionClip, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionClip {
@@ -8413,6 +8410,9 @@ impl CompositionClip {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionClip {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionClip>();
+}
 unsafe impl windows_core::Interface for CompositionClip {
     type Vtable = <ICompositionClip as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionClip as windows_core::Interface>::IID;
@@ -8423,9 +8423,6 @@ impl windows_core::RuntimeName for CompositionClip {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionColorBrush(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionColorBrush {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionColorBrush>();
-}
 windows_core::imp::interface_hierarchy!(CompositionColorBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionColorBrush, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionColorBrush {
@@ -8549,6 +8546,9 @@ impl CompositionColorBrush {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionColorBrush {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionColorBrush>();
+}
 unsafe impl windows_core::Interface for CompositionColorBrush {
     type Vtable = <ICompositionColorBrush as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionColorBrush as windows_core::Interface>::IID;
@@ -8559,9 +8559,6 @@ impl windows_core::RuntimeName for CompositionColorBrush {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionColorGradientStop(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionColorGradientStop {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionColorGradientStop>();
-}
 windows_core::imp::interface_hierarchy!(CompositionColorGradientStop, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionColorGradientStop, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionColorGradientStop {
@@ -8696,6 +8693,9 @@ impl CompositionColorGradientStop {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionColorGradientStop {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionColorGradientStop>();
+}
 unsafe impl windows_core::Interface for CompositionColorGradientStop {
     type Vtable = <ICompositionColorGradientStop as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionColorGradientStop as windows_core::Interface>::IID;
@@ -8707,10 +8707,6 @@ impl windows_core::RuntimeName for CompositionColorGradientStop {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionColorGradientStopCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for CompositionColorGradientStopCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionColorGradientStopCollection>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionColorGradientStopCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -8803,6 +8799,10 @@ impl CompositionColorGradientStopCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for CompositionColorGradientStopCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionColorGradientStopCollection>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for CompositionColorGradientStopCollection {
     type Vtable = <ICompositionColorGradientStopCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionColorGradientStopCollection as windows_core::Interface>::IID;
@@ -8814,9 +8814,6 @@ impl windows_core::RuntimeName for CompositionColorGradientStopCollection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionCommitBatch(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionCommitBatch {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionCommitBatch>();
-}
 windows_core::imp::interface_hierarchy!(CompositionCommitBatch, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionCommitBatch, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionCommitBatch {
@@ -8957,6 +8954,9 @@ impl CompositionCommitBatch {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionCommitBatch {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionCommitBatch>();
+}
 unsafe impl windows_core::Interface for CompositionCommitBatch {
     type Vtable = <ICompositionCommitBatch as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionCommitBatch as windows_core::Interface>::IID;
@@ -8967,9 +8967,6 @@ impl windows_core::RuntimeName for CompositionCommitBatch {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionShape(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionShape {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionShape>();
-}
 windows_core::imp::interface_hierarchy!(CompositionShape, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionShape, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionShape {
@@ -9156,6 +9153,9 @@ impl CompositionShape {
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionShape {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionShape>();
+}
 unsafe impl windows_core::Interface for CompositionShape {
     type Vtable = <ICompositionShape as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionShape as windows_core::Interface>::IID;
@@ -9166,9 +9166,6 @@ impl windows_core::RuntimeName for CompositionShape {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionContainerShape(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionContainerShape {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionContainerShape>();
-}
 windows_core::imp::interface_hierarchy!(CompositionContainerShape, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionContainerShape, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionContainerShape {
@@ -9363,6 +9360,9 @@ impl CompositionContainerShape {
         unsafe { (windows_core::Interface::vtable(this).SetTransformMatrix)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionContainerShape {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionContainerShape>();
+}
 unsafe impl windows_core::Interface for CompositionContainerShape {
     type Vtable = <ICompositionContainerShape as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionContainerShape as windows_core::Interface>::IID;
@@ -9373,9 +9373,6 @@ impl windows_core::RuntimeName for CompositionContainerShape {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionDrawingSurface(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionDrawingSurface {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionDrawingSurface>();
-}
 windows_core::imp::interface_hierarchy!(CompositionDrawingSurface, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionDrawingSurface, super::super::Foundation::IClosable, IAnimationObject, ICompositionSurface);
 impl CompositionDrawingSurface {
@@ -9544,6 +9541,9 @@ impl CompositionDrawingSurface {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionDrawingSurface {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionDrawingSurface>();
+}
 unsafe impl windows_core::Interface for CompositionDrawingSurface {
     type Vtable = <ICompositionDrawingSurface as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionDrawingSurface as windows_core::Interface>::IID;
@@ -9554,9 +9554,6 @@ impl windows_core::RuntimeName for CompositionDrawingSurface {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionEffectBrush(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionEffectBrush {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionEffectBrush>();
-}
 windows_core::imp::interface_hierarchy!(CompositionEffectBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionEffectBrush, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionEffectBrush {
@@ -9683,6 +9680,9 @@ impl CompositionEffectBrush {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionEffectBrush {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionEffectBrush>();
+}
 unsafe impl windows_core::Interface for CompositionEffectBrush {
     type Vtable = <ICompositionEffectBrush as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionEffectBrush as windows_core::Interface>::IID;
@@ -9693,9 +9693,6 @@ impl windows_core::RuntimeName for CompositionEffectBrush {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionEffectFactory(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionEffectFactory {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionEffectFactory>();
-}
 windows_core::imp::interface_hierarchy!(CompositionEffectFactory, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionEffectFactory, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionEffectFactory {
@@ -9829,6 +9826,9 @@ impl CompositionEffectFactory {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionEffectFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionEffectFactory>();
+}
 unsafe impl windows_core::Interface for CompositionEffectFactory {
     type Vtable = <ICompositionEffectFactory as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionEffectFactory as windows_core::Interface>::IID;
@@ -9840,10 +9840,6 @@ impl windows_core::RuntimeName for CompositionEffectFactory {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionEffectSourceParameter(windows_core::IUnknown);
-#[cfg(feature = "Graphics_Effects")]
-impl windows_core::RuntimeType for CompositionEffectSourceParameter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionEffectSourceParameter>();
-}
 #[cfg(feature = "Graphics_Effects")]
 windows_core::imp::interface_hierarchy!(CompositionEffectSourceParameter, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Graphics_Effects")]
@@ -9869,6 +9865,10 @@ impl CompositionEffectSourceParameter {
     }
 }
 #[cfg(feature = "Graphics_Effects")]
+impl windows_core::RuntimeType for CompositionEffectSourceParameter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionEffectSourceParameter>();
+}
+#[cfg(feature = "Graphics_Effects")]
 unsafe impl windows_core::Interface for CompositionEffectSourceParameter {
     type Vtable = <ICompositionEffectSourceParameter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionEffectSourceParameter as windows_core::Interface>::IID;
@@ -9880,9 +9880,6 @@ impl windows_core::RuntimeName for CompositionEffectSourceParameter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionGeometry(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionGeometry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionGeometry>();
-}
 windows_core::imp::interface_hierarchy!(CompositionGeometry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionGeometry, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionGeometry {
@@ -10028,6 +10025,9 @@ impl CompositionGeometry {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionGeometry {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionGeometry>();
+}
 unsafe impl windows_core::Interface for CompositionGeometry {
     type Vtable = <ICompositionGeometry as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionGeometry as windows_core::Interface>::IID;
@@ -10038,9 +10038,6 @@ impl windows_core::RuntimeName for CompositionGeometry {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionEllipseGeometry(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionEllipseGeometry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionEllipseGeometry>();
-}
 windows_core::imp::interface_hierarchy!(CompositionEllipseGeometry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionEllipseGeometry, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionEllipseGeometry {
@@ -10212,6 +10209,9 @@ impl CompositionEllipseGeometry {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionEllipseGeometry {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionEllipseGeometry>();
+}
 unsafe impl windows_core::Interface for CompositionEllipseGeometry {
     type Vtable = <ICompositionEllipseGeometry as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionEllipseGeometry as windows_core::Interface>::IID;
@@ -10222,9 +10222,6 @@ impl windows_core::RuntimeName for CompositionEllipseGeometry {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionGeometricClip(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionGeometricClip {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionGeometricClip>();
-}
 windows_core::imp::interface_hierarchy!(CompositionGeometricClip, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionGeometricClip, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionGeometricClip {
@@ -10452,6 +10449,9 @@ impl CompositionGeometricClip {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionGeometricClip {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionGeometricClip>();
+}
 unsafe impl windows_core::Interface for CompositionGeometricClip {
     type Vtable = <ICompositionGeometricClip as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionGeometricClip as windows_core::Interface>::IID;
@@ -10462,9 +10462,6 @@ impl windows_core::RuntimeName for CompositionGeometricClip {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionGradientBrush(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionGradientBrush {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionGradientBrush>();
-}
 windows_core::imp::interface_hierarchy!(CompositionGradientBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionGradientBrush, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionGradientBrush {
@@ -10705,6 +10702,9 @@ impl CompositionGradientBrush {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionGradientBrush {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionGradientBrush>();
+}
 unsafe impl windows_core::Interface for CompositionGradientBrush {
     type Vtable = <ICompositionGradientBrush as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionGradientBrush as windows_core::Interface>::IID;
@@ -10715,9 +10715,6 @@ impl windows_core::RuntimeName for CompositionGradientBrush {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionGraphicsDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionGraphicsDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionGraphicsDevice>();
-}
 windows_core::imp::interface_hierarchy!(CompositionGraphicsDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionGraphicsDevice, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionGraphicsDevice {
@@ -10891,6 +10888,9 @@ impl CompositionGraphicsDevice {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionGraphicsDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionGraphicsDevice>();
+}
 unsafe impl windows_core::Interface for CompositionGraphicsDevice {
     type Vtable = <ICompositionGraphicsDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionGraphicsDevice as windows_core::Interface>::IID;
@@ -10901,9 +10901,6 @@ impl windows_core::RuntimeName for CompositionGraphicsDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionLineGeometry(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionLineGeometry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionLineGeometry>();
-}
 windows_core::imp::interface_hierarchy!(CompositionLineGeometry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionLineGeometry, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionLineGeometry {
@@ -11075,6 +11072,9 @@ impl CompositionLineGeometry {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionLineGeometry {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionLineGeometry>();
+}
 unsafe impl windows_core::Interface for CompositionLineGeometry {
     type Vtable = <ICompositionLineGeometry as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionLineGeometry as windows_core::Interface>::IID;
@@ -11085,9 +11085,6 @@ impl windows_core::RuntimeName for CompositionLineGeometry {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionLinearGradientBrush(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionLinearGradientBrush {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionLinearGradientBrush>();
-}
 windows_core::imp::interface_hierarchy!(CompositionLinearGradientBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionLinearGradientBrush, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionLinearGradientBrush {
@@ -11354,6 +11351,9 @@ impl CompositionLinearGradientBrush {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionLinearGradientBrush {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionLinearGradientBrush>();
+}
 unsafe impl windows_core::Interface for CompositionLinearGradientBrush {
     type Vtable = <ICompositionLinearGradientBrush as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionLinearGradientBrush as windows_core::Interface>::IID;
@@ -11364,9 +11364,6 @@ impl windows_core::RuntimeName for CompositionLinearGradientBrush {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionMaskBrush(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionMaskBrush {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionMaskBrush>();
-}
 windows_core::imp::interface_hierarchy!(CompositionMaskBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionMaskBrush, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionMaskBrush {
@@ -11507,6 +11504,9 @@ impl CompositionMaskBrush {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionMaskBrush {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionMaskBrush>();
+}
 unsafe impl windows_core::Interface for CompositionMaskBrush {
     type Vtable = <ICompositionMaskBrush as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionMaskBrush as windows_core::Interface>::IID;
@@ -11517,9 +11517,6 @@ impl windows_core::RuntimeName for CompositionMaskBrush {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionMipmapSurface(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionMipmapSurface {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionMipmapSurface>();
-}
 windows_core::imp::interface_hierarchy!(CompositionMipmapSurface, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionMipmapSurface, super::super::Foundation::IClosable, IAnimationObject, ICompositionSurface);
 impl CompositionMipmapSurface {
@@ -11670,6 +11667,9 @@ impl CompositionMipmapSurface {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionMipmapSurface {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionMipmapSurface>();
+}
 unsafe impl windows_core::Interface for CompositionMipmapSurface {
     type Vtable = <ICompositionMipmapSurface as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionMipmapSurface as windows_core::Interface>::IID;
@@ -11680,9 +11680,6 @@ impl windows_core::RuntimeName for CompositionMipmapSurface {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionNineGridBrush(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionNineGridBrush {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionNineGridBrush>();
-}
 windows_core::imp::interface_hierarchy!(CompositionNineGridBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionNineGridBrush, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionNineGridBrush {
@@ -11924,6 +11921,9 @@ impl CompositionNineGridBrush {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionNineGridBrush {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionNineGridBrush>();
+}
 unsafe impl windows_core::Interface for CompositionNineGridBrush {
     type Vtable = <ICompositionNineGridBrush as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionNineGridBrush as windows_core::Interface>::IID;
@@ -11935,10 +11935,6 @@ impl windows_core::RuntimeName for CompositionNineGridBrush {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionPath(windows_core::IUnknown);
-#[cfg(feature = "Graphics")]
-impl windows_core::RuntimeType for CompositionPath {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionPath>();
-}
 #[cfg(feature = "Graphics")]
 windows_core::imp::interface_hierarchy!(CompositionPath, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Graphics")]
@@ -11960,6 +11956,10 @@ impl CompositionPath {
     }
 }
 #[cfg(feature = "Graphics")]
+impl windows_core::RuntimeType for CompositionPath {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionPath>();
+}
+#[cfg(feature = "Graphics")]
 unsafe impl windows_core::Interface for CompositionPath {
     type Vtable = <ICompositionPath as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionPath as windows_core::Interface>::IID;
@@ -11971,9 +11971,6 @@ impl windows_core::RuntimeName for CompositionPath {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionPathGeometry(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionPathGeometry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionPathGeometry>();
-}
 windows_core::imp::interface_hierarchy!(CompositionPathGeometry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionPathGeometry, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionPathGeometry {
@@ -12135,6 +12132,9 @@ impl CompositionPathGeometry {
         unsafe { (windows_core::Interface::vtable(this).SetPath)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionPathGeometry {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionPathGeometry>();
+}
 unsafe impl windows_core::Interface for CompositionPathGeometry {
     type Vtable = <ICompositionPathGeometry as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionPathGeometry as windows_core::Interface>::IID;
@@ -12145,9 +12145,6 @@ impl windows_core::RuntimeName for CompositionPathGeometry {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionProjectedShadow(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionProjectedShadow {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionProjectedShadow>();
-}
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadow, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionProjectedShadow, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionProjectedShadow {
@@ -12323,6 +12320,9 @@ impl CompositionProjectedShadow {
         }
     }
 }
+impl windows_core::RuntimeType for CompositionProjectedShadow {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionProjectedShadow>();
+}
 unsafe impl windows_core::Interface for CompositionProjectedShadow {
     type Vtable = <ICompositionProjectedShadow as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionProjectedShadow as windows_core::Interface>::IID;
@@ -12333,9 +12333,6 @@ impl windows_core::RuntimeName for CompositionProjectedShadow {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionProjectedShadowCaster(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionProjectedShadowCaster {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionProjectedShadowCaster>();
-}
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadowCaster, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionProjectedShadowCaster, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionProjectedShadowCaster {
@@ -12476,6 +12473,9 @@ impl CompositionProjectedShadowCaster {
         unsafe { (windows_core::Interface::vtable(this).SetCastingVisual)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionProjectedShadowCaster {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionProjectedShadowCaster>();
+}
 unsafe impl windows_core::Interface for CompositionProjectedShadowCaster {
     type Vtable = <ICompositionProjectedShadowCaster as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionProjectedShadowCaster as windows_core::Interface>::IID;
@@ -12487,10 +12487,6 @@ impl windows_core::RuntimeName for CompositionProjectedShadowCaster {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionProjectedShadowCasterCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for CompositionProjectedShadowCasterCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionProjectedShadowCasterCollection>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadowCasterCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -12673,6 +12669,10 @@ impl CompositionProjectedShadowCasterCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for CompositionProjectedShadowCasterCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionProjectedShadowCasterCollection>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for CompositionProjectedShadowCasterCollection {
     type Vtable = <ICompositionProjectedShadowCasterCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionProjectedShadowCasterCollection as windows_core::Interface>::IID;
@@ -12684,9 +12684,6 @@ impl windows_core::RuntimeName for CompositionProjectedShadowCasterCollection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionProjectedShadowReceiver(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionProjectedShadowReceiver {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionProjectedShadowReceiver>();
-}
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadowReceiver, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionProjectedShadowReceiver, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionProjectedShadowReceiver {
@@ -12813,6 +12810,9 @@ impl CompositionProjectedShadowReceiver {
         unsafe { (windows_core::Interface::vtable(this).SetReceivingVisual)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionProjectedShadowReceiver {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionProjectedShadowReceiver>();
+}
 unsafe impl windows_core::Interface for CompositionProjectedShadowReceiver {
     type Vtable = <ICompositionProjectedShadowReceiver as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionProjectedShadowReceiver as windows_core::Interface>::IID;
@@ -12824,10 +12824,6 @@ impl windows_core::RuntimeName for CompositionProjectedShadowReceiver {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionProjectedShadowReceiverUnorderedCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for CompositionProjectedShadowReceiverUnorderedCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionProjectedShadowReceiverUnorderedCollection>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionProjectedShadowReceiverUnorderedCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -12977,6 +12973,10 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for CompositionProjectedShadowReceiverUnorderedCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionProjectedShadowReceiverUnorderedCollection>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for CompositionProjectedShadowReceiverUnorderedCollection {
     type Vtable = <ICompositionProjectedShadowReceiverUnorderedCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionProjectedShadowReceiverUnorderedCollection as windows_core::Interface>::IID;
@@ -12988,9 +12988,6 @@ impl windows_core::RuntimeName for CompositionProjectedShadowReceiverUnorderedCo
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionPropertySet(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionPropertySet {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionPropertySet>();
-}
 windows_core::imp::interface_hierarchy!(CompositionPropertySet, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionPropertySet, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionPropertySet {
@@ -13214,6 +13211,9 @@ impl CompositionPropertySet {
         }
     }
 }
+impl windows_core::RuntimeType for CompositionPropertySet {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionPropertySet>();
+}
 unsafe impl windows_core::Interface for CompositionPropertySet {
     type Vtable = <ICompositionPropertySet as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionPropertySet as windows_core::Interface>::IID;
@@ -13224,9 +13224,6 @@ impl windows_core::RuntimeName for CompositionPropertySet {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionRadialGradientBrush(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionRadialGradientBrush {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionRadialGradientBrush>();
-}
 windows_core::imp::interface_hierarchy!(CompositionRadialGradientBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionRadialGradientBrush, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionRadialGradientBrush {
@@ -13506,6 +13503,9 @@ impl CompositionRadialGradientBrush {
         unsafe { (windows_core::Interface::vtable(this).SetGradientOriginOffset)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionRadialGradientBrush {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionRadialGradientBrush>();
+}
 unsafe impl windows_core::Interface for CompositionRadialGradientBrush {
     type Vtable = <ICompositionRadialGradientBrush as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionRadialGradientBrush as windows_core::Interface>::IID;
@@ -13516,9 +13516,6 @@ impl windows_core::RuntimeName for CompositionRadialGradientBrush {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionRectangleGeometry(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionRectangleGeometry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionRectangleGeometry>();
-}
 windows_core::imp::interface_hierarchy!(CompositionRectangleGeometry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionRectangleGeometry, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionRectangleGeometry {
@@ -13690,6 +13687,9 @@ impl CompositionRectangleGeometry {
         unsafe { (windows_core::Interface::vtable(this).SetSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionRectangleGeometry {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionRectangleGeometry>();
+}
 unsafe impl windows_core::Interface for CompositionRectangleGeometry {
     type Vtable = <ICompositionRectangleGeometry as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionRectangleGeometry as windows_core::Interface>::IID;
@@ -13700,9 +13700,6 @@ impl windows_core::RuntimeName for CompositionRectangleGeometry {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionRoundedRectangleGeometry(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionRoundedRectangleGeometry {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionRoundedRectangleGeometry>();
-}
 windows_core::imp::interface_hierarchy!(CompositionRoundedRectangleGeometry, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionRoundedRectangleGeometry, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionRoundedRectangleGeometry {
@@ -13887,6 +13884,9 @@ impl CompositionRoundedRectangleGeometry {
         unsafe { (windows_core::Interface::vtable(this).SetSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionRoundedRectangleGeometry {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionRoundedRectangleGeometry>();
+}
 unsafe impl windows_core::Interface for CompositionRoundedRectangleGeometry {
     type Vtable = <ICompositionRoundedRectangleGeometry as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionRoundedRectangleGeometry as windows_core::Interface>::IID;
@@ -13897,9 +13897,6 @@ impl windows_core::RuntimeName for CompositionRoundedRectangleGeometry {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionScopedBatch(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionScopedBatch {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionScopedBatch>();
-}
 windows_core::imp::interface_hierarchy!(CompositionScopedBatch, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionScopedBatch, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionScopedBatch {
@@ -14052,6 +14049,9 @@ impl CompositionScopedBatch {
         unsafe { (windows_core::Interface::vtable(this).RemoveCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionScopedBatch {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionScopedBatch>();
+}
 unsafe impl windows_core::Interface for CompositionScopedBatch {
     type Vtable = <ICompositionScopedBatch as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionScopedBatch as windows_core::Interface>::IID;
@@ -14062,9 +14062,6 @@ impl windows_core::RuntimeName for CompositionScopedBatch {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionShadow(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionShadow {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionShadow>();
-}
 windows_core::imp::interface_hierarchy!(CompositionShadow, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionShadow, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionShadow {
@@ -14177,6 +14174,9 @@ impl CompositionShadow {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionShadow {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionShadow>();
+}
 unsafe impl windows_core::Interface for CompositionShadow {
     type Vtable = <ICompositionShadow as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionShadow as windows_core::Interface>::IID;
@@ -14188,10 +14188,6 @@ impl windows_core::RuntimeName for CompositionShadow {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionShapeCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for CompositionShapeCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVector<CompositionShape>>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionShapeCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -14392,6 +14388,10 @@ impl CompositionShapeCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for CompositionShapeCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVector<CompositionShape>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for CompositionShapeCollection {
     type Vtable = <super::super::Foundation::Collections::IVector<CompositionShape> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::Foundation::Collections::IVector<CompositionShape> as windows_core::Interface>::IID;
@@ -14403,9 +14403,6 @@ impl windows_core::RuntimeName for CompositionShapeCollection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionSpriteShape(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionSpriteShape {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionSpriteShape>();
-}
 windows_core::imp::interface_hierarchy!(CompositionSpriteShape, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionSpriteShape, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionSpriteShape {
@@ -14730,6 +14727,9 @@ impl CompositionSpriteShape {
         unsafe { (windows_core::Interface::vtable(this).SetStrokeThickness)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionSpriteShape {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionSpriteShape>();
+}
 unsafe impl windows_core::Interface for CompositionSpriteShape {
     type Vtable = <ICompositionSpriteShape as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionSpriteShape as windows_core::Interface>::IID;
@@ -14741,10 +14741,6 @@ impl windows_core::RuntimeName for CompositionSpriteShape {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionStrokeDashArray(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for CompositionStrokeDashArray {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVector<f32>>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(CompositionStrokeDashArray, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -14933,6 +14929,10 @@ impl CompositionStrokeDashArray {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for CompositionStrokeDashArray {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IVector<f32>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for CompositionStrokeDashArray {
     type Vtable = <super::super::Foundation::Collections::IVector<f32> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::Foundation::Collections::IVector<f32> as windows_core::Interface>::IID;
@@ -14944,9 +14944,6 @@ impl windows_core::RuntimeName for CompositionStrokeDashArray {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionSurfaceBrush(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionSurfaceBrush {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionSurfaceBrush>();
-}
 windows_core::imp::interface_hierarchy!(CompositionSurfaceBrush, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionSurfaceBrush, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionSurfaceBrush {
@@ -15215,6 +15212,9 @@ impl CompositionSurfaceBrush {
         unsafe { (windows_core::Interface::vtable(this).SetSnapToPixels)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionSurfaceBrush {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionSurfaceBrush>();
+}
 unsafe impl windows_core::Interface for CompositionSurfaceBrush {
     type Vtable = <ICompositionSurfaceBrush as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionSurfaceBrush as windows_core::Interface>::IID;
@@ -15225,9 +15225,6 @@ impl windows_core::RuntimeName for CompositionSurfaceBrush {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionTarget(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionTarget {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionTarget>();
-}
 windows_core::imp::interface_hierarchy!(CompositionTarget, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionTarget, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionTarget {
@@ -15354,6 +15351,9 @@ impl CompositionTarget {
         unsafe { (windows_core::Interface::vtable(this).SetRoot)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionTarget {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionTarget>();
+}
 unsafe impl windows_core::Interface for CompositionTarget {
     type Vtable = <ICompositionTarget as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionTarget as windows_core::Interface>::IID;
@@ -15364,9 +15364,6 @@ impl windows_core::RuntimeName for CompositionTarget {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionTexture(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionTexture {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionTexture>();
-}
 windows_core::imp::interface_hierarchy!(CompositionTexture, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionTexture, super::super::Foundation::IClosable, IAnimationObject, ICompositionSurface);
 impl CompositionTexture {
@@ -15518,6 +15515,9 @@ impl CompositionTexture {
         unsafe { (windows_core::Interface::vtable(this).SetColorSpace)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionTexture {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionTexture>();
+}
 unsafe impl windows_core::Interface for CompositionTexture {
     type Vtable = <ICompositionTexture as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionTexture as windows_core::Interface>::IID;
@@ -15528,9 +15528,6 @@ impl windows_core::RuntimeName for CompositionTexture {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionTransform(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionTransform {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionTransform>();
-}
 windows_core::imp::interface_hierarchy!(CompositionTransform, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionTransform, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionTransform {
@@ -15643,6 +15640,9 @@ impl CompositionTransform {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionTransform {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionTransform>();
+}
 unsafe impl windows_core::Interface for CompositionTransform {
     type Vtable = <ICompositionTransform as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionTransform as windows_core::Interface>::IID;
@@ -15653,9 +15653,6 @@ impl windows_core::RuntimeName for CompositionTransform {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionViewBox(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionViewBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionViewBox>();
-}
 windows_core::imp::interface_hierarchy!(CompositionViewBox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionViewBox, super::super::Foundation::IClosable, IAnimationObject);
 impl CompositionViewBox {
@@ -15827,6 +15824,9 @@ impl CompositionViewBox {
         unsafe { (windows_core::Interface::vtable(this).SetVerticalAlignmentRatio)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionViewBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionViewBox>();
+}
 unsafe impl windows_core::Interface for CompositionViewBox {
     type Vtable = <ICompositionViewBox as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionViewBox as windows_core::Interface>::IID;
@@ -15837,9 +15837,6 @@ impl windows_core::RuntimeName for CompositionViewBox {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionVirtualDrawingSurface(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionVirtualDrawingSurface {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionVirtualDrawingSurface>();
-}
 windows_core::imp::interface_hierarchy!(CompositionVirtualDrawingSurface, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionVirtualDrawingSurface, super::super::Foundation::IClosable, IAnimationObject, ICompositionSurface);
 impl CompositionVirtualDrawingSurface {
@@ -16013,6 +16010,9 @@ impl CompositionVirtualDrawingSurface {
         unsafe { (windows_core::Interface::vtable(this).Trim)(windows_core::Interface::as_raw(this), rects.len().try_into().unwrap(), rects.as_ptr()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionVirtualDrawingSurface {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionVirtualDrawingSurface>();
+}
 unsafe impl windows_core::Interface for CompositionVirtualDrawingSurface {
     type Vtable = <ICompositionVirtualDrawingSurface as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionVirtualDrawingSurface as windows_core::Interface>::IID;
@@ -16023,9 +16023,6 @@ impl windows_core::RuntimeName for CompositionVirtualDrawingSurface {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionVisualSurface(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionVisualSurface {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionVisualSurface>();
-}
 windows_core::imp::interface_hierarchy!(CompositionVisualSurface, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionVisualSurface, super::super::Foundation::IClosable, IAnimationObject, ICompositionSurface);
 impl CompositionVisualSurface {
@@ -16178,6 +16175,9 @@ impl CompositionVisualSurface {
         unsafe { (windows_core::Interface::vtable(this).SetSourceSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionVisualSurface {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionVisualSurface>();
+}
 unsafe impl windows_core::Interface for CompositionVisualSurface {
     type Vtable = <ICompositionVisualSurface as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionVisualSurface as windows_core::Interface>::IID;
@@ -16188,9 +16188,6 @@ impl windows_core::RuntimeName for CompositionVisualSurface {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Compositor(windows_core::IUnknown);
-impl windows_core::RuntimeType for Compositor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositor>();
-}
 windows_core::imp::interface_hierarchy!(Compositor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Compositor, super::super::Foundation::IClosable);
 impl Compositor {
@@ -16813,6 +16810,9 @@ impl Compositor {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Compositor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositor>();
+}
 unsafe impl windows_core::Interface for Compositor {
     type Vtable = <ICompositor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositor as windows_core::Interface>::IID;
@@ -16823,9 +16823,6 @@ impl windows_core::RuntimeName for Compositor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Visual(windows_core::IUnknown);
-impl windows_core::RuntimeType for Visual {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisual>();
-}
 windows_core::imp::interface_hierarchy!(Visual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Visual, super::super::Foundation::IClosable, IAnimationObject);
 impl Visual {
@@ -17202,6 +17199,9 @@ impl Visual {
         unsafe { (windows_core::Interface::vtable(this).SetIsPixelSnappingEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for Visual {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisual>();
+}
 unsafe impl windows_core::Interface for Visual {
     type Vtable = <IVisual as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVisual as windows_core::Interface>::IID;
@@ -17212,9 +17212,6 @@ impl windows_core::RuntimeName for Visual {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContainerVisual(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContainerVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContainerVisual>();
-}
 windows_core::imp::interface_hierarchy!(ContainerVisual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContainerVisual, super::super::Foundation::IClosable, IAnimationObject);
 impl ContainerVisual {
@@ -17599,6 +17596,9 @@ impl ContainerVisual {
         unsafe { (windows_core::Interface::vtable(this).SetIsPixelSnappingEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for ContainerVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContainerVisual>();
+}
 unsafe impl windows_core::Interface for ContainerVisual {
     type Vtable = <IContainerVisual as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContainerVisual as windows_core::Interface>::IID;
@@ -17609,9 +17609,6 @@ impl windows_core::RuntimeName for ContainerVisual {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CubicBezierEasingFunction(windows_core::IUnknown);
-impl windows_core::RuntimeType for CubicBezierEasingFunction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICubicBezierEasingFunction>();
-}
 windows_core::imp::interface_hierarchy!(CubicBezierEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CubicBezierEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
 impl CubicBezierEasingFunction {
@@ -17740,6 +17737,9 @@ impl CubicBezierEasingFunction {
         }
     }
 }
+impl windows_core::RuntimeType for CubicBezierEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICubicBezierEasingFunction>();
+}
 unsafe impl windows_core::Interface for CubicBezierEasingFunction {
     type Vtable = <ICubicBezierEasingFunction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICubicBezierEasingFunction as windows_core::Interface>::IID;
@@ -17750,9 +17750,6 @@ impl windows_core::RuntimeName for CubicBezierEasingFunction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DelegatedInkTrailVisual(windows_core::IUnknown);
-impl windows_core::RuntimeType for DelegatedInkTrailVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDelegatedInkTrailVisual>();
-}
 windows_core::imp::interface_hierarchy!(DelegatedInkTrailVisual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DelegatedInkTrailVisual, super::super::Foundation::IClosable, IAnimationObject);
 impl DelegatedInkTrailVisual {
@@ -18174,6 +18171,9 @@ impl DelegatedInkTrailVisual {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DelegatedInkTrailVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDelegatedInkTrailVisual>();
+}
 unsafe impl windows_core::Interface for DelegatedInkTrailVisual {
     type Vtable = <IDelegatedInkTrailVisual as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDelegatedInkTrailVisual as windows_core::Interface>::IID;
@@ -18184,9 +18184,6 @@ impl windows_core::RuntimeName for DelegatedInkTrailVisual {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DistantLight(windows_core::IUnknown);
-impl windows_core::RuntimeType for DistantLight {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDistantLight>();
-}
 windows_core::imp::interface_hierarchy!(DistantLight, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DistantLight, super::super::Foundation::IClosable, IAnimationObject);
 impl DistantLight {
@@ -18375,6 +18372,9 @@ impl DistantLight {
         unsafe { (windows_core::Interface::vtable(this).SetIntensity)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for DistantLight {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDistantLight>();
+}
 unsafe impl windows_core::Interface for DistantLight {
     type Vtable = <IDistantLight as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDistantLight as windows_core::Interface>::IID;
@@ -18385,9 +18385,6 @@ impl windows_core::RuntimeName for DistantLight {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DropShadow(windows_core::IUnknown);
-impl windows_core::RuntimeType for DropShadow {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDropShadow>();
-}
 windows_core::imp::interface_hierarchy!(DropShadow, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DropShadow, super::super::Foundation::IClosable, IAnimationObject);
 impl DropShadow {
@@ -18571,6 +18568,9 @@ impl DropShadow {
         unsafe { (windows_core::Interface::vtable(this).SetSourcePolicy)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for DropShadow {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDropShadow>();
+}
 unsafe impl windows_core::Interface for DropShadow {
     type Vtable = <IDropShadow as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDropShadow as windows_core::Interface>::IID;
@@ -18581,9 +18581,6 @@ impl windows_core::RuntimeName for DropShadow {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ElasticEasingFunction(windows_core::IUnknown);
-impl windows_core::RuntimeType for ElasticEasingFunction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IElasticEasingFunction>();
-}
 windows_core::imp::interface_hierarchy!(ElasticEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ElasticEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
 impl ElasticEasingFunction {
@@ -18717,6 +18714,9 @@ impl ElasticEasingFunction {
         }
     }
 }
+impl windows_core::RuntimeType for ElasticEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IElasticEasingFunction>();
+}
 unsafe impl windows_core::Interface for ElasticEasingFunction {
     type Vtable = <IElasticEasingFunction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IElasticEasingFunction as windows_core::Interface>::IID;
@@ -18727,9 +18727,6 @@ impl windows_core::RuntimeName for ElasticEasingFunction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExponentialEasingFunction(windows_core::IUnknown);
-impl windows_core::RuntimeType for ExponentialEasingFunction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExponentialEasingFunction>();
-}
 windows_core::imp::interface_hierarchy!(ExponentialEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ExponentialEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
 impl ExponentialEasingFunction {
@@ -18856,6 +18853,9 @@ impl ExponentialEasingFunction {
         }
     }
 }
+impl windows_core::RuntimeType for ExponentialEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExponentialEasingFunction>();
+}
 unsafe impl windows_core::Interface for ExponentialEasingFunction {
     type Vtable = <IExponentialEasingFunction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IExponentialEasingFunction as windows_core::Interface>::IID;
@@ -18866,9 +18866,6 @@ impl windows_core::RuntimeName for ExponentialEasingFunction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ExpressionAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for ExpressionAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExpressionAnimation>();
-}
 windows_core::imp::interface_hierarchy!(ExpressionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ExpressionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl ExpressionAnimation {
@@ -19075,6 +19072,9 @@ impl ExpressionAnimation {
         unsafe { (windows_core::Interface::vtable(this).SetExpression)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for ExpressionAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IExpressionAnimation>();
+}
 unsafe impl windows_core::Interface for ExpressionAnimation {
     type Vtable = <IExpressionAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IExpressionAnimation as windows_core::Interface>::IID;
@@ -19086,10 +19086,6 @@ impl windows_core::RuntimeName for ExpressionAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImplicitAnimationCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for ImplicitAnimationCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImplicitAnimationCollection>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(ImplicitAnimationCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -19259,6 +19255,10 @@ impl ImplicitAnimationCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for ImplicitAnimationCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImplicitAnimationCollection>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for ImplicitAnimationCollection {
     type Vtable = <IImplicitAnimationCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IImplicitAnimationCollection as windows_core::Interface>::IID;
@@ -19271,10 +19271,6 @@ impl windows_core::RuntimeName for ImplicitAnimationCollection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InitialValueExpressionCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for InitialValueExpressionCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(InitialValueExpressionCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -19441,6 +19437,10 @@ impl InitialValueExpressionCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for InitialValueExpressionCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for InitialValueExpressionCollection {
     type Vtable = <super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::Foundation::Collections::IMap<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::IID;
@@ -19452,9 +19452,6 @@ impl windows_core::RuntimeName for InitialValueExpressionCollection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InsetClip(windows_core::IUnknown);
-impl windows_core::RuntimeType for InsetClip {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInsetClip>();
-}
 windows_core::imp::interface_hierarchy!(InsetClip, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InsetClip, super::super::Foundation::IClosable, IAnimationObject);
 impl InsetClip {
@@ -19698,6 +19695,9 @@ impl InsetClip {
         unsafe { (windows_core::Interface::vtable(this).SetTopInset)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for InsetClip {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInsetClip>();
+}
 unsafe impl windows_core::Interface for InsetClip {
     type Vtable = <IInsetClip as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInsetClip as windows_core::Interface>::IID;
@@ -19708,9 +19708,6 @@ impl windows_core::RuntimeName for InsetClip {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LayerVisual(windows_core::IUnknown);
-impl windows_core::RuntimeType for LayerVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILayerVisual>();
-}
 windows_core::imp::interface_hierarchy!(LayerVisual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LayerVisual, super::super::Foundation::IClosable, IAnimationObject);
 impl LayerVisual {
@@ -20123,6 +20120,9 @@ impl LayerVisual {
         unsafe { (windows_core::Interface::vtable(this).SetIsPixelSnappingEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for LayerVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILayerVisual>();
+}
 unsafe impl windows_core::Interface for LayerVisual {
     type Vtable = <ILayerVisual as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILayerVisual as windows_core::Interface>::IID;
@@ -20133,9 +20133,6 @@ impl windows_core::RuntimeName for LayerVisual {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LinearEasingFunction(windows_core::IUnknown);
-impl windows_core::RuntimeType for LinearEasingFunction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILinearEasingFunction>();
-}
 windows_core::imp::interface_hierarchy!(LinearEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LinearEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
 impl LinearEasingFunction {
@@ -20248,6 +20245,9 @@ impl LinearEasingFunction {
         unsafe { (windows_core::Interface::vtable(this).StartAnimationWithController)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(propertyname), animation.param().abi(), animationcontroller.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for LinearEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILinearEasingFunction>();
+}
 unsafe impl windows_core::Interface for LinearEasingFunction {
     type Vtable = <ILinearEasingFunction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILinearEasingFunction as windows_core::Interface>::IID;
@@ -20258,9 +20258,6 @@ impl windows_core::RuntimeName for LinearEasingFunction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PathKeyFrameAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for PathKeyFrameAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPathKeyFrameAnimation>();
-}
 windows_core::imp::interface_hierarchy!(PathKeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PathKeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl PathKeyFrameAnimation {
@@ -20568,6 +20565,9 @@ impl PathKeyFrameAnimation {
         unsafe { (windows_core::Interface::vtable(this).InsertKeyFrameWithEasingFunction)(windows_core::Interface::as_raw(this), normalizedprogresskey, path.param().abi(), easingfunction.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for PathKeyFrameAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPathKeyFrameAnimation>();
+}
 unsafe impl windows_core::Interface for PathKeyFrameAnimation {
     type Vtable = <IPathKeyFrameAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPathKeyFrameAnimation as windows_core::Interface>::IID;
@@ -20578,9 +20578,6 @@ impl windows_core::RuntimeName for PathKeyFrameAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PointLight(windows_core::IUnknown);
-impl windows_core::RuntimeType for PointLight {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPointLight>();
-}
 windows_core::imp::interface_hierarchy!(PointLight, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PointLight, super::super::Foundation::IClosable, IAnimationObject);
 impl PointLight {
@@ -20824,6 +20821,9 @@ impl PointLight {
         unsafe { (windows_core::Interface::vtable(this).SetMaxAttenuationCutoff)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for PointLight {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPointLight>();
+}
 unsafe impl windows_core::Interface for PointLight {
     type Vtable = <IPointLight as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPointLight as windows_core::Interface>::IID;
@@ -20834,9 +20834,6 @@ impl windows_core::RuntimeName for PointLight {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PowerEasingFunction(windows_core::IUnknown);
-impl windows_core::RuntimeType for PowerEasingFunction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPowerEasingFunction>();
-}
 windows_core::imp::interface_hierarchy!(PowerEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PowerEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
 impl PowerEasingFunction {
@@ -20963,6 +20960,9 @@ impl PowerEasingFunction {
         }
     }
 }
+impl windows_core::RuntimeType for PowerEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPowerEasingFunction>();
+}
 unsafe impl windows_core::Interface for PowerEasingFunction {
     type Vtable = <IPowerEasingFunction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPowerEasingFunction as windows_core::Interface>::IID;
@@ -20973,9 +20973,6 @@ impl windows_core::RuntimeName for PowerEasingFunction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct QuaternionKeyFrameAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for QuaternionKeyFrameAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IQuaternionKeyFrameAnimation>();
-}
 windows_core::imp::interface_hierarchy!(QuaternionKeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(QuaternionKeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl QuaternionKeyFrameAnimation {
@@ -21279,6 +21276,9 @@ impl QuaternionKeyFrameAnimation {
         unsafe { (windows_core::Interface::vtable(this).InsertKeyFrameWithEasingFunction)(windows_core::Interface::as_raw(this), normalizedprogresskey, value, easingfunction.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for QuaternionKeyFrameAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IQuaternionKeyFrameAnimation>();
+}
 unsafe impl windows_core::Interface for QuaternionKeyFrameAnimation {
     type Vtable = <IQuaternionKeyFrameAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IQuaternionKeyFrameAnimation as windows_core::Interface>::IID;
@@ -21289,9 +21289,6 @@ impl windows_core::RuntimeName for QuaternionKeyFrameAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RectangleClip(windows_core::IUnknown);
-impl windows_core::RuntimeType for RectangleClip {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRectangleClip>();
-}
 windows_core::imp::interface_hierarchy!(RectangleClip, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RectangleClip, super::super::Foundation::IClosable, IAnimationObject);
 impl RectangleClip {
@@ -21587,6 +21584,9 @@ impl RectangleClip {
         unsafe { (windows_core::Interface::vtable(this).SetTopRightRadius)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for RectangleClip {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRectangleClip>();
+}
 unsafe impl windows_core::Interface for RectangleClip {
     type Vtable = <IRectangleClip as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRectangleClip as windows_core::Interface>::IID;
@@ -21597,9 +21597,6 @@ impl windows_core::RuntimeName for RectangleClip {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RedirectVisual(windows_core::IUnknown);
-impl windows_core::RuntimeType for RedirectVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRedirectVisual>();
-}
 windows_core::imp::interface_hierarchy!(RedirectVisual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RedirectVisual, super::super::Foundation::IClosable, IAnimationObject);
 impl RedirectVisual {
@@ -21998,6 +21995,9 @@ impl RedirectVisual {
         unsafe { (windows_core::Interface::vtable(this).SetIsPixelSnappingEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for RedirectVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRedirectVisual>();
+}
 unsafe impl windows_core::Interface for RedirectVisual {
     type Vtable = <IRedirectVisual as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRedirectVisual as windows_core::Interface>::IID;
@@ -22008,9 +22008,6 @@ impl windows_core::RuntimeName for RedirectVisual {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RenderingDeviceReplacedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RenderingDeviceReplacedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRenderingDeviceReplacedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RenderingDeviceReplacedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RenderingDeviceReplacedEventArgs, super::super::Foundation::IClosable, IAnimationObject);
 impl RenderingDeviceReplacedEventArgs {
@@ -22130,6 +22127,9 @@ impl RenderingDeviceReplacedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RenderingDeviceReplacedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRenderingDeviceReplacedEventArgs>();
+}
 unsafe impl windows_core::Interface for RenderingDeviceReplacedEventArgs {
     type Vtable = <IRenderingDeviceReplacedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRenderingDeviceReplacedEventArgs as windows_core::Interface>::IID;
@@ -22140,9 +22140,6 @@ impl windows_core::RuntimeName for RenderingDeviceReplacedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ScalarKeyFrameAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for ScalarKeyFrameAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScalarKeyFrameAnimation>();
-}
 windows_core::imp::interface_hierarchy!(ScalarKeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ScalarKeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl ScalarKeyFrameAnimation {
@@ -22444,6 +22441,9 @@ impl ScalarKeyFrameAnimation {
         unsafe { (windows_core::Interface::vtable(this).InsertKeyFrameWithEasingFunction)(windows_core::Interface::as_raw(this), normalizedprogresskey, value, easingfunction.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for ScalarKeyFrameAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IScalarKeyFrameAnimation>();
+}
 unsafe impl windows_core::Interface for ScalarKeyFrameAnimation {
     type Vtable = <IScalarKeyFrameAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IScalarKeyFrameAnimation as windows_core::Interface>::IID;
@@ -22454,9 +22454,6 @@ impl windows_core::RuntimeName for ScalarKeyFrameAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShapeVisual(windows_core::IUnknown);
-impl windows_core::RuntimeType for ShapeVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShapeVisual>();
-}
 windows_core::imp::interface_hierarchy!(ShapeVisual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ShapeVisual, super::super::Foundation::IClosable, IAnimationObject);
 impl ShapeVisual {
@@ -22863,6 +22860,9 @@ impl ShapeVisual {
         unsafe { (windows_core::Interface::vtable(this).SetIsPixelSnappingEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for ShapeVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShapeVisual>();
+}
 unsafe impl windows_core::Interface for ShapeVisual {
     type Vtable = <IShapeVisual as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IShapeVisual as windows_core::Interface>::IID;
@@ -22873,9 +22873,6 @@ impl windows_core::RuntimeName for ShapeVisual {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SineEasingFunction(windows_core::IUnknown);
-impl windows_core::RuntimeType for SineEasingFunction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISineEasingFunction>();
-}
 windows_core::imp::interface_hierarchy!(SineEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SineEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
 impl SineEasingFunction {
@@ -22995,6 +22992,9 @@ impl SineEasingFunction {
         }
     }
 }
+impl windows_core::RuntimeType for SineEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISineEasingFunction>();
+}
 unsafe impl windows_core::Interface for SineEasingFunction {
     type Vtable = <ISineEasingFunction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISineEasingFunction as windows_core::Interface>::IID;
@@ -23005,9 +23005,6 @@ impl windows_core::RuntimeName for SineEasingFunction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpotLight(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpotLight {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpotLight>();
-}
 windows_core::imp::interface_hierarchy!(SpotLight, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpotLight, super::super::Foundation::IClosable, IAnimationObject);
 impl SpotLight {
@@ -23330,6 +23327,9 @@ impl SpotLight {
         unsafe { (windows_core::Interface::vtable(this).SetMaxAttenuationCutoff)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for SpotLight {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpotLight>();
+}
 unsafe impl windows_core::Interface for SpotLight {
     type Vtable = <ISpotLight as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpotLight as windows_core::Interface>::IID;
@@ -23340,9 +23340,6 @@ impl windows_core::RuntimeName for SpotLight {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpringScalarNaturalMotionAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpringScalarNaturalMotionAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpringScalarNaturalMotionAnimation>();
-}
 windows_core::imp::interface_hierarchy!(SpringScalarNaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpringScalarNaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl SpringScalarNaturalMotionAnimation {
@@ -23632,6 +23629,9 @@ impl SpringScalarNaturalMotionAnimation {
         unsafe { (windows_core::Interface::vtable(this).SetPeriod)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for SpringScalarNaturalMotionAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpringScalarNaturalMotionAnimation>();
+}
 unsafe impl windows_core::Interface for SpringScalarNaturalMotionAnimation {
     type Vtable = <ISpringScalarNaturalMotionAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpringScalarNaturalMotionAnimation as windows_core::Interface>::IID;
@@ -23642,9 +23642,6 @@ impl windows_core::RuntimeName for SpringScalarNaturalMotionAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpringVector2NaturalMotionAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpringVector2NaturalMotionAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpringVector2NaturalMotionAnimation>();
-}
 windows_core::imp::interface_hierarchy!(SpringVector2NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpringVector2NaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl SpringVector2NaturalMotionAnimation {
@@ -23940,6 +23937,9 @@ impl SpringVector2NaturalMotionAnimation {
         unsafe { (windows_core::Interface::vtable(this).SetInitialVelocity)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for SpringVector2NaturalMotionAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpringVector2NaturalMotionAnimation>();
+}
 unsafe impl windows_core::Interface for SpringVector2NaturalMotionAnimation {
     type Vtable = <ISpringVector2NaturalMotionAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpringVector2NaturalMotionAnimation as windows_core::Interface>::IID;
@@ -23950,9 +23950,6 @@ impl windows_core::RuntimeName for SpringVector2NaturalMotionAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpringVector3NaturalMotionAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpringVector3NaturalMotionAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpringVector3NaturalMotionAnimation>();
-}
 windows_core::imp::interface_hierarchy!(SpringVector3NaturalMotionAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpringVector3NaturalMotionAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl SpringVector3NaturalMotionAnimation {
@@ -24248,6 +24245,9 @@ impl SpringVector3NaturalMotionAnimation {
         unsafe { (windows_core::Interface::vtable(this).SetInitialVelocity)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for SpringVector3NaturalMotionAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpringVector3NaturalMotionAnimation>();
+}
 unsafe impl windows_core::Interface for SpringVector3NaturalMotionAnimation {
     type Vtable = <ISpringVector3NaturalMotionAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpringVector3NaturalMotionAnimation as windows_core::Interface>::IID;
@@ -24258,9 +24258,6 @@ impl windows_core::RuntimeName for SpringVector3NaturalMotionAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpriteVisual(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpriteVisual {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpriteVisual>();
-}
 windows_core::imp::interface_hierarchy!(SpriteVisual, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpriteVisual, super::super::Foundation::IClosable, IAnimationObject);
 impl SpriteVisual {
@@ -24673,6 +24670,9 @@ impl SpriteVisual {
         unsafe { (windows_core::Interface::vtable(this).SetIsPixelSnappingEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for SpriteVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpriteVisual>();
+}
 unsafe impl windows_core::Interface for SpriteVisual {
     type Vtable = <ISpriteVisual as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISpriteVisual as windows_core::Interface>::IID;
@@ -24683,9 +24683,6 @@ impl windows_core::RuntimeName for SpriteVisual {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StepEasingFunction(windows_core::IUnknown);
-impl windows_core::RuntimeType for StepEasingFunction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStepEasingFunction>();
-}
 windows_core::imp::interface_hierarchy!(StepEasingFunction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StepEasingFunction, super::super::Foundation::IClosable, IAnimationObject);
 impl StepEasingFunction {
@@ -24853,6 +24850,9 @@ impl StepEasingFunction {
         unsafe { (windows_core::Interface::vtable(this).SetStepCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for StepEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStepEasingFunction>();
+}
 unsafe impl windows_core::Interface for StepEasingFunction {
     type Vtable = <IStepEasingFunction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStepEasingFunction as windows_core::Interface>::IID;
@@ -24863,9 +24863,6 @@ impl windows_core::RuntimeName for StepEasingFunction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Vector2KeyFrameAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for Vector2KeyFrameAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVector2KeyFrameAnimation>();
-}
 windows_core::imp::interface_hierarchy!(Vector2KeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Vector2KeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl Vector2KeyFrameAnimation {
@@ -25169,6 +25166,9 @@ impl Vector2KeyFrameAnimation {
         unsafe { (windows_core::Interface::vtable(this).InsertKeyFrameWithEasingFunction)(windows_core::Interface::as_raw(this), normalizedprogresskey, value, easingfunction.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for Vector2KeyFrameAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVector2KeyFrameAnimation>();
+}
 unsafe impl windows_core::Interface for Vector2KeyFrameAnimation {
     type Vtable = <IVector2KeyFrameAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVector2KeyFrameAnimation as windows_core::Interface>::IID;
@@ -25179,9 +25179,6 @@ impl windows_core::RuntimeName for Vector2KeyFrameAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Vector3KeyFrameAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for Vector3KeyFrameAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVector3KeyFrameAnimation>();
-}
 windows_core::imp::interface_hierarchy!(Vector3KeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Vector3KeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl Vector3KeyFrameAnimation {
@@ -25485,6 +25482,9 @@ impl Vector3KeyFrameAnimation {
         unsafe { (windows_core::Interface::vtable(this).InsertKeyFrameWithEasingFunction)(windows_core::Interface::as_raw(this), normalizedprogresskey, value, easingfunction.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for Vector3KeyFrameAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVector3KeyFrameAnimation>();
+}
 unsafe impl windows_core::Interface for Vector3KeyFrameAnimation {
     type Vtable = <IVector3KeyFrameAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVector3KeyFrameAnimation as windows_core::Interface>::IID;
@@ -25495,9 +25495,6 @@ impl windows_core::RuntimeName for Vector3KeyFrameAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Vector4KeyFrameAnimation(windows_core::IUnknown);
-impl windows_core::RuntimeType for Vector4KeyFrameAnimation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVector4KeyFrameAnimation>();
-}
 windows_core::imp::interface_hierarchy!(Vector4KeyFrameAnimation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Vector4KeyFrameAnimation, super::super::Foundation::IClosable, IAnimationObject, ICompositionAnimationBase);
 impl Vector4KeyFrameAnimation {
@@ -25801,6 +25798,9 @@ impl Vector4KeyFrameAnimation {
         unsafe { (windows_core::Interface::vtable(this).InsertKeyFrameWithEasingFunction)(windows_core::Interface::as_raw(this), normalizedprogresskey, value, easingfunction.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for Vector4KeyFrameAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVector4KeyFrameAnimation>();
+}
 unsafe impl windows_core::Interface for Vector4KeyFrameAnimation {
     type Vtable = <IVector4KeyFrameAnimation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVector4KeyFrameAnimation as windows_core::Interface>::IID;
@@ -25812,10 +25812,6 @@ impl windows_core::RuntimeName for Vector4KeyFrameAnimation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for VisualCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisualCollection>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(VisualCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -25988,6 +25984,10 @@ impl VisualCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for VisualCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisualCollection>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for VisualCollection {
     type Vtable = <IVisualCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVisualCollection as windows_core::Interface>::IID;
@@ -26000,10 +26000,6 @@ impl windows_core::RuntimeName for VisualCollection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VisualUnorderedCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for VisualUnorderedCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisualUnorderedCollection>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(VisualUnorderedCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -26151,6 +26147,10 @@ impl VisualUnorderedCollection {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAll)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for VisualUnorderedCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVisualUnorderedCollection>();
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for VisualUnorderedCollection {
@@ -26469,7 +26469,7 @@ impl windows_core::RuntimeType for CompositionStrokeLineJoin {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.CompositionStrokeLineJoin;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct InkTrailPoint {
     pub Point: super::super::Foundation::Point,
     pub Radius: f32,

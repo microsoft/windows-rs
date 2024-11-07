@@ -440,9 +440,6 @@ pub struct IPrintSchema_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppAttributeError(windows_core::IUnknown);
-impl windows_core::RuntimeType for IppAttributeError {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppAttributeError>();
-}
 windows_core::imp::interface_hierarchy!(IppAttributeError, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IppAttributeError,);
 impl IppAttributeError {
@@ -469,6 +466,9 @@ impl IppAttributeError {
         }
     }
 }
+impl windows_core::RuntimeType for IppAttributeError {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppAttributeError>();
+}
 unsafe impl windows_core::Interface for IppAttributeError {
     type Vtable = <IIppAttributeError as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIppAttributeError as windows_core::Interface>::IID;
@@ -479,9 +479,6 @@ impl windows_core::RuntimeName for IppAttributeError {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppAttributeValue(windows_core::IUnknown);
-impl windows_core::RuntimeType for IppAttributeValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppAttributeValue>();
-}
 windows_core::imp::interface_hierarchy!(IppAttributeValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IppAttributeValue,);
 impl IppAttributeValue {
@@ -970,6 +967,9 @@ impl IppAttributeValue {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for IppAttributeValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppAttributeValue>();
+}
 unsafe impl windows_core::Interface for IppAttributeValue {
     type Vtable = <IIppAttributeValue as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIppAttributeValue as windows_core::Interface>::IID;
@@ -980,9 +980,6 @@ impl windows_core::RuntimeName for IppAttributeValue {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppIntegerRange(windows_core::IUnknown);
-impl windows_core::RuntimeType for IppIntegerRange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppIntegerRange>();
-}
 windows_core::imp::interface_hierarchy!(IppIntegerRange, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IppIntegerRange,);
 impl IppIntegerRange {
@@ -1011,6 +1008,9 @@ impl IppIntegerRange {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for IppIntegerRange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppIntegerRange>();
+}
 unsafe impl windows_core::Interface for IppIntegerRange {
     type Vtable = <IIppIntegerRange as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIppIntegerRange as windows_core::Interface>::IID;
@@ -1021,9 +1021,6 @@ impl windows_core::RuntimeName for IppIntegerRange {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppPrintDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for IppPrintDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppPrintDevice>();
-}
 windows_core::imp::interface_hierarchy!(IppPrintDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IppPrintDevice,);
 impl IppPrintDevice {
@@ -1190,6 +1187,9 @@ impl IppPrintDevice {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for IppPrintDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppPrintDevice>();
+}
 unsafe impl windows_core::Interface for IppPrintDevice {
     type Vtable = <IIppPrintDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIppPrintDevice as windows_core::Interface>::IID;
@@ -1200,9 +1200,6 @@ impl windows_core::RuntimeName for IppPrintDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppResolution(windows_core::IUnknown);
-impl windows_core::RuntimeType for IppResolution {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppResolution>();
-}
 windows_core::imp::interface_hierarchy!(IppResolution, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IppResolution,);
 impl IppResolution {
@@ -1238,6 +1235,9 @@ impl IppResolution {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for IppResolution {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppResolution>();
+}
 unsafe impl windows_core::Interface for IppResolution {
     type Vtable = <IIppResolution as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIppResolution as windows_core::Interface>::IID;
@@ -1248,9 +1248,6 @@ impl windows_core::RuntimeName for IppResolution {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppSetAttributesResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for IppSetAttributesResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppSetAttributesResult>();
-}
 windows_core::imp::interface_hierarchy!(IppSetAttributesResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IppSetAttributesResult,);
 impl IppSetAttributesResult {
@@ -1270,6 +1267,9 @@ impl IppSetAttributesResult {
         }
     }
 }
+impl windows_core::RuntimeType for IppSetAttributesResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppSetAttributesResult>();
+}
 unsafe impl windows_core::Interface for IppSetAttributesResult {
     type Vtable = <IIppSetAttributesResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIppSetAttributesResult as windows_core::Interface>::IID;
@@ -1280,9 +1280,6 @@ impl windows_core::RuntimeName for IppSetAttributesResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IppTextWithLanguage(windows_core::IUnknown);
-impl windows_core::RuntimeType for IppTextWithLanguage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppTextWithLanguage>();
-}
 windows_core::imp::interface_hierarchy!(IppTextWithLanguage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IppTextWithLanguage,);
 impl IppTextWithLanguage {
@@ -1311,6 +1308,9 @@ impl IppTextWithLanguage {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for IppTextWithLanguage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppTextWithLanguage>();
+}
 unsafe impl windows_core::Interface for IppTextWithLanguage {
     type Vtable = <IIppTextWithLanguage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIppTextWithLanguage as windows_core::Interface>::IID;
@@ -1321,9 +1321,6 @@ impl windows_core::RuntimeName for IppTextWithLanguage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PageConfigurationSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for PageConfigurationSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPageConfigurationSettings>();
-}
 windows_core::imp::interface_hierarchy!(PageConfigurationSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PageConfigurationSettings,);
 impl PageConfigurationSettings {
@@ -1357,6 +1354,9 @@ impl PageConfigurationSettings {
         unsafe { (windows_core::Interface::vtable(this).SetSizeSource)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for PageConfigurationSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPageConfigurationSettings>();
+}
 unsafe impl windows_core::Interface for PageConfigurationSettings {
     type Vtable = <IPageConfigurationSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPageConfigurationSettings as windows_core::Interface>::IID;
@@ -1367,9 +1367,6 @@ impl windows_core::RuntimeName for PageConfigurationSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdlPassthroughProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for PdlPassthroughProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdlPassthroughProvider>();
-}
 windows_core::imp::interface_hierarchy!(PdlPassthroughProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PdlPassthroughProvider,);
 impl PdlPassthroughProvider {
@@ -1406,6 +1403,9 @@ impl PdlPassthroughProvider {
         }
     }
 }
+impl windows_core::RuntimeType for PdlPassthroughProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdlPassthroughProvider>();
+}
 unsafe impl windows_core::Interface for PdlPassthroughProvider {
     type Vtable = <IPdlPassthroughProvider as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPdlPassthroughProvider as windows_core::Interface>::IID;
@@ -1416,9 +1416,6 @@ impl windows_core::RuntimeName for PdlPassthroughProvider {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdlPassthroughTarget(windows_core::IUnknown);
-impl windows_core::RuntimeType for PdlPassthroughTarget {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdlPassthroughTarget>();
-}
 windows_core::imp::interface_hierarchy!(PdlPassthroughTarget, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PdlPassthroughTarget, super::super::Foundation::IClosable);
 impl PdlPassthroughTarget {
@@ -1446,6 +1443,9 @@ impl PdlPassthroughTarget {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for PdlPassthroughTarget {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdlPassthroughTarget>();
+}
 unsafe impl windows_core::Interface for PdlPassthroughTarget {
     type Vtable = <IPdlPassthroughTarget as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPdlPassthroughTarget as windows_core::Interface>::IID;
@@ -1456,9 +1456,6 @@ impl windows_core::RuntimeName for PdlPassthroughTarget {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for Print3DDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrint3DDevice>();
-}
 windows_core::imp::interface_hierarchy!(Print3DDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Print3DDevice,);
 impl Print3DDevice {
@@ -1486,6 +1483,9 @@ impl Print3DDevice {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Print3DDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrint3DDevice>();
+}
 unsafe impl windows_core::Interface for Print3DDevice {
     type Vtable = <IPrint3DDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrint3DDevice as windows_core::Interface>::IID;
@@ -1496,9 +1496,6 @@ impl windows_core::RuntimeName for Print3DDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintSchema(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintSchema {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSchema>();
-}
 windows_core::imp::interface_hierarchy!(PrintSchema, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintSchema,);
 impl PrintSchema {
@@ -1532,6 +1529,9 @@ impl PrintSchema {
             (windows_core::Interface::vtable(this).MergeAndValidateWithDefaultPrintTicketAsync)(windows_core::Interface::as_raw(this), deltaticket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for PrintSchema {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSchema>();
 }
 unsafe impl windows_core::Interface for PrintSchema {
     type Vtable = <IPrintSchema as windows_core::Interface>::Vtable;

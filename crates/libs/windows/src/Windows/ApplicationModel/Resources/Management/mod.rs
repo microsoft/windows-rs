@@ -80,9 +80,6 @@ pub struct IResourceIndexerFactory2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IndexedResourceCandidate(windows_core::IUnknown);
-impl windows_core::RuntimeType for IndexedResourceCandidate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIndexedResourceCandidate>();
-}
 windows_core::imp::interface_hierarchy!(IndexedResourceCandidate, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IndexedResourceCandidate,);
 impl IndexedResourceCandidate {
@@ -131,6 +128,9 @@ impl IndexedResourceCandidate {
         }
     }
 }
+impl windows_core::RuntimeType for IndexedResourceCandidate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIndexedResourceCandidate>();
+}
 unsafe impl windows_core::Interface for IndexedResourceCandidate {
     type Vtable = <IIndexedResourceCandidate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIndexedResourceCandidate as windows_core::Interface>::IID;
@@ -141,9 +141,6 @@ impl windows_core::RuntimeName for IndexedResourceCandidate {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IndexedResourceQualifier(windows_core::IUnknown);
-impl windows_core::RuntimeType for IndexedResourceQualifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIndexedResourceQualifier>();
-}
 windows_core::imp::interface_hierarchy!(IndexedResourceQualifier, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IndexedResourceQualifier,);
 impl IndexedResourceQualifier {
@@ -162,6 +159,9 @@ impl IndexedResourceQualifier {
         }
     }
 }
+impl windows_core::RuntimeType for IndexedResourceQualifier {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIndexedResourceQualifier>();
+}
 unsafe impl windows_core::Interface for IndexedResourceQualifier {
     type Vtable = <IIndexedResourceQualifier as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IIndexedResourceQualifier as windows_core::Interface>::IID;
@@ -173,10 +173,6 @@ impl windows_core::RuntimeName for IndexedResourceQualifier {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResourceIndexer(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for ResourceIndexer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IResourceIndexer>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(ResourceIndexer, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -234,6 +230,10 @@ impl ResourceIndexer {
         static SHARED: windows_core::imp::FactoryCache<ResourceIndexer, IResourceIndexerFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+#[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for ResourceIndexer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IResourceIndexer>();
 }
 #[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for ResourceIndexer {

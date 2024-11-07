@@ -96,9 +96,6 @@ pub struct IRemoteDesktopRegistrarStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PerformLocalActionRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PerformLocalActionRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPerformLocalActionRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PerformLocalActionRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PerformLocalActionRequestedEventArgs,);
 impl PerformLocalActionRequestedEventArgs {
@@ -110,6 +107,9 @@ impl PerformLocalActionRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PerformLocalActionRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPerformLocalActionRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for PerformLocalActionRequestedEventArgs {
     type Vtable = <IPerformLocalActionRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPerformLocalActionRequestedEventArgs as windows_core::Interface>::IID;
@@ -120,9 +120,6 @@ impl windows_core::RuntimeName for PerformLocalActionRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteDesktopConnectionInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteDesktopConnectionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteDesktopConnectionInfo>();
-}
 windows_core::imp::interface_hierarchy!(RemoteDesktopConnectionInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteDesktopConnectionInfo,);
 impl RemoteDesktopConnectionInfo {
@@ -153,6 +150,9 @@ impl RemoteDesktopConnectionInfo {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RemoteDesktopConnectionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteDesktopConnectionInfo>();
+}
 unsafe impl windows_core::Interface for RemoteDesktopConnectionInfo {
     type Vtable = <IRemoteDesktopConnectionInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteDesktopConnectionInfo as windows_core::Interface>::IID;
@@ -163,9 +163,6 @@ impl windows_core::RuntimeName for RemoteDesktopConnectionInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteDesktopConnectionRemoteInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteDesktopConnectionRemoteInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteDesktopConnectionRemoteInfo>();
-}
 windows_core::imp::interface_hierarchy!(RemoteDesktopConnectionRemoteInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteDesktopConnectionRemoteInfo, super::super::super::Foundation::IClosable);
 impl RemoteDesktopConnectionRemoteInfo {
@@ -225,6 +222,9 @@ impl RemoteDesktopConnectionRemoteInfo {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RemoteDesktopConnectionRemoteInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteDesktopConnectionRemoteInfo>();
+}
 unsafe impl windows_core::Interface for RemoteDesktopConnectionRemoteInfo {
     type Vtable = <IRemoteDesktopConnectionRemoteInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteDesktopConnectionRemoteInfo as windows_core::Interface>::IID;
@@ -235,9 +235,6 @@ impl windows_core::RuntimeName for RemoteDesktopConnectionRemoteInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteDesktopInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteDesktopInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteDesktopInfo>();
-}
 windows_core::imp::interface_hierarchy!(RemoteDesktopInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteDesktopInfo,);
 impl RemoteDesktopInfo {
@@ -265,6 +262,9 @@ impl RemoteDesktopInfo {
         static SHARED: windows_core::imp::FactoryCache<RemoteDesktopInfo, IRemoteDesktopInfoFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for RemoteDesktopInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteDesktopInfo>();
 }
 unsafe impl windows_core::Interface for RemoteDesktopInfo {
     type Vtable = <IRemoteDesktopInfo as windows_core::Interface>::Vtable;

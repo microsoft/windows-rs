@@ -36,9 +36,6 @@ impl windows_core::RuntimeName for ClassicAppManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InstalledClassicAppInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for InstalledClassicAppInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInstalledClassicAppInfo>();
-}
 windows_core::imp::interface_hierarchy!(InstalledClassicAppInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InstalledClassicAppInfo,);
 impl InstalledClassicAppInfo {
@@ -56,6 +53,9 @@ impl InstalledClassicAppInfo {
             (windows_core::Interface::vtable(this).DisplayVersion)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for InstalledClassicAppInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInstalledClassicAppInfo>();
 }
 unsafe impl windows_core::Interface for InstalledClassicAppInfo {
     type Vtable = <IInstalledClassicAppInfo as windows_core::Interface>::Vtable;

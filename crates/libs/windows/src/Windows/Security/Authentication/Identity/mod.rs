@@ -37,9 +37,6 @@ pub struct IEnterpriseKeyCredentialRegistrationManagerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnterpriseKeyCredentialRegistrationInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for EnterpriseKeyCredentialRegistrationInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterpriseKeyCredentialRegistrationInfo>();
-}
 windows_core::imp::interface_hierarchy!(EnterpriseKeyCredentialRegistrationInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EnterpriseKeyCredentialRegistrationInfo,);
 impl EnterpriseKeyCredentialRegistrationInfo {
@@ -79,6 +76,9 @@ impl EnterpriseKeyCredentialRegistrationInfo {
         }
     }
 }
+impl windows_core::RuntimeType for EnterpriseKeyCredentialRegistrationInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterpriseKeyCredentialRegistrationInfo>();
+}
 unsafe impl windows_core::Interface for EnterpriseKeyCredentialRegistrationInfo {
     type Vtable = <IEnterpriseKeyCredentialRegistrationInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEnterpriseKeyCredentialRegistrationInfo as windows_core::Interface>::IID;
@@ -89,9 +89,6 @@ impl windows_core::RuntimeName for EnterpriseKeyCredentialRegistrationInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnterpriseKeyCredentialRegistrationManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for EnterpriseKeyCredentialRegistrationManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterpriseKeyCredentialRegistrationManager>();
-}
 windows_core::imp::interface_hierarchy!(EnterpriseKeyCredentialRegistrationManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EnterpriseKeyCredentialRegistrationManager,);
 impl EnterpriseKeyCredentialRegistrationManager {
@@ -113,6 +110,9 @@ impl EnterpriseKeyCredentialRegistrationManager {
         static SHARED: windows_core::imp::FactoryCache<EnterpriseKeyCredentialRegistrationManager, IEnterpriseKeyCredentialRegistrationManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for EnterpriseKeyCredentialRegistrationManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnterpriseKeyCredentialRegistrationManager>();
 }
 unsafe impl windows_core::Interface for EnterpriseKeyCredentialRegistrationManager {
     type Vtable = <IEnterpriseKeyCredentialRegistrationManager as windows_core::Interface>::Vtable;

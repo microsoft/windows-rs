@@ -464,9 +464,6 @@ pub struct IVenueData_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CivicAddress(windows_core::IUnknown);
-impl windows_core::RuntimeType for CivicAddress {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICivicAddress>();
-}
 windows_core::imp::interface_hierarchy!(CivicAddress, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CivicAddress,);
 impl CivicAddress {
@@ -506,6 +503,9 @@ impl CivicAddress {
         }
     }
 }
+impl windows_core::RuntimeType for CivicAddress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICivicAddress>();
+}
 unsafe impl windows_core::Interface for CivicAddress {
     type Vtable = <ICivicAddress as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICivicAddress as windows_core::Interface>::IID;
@@ -516,9 +516,6 @@ impl windows_core::RuntimeName for CivicAddress {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeoboundingBox(windows_core::IUnknown);
-impl windows_core::RuntimeType for GeoboundingBox {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeoboundingBox>();
-}
 windows_core::imp::interface_hierarchy!(GeoboundingBox, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GeoboundingBox, IGeoshape);
 impl GeoboundingBox {
@@ -635,6 +632,9 @@ impl GeoboundingBox {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GeoboundingBox {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeoboundingBox>();
+}
 unsafe impl windows_core::Interface for GeoboundingBox {
     type Vtable = <IGeoboundingBox as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeoboundingBox as windows_core::Interface>::IID;
@@ -645,9 +645,6 @@ impl windows_core::RuntimeName for GeoboundingBox {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Geocircle(windows_core::IUnknown);
-impl windows_core::RuntimeType for Geocircle {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeocircle>();
-}
 windows_core::imp::interface_hierarchy!(Geocircle, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Geocircle, IGeoshape);
 impl Geocircle {
@@ -709,6 +706,9 @@ impl Geocircle {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Geocircle {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeocircle>();
+}
 unsafe impl windows_core::Interface for Geocircle {
     type Vtable = <IGeocircle as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeocircle as windows_core::Interface>::IID;
@@ -719,9 +719,6 @@ impl windows_core::RuntimeName for Geocircle {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Geocoordinate(windows_core::IUnknown);
-impl windows_core::RuntimeType for Geocoordinate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeocoordinate>();
-}
 windows_core::imp::interface_hierarchy!(Geocoordinate, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Geocoordinate,);
 impl Geocoordinate {
@@ -817,6 +814,9 @@ impl Geocoordinate {
         }
     }
 }
+impl windows_core::RuntimeType for Geocoordinate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeocoordinate>();
+}
 unsafe impl windows_core::Interface for Geocoordinate {
     type Vtable = <IGeocoordinate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeocoordinate as windows_core::Interface>::IID;
@@ -827,9 +827,6 @@ impl windows_core::RuntimeName for Geocoordinate {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeocoordinateSatelliteData(windows_core::IUnknown);
-impl windows_core::RuntimeType for GeocoordinateSatelliteData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeocoordinateSatelliteData>();
-}
 windows_core::imp::interface_hierarchy!(GeocoordinateSatelliteData, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GeocoordinateSatelliteData,);
 impl GeocoordinateSatelliteData {
@@ -869,6 +866,9 @@ impl GeocoordinateSatelliteData {
         }
     }
 }
+impl windows_core::RuntimeType for GeocoordinateSatelliteData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeocoordinateSatelliteData>();
+}
 unsafe impl windows_core::Interface for GeocoordinateSatelliteData {
     type Vtable = <IGeocoordinateSatelliteData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeocoordinateSatelliteData as windows_core::Interface>::IID;
@@ -879,9 +879,6 @@ impl windows_core::RuntimeName for GeocoordinateSatelliteData {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Geolocator(windows_core::IUnknown);
-impl windows_core::RuntimeType for Geolocator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeolocator>();
-}
 windows_core::imp::interface_hierarchy!(Geolocator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Geolocator,);
 impl Geolocator {
@@ -1039,6 +1036,9 @@ impl Geolocator {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Geolocator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeolocator>();
+}
 unsafe impl windows_core::Interface for Geolocator {
     type Vtable = <IGeolocator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeolocator as windows_core::Interface>::IID;
@@ -1049,9 +1049,6 @@ impl windows_core::RuntimeName for Geolocator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Geopath(windows_core::IUnknown);
-impl windows_core::RuntimeType for Geopath {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeopath>();
-}
 windows_core::imp::interface_hierarchy!(Geopath, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Geopath, IGeoshape);
 impl Geopath {
@@ -1119,6 +1116,9 @@ impl Geopath {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Geopath {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeopath>();
+}
 unsafe impl windows_core::Interface for Geopath {
     type Vtable = <IGeopath as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeopath as windows_core::Interface>::IID;
@@ -1129,9 +1129,6 @@ impl windows_core::RuntimeName for Geopath {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Geopoint(windows_core::IUnknown);
-impl windows_core::RuntimeType for Geopoint {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeopoint>();
-}
 windows_core::imp::interface_hierarchy!(Geopoint, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Geopoint, IGeoshape);
 impl Geopoint {
@@ -1186,6 +1183,9 @@ impl Geopoint {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Geopoint {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeopoint>();
+}
 unsafe impl windows_core::Interface for Geopoint {
     type Vtable = <IGeopoint as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeopoint as windows_core::Interface>::IID;
@@ -1196,9 +1196,6 @@ impl windows_core::RuntimeName for Geopoint {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Geoposition(windows_core::IUnknown);
-impl windows_core::RuntimeType for Geoposition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeoposition>();
-}
 windows_core::imp::interface_hierarchy!(Geoposition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Geoposition,);
 impl Geoposition {
@@ -1224,6 +1221,9 @@ impl Geoposition {
         }
     }
 }
+impl windows_core::RuntimeType for Geoposition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeoposition>();
+}
 unsafe impl windows_core::Interface for Geoposition {
     type Vtable = <IGeoposition as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeoposition as windows_core::Interface>::IID;
@@ -1234,9 +1234,6 @@ impl windows_core::RuntimeName for Geoposition {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Geovisit(windows_core::IUnknown);
-impl windows_core::RuntimeType for Geovisit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeovisit>();
-}
 windows_core::imp::interface_hierarchy!(Geovisit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Geovisit,);
 impl Geovisit {
@@ -1262,6 +1259,9 @@ impl Geovisit {
         }
     }
 }
+impl windows_core::RuntimeType for Geovisit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeovisit>();
+}
 unsafe impl windows_core::Interface for Geovisit {
     type Vtable = <IGeovisit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeovisit as windows_core::Interface>::IID;
@@ -1272,9 +1272,6 @@ impl windows_core::RuntimeName for Geovisit {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeovisitMonitor(windows_core::IUnknown);
-impl windows_core::RuntimeType for GeovisitMonitor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeovisitMonitor>();
-}
 windows_core::imp::interface_hierarchy!(GeovisitMonitor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GeovisitMonitor,);
 impl GeovisitMonitor {
@@ -1325,6 +1322,9 @@ impl GeovisitMonitor {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GeovisitMonitor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeovisitMonitor>();
+}
 unsafe impl windows_core::Interface for GeovisitMonitor {
     type Vtable = <IGeovisitMonitor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeovisitMonitor as windows_core::Interface>::IID;
@@ -1335,9 +1335,6 @@ impl windows_core::RuntimeName for GeovisitMonitor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeovisitStateChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for GeovisitStateChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeovisitStateChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(GeovisitStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GeovisitStateChangedEventArgs,);
 impl GeovisitStateChangedEventArgs {
@@ -1349,6 +1346,9 @@ impl GeovisitStateChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for GeovisitStateChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeovisitStateChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for GeovisitStateChangedEventArgs {
     type Vtable = <IGeovisitStateChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeovisitStateChangedEventArgs as windows_core::Interface>::IID;
@@ -1359,9 +1359,6 @@ impl windows_core::RuntimeName for GeovisitStateChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeovisitTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for GeovisitTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeovisitTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(GeovisitTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GeovisitTriggerDetails,);
 impl GeovisitTriggerDetails {
@@ -1374,6 +1371,9 @@ impl GeovisitTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for GeovisitTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeovisitTriggerDetails>();
+}
 unsafe impl windows_core::Interface for GeovisitTriggerDetails {
     type Vtable = <IGeovisitTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeovisitTriggerDetails as windows_core::Interface>::IID;
@@ -1384,9 +1384,6 @@ impl windows_core::RuntimeName for GeovisitTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PositionChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PositionChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPositionChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PositionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PositionChangedEventArgs,);
 impl PositionChangedEventArgs {
@@ -1398,6 +1395,9 @@ impl PositionChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PositionChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPositionChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for PositionChangedEventArgs {
     type Vtable = <IPositionChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPositionChangedEventArgs as windows_core::Interface>::IID;
@@ -1408,9 +1408,6 @@ impl windows_core::RuntimeName for PositionChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StatusChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for StatusChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStatusChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(StatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StatusChangedEventArgs,);
 impl StatusChangedEventArgs {
@@ -1422,6 +1419,9 @@ impl StatusChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for StatusChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStatusChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for StatusChangedEventArgs {
     type Vtable = <IStatusChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStatusChangedEventArgs as windows_core::Interface>::IID;
@@ -1432,9 +1432,6 @@ impl windows_core::RuntimeName for StatusChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VenueData(windows_core::IUnknown);
-impl windows_core::RuntimeType for VenueData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVenueData>();
-}
 windows_core::imp::interface_hierarchy!(VenueData, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VenueData,);
 impl VenueData {
@@ -1452,6 +1449,9 @@ impl VenueData {
             (windows_core::Interface::vtable(this).Level)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for VenueData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVenueData>();
 }
 unsafe impl windows_core::Interface for VenueData {
     type Vtable = <IVenueData as windows_core::Interface>::Vtable;
@@ -1582,7 +1582,7 @@ impl windows_core::RuntimeType for VisitStateChange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.VisitStateChange;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct BasicGeoposition {
     pub Latitude: f64,
     pub Longitude: f64,

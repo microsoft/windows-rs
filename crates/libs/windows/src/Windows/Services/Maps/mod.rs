@@ -495,9 +495,6 @@ pub struct IPlaceInfoStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EnhancedWaypoint(windows_core::IUnknown);
-impl windows_core::RuntimeType for EnhancedWaypoint {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnhancedWaypoint>();
-}
 windows_core::imp::interface_hierarchy!(EnhancedWaypoint, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EnhancedWaypoint,);
 impl EnhancedWaypoint {
@@ -531,6 +528,9 @@ impl EnhancedWaypoint {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for EnhancedWaypoint {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEnhancedWaypoint>();
+}
 unsafe impl windows_core::Interface for EnhancedWaypoint {
     type Vtable = <IEnhancedWaypoint as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEnhancedWaypoint as windows_core::Interface>::IID;
@@ -541,9 +541,6 @@ impl windows_core::RuntimeName for EnhancedWaypoint {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ManeuverWarning(windows_core::IUnknown);
-impl windows_core::RuntimeType for ManeuverWarning {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IManeuverWarning>();
-}
 windows_core::imp::interface_hierarchy!(ManeuverWarning, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ManeuverWarning,);
 impl ManeuverWarning {
@@ -562,6 +559,9 @@ impl ManeuverWarning {
         }
     }
 }
+impl windows_core::RuntimeType for ManeuverWarning {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IManeuverWarning>();
+}
 unsafe impl windows_core::Interface for ManeuverWarning {
     type Vtable = <IManeuverWarning as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IManeuverWarning as windows_core::Interface>::IID;
@@ -572,9 +572,6 @@ impl windows_core::RuntimeName for ManeuverWarning {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapAddress(windows_core::IUnknown);
-impl windows_core::RuntimeType for MapAddress {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapAddress>();
-}
 windows_core::imp::interface_hierarchy!(MapAddress, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MapAddress,);
 impl MapAddress {
@@ -691,6 +688,9 @@ impl MapAddress {
         }
     }
 }
+impl windows_core::RuntimeType for MapAddress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapAddress>();
+}
 unsafe impl windows_core::Interface for MapAddress {
     type Vtable = <IMapAddress as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMapAddress as windows_core::Interface>::IID;
@@ -701,9 +701,6 @@ impl windows_core::RuntimeName for MapAddress {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapLocation(windows_core::IUnknown);
-impl windows_core::RuntimeType for MapLocation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapLocation>();
-}
 windows_core::imp::interface_hierarchy!(MapLocation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MapLocation,);
 impl MapLocation {
@@ -736,6 +733,9 @@ impl MapLocation {
             (windows_core::Interface::vtable(this).Address)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for MapLocation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapLocation>();
 }
 unsafe impl windows_core::Interface for MapLocation {
     type Vtable = <IMapLocation as windows_core::Interface>::Vtable;
@@ -801,9 +801,6 @@ impl windows_core::RuntimeName for MapLocationFinder {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapLocationFinderResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for MapLocationFinderResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapLocationFinderResult>();
-}
 windows_core::imp::interface_hierarchy!(MapLocationFinderResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MapLocationFinderResult,);
 impl MapLocationFinderResult {
@@ -822,6 +819,9 @@ impl MapLocationFinderResult {
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for MapLocationFinderResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapLocationFinderResult>();
 }
 unsafe impl windows_core::Interface for MapLocationFinderResult {
     type Vtable = <IMapLocationFinderResult as windows_core::Interface>::Vtable;
@@ -849,9 +849,6 @@ impl windows_core::RuntimeName for MapManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRoute(windows_core::IUnknown);
-impl windows_core::RuntimeType for MapRoute {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRoute>();
-}
 windows_core::imp::interface_hierarchy!(MapRoute, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MapRoute,);
 impl MapRoute {
@@ -936,6 +933,9 @@ impl MapRoute {
         }
     }
 }
+impl windows_core::RuntimeType for MapRoute {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRoute>();
+}
 unsafe impl windows_core::Interface for MapRoute {
     type Vtable = <IMapRoute as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMapRoute as windows_core::Interface>::IID;
@@ -946,9 +946,6 @@ impl windows_core::RuntimeName for MapRoute {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteDrivingOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for MapRouteDrivingOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRouteDrivingOptions>();
-}
 windows_core::imp::interface_hierarchy!(MapRouteDrivingOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MapRouteDrivingOptions,);
 impl MapRouteDrivingOptions {
@@ -1020,6 +1017,9 @@ impl MapRouteDrivingOptions {
         let this = &windows_core::Interface::cast::<IMapRouteDrivingOptions2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDepartureTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
+}
+impl windows_core::RuntimeType for MapRouteDrivingOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRouteDrivingOptions>();
 }
 unsafe impl windows_core::Interface for MapRouteDrivingOptions {
     type Vtable = <IMapRouteDrivingOptions as windows_core::Interface>::Vtable;
@@ -1187,9 +1187,6 @@ impl windows_core::RuntimeName for MapRouteFinder {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteFinderResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for MapRouteFinderResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRouteFinderResult>();
-}
 windows_core::imp::interface_hierarchy!(MapRouteFinderResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MapRouteFinderResult,);
 impl MapRouteFinderResult {
@@ -1216,6 +1213,9 @@ impl MapRouteFinderResult {
         }
     }
 }
+impl windows_core::RuntimeType for MapRouteFinderResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRouteFinderResult>();
+}
 unsafe impl windows_core::Interface for MapRouteFinderResult {
     type Vtable = <IMapRouteFinderResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMapRouteFinderResult as windows_core::Interface>::IID;
@@ -1226,9 +1226,6 @@ impl windows_core::RuntimeName for MapRouteFinderResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteLeg(windows_core::IUnknown);
-impl windows_core::RuntimeType for MapRouteLeg {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRouteLeg>();
-}
 windows_core::imp::interface_hierarchy!(MapRouteLeg, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MapRouteLeg,);
 impl MapRouteLeg {
@@ -1285,6 +1282,9 @@ impl MapRouteLeg {
         }
     }
 }
+impl windows_core::RuntimeType for MapRouteLeg {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRouteLeg>();
+}
 unsafe impl windows_core::Interface for MapRouteLeg {
     type Vtable = <IMapRouteLeg as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMapRouteLeg as windows_core::Interface>::IID;
@@ -1295,9 +1295,6 @@ impl windows_core::RuntimeName for MapRouteLeg {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapRouteManeuver(windows_core::IUnknown);
-impl windows_core::RuntimeType for MapRouteManeuver {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRouteManeuver>();
-}
 windows_core::imp::interface_hierarchy!(MapRouteManeuver, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MapRouteManeuver,);
 impl MapRouteManeuver {
@@ -1374,6 +1371,9 @@ impl MapRouteManeuver {
         }
     }
 }
+impl windows_core::RuntimeType for MapRouteManeuver {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapRouteManeuver>();
+}
 unsafe impl windows_core::Interface for MapRouteManeuver {
     type Vtable = <IMapRouteManeuver as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMapRouteManeuver as windows_core::Interface>::IID;
@@ -1436,9 +1436,6 @@ impl windows_core::RuntimeName for MapService {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaceInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlaceInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaceInfo>();
-}
 windows_core::imp::interface_hierarchy!(PlaceInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlaceInfo,);
 impl PlaceInfo {
@@ -1554,6 +1551,9 @@ impl PlaceInfo {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PlaceInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaceInfo>();
+}
 unsafe impl windows_core::Interface for PlaceInfo {
     type Vtable = <IPlaceInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPlaceInfo as windows_core::Interface>::IID;
@@ -1564,9 +1564,6 @@ impl windows_core::RuntimeName for PlaceInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PlaceInfoCreateOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for PlaceInfoCreateOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaceInfoCreateOptions>();
-}
 windows_core::imp::interface_hierarchy!(PlaceInfoCreateOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlaceInfoCreateOptions,);
 impl PlaceInfoCreateOptions {
@@ -1599,6 +1596,9 @@ impl PlaceInfoCreateOptions {
             (windows_core::Interface::vtable(this).DisplayAddress)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for PlaceInfoCreateOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPlaceInfoCreateOptions>();
 }
 unsafe impl windows_core::Interface for PlaceInfoCreateOptions {
     type Vtable = <IPlaceInfoCreateOptions as windows_core::Interface>::Vtable;

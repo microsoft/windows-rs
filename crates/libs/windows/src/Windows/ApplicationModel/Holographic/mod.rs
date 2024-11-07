@@ -27,9 +27,6 @@ pub struct IHolographicKeyboardStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HolographicKeyboard(windows_core::IUnknown);
-impl windows_core::RuntimeType for HolographicKeyboard {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicKeyboard>();
-}
 windows_core::imp::interface_hierarchy!(HolographicKeyboard, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HolographicKeyboard,);
 impl HolographicKeyboard {
@@ -63,6 +60,9 @@ impl HolographicKeyboard {
         static SHARED: windows_core::imp::FactoryCache<HolographicKeyboard, IHolographicKeyboardStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for HolographicKeyboard {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHolographicKeyboard>();
 }
 unsafe impl windows_core::Interface for HolographicKeyboard {
     type Vtable = <IHolographicKeyboard as windows_core::Interface>::Vtable;

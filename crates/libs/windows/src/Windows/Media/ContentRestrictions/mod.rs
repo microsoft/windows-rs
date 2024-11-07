@@ -73,9 +73,6 @@ pub struct IRatedContentRestrictionsFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ContentRestrictionsBrowsePolicy(windows_core::IUnknown);
-impl windows_core::RuntimeType for ContentRestrictionsBrowsePolicy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentRestrictionsBrowsePolicy>();
-}
 windows_core::imp::interface_hierarchy!(ContentRestrictionsBrowsePolicy, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContentRestrictionsBrowsePolicy,);
 impl ContentRestrictionsBrowsePolicy {
@@ -101,6 +98,9 @@ impl ContentRestrictionsBrowsePolicy {
         }
     }
 }
+impl windows_core::RuntimeType for ContentRestrictionsBrowsePolicy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IContentRestrictionsBrowsePolicy>();
+}
 unsafe impl windows_core::Interface for ContentRestrictionsBrowsePolicy {
     type Vtable = <IContentRestrictionsBrowsePolicy as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IContentRestrictionsBrowsePolicy as windows_core::Interface>::IID;
@@ -111,9 +111,6 @@ impl windows_core::RuntimeName for ContentRestrictionsBrowsePolicy {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RatedContentDescription(windows_core::IUnknown);
-impl windows_core::RuntimeType for RatedContentDescription {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRatedContentDescription>();
-}
 windows_core::imp::interface_hierarchy!(RatedContentDescription, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RatedContentDescription,);
 impl RatedContentDescription {
@@ -193,6 +190,9 @@ impl RatedContentDescription {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RatedContentDescription {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRatedContentDescription>();
+}
 unsafe impl windows_core::Interface for RatedContentDescription {
     type Vtable = <IRatedContentDescription as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRatedContentDescription as windows_core::Interface>::IID;
@@ -203,9 +203,6 @@ impl windows_core::RuntimeName for RatedContentDescription {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RatedContentRestrictions(windows_core::IUnknown);
-impl windows_core::RuntimeType for RatedContentRestrictions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRatedContentRestrictions>();
-}
 windows_core::imp::interface_hierarchy!(RatedContentRestrictions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RatedContentRestrictions,);
 impl RatedContentRestrictions {
@@ -267,6 +264,9 @@ impl RatedContentRestrictions {
         static SHARED: windows_core::imp::FactoryCache<RatedContentRestrictions, IRatedContentRestrictionsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for RatedContentRestrictions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRatedContentRestrictions>();
 }
 unsafe impl windows_core::Interface for RatedContentRestrictions {
     type Vtable = <IRatedContentRestrictions as windows_core::Interface>::Vtable;

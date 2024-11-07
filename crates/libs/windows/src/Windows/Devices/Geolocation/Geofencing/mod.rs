@@ -71,9 +71,6 @@ pub struct IGeofenceStateChangeReport_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Geofence(windows_core::IUnknown);
-impl windows_core::RuntimeType for Geofence {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeofence>();
-}
 windows_core::imp::interface_hierarchy!(Geofence, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Geofence,);
 impl Geofence {
@@ -167,6 +164,9 @@ impl Geofence {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Geofence {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeofence>();
+}
 unsafe impl windows_core::Interface for Geofence {
     type Vtable = <IGeofence as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeofence as windows_core::Interface>::IID;
@@ -177,9 +177,6 @@ impl windows_core::RuntimeName for Geofence {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeofenceMonitor(windows_core::IUnknown);
-impl windows_core::RuntimeType for GeofenceMonitor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeofenceMonitor>();
-}
 windows_core::imp::interface_hierarchy!(GeofenceMonitor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GeofenceMonitor,);
 impl GeofenceMonitor {
@@ -252,6 +249,9 @@ impl GeofenceMonitor {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GeofenceMonitor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeofenceMonitor>();
+}
 unsafe impl windows_core::Interface for GeofenceMonitor {
     type Vtable = <IGeofenceMonitor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGeofenceMonitor as windows_core::Interface>::IID;
@@ -262,9 +262,6 @@ impl windows_core::RuntimeName for GeofenceMonitor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GeofenceStateChangeReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for GeofenceStateChangeReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeofenceStateChangeReport>();
-}
 windows_core::imp::interface_hierarchy!(GeofenceStateChangeReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GeofenceStateChangeReport,);
 impl GeofenceStateChangeReport {
@@ -296,6 +293,9 @@ impl GeofenceStateChangeReport {
             (windows_core::Interface::vtable(this).RemovalReason)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for GeofenceStateChangeReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGeofenceStateChangeReport>();
 }
 unsafe impl windows_core::Interface for GeofenceStateChangeReport {
     type Vtable = <IGeofenceStateChangeReport as windows_core::Interface>::Vtable;

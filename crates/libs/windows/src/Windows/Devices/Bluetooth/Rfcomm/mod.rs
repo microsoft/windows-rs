@@ -157,9 +157,6 @@ pub struct IRfcommServiceProviderStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommDeviceService(windows_core::IUnknown);
-impl windows_core::RuntimeType for RfcommDeviceService {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommDeviceService>();
-}
 windows_core::imp::interface_hierarchy!(RfcommDeviceService, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RfcommDeviceService, super::super::super::Foundation::IClosable);
 impl RfcommDeviceService {
@@ -306,6 +303,9 @@ impl RfcommDeviceService {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RfcommDeviceService {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommDeviceService>();
+}
 unsafe impl windows_core::Interface for RfcommDeviceService {
     type Vtable = <IRfcommDeviceService as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRfcommDeviceService as windows_core::Interface>::IID;
@@ -316,9 +316,6 @@ impl windows_core::RuntimeName for RfcommDeviceService {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommDeviceServicesResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for RfcommDeviceServicesResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommDeviceServicesResult>();
-}
 windows_core::imp::interface_hierarchy!(RfcommDeviceServicesResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RfcommDeviceServicesResult,);
 impl RfcommDeviceServicesResult {
@@ -338,6 +335,9 @@ impl RfcommDeviceServicesResult {
         }
     }
 }
+impl windows_core::RuntimeType for RfcommDeviceServicesResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommDeviceServicesResult>();
+}
 unsafe impl windows_core::Interface for RfcommDeviceServicesResult {
     type Vtable = <IRfcommDeviceServicesResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRfcommDeviceServicesResult as windows_core::Interface>::IID;
@@ -348,9 +348,6 @@ impl windows_core::RuntimeName for RfcommDeviceServicesResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommServiceId(windows_core::IUnknown);
-impl windows_core::RuntimeType for RfcommServiceId {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommServiceId>();
-}
 windows_core::imp::interface_hierarchy!(RfcommServiceId, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RfcommServiceId,);
 impl RfcommServiceId {
@@ -428,6 +425,9 @@ impl RfcommServiceId {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RfcommServiceId {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommServiceId>();
+}
 unsafe impl windows_core::Interface for RfcommServiceId {
     type Vtable = <IRfcommServiceId as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRfcommServiceId as windows_core::Interface>::IID;
@@ -438,9 +438,6 @@ impl windows_core::RuntimeName for RfcommServiceId {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RfcommServiceProvider(windows_core::IUnknown);
-impl windows_core::RuntimeType for RfcommServiceProvider {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommServiceProvider>();
-}
 windows_core::imp::interface_hierarchy!(RfcommServiceProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RfcommServiceProvider,);
 impl RfcommServiceProvider {
@@ -492,6 +489,9 @@ impl RfcommServiceProvider {
         static SHARED: windows_core::imp::FactoryCache<RfcommServiceProvider, IRfcommServiceProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for RfcommServiceProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRfcommServiceProvider>();
 }
 unsafe impl windows_core::Interface for RfcommServiceProvider {
     type Vtable = <IRfcommServiceProvider as windows_core::Interface>::Vtable;

@@ -71,9 +71,6 @@ pub struct IMdmSessionManagerStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MdmAlert(windows_core::IUnknown);
-impl windows_core::RuntimeType for MdmAlert {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMdmAlert>();
-}
 windows_core::imp::interface_hierarchy!(MdmAlert, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MdmAlert,);
 impl MdmAlert {
@@ -158,6 +155,9 @@ impl MdmAlert {
         unsafe { (windows_core::Interface::vtable(this).SetType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for MdmAlert {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMdmAlert>();
+}
 unsafe impl windows_core::Interface for MdmAlert {
     type Vtable = <IMdmAlert as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMdmAlert as windows_core::Interface>::IID;
@@ -168,9 +168,6 @@ impl windows_core::RuntimeName for MdmAlert {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MdmSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for MdmSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMdmSession>();
-}
 windows_core::imp::interface_hierarchy!(MdmSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MdmSession,);
 impl MdmSession {
@@ -232,6 +229,9 @@ impl MdmSession {
             (windows_core::Interface::vtable(this).StartWithAlertsAsync)(windows_core::Interface::as_raw(this), alerts.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for MdmSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMdmSession>();
 }
 unsafe impl windows_core::Interface for MdmSession {
     type Vtable = <IMdmSession as windows_core::Interface>::Vtable;

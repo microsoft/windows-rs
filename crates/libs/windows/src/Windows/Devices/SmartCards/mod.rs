@@ -810,9 +810,6 @@ pub struct ISmartCardTriggerDetails3_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CardAddedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CardAddedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICardAddedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CardAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CardAddedEventArgs,);
 impl CardAddedEventArgs {
@@ -824,6 +821,9 @@ impl CardAddedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for CardAddedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICardAddedEventArgs>();
+}
 unsafe impl windows_core::Interface for CardAddedEventArgs {
     type Vtable = <ICardAddedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICardAddedEventArgs as windows_core::Interface>::IID;
@@ -834,9 +834,6 @@ impl windows_core::RuntimeName for CardAddedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CardRemovedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CardRemovedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICardRemovedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CardRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CardRemovedEventArgs,);
 impl CardRemovedEventArgs {
@@ -847,6 +844,9 @@ impl CardRemovedEventArgs {
             (windows_core::Interface::vtable(this).SmartCard)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for CardRemovedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICardRemovedEventArgs>();
 }
 unsafe impl windows_core::Interface for CardRemovedEventArgs {
     type Vtable = <ICardRemovedEventArgs as windows_core::Interface>::Vtable;
@@ -882,9 +882,6 @@ impl windows_core::RuntimeName for KnownSmartCardAppletIds {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCard(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCard {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCard>();
-}
 windows_core::imp::interface_hierarchy!(SmartCard, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCard,);
 impl SmartCard {
@@ -918,6 +915,9 @@ impl SmartCard {
         }
     }
 }
+impl windows_core::RuntimeType for SmartCard {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCard>();
+}
 unsafe impl windows_core::Interface for SmartCard {
     type Vtable = <ISmartCard as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCard as windows_core::Interface>::IID;
@@ -928,9 +928,6 @@ impl windows_core::RuntimeName for SmartCard {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardAppletIdGroup(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardAppletIdGroup {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardAppletIdGroup>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardAppletIdGroup, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardAppletIdGroup,);
 impl SmartCardAppletIdGroup {
@@ -1064,6 +1061,9 @@ impl SmartCardAppletIdGroup {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SmartCardAppletIdGroup {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardAppletIdGroup>();
+}
 unsafe impl windows_core::Interface for SmartCardAppletIdGroup {
     type Vtable = <ISmartCardAppletIdGroup as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardAppletIdGroup as windows_core::Interface>::IID;
@@ -1074,9 +1074,6 @@ impl windows_core::RuntimeName for SmartCardAppletIdGroup {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardAppletIdGroupRegistration(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardAppletIdGroupRegistration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardAppletIdGroupRegistration>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardAppletIdGroupRegistration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardAppletIdGroupRegistration,);
 impl SmartCardAppletIdGroupRegistration {
@@ -1138,6 +1135,9 @@ impl SmartCardAppletIdGroupRegistration {
         }
     }
 }
+impl windows_core::RuntimeType for SmartCardAppletIdGroupRegistration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardAppletIdGroupRegistration>();
+}
 unsafe impl windows_core::Interface for SmartCardAppletIdGroupRegistration {
     type Vtable = <ISmartCardAppletIdGroupRegistration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardAppletIdGroupRegistration as windows_core::Interface>::IID;
@@ -1148,9 +1148,6 @@ impl windows_core::RuntimeName for SmartCardAppletIdGroupRegistration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardAutomaticResponseApdu(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardAutomaticResponseApdu {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardAutomaticResponseApdu>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardAutomaticResponseApdu, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardAutomaticResponseApdu,);
 impl SmartCardAutomaticResponseApdu {
@@ -1284,6 +1281,9 @@ impl SmartCardAutomaticResponseApdu {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SmartCardAutomaticResponseApdu {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardAutomaticResponseApdu>();
+}
 unsafe impl windows_core::Interface for SmartCardAutomaticResponseApdu {
     type Vtable = <ISmartCardAutomaticResponseApdu as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardAutomaticResponseApdu as windows_core::Interface>::IID;
@@ -1294,9 +1294,6 @@ impl windows_core::RuntimeName for SmartCardAutomaticResponseApdu {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardChallengeContext(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardChallengeContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardChallengeContext>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardChallengeContext, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardChallengeContext, super::super::Foundation::IClosable);
 impl SmartCardChallengeContext {
@@ -1358,6 +1355,9 @@ impl SmartCardChallengeContext {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for SmartCardChallengeContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardChallengeContext>();
+}
 unsafe impl windows_core::Interface for SmartCardChallengeContext {
     type Vtable = <ISmartCardChallengeContext as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardChallengeContext as windows_core::Interface>::IID;
@@ -1368,9 +1368,6 @@ impl windows_core::RuntimeName for SmartCardChallengeContext {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardConnection(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardConnection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardConnection>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardConnection, super::super::Foundation::IClosable);
 impl SmartCardConnection {
@@ -1390,6 +1387,9 @@ impl SmartCardConnection {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for SmartCardConnection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardConnection>();
+}
 unsafe impl windows_core::Interface for SmartCardConnection {
     type Vtable = <ISmartCardConnection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardConnection as windows_core::Interface>::IID;
@@ -1400,9 +1400,6 @@ impl windows_core::RuntimeName for SmartCardConnection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramGenerator(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardCryptogramGenerator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramGenerator>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramGenerator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardCryptogramGenerator,);
 impl SmartCardCryptogramGenerator {
@@ -1565,6 +1562,9 @@ impl SmartCardCryptogramGenerator {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SmartCardCryptogramGenerator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramGenerator>();
+}
 unsafe impl windows_core::Interface for SmartCardCryptogramGenerator {
     type Vtable = <ISmartCardCryptogramGenerator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardCryptogramGenerator as windows_core::Interface>::IID;
@@ -1575,9 +1575,6 @@ impl windows_core::RuntimeName for SmartCardCryptogramGenerator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult,);
 impl SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
@@ -1604,6 +1601,9 @@ impl SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
         }
     }
 }
+impl windows_core::RuntimeType for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>();
+}
 unsafe impl windows_core::Interface for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     type Vtable = <ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult as windows_core::Interface>::IID;
@@ -1614,9 +1614,6 @@ impl windows_core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialCh
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult,);
 impl SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
@@ -1643,6 +1640,9 @@ impl SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
         }
     }
 }
+impl windows_core::RuntimeType for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>();
+}
 unsafe impl windows_core::Interface for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     type Vtable = <ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult as windows_core::Interface>::IID;
@@ -1653,9 +1653,6 @@ impl windows_core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialPa
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult,);
 impl SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
@@ -1682,6 +1679,9 @@ impl SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
         }
     }
 }
+impl windows_core::RuntimeType for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult>();
+}
 unsafe impl windows_core::Interface for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     type Vtable = <ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult as windows_core::Interface>::IID;
@@ -1692,9 +1692,6 @@ impl windows_core::RuntimeName for SmartCardCryptogramGetAllCryptogramStorageKey
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramMaterialCharacteristics(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardCryptogramMaterialCharacteristics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramMaterialCharacteristics>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramMaterialCharacteristics, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardCryptogramMaterialCharacteristics,);
 impl SmartCardCryptogramMaterialCharacteristics {
@@ -1765,6 +1762,9 @@ impl SmartCardCryptogramMaterialCharacteristics {
         }
     }
 }
+impl windows_core::RuntimeType for SmartCardCryptogramMaterialCharacteristics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramMaterialCharacteristics>();
+}
 unsafe impl windows_core::Interface for SmartCardCryptogramMaterialCharacteristics {
     type Vtable = <ISmartCardCryptogramMaterialCharacteristics as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardCryptogramMaterialCharacteristics as windows_core::Interface>::IID;
@@ -1775,9 +1775,6 @@ impl windows_core::RuntimeName for SmartCardCryptogramMaterialCharacteristics {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramMaterialPackageCharacteristics(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardCryptogramMaterialPackageCharacteristics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramMaterialPackageCharacteristics>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramMaterialPackageCharacteristics, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardCryptogramMaterialPackageCharacteristics,);
 impl SmartCardCryptogramMaterialPackageCharacteristics {
@@ -1817,6 +1814,9 @@ impl SmartCardCryptogramMaterialPackageCharacteristics {
         }
     }
 }
+impl windows_core::RuntimeType for SmartCardCryptogramMaterialPackageCharacteristics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramMaterialPackageCharacteristics>();
+}
 unsafe impl windows_core::Interface for SmartCardCryptogramMaterialPackageCharacteristics {
     type Vtable = <ISmartCardCryptogramMaterialPackageCharacteristics as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardCryptogramMaterialPackageCharacteristics as windows_core::Interface>::IID;
@@ -1827,9 +1827,6 @@ impl windows_core::RuntimeName for SmartCardCryptogramMaterialPackageCharacteris
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramMaterialPossessionProof(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardCryptogramMaterialPossessionProof {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramMaterialPossessionProof>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramMaterialPossessionProof, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardCryptogramMaterialPossessionProof,);
 impl SmartCardCryptogramMaterialPossessionProof {
@@ -1849,6 +1846,9 @@ impl SmartCardCryptogramMaterialPossessionProof {
         }
     }
 }
+impl windows_core::RuntimeType for SmartCardCryptogramMaterialPossessionProof {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramMaterialPossessionProof>();
+}
 unsafe impl windows_core::Interface for SmartCardCryptogramMaterialPossessionProof {
     type Vtable = <ISmartCardCryptogramMaterialPossessionProof as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardCryptogramMaterialPossessionProof as windows_core::Interface>::IID;
@@ -1859,9 +1859,6 @@ impl windows_core::RuntimeName for SmartCardCryptogramMaterialPossessionProof {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramPlacementStep(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardCryptogramPlacementStep {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramPlacementStep>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramPlacementStep, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardCryptogramPlacementStep,);
 impl SmartCardCryptogramPlacementStep {
@@ -1980,6 +1977,9 @@ impl SmartCardCryptogramPlacementStep {
         unsafe { (windows_core::Interface::vtable(this).SetChainedOutputStep)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for SmartCardCryptogramPlacementStep {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramPlacementStep>();
+}
 unsafe impl windows_core::Interface for SmartCardCryptogramPlacementStep {
     type Vtable = <ISmartCardCryptogramPlacementStep as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardCryptogramPlacementStep as windows_core::Interface>::IID;
@@ -1990,9 +1990,6 @@ impl windows_core::RuntimeName for SmartCardCryptogramPlacementStep {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramStorageKeyCharacteristics(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardCryptogramStorageKeyCharacteristics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramStorageKeyCharacteristics>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramStorageKeyCharacteristics, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardCryptogramStorageKeyCharacteristics,);
 impl SmartCardCryptogramStorageKeyCharacteristics {
@@ -2032,6 +2029,9 @@ impl SmartCardCryptogramStorageKeyCharacteristics {
         }
     }
 }
+impl windows_core::RuntimeType for SmartCardCryptogramStorageKeyCharacteristics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramStorageKeyCharacteristics>();
+}
 unsafe impl windows_core::Interface for SmartCardCryptogramStorageKeyCharacteristics {
     type Vtable = <ISmartCardCryptogramStorageKeyCharacteristics as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardCryptogramStorageKeyCharacteristics as windows_core::Interface>::IID;
@@ -2042,9 +2042,6 @@ impl windows_core::RuntimeName for SmartCardCryptogramStorageKeyCharacteristics 
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardCryptogramStorageKeyInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardCryptogramStorageKeyInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramStorageKeyInfo>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardCryptogramStorageKeyInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardCryptogramStorageKeyInfo,);
 impl SmartCardCryptogramStorageKeyInfo {
@@ -2109,6 +2106,9 @@ impl SmartCardCryptogramStorageKeyInfo {
         }
     }
 }
+impl windows_core::RuntimeType for SmartCardCryptogramStorageKeyInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardCryptogramStorageKeyInfo>();
+}
 unsafe impl windows_core::Interface for SmartCardCryptogramStorageKeyInfo {
     type Vtable = <ISmartCardCryptogramStorageKeyInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardCryptogramStorageKeyInfo as windows_core::Interface>::IID;
@@ -2119,9 +2119,6 @@ impl windows_core::RuntimeName for SmartCardCryptogramStorageKeyInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardEmulator(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardEmulator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardEmulator>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardEmulator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardEmulator,);
 impl SmartCardEmulator {
@@ -2227,6 +2224,9 @@ impl SmartCardEmulator {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SmartCardEmulator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardEmulator>();
+}
 unsafe impl windows_core::Interface for SmartCardEmulator {
     type Vtable = <ISmartCardEmulator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardEmulator as windows_core::Interface>::IID;
@@ -2237,9 +2237,6 @@ impl windows_core::RuntimeName for SmartCardEmulator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardEmulatorApduReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardEmulatorApduReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardEmulatorApduReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardEmulatorApduReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardEmulatorApduReceivedEventArgs,);
 impl SmartCardEmulatorApduReceivedEventArgs {
@@ -2321,6 +2318,9 @@ impl SmartCardEmulatorApduReceivedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for SmartCardEmulatorApduReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardEmulatorApduReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for SmartCardEmulatorApduReceivedEventArgs {
     type Vtable = <ISmartCardEmulatorApduReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardEmulatorApduReceivedEventArgs as windows_core::Interface>::IID;
@@ -2331,9 +2331,6 @@ impl windows_core::RuntimeName for SmartCardEmulatorApduReceivedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardEmulatorConnectionDeactivatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardEmulatorConnectionDeactivatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardEmulatorConnectionDeactivatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardEmulatorConnectionDeactivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardEmulatorConnectionDeactivatedEventArgs,);
 impl SmartCardEmulatorConnectionDeactivatedEventArgs {
@@ -2352,6 +2349,9 @@ impl SmartCardEmulatorConnectionDeactivatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for SmartCardEmulatorConnectionDeactivatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardEmulatorConnectionDeactivatedEventArgs>();
+}
 unsafe impl windows_core::Interface for SmartCardEmulatorConnectionDeactivatedEventArgs {
     type Vtable = <ISmartCardEmulatorConnectionDeactivatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardEmulatorConnectionDeactivatedEventArgs as windows_core::Interface>::IID;
@@ -2362,9 +2362,6 @@ impl windows_core::RuntimeName for SmartCardEmulatorConnectionDeactivatedEventAr
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardEmulatorConnectionProperties(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardEmulatorConnectionProperties {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardEmulatorConnectionProperties>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardEmulatorConnectionProperties, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardEmulatorConnectionProperties,);
 impl SmartCardEmulatorConnectionProperties {
@@ -2383,6 +2380,9 @@ impl SmartCardEmulatorConnectionProperties {
         }
     }
 }
+impl windows_core::RuntimeType for SmartCardEmulatorConnectionProperties {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardEmulatorConnectionProperties>();
+}
 unsafe impl windows_core::Interface for SmartCardEmulatorConnectionProperties {
     type Vtable = <ISmartCardEmulatorConnectionProperties as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardEmulatorConnectionProperties as windows_core::Interface>::IID;
@@ -2393,9 +2393,6 @@ impl windows_core::RuntimeName for SmartCardEmulatorConnectionProperties {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardPinPolicy(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardPinPolicy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardPinPolicy>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardPinPolicy, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardPinPolicy,);
 impl SmartCardPinPolicy {
@@ -2473,6 +2470,9 @@ impl SmartCardPinPolicy {
         unsafe { (windows_core::Interface::vtable(this).SetSpecialCharacters)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for SmartCardPinPolicy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardPinPolicy>();
+}
 unsafe impl windows_core::Interface for SmartCardPinPolicy {
     type Vtable = <ISmartCardPinPolicy as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardPinPolicy as windows_core::Interface>::IID;
@@ -2483,9 +2483,6 @@ impl windows_core::RuntimeName for SmartCardPinPolicy {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardPinResetDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardPinResetDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardPinResetDeferral>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardPinResetDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardPinResetDeferral,);
 impl SmartCardPinResetDeferral {
@@ -2493,6 +2490,9 @@ impl SmartCardPinResetDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for SmartCardPinResetDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardPinResetDeferral>();
 }
 unsafe impl windows_core::Interface for SmartCardPinResetDeferral {
     type Vtable = <ISmartCardPinResetDeferral as windows_core::Interface>::Vtable;
@@ -2504,9 +2504,6 @@ impl windows_core::RuntimeName for SmartCardPinResetDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardPinResetRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardPinResetRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardPinResetRequest>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardPinResetRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardPinResetRequest,);
 impl SmartCardPinResetRequest {
@@ -2541,6 +2538,9 @@ impl SmartCardPinResetRequest {
         unsafe { (windows_core::Interface::vtable(this).SetResponse)(windows_core::Interface::as_raw(this), response.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for SmartCardPinResetRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardPinResetRequest>();
+}
 unsafe impl windows_core::Interface for SmartCardPinResetRequest {
     type Vtable = <ISmartCardPinResetRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardPinResetRequest as windows_core::Interface>::IID;
@@ -2551,9 +2551,6 @@ impl windows_core::RuntimeName for SmartCardPinResetRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardProvisioning(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardProvisioning {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardProvisioning>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardProvisioning, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardProvisioning,);
 impl SmartCardProvisioning {
@@ -2680,6 +2677,9 @@ impl SmartCardProvisioning {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SmartCardProvisioning {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardProvisioning>();
+}
 unsafe impl windows_core::Interface for SmartCardProvisioning {
     type Vtable = <ISmartCardProvisioning as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardProvisioning as windows_core::Interface>::IID;
@@ -2690,9 +2690,6 @@ impl windows_core::RuntimeName for SmartCardProvisioning {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardReader(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardReader>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardReader,);
 impl SmartCardReader {
@@ -2783,6 +2780,9 @@ impl SmartCardReader {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SmartCardReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardReader>();
+}
 unsafe impl windows_core::Interface for SmartCardReader {
     type Vtable = <ISmartCardReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISmartCardReader as windows_core::Interface>::IID;
@@ -2793,9 +2793,6 @@ impl windows_core::RuntimeName for SmartCardReader {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SmartCardTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for SmartCardTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(SmartCardTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SmartCardTriggerDetails,);
 impl SmartCardTriggerDetails {
@@ -2850,6 +2847,9 @@ impl SmartCardTriggerDetails {
             (windows_core::Interface::vtable(this).SmartCard)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for SmartCardTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISmartCardTriggerDetails>();
 }
 unsafe impl windows_core::Interface for SmartCardTriggerDetails {
     type Vtable = <ISmartCardTriggerDetails as windows_core::Interface>::Vtable;

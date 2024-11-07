@@ -938,61 +938,6 @@ impl windows_core::TypeKind for D3D_TESSELLATOR_PARTITIONING {
     type TypeKind = windows_core::CopyType;
 }
 #[repr(C)]
-#[derive(Copy, Clone)]
-pub struct D3DMATRIX {
-    pub Anonymous: D3DMATRIX_0,
-}
-impl Default for D3DMATRIX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for D3DMATRIX {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union D3DMATRIX_0 {
-    pub Anonymous: D3DMATRIX_0_0,
-    pub m: [f32; 16],
-}
-impl Default for D3DMATRIX_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for D3DMATRIX_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
-#[derive(Copy, Clone, Debug, PartialEq)]
-pub struct D3DMATRIX_0_0 {
-    pub _11: f32,
-    pub _12: f32,
-    pub _13: f32,
-    pub _14: f32,
-    pub _21: f32,
-    pub _22: f32,
-    pub _23: f32,
-    pub _24: f32,
-    pub _31: f32,
-    pub _32: f32,
-    pub _33: f32,
-    pub _34: f32,
-    pub _41: f32,
-    pub _42: f32,
-    pub _43: f32,
-    pub _44: f32,
-}
-impl Default for D3DMATRIX_0_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-impl windows_core::TypeKind for D3DMATRIX_0_0 {
-    type TypeKind = windows_core::CopyType;
-}
-#[repr(C)]
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub struct D3DVECTOR {
     pub x: f32,

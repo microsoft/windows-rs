@@ -935,9 +935,6 @@ pub struct IVideoTransformSphericalProjection_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AcousticEchoCancellationConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for AcousticEchoCancellationConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAcousticEchoCancellationConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(AcousticEchoCancellationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AcousticEchoCancellationConfiguration,);
 impl AcousticEchoCancellationConfiguration {
@@ -945,6 +942,9 @@ impl AcousticEchoCancellationConfiguration {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEchoCancellationRenderEndpoint)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid)).ok() }
     }
+}
+impl windows_core::RuntimeType for AcousticEchoCancellationConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAcousticEchoCancellationConfiguration>();
 }
 unsafe impl windows_core::Interface for AcousticEchoCancellationConfiguration {
     type Vtable = <IAcousticEchoCancellationConfiguration as windows_core::Interface>::Vtable;
@@ -956,9 +956,6 @@ impl windows_core::RuntimeName for AcousticEchoCancellationConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioCaptureEffectsManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioCaptureEffectsManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioCaptureEffectsManager>();
-}
 windows_core::imp::interface_hierarchy!(AudioCaptureEffectsManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioCaptureEffectsManager,);
 impl AudioCaptureEffectsManager {
@@ -985,6 +982,9 @@ impl AudioCaptureEffectsManager {
         }
     }
 }
+impl windows_core::RuntimeType for AudioCaptureEffectsManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioCaptureEffectsManager>();
+}
 unsafe impl windows_core::Interface for AudioCaptureEffectsManager {
     type Vtable = <IAudioCaptureEffectsManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioCaptureEffectsManager as windows_core::Interface>::IID;
@@ -995,9 +995,6 @@ impl windows_core::RuntimeName for AudioCaptureEffectsManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioEffect(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioEffect {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioEffect>();
-}
 windows_core::imp::interface_hierarchy!(AudioEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioEffect,);
 impl AudioEffect {
@@ -1034,6 +1031,9 @@ impl AudioEffect {
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), newstate).ok() }
     }
 }
+impl windows_core::RuntimeType for AudioEffect {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioEffect>();
+}
 unsafe impl windows_core::Interface for AudioEffect {
     type Vtable = <IAudioEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioEffect as windows_core::Interface>::IID;
@@ -1044,9 +1044,6 @@ impl windows_core::RuntimeName for AudioEffect {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioEffectDefinition(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioEffectDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioEffectDefinition>();
-}
 windows_core::imp::interface_hierarchy!(AudioEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioEffectDefinition, IAudioEffectDefinition);
 impl AudioEffectDefinition {
@@ -1085,6 +1082,9 @@ impl AudioEffectDefinition {
         static SHARED: windows_core::imp::FactoryCache<AudioEffectDefinition, IAudioEffectDefinitionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for AudioEffectDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioEffectDefinition>();
 }
 unsafe impl windows_core::Interface for AudioEffectDefinition {
     type Vtable = <IAudioEffectDefinition as windows_core::Interface>::Vtable;
@@ -1134,9 +1134,6 @@ impl windows_core::RuntimeName for AudioEffectsManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AudioRenderEffectsManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for AudioRenderEffectsManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioRenderEffectsManager>();
-}
 windows_core::imp::interface_hierarchy!(AudioRenderEffectsManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AudioRenderEffectsManager,);
 impl AudioRenderEffectsManager {
@@ -1182,6 +1179,9 @@ impl AudioRenderEffectsManager {
         unsafe { (windows_core::Interface::vtable(this).ShowSettingsUI)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for AudioRenderEffectsManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAudioRenderEffectsManager>();
+}
 unsafe impl windows_core::Interface for AudioRenderEffectsManager {
     type Vtable = <IAudioRenderEffectsManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAudioRenderEffectsManager as windows_core::Interface>::IID;
@@ -1192,9 +1192,6 @@ impl windows_core::RuntimeName for AudioRenderEffectsManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositeVideoFrameContext(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositeVideoFrameContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositeVideoFrameContext>();
-}
 windows_core::imp::interface_hierarchy!(CompositeVideoFrameContext, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositeVideoFrameContext,);
 impl CompositeVideoFrameContext {
@@ -1232,6 +1229,9 @@ impl CompositeVideoFrameContext {
         }
     }
 }
+impl windows_core::RuntimeType for CompositeVideoFrameContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositeVideoFrameContext>();
+}
 unsafe impl windows_core::Interface for CompositeVideoFrameContext {
     type Vtable = <ICompositeVideoFrameContext as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositeVideoFrameContext as windows_core::Interface>::IID;
@@ -1242,9 +1242,6 @@ impl windows_core::RuntimeName for CompositeVideoFrameContext {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessAudioFrameContext(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProcessAudioFrameContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessAudioFrameContext>();
-}
 windows_core::imp::interface_hierarchy!(ProcessAudioFrameContext, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProcessAudioFrameContext,);
 impl ProcessAudioFrameContext {
@@ -1263,6 +1260,9 @@ impl ProcessAudioFrameContext {
         }
     }
 }
+impl windows_core::RuntimeType for ProcessAudioFrameContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessAudioFrameContext>();
+}
 unsafe impl windows_core::Interface for ProcessAudioFrameContext {
     type Vtable = <IProcessAudioFrameContext as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProcessAudioFrameContext as windows_core::Interface>::IID;
@@ -1273,9 +1273,6 @@ impl windows_core::RuntimeName for ProcessAudioFrameContext {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProcessVideoFrameContext(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProcessVideoFrameContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessVideoFrameContext>();
-}
 windows_core::imp::interface_hierarchy!(ProcessVideoFrameContext, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProcessVideoFrameContext,);
 impl ProcessVideoFrameContext {
@@ -1294,6 +1291,9 @@ impl ProcessVideoFrameContext {
         }
     }
 }
+impl windows_core::RuntimeType for ProcessVideoFrameContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProcessVideoFrameContext>();
+}
 unsafe impl windows_core::Interface for ProcessVideoFrameContext {
     type Vtable = <IProcessVideoFrameContext as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProcessVideoFrameContext as windows_core::Interface>::IID;
@@ -1304,9 +1304,6 @@ impl windows_core::RuntimeName for ProcessVideoFrameContext {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SlowMotionEffectDefinition(windows_core::IUnknown);
-impl windows_core::RuntimeType for SlowMotionEffectDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISlowMotionEffectDefinition>();
-}
 windows_core::imp::interface_hierarchy!(SlowMotionEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SlowMotionEffectDefinition, IVideoEffectDefinition);
 impl SlowMotionEffectDefinition {
@@ -1344,6 +1341,9 @@ impl SlowMotionEffectDefinition {
         }
     }
 }
+impl windows_core::RuntimeType for SlowMotionEffectDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISlowMotionEffectDefinition>();
+}
 unsafe impl windows_core::Interface for SlowMotionEffectDefinition {
     type Vtable = <ISlowMotionEffectDefinition as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISlowMotionEffectDefinition as windows_core::Interface>::IID;
@@ -1354,9 +1354,6 @@ impl windows_core::RuntimeName for SlowMotionEffectDefinition {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoCompositorDefinition(windows_core::IUnknown);
-impl windows_core::RuntimeType for VideoCompositorDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoCompositorDefinition>();
-}
 windows_core::imp::interface_hierarchy!(VideoCompositorDefinition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoCompositorDefinition, IVideoCompositorDefinition);
 impl VideoCompositorDefinition {
@@ -1396,6 +1393,9 @@ impl VideoCompositorDefinition {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for VideoCompositorDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoCompositorDefinition>();
+}
 unsafe impl windows_core::Interface for VideoCompositorDefinition {
     type Vtable = <IVideoCompositorDefinition as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVideoCompositorDefinition as windows_core::Interface>::IID;
@@ -1406,9 +1406,6 @@ impl windows_core::RuntimeName for VideoCompositorDefinition {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoEffectDefinition(windows_core::IUnknown);
-impl windows_core::RuntimeType for VideoEffectDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoEffectDefinition>();
-}
 windows_core::imp::interface_hierarchy!(VideoEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoEffectDefinition, IVideoEffectDefinition);
 impl VideoEffectDefinition {
@@ -1448,6 +1445,9 @@ impl VideoEffectDefinition {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for VideoEffectDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoEffectDefinition>();
+}
 unsafe impl windows_core::Interface for VideoEffectDefinition {
     type Vtable = <IVideoEffectDefinition as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVideoEffectDefinition as windows_core::Interface>::IID;
@@ -1458,9 +1458,6 @@ impl windows_core::RuntimeName for VideoEffectDefinition {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoTransformEffectDefinition(windows_core::IUnknown);
-impl windows_core::RuntimeType for VideoTransformEffectDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoEffectDefinition>();
-}
 windows_core::imp::interface_hierarchy!(VideoTransformEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoTransformEffectDefinition, IVideoEffectDefinition);
 impl VideoTransformEffectDefinition {
@@ -1568,6 +1565,9 @@ impl VideoTransformEffectDefinition {
         }
     }
 }
+impl windows_core::RuntimeType for VideoTransformEffectDefinition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoEffectDefinition>();
+}
 unsafe impl windows_core::Interface for VideoTransformEffectDefinition {
     type Vtable = <IVideoEffectDefinition as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IVideoEffectDefinition as windows_core::Interface>::IID;
@@ -1578,9 +1578,6 @@ impl windows_core::RuntimeName for VideoTransformEffectDefinition {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct VideoTransformSphericalProjection(windows_core::IUnknown);
-impl windows_core::RuntimeType for VideoTransformSphericalProjection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoTransformSphericalProjection>();
-}
 windows_core::imp::interface_hierarchy!(VideoTransformSphericalProjection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(VideoTransformSphericalProjection,);
 impl VideoTransformSphericalProjection {
@@ -1645,6 +1642,9 @@ impl VideoTransformSphericalProjection {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetViewOrientation)(windows_core::Interface::as_raw(this), value).ok() }
     }
+}
+impl windows_core::RuntimeType for VideoTransformSphericalProjection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVideoTransformSphericalProjection>();
 }
 unsafe impl windows_core::Interface for VideoTransformSphericalProjection {
     type Vtable = <IVideoTransformSphericalProjection as windows_core::Interface>::Vtable;

@@ -57,9 +57,6 @@ pub struct IHdmiDisplayMode2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HdmiDisplayInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for HdmiDisplayInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHdmiDisplayInformation>();
-}
 windows_core::imp::interface_hierarchy!(HdmiDisplayInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HdmiDisplayInformation,);
 impl HdmiDisplayInformation {
@@ -140,6 +137,9 @@ impl HdmiDisplayInformation {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HdmiDisplayInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHdmiDisplayInformation>();
+}
 unsafe impl windows_core::Interface for HdmiDisplayInformation {
     type Vtable = <IHdmiDisplayInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHdmiDisplayInformation as windows_core::Interface>::IID;
@@ -150,9 +150,6 @@ impl windows_core::RuntimeName for HdmiDisplayInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HdmiDisplayMode(windows_core::IUnknown);
-impl windows_core::RuntimeType for HdmiDisplayMode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHdmiDisplayMode>();
-}
 windows_core::imp::interface_hierarchy!(HdmiDisplayMode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HdmiDisplayMode,);
 impl HdmiDisplayMode {
@@ -244,6 +241,9 @@ impl HdmiDisplayMode {
         }
     }
 }
+impl windows_core::RuntimeType for HdmiDisplayMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHdmiDisplayMode>();
+}
 unsafe impl windows_core::Interface for HdmiDisplayMode {
     type Vtable = <IHdmiDisplayMode as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHdmiDisplayMode as windows_core::Interface>::IID;
@@ -297,7 +297,7 @@ impl windows_core::RuntimeType for HdmiDisplayPixelEncoding {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.Core.HdmiDisplayPixelEncoding;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct HdmiDisplayHdr2086Metadata {
     pub RedPrimaryX: u16,
     pub RedPrimaryY: u16,

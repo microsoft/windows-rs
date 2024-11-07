@@ -1147,9 +1147,6 @@ pub struct ITensorUInt8BitStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageFeatureDescriptor(windows_core::IUnknown);
-impl windows_core::RuntimeType for ImageFeatureDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageFeatureDescriptor>();
-}
 windows_core::imp::interface_hierarchy!(ImageFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageFeatureDescriptor, ILearningModelFeatureDescriptor);
 impl ImageFeatureDescriptor {
@@ -1219,6 +1216,9 @@ impl ImageFeatureDescriptor {
         }
     }
 }
+impl windows_core::RuntimeType for ImageFeatureDescriptor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageFeatureDescriptor>();
+}
 unsafe impl windows_core::Interface for ImageFeatureDescriptor {
     type Vtable = <IImageFeatureDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IImageFeatureDescriptor as windows_core::Interface>::IID;
@@ -1229,9 +1229,6 @@ impl windows_core::RuntimeName for ImageFeatureDescriptor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ImageFeatureValue(windows_core::IUnknown);
-impl windows_core::RuntimeType for ImageFeatureValue {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageFeatureValue>();
-}
 windows_core::imp::interface_hierarchy!(ImageFeatureValue, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ImageFeatureValue, ILearningModelFeatureValue);
 impl ImageFeatureValue {
@@ -1265,6 +1262,9 @@ impl ImageFeatureValue {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ImageFeatureValue {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IImageFeatureValue>();
+}
 unsafe impl windows_core::Interface for ImageFeatureValue {
     type Vtable = <IImageFeatureValue as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IImageFeatureValue as windows_core::Interface>::IID;
@@ -1275,9 +1275,6 @@ impl windows_core::RuntimeName for ImageFeatureValue {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LearningModel(windows_core::IUnknown);
-impl windows_core::RuntimeType for LearningModel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModel>();
-}
 windows_core::imp::interface_hierarchy!(LearningModel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LearningModel, super::super::Foundation::IClosable);
 impl LearningModel {
@@ -1427,6 +1424,9 @@ impl LearningModel {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LearningModel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModel>();
+}
 unsafe impl windows_core::Interface for LearningModel {
     type Vtable = <ILearningModel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILearningModel as windows_core::Interface>::IID;
@@ -1438,10 +1438,6 @@ impl windows_core::RuntimeName for LearningModel {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LearningModelBinding(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for LearningModelBinding {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelBinding>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(LearningModelBinding, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -1516,6 +1512,10 @@ impl LearningModelBinding {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for LearningModelBinding {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelBinding>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for LearningModelBinding {
     type Vtable = <ILearningModelBinding as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILearningModelBinding as windows_core::Interface>::IID;
@@ -1527,9 +1527,6 @@ impl windows_core::RuntimeName for LearningModelBinding {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LearningModelDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for LearningModelDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelDevice>();
-}
 windows_core::imp::interface_hierarchy!(LearningModelDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LearningModelDevice,);
 impl LearningModelDevice {
@@ -1574,6 +1571,9 @@ impl LearningModelDevice {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LearningModelDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelDevice>();
+}
 unsafe impl windows_core::Interface for LearningModelDevice {
     type Vtable = <ILearningModelDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILearningModelDevice as windows_core::Interface>::IID;
@@ -1584,9 +1584,6 @@ impl windows_core::RuntimeName for LearningModelDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LearningModelEvaluationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for LearningModelEvaluationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelEvaluationResult>();
-}
 windows_core::imp::interface_hierarchy!(LearningModelEvaluationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LearningModelEvaluationResult,);
 impl LearningModelEvaluationResult {
@@ -1620,6 +1617,9 @@ impl LearningModelEvaluationResult {
         }
     }
 }
+impl windows_core::RuntimeType for LearningModelEvaluationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelEvaluationResult>();
+}
 unsafe impl windows_core::Interface for LearningModelEvaluationResult {
     type Vtable = <ILearningModelEvaluationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILearningModelEvaluationResult as windows_core::Interface>::IID;
@@ -1630,9 +1630,6 @@ impl windows_core::RuntimeName for LearningModelEvaluationResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LearningModelSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for LearningModelSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelSession>();
-}
 windows_core::imp::interface_hierarchy!(LearningModelSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LearningModelSession, super::super::Foundation::IClosable);
 impl LearningModelSession {
@@ -1745,6 +1742,9 @@ impl LearningModelSession {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LearningModelSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelSession>();
+}
 unsafe impl windows_core::Interface for LearningModelSession {
     type Vtable = <ILearningModelSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILearningModelSession as windows_core::Interface>::IID;
@@ -1755,9 +1755,6 @@ impl windows_core::RuntimeName for LearningModelSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LearningModelSessionOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for LearningModelSessionOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelSessionOptions>();
-}
 windows_core::imp::interface_hierarchy!(LearningModelSessionOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LearningModelSessionOptions,);
 impl LearningModelSessionOptions {
@@ -1795,6 +1792,9 @@ impl LearningModelSessionOptions {
         unsafe { (windows_core::Interface::vtable(this).OverrideNamedDimension)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), dimension).ok() }
     }
 }
+impl windows_core::RuntimeType for LearningModelSessionOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILearningModelSessionOptions>();
+}
 unsafe impl windows_core::Interface for LearningModelSessionOptions {
     type Vtable = <ILearningModelSessionOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILearningModelSessionOptions as windows_core::Interface>::IID;
@@ -1805,9 +1805,6 @@ impl windows_core::RuntimeName for LearningModelSessionOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MapFeatureDescriptor(windows_core::IUnknown);
-impl windows_core::RuntimeType for MapFeatureDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapFeatureDescriptor>();
-}
 windows_core::imp::interface_hierarchy!(MapFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MapFeatureDescriptor, ILearningModelFeatureDescriptor);
 impl MapFeatureDescriptor {
@@ -1854,6 +1851,9 @@ impl MapFeatureDescriptor {
         }
     }
 }
+impl windows_core::RuntimeType for MapFeatureDescriptor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMapFeatureDescriptor>();
+}
 unsafe impl windows_core::Interface for MapFeatureDescriptor {
     type Vtable = <IMapFeatureDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMapFeatureDescriptor as windows_core::Interface>::IID;
@@ -1864,9 +1864,6 @@ impl windows_core::RuntimeName for MapFeatureDescriptor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SequenceFeatureDescriptor(windows_core::IUnknown);
-impl windows_core::RuntimeType for SequenceFeatureDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISequenceFeatureDescriptor>();
-}
 windows_core::imp::interface_hierarchy!(SequenceFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SequenceFeatureDescriptor, ILearningModelFeatureDescriptor);
 impl SequenceFeatureDescriptor {
@@ -1906,6 +1903,9 @@ impl SequenceFeatureDescriptor {
         }
     }
 }
+impl windows_core::RuntimeType for SequenceFeatureDescriptor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISequenceFeatureDescriptor>();
+}
 unsafe impl windows_core::Interface for SequenceFeatureDescriptor {
     type Vtable = <ISequenceFeatureDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISequenceFeatureDescriptor as windows_core::Interface>::IID;
@@ -1916,9 +1916,6 @@ impl windows_core::RuntimeName for SequenceFeatureDescriptor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorBoolean(windows_core::IUnknown);
-impl windows_core::RuntimeType for TensorBoolean {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorBoolean>();
-}
 windows_core::imp::interface_hierarchy!(TensorBoolean, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorBoolean, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
 impl TensorBoolean {
@@ -2025,6 +2022,9 @@ impl TensorBoolean {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TensorBoolean {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorBoolean>();
+}
 unsafe impl windows_core::Interface for TensorBoolean {
     type Vtable = <ITensorBoolean as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorBoolean as windows_core::Interface>::IID;
@@ -2035,9 +2035,6 @@ impl windows_core::RuntimeName for TensorBoolean {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorDouble(windows_core::IUnknown);
-impl windows_core::RuntimeType for TensorDouble {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorDouble>();
-}
 windows_core::imp::interface_hierarchy!(TensorDouble, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorDouble, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
 impl TensorDouble {
@@ -2144,6 +2141,9 @@ impl TensorDouble {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TensorDouble {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorDouble>();
+}
 unsafe impl windows_core::Interface for TensorDouble {
     type Vtable = <ITensorDouble as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorDouble as windows_core::Interface>::IID;
@@ -2154,9 +2154,6 @@ impl windows_core::RuntimeName for TensorDouble {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorFeatureDescriptor(windows_core::IUnknown);
-impl windows_core::RuntimeType for TensorFeatureDescriptor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorFeatureDescriptor>();
-}
 windows_core::imp::interface_hierarchy!(TensorFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorFeatureDescriptor, ILearningModelFeatureDescriptor);
 impl TensorFeatureDescriptor {
@@ -2204,6 +2201,9 @@ impl TensorFeatureDescriptor {
         }
     }
 }
+impl windows_core::RuntimeType for TensorFeatureDescriptor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorFeatureDescriptor>();
+}
 unsafe impl windows_core::Interface for TensorFeatureDescriptor {
     type Vtable = <ITensorFeatureDescriptor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorFeatureDescriptor as windows_core::Interface>::IID;
@@ -2214,9 +2214,6 @@ impl windows_core::RuntimeName for TensorFeatureDescriptor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorFloat(windows_core::IUnknown);
-impl windows_core::RuntimeType for TensorFloat {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorFloat>();
-}
 windows_core::imp::interface_hierarchy!(TensorFloat, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorFloat, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
 impl TensorFloat {
@@ -2323,6 +2320,9 @@ impl TensorFloat {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TensorFloat {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorFloat>();
+}
 unsafe impl windows_core::Interface for TensorFloat {
     type Vtable = <ITensorFloat as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorFloat as windows_core::Interface>::IID;
@@ -2333,9 +2333,6 @@ impl windows_core::RuntimeName for TensorFloat {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorFloat16Bit(windows_core::IUnknown);
-impl windows_core::RuntimeType for TensorFloat16Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorFloat16Bit>();
-}
 windows_core::imp::interface_hierarchy!(TensorFloat16Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorFloat16Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
 impl TensorFloat16Bit {
@@ -2442,6 +2439,9 @@ impl TensorFloat16Bit {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TensorFloat16Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorFloat16Bit>();
+}
 unsafe impl windows_core::Interface for TensorFloat16Bit {
     type Vtable = <ITensorFloat16Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorFloat16Bit as windows_core::Interface>::IID;
@@ -2452,9 +2452,6 @@ impl windows_core::RuntimeName for TensorFloat16Bit {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorInt16Bit(windows_core::IUnknown);
-impl windows_core::RuntimeType for TensorInt16Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorInt16Bit>();
-}
 windows_core::imp::interface_hierarchy!(TensorInt16Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorInt16Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
 impl TensorInt16Bit {
@@ -2561,6 +2558,9 @@ impl TensorInt16Bit {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TensorInt16Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorInt16Bit>();
+}
 unsafe impl windows_core::Interface for TensorInt16Bit {
     type Vtable = <ITensorInt16Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorInt16Bit as windows_core::Interface>::IID;
@@ -2571,9 +2571,6 @@ impl windows_core::RuntimeName for TensorInt16Bit {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorInt32Bit(windows_core::IUnknown);
-impl windows_core::RuntimeType for TensorInt32Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorInt32Bit>();
-}
 windows_core::imp::interface_hierarchy!(TensorInt32Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorInt32Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
 impl TensorInt32Bit {
@@ -2680,6 +2677,9 @@ impl TensorInt32Bit {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TensorInt32Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorInt32Bit>();
+}
 unsafe impl windows_core::Interface for TensorInt32Bit {
     type Vtable = <ITensorInt32Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorInt32Bit as windows_core::Interface>::IID;
@@ -2690,9 +2690,6 @@ impl windows_core::RuntimeName for TensorInt32Bit {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorInt64Bit(windows_core::IUnknown);
-impl windows_core::RuntimeType for TensorInt64Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorInt64Bit>();
-}
 windows_core::imp::interface_hierarchy!(TensorInt64Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorInt64Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
 impl TensorInt64Bit {
@@ -2799,6 +2796,9 @@ impl TensorInt64Bit {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TensorInt64Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorInt64Bit>();
+}
 unsafe impl windows_core::Interface for TensorInt64Bit {
     type Vtable = <ITensorInt64Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorInt64Bit as windows_core::Interface>::IID;
@@ -2809,9 +2809,6 @@ impl windows_core::RuntimeName for TensorInt64Bit {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorInt8Bit(windows_core::IUnknown);
-impl windows_core::RuntimeType for TensorInt8Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorInt8Bit>();
-}
 windows_core::imp::interface_hierarchy!(TensorInt8Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorInt8Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
 impl TensorInt8Bit {
@@ -2918,6 +2915,9 @@ impl TensorInt8Bit {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TensorInt8Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorInt8Bit>();
+}
 unsafe impl windows_core::Interface for TensorInt8Bit {
     type Vtable = <ITensorInt8Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorInt8Bit as windows_core::Interface>::IID;
@@ -2928,9 +2928,6 @@ impl windows_core::RuntimeName for TensorInt8Bit {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorString(windows_core::IUnknown);
-impl windows_core::RuntimeType for TensorString {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorString>();
-}
 windows_core::imp::interface_hierarchy!(TensorString, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorString, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
 impl TensorString {
@@ -3027,6 +3024,9 @@ impl TensorString {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TensorString {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorString>();
+}
 unsafe impl windows_core::Interface for TensorString {
     type Vtable = <ITensorString as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorString as windows_core::Interface>::IID;
@@ -3037,9 +3037,6 @@ impl windows_core::RuntimeName for TensorString {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorUInt16Bit(windows_core::IUnknown);
-impl windows_core::RuntimeType for TensorUInt16Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorUInt16Bit>();
-}
 windows_core::imp::interface_hierarchy!(TensorUInt16Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorUInt16Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
 impl TensorUInt16Bit {
@@ -3146,6 +3143,9 @@ impl TensorUInt16Bit {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TensorUInt16Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorUInt16Bit>();
+}
 unsafe impl windows_core::Interface for TensorUInt16Bit {
     type Vtable = <ITensorUInt16Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorUInt16Bit as windows_core::Interface>::IID;
@@ -3156,9 +3156,6 @@ impl windows_core::RuntimeName for TensorUInt16Bit {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorUInt32Bit(windows_core::IUnknown);
-impl windows_core::RuntimeType for TensorUInt32Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorUInt32Bit>();
-}
 windows_core::imp::interface_hierarchy!(TensorUInt32Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorUInt32Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
 impl TensorUInt32Bit {
@@ -3265,6 +3262,9 @@ impl TensorUInt32Bit {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TensorUInt32Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorUInt32Bit>();
+}
 unsafe impl windows_core::Interface for TensorUInt32Bit {
     type Vtable = <ITensorUInt32Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorUInt32Bit as windows_core::Interface>::IID;
@@ -3275,9 +3275,6 @@ impl windows_core::RuntimeName for TensorUInt32Bit {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorUInt64Bit(windows_core::IUnknown);
-impl windows_core::RuntimeType for TensorUInt64Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorUInt64Bit>();
-}
 windows_core::imp::interface_hierarchy!(TensorUInt64Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorUInt64Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
 impl TensorUInt64Bit {
@@ -3384,6 +3381,9 @@ impl TensorUInt64Bit {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TensorUInt64Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorUInt64Bit>();
+}
 unsafe impl windows_core::Interface for TensorUInt64Bit {
     type Vtable = <ITensorUInt64Bit as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITensorUInt64Bit as windows_core::Interface>::IID;
@@ -3394,9 +3394,6 @@ impl windows_core::RuntimeName for TensorUInt64Bit {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TensorUInt8Bit(windows_core::IUnknown);
-impl windows_core::RuntimeType for TensorUInt8Bit {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorUInt8Bit>();
-}
 windows_core::imp::interface_hierarchy!(TensorUInt8Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorUInt8Bit, ILearningModelFeatureValue, ITensor, super::super::Foundation::IClosable, super::super::Foundation::IMemoryBuffer);
 impl TensorUInt8Bit {
@@ -3502,6 +3499,9 @@ impl TensorUInt8Bit {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt8Bit, ITensorUInt8BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for TensorUInt8Bit {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITensorUInt8Bit>();
 }
 unsafe impl windows_core::Interface for TensorUInt8Bit {
     type Vtable = <ITensorUInt8Bit as windows_core::Interface>::Vtable;

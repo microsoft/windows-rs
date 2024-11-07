@@ -785,9 +785,6 @@ pub struct IRemoteParticipantComposingChangedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(ChatCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatCapabilities,);
 impl ChatCapabilities {
@@ -826,6 +823,9 @@ impl ChatCapabilities {
             (windows_core::Interface::vtable(this).IsIntegratedMessagingCapable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for ChatCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatCapabilities>();
 }
 unsafe impl windows_core::Interface for ChatCapabilities {
     type Vtable = <IChatCapabilities as windows_core::Interface>::Vtable;
@@ -875,9 +875,6 @@ impl windows_core::RuntimeName for ChatCapabilitiesManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatConversation(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatConversation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatConversation>();
-}
 windows_core::imp::interface_hierarchy!(ChatConversation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatConversation, IChatItem);
 impl ChatConversation {
@@ -1015,6 +1012,9 @@ impl ChatConversation {
         }
     }
 }
+impl windows_core::RuntimeType for ChatConversation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatConversation>();
+}
 unsafe impl windows_core::Interface for ChatConversation {
     type Vtable = <IChatConversation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatConversation as windows_core::Interface>::IID;
@@ -1025,9 +1025,6 @@ impl windows_core::RuntimeName for ChatConversation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatConversationReader(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatConversationReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatConversationReader>();
-}
 windows_core::imp::interface_hierarchy!(ChatConversationReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatConversationReader,);
 impl ChatConversationReader {
@@ -1048,6 +1045,9 @@ impl ChatConversationReader {
         }
     }
 }
+impl windows_core::RuntimeType for ChatConversationReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatConversationReader>();
+}
 unsafe impl windows_core::Interface for ChatConversationReader {
     type Vtable = <IChatConversationReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatConversationReader as windows_core::Interface>::IID;
@@ -1058,9 +1058,6 @@ impl windows_core::RuntimeName for ChatConversationReader {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatConversationThreadingInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatConversationThreadingInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatConversationThreadingInfo>();
-}
 windows_core::imp::interface_hierarchy!(ChatConversationThreadingInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatConversationThreadingInfo,);
 impl ChatConversationThreadingInfo {
@@ -1124,6 +1121,9 @@ impl ChatConversationThreadingInfo {
         unsafe { (windows_core::Interface::vtable(this).SetKind)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for ChatConversationThreadingInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatConversationThreadingInfo>();
+}
 unsafe impl windows_core::Interface for ChatConversationThreadingInfo {
     type Vtable = <IChatConversationThreadingInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatConversationThreadingInfo as windows_core::Interface>::IID;
@@ -1134,9 +1134,6 @@ impl windows_core::RuntimeName for ChatConversationThreadingInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessage(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessage>();
-}
 windows_core::imp::interface_hierarchy!(ChatMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessage, IChatItem);
 impl ChatMessage {
@@ -1438,6 +1435,9 @@ impl ChatMessage {
         unsafe { (windows_core::Interface::vtable(this).SetSyncId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for ChatMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessage>();
+}
 unsafe impl windows_core::Interface for ChatMessage {
     type Vtable = <IChatMessage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatMessage as windows_core::Interface>::IID;
@@ -1448,9 +1448,6 @@ impl windows_core::RuntimeName for ChatMessage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageAttachment(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatMessageAttachment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageAttachment>();
-}
 windows_core::imp::interface_hierarchy!(ChatMessageAttachment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageAttachment,);
 impl ChatMessageAttachment {
@@ -1556,6 +1553,9 @@ impl ChatMessageAttachment {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ChatMessageAttachment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageAttachment>();
+}
 unsafe impl windows_core::Interface for ChatMessageAttachment {
     type Vtable = <IChatMessageAttachment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatMessageAttachment as windows_core::Interface>::IID;
@@ -1582,9 +1582,6 @@ impl windows_core::RuntimeName for ChatMessageBlocking {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageChange(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatMessageChange {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageChange>();
-}
 windows_core::imp::interface_hierarchy!(ChatMessageChange, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageChange,);
 impl ChatMessageChange {
@@ -1603,6 +1600,9 @@ impl ChatMessageChange {
         }
     }
 }
+impl windows_core::RuntimeType for ChatMessageChange {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageChange>();
+}
 unsafe impl windows_core::Interface for ChatMessageChange {
     type Vtable = <IChatMessageChange as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatMessageChange as windows_core::Interface>::IID;
@@ -1613,9 +1613,6 @@ impl windows_core::RuntimeName for ChatMessageChange {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageChangeReader(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatMessageChangeReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageChangeReader>();
-}
 windows_core::imp::interface_hierarchy!(ChatMessageChangeReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageChangeReader,);
 impl ChatMessageChangeReader {
@@ -1639,6 +1636,9 @@ impl ChatMessageChangeReader {
         }
     }
 }
+impl windows_core::RuntimeType for ChatMessageChangeReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageChangeReader>();
+}
 unsafe impl windows_core::Interface for ChatMessageChangeReader {
     type Vtable = <IChatMessageChangeReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatMessageChangeReader as windows_core::Interface>::IID;
@@ -1649,9 +1649,6 @@ impl windows_core::RuntimeName for ChatMessageChangeReader {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageChangeTracker(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatMessageChangeTracker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageChangeTracker>();
-}
 windows_core::imp::interface_hierarchy!(ChatMessageChangeTracker, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageChangeTracker,);
 impl ChatMessageChangeTracker {
@@ -1671,6 +1668,9 @@ impl ChatMessageChangeTracker {
         unsafe { (windows_core::Interface::vtable(this).Reset)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for ChatMessageChangeTracker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageChangeTracker>();
+}
 unsafe impl windows_core::Interface for ChatMessageChangeTracker {
     type Vtable = <IChatMessageChangeTracker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatMessageChangeTracker as windows_core::Interface>::IID;
@@ -1681,9 +1681,6 @@ impl windows_core::RuntimeName for ChatMessageChangeTracker {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageChangedDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatMessageChangedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageChangedDeferral>();
-}
 windows_core::imp::interface_hierarchy!(ChatMessageChangedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageChangedDeferral,);
 impl ChatMessageChangedDeferral {
@@ -1691,6 +1688,9 @@ impl ChatMessageChangedDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for ChatMessageChangedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageChangedDeferral>();
 }
 unsafe impl windows_core::Interface for ChatMessageChangedDeferral {
     type Vtable = <IChatMessageChangedDeferral as windows_core::Interface>::Vtable;
@@ -1702,9 +1702,6 @@ impl windows_core::RuntimeName for ChatMessageChangedDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatMessageChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ChatMessageChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageChangedEventArgs,);
 impl ChatMessageChangedEventArgs {
@@ -1715,6 +1712,9 @@ impl ChatMessageChangedEventArgs {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for ChatMessageChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for ChatMessageChangedEventArgs {
     type Vtable = <IChatMessageChangedEventArgs as windows_core::Interface>::Vtable;
@@ -1787,9 +1787,6 @@ impl windows_core::RuntimeName for ChatMessageManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageNotificationTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatMessageNotificationTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageNotificationTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(ChatMessageNotificationTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageNotificationTriggerDetails,);
 impl ChatMessageNotificationTriggerDetails {
@@ -1829,6 +1826,9 @@ impl ChatMessageNotificationTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for ChatMessageNotificationTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageNotificationTriggerDetails>();
+}
 unsafe impl windows_core::Interface for ChatMessageNotificationTriggerDetails {
     type Vtable = <IChatMessageNotificationTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatMessageNotificationTriggerDetails as windows_core::Interface>::IID;
@@ -1839,9 +1839,6 @@ impl windows_core::RuntimeName for ChatMessageNotificationTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageReader(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatMessageReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageReader>();
-}
 windows_core::imp::interface_hierarchy!(ChatMessageReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageReader,);
 impl ChatMessageReader {
@@ -1862,6 +1859,9 @@ impl ChatMessageReader {
         }
     }
 }
+impl windows_core::RuntimeType for ChatMessageReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageReader>();
+}
 unsafe impl windows_core::Interface for ChatMessageReader {
     type Vtable = <IChatMessageReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatMessageReader as windows_core::Interface>::IID;
@@ -1872,9 +1872,6 @@ impl windows_core::RuntimeName for ChatMessageReader {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageStore(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatMessageStore {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageStore>();
-}
 windows_core::imp::interface_hierarchy!(ChatMessageStore, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageStore,);
 impl ChatMessageStore {
@@ -2124,6 +2121,9 @@ impl ChatMessageStore {
         }
     }
 }
+impl windows_core::RuntimeType for ChatMessageStore {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageStore>();
+}
 unsafe impl windows_core::Interface for ChatMessageStore {
     type Vtable = <IChatMessageStore as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatMessageStore as windows_core::Interface>::IID;
@@ -2134,9 +2134,6 @@ impl windows_core::RuntimeName for ChatMessageStore {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageStoreChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatMessageStoreChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageStoreChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ChatMessageStoreChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageStoreChangedEventArgs,);
 impl ChatMessageStoreChangedEventArgs {
@@ -2155,6 +2152,9 @@ impl ChatMessageStoreChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ChatMessageStoreChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageStoreChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for ChatMessageStoreChangedEventArgs {
     type Vtable = <IChatMessageStoreChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatMessageStoreChangedEventArgs as windows_core::Interface>::IID;
@@ -2165,9 +2165,6 @@ impl windows_core::RuntimeName for ChatMessageStoreChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageTransport(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatMessageTransport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageTransport>();
-}
 windows_core::imp::interface_hierarchy!(ChatMessageTransport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageTransport,);
 impl ChatMessageTransport {
@@ -2221,6 +2218,9 @@ impl ChatMessageTransport {
         }
     }
 }
+impl windows_core::RuntimeType for ChatMessageTransport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageTransport>();
+}
 unsafe impl windows_core::Interface for ChatMessageTransport {
     type Vtable = <IChatMessageTransport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatMessageTransport as windows_core::Interface>::IID;
@@ -2231,9 +2231,6 @@ impl windows_core::RuntimeName for ChatMessageTransport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageTransportConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatMessageTransportConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageTransportConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(ChatMessageTransportConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageTransportConfiguration,);
 impl ChatMessageTransportConfiguration {
@@ -2275,6 +2272,9 @@ impl ChatMessageTransportConfiguration {
         }
     }
 }
+impl windows_core::RuntimeType for ChatMessageTransportConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageTransportConfiguration>();
+}
 unsafe impl windows_core::Interface for ChatMessageTransportConfiguration {
     type Vtable = <IChatMessageTransportConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatMessageTransportConfiguration as windows_core::Interface>::IID;
@@ -2285,9 +2285,6 @@ impl windows_core::RuntimeName for ChatMessageTransportConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatMessageValidationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatMessageValidationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageValidationResult>();
-}
 windows_core::imp::interface_hierarchy!(ChatMessageValidationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatMessageValidationResult,);
 impl ChatMessageValidationResult {
@@ -2320,6 +2317,9 @@ impl ChatMessageValidationResult {
         }
     }
 }
+impl windows_core::RuntimeType for ChatMessageValidationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatMessageValidationResult>();
+}
 unsafe impl windows_core::Interface for ChatMessageValidationResult {
     type Vtable = <IChatMessageValidationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatMessageValidationResult as windows_core::Interface>::IID;
@@ -2330,9 +2330,6 @@ impl windows_core::RuntimeName for ChatMessageValidationResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatQueryOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatQueryOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatQueryOptions>();
-}
 windows_core::imp::interface_hierarchy!(ChatQueryOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatQueryOptions,);
 impl ChatQueryOptions {
@@ -2355,6 +2352,9 @@ impl ChatQueryOptions {
         unsafe { (windows_core::Interface::vtable(this).SetSearchString)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for ChatQueryOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatQueryOptions>();
+}
 unsafe impl windows_core::Interface for ChatQueryOptions {
     type Vtable = <IChatQueryOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatQueryOptions as windows_core::Interface>::IID;
@@ -2365,9 +2365,6 @@ impl windows_core::RuntimeName for ChatQueryOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatRecipientDeliveryInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatRecipientDeliveryInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatRecipientDeliveryInfo>();
-}
 windows_core::imp::interface_hierarchy!(ChatRecipientDeliveryInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatRecipientDeliveryInfo,);
 impl ChatRecipientDeliveryInfo {
@@ -2453,6 +2450,9 @@ impl ChatRecipientDeliveryInfo {
         }
     }
 }
+impl windows_core::RuntimeType for ChatRecipientDeliveryInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatRecipientDeliveryInfo>();
+}
 unsafe impl windows_core::Interface for ChatRecipientDeliveryInfo {
     type Vtable = <IChatRecipientDeliveryInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatRecipientDeliveryInfo as windows_core::Interface>::IID;
@@ -2463,9 +2463,6 @@ impl windows_core::RuntimeName for ChatRecipientDeliveryInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatSearchReader(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatSearchReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatSearchReader>();
-}
 windows_core::imp::interface_hierarchy!(ChatSearchReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatSearchReader,);
 impl ChatSearchReader {
@@ -2486,6 +2483,9 @@ impl ChatSearchReader {
         }
     }
 }
+impl windows_core::RuntimeType for ChatSearchReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatSearchReader>();
+}
 unsafe impl windows_core::Interface for ChatSearchReader {
     type Vtable = <IChatSearchReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatSearchReader as windows_core::Interface>::IID;
@@ -2496,9 +2496,6 @@ impl windows_core::RuntimeName for ChatSearchReader {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatSyncConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatSyncConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatSyncConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(ChatSyncConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatSyncConfiguration,);
 impl ChatSyncConfiguration {
@@ -2525,6 +2522,9 @@ impl ChatSyncConfiguration {
         unsafe { (windows_core::Interface::vtable(this).SetRestoreHistorySpan)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for ChatSyncConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatSyncConfiguration>();
+}
 unsafe impl windows_core::Interface for ChatSyncConfiguration {
     type Vtable = <IChatSyncConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatSyncConfiguration as windows_core::Interface>::IID;
@@ -2535,9 +2535,6 @@ impl windows_core::RuntimeName for ChatSyncConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ChatSyncManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for ChatSyncManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatSyncManager>();
-}
 windows_core::imp::interface_hierarchy!(ChatSyncManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ChatSyncManager,);
 impl ChatSyncManager {
@@ -2592,6 +2589,9 @@ impl ChatSyncManager {
         }
     }
 }
+impl windows_core::RuntimeType for ChatSyncManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IChatSyncManager>();
+}
 unsafe impl windows_core::Interface for ChatSyncManager {
     type Vtable = <IChatSyncManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IChatSyncManager as windows_core::Interface>::IID;
@@ -2602,9 +2602,6 @@ impl windows_core::RuntimeName for ChatSyncManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessage(windows_core::IUnknown);
-impl windows_core::RuntimeType for RcsEndUserMessage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessage>();
-}
 windows_core::imp::interface_hierarchy!(RcsEndUserMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RcsEndUserMessage,);
 impl RcsEndUserMessage {
@@ -2665,6 +2662,9 @@ impl RcsEndUserMessage {
         }
     }
 }
+impl windows_core::RuntimeType for RcsEndUserMessage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessage>();
+}
 unsafe impl windows_core::Interface for RcsEndUserMessage {
     type Vtable = <IRcsEndUserMessage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRcsEndUserMessage as windows_core::Interface>::IID;
@@ -2675,9 +2675,6 @@ impl windows_core::RuntimeName for RcsEndUserMessage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessageAction(windows_core::IUnknown);
-impl windows_core::RuntimeType for RcsEndUserMessageAction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageAction>();
-}
 windows_core::imp::interface_hierarchy!(RcsEndUserMessageAction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RcsEndUserMessageAction,);
 impl RcsEndUserMessageAction {
@@ -2689,6 +2686,9 @@ impl RcsEndUserMessageAction {
         }
     }
 }
+impl windows_core::RuntimeType for RcsEndUserMessageAction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageAction>();
+}
 unsafe impl windows_core::Interface for RcsEndUserMessageAction {
     type Vtable = <IRcsEndUserMessageAction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRcsEndUserMessageAction as windows_core::Interface>::IID;
@@ -2699,9 +2699,6 @@ impl windows_core::RuntimeName for RcsEndUserMessageAction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessageAvailableEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RcsEndUserMessageAvailableEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageAvailableEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RcsEndUserMessageAvailableEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RcsEndUserMessageAvailableEventArgs,);
 impl RcsEndUserMessageAvailableEventArgs {
@@ -2720,6 +2717,9 @@ impl RcsEndUserMessageAvailableEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RcsEndUserMessageAvailableEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageAvailableEventArgs>();
+}
 unsafe impl windows_core::Interface for RcsEndUserMessageAvailableEventArgs {
     type Vtable = <IRcsEndUserMessageAvailableEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRcsEndUserMessageAvailableEventArgs as windows_core::Interface>::IID;
@@ -2730,9 +2730,6 @@ impl windows_core::RuntimeName for RcsEndUserMessageAvailableEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessageAvailableTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for RcsEndUserMessageAvailableTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageAvailableTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(RcsEndUserMessageAvailableTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RcsEndUserMessageAvailableTriggerDetails,);
 impl RcsEndUserMessageAvailableTriggerDetails {
@@ -2751,6 +2748,9 @@ impl RcsEndUserMessageAvailableTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for RcsEndUserMessageAvailableTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageAvailableTriggerDetails>();
+}
 unsafe impl windows_core::Interface for RcsEndUserMessageAvailableTriggerDetails {
     type Vtable = <IRcsEndUserMessageAvailableTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRcsEndUserMessageAvailableTriggerDetails as windows_core::Interface>::IID;
@@ -2761,9 +2761,6 @@ impl windows_core::RuntimeName for RcsEndUserMessageAvailableTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsEndUserMessageManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for RcsEndUserMessageManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageManager>();
-}
 windows_core::imp::interface_hierarchy!(RcsEndUserMessageManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RcsEndUserMessageManager,);
 impl RcsEndUserMessageManager {
@@ -2781,6 +2778,9 @@ impl RcsEndUserMessageManager {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMessageAvailableChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
+}
+impl windows_core::RuntimeType for RcsEndUserMessageManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsEndUserMessageManager>();
 }
 unsafe impl windows_core::Interface for RcsEndUserMessageManager {
     type Vtable = <IRcsEndUserMessageManager as windows_core::Interface>::Vtable;
@@ -2846,9 +2846,6 @@ impl windows_core::RuntimeName for RcsManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsServiceKindSupportedChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RcsServiceKindSupportedChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsServiceKindSupportedChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RcsServiceKindSupportedChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RcsServiceKindSupportedChangedEventArgs,);
 impl RcsServiceKindSupportedChangedEventArgs {
@@ -2860,6 +2857,9 @@ impl RcsServiceKindSupportedChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RcsServiceKindSupportedChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsServiceKindSupportedChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for RcsServiceKindSupportedChangedEventArgs {
     type Vtable = <IRcsServiceKindSupportedChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRcsServiceKindSupportedChangedEventArgs as windows_core::Interface>::IID;
@@ -2870,9 +2870,6 @@ impl windows_core::RuntimeName for RcsServiceKindSupportedChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsTransport(windows_core::IUnknown);
-impl windows_core::RuntimeType for RcsTransport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsTransport>();
-}
 windows_core::imp::interface_hierarchy!(RcsTransport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RcsTransport,);
 impl RcsTransport {
@@ -2941,6 +2938,9 @@ impl RcsTransport {
         unsafe { (windows_core::Interface::vtable(this).RemoveServiceKindSupportedChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for RcsTransport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsTransport>();
+}
 unsafe impl windows_core::Interface for RcsTransport {
     type Vtable = <IRcsTransport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRcsTransport as windows_core::Interface>::IID;
@@ -2951,9 +2951,6 @@ impl windows_core::RuntimeName for RcsTransport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RcsTransportConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for RcsTransportConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsTransportConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(RcsTransportConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RcsTransportConfiguration,);
 impl RcsTransportConfiguration {
@@ -3000,6 +2997,9 @@ impl RcsTransportConfiguration {
         }
     }
 }
+impl windows_core::RuntimeType for RcsTransportConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRcsTransportConfiguration>();
+}
 unsafe impl windows_core::Interface for RcsTransportConfiguration {
     type Vtable = <IRcsTransportConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRcsTransportConfiguration as windows_core::Interface>::IID;
@@ -3010,9 +3010,6 @@ impl windows_core::RuntimeName for RcsTransportConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteParticipantComposingChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteParticipantComposingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteParticipantComposingChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RemoteParticipantComposingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteParticipantComposingChangedEventArgs,);
 impl RemoteParticipantComposingChangedEventArgs {
@@ -3037,6 +3034,9 @@ impl RemoteParticipantComposingChangedEventArgs {
             (windows_core::Interface::vtable(this).IsComposing)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for RemoteParticipantComposingChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteParticipantComposingChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for RemoteParticipantComposingChangedEventArgs {
     type Vtable = <IRemoteParticipantComposingChangedEventArgs as windows_core::Interface>::Vtable;

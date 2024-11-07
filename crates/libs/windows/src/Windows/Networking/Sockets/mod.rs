@@ -1549,9 +1549,6 @@ pub struct IWebSocketServerCustomValidationRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ControlChannelTrigger(windows_core::IUnknown);
-impl windows_core::RuntimeType for ControlChannelTrigger {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IControlChannelTrigger>();
-}
 windows_core::imp::interface_hierarchy!(ControlChannelTrigger, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ControlChannelTrigger, super::super::Foundation::IClosable);
 impl ControlChannelTrigger {
@@ -1653,6 +1650,9 @@ impl ControlChannelTrigger {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ControlChannelTrigger {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IControlChannelTrigger>();
+}
 unsafe impl windows_core::Interface for ControlChannelTrigger {
     type Vtable = <IControlChannelTrigger as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IControlChannelTrigger as windows_core::Interface>::IID;
@@ -1663,9 +1663,6 @@ impl windows_core::RuntimeName for ControlChannelTrigger {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DatagramSocket(windows_core::IUnknown);
-impl windows_core::RuntimeType for DatagramSocket {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDatagramSocket>();
-}
 windows_core::imp::interface_hierarchy!(DatagramSocket, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DatagramSocket, super::super::Foundation::IClosable);
 impl DatagramSocket {
@@ -1851,6 +1848,9 @@ impl DatagramSocket {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DatagramSocket {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDatagramSocket>();
+}
 unsafe impl windows_core::Interface for DatagramSocket {
     type Vtable = <IDatagramSocket as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDatagramSocket as windows_core::Interface>::IID;
@@ -1861,9 +1861,6 @@ impl windows_core::RuntimeName for DatagramSocket {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DatagramSocketControl(windows_core::IUnknown);
-impl windows_core::RuntimeType for DatagramSocketControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDatagramSocketControl>();
-}
 windows_core::imp::interface_hierarchy!(DatagramSocketControl, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DatagramSocketControl,);
 impl DatagramSocketControl {
@@ -1923,6 +1920,9 @@ impl DatagramSocketControl {
         unsafe { (windows_core::Interface::vtable(this).SetMulticastOnly)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for DatagramSocketControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDatagramSocketControl>();
+}
 unsafe impl windows_core::Interface for DatagramSocketControl {
     type Vtable = <IDatagramSocketControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDatagramSocketControl as windows_core::Interface>::IID;
@@ -1933,9 +1933,6 @@ impl windows_core::RuntimeName for DatagramSocketControl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DatagramSocketInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for DatagramSocketInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDatagramSocketInformation>();
-}
 windows_core::imp::interface_hierarchy!(DatagramSocketInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DatagramSocketInformation,);
 impl DatagramSocketInformation {
@@ -1968,6 +1965,9 @@ impl DatagramSocketInformation {
         }
     }
 }
+impl windows_core::RuntimeType for DatagramSocketInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDatagramSocketInformation>();
+}
 unsafe impl windows_core::Interface for DatagramSocketInformation {
     type Vtable = <IDatagramSocketInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDatagramSocketInformation as windows_core::Interface>::IID;
@@ -1978,9 +1978,6 @@ impl windows_core::RuntimeName for DatagramSocketInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DatagramSocketMessageReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DatagramSocketMessageReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDatagramSocketMessageReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DatagramSocketMessageReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DatagramSocketMessageReceivedEventArgs,);
 impl DatagramSocketMessageReceivedEventArgs {
@@ -2022,6 +2019,9 @@ impl DatagramSocketMessageReceivedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for DatagramSocketMessageReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDatagramSocketMessageReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for DatagramSocketMessageReceivedEventArgs {
     type Vtable = <IDatagramSocketMessageReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDatagramSocketMessageReceivedEventArgs as windows_core::Interface>::IID;
@@ -2032,9 +2032,6 @@ impl windows_core::RuntimeName for DatagramSocketMessageReceivedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MessageWebSocket(windows_core::IUnknown);
-impl windows_core::RuntimeType for MessageWebSocket {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMessageWebSocket>();
-}
 windows_core::imp::interface_hierarchy!(MessageWebSocket, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MessageWebSocket, super::super::Foundation::IClosable, IWebSocket);
 impl MessageWebSocket {
@@ -2154,6 +2151,9 @@ impl MessageWebSocket {
         unsafe { (windows_core::Interface::vtable(this).CloseWithStatus)(windows_core::Interface::as_raw(this), code, core::mem::transmute_copy(reason)).ok() }
     }
 }
+impl windows_core::RuntimeType for MessageWebSocket {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMessageWebSocket>();
+}
 unsafe impl windows_core::Interface for MessageWebSocket {
     type Vtable = <IMessageWebSocket as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMessageWebSocket as windows_core::Interface>::IID;
@@ -2164,9 +2164,6 @@ impl windows_core::RuntimeName for MessageWebSocket {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MessageWebSocketControl(windows_core::IUnknown);
-impl windows_core::RuntimeType for MessageWebSocketControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMessageWebSocketControl>();
-}
 windows_core::imp::interface_hierarchy!(MessageWebSocketControl, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MessageWebSocketControl, IWebSocketControl, IWebSocketControl2);
 impl MessageWebSocketControl {
@@ -2297,6 +2294,9 @@ impl MessageWebSocketControl {
         }
     }
 }
+impl windows_core::RuntimeType for MessageWebSocketControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMessageWebSocketControl>();
+}
 unsafe impl windows_core::Interface for MessageWebSocketControl {
     type Vtable = <IMessageWebSocketControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMessageWebSocketControl as windows_core::Interface>::IID;
@@ -2307,9 +2307,6 @@ impl windows_core::RuntimeName for MessageWebSocketControl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MessageWebSocketInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for MessageWebSocketInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebSocketInformation>();
-}
 windows_core::imp::interface_hierarchy!(MessageWebSocketInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MessageWebSocketInformation, IWebSocketInformation, IWebSocketInformation2);
 impl MessageWebSocketInformation {
@@ -2366,6 +2363,9 @@ impl MessageWebSocketInformation {
         }
     }
 }
+impl windows_core::RuntimeType for MessageWebSocketInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebSocketInformation>();
+}
 unsafe impl windows_core::Interface for MessageWebSocketInformation {
     type Vtable = <IWebSocketInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebSocketInformation as windows_core::Interface>::IID;
@@ -2376,9 +2376,6 @@ impl windows_core::RuntimeName for MessageWebSocketInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MessageWebSocketMessageReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MessageWebSocketMessageReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMessageWebSocketMessageReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MessageWebSocketMessageReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MessageWebSocketMessageReceivedEventArgs,);
 impl MessageWebSocketMessageReceivedEventArgs {
@@ -2413,6 +2410,9 @@ impl MessageWebSocketMessageReceivedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MessageWebSocketMessageReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMessageWebSocketMessageReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for MessageWebSocketMessageReceivedEventArgs {
     type Vtable = <IMessageWebSocketMessageReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMessageWebSocketMessageReceivedEventArgs as windows_core::Interface>::IID;
@@ -2423,9 +2423,6 @@ impl windows_core::RuntimeName for MessageWebSocketMessageReceivedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServerMessageWebSocket(windows_core::IUnknown);
-impl windows_core::RuntimeType for ServerMessageWebSocket {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IServerMessageWebSocket>();
-}
 windows_core::imp::interface_hierarchy!(ServerMessageWebSocket, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ServerMessageWebSocket, super::super::Foundation::IClosable);
 impl ServerMessageWebSocket {
@@ -2488,6 +2485,9 @@ impl ServerMessageWebSocket {
         unsafe { (windows_core::Interface::vtable(this).CloseWithStatus)(windows_core::Interface::as_raw(this), code, core::mem::transmute_copy(reason)).ok() }
     }
 }
+impl windows_core::RuntimeType for ServerMessageWebSocket {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IServerMessageWebSocket>();
+}
 unsafe impl windows_core::Interface for ServerMessageWebSocket {
     type Vtable = <IServerMessageWebSocket as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IServerMessageWebSocket as windows_core::Interface>::IID;
@@ -2498,9 +2498,6 @@ impl windows_core::RuntimeName for ServerMessageWebSocket {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServerMessageWebSocketControl(windows_core::IUnknown);
-impl windows_core::RuntimeType for ServerMessageWebSocketControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IServerMessageWebSocketControl>();
-}
 windows_core::imp::interface_hierarchy!(ServerMessageWebSocketControl, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ServerMessageWebSocketControl,);
 impl ServerMessageWebSocketControl {
@@ -2516,6 +2513,9 @@ impl ServerMessageWebSocketControl {
         unsafe { (windows_core::Interface::vtable(this).SetMessageType)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for ServerMessageWebSocketControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IServerMessageWebSocketControl>();
+}
 unsafe impl windows_core::Interface for ServerMessageWebSocketControl {
     type Vtable = <IServerMessageWebSocketControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IServerMessageWebSocketControl as windows_core::Interface>::IID;
@@ -2526,9 +2526,6 @@ impl windows_core::RuntimeName for ServerMessageWebSocketControl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServerMessageWebSocketInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for ServerMessageWebSocketInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IServerMessageWebSocketInformation>();
-}
 windows_core::imp::interface_hierarchy!(ServerMessageWebSocketInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ServerMessageWebSocketInformation,);
 impl ServerMessageWebSocketInformation {
@@ -2554,6 +2551,9 @@ impl ServerMessageWebSocketInformation {
         }
     }
 }
+impl windows_core::RuntimeType for ServerMessageWebSocketInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IServerMessageWebSocketInformation>();
+}
 unsafe impl windows_core::Interface for ServerMessageWebSocketInformation {
     type Vtable = <IServerMessageWebSocketInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IServerMessageWebSocketInformation as windows_core::Interface>::IID;
@@ -2564,9 +2564,6 @@ impl windows_core::RuntimeName for ServerMessageWebSocketInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServerStreamWebSocket(windows_core::IUnknown);
-impl windows_core::RuntimeType for ServerStreamWebSocket {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IServerStreamWebSocket>();
-}
 windows_core::imp::interface_hierarchy!(ServerStreamWebSocket, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ServerStreamWebSocket, super::super::Foundation::IClosable);
 impl ServerStreamWebSocket {
@@ -2616,6 +2613,9 @@ impl ServerStreamWebSocket {
         unsafe { (windows_core::Interface::vtable(this).CloseWithStatus)(windows_core::Interface::as_raw(this), code, core::mem::transmute_copy(reason)).ok() }
     }
 }
+impl windows_core::RuntimeType for ServerStreamWebSocket {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IServerStreamWebSocket>();
+}
 unsafe impl windows_core::Interface for ServerStreamWebSocket {
     type Vtable = <IServerStreamWebSocket as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IServerStreamWebSocket as windows_core::Interface>::IID;
@@ -2626,9 +2626,6 @@ impl windows_core::RuntimeName for ServerStreamWebSocket {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServerStreamWebSocketInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for ServerStreamWebSocketInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IServerStreamWebSocketInformation>();
-}
 windows_core::imp::interface_hierarchy!(ServerStreamWebSocketInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ServerStreamWebSocketInformation,);
 impl ServerStreamWebSocketInformation {
@@ -2654,6 +2651,9 @@ impl ServerStreamWebSocketInformation {
         }
     }
 }
+impl windows_core::RuntimeType for ServerStreamWebSocketInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IServerStreamWebSocketInformation>();
+}
 unsafe impl windows_core::Interface for ServerStreamWebSocketInformation {
     type Vtable = <IServerStreamWebSocketInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IServerStreamWebSocketInformation as windows_core::Interface>::IID;
@@ -2664,9 +2664,6 @@ impl windows_core::RuntimeName for ServerStreamWebSocketInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SocketActivityContext(windows_core::IUnknown);
-impl windows_core::RuntimeType for SocketActivityContext {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISocketActivityContext>();
-}
 windows_core::imp::interface_hierarchy!(SocketActivityContext, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SocketActivityContext,);
 impl SocketActivityContext {
@@ -2693,6 +2690,9 @@ impl SocketActivityContext {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SocketActivityContext {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISocketActivityContext>();
+}
 unsafe impl windows_core::Interface for SocketActivityContext {
     type Vtable = <ISocketActivityContext as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISocketActivityContext as windows_core::Interface>::IID;
@@ -2703,9 +2703,6 @@ impl windows_core::RuntimeName for SocketActivityContext {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SocketActivityInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for SocketActivityInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISocketActivityInformation>();
-}
 windows_core::imp::interface_hierarchy!(SocketActivityInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SocketActivityInformation,);
 impl SocketActivityInformation {
@@ -2770,6 +2767,9 @@ impl SocketActivityInformation {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SocketActivityInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISocketActivityInformation>();
+}
 unsafe impl windows_core::Interface for SocketActivityInformation {
     type Vtable = <ISocketActivityInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISocketActivityInformation as windows_core::Interface>::IID;
@@ -2780,9 +2780,6 @@ impl windows_core::RuntimeName for SocketActivityInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SocketActivityTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for SocketActivityTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISocketActivityTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(SocketActivityTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SocketActivityTriggerDetails,);
 impl SocketActivityTriggerDetails {
@@ -2800,6 +2797,9 @@ impl SocketActivityTriggerDetails {
             (windows_core::Interface::vtable(this).SocketInformation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for SocketActivityTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISocketActivityTriggerDetails>();
 }
 unsafe impl windows_core::Interface for SocketActivityTriggerDetails {
     type Vtable = <ISocketActivityTriggerDetails as windows_core::Interface>::Vtable;
@@ -2827,9 +2827,6 @@ impl windows_core::RuntimeName for SocketError {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocket(windows_core::IUnknown);
-impl windows_core::RuntimeType for StreamSocket {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamSocket>();
-}
 windows_core::imp::interface_hierarchy!(StreamSocket, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamSocket, super::super::Foundation::IClosable);
 impl StreamSocket {
@@ -2994,6 +2991,9 @@ impl StreamSocket {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for StreamSocket {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamSocket>();
+}
 unsafe impl windows_core::Interface for StreamSocket {
     type Vtable = <IStreamSocket as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamSocket as windows_core::Interface>::IID;
@@ -3004,9 +3004,6 @@ impl windows_core::RuntimeName for StreamSocket {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketControl(windows_core::IUnknown);
-impl windows_core::RuntimeType for StreamSocketControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamSocketControl>();
-}
 windows_core::imp::interface_hierarchy!(StreamSocketControl, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamSocketControl,);
 impl StreamSocketControl {
@@ -3112,6 +3109,9 @@ impl StreamSocketControl {
         unsafe { (windows_core::Interface::vtable(this).SetMinProtectionLevel)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for StreamSocketControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamSocketControl>();
+}
 unsafe impl windows_core::Interface for StreamSocketControl {
     type Vtable = <IStreamSocketControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamSocketControl as windows_core::Interface>::IID;
@@ -3122,9 +3122,6 @@ impl windows_core::RuntimeName for StreamSocketControl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for StreamSocketInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamSocketInformation>();
-}
 windows_core::imp::interface_hierarchy!(StreamSocketInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamSocketInformation,);
 impl StreamSocketInformation {
@@ -3231,6 +3228,9 @@ impl StreamSocketInformation {
         }
     }
 }
+impl windows_core::RuntimeType for StreamSocketInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamSocketInformation>();
+}
 unsafe impl windows_core::Interface for StreamSocketInformation {
     type Vtable = <IStreamSocketInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamSocketInformation as windows_core::Interface>::IID;
@@ -3241,9 +3241,6 @@ impl windows_core::RuntimeName for StreamSocketInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketListener(windows_core::IUnknown);
-impl windows_core::RuntimeType for StreamSocketListener {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamSocketListener>();
-}
 windows_core::imp::interface_hierarchy!(StreamSocketListener, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamSocketListener, super::super::Foundation::IClosable);
 impl StreamSocketListener {
@@ -3348,6 +3345,9 @@ impl StreamSocketListener {
         unsafe { (windows_core::Interface::vtable(this).TransferOwnershipWithContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(socketid), data.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for StreamSocketListener {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamSocketListener>();
+}
 unsafe impl windows_core::Interface for StreamSocketListener {
     type Vtable = <IStreamSocketListener as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamSocketListener as windows_core::Interface>::IID;
@@ -3358,9 +3358,6 @@ impl windows_core::RuntimeName for StreamSocketListener {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketListenerConnectionReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for StreamSocketListenerConnectionReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamSocketListenerConnectionReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(StreamSocketListenerConnectionReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamSocketListenerConnectionReceivedEventArgs,);
 impl StreamSocketListenerConnectionReceivedEventArgs {
@@ -3372,6 +3369,9 @@ impl StreamSocketListenerConnectionReceivedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for StreamSocketListenerConnectionReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamSocketListenerConnectionReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for StreamSocketListenerConnectionReceivedEventArgs {
     type Vtable = <IStreamSocketListenerConnectionReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamSocketListenerConnectionReceivedEventArgs as windows_core::Interface>::IID;
@@ -3382,9 +3382,6 @@ impl windows_core::RuntimeName for StreamSocketListenerConnectionReceivedEventAr
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketListenerControl(windows_core::IUnknown);
-impl windows_core::RuntimeType for StreamSocketListenerControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamSocketListenerControl>();
-}
 windows_core::imp::interface_hierarchy!(StreamSocketListenerControl, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamSocketListenerControl,);
 impl StreamSocketListenerControl {
@@ -3444,6 +3441,9 @@ impl StreamSocketListenerControl {
         unsafe { (windows_core::Interface::vtable(this).SetOutboundUnicastHopLimit)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for StreamSocketListenerControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamSocketListenerControl>();
+}
 unsafe impl windows_core::Interface for StreamSocketListenerControl {
     type Vtable = <IStreamSocketListenerControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamSocketListenerControl as windows_core::Interface>::IID;
@@ -3454,9 +3454,6 @@ impl windows_core::RuntimeName for StreamSocketListenerControl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamSocketListenerInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for StreamSocketListenerInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamSocketListenerInformation>();
-}
 windows_core::imp::interface_hierarchy!(StreamSocketListenerInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamSocketListenerInformation,);
 impl StreamSocketListenerInformation {
@@ -3468,6 +3465,9 @@ impl StreamSocketListenerInformation {
         }
     }
 }
+impl windows_core::RuntimeType for StreamSocketListenerInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamSocketListenerInformation>();
+}
 unsafe impl windows_core::Interface for StreamSocketListenerInformation {
     type Vtable = <IStreamSocketListenerInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamSocketListenerInformation as windows_core::Interface>::IID;
@@ -3478,9 +3478,6 @@ impl windows_core::RuntimeName for StreamSocketListenerInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamWebSocket(windows_core::IUnknown);
-impl windows_core::RuntimeType for StreamWebSocket {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamWebSocket>();
-}
 windows_core::imp::interface_hierarchy!(StreamWebSocket, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamWebSocket, super::super::Foundation::IClosable, IWebSocket);
 impl StreamWebSocket {
@@ -3572,6 +3569,9 @@ impl StreamWebSocket {
         unsafe { (windows_core::Interface::vtable(this).CloseWithStatus)(windows_core::Interface::as_raw(this), code, core::mem::transmute_copy(reason)).ok() }
     }
 }
+impl windows_core::RuntimeType for StreamWebSocket {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamWebSocket>();
+}
 unsafe impl windows_core::Interface for StreamWebSocket {
     type Vtable = <IStreamWebSocket as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamWebSocket as windows_core::Interface>::IID;
@@ -3582,9 +3582,6 @@ impl windows_core::RuntimeName for StreamWebSocket {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamWebSocketControl(windows_core::IUnknown);
-impl windows_core::RuntimeType for StreamWebSocketControl {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamWebSocketControl>();
-}
 windows_core::imp::interface_hierarchy!(StreamWebSocketControl, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamWebSocketControl, IWebSocketControl, IWebSocketControl2);
 impl StreamWebSocketControl {
@@ -3693,6 +3690,9 @@ impl StreamWebSocketControl {
         }
     }
 }
+impl windows_core::RuntimeType for StreamWebSocketControl {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStreamWebSocketControl>();
+}
 unsafe impl windows_core::Interface for StreamWebSocketControl {
     type Vtable = <IStreamWebSocketControl as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IStreamWebSocketControl as windows_core::Interface>::IID;
@@ -3703,9 +3703,6 @@ impl windows_core::RuntimeName for StreamWebSocketControl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StreamWebSocketInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for StreamWebSocketInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebSocketInformation>();
-}
 windows_core::imp::interface_hierarchy!(StreamWebSocketInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamWebSocketInformation, IWebSocketInformation, IWebSocketInformation2);
 impl StreamWebSocketInformation {
@@ -3762,6 +3759,9 @@ impl StreamWebSocketInformation {
         }
     }
 }
+impl windows_core::RuntimeType for StreamWebSocketInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebSocketInformation>();
+}
 unsafe impl windows_core::Interface for StreamWebSocketInformation {
     type Vtable = <IWebSocketInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWebSocketInformation as windows_core::Interface>::IID;
@@ -3772,9 +3772,6 @@ impl windows_core::RuntimeName for StreamWebSocketInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebSocketClosedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebSocketClosedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebSocketClosedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebSocketClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebSocketClosedEventArgs,);
 impl WebSocketClosedEventArgs {
@@ -3792,6 +3789,9 @@ impl WebSocketClosedEventArgs {
             (windows_core::Interface::vtable(this).Reason)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for WebSocketClosedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebSocketClosedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebSocketClosedEventArgs {
     type Vtable = <IWebSocketClosedEventArgs as windows_core::Interface>::Vtable;
@@ -3822,10 +3822,6 @@ impl windows_core::RuntimeName for WebSocketError {
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebSocketKeepAlive(windows_core::IUnknown);
 #[cfg(feature = "ApplicationModel_Background")]
-impl windows_core::RuntimeType for WebSocketKeepAlive {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Background::IBackgroundTask>();
-}
-#[cfg(feature = "ApplicationModel_Background")]
 windows_core::imp::interface_hierarchy!(WebSocketKeepAlive, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "ApplicationModel_Background")]
 windows_core::imp::required_hierarchy!(WebSocketKeepAlive, super::super::ApplicationModel::Background::IBackgroundTask);
@@ -3848,6 +3844,10 @@ impl WebSocketKeepAlive {
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
+impl windows_core::RuntimeType for WebSocketKeepAlive {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::ApplicationModel::Background::IBackgroundTask>();
+}
+#[cfg(feature = "ApplicationModel_Background")]
 unsafe impl windows_core::Interface for WebSocketKeepAlive {
     type Vtable = <super::super::ApplicationModel::Background::IBackgroundTask as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::ApplicationModel::Background::IBackgroundTask as windows_core::Interface>::IID;
@@ -3859,9 +3859,6 @@ impl windows_core::RuntimeName for WebSocketKeepAlive {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WebSocketServerCustomValidationRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WebSocketServerCustomValidationRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebSocketServerCustomValidationRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WebSocketServerCustomValidationRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebSocketServerCustomValidationRequestedEventArgs,);
 impl WebSocketServerCustomValidationRequestedEventArgs {
@@ -3907,6 +3904,9 @@ impl WebSocketServerCustomValidationRequestedEventArgs {
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for WebSocketServerCustomValidationRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWebSocketServerCustomValidationRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for WebSocketServerCustomValidationRequestedEventArgs {
     type Vtable = <IWebSocketServerCustomValidationRequestedEventArgs as windows_core::Interface>::Vtable;
@@ -4123,7 +4123,7 @@ impl windows_core::RuntimeType for SocketSslErrorSeverity {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketSslErrorSeverity;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct BandwidthStatistics {
     pub OutboundBitsPerSecond: u64,
     pub InboundBitsPerSecond: u64,
@@ -4139,7 +4139,7 @@ impl windows_core::RuntimeType for BandwidthStatistics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.BandwidthStatistics;u8;u8;u8;u8;b1;b1)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct RoundTripTimeStatistics {
     pub Variance: u32,
     pub Max: u32,

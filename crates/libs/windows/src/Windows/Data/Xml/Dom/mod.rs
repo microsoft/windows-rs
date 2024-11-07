@@ -1714,9 +1714,6 @@ impl IXmlText_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DtdEntity(windows_core::IUnknown);
-impl windows_core::RuntimeType for DtdEntity {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDtdEntity>();
-}
 windows_core::imp::interface_hierarchy!(DtdEntity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DtdEntity, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
 impl DtdEntity {
@@ -1970,6 +1967,9 @@ impl DtdEntity {
         unsafe { (windows_core::Interface::vtable(this).SetInnerText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for DtdEntity {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDtdEntity>();
+}
 unsafe impl windows_core::Interface for DtdEntity {
     type Vtable = <IDtdEntity as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDtdEntity as windows_core::Interface>::IID;
@@ -1980,9 +1980,6 @@ impl windows_core::RuntimeName for DtdEntity {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DtdNotation(windows_core::IUnknown);
-impl windows_core::RuntimeType for DtdNotation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDtdNotation>();
-}
 windows_core::imp::interface_hierarchy!(DtdNotation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DtdNotation, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
 impl DtdNotation {
@@ -2229,6 +2226,9 @@ impl DtdNotation {
         unsafe { (windows_core::Interface::vtable(this).SetInnerText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for DtdNotation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDtdNotation>();
+}
 unsafe impl windows_core::Interface for DtdNotation {
     type Vtable = <IDtdNotation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDtdNotation as windows_core::Interface>::IID;
@@ -2239,9 +2239,6 @@ impl windows_core::RuntimeName for DtdNotation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlAttribute(windows_core::IUnknown);
-impl windows_core::RuntimeType for XmlAttribute {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlAttribute>();
-}
 windows_core::imp::interface_hierarchy!(XmlAttribute, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlAttribute, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
 impl XmlAttribute {
@@ -2499,6 +2496,9 @@ impl XmlAttribute {
         unsafe { (windows_core::Interface::vtable(this).SetInnerText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for XmlAttribute {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlAttribute>();
+}
 unsafe impl windows_core::Interface for XmlAttribute {
     type Vtable = <IXmlAttribute as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXmlAttribute as windows_core::Interface>::IID;
@@ -2509,9 +2509,6 @@ impl windows_core::RuntimeName for XmlAttribute {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlCDataSection(windows_core::IUnknown);
-impl windows_core::RuntimeType for XmlCDataSection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlCDataSection>();
-}
 windows_core::imp::interface_hierarchy!(XmlCDataSection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlCDataSection, IXmlCharacterData, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer, IXmlText);
 impl XmlCDataSection {
@@ -2792,6 +2789,9 @@ impl XmlCDataSection {
         }
     }
 }
+impl windows_core::RuntimeType for XmlCDataSection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlCDataSection>();
+}
 unsafe impl windows_core::Interface for XmlCDataSection {
     type Vtable = <IXmlCDataSection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXmlCDataSection as windows_core::Interface>::IID;
@@ -2802,9 +2802,6 @@ impl windows_core::RuntimeName for XmlCDataSection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlComment(windows_core::IUnknown);
-impl windows_core::RuntimeType for XmlComment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlComment>();
-}
 windows_core::imp::interface_hierarchy!(XmlComment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlComment, IXmlCharacterData, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
 impl XmlComment {
@@ -3078,6 +3075,9 @@ impl XmlComment {
         unsafe { (windows_core::Interface::vtable(this).SetInnerText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for XmlComment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlComment>();
+}
 unsafe impl windows_core::Interface for XmlComment {
     type Vtable = <IXmlComment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXmlComment as windows_core::Interface>::IID;
@@ -3088,9 +3088,6 @@ impl windows_core::RuntimeName for XmlComment {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlDocument(windows_core::IUnknown);
-impl windows_core::RuntimeType for XmlDocument {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlDocument>();
-}
 windows_core::imp::interface_hierarchy!(XmlDocument, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlDocument, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
 impl XmlDocument {
@@ -3542,6 +3539,9 @@ impl XmlDocument {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for XmlDocument {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlDocument>();
+}
 unsafe impl windows_core::Interface for XmlDocument {
     type Vtable = <IXmlDocument as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXmlDocument as windows_core::Interface>::IID;
@@ -3552,9 +3552,6 @@ impl windows_core::RuntimeName for XmlDocument {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlDocumentFragment(windows_core::IUnknown);
-impl windows_core::RuntimeType for XmlDocumentFragment {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlDocumentFragment>();
-}
 windows_core::imp::interface_hierarchy!(XmlDocumentFragment, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlDocumentFragment, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
 impl XmlDocumentFragment {
@@ -3787,6 +3784,9 @@ impl XmlDocumentFragment {
         unsafe { (windows_core::Interface::vtable(this).SetInnerText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for XmlDocumentFragment {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlDocumentFragment>();
+}
 unsafe impl windows_core::Interface for XmlDocumentFragment {
     type Vtable = <IXmlDocumentFragment as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXmlDocumentFragment as windows_core::Interface>::IID;
@@ -3797,9 +3797,6 @@ impl windows_core::RuntimeName for XmlDocumentFragment {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlDocumentType(windows_core::IUnknown);
-impl windows_core::RuntimeType for XmlDocumentType {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlDocumentType>();
-}
 windows_core::imp::interface_hierarchy!(XmlDocumentType, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlDocumentType, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
 impl XmlDocumentType {
@@ -4055,6 +4052,9 @@ impl XmlDocumentType {
         unsafe { (windows_core::Interface::vtable(this).SetInnerText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for XmlDocumentType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlDocumentType>();
+}
 unsafe impl windows_core::Interface for XmlDocumentType {
     type Vtable = <IXmlDocumentType as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXmlDocumentType as windows_core::Interface>::IID;
@@ -4065,9 +4065,6 @@ impl windows_core::RuntimeName for XmlDocumentType {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlDomImplementation(windows_core::IUnknown);
-impl windows_core::RuntimeType for XmlDomImplementation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlDomImplementation>();
-}
 windows_core::imp::interface_hierarchy!(XmlDomImplementation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlDomImplementation,);
 impl XmlDomImplementation {
@@ -4082,6 +4079,9 @@ impl XmlDomImplementation {
         }
     }
 }
+impl windows_core::RuntimeType for XmlDomImplementation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlDomImplementation>();
+}
 unsafe impl windows_core::Interface for XmlDomImplementation {
     type Vtable = <IXmlDomImplementation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXmlDomImplementation as windows_core::Interface>::IID;
@@ -4092,9 +4092,6 @@ impl windows_core::RuntimeName for XmlDomImplementation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlElement(windows_core::IUnknown);
-impl windows_core::RuntimeType for XmlElement {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlElement>();
-}
 windows_core::imp::interface_hierarchy!(XmlElement, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlElement, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
 impl XmlElement {
@@ -4428,6 +4425,9 @@ impl XmlElement {
         unsafe { (windows_core::Interface::vtable(this).SetInnerText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for XmlElement {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlElement>();
+}
 unsafe impl windows_core::Interface for XmlElement {
     type Vtable = <IXmlElement as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXmlElement as windows_core::Interface>::IID;
@@ -4438,9 +4438,6 @@ impl windows_core::RuntimeName for XmlElement {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlEntityReference(windows_core::IUnknown);
-impl windows_core::RuntimeType for XmlEntityReference {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlEntityReference>();
-}
 windows_core::imp::interface_hierarchy!(XmlEntityReference, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlEntityReference, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
 impl XmlEntityReference {
@@ -4673,6 +4670,9 @@ impl XmlEntityReference {
         unsafe { (windows_core::Interface::vtable(this).SetInnerText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for XmlEntityReference {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlEntityReference>();
+}
 unsafe impl windows_core::Interface for XmlEntityReference {
     type Vtable = <IXmlEntityReference as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXmlEntityReference as windows_core::Interface>::IID;
@@ -4683,9 +4683,6 @@ impl windows_core::RuntimeName for XmlEntityReference {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlLoadSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for XmlLoadSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlLoadSettings>();
-}
 windows_core::imp::interface_hierarchy!(XmlLoadSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlLoadSettings,);
 impl XmlLoadSettings {
@@ -4752,6 +4749,9 @@ impl XmlLoadSettings {
         unsafe { (windows_core::Interface::vtable(this).SetElementContentWhiteSpace)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for XmlLoadSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlLoadSettings>();
+}
 unsafe impl windows_core::Interface for XmlLoadSettings {
     type Vtable = <IXmlLoadSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXmlLoadSettings as windows_core::Interface>::IID;
@@ -4763,10 +4763,6 @@ impl windows_core::RuntimeName for XmlLoadSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlNamedNodeMap(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for XmlNamedNodeMap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlNamedNodeMap>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(XmlNamedNodeMap, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -4882,6 +4878,10 @@ impl XmlNamedNodeMap {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for XmlNamedNodeMap {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlNamedNodeMap>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for XmlNamedNodeMap {
     type Vtable = <IXmlNamedNodeMap as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXmlNamedNodeMap as windows_core::Interface>::IID;
@@ -4894,10 +4894,6 @@ impl windows_core::RuntimeName for XmlNamedNodeMap {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlNodeList(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for XmlNodeList {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlNodeList>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(XmlNodeList, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -4959,6 +4955,10 @@ impl XmlNodeList {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for XmlNodeList {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlNodeList>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for XmlNodeList {
     type Vtable = <IXmlNodeList as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXmlNodeList as windows_core::Interface>::IID;
@@ -4970,9 +4970,6 @@ impl windows_core::RuntimeName for XmlNodeList {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlProcessingInstruction(windows_core::IUnknown);
-impl windows_core::RuntimeType for XmlProcessingInstruction {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlProcessingInstruction>();
-}
 windows_core::imp::interface_hierarchy!(XmlProcessingInstruction, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlProcessingInstruction, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer);
 impl XmlProcessingInstruction {
@@ -5223,6 +5220,9 @@ impl XmlProcessingInstruction {
         unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for XmlProcessingInstruction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlProcessingInstruction>();
+}
 unsafe impl windows_core::Interface for XmlProcessingInstruction {
     type Vtable = <IXmlProcessingInstruction as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IXmlProcessingInstruction as windows_core::Interface>::IID;
@@ -5233,9 +5233,6 @@ impl windows_core::RuntimeName for XmlProcessingInstruction {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct XmlText(windows_core::IUnknown);
-impl windows_core::RuntimeType for XmlText {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlText>();
-}
 windows_core::imp::interface_hierarchy!(XmlText, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(XmlText, IXmlCharacterData, IXmlNode, IXmlNodeSelector, IXmlNodeSerializer, IXmlText);
 impl XmlText {
@@ -5515,6 +5512,9 @@ impl XmlText {
             (windows_core::Interface::vtable(this).SplitText)(windows_core::Interface::as_raw(this), offset, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for XmlText {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IXmlText>();
 }
 unsafe impl windows_core::Interface for XmlText {
     type Vtable = <IXmlText as windows_core::Interface>::Vtable;

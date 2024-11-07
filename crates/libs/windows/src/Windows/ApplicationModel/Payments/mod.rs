@@ -446,9 +446,6 @@ pub struct IPaymentTokenFactory_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentAddress(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentAddress {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentAddress>();
-}
 windows_core::imp::interface_hierarchy!(PaymentAddress, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentAddress,);
 impl PaymentAddress {
@@ -594,6 +591,9 @@ impl PaymentAddress {
         }
     }
 }
+impl windows_core::RuntimeType for PaymentAddress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentAddress>();
+}
 unsafe impl windows_core::Interface for PaymentAddress {
     type Vtable = <IPaymentAddress as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentAddress as windows_core::Interface>::IID;
@@ -604,9 +604,6 @@ impl windows_core::RuntimeName for PaymentAddress {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentCanMakePaymentResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentCanMakePaymentResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentCanMakePaymentResult>();
-}
 windows_core::imp::interface_hierarchy!(PaymentCanMakePaymentResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentCanMakePaymentResult,);
 impl PaymentCanMakePaymentResult {
@@ -628,6 +625,9 @@ impl PaymentCanMakePaymentResult {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PaymentCanMakePaymentResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentCanMakePaymentResult>();
+}
 unsafe impl windows_core::Interface for PaymentCanMakePaymentResult {
     type Vtable = <IPaymentCanMakePaymentResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentCanMakePaymentResult as windows_core::Interface>::IID;
@@ -638,9 +638,6 @@ impl windows_core::RuntimeName for PaymentCanMakePaymentResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentCurrencyAmount(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentCurrencyAmount {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentCurrencyAmount>();
-}
 windows_core::imp::interface_hierarchy!(PaymentCurrencyAmount, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentCurrencyAmount,);
 impl PaymentCurrencyAmount {
@@ -694,6 +691,9 @@ impl PaymentCurrencyAmount {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PaymentCurrencyAmount {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentCurrencyAmount>();
+}
 unsafe impl windows_core::Interface for PaymentCurrencyAmount {
     type Vtable = <IPaymentCurrencyAmount as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentCurrencyAmount as windows_core::Interface>::IID;
@@ -704,9 +704,6 @@ impl windows_core::RuntimeName for PaymentCurrencyAmount {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentDetails>();
-}
 windows_core::imp::interface_hierarchy!(PaymentDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentDetails,);
 impl PaymentDetails {
@@ -804,6 +801,9 @@ impl PaymentDetails {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PaymentDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentDetails>();
+}
 unsafe impl windows_core::Interface for PaymentDetails {
     type Vtable = <IPaymentDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentDetails as windows_core::Interface>::IID;
@@ -814,9 +814,6 @@ impl windows_core::RuntimeName for PaymentDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentDetailsModifier(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentDetailsModifier {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentDetailsModifier>();
-}
 windows_core::imp::interface_hierarchy!(PaymentDetailsModifier, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentDetailsModifier,);
 impl PaymentDetailsModifier {
@@ -890,6 +887,9 @@ impl PaymentDetailsModifier {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PaymentDetailsModifier {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentDetailsModifier>();
+}
 unsafe impl windows_core::Interface for PaymentDetailsModifier {
     type Vtable = <IPaymentDetailsModifier as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentDetailsModifier as windows_core::Interface>::IID;
@@ -900,9 +900,6 @@ impl windows_core::RuntimeName for PaymentDetailsModifier {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentItem(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentItem>();
-}
 windows_core::imp::interface_hierarchy!(PaymentItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentItem,);
 impl PaymentItem {
@@ -956,6 +953,9 @@ impl PaymentItem {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PaymentItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentItem>();
+}
 unsafe impl windows_core::Interface for PaymentItem {
     type Vtable = <IPaymentItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentItem as windows_core::Interface>::IID;
@@ -966,9 +966,6 @@ impl windows_core::RuntimeName for PaymentItem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentMediator(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentMediator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentMediator>();
-}
 windows_core::imp::interface_hierarchy!(PaymentMediator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentMediator,);
 impl PaymentMediator {
@@ -1019,6 +1016,9 @@ impl PaymentMediator {
         }
     }
 }
+impl windows_core::RuntimeType for PaymentMediator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentMediator>();
+}
 unsafe impl windows_core::Interface for PaymentMediator {
     type Vtable = <IPaymentMediator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentMediator as windows_core::Interface>::IID;
@@ -1029,9 +1029,6 @@ impl windows_core::RuntimeName for PaymentMediator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentMerchantInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentMerchantInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentMerchantInfo>();
-}
 windows_core::imp::interface_hierarchy!(PaymentMerchantInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentMerchantInfo,);
 impl PaymentMerchantInfo {
@@ -1070,6 +1067,9 @@ impl PaymentMerchantInfo {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PaymentMerchantInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentMerchantInfo>();
+}
 unsafe impl windows_core::Interface for PaymentMerchantInfo {
     type Vtable = <IPaymentMerchantInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentMerchantInfo as windows_core::Interface>::IID;
@@ -1080,9 +1080,6 @@ impl windows_core::RuntimeName for PaymentMerchantInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentMethodData(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentMethodData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentMethodData>();
-}
 windows_core::imp::interface_hierarchy!(PaymentMethodData, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentMethodData,);
 impl PaymentMethodData {
@@ -1126,6 +1123,9 @@ impl PaymentMethodData {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PaymentMethodData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentMethodData>();
+}
 unsafe impl windows_core::Interface for PaymentMethodData {
     type Vtable = <IPaymentMethodData as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentMethodData as windows_core::Interface>::IID;
@@ -1136,9 +1136,6 @@ impl windows_core::RuntimeName for PaymentMethodData {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentOptions>();
-}
 windows_core::imp::interface_hierarchy!(PaymentOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentOptions,);
 impl PaymentOptions {
@@ -1205,6 +1202,9 @@ impl PaymentOptions {
         unsafe { (windows_core::Interface::vtable(this).SetShippingType)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for PaymentOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentOptions>();
+}
 unsafe impl windows_core::Interface for PaymentOptions {
     type Vtable = <IPaymentOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentOptions as windows_core::Interface>::IID;
@@ -1215,9 +1215,6 @@ impl windows_core::RuntimeName for PaymentOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentRequest>();
-}
 windows_core::imp::interface_hierarchy!(PaymentRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentRequest,);
 impl PaymentRequest {
@@ -1315,6 +1312,9 @@ impl PaymentRequest {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PaymentRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentRequest>();
+}
 unsafe impl windows_core::Interface for PaymentRequest {
     type Vtable = <IPaymentRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentRequest as windows_core::Interface>::IID;
@@ -1325,9 +1325,6 @@ impl windows_core::RuntimeName for PaymentRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentRequestChangedArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentRequestChangedArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentRequestChangedArgs>();
-}
 windows_core::imp::interface_hierarchy!(PaymentRequestChangedArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentRequestChangedArgs,);
 impl PaymentRequestChangedArgs {
@@ -1360,6 +1357,9 @@ impl PaymentRequestChangedArgs {
         unsafe { (windows_core::Interface::vtable(this).Acknowledge)(windows_core::Interface::as_raw(this), changeresult.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for PaymentRequestChangedArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentRequestChangedArgs>();
+}
 unsafe impl windows_core::Interface for PaymentRequestChangedArgs {
     type Vtable = <IPaymentRequestChangedArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentRequestChangedArgs as windows_core::Interface>::IID;
@@ -1370,9 +1370,6 @@ impl windows_core::RuntimeName for PaymentRequestChangedArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentRequestChangedResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentRequestChangedResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentRequestChangedResult>();
-}
 windows_core::imp::interface_hierarchy!(PaymentRequestChangedResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentRequestChangedResult,);
 impl PaymentRequestChangedResult {
@@ -1432,6 +1429,9 @@ impl PaymentRequestChangedResult {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PaymentRequestChangedResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentRequestChangedResult>();
+}
 unsafe impl windows_core::Interface for PaymentRequestChangedResult {
     type Vtable = <IPaymentRequestChangedResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentRequestChangedResult as windows_core::Interface>::IID;
@@ -1442,9 +1442,6 @@ impl windows_core::RuntimeName for PaymentRequestChangedResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentRequestSubmitResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentRequestSubmitResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentRequestSubmitResult>();
-}
 windows_core::imp::interface_hierarchy!(PaymentRequestSubmitResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentRequestSubmitResult,);
 impl PaymentRequestSubmitResult {
@@ -1463,6 +1460,9 @@ impl PaymentRequestSubmitResult {
         }
     }
 }
+impl windows_core::RuntimeType for PaymentRequestSubmitResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentRequestSubmitResult>();
+}
 unsafe impl windows_core::Interface for PaymentRequestSubmitResult {
     type Vtable = <IPaymentRequestSubmitResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentRequestSubmitResult as windows_core::Interface>::IID;
@@ -1473,9 +1473,6 @@ impl windows_core::RuntimeName for PaymentRequestSubmitResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentResponse(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentResponse {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentResponse>();
-}
 windows_core::imp::interface_hierarchy!(PaymentResponse, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentResponse,);
 impl PaymentResponse {
@@ -1529,6 +1526,9 @@ impl PaymentResponse {
         }
     }
 }
+impl windows_core::RuntimeType for PaymentResponse {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentResponse>();
+}
 unsafe impl windows_core::Interface for PaymentResponse {
     type Vtable = <IPaymentResponse as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentResponse as windows_core::Interface>::IID;
@@ -1539,9 +1539,6 @@ impl windows_core::RuntimeName for PaymentResponse {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentShippingOption(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentShippingOption {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentShippingOption>();
-}
 windows_core::imp::interface_hierarchy!(PaymentShippingOption, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentShippingOption,);
 impl PaymentShippingOption {
@@ -1624,6 +1621,9 @@ impl PaymentShippingOption {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PaymentShippingOption {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentShippingOption>();
+}
 unsafe impl windows_core::Interface for PaymentShippingOption {
     type Vtable = <IPaymentShippingOption as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPaymentShippingOption as windows_core::Interface>::IID;
@@ -1634,9 +1634,6 @@ impl windows_core::RuntimeName for PaymentShippingOption {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PaymentToken(windows_core::IUnknown);
-impl windows_core::RuntimeType for PaymentToken {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentToken>();
-}
 windows_core::imp::interface_hierarchy!(PaymentToken, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PaymentToken,);
 impl PaymentToken {
@@ -1670,6 +1667,9 @@ impl PaymentToken {
         static SHARED: windows_core::imp::FactoryCache<PaymentToken, IPaymentTokenFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for PaymentToken {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPaymentToken>();
 }
 unsafe impl windows_core::Interface for PaymentToken {
     type Vtable = <IPaymentToken as windows_core::Interface>::Vtable;

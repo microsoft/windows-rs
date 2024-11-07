@@ -50,9 +50,6 @@ pub struct ISpatialGraphInteropPreviewStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SpatialGraphInteropFrameOfReferencePreview(windows_core::IUnknown);
-impl windows_core::RuntimeType for SpatialGraphInteropFrameOfReferencePreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialGraphInteropFrameOfReferencePreview>();
-}
 windows_core::imp::interface_hierarchy!(SpatialGraphInteropFrameOfReferencePreview, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SpatialGraphInteropFrameOfReferencePreview,);
 impl SpatialGraphInteropFrameOfReferencePreview {
@@ -78,6 +75,9 @@ impl SpatialGraphInteropFrameOfReferencePreview {
             (windows_core::Interface::vtable(this).CoordinateSystemToNodeTransform)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for SpatialGraphInteropFrameOfReferencePreview {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISpatialGraphInteropFrameOfReferencePreview>();
 }
 unsafe impl windows_core::Interface for SpatialGraphInteropFrameOfReferencePreview {
     type Vtable = <ISpatialGraphInteropFrameOfReferencePreview as windows_core::Interface>::Vtable;

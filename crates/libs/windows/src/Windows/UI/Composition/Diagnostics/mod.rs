@@ -31,9 +31,6 @@ pub struct ICompositionDebugSettingsStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionDebugHeatMaps(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionDebugHeatMaps {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionDebugHeatMaps>();
-}
 windows_core::imp::interface_hierarchy!(CompositionDebugHeatMaps, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionDebugHeatMaps,);
 impl CompositionDebugHeatMaps {
@@ -66,6 +63,9 @@ impl CompositionDebugHeatMaps {
         unsafe { (windows_core::Interface::vtable(this).ShowRedraw)(windows_core::Interface::as_raw(this), subtree.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for CompositionDebugHeatMaps {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionDebugHeatMaps>();
+}
 unsafe impl windows_core::Interface for CompositionDebugHeatMaps {
     type Vtable = <ICompositionDebugHeatMaps as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompositionDebugHeatMaps as windows_core::Interface>::IID;
@@ -76,9 +76,6 @@ impl windows_core::RuntimeName for CompositionDebugHeatMaps {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompositionDebugSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompositionDebugSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionDebugSettings>();
-}
 windows_core::imp::interface_hierarchy!(CompositionDebugSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositionDebugSettings,);
 impl CompositionDebugSettings {
@@ -102,6 +99,9 @@ impl CompositionDebugSettings {
         static SHARED: windows_core::imp::FactoryCache<CompositionDebugSettings, ICompositionDebugSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for CompositionDebugSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompositionDebugSettings>();
 }
 unsafe impl windows_core::Interface for CompositionDebugSettings {
     type Vtable = <ICompositionDebugSettings as windows_core::Interface>::Vtable;

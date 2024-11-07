@@ -97,9 +97,6 @@ pub struct IPdfPageRenderOptions_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdfDocument(windows_core::IUnknown);
-impl windows_core::RuntimeType for PdfDocument {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdfDocument>();
-}
 windows_core::imp::interface_hierarchy!(PdfDocument, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PdfDocument,);
 impl PdfDocument {
@@ -169,6 +166,9 @@ impl PdfDocument {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PdfDocument {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdfDocument>();
+}
 unsafe impl windows_core::Interface for PdfDocument {
     type Vtable = <IPdfDocument as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPdfDocument as windows_core::Interface>::IID;
@@ -179,9 +179,6 @@ impl windows_core::RuntimeName for PdfDocument {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdfPage(windows_core::IUnknown);
-impl windows_core::RuntimeType for PdfPage {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdfPage>();
-}
 windows_core::imp::interface_hierarchy!(PdfPage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PdfPage, super::super::Foundation::IClosable);
 impl PdfPage {
@@ -255,6 +252,9 @@ impl PdfPage {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for PdfPage {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdfPage>();
+}
 unsafe impl windows_core::Interface for PdfPage {
     type Vtable = <IPdfPage as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPdfPage as windows_core::Interface>::IID;
@@ -265,9 +265,6 @@ impl windows_core::RuntimeName for PdfPage {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdfPageDimensions(windows_core::IUnknown);
-impl windows_core::RuntimeType for PdfPageDimensions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdfPageDimensions>();
-}
 windows_core::imp::interface_hierarchy!(PdfPageDimensions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PdfPageDimensions,);
 impl PdfPageDimensions {
@@ -307,6 +304,9 @@ impl PdfPageDimensions {
         }
     }
 }
+impl windows_core::RuntimeType for PdfPageDimensions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdfPageDimensions>();
+}
 unsafe impl windows_core::Interface for PdfPageDimensions {
     type Vtable = <IPdfPageDimensions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPdfPageDimensions as windows_core::Interface>::IID;
@@ -317,9 +317,6 @@ impl windows_core::RuntimeName for PdfPageDimensions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PdfPageRenderOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for PdfPageRenderOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdfPageRenderOptions>();
-}
 windows_core::imp::interface_hierarchy!(PdfPageRenderOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PdfPageRenderOptions,);
 impl PdfPageRenderOptions {
@@ -398,6 +395,9 @@ impl PdfPageRenderOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBitmapEncoderId)(windows_core::Interface::as_raw(this), value).ok() }
     }
+}
+impl windows_core::RuntimeType for PdfPageRenderOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPdfPageRenderOptions>();
 }
 unsafe impl windows_core::Interface for PdfPageRenderOptions {
     type Vtable = <IPdfPageRenderOptions as windows_core::Interface>::Vtable;

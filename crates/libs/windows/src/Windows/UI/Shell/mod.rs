@@ -387,9 +387,6 @@ impl windows_core::RuntimeName for AdaptiveCardBuilder {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FocusSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for FocusSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFocusSession>();
-}
 windows_core::imp::interface_hierarchy!(FocusSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FocusSession,);
 impl FocusSession {
@@ -405,6 +402,9 @@ impl FocusSession {
         unsafe { (windows_core::Interface::vtable(this).End)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for FocusSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFocusSession>();
+}
 unsafe impl windows_core::Interface for FocusSession {
     type Vtable = <IFocusSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFocusSession as windows_core::Interface>::IID;
@@ -415,9 +415,6 @@ impl windows_core::RuntimeName for FocusSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct FocusSessionManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for FocusSessionManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFocusSessionManager>();
-}
 windows_core::imp::interface_hierarchy!(FocusSessionManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FocusSessionManager,);
 impl FocusSessionManager {
@@ -484,6 +481,9 @@ impl FocusSessionManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for FocusSessionManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IFocusSessionManager>();
+}
 unsafe impl windows_core::Interface for FocusSessionManager {
     type Vtable = <IFocusSessionManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IFocusSessionManager as windows_core::Interface>::IID;
@@ -494,9 +494,6 @@ impl windows_core::RuntimeName for FocusSessionManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SecurityAppManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for SecurityAppManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISecurityAppManager>();
-}
 windows_core::imp::interface_hierarchy!(SecurityAppManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SecurityAppManager,);
 impl SecurityAppManager {
@@ -529,6 +526,9 @@ impl SecurityAppManager {
         unsafe { (windows_core::Interface::vtable(this).UpdateState)(windows_core::Interface::as_raw(this), kind, guidregistration, state, substatus, detailsuri.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for SecurityAppManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISecurityAppManager>();
+}
 unsafe impl windows_core::Interface for SecurityAppManager {
     type Vtable = <ISecurityAppManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISecurityAppManager as windows_core::Interface>::IID;
@@ -539,9 +539,6 @@ impl windows_core::RuntimeName for SecurityAppManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareWindowCommandEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ShareWindowCommandEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareWindowCommandEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ShareWindowCommandEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ShareWindowCommandEventArgs,);
 impl ShareWindowCommandEventArgs {
@@ -564,6 +561,9 @@ impl ShareWindowCommandEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetCommand)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for ShareWindowCommandEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareWindowCommandEventArgs>();
+}
 unsafe impl windows_core::Interface for ShareWindowCommandEventArgs {
     type Vtable = <IShareWindowCommandEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IShareWindowCommandEventArgs as windows_core::Interface>::IID;
@@ -574,9 +574,6 @@ impl windows_core::RuntimeName for ShareWindowCommandEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ShareWindowCommandSource(windows_core::IUnknown);
-impl windows_core::RuntimeType for ShareWindowCommandSource {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareWindowCommandSource>();
-}
 windows_core::imp::interface_hierarchy!(ShareWindowCommandSource, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ShareWindowCommandSource,);
 impl ShareWindowCommandSource {
@@ -631,6 +628,9 @@ impl ShareWindowCommandSource {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ShareWindowCommandSource {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IShareWindowCommandSource>();
+}
 unsafe impl windows_core::Interface for ShareWindowCommandSource {
     type Vtable = <IShareWindowCommandSource as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IShareWindowCommandSource as windows_core::Interface>::IID;
@@ -641,9 +641,6 @@ impl windows_core::RuntimeName for ShareWindowCommandSource {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct TaskbarManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for TaskbarManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITaskbarManager>();
-}
 windows_core::imp::interface_hierarchy!(TaskbarManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TaskbarManager,);
 impl TaskbarManager {
@@ -733,6 +730,9 @@ impl TaskbarManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for TaskbarManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ITaskbarManager>();
+}
 unsafe impl windows_core::Interface for TaskbarManager {
     type Vtable = <ITaskbarManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ITaskbarManager as windows_core::Interface>::IID;
@@ -743,9 +743,6 @@ impl windows_core::RuntimeName for TaskbarManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTab(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowTab {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTab>();
-}
 windows_core::imp::interface_hierarchy!(WindowTab, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowTab,);
 impl WindowTab {
@@ -825,6 +822,9 @@ impl WindowTab {
         unsafe { (windows_core::Interface::vtable(this).ReportThumbnailAvailable)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for WindowTab {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTab>();
+}
 unsafe impl windows_core::Interface for WindowTab {
     type Vtable = <IWindowTab as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowTab as windows_core::Interface>::IID;
@@ -835,9 +835,6 @@ impl windows_core::RuntimeName for WindowTab {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabCloseRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowTabCloseRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabCloseRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WindowTabCloseRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowTabCloseRequestedEventArgs,);
 impl WindowTabCloseRequestedEventArgs {
@@ -848,6 +845,9 @@ impl WindowTabCloseRequestedEventArgs {
             (windows_core::Interface::vtable(this).Tab)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for WindowTabCloseRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabCloseRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for WindowTabCloseRequestedEventArgs {
     type Vtable = <IWindowTabCloseRequestedEventArgs as windows_core::Interface>::Vtable;
@@ -860,10 +860,6 @@ impl windows_core::RuntimeName for WindowTabCloseRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for WindowTabCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabCollection>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(WindowTabCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -963,6 +959,10 @@ impl WindowTabCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for WindowTabCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabCollection>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for WindowTabCollection {
     type Vtable = <IWindowTabCollection as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowTabCollection as windows_core::Interface>::IID;
@@ -974,9 +974,6 @@ impl windows_core::RuntimeName for WindowTabCollection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabGroup(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowTabGroup {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabGroup>();
-}
 windows_core::imp::interface_hierarchy!(WindowTabGroup, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowTabGroup,);
 impl WindowTabGroup {
@@ -1013,6 +1010,9 @@ impl WindowTabGroup {
         unsafe { (windows_core::Interface::vtable(this).SetIcon)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for WindowTabGroup {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabGroup>();
+}
 unsafe impl windows_core::Interface for WindowTabGroup {
     type Vtable = <IWindowTabGroup as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowTabGroup as windows_core::Interface>::IID;
@@ -1023,9 +1023,6 @@ impl windows_core::RuntimeName for WindowTabGroup {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabIcon(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowTabIcon {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabIcon>();
-}
 windows_core::imp::interface_hierarchy!(WindowTabIcon, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowTabIcon,);
 impl WindowTabIcon {
@@ -1059,6 +1056,9 @@ impl WindowTabIcon {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WindowTabIcon {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabIcon>();
+}
 unsafe impl windows_core::Interface for WindowTabIcon {
     type Vtable = <IWindowTabIcon as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowTabIcon as windows_core::Interface>::IID;
@@ -1069,9 +1069,6 @@ impl windows_core::RuntimeName for WindowTabIcon {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowTabManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabManager>();
-}
 windows_core::imp::interface_hierarchy!(WindowTabManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowTabManager,);
 impl WindowTabManager {
@@ -1169,6 +1166,9 @@ impl WindowTabManager {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for WindowTabManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabManager>();
+}
 unsafe impl windows_core::Interface for WindowTabManager {
     type Vtable = <IWindowTabManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowTabManager as windows_core::Interface>::IID;
@@ -1179,9 +1179,6 @@ impl windows_core::RuntimeName for WindowTabManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabSwitchRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowTabSwitchRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabSwitchRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WindowTabSwitchRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowTabSwitchRequestedEventArgs,);
 impl WindowTabSwitchRequestedEventArgs {
@@ -1193,6 +1190,9 @@ impl WindowTabSwitchRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WindowTabSwitchRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabSwitchRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for WindowTabSwitchRequestedEventArgs {
     type Vtable = <IWindowTabSwitchRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowTabSwitchRequestedEventArgs as windows_core::Interface>::IID;
@@ -1203,9 +1203,6 @@ impl windows_core::RuntimeName for WindowTabSwitchRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabTearOutRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowTabTearOutRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabTearOutRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WindowTabTearOutRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowTabTearOutRequestedEventArgs,);
 impl WindowTabTearOutRequestedEventArgs {
@@ -1235,6 +1232,9 @@ impl WindowTabTearOutRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for WindowTabTearOutRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabTearOutRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for WindowTabTearOutRequestedEventArgs {
     type Vtable = <IWindowTabTearOutRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IWindowTabTearOutRequestedEventArgs as windows_core::Interface>::IID;
@@ -1245,9 +1245,6 @@ impl windows_core::RuntimeName for WindowTabTearOutRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WindowTabThumbnailRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for WindowTabThumbnailRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabThumbnailRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(WindowTabThumbnailRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowTabThumbnailRequestedEventArgs,);
 impl WindowTabThumbnailRequestedEventArgs {
@@ -1296,6 +1293,9 @@ impl WindowTabThumbnailRequestedEventArgs {
             (windows_core::Interface::vtable(this).IsCompositedOnWindow)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for WindowTabThumbnailRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowTabThumbnailRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for WindowTabThumbnailRequestedEventArgs {
     type Vtable = <IWindowTabThumbnailRequestedEventArgs as windows_core::Interface>::Vtable;

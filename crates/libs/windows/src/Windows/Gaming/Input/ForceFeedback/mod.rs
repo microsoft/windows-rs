@@ -201,9 +201,6 @@ pub struct IRampForceEffect_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConditionForceEffect(windows_core::IUnknown);
-impl windows_core::RuntimeType for ConditionForceEffect {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IForceFeedbackEffect>();
-}
 windows_core::imp::interface_hierarchy!(ConditionForceEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConditionForceEffect, IForceFeedbackEffect);
 impl ConditionForceEffect {
@@ -256,6 +253,9 @@ impl ConditionForceEffect {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ConditionForceEffect {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IForceFeedbackEffect>();
+}
 unsafe impl windows_core::Interface for ConditionForceEffect {
     type Vtable = <IForceFeedbackEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IForceFeedbackEffect as windows_core::Interface>::IID;
@@ -266,9 +266,6 @@ impl windows_core::RuntimeName for ConditionForceEffect {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ConstantForceEffect(windows_core::IUnknown);
-impl windows_core::RuntimeType for ConstantForceEffect {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IForceFeedbackEffect>();
-}
 windows_core::imp::interface_hierarchy!(ConstantForceEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ConstantForceEffect, IForceFeedbackEffect);
 impl ConstantForceEffect {
@@ -316,6 +313,9 @@ impl ConstantForceEffect {
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for ConstantForceEffect {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IForceFeedbackEffect>();
+}
 unsafe impl windows_core::Interface for ConstantForceEffect {
     type Vtable = <IForceFeedbackEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IForceFeedbackEffect as windows_core::Interface>::IID;
@@ -326,9 +326,6 @@ impl windows_core::RuntimeName for ConstantForceEffect {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ForceFeedbackMotor(windows_core::IUnknown);
-impl windows_core::RuntimeType for ForceFeedbackMotor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IForceFeedbackMotor>();
-}
 windows_core::imp::interface_hierarchy!(ForceFeedbackMotor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ForceFeedbackMotor,);
 impl ForceFeedbackMotor {
@@ -418,6 +415,9 @@ impl ForceFeedbackMotor {
         }
     }
 }
+impl windows_core::RuntimeType for ForceFeedbackMotor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IForceFeedbackMotor>();
+}
 unsafe impl windows_core::Interface for ForceFeedbackMotor {
     type Vtable = <IForceFeedbackMotor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IForceFeedbackMotor as windows_core::Interface>::IID;
@@ -428,9 +428,6 @@ impl windows_core::RuntimeName for ForceFeedbackMotor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PeriodicForceEffect(windows_core::IUnknown);
-impl windows_core::RuntimeType for PeriodicForceEffect {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IForceFeedbackEffect>();
-}
 windows_core::imp::interface_hierarchy!(PeriodicForceEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PeriodicForceEffect, IForceFeedbackEffect);
 impl PeriodicForceEffect {
@@ -488,6 +485,9 @@ impl PeriodicForceEffect {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PeriodicForceEffect {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IForceFeedbackEffect>();
+}
 unsafe impl windows_core::Interface for PeriodicForceEffect {
     type Vtable = <IForceFeedbackEffect as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IForceFeedbackEffect as windows_core::Interface>::IID;
@@ -498,9 +498,6 @@ impl windows_core::RuntimeName for PeriodicForceEffect {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RampForceEffect(windows_core::IUnknown);
-impl windows_core::RuntimeType for RampForceEffect {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IForceFeedbackEffect>();
-}
 windows_core::imp::interface_hierarchy!(RampForceEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RampForceEffect, IForceFeedbackEffect);
 impl RampForceEffect {
@@ -547,6 +544,9 @@ impl RampForceEffect {
         let this = &windows_core::Interface::cast::<IRampForceEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetParametersWithEnvelope)(windows_core::Interface::as_raw(this), startvector, endvector, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }
+}
+impl windows_core::RuntimeType for RampForceEffect {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IForceFeedbackEffect>();
 }
 unsafe impl windows_core::Interface for RampForceEffect {
     type Vtable = <IForceFeedbackEffect as windows_core::Interface>::Vtable;

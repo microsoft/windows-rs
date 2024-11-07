@@ -51,9 +51,6 @@ pub struct IAdcControllerStatics2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdcChannel(windows_core::IUnknown);
-impl windows_core::RuntimeType for AdcChannel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAdcChannel>();
-}
 windows_core::imp::interface_hierarchy!(AdcChannel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AdcChannel, super::super::Foundation::IClosable);
 impl AdcChannel {
@@ -83,6 +80,9 @@ impl AdcChannel {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for AdcChannel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAdcChannel>();
+}
 unsafe impl windows_core::Interface for AdcChannel {
     type Vtable = <IAdcChannel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAdcChannel as windows_core::Interface>::IID;
@@ -93,9 +93,6 @@ impl windows_core::RuntimeName for AdcChannel {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdcController(windows_core::IUnknown);
-impl windows_core::RuntimeType for AdcController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAdcController>();
-}
 windows_core::imp::interface_hierarchy!(AdcController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AdcController,);
 impl AdcController {
@@ -176,6 +173,9 @@ impl AdcController {
         static SHARED: windows_core::imp::FactoryCache<AdcController, IAdcControllerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for AdcController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAdcController>();
 }
 unsafe impl windows_core::Interface for AdcController {
     type Vtable = <IAdcController as windows_core::Interface>::Vtable;

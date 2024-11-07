@@ -1892,9 +1892,6 @@ pub struct IWakeOnApproachOptions_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Accelerometer(windows_core::IUnknown);
-impl windows_core::RuntimeType for Accelerometer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccelerometer>();
-}
 windows_core::imp::interface_hierarchy!(Accelerometer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Accelerometer,);
 impl Accelerometer {
@@ -2040,6 +2037,9 @@ impl Accelerometer {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Accelerometer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccelerometer>();
+}
 unsafe impl windows_core::Interface for Accelerometer {
     type Vtable = <IAccelerometer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAccelerometer as windows_core::Interface>::IID;
@@ -2050,9 +2050,6 @@ impl windows_core::RuntimeName for Accelerometer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AccelerometerDataThreshold(windows_core::IUnknown);
-impl windows_core::RuntimeType for AccelerometerDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccelerometerDataThreshold>();
-}
 windows_core::imp::interface_hierarchy!(AccelerometerDataThreshold, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AccelerometerDataThreshold,);
 impl AccelerometerDataThreshold {
@@ -2090,6 +2087,9 @@ impl AccelerometerDataThreshold {
         unsafe { (windows_core::Interface::vtable(this).SetZAxisInGForce)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for AccelerometerDataThreshold {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccelerometerDataThreshold>();
+}
 unsafe impl windows_core::Interface for AccelerometerDataThreshold {
     type Vtable = <IAccelerometerDataThreshold as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAccelerometerDataThreshold as windows_core::Interface>::IID;
@@ -2100,9 +2100,6 @@ impl windows_core::RuntimeName for AccelerometerDataThreshold {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AccelerometerReading(windows_core::IUnknown);
-impl windows_core::RuntimeType for AccelerometerReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccelerometerReading>();
-}
 windows_core::imp::interface_hierarchy!(AccelerometerReading, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AccelerometerReading,);
 impl AccelerometerReading {
@@ -2150,6 +2147,9 @@ impl AccelerometerReading {
         }
     }
 }
+impl windows_core::RuntimeType for AccelerometerReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccelerometerReading>();
+}
 unsafe impl windows_core::Interface for AccelerometerReading {
     type Vtable = <IAccelerometerReading as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAccelerometerReading as windows_core::Interface>::IID;
@@ -2160,9 +2160,6 @@ impl windows_core::RuntimeName for AccelerometerReading {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AccelerometerReadingChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AccelerometerReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccelerometerReadingChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AccelerometerReadingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AccelerometerReadingChangedEventArgs,);
 impl AccelerometerReadingChangedEventArgs {
@@ -2174,6 +2171,9 @@ impl AccelerometerReadingChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AccelerometerReadingChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccelerometerReadingChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for AccelerometerReadingChangedEventArgs {
     type Vtable = <IAccelerometerReadingChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAccelerometerReadingChangedEventArgs as windows_core::Interface>::IID;
@@ -2184,9 +2184,6 @@ impl windows_core::RuntimeName for AccelerometerReadingChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AccelerometerShakenEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AccelerometerShakenEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccelerometerShakenEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AccelerometerShakenEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AccelerometerShakenEventArgs,);
 impl AccelerometerShakenEventArgs {
@@ -2198,6 +2195,9 @@ impl AccelerometerShakenEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AccelerometerShakenEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAccelerometerShakenEventArgs>();
+}
 unsafe impl windows_core::Interface for AccelerometerShakenEventArgs {
     type Vtable = <IAccelerometerShakenEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAccelerometerShakenEventArgs as windows_core::Interface>::IID;
@@ -2208,9 +2208,6 @@ impl windows_core::RuntimeName for AccelerometerShakenEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivitySensor(windows_core::IUnknown);
-impl windows_core::RuntimeType for ActivitySensor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivitySensor>();
-}
 windows_core::imp::interface_hierarchy!(ActivitySensor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActivitySensor,);
 impl ActivitySensor {
@@ -2309,6 +2306,9 @@ impl ActivitySensor {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ActivitySensor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivitySensor>();
+}
 unsafe impl windows_core::Interface for ActivitySensor {
     type Vtable = <IActivitySensor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IActivitySensor as windows_core::Interface>::IID;
@@ -2319,9 +2319,6 @@ impl windows_core::RuntimeName for ActivitySensor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivitySensorReading(windows_core::IUnknown);
-impl windows_core::RuntimeType for ActivitySensorReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivitySensorReading>();
-}
 windows_core::imp::interface_hierarchy!(ActivitySensorReading, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActivitySensorReading,);
 impl ActivitySensorReading {
@@ -2347,6 +2344,9 @@ impl ActivitySensorReading {
         }
     }
 }
+impl windows_core::RuntimeType for ActivitySensorReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivitySensorReading>();
+}
 unsafe impl windows_core::Interface for ActivitySensorReading {
     type Vtable = <IActivitySensorReading as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IActivitySensorReading as windows_core::Interface>::IID;
@@ -2357,9 +2357,6 @@ impl windows_core::RuntimeName for ActivitySensorReading {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivitySensorReadingChangeReport(windows_core::IUnknown);
-impl windows_core::RuntimeType for ActivitySensorReadingChangeReport {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivitySensorReadingChangeReport>();
-}
 windows_core::imp::interface_hierarchy!(ActivitySensorReadingChangeReport, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActivitySensorReadingChangeReport,);
 impl ActivitySensorReadingChangeReport {
@@ -2371,6 +2368,9 @@ impl ActivitySensorReadingChangeReport {
         }
     }
 }
+impl windows_core::RuntimeType for ActivitySensorReadingChangeReport {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivitySensorReadingChangeReport>();
+}
 unsafe impl windows_core::Interface for ActivitySensorReadingChangeReport {
     type Vtable = <IActivitySensorReadingChangeReport as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IActivitySensorReadingChangeReport as windows_core::Interface>::IID;
@@ -2381,9 +2381,6 @@ impl windows_core::RuntimeName for ActivitySensorReadingChangeReport {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivitySensorReadingChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ActivitySensorReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivitySensorReadingChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ActivitySensorReadingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActivitySensorReadingChangedEventArgs,);
 impl ActivitySensorReadingChangedEventArgs {
@@ -2395,6 +2392,9 @@ impl ActivitySensorReadingChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ActivitySensorReadingChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivitySensorReadingChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for ActivitySensorReadingChangedEventArgs {
     type Vtable = <IActivitySensorReadingChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IActivitySensorReadingChangedEventArgs as windows_core::Interface>::IID;
@@ -2405,9 +2405,6 @@ impl windows_core::RuntimeName for ActivitySensorReadingChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ActivitySensorTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for ActivitySensorTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivitySensorTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(ActivitySensorTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActivitySensorTriggerDetails,);
 impl ActivitySensorTriggerDetails {
@@ -2420,6 +2417,9 @@ impl ActivitySensorTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for ActivitySensorTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IActivitySensorTriggerDetails>();
+}
 unsafe impl windows_core::Interface for ActivitySensorTriggerDetails {
     type Vtable = <IActivitySensorTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IActivitySensorTriggerDetails as windows_core::Interface>::IID;
@@ -2430,9 +2430,6 @@ impl windows_core::RuntimeName for ActivitySensorTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AdaptiveDimmingOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for AdaptiveDimmingOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAdaptiveDimmingOptions>();
-}
 windows_core::imp::interface_hierarchy!(AdaptiveDimmingOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AdaptiveDimmingOptions,);
 impl AdaptiveDimmingOptions {
@@ -2448,6 +2445,9 @@ impl AdaptiveDimmingOptions {
         unsafe { (windows_core::Interface::vtable(this).SetAllowWhenExternalDisplayConnected)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for AdaptiveDimmingOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAdaptiveDimmingOptions>();
+}
 unsafe impl windows_core::Interface for AdaptiveDimmingOptions {
     type Vtable = <IAdaptiveDimmingOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAdaptiveDimmingOptions as windows_core::Interface>::IID;
@@ -2458,9 +2458,6 @@ impl windows_core::RuntimeName for AdaptiveDimmingOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Altimeter(windows_core::IUnknown);
-impl windows_core::RuntimeType for Altimeter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAltimeter>();
-}
 windows_core::imp::interface_hierarchy!(Altimeter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Altimeter,);
 impl Altimeter {
@@ -2539,6 +2536,9 @@ impl Altimeter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Altimeter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAltimeter>();
+}
 unsafe impl windows_core::Interface for Altimeter {
     type Vtable = <IAltimeter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAltimeter as windows_core::Interface>::IID;
@@ -2549,9 +2549,6 @@ impl windows_core::RuntimeName for Altimeter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AltimeterReading(windows_core::IUnknown);
-impl windows_core::RuntimeType for AltimeterReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAltimeterReading>();
-}
 windows_core::imp::interface_hierarchy!(AltimeterReading, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AltimeterReading,);
 impl AltimeterReading {
@@ -2585,6 +2582,9 @@ impl AltimeterReading {
         }
     }
 }
+impl windows_core::RuntimeType for AltimeterReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAltimeterReading>();
+}
 unsafe impl windows_core::Interface for AltimeterReading {
     type Vtable = <IAltimeterReading as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAltimeterReading as windows_core::Interface>::IID;
@@ -2595,9 +2595,6 @@ impl windows_core::RuntimeName for AltimeterReading {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct AltimeterReadingChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for AltimeterReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAltimeterReadingChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(AltimeterReadingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AltimeterReadingChangedEventArgs,);
 impl AltimeterReadingChangedEventArgs {
@@ -2609,6 +2606,9 @@ impl AltimeterReadingChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for AltimeterReadingChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAltimeterReadingChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for AltimeterReadingChangedEventArgs {
     type Vtable = <IAltimeterReadingChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IAltimeterReadingChangedEventArgs as windows_core::Interface>::IID;
@@ -2619,9 +2619,6 @@ impl windows_core::RuntimeName for AltimeterReadingChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Barometer(windows_core::IUnknown);
-impl windows_core::RuntimeType for Barometer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarometer>();
-}
 windows_core::imp::interface_hierarchy!(Barometer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Barometer,);
 impl Barometer {
@@ -2723,6 +2720,9 @@ impl Barometer {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Barometer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarometer>();
+}
 unsafe impl windows_core::Interface for Barometer {
     type Vtable = <IBarometer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBarometer as windows_core::Interface>::IID;
@@ -2733,9 +2733,6 @@ impl windows_core::RuntimeName for Barometer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarometerDataThreshold(windows_core::IUnknown);
-impl windows_core::RuntimeType for BarometerDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarometerDataThreshold>();
-}
 windows_core::imp::interface_hierarchy!(BarometerDataThreshold, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarometerDataThreshold,);
 impl BarometerDataThreshold {
@@ -2751,6 +2748,9 @@ impl BarometerDataThreshold {
         unsafe { (windows_core::Interface::vtable(this).SetHectopascals)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for BarometerDataThreshold {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarometerDataThreshold>();
+}
 unsafe impl windows_core::Interface for BarometerDataThreshold {
     type Vtable = <IBarometerDataThreshold as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBarometerDataThreshold as windows_core::Interface>::IID;
@@ -2761,9 +2761,6 @@ impl windows_core::RuntimeName for BarometerDataThreshold {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarometerReading(windows_core::IUnknown);
-impl windows_core::RuntimeType for BarometerReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarometerReading>();
-}
 windows_core::imp::interface_hierarchy!(BarometerReading, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarometerReading,);
 impl BarometerReading {
@@ -2797,6 +2794,9 @@ impl BarometerReading {
         }
     }
 }
+impl windows_core::RuntimeType for BarometerReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarometerReading>();
+}
 unsafe impl windows_core::Interface for BarometerReading {
     type Vtable = <IBarometerReading as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBarometerReading as windows_core::Interface>::IID;
@@ -2807,9 +2807,6 @@ impl windows_core::RuntimeName for BarometerReading {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BarometerReadingChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for BarometerReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarometerReadingChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(BarometerReadingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BarometerReadingChangedEventArgs,);
 impl BarometerReadingChangedEventArgs {
@@ -2821,6 +2818,9 @@ impl BarometerReadingChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for BarometerReadingChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBarometerReadingChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for BarometerReadingChangedEventArgs {
     type Vtable = <IBarometerReadingChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBarometerReadingChangedEventArgs as windows_core::Interface>::IID;
@@ -2831,9 +2831,6 @@ impl windows_core::RuntimeName for BarometerReadingChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Compass(windows_core::IUnknown);
-impl windows_core::RuntimeType for Compass {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompass>();
-}
 windows_core::imp::interface_hierarchy!(Compass, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Compass,);
 impl Compass {
@@ -2948,6 +2945,9 @@ impl Compass {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Compass {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompass>();
+}
 unsafe impl windows_core::Interface for Compass {
     type Vtable = <ICompass as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompass as windows_core::Interface>::IID;
@@ -2958,9 +2958,6 @@ impl windows_core::RuntimeName for Compass {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompassDataThreshold(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompassDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompassDataThreshold>();
-}
 windows_core::imp::interface_hierarchy!(CompassDataThreshold, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompassDataThreshold,);
 impl CompassDataThreshold {
@@ -2976,6 +2973,9 @@ impl CompassDataThreshold {
         unsafe { (windows_core::Interface::vtable(this).SetDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for CompassDataThreshold {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompassDataThreshold>();
+}
 unsafe impl windows_core::Interface for CompassDataThreshold {
     type Vtable = <ICompassDataThreshold as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompassDataThreshold as windows_core::Interface>::IID;
@@ -2986,9 +2986,6 @@ impl windows_core::RuntimeName for CompassDataThreshold {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompassReading(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompassReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompassReading>();
-}
 windows_core::imp::interface_hierarchy!(CompassReading, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompassReading,);
 impl CompassReading {
@@ -3036,6 +3033,9 @@ impl CompassReading {
         }
     }
 }
+impl windows_core::RuntimeType for CompassReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompassReading>();
+}
 unsafe impl windows_core::Interface for CompassReading {
     type Vtable = <ICompassReading as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompassReading as windows_core::Interface>::IID;
@@ -3046,9 +3046,6 @@ impl windows_core::RuntimeName for CompassReading {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CompassReadingChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for CompassReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompassReadingChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(CompassReadingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompassReadingChangedEventArgs,);
 impl CompassReadingChangedEventArgs {
@@ -3060,6 +3057,9 @@ impl CompassReadingChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for CompassReadingChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICompassReadingChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for CompassReadingChangedEventArgs {
     type Vtable = <ICompassReadingChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICompassReadingChangedEventArgs as windows_core::Interface>::IID;
@@ -3070,9 +3070,6 @@ impl windows_core::RuntimeName for CompassReadingChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DetectedPerson(windows_core::IUnknown);
-impl windows_core::RuntimeType for DetectedPerson {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDetectedPerson>();
-}
 windows_core::imp::interface_hierarchy!(DetectedPerson, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DetectedPerson,);
 impl DetectedPerson {
@@ -3112,6 +3109,9 @@ impl DetectedPerson {
         }
     }
 }
+impl windows_core::RuntimeType for DetectedPerson {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDetectedPerson>();
+}
 unsafe impl windows_core::Interface for DetectedPerson {
     type Vtable = <IDetectedPerson as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDetectedPerson as windows_core::Interface>::IID;
@@ -3122,9 +3122,6 @@ impl windows_core::RuntimeName for DetectedPerson {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Gyrometer(windows_core::IUnknown);
-impl windows_core::RuntimeType for Gyrometer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGyrometer>();
-}
 windows_core::imp::interface_hierarchy!(Gyrometer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Gyrometer,);
 impl Gyrometer {
@@ -3239,6 +3236,9 @@ impl Gyrometer {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Gyrometer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGyrometer>();
+}
 unsafe impl windows_core::Interface for Gyrometer {
     type Vtable = <IGyrometer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGyrometer as windows_core::Interface>::IID;
@@ -3249,9 +3249,6 @@ impl windows_core::RuntimeName for Gyrometer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GyrometerDataThreshold(windows_core::IUnknown);
-impl windows_core::RuntimeType for GyrometerDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGyrometerDataThreshold>();
-}
 windows_core::imp::interface_hierarchy!(GyrometerDataThreshold, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GyrometerDataThreshold,);
 impl GyrometerDataThreshold {
@@ -3289,6 +3286,9 @@ impl GyrometerDataThreshold {
         unsafe { (windows_core::Interface::vtable(this).SetZAxisInDegreesPerSecond)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for GyrometerDataThreshold {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGyrometerDataThreshold>();
+}
 unsafe impl windows_core::Interface for GyrometerDataThreshold {
     type Vtable = <IGyrometerDataThreshold as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGyrometerDataThreshold as windows_core::Interface>::IID;
@@ -3299,9 +3299,6 @@ impl windows_core::RuntimeName for GyrometerDataThreshold {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GyrometerReading(windows_core::IUnknown);
-impl windows_core::RuntimeType for GyrometerReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGyrometerReading>();
-}
 windows_core::imp::interface_hierarchy!(GyrometerReading, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GyrometerReading,);
 impl GyrometerReading {
@@ -3349,6 +3346,9 @@ impl GyrometerReading {
         }
     }
 }
+impl windows_core::RuntimeType for GyrometerReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGyrometerReading>();
+}
 unsafe impl windows_core::Interface for GyrometerReading {
     type Vtable = <IGyrometerReading as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGyrometerReading as windows_core::Interface>::IID;
@@ -3359,9 +3359,6 @@ impl windows_core::RuntimeName for GyrometerReading {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GyrometerReadingChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for GyrometerReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGyrometerReadingChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(GyrometerReadingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GyrometerReadingChangedEventArgs,);
 impl GyrometerReadingChangedEventArgs {
@@ -3373,6 +3370,9 @@ impl GyrometerReadingChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for GyrometerReadingChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGyrometerReadingChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for GyrometerReadingChangedEventArgs {
     type Vtable = <IGyrometerReadingChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGyrometerReadingChangedEventArgs as windows_core::Interface>::IID;
@@ -3383,9 +3383,6 @@ impl windows_core::RuntimeName for GyrometerReadingChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HeadOrientation(windows_core::IUnknown);
-impl windows_core::RuntimeType for HeadOrientation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHeadOrientation>();
-}
 windows_core::imp::interface_hierarchy!(HeadOrientation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HeadOrientation,);
 impl HeadOrientation {
@@ -3411,6 +3408,9 @@ impl HeadOrientation {
         }
     }
 }
+impl windows_core::RuntimeType for HeadOrientation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHeadOrientation>();
+}
 unsafe impl windows_core::Interface for HeadOrientation {
     type Vtable = <IHeadOrientation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHeadOrientation as windows_core::Interface>::IID;
@@ -3421,9 +3421,6 @@ impl windows_core::RuntimeName for HeadOrientation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HeadPosition(windows_core::IUnknown);
-impl windows_core::RuntimeType for HeadPosition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHeadPosition>();
-}
 windows_core::imp::interface_hierarchy!(HeadPosition, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HeadPosition,);
 impl HeadPosition {
@@ -3442,6 +3439,9 @@ impl HeadPosition {
         }
     }
 }
+impl windows_core::RuntimeType for HeadPosition {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHeadPosition>();
+}
 unsafe impl windows_core::Interface for HeadPosition {
     type Vtable = <IHeadPosition as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHeadPosition as windows_core::Interface>::IID;
@@ -3452,9 +3452,6 @@ impl windows_core::RuntimeName for HeadPosition {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HingeAngleReading(windows_core::IUnknown);
-impl windows_core::RuntimeType for HingeAngleReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHingeAngleReading>();
-}
 windows_core::imp::interface_hierarchy!(HingeAngleReading, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HingeAngleReading,);
 impl HingeAngleReading {
@@ -3481,6 +3478,9 @@ impl HingeAngleReading {
         }
     }
 }
+impl windows_core::RuntimeType for HingeAngleReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHingeAngleReading>();
+}
 unsafe impl windows_core::Interface for HingeAngleReading {
     type Vtable = <IHingeAngleReading as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHingeAngleReading as windows_core::Interface>::IID;
@@ -3491,9 +3491,6 @@ impl windows_core::RuntimeName for HingeAngleReading {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HingeAngleSensor(windows_core::IUnknown);
-impl windows_core::RuntimeType for HingeAngleSensor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHingeAngleSensor>();
-}
 windows_core::imp::interface_hierarchy!(HingeAngleSensor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HingeAngleSensor,);
 impl HingeAngleSensor {
@@ -3572,6 +3569,9 @@ impl HingeAngleSensor {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HingeAngleSensor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHingeAngleSensor>();
+}
 unsafe impl windows_core::Interface for HingeAngleSensor {
     type Vtable = <IHingeAngleSensor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHingeAngleSensor as windows_core::Interface>::IID;
@@ -3582,9 +3582,6 @@ impl windows_core::RuntimeName for HingeAngleSensor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HingeAngleSensorReadingChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for HingeAngleSensorReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHingeAngleSensorReadingChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(HingeAngleSensorReadingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HingeAngleSensorReadingChangedEventArgs,);
 impl HingeAngleSensorReadingChangedEventArgs {
@@ -3596,6 +3593,9 @@ impl HingeAngleSensorReadingChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for HingeAngleSensorReadingChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHingeAngleSensorReadingChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for HingeAngleSensorReadingChangedEventArgs {
     type Vtable = <IHingeAngleSensorReadingChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHingeAngleSensorReadingChangedEventArgs as windows_core::Interface>::IID;
@@ -3606,9 +3606,6 @@ impl windows_core::RuntimeName for HingeAngleSensorReadingChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HumanPresenceFeatures(windows_core::IUnknown);
-impl windows_core::RuntimeType for HumanPresenceFeatures {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHumanPresenceFeatures>();
-}
 windows_core::imp::interface_hierarchy!(HumanPresenceFeatures, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HumanPresenceFeatures,);
 impl HumanPresenceFeatures {
@@ -3656,6 +3653,9 @@ impl HumanPresenceFeatures {
         }
     }
 }
+impl windows_core::RuntimeType for HumanPresenceFeatures {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHumanPresenceFeatures>();
+}
 unsafe impl windows_core::Interface for HumanPresenceFeatures {
     type Vtable = <IHumanPresenceFeatures as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHumanPresenceFeatures as windows_core::Interface>::IID;
@@ -3666,9 +3666,6 @@ impl windows_core::RuntimeName for HumanPresenceFeatures {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HumanPresenceSensor(windows_core::IUnknown);
-impl windows_core::RuntimeType for HumanPresenceSensor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHumanPresenceSensor>();
-}
 windows_core::imp::interface_hierarchy!(HumanPresenceSensor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HumanPresenceSensor,);
 impl HumanPresenceSensor {
@@ -3802,6 +3799,9 @@ impl HumanPresenceSensor {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HumanPresenceSensor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHumanPresenceSensor>();
+}
 unsafe impl windows_core::Interface for HumanPresenceSensor {
     type Vtable = <IHumanPresenceSensor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHumanPresenceSensor as windows_core::Interface>::IID;
@@ -3812,9 +3812,6 @@ impl windows_core::RuntimeName for HumanPresenceSensor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HumanPresenceSensorReading(windows_core::IUnknown);
-impl windows_core::RuntimeType for HumanPresenceSensorReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHumanPresenceSensorReading>();
-}
 windows_core::imp::interface_hierarchy!(HumanPresenceSensorReading, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HumanPresenceSensorReading,);
 impl HumanPresenceSensorReading {
@@ -3870,6 +3867,9 @@ impl HumanPresenceSensorReading {
         }
     }
 }
+impl windows_core::RuntimeType for HumanPresenceSensorReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHumanPresenceSensorReading>();
+}
 unsafe impl windows_core::Interface for HumanPresenceSensorReading {
     type Vtable = <IHumanPresenceSensorReading as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHumanPresenceSensorReading as windows_core::Interface>::IID;
@@ -3880,9 +3880,6 @@ impl windows_core::RuntimeName for HumanPresenceSensorReading {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HumanPresenceSensorReadingChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for HumanPresenceSensorReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHumanPresenceSensorReadingChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(HumanPresenceSensorReadingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HumanPresenceSensorReadingChangedEventArgs,);
 impl HumanPresenceSensorReadingChangedEventArgs {
@@ -3894,6 +3891,9 @@ impl HumanPresenceSensorReadingChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for HumanPresenceSensorReadingChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHumanPresenceSensorReadingChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for HumanPresenceSensorReadingChangedEventArgs {
     type Vtable = <IHumanPresenceSensorReadingChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHumanPresenceSensorReadingChangedEventArgs as windows_core::Interface>::IID;
@@ -3904,9 +3904,6 @@ impl windows_core::RuntimeName for HumanPresenceSensorReadingChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HumanPresenceSensorReadingUpdate(windows_core::IUnknown);
-impl windows_core::RuntimeType for HumanPresenceSensorReadingUpdate {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHumanPresenceSensorReadingUpdate>();
-}
 windows_core::imp::interface_hierarchy!(HumanPresenceSensorReadingUpdate, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HumanPresenceSensorReadingUpdate,);
 impl HumanPresenceSensorReadingUpdate {
@@ -3974,6 +3971,9 @@ impl HumanPresenceSensorReadingUpdate {
         unsafe { (windows_core::Interface::vtable(this).SetDistanceInMillimeters)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
+impl windows_core::RuntimeType for HumanPresenceSensorReadingUpdate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHumanPresenceSensorReadingUpdate>();
+}
 unsafe impl windows_core::Interface for HumanPresenceSensorReadingUpdate {
     type Vtable = <IHumanPresenceSensorReadingUpdate as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHumanPresenceSensorReadingUpdate as windows_core::Interface>::IID;
@@ -3984,9 +3984,6 @@ impl windows_core::RuntimeName for HumanPresenceSensorReadingUpdate {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HumanPresenceSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for HumanPresenceSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHumanPresenceSettings>();
-}
 windows_core::imp::interface_hierarchy!(HumanPresenceSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HumanPresenceSettings,);
 impl HumanPresenceSettings {
@@ -4168,6 +4165,9 @@ impl HumanPresenceSettings {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for HumanPresenceSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHumanPresenceSettings>();
+}
 unsafe impl windows_core::Interface for HumanPresenceSettings {
     type Vtable = <IHumanPresenceSettings as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHumanPresenceSettings as windows_core::Interface>::IID;
@@ -4178,9 +4178,6 @@ impl windows_core::RuntimeName for HumanPresenceSettings {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Inclinometer(windows_core::IUnknown);
-impl windows_core::RuntimeType for Inclinometer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInclinometer>();
-}
 windows_core::imp::interface_hierarchy!(Inclinometer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Inclinometer,);
 impl Inclinometer {
@@ -4322,6 +4319,9 @@ impl Inclinometer {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Inclinometer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInclinometer>();
+}
 unsafe impl windows_core::Interface for Inclinometer {
     type Vtable = <IInclinometer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInclinometer as windows_core::Interface>::IID;
@@ -4332,9 +4332,6 @@ impl windows_core::RuntimeName for Inclinometer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InclinometerDataThreshold(windows_core::IUnknown);
-impl windows_core::RuntimeType for InclinometerDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInclinometerDataThreshold>();
-}
 windows_core::imp::interface_hierarchy!(InclinometerDataThreshold, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InclinometerDataThreshold,);
 impl InclinometerDataThreshold {
@@ -4372,6 +4369,9 @@ impl InclinometerDataThreshold {
         unsafe { (windows_core::Interface::vtable(this).SetYawInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for InclinometerDataThreshold {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInclinometerDataThreshold>();
+}
 unsafe impl windows_core::Interface for InclinometerDataThreshold {
     type Vtable = <IInclinometerDataThreshold as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInclinometerDataThreshold as windows_core::Interface>::IID;
@@ -4382,9 +4382,6 @@ impl windows_core::RuntimeName for InclinometerDataThreshold {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InclinometerReading(windows_core::IUnknown);
-impl windows_core::RuntimeType for InclinometerReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInclinometerReading>();
-}
 windows_core::imp::interface_hierarchy!(InclinometerReading, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InclinometerReading,);
 impl InclinometerReading {
@@ -4439,6 +4436,9 @@ impl InclinometerReading {
         }
     }
 }
+impl windows_core::RuntimeType for InclinometerReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInclinometerReading>();
+}
 unsafe impl windows_core::Interface for InclinometerReading {
     type Vtable = <IInclinometerReading as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInclinometerReading as windows_core::Interface>::IID;
@@ -4449,9 +4449,6 @@ impl windows_core::RuntimeName for InclinometerReading {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct InclinometerReadingChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for InclinometerReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInclinometerReadingChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(InclinometerReadingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InclinometerReadingChangedEventArgs,);
 impl InclinometerReadingChangedEventArgs {
@@ -4463,6 +4460,9 @@ impl InclinometerReadingChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for InclinometerReadingChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInclinometerReadingChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for InclinometerReadingChangedEventArgs {
     type Vtable = <IInclinometerReadingChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IInclinometerReadingChangedEventArgs as windows_core::Interface>::IID;
@@ -4473,9 +4473,6 @@ impl windows_core::RuntimeName for InclinometerReadingChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LightSensor(windows_core::IUnknown);
-impl windows_core::RuntimeType for LightSensor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILightSensor>();
-}
 windows_core::imp::interface_hierarchy!(LightSensor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LightSensor,);
 impl LightSensor {
@@ -4577,6 +4574,9 @@ impl LightSensor {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for LightSensor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILightSensor>();
+}
 unsafe impl windows_core::Interface for LightSensor {
     type Vtable = <ILightSensor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILightSensor as windows_core::Interface>::IID;
@@ -4587,9 +4587,6 @@ impl windows_core::RuntimeName for LightSensor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LightSensorDataThreshold(windows_core::IUnknown);
-impl windows_core::RuntimeType for LightSensorDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILightSensorDataThreshold>();
-}
 windows_core::imp::interface_hierarchy!(LightSensorDataThreshold, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LightSensorDataThreshold,);
 impl LightSensorDataThreshold {
@@ -4616,6 +4613,9 @@ impl LightSensorDataThreshold {
         unsafe { (windows_core::Interface::vtable(this).SetAbsoluteLux)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for LightSensorDataThreshold {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILightSensorDataThreshold>();
+}
 unsafe impl windows_core::Interface for LightSensorDataThreshold {
     type Vtable = <ILightSensorDataThreshold as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILightSensorDataThreshold as windows_core::Interface>::IID;
@@ -4626,9 +4626,6 @@ impl windows_core::RuntimeName for LightSensorDataThreshold {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LightSensorReading(windows_core::IUnknown);
-impl windows_core::RuntimeType for LightSensorReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILightSensorReading>();
-}
 windows_core::imp::interface_hierarchy!(LightSensorReading, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LightSensorReading,);
 impl LightSensorReading {
@@ -4662,6 +4659,9 @@ impl LightSensorReading {
         }
     }
 }
+impl windows_core::RuntimeType for LightSensorReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILightSensorReading>();
+}
 unsafe impl windows_core::Interface for LightSensorReading {
     type Vtable = <ILightSensorReading as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILightSensorReading as windows_core::Interface>::IID;
@@ -4672,9 +4672,6 @@ impl windows_core::RuntimeName for LightSensorReading {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LightSensorReadingChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for LightSensorReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILightSensorReadingChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(LightSensorReadingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LightSensorReadingChangedEventArgs,);
 impl LightSensorReadingChangedEventArgs {
@@ -4686,6 +4683,9 @@ impl LightSensorReadingChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for LightSensorReadingChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILightSensorReadingChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for LightSensorReadingChangedEventArgs {
     type Vtable = <ILightSensorReadingChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILightSensorReadingChangedEventArgs as windows_core::Interface>::IID;
@@ -4696,9 +4696,6 @@ impl windows_core::RuntimeName for LightSensorReadingChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct LockOnLeaveOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for LockOnLeaveOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockOnLeaveOptions>();
-}
 windows_core::imp::interface_hierarchy!(LockOnLeaveOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LockOnLeaveOptions,);
 impl LockOnLeaveOptions {
@@ -4714,6 +4711,9 @@ impl LockOnLeaveOptions {
         unsafe { (windows_core::Interface::vtable(this).SetAllowWhenExternalDisplayConnected)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for LockOnLeaveOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ILockOnLeaveOptions>();
+}
 unsafe impl windows_core::Interface for LockOnLeaveOptions {
     type Vtable = <ILockOnLeaveOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ILockOnLeaveOptions as windows_core::Interface>::IID;
@@ -4724,9 +4724,6 @@ impl windows_core::RuntimeName for LockOnLeaveOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Magnetometer(windows_core::IUnknown);
-impl windows_core::RuntimeType for Magnetometer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagnetometer>();
-}
 windows_core::imp::interface_hierarchy!(Magnetometer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Magnetometer,);
 impl Magnetometer {
@@ -4841,6 +4838,9 @@ impl Magnetometer {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Magnetometer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagnetometer>();
+}
 unsafe impl windows_core::Interface for Magnetometer {
     type Vtable = <IMagnetometer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMagnetometer as windows_core::Interface>::IID;
@@ -4851,9 +4851,6 @@ impl windows_core::RuntimeName for Magnetometer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagnetometerDataThreshold(windows_core::IUnknown);
-impl windows_core::RuntimeType for MagnetometerDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagnetometerDataThreshold>();
-}
 windows_core::imp::interface_hierarchy!(MagnetometerDataThreshold, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MagnetometerDataThreshold,);
 impl MagnetometerDataThreshold {
@@ -4891,6 +4888,9 @@ impl MagnetometerDataThreshold {
         unsafe { (windows_core::Interface::vtable(this).SetZAxisMicroteslas)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for MagnetometerDataThreshold {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagnetometerDataThreshold>();
+}
 unsafe impl windows_core::Interface for MagnetometerDataThreshold {
     type Vtable = <IMagnetometerDataThreshold as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMagnetometerDataThreshold as windows_core::Interface>::IID;
@@ -4901,9 +4901,6 @@ impl windows_core::RuntimeName for MagnetometerDataThreshold {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagnetometerReading(windows_core::IUnknown);
-impl windows_core::RuntimeType for MagnetometerReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagnetometerReading>();
-}
 windows_core::imp::interface_hierarchy!(MagnetometerReading, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MagnetometerReading,);
 impl MagnetometerReading {
@@ -4958,6 +4955,9 @@ impl MagnetometerReading {
         }
     }
 }
+impl windows_core::RuntimeType for MagnetometerReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagnetometerReading>();
+}
 unsafe impl windows_core::Interface for MagnetometerReading {
     type Vtable = <IMagnetometerReading as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMagnetometerReading as windows_core::Interface>::IID;
@@ -4968,9 +4968,6 @@ impl windows_core::RuntimeName for MagnetometerReading {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MagnetometerReadingChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for MagnetometerReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagnetometerReadingChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(MagnetometerReadingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MagnetometerReadingChangedEventArgs,);
 impl MagnetometerReadingChangedEventArgs {
@@ -4982,6 +4979,9 @@ impl MagnetometerReadingChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for MagnetometerReadingChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMagnetometerReadingChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for MagnetometerReadingChangedEventArgs {
     type Vtable = <IMagnetometerReadingChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMagnetometerReadingChangedEventArgs as windows_core::Interface>::IID;
@@ -4992,9 +4992,6 @@ impl windows_core::RuntimeName for MagnetometerReadingChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OrientationSensor(windows_core::IUnknown);
-impl windows_core::RuntimeType for OrientationSensor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOrientationSensor>();
-}
 windows_core::imp::interface_hierarchy!(OrientationSensor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OrientationSensor,);
 impl OrientationSensor {
@@ -5141,6 +5138,9 @@ impl OrientationSensor {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for OrientationSensor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOrientationSensor>();
+}
 unsafe impl windows_core::Interface for OrientationSensor {
     type Vtable = <IOrientationSensor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOrientationSensor as windows_core::Interface>::IID;
@@ -5151,9 +5151,6 @@ impl windows_core::RuntimeName for OrientationSensor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OrientationSensorReading(windows_core::IUnknown);
-impl windows_core::RuntimeType for OrientationSensorReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOrientationSensorReading>();
-}
 windows_core::imp::interface_hierarchy!(OrientationSensorReading, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OrientationSensorReading,);
 impl OrientationSensorReading {
@@ -5201,6 +5198,9 @@ impl OrientationSensorReading {
         }
     }
 }
+impl windows_core::RuntimeType for OrientationSensorReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOrientationSensorReading>();
+}
 unsafe impl windows_core::Interface for OrientationSensorReading {
     type Vtable = <IOrientationSensorReading as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOrientationSensorReading as windows_core::Interface>::IID;
@@ -5211,9 +5211,6 @@ impl windows_core::RuntimeName for OrientationSensorReading {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OrientationSensorReadingChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for OrientationSensorReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOrientationSensorReadingChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(OrientationSensorReadingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OrientationSensorReadingChangedEventArgs,);
 impl OrientationSensorReadingChangedEventArgs {
@@ -5225,6 +5222,9 @@ impl OrientationSensorReadingChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for OrientationSensorReadingChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOrientationSensorReadingChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for OrientationSensorReadingChangedEventArgs {
     type Vtable = <IOrientationSensorReadingChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOrientationSensorReadingChangedEventArgs as windows_core::Interface>::IID;
@@ -5235,9 +5235,6 @@ impl windows_core::RuntimeName for OrientationSensorReadingChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Pedometer(windows_core::IUnknown);
-impl windows_core::RuntimeType for Pedometer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPedometer>();
-}
 windows_core::imp::interface_hierarchy!(Pedometer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Pedometer,);
 impl Pedometer {
@@ -5346,6 +5343,9 @@ impl Pedometer {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for Pedometer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPedometer>();
+}
 unsafe impl windows_core::Interface for Pedometer {
     type Vtable = <IPedometer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPedometer as windows_core::Interface>::IID;
@@ -5356,9 +5356,6 @@ impl windows_core::RuntimeName for Pedometer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PedometerDataThreshold(windows_core::IUnknown);
-impl windows_core::RuntimeType for PedometerDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISensorDataThreshold>();
-}
 windows_core::imp::interface_hierarchy!(PedometerDataThreshold, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PedometerDataThreshold, ISensorDataThreshold);
 impl PedometerDataThreshold {
@@ -5376,6 +5373,9 @@ impl PedometerDataThreshold {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PedometerDataThreshold {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISensorDataThreshold>();
+}
 unsafe impl windows_core::Interface for PedometerDataThreshold {
     type Vtable = <ISensorDataThreshold as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISensorDataThreshold as windows_core::Interface>::IID;
@@ -5386,9 +5386,6 @@ impl windows_core::RuntimeName for PedometerDataThreshold {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PedometerReading(windows_core::IUnknown);
-impl windows_core::RuntimeType for PedometerReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPedometerReading>();
-}
 windows_core::imp::interface_hierarchy!(PedometerReading, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PedometerReading,);
 impl PedometerReading {
@@ -5421,6 +5418,9 @@ impl PedometerReading {
         }
     }
 }
+impl windows_core::RuntimeType for PedometerReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPedometerReading>();
+}
 unsafe impl windows_core::Interface for PedometerReading {
     type Vtable = <IPedometerReading as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPedometerReading as windows_core::Interface>::IID;
@@ -5431,9 +5431,6 @@ impl windows_core::RuntimeName for PedometerReading {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PedometerReadingChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PedometerReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPedometerReadingChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PedometerReadingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PedometerReadingChangedEventArgs,);
 impl PedometerReadingChangedEventArgs {
@@ -5445,6 +5442,9 @@ impl PedometerReadingChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for PedometerReadingChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPedometerReadingChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for PedometerReadingChangedEventArgs {
     type Vtable = <IPedometerReadingChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPedometerReadingChangedEventArgs as windows_core::Interface>::IID;
@@ -5455,9 +5455,6 @@ impl windows_core::RuntimeName for PedometerReadingChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProximitySensor(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProximitySensor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProximitySensor>();
-}
 windows_core::imp::interface_hierarchy!(ProximitySensor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProximitySensor,);
 impl ProximitySensor {
@@ -5541,6 +5538,9 @@ impl ProximitySensor {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ProximitySensor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProximitySensor>();
+}
 unsafe impl windows_core::Interface for ProximitySensor {
     type Vtable = <IProximitySensor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProximitySensor as windows_core::Interface>::IID;
@@ -5551,9 +5551,6 @@ impl windows_core::RuntimeName for ProximitySensor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProximitySensorDataThreshold(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProximitySensorDataThreshold {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISensorDataThreshold>();
-}
 windows_core::imp::interface_hierarchy!(ProximitySensorDataThreshold, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProximitySensorDataThreshold, ISensorDataThreshold);
 impl ProximitySensorDataThreshold {
@@ -5571,6 +5568,9 @@ impl ProximitySensorDataThreshold {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for ProximitySensorDataThreshold {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISensorDataThreshold>();
+}
 unsafe impl windows_core::Interface for ProximitySensorDataThreshold {
     type Vtable = <ISensorDataThreshold as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISensorDataThreshold as windows_core::Interface>::IID;
@@ -5581,9 +5581,6 @@ impl windows_core::RuntimeName for ProximitySensorDataThreshold {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProximitySensorDisplayOnOffController(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProximitySensorDisplayOnOffController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IClosable>();
-}
 windows_core::imp::interface_hierarchy!(ProximitySensorDisplayOnOffController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProximitySensorDisplayOnOffController, super::super::Foundation::IClosable);
 impl ProximitySensorDisplayOnOffController {
@@ -5591,6 +5588,9 @@ impl ProximitySensorDisplayOnOffController {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for ProximitySensorDisplayOnOffController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::Foundation::IClosable>();
 }
 unsafe impl windows_core::Interface for ProximitySensorDisplayOnOffController {
     type Vtable = <super::super::Foundation::IClosable as windows_core::Interface>::Vtable;
@@ -5602,9 +5602,6 @@ impl windows_core::RuntimeName for ProximitySensorDisplayOnOffController {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProximitySensorReading(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProximitySensorReading {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProximitySensorReading>();
-}
 windows_core::imp::interface_hierarchy!(ProximitySensorReading, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProximitySensorReading,);
 impl ProximitySensorReading {
@@ -5630,6 +5627,9 @@ impl ProximitySensorReading {
         }
     }
 }
+impl windows_core::RuntimeType for ProximitySensorReading {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProximitySensorReading>();
+}
 unsafe impl windows_core::Interface for ProximitySensorReading {
     type Vtable = <IProximitySensorReading as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProximitySensorReading as windows_core::Interface>::IID;
@@ -5640,9 +5640,6 @@ impl windows_core::RuntimeName for ProximitySensorReading {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProximitySensorReadingChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProximitySensorReadingChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProximitySensorReadingChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ProximitySensorReadingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProximitySensorReadingChangedEventArgs,);
 impl ProximitySensorReadingChangedEventArgs {
@@ -5654,6 +5651,9 @@ impl ProximitySensorReadingChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for ProximitySensorReadingChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProximitySensorReadingChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for ProximitySensorReadingChangedEventArgs {
     type Vtable = <IProximitySensorReadingChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProximitySensorReadingChangedEventArgs as windows_core::Interface>::IID;
@@ -5664,9 +5664,6 @@ impl windows_core::RuntimeName for ProximitySensorReadingChangedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SensorDataThresholdTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for SensorDataThresholdTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISensorDataThresholdTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(SensorDataThresholdTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SensorDataThresholdTriggerDetails,);
 impl SensorDataThresholdTriggerDetails {
@@ -5685,6 +5682,9 @@ impl SensorDataThresholdTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for SensorDataThresholdTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISensorDataThresholdTriggerDetails>();
+}
 unsafe impl windows_core::Interface for SensorDataThresholdTriggerDetails {
     type Vtable = <ISensorDataThresholdTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISensorDataThresholdTriggerDetails as windows_core::Interface>::IID;
@@ -5695,9 +5695,6 @@ impl windows_core::RuntimeName for SensorDataThresholdTriggerDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SensorQuaternion(windows_core::IUnknown);
-impl windows_core::RuntimeType for SensorQuaternion {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISensorQuaternion>();
-}
 windows_core::imp::interface_hierarchy!(SensorQuaternion, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SensorQuaternion,);
 impl SensorQuaternion {
@@ -5730,6 +5727,9 @@ impl SensorQuaternion {
         }
     }
 }
+impl windows_core::RuntimeType for SensorQuaternion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISensorQuaternion>();
+}
 unsafe impl windows_core::Interface for SensorQuaternion {
     type Vtable = <ISensorQuaternion as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISensorQuaternion as windows_core::Interface>::IID;
@@ -5740,9 +5740,6 @@ impl windows_core::RuntimeName for SensorQuaternion {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SensorRotationMatrix(windows_core::IUnknown);
-impl windows_core::RuntimeType for SensorRotationMatrix {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISensorRotationMatrix>();
-}
 windows_core::imp::interface_hierarchy!(SensorRotationMatrix, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SensorRotationMatrix,);
 impl SensorRotationMatrix {
@@ -5810,6 +5807,9 @@ impl SensorRotationMatrix {
         }
     }
 }
+impl windows_core::RuntimeType for SensorRotationMatrix {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISensorRotationMatrix>();
+}
 unsafe impl windows_core::Interface for SensorRotationMatrix {
     type Vtable = <ISensorRotationMatrix as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISensorRotationMatrix as windows_core::Interface>::IID;
@@ -5820,9 +5820,6 @@ impl windows_core::RuntimeName for SensorRotationMatrix {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SimpleOrientationSensor(windows_core::IUnknown);
-impl windows_core::RuntimeType for SimpleOrientationSensor {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISimpleOrientationSensor>();
-}
 windows_core::imp::interface_hierarchy!(SimpleOrientationSensor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SimpleOrientationSensor,);
 impl SimpleOrientationSensor {
@@ -5894,6 +5891,9 @@ impl SimpleOrientationSensor {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for SimpleOrientationSensor {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISimpleOrientationSensor>();
+}
 unsafe impl windows_core::Interface for SimpleOrientationSensor {
     type Vtable = <ISimpleOrientationSensor as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISimpleOrientationSensor as windows_core::Interface>::IID;
@@ -5904,9 +5904,6 @@ impl windows_core::RuntimeName for SimpleOrientationSensor {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SimpleOrientationSensorOrientationChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for SimpleOrientationSensorOrientationChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISimpleOrientationSensorOrientationChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(SimpleOrientationSensorOrientationChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SimpleOrientationSensorOrientationChangedEventArgs,);
 impl SimpleOrientationSensorOrientationChangedEventArgs {
@@ -5925,6 +5922,9 @@ impl SimpleOrientationSensorOrientationChangedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for SimpleOrientationSensorOrientationChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISimpleOrientationSensorOrientationChangedEventArgs>();
+}
 unsafe impl windows_core::Interface for SimpleOrientationSensorOrientationChangedEventArgs {
     type Vtable = <ISimpleOrientationSensorOrientationChangedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ISimpleOrientationSensorOrientationChangedEventArgs as windows_core::Interface>::IID;
@@ -5935,9 +5935,6 @@ impl windows_core::RuntimeName for SimpleOrientationSensorOrientationChangedEven
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct WakeOnApproachOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for WakeOnApproachOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWakeOnApproachOptions>();
-}
 windows_core::imp::interface_hierarchy!(WakeOnApproachOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WakeOnApproachOptions,);
 impl WakeOnApproachOptions {
@@ -5963,6 +5960,9 @@ impl WakeOnApproachOptions {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisableWhenBatterySaverOn)(windows_core::Interface::as_raw(this), value).ok() }
     }
+}
+impl windows_core::RuntimeType for WakeOnApproachOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWakeOnApproachOptions>();
 }
 unsafe impl windows_core::Interface for WakeOnApproachOptions {
     type Vtable = <IWakeOnApproachOptions as windows_core::Interface>::Vtable;

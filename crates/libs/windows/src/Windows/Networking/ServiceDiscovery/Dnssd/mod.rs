@@ -76,9 +76,6 @@ pub struct IDnssdServiceWatcher_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DnssdRegistrationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for DnssdRegistrationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDnssdRegistrationResult>();
-}
 windows_core::imp::interface_hierarchy!(DnssdRegistrationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DnssdRegistrationResult, super::super::super::Foundation::IStringable);
 impl DnssdRegistrationResult {
@@ -118,6 +115,9 @@ impl DnssdRegistrationResult {
         }
     }
 }
+impl windows_core::RuntimeType for DnssdRegistrationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDnssdRegistrationResult>();
+}
 unsafe impl windows_core::Interface for DnssdRegistrationResult {
     type Vtable = <IDnssdRegistrationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDnssdRegistrationResult as windows_core::Interface>::IID;
@@ -128,9 +128,6 @@ impl windows_core::RuntimeName for DnssdRegistrationResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DnssdServiceInstance(windows_core::IUnknown);
-impl windows_core::RuntimeType for DnssdServiceInstance {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDnssdServiceInstance>();
-}
 windows_core::imp::interface_hierarchy!(DnssdServiceInstance, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DnssdServiceInstance, super::super::super::Foundation::IStringable);
 impl DnssdServiceInstance {
@@ -267,6 +264,9 @@ impl DnssdServiceInstance {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DnssdServiceInstance {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDnssdServiceInstance>();
+}
 unsafe impl windows_core::Interface for DnssdServiceInstance {
     type Vtable = <IDnssdServiceInstance as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDnssdServiceInstance as windows_core::Interface>::IID;
@@ -278,10 +278,6 @@ impl windows_core::RuntimeName for DnssdServiceInstance {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DnssdServiceInstanceCollection(windows_core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl windows_core::RuntimeType for DnssdServiceInstanceCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>>();
-}
 #[cfg(feature = "Foundation_Collections")]
 windows_core::imp::interface_hierarchy!(DnssdServiceInstanceCollection, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "Foundation_Collections")]
@@ -329,6 +325,10 @@ impl DnssdServiceInstanceCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
+impl windows_core::RuntimeType for DnssdServiceInstanceCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>>();
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl windows_core::Interface for DnssdServiceInstanceCollection {
     type Vtable = <super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance> as windows_core::Interface>::IID;
@@ -340,9 +340,6 @@ impl windows_core::RuntimeName for DnssdServiceInstanceCollection {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DnssdServiceWatcher(windows_core::IUnknown);
-impl windows_core::RuntimeType for DnssdServiceWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDnssdServiceWatcher>();
-}
 windows_core::imp::interface_hierarchy!(DnssdServiceWatcher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DnssdServiceWatcher,);
 impl DnssdServiceWatcher {
@@ -403,6 +400,9 @@ impl DnssdServiceWatcher {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for DnssdServiceWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDnssdServiceWatcher>();
 }
 unsafe impl windows_core::Interface for DnssdServiceWatcher {
     type Vtable = <IDnssdServiceWatcher as windows_core::Interface>::Vtable;

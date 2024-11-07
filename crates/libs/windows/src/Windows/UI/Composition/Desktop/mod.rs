@@ -10,9 +10,6 @@ pub struct IDesktopWindowTarget_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DesktopWindowTarget(windows_core::IUnknown);
-impl windows_core::RuntimeType for DesktopWindowTarget {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDesktopWindowTarget>();
-}
 windows_core::imp::interface_hierarchy!(DesktopWindowTarget, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DesktopWindowTarget, super::super::super::Foundation::IClosable, super::IAnimationObject);
 impl DesktopWindowTarget {
@@ -145,6 +142,9 @@ impl DesktopWindowTarget {
         let this = &windows_core::Interface::cast::<super::ICompositionTarget>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRoot)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
+}
+impl windows_core::RuntimeType for DesktopWindowTarget {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDesktopWindowTarget>();
 }
 unsafe impl windows_core::Interface for DesktopWindowTarget {
     type Vtable = <IDesktopWindowTarget as windows_core::Interface>::Vtable;

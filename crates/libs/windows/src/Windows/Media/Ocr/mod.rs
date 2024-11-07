@@ -76,9 +76,6 @@ pub struct IOcrWord_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OcrEngine(windows_core::IUnknown);
-impl windows_core::RuntimeType for OcrEngine {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOcrEngine>();
-}
 windows_core::imp::interface_hierarchy!(OcrEngine, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OcrEngine,);
 impl OcrEngine {
@@ -145,6 +142,9 @@ impl OcrEngine {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for OcrEngine {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOcrEngine>();
+}
 unsafe impl windows_core::Interface for OcrEngine {
     type Vtable = <IOcrEngine as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOcrEngine as windows_core::Interface>::IID;
@@ -155,9 +155,6 @@ impl windows_core::RuntimeName for OcrEngine {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OcrLine(windows_core::IUnknown);
-impl windows_core::RuntimeType for OcrLine {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOcrLine>();
-}
 windows_core::imp::interface_hierarchy!(OcrLine, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OcrLine,);
 impl OcrLine {
@@ -177,6 +174,9 @@ impl OcrLine {
         }
     }
 }
+impl windows_core::RuntimeType for OcrLine {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOcrLine>();
+}
 unsafe impl windows_core::Interface for OcrLine {
     type Vtable = <IOcrLine as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOcrLine as windows_core::Interface>::IID;
@@ -187,9 +187,6 @@ impl windows_core::RuntimeName for OcrLine {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OcrResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for OcrResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOcrResult>();
-}
 windows_core::imp::interface_hierarchy!(OcrResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OcrResult,);
 impl OcrResult {
@@ -216,6 +213,9 @@ impl OcrResult {
         }
     }
 }
+impl windows_core::RuntimeType for OcrResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOcrResult>();
+}
 unsafe impl windows_core::Interface for OcrResult {
     type Vtable = <IOcrResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IOcrResult as windows_core::Interface>::IID;
@@ -226,9 +226,6 @@ impl windows_core::RuntimeName for OcrResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct OcrWord(windows_core::IUnknown);
-impl windows_core::RuntimeType for OcrWord {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOcrWord>();
-}
 windows_core::imp::interface_hierarchy!(OcrWord, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(OcrWord,);
 impl OcrWord {
@@ -246,6 +243,9 @@ impl OcrWord {
             (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for OcrWord {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOcrWord>();
 }
 unsafe impl windows_core::Interface for OcrWord {
     type Vtable = <IOcrWord as windows_core::Interface>::Vtable;

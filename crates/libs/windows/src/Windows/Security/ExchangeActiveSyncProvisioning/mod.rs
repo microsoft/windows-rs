@@ -77,9 +77,6 @@ pub struct IEasComplianceResults2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EasClientDeviceInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for EasClientDeviceInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEasClientDeviceInformation>();
-}
 windows_core::imp::interface_hierarchy!(EasClientDeviceInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EasClientDeviceInformation,);
 impl EasClientDeviceInformation {
@@ -147,6 +144,9 @@ impl EasClientDeviceInformation {
         }
     }
 }
+impl windows_core::RuntimeType for EasClientDeviceInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEasClientDeviceInformation>();
+}
 unsafe impl windows_core::Interface for EasClientDeviceInformation {
     type Vtable = <IEasClientDeviceInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEasClientDeviceInformation as windows_core::Interface>::IID;
@@ -157,9 +157,6 @@ impl windows_core::RuntimeName for EasClientDeviceInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EasClientSecurityPolicy(windows_core::IUnknown);
-impl windows_core::RuntimeType for EasClientSecurityPolicy {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEasClientSecurityPolicy>();
-}
 windows_core::imp::interface_hierarchy!(EasClientSecurityPolicy, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EasClientSecurityPolicy,);
 impl EasClientSecurityPolicy {
@@ -273,6 +270,9 @@ impl EasClientSecurityPolicy {
         }
     }
 }
+impl windows_core::RuntimeType for EasClientSecurityPolicy {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEasClientSecurityPolicy>();
+}
 unsafe impl windows_core::Interface for EasClientSecurityPolicy {
     type Vtable = <IEasClientSecurityPolicy as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEasClientSecurityPolicy as windows_core::Interface>::IID;
@@ -283,9 +283,6 @@ impl windows_core::RuntimeName for EasClientSecurityPolicy {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EasComplianceResults(windows_core::IUnknown);
-impl windows_core::RuntimeType for EasComplianceResults {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEasComplianceResults>();
-}
 windows_core::imp::interface_hierarchy!(EasComplianceResults, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EasComplianceResults,);
 impl EasComplianceResults {
@@ -359,6 +356,9 @@ impl EasComplianceResults {
             (windows_core::Interface::vtable(this).EncryptionProviderType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for EasComplianceResults {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEasComplianceResults>();
 }
 unsafe impl windows_core::Interface for EasComplianceResults {
     type Vtable = <IEasComplianceResults as windows_core::Interface>::Vtable;

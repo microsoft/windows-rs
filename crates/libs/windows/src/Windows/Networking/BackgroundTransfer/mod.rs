@@ -1050,9 +1050,6 @@ pub struct IUploadOperation4_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundDownloader(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackgroundDownloader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundDownloader>();
-}
 windows_core::imp::interface_hierarchy!(BackgroundDownloader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundDownloader, IBackgroundTransferBase);
 impl BackgroundDownloader {
@@ -1315,6 +1312,9 @@ impl BackgroundDownloader {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BackgroundDownloader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundDownloader>();
+}
 unsafe impl windows_core::Interface for BackgroundDownloader {
     type Vtable = <IBackgroundDownloader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundDownloader as windows_core::Interface>::IID;
@@ -1325,9 +1325,6 @@ impl windows_core::RuntimeName for BackgroundDownloader {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferCompletionGroup(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackgroundTransferCompletionGroup {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTransferCompletionGroup>();
-}
 windows_core::imp::interface_hierarchy!(BackgroundTransferCompletionGroup, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundTransferCompletionGroup,);
 impl BackgroundTransferCompletionGroup {
@@ -1358,6 +1355,9 @@ impl BackgroundTransferCompletionGroup {
         unsafe { (windows_core::Interface::vtable(this).Enable)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for BackgroundTransferCompletionGroup {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTransferCompletionGroup>();
+}
 unsafe impl windows_core::Interface for BackgroundTransferCompletionGroup {
     type Vtable = <IBackgroundTransferCompletionGroup as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTransferCompletionGroup as windows_core::Interface>::IID;
@@ -1368,9 +1368,6 @@ impl windows_core::RuntimeName for BackgroundTransferCompletionGroup {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferCompletionGroupTriggerDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackgroundTransferCompletionGroupTriggerDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTransferCompletionGroupTriggerDetails>();
-}
 windows_core::imp::interface_hierarchy!(BackgroundTransferCompletionGroupTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundTransferCompletionGroupTriggerDetails,);
 impl BackgroundTransferCompletionGroupTriggerDetails {
@@ -1391,6 +1388,9 @@ impl BackgroundTransferCompletionGroupTriggerDetails {
         }
     }
 }
+impl windows_core::RuntimeType for BackgroundTransferCompletionGroupTriggerDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTransferCompletionGroupTriggerDetails>();
+}
 unsafe impl windows_core::Interface for BackgroundTransferCompletionGroupTriggerDetails {
     type Vtable = <IBackgroundTransferCompletionGroupTriggerDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTransferCompletionGroupTriggerDetails as windows_core::Interface>::IID;
@@ -1401,9 +1401,6 @@ impl windows_core::RuntimeName for BackgroundTransferCompletionGroupTriggerDetai
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferContentPart(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackgroundTransferContentPart {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTransferContentPart>();
-}
 windows_core::imp::interface_hierarchy!(BackgroundTransferContentPart, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundTransferContentPart, IBackgroundTransferContentPartFactory);
 impl BackgroundTransferContentPart {
@@ -1447,6 +1444,9 @@ impl BackgroundTransferContentPart {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BackgroundTransferContentPart {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTransferContentPart>();
+}
 unsafe impl windows_core::Interface for BackgroundTransferContentPart {
     type Vtable = <IBackgroundTransferContentPart as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTransferContentPart as windows_core::Interface>::IID;
@@ -1474,9 +1474,6 @@ impl windows_core::RuntimeName for BackgroundTransferError {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferGroup(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackgroundTransferGroup {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTransferGroup>();
-}
 windows_core::imp::interface_hierarchy!(BackgroundTransferGroup, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundTransferGroup,);
 impl BackgroundTransferGroup {
@@ -1509,6 +1506,9 @@ impl BackgroundTransferGroup {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BackgroundTransferGroup {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTransferGroup>();
+}
 unsafe impl windows_core::Interface for BackgroundTransferGroup {
     type Vtable = <IBackgroundTransferGroup as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTransferGroup as windows_core::Interface>::IID;
@@ -1519,9 +1519,6 @@ impl windows_core::RuntimeName for BackgroundTransferGroup {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundTransferRangesDownloadedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackgroundTransferRangesDownloadedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTransferRangesDownloadedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(BackgroundTransferRangesDownloadedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundTransferRangesDownloadedEventArgs,);
 impl BackgroundTransferRangesDownloadedEventArgs {
@@ -1548,6 +1545,9 @@ impl BackgroundTransferRangesDownloadedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for BackgroundTransferRangesDownloadedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundTransferRangesDownloadedEventArgs>();
+}
 unsafe impl windows_core::Interface for BackgroundTransferRangesDownloadedEventArgs {
     type Vtable = <IBackgroundTransferRangesDownloadedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundTransferRangesDownloadedEventArgs as windows_core::Interface>::IID;
@@ -1558,9 +1558,6 @@ impl windows_core::RuntimeName for BackgroundTransferRangesDownloadedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct BackgroundUploader(windows_core::IUnknown);
-impl windows_core::RuntimeType for BackgroundUploader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundUploader>();
-}
 windows_core::imp::interface_hierarchy!(BackgroundUploader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(BackgroundUploader, IBackgroundTransferBase);
 impl BackgroundUploader {
@@ -1845,6 +1842,9 @@ impl BackgroundUploader {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for BackgroundUploader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBackgroundUploader>();
+}
 unsafe impl windows_core::Interface for BackgroundUploader {
     type Vtable = <IBackgroundUploader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IBackgroundUploader as windows_core::Interface>::IID;
@@ -1894,9 +1894,6 @@ impl windows_core::RuntimeName for ContentPrefetcher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DownloadOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for DownloadOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDownloadOperation>();
-}
 windows_core::imp::interface_hierarchy!(DownloadOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DownloadOperation, IBackgroundTransferOperation, IBackgroundTransferOperationPriority);
 impl DownloadOperation {
@@ -2086,6 +2083,9 @@ impl DownloadOperation {
         unsafe { (windows_core::Interface::vtable(this).RemoveRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headername)).ok() }
     }
 }
+impl windows_core::RuntimeType for DownloadOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDownloadOperation>();
+}
 unsafe impl windows_core::Interface for DownloadOperation {
     type Vtable = <IDownloadOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDownloadOperation as windows_core::Interface>::IID;
@@ -2096,9 +2096,6 @@ impl windows_core::RuntimeName for DownloadOperation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ResponseInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for ResponseInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IResponseInformation>();
-}
 windows_core::imp::interface_hierarchy!(ResponseInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ResponseInformation,);
 impl ResponseInformation {
@@ -2132,6 +2129,9 @@ impl ResponseInformation {
         }
     }
 }
+impl windows_core::RuntimeType for ResponseInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IResponseInformation>();
+}
 unsafe impl windows_core::Interface for ResponseInformation {
     type Vtable = <IResponseInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IResponseInformation as windows_core::Interface>::IID;
@@ -2143,10 +2143,6 @@ impl windows_core::RuntimeName for ResponseInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UnconstrainedTransferRequestResult(windows_core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl windows_core::RuntimeType for UnconstrainedTransferRequestResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUnconstrainedTransferRequestResult>();
-}
 #[cfg(feature = "deprecated")]
 windows_core::imp::interface_hierarchy!(UnconstrainedTransferRequestResult, windows_core::IUnknown, windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
@@ -2163,6 +2159,10 @@ impl UnconstrainedTransferRequestResult {
     }
 }
 #[cfg(feature = "deprecated")]
+impl windows_core::RuntimeType for UnconstrainedTransferRequestResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUnconstrainedTransferRequestResult>();
+}
+#[cfg(feature = "deprecated")]
 unsafe impl windows_core::Interface for UnconstrainedTransferRequestResult {
     type Vtable = <IUnconstrainedTransferRequestResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUnconstrainedTransferRequestResult as windows_core::Interface>::IID;
@@ -2174,9 +2174,6 @@ impl windows_core::RuntimeName for UnconstrainedTransferRequestResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct UploadOperation(windows_core::IUnknown);
-impl windows_core::RuntimeType for UploadOperation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUploadOperation>();
-}
 windows_core::imp::interface_hierarchy!(UploadOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UploadOperation, IBackgroundTransferOperation, IBackgroundTransferOperationPriority);
 impl UploadOperation {
@@ -2294,6 +2291,9 @@ impl UploadOperation {
         unsafe { (windows_core::Interface::vtable(this).RemoveRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headername)).ok() }
     }
 }
+impl windows_core::RuntimeType for UploadOperation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IUploadOperation>();
+}
 unsafe impl windows_core::Interface for UploadOperation {
     type Vtable = <IUploadOperation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IUploadOperation as windows_core::Interface>::IID;
@@ -2364,7 +2364,7 @@ impl windows_core::RuntimeType for BackgroundTransferStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct BackgroundDownloadProgress {
     pub BytesReceived: u64,
     pub TotalBytesToReceive: u64,
@@ -2379,7 +2379,7 @@ impl windows_core::RuntimeType for BackgroundDownloadProgress {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundDownloadProgress;u8;u8;enum(Windows.Networking.BackgroundTransfer.BackgroundTransferStatus;i4);b1;b1)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct BackgroundTransferFileRange {
     pub Offset: u64,
     pub Length: u64,
@@ -2391,7 +2391,7 @@ impl windows_core::RuntimeType for BackgroundTransferFileRange {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Networking.BackgroundTransfer.BackgroundTransferFileRange;u8;u8)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct BackgroundUploadProgress {
     pub BytesReceived: u64,
     pub BytesSent: u64,

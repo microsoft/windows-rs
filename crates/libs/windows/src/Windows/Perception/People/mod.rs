@@ -108,9 +108,6 @@ pub struct IHeadPose_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct EyesPose(windows_core::IUnknown);
-impl windows_core::RuntimeType for EyesPose {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEyesPose>();
-}
 windows_core::imp::interface_hierarchy!(EyesPose, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(EyesPose,);
 impl EyesPose {
@@ -154,6 +151,9 @@ impl EyesPose {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for EyesPose {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IEyesPose>();
+}
 unsafe impl windows_core::Interface for EyesPose {
     type Vtable = <IEyesPose as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IEyesPose as windows_core::Interface>::IID;
@@ -164,9 +164,6 @@ impl windows_core::RuntimeName for EyesPose {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HandMeshObserver(windows_core::IUnknown);
-impl windows_core::RuntimeType for HandMeshObserver {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHandMeshObserver>();
-}
 windows_core::imp::interface_hierarchy!(HandMeshObserver, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HandMeshObserver,);
 impl HandMeshObserver {
@@ -228,6 +225,9 @@ impl HandMeshObserver {
         }
     }
 }
+impl windows_core::RuntimeType for HandMeshObserver {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHandMeshObserver>();
+}
 unsafe impl windows_core::Interface for HandMeshObserver {
     type Vtable = <IHandMeshObserver as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHandMeshObserver as windows_core::Interface>::IID;
@@ -238,9 +238,6 @@ impl windows_core::RuntimeName for HandMeshObserver {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HandMeshVertexState(windows_core::IUnknown);
-impl windows_core::RuntimeType for HandMeshVertexState {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHandMeshVertexState>();
-}
 windows_core::imp::interface_hierarchy!(HandMeshVertexState, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HandMeshVertexState,);
 impl HandMeshVertexState {
@@ -265,6 +262,9 @@ impl HandMeshVertexState {
         }
     }
 }
+impl windows_core::RuntimeType for HandMeshVertexState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHandMeshVertexState>();
+}
 unsafe impl windows_core::Interface for HandMeshVertexState {
     type Vtable = <IHandMeshVertexState as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHandMeshVertexState as windows_core::Interface>::IID;
@@ -275,9 +275,6 @@ impl windows_core::RuntimeName for HandMeshVertexState {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HandPose(windows_core::IUnknown);
-impl windows_core::RuntimeType for HandPose {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHandPose>();
-}
 windows_core::imp::interface_hierarchy!(HandPose, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HandPose,);
 impl HandPose {
@@ -317,6 +314,9 @@ impl HandPose {
         unsafe { (windows_core::Interface::vtable(this).GetRelativeJoints)(windows_core::Interface::as_raw(this), joints.len().try_into().unwrap(), joints.as_ptr(), referencejoints.len().try_into().unwrap(), referencejoints.as_ptr(), jointposes.len().try_into().unwrap(), jointposes.as_mut_ptr()).ok() }
     }
 }
+impl windows_core::RuntimeType for HandPose {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHandPose>();
+}
 unsafe impl windows_core::Interface for HandPose {
     type Vtable = <IHandPose as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHandPose as windows_core::Interface>::IID;
@@ -327,9 +327,6 @@ impl windows_core::RuntimeName for HandPose {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HeadPose(windows_core::IUnknown);
-impl windows_core::RuntimeType for HeadPose {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHeadPose>();
-}
 windows_core::imp::interface_hierarchy!(HeadPose, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HeadPose,);
 impl HeadPose {
@@ -357,6 +354,9 @@ impl HeadPose {
             (windows_core::Interface::vtable(this).UpDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for HeadPose {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHeadPose>();
 }
 unsafe impl windows_core::Interface for HeadPose {
     type Vtable = <IHeadPose as windows_core::Interface>::Vtable;
@@ -416,7 +416,7 @@ impl windows_core::RuntimeType for JointPoseAccuracy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Perception.People.JointPoseAccuracy;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct HandMeshVertex {
     pub Position: super::super::Foundation::Numerics::Vector3,
     pub Normal: super::super::Foundation::Numerics::Vector3,
@@ -428,7 +428,7 @@ impl windows_core::RuntimeType for HandMeshVertex {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Perception.People.HandMeshVertex;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct JointPose {
     pub Orientation: super::super::Foundation::Numerics::Quaternion,
     pub Position: super::super::Foundation::Numerics::Vector3,

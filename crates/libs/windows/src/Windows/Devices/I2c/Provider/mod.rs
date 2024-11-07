@@ -261,9 +261,6 @@ pub struct IProviderI2cConnectionSettings_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProviderI2cConnectionSettings(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProviderI2cConnectionSettings {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProviderI2cConnectionSettings>();
-}
 windows_core::imp::interface_hierarchy!(ProviderI2cConnectionSettings, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProviderI2cConnectionSettings,);
 impl ProviderI2cConnectionSettings {
@@ -300,6 +297,9 @@ impl ProviderI2cConnectionSettings {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSharingMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
+}
+impl windows_core::RuntimeType for ProviderI2cConnectionSettings {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProviderI2cConnectionSettings>();
 }
 unsafe impl windows_core::Interface for ProviderI2cConnectionSettings {
     type Vtable = <IProviderI2cConnectionSettings as windows_core::Interface>::Vtable;
@@ -349,7 +349,7 @@ impl windows_core::RuntimeType for ProviderI2cTransferStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.I2c.Provider.ProviderI2cTransferStatus;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct ProviderI2cTransferResult {
     pub Status: ProviderI2cTransferStatus,
     pub BytesTransferred: u32,

@@ -30,9 +30,6 @@ pub struct IRadioStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Radio(windows_core::IUnknown);
-impl windows_core::RuntimeType for Radio {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadio>();
-}
 windows_core::imp::interface_hierarchy!(Radio, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Radio,);
 impl Radio {
@@ -107,6 +104,9 @@ impl Radio {
         static SHARED: windows_core::imp::FactoryCache<Radio, IRadioStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for Radio {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRadio>();
 }
 unsafe impl windows_core::Interface for Radio {
     type Vtable = <IRadio as windows_core::Interface>::Vtable;

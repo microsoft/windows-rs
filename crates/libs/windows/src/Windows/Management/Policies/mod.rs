@@ -67,9 +67,6 @@ impl windows_core::RuntimeName for NamedPolicy {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NamedPolicyData(windows_core::IUnknown);
-impl windows_core::RuntimeType for NamedPolicyData {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INamedPolicyData>();
-}
 windows_core::imp::interface_hierarchy!(NamedPolicyData, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NamedPolicyData,);
 impl NamedPolicyData {
@@ -166,6 +163,9 @@ impl NamedPolicyData {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveChanged)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
+}
+impl windows_core::RuntimeType for NamedPolicyData {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INamedPolicyData>();
 }
 unsafe impl windows_core::Interface for NamedPolicyData {
     type Vtable = <INamedPolicyData as windows_core::Interface>::Vtable;

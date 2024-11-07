@@ -179,9 +179,6 @@ pub struct IKnownDeviceTypesStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CustomDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for CustomDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICustomDevice>();
-}
 windows_core::imp::interface_hierarchy!(CustomDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CustomDevice,);
 impl CustomDevice {
@@ -244,6 +241,9 @@ impl CustomDevice {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CustomDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICustomDevice>();
+}
 unsafe impl windows_core::Interface for CustomDevice {
     type Vtable = <ICustomDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICustomDevice as windows_core::Interface>::IID;
@@ -254,9 +254,6 @@ impl windows_core::RuntimeName for CustomDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IOControlCode(windows_core::IUnknown);
-impl windows_core::RuntimeType for IOControlCode {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIOControlCode>();
-}
 windows_core::imp::interface_hierarchy!(IOControlCode, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IOControlCode, IIOControlCode);
 impl IOControlCode {
@@ -305,6 +302,9 @@ impl IOControlCode {
         static SHARED: windows_core::imp::FactoryCache<IOControlCode, IIOControlCodeFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for IOControlCode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIOControlCode>();
 }
 unsafe impl windows_core::Interface for IOControlCode {
     type Vtable = <IIOControlCode as windows_core::Interface>::Vtable;

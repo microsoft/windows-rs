@@ -984,9 +984,6 @@ impl ISignificantDigitsOption_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct CurrencyFormatter(windows_core::IUnknown);
-impl windows_core::RuntimeType for CurrencyFormatter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICurrencyFormatter>();
-}
 windows_core::imp::interface_hierarchy!(CurrencyFormatter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CurrencyFormatter, INumberFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
 impl CurrencyFormatter {
@@ -1220,6 +1217,9 @@ impl CurrencyFormatter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for CurrencyFormatter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ICurrencyFormatter>();
+}
 unsafe impl windows_core::Interface for CurrencyFormatter {
     type Vtable = <ICurrencyFormatter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <ICurrencyFormatter as windows_core::Interface>::IID;
@@ -1230,9 +1230,6 @@ impl windows_core::RuntimeName for CurrencyFormatter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DecimalFormatter(windows_core::IUnknown);
-impl windows_core::RuntimeType for DecimalFormatter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumberFormatter>();
-}
 windows_core::imp::interface_hierarchy!(DecimalFormatter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DecimalFormatter, INumberFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
 impl DecimalFormatter {
@@ -1441,6 +1438,9 @@ impl DecimalFormatter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DecimalFormatter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumberFormatter>();
+}
 unsafe impl windows_core::Interface for DecimalFormatter {
     type Vtable = <INumberFormatter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INumberFormatter as windows_core::Interface>::IID;
@@ -1451,9 +1451,6 @@ impl windows_core::RuntimeName for DecimalFormatter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct IncrementNumberRounder(windows_core::IUnknown);
-impl windows_core::RuntimeType for IncrementNumberRounder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumberRounder>();
-}
 windows_core::imp::interface_hierarchy!(IncrementNumberRounder, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IncrementNumberRounder, INumberRounder);
 impl IncrementNumberRounder {
@@ -1529,6 +1526,9 @@ impl IncrementNumberRounder {
         }
     }
 }
+impl windows_core::RuntimeType for IncrementNumberRounder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumberRounder>();
+}
 unsafe impl windows_core::Interface for IncrementNumberRounder {
     type Vtable = <INumberRounder as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INumberRounder as windows_core::Interface>::IID;
@@ -1539,9 +1539,6 @@ impl windows_core::RuntimeName for IncrementNumberRounder {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct NumeralSystemTranslator(windows_core::IUnknown);
-impl windows_core::RuntimeType for NumeralSystemTranslator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumeralSystemTranslator>();
-}
 windows_core::imp::interface_hierarchy!(NumeralSystemTranslator, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NumeralSystemTranslator,);
 impl NumeralSystemTranslator {
@@ -1600,6 +1597,9 @@ impl NumeralSystemTranslator {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for NumeralSystemTranslator {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumeralSystemTranslator>();
+}
 unsafe impl windows_core::Interface for NumeralSystemTranslator {
     type Vtable = <INumeralSystemTranslator as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INumeralSystemTranslator as windows_core::Interface>::IID;
@@ -1610,9 +1610,6 @@ impl windows_core::RuntimeName for NumeralSystemTranslator {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PercentFormatter(windows_core::IUnknown);
-impl windows_core::RuntimeType for PercentFormatter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumberFormatter>();
-}
 windows_core::imp::interface_hierarchy!(PercentFormatter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PercentFormatter, INumberFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
 impl PercentFormatter {
@@ -1821,6 +1818,9 @@ impl PercentFormatter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PercentFormatter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumberFormatter>();
+}
 unsafe impl windows_core::Interface for PercentFormatter {
     type Vtable = <INumberFormatter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INumberFormatter as windows_core::Interface>::IID;
@@ -1831,9 +1831,6 @@ impl windows_core::RuntimeName for PercentFormatter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PermilleFormatter(windows_core::IUnknown);
-impl windows_core::RuntimeType for PermilleFormatter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumberFormatter>();
-}
 windows_core::imp::interface_hierarchy!(PermilleFormatter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PermilleFormatter, INumberFormatter, INumberFormatter2, INumberFormatterOptions, INumberParser, INumberRounderOption, ISignedZeroOption, ISignificantDigitsOption);
 impl PermilleFormatter {
@@ -2042,6 +2039,9 @@ impl PermilleFormatter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for PermilleFormatter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumberFormatter>();
+}
 unsafe impl windows_core::Interface for PermilleFormatter {
     type Vtable = <INumberFormatter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <INumberFormatter as windows_core::Interface>::IID;
@@ -2052,9 +2052,6 @@ impl windows_core::RuntimeName for PermilleFormatter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct SignificantDigitsNumberRounder(windows_core::IUnknown);
-impl windows_core::RuntimeType for SignificantDigitsNumberRounder {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumberRounder>();
-}
 windows_core::imp::interface_hierarchy!(SignificantDigitsNumberRounder, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SignificantDigitsNumberRounder, INumberRounder);
 impl SignificantDigitsNumberRounder {
@@ -2129,6 +2126,9 @@ impl SignificantDigitsNumberRounder {
         let this = &windows_core::Interface::cast::<ISignificantDigitsNumberRounder>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSignificantDigits)(windows_core::Interface::as_raw(this), value).ok() }
     }
+}
+impl windows_core::RuntimeType for SignificantDigitsNumberRounder {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, INumberRounder>();
 }
 unsafe impl windows_core::Interface for SignificantDigitsNumberRounder {
     type Vtable = <INumberRounder as windows_core::Interface>::Vtable;

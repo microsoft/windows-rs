@@ -107,9 +107,6 @@ pub struct IPrintTaskConfigurationSaveRequestedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DWorkflow(windows_core::IUnknown);
-impl windows_core::RuntimeType for Print3DWorkflow {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrint3DWorkflow>();
-}
 windows_core::imp::interface_hierarchy!(Print3DWorkflow, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Print3DWorkflow,);
 impl Print3DWorkflow {
@@ -167,6 +164,9 @@ impl Print3DWorkflow {
         unsafe { (windows_core::Interface::vtable(this).RemovePrinterChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
 }
+impl windows_core::RuntimeType for Print3DWorkflow {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrint3DWorkflow>();
+}
 unsafe impl windows_core::Interface for Print3DWorkflow {
     type Vtable = <IPrint3DWorkflow as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrint3DWorkflow as windows_core::Interface>::IID;
@@ -177,9 +177,6 @@ impl windows_core::RuntimeName for Print3DWorkflow {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DWorkflowPrintRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for Print3DWorkflowPrintRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrint3DWorkflowPrintRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(Print3DWorkflowPrintRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Print3DWorkflowPrintRequestedEventArgs,);
 impl Print3DWorkflowPrintRequestedEventArgs {
@@ -206,6 +203,9 @@ impl Print3DWorkflowPrintRequestedEventArgs {
         unsafe { (windows_core::Interface::vtable(this).SetSourceChanged)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for Print3DWorkflowPrintRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrint3DWorkflowPrintRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for Print3DWorkflowPrintRequestedEventArgs {
     type Vtable = <IPrint3DWorkflowPrintRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrint3DWorkflowPrintRequestedEventArgs as windows_core::Interface>::IID;
@@ -216,9 +216,6 @@ impl windows_core::RuntimeName for Print3DWorkflowPrintRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct Print3DWorkflowPrinterChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for Print3DWorkflowPrinterChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrint3DWorkflowPrinterChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(Print3DWorkflowPrinterChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Print3DWorkflowPrinterChangedEventArgs,);
 impl Print3DWorkflowPrinterChangedEventArgs {
@@ -229,6 +226,9 @@ impl Print3DWorkflowPrinterChangedEventArgs {
             (windows_core::Interface::vtable(this).NewDeviceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for Print3DWorkflowPrinterChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrint3DWorkflowPrinterChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for Print3DWorkflowPrinterChangedEventArgs {
     type Vtable = <IPrint3DWorkflowPrinterChangedEventArgs as windows_core::Interface>::Vtable;
@@ -256,9 +256,6 @@ impl windows_core::RuntimeName for PrintExtensionContext {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintNotificationEventDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintNotificationEventDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintNotificationEventDetails>();
-}
 windows_core::imp::interface_hierarchy!(PrintNotificationEventDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintNotificationEventDetails,);
 impl PrintNotificationEventDetails {
@@ -281,6 +278,9 @@ impl PrintNotificationEventDetails {
         unsafe { (windows_core::Interface::vtable(this).SetEventData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
 }
+impl windows_core::RuntimeType for PrintNotificationEventDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintNotificationEventDetails>();
+}
 unsafe impl windows_core::Interface for PrintNotificationEventDetails {
     type Vtable = <IPrintNotificationEventDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintNotificationEventDetails as windows_core::Interface>::IID;
@@ -291,9 +291,6 @@ impl windows_core::RuntimeName for PrintNotificationEventDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskConfiguration(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTaskConfiguration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskConfiguration>();
-}
 windows_core::imp::interface_hierarchy!(PrintTaskConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskConfiguration,);
 impl PrintTaskConfiguration {
@@ -319,6 +316,9 @@ impl PrintTaskConfiguration {
         unsafe { (windows_core::Interface::vtable(this).RemoveSaveRequested)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
 }
+impl windows_core::RuntimeType for PrintTaskConfiguration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskConfiguration>();
+}
 unsafe impl windows_core::Interface for PrintTaskConfiguration {
     type Vtable = <IPrintTaskConfiguration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTaskConfiguration as windows_core::Interface>::IID;
@@ -329,9 +329,6 @@ impl windows_core::RuntimeName for PrintTaskConfiguration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskConfigurationSaveRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTaskConfigurationSaveRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskConfigurationSaveRequest>();
-}
 windows_core::imp::interface_hierarchy!(PrintTaskConfigurationSaveRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskConfigurationSaveRequest,);
 impl PrintTaskConfigurationSaveRequest {
@@ -361,6 +358,9 @@ impl PrintTaskConfigurationSaveRequest {
         }
     }
 }
+impl windows_core::RuntimeType for PrintTaskConfigurationSaveRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskConfigurationSaveRequest>();
+}
 unsafe impl windows_core::Interface for PrintTaskConfigurationSaveRequest {
     type Vtable = <IPrintTaskConfigurationSaveRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintTaskConfigurationSaveRequest as windows_core::Interface>::IID;
@@ -371,9 +371,6 @@ impl windows_core::RuntimeName for PrintTaskConfigurationSaveRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskConfigurationSaveRequestedDeferral(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTaskConfigurationSaveRequestedDeferral {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskConfigurationSaveRequestedDeferral>();
-}
 windows_core::imp::interface_hierarchy!(PrintTaskConfigurationSaveRequestedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskConfigurationSaveRequestedDeferral,);
 impl PrintTaskConfigurationSaveRequestedDeferral {
@@ -381,6 +378,9 @@ impl PrintTaskConfigurationSaveRequestedDeferral {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
+}
+impl windows_core::RuntimeType for PrintTaskConfigurationSaveRequestedDeferral {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskConfigurationSaveRequestedDeferral>();
 }
 unsafe impl windows_core::Interface for PrintTaskConfigurationSaveRequestedDeferral {
     type Vtable = <IPrintTaskConfigurationSaveRequestedDeferral as windows_core::Interface>::Vtable;
@@ -392,9 +392,6 @@ impl windows_core::RuntimeName for PrintTaskConfigurationSaveRequestedDeferral {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PrintTaskConfigurationSaveRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for PrintTaskConfigurationSaveRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskConfigurationSaveRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(PrintTaskConfigurationSaveRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PrintTaskConfigurationSaveRequestedEventArgs,);
 impl PrintTaskConfigurationSaveRequestedEventArgs {
@@ -405,6 +402,9 @@ impl PrintTaskConfigurationSaveRequestedEventArgs {
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for PrintTaskConfigurationSaveRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintTaskConfigurationSaveRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for PrintTaskConfigurationSaveRequestedEventArgs {
     type Vtable = <IPrintTaskConfigurationSaveRequestedEventArgs as windows_core::Interface>::Vtable;

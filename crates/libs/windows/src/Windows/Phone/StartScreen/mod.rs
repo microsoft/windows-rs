@@ -103,9 +103,6 @@ impl IToastNotificationManagerStatics3_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DualSimTile(windows_core::IUnknown);
-impl windows_core::RuntimeType for DualSimTile {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDualSimTile>();
-}
 windows_core::imp::interface_hierarchy!(DualSimTile, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DualSimTile,);
 impl DualSimTile {
@@ -213,6 +210,9 @@ impl DualSimTile {
         static SHARED: windows_core::imp::FactoryCache<DualSimTile, IDualSimTileStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for DualSimTile {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDualSimTile>();
 }
 unsafe impl windows_core::Interface for DualSimTile {
     type Vtable = <IDualSimTile as windows_core::Interface>::Vtable;

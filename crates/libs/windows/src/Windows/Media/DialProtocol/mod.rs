@@ -155,9 +155,6 @@ pub struct IDialReceiverAppStatics_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialApp(windows_core::IUnknown);
-impl windows_core::RuntimeType for DialApp {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialApp>();
-}
 windows_core::imp::interface_hierarchy!(DialApp, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DialApp,);
 impl DialApp {
@@ -190,6 +187,9 @@ impl DialApp {
         }
     }
 }
+impl windows_core::RuntimeType for DialApp {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialApp>();
+}
 unsafe impl windows_core::Interface for DialApp {
     type Vtable = <IDialApp as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialApp as windows_core::Interface>::IID;
@@ -200,9 +200,6 @@ impl windows_core::RuntimeName for DialApp {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialAppStateDetails(windows_core::IUnknown);
-impl windows_core::RuntimeType for DialAppStateDetails {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialAppStateDetails>();
-}
 windows_core::imp::interface_hierarchy!(DialAppStateDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DialAppStateDetails,);
 impl DialAppStateDetails {
@@ -221,6 +218,9 @@ impl DialAppStateDetails {
         }
     }
 }
+impl windows_core::RuntimeType for DialAppStateDetails {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialAppStateDetails>();
+}
 unsafe impl windows_core::Interface for DialAppStateDetails {
     type Vtable = <IDialAppStateDetails as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialAppStateDetails as windows_core::Interface>::IID;
@@ -231,9 +231,6 @@ impl windows_core::RuntimeName for DialAppStateDetails {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialDevice(windows_core::IUnknown);
-impl windows_core::RuntimeType for DialDevice {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDevice>();
-}
 windows_core::imp::interface_hierarchy!(DialDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DialDevice,);
 impl DialDevice {
@@ -293,6 +290,9 @@ impl DialDevice {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for DialDevice {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDevice>();
+}
 unsafe impl windows_core::Interface for DialDevice {
     type Vtable = <IDialDevice as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialDevice as windows_core::Interface>::IID;
@@ -303,9 +303,6 @@ impl windows_core::RuntimeName for DialDevice {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialDevicePicker(windows_core::IUnknown);
-impl windows_core::RuntimeType for DialDevicePicker {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDevicePicker>();
-}
 windows_core::imp::interface_hierarchy!(DialDevicePicker, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DialDevicePicker,);
 impl DialDevicePicker {
@@ -409,6 +406,9 @@ impl DialDevicePicker {
         unsafe { (windows_core::Interface::vtable(this).SetDisplayStatus)(windows_core::Interface::as_raw(this), device.param().abi(), status).ok() }
     }
 }
+impl windows_core::RuntimeType for DialDevicePicker {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDevicePicker>();
+}
 unsafe impl windows_core::Interface for DialDevicePicker {
     type Vtable = <IDialDevicePicker as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialDevicePicker as windows_core::Interface>::IID;
@@ -419,9 +419,6 @@ impl windows_core::RuntimeName for DialDevicePicker {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialDevicePickerFilter(windows_core::IUnknown);
-impl windows_core::RuntimeType for DialDevicePickerFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDevicePickerFilter>();
-}
 windows_core::imp::interface_hierarchy!(DialDevicePickerFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DialDevicePickerFilter,);
 impl DialDevicePickerFilter {
@@ -434,6 +431,9 @@ impl DialDevicePickerFilter {
         }
     }
 }
+impl windows_core::RuntimeType for DialDevicePickerFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDevicePickerFilter>();
+}
 unsafe impl windows_core::Interface for DialDevicePickerFilter {
     type Vtable = <IDialDevicePickerFilter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialDevicePickerFilter as windows_core::Interface>::IID;
@@ -444,9 +444,6 @@ impl windows_core::RuntimeName for DialDevicePickerFilter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialDeviceSelectedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DialDeviceSelectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDeviceSelectedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DialDeviceSelectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DialDeviceSelectedEventArgs,);
 impl DialDeviceSelectedEventArgs {
@@ -458,6 +455,9 @@ impl DialDeviceSelectedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for DialDeviceSelectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDeviceSelectedEventArgs>();
+}
 unsafe impl windows_core::Interface for DialDeviceSelectedEventArgs {
     type Vtable = <IDialDeviceSelectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialDeviceSelectedEventArgs as windows_core::Interface>::IID;
@@ -468,9 +468,6 @@ impl windows_core::RuntimeName for DialDeviceSelectedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialDisconnectButtonClickedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for DialDisconnectButtonClickedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDisconnectButtonClickedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(DialDisconnectButtonClickedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DialDisconnectButtonClickedEventArgs,);
 impl DialDisconnectButtonClickedEventArgs {
@@ -482,6 +479,9 @@ impl DialDisconnectButtonClickedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for DialDisconnectButtonClickedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialDisconnectButtonClickedEventArgs>();
+}
 unsafe impl windows_core::Interface for DialDisconnectButtonClickedEventArgs {
     type Vtable = <IDialDisconnectButtonClickedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IDialDisconnectButtonClickedEventArgs as windows_core::Interface>::IID;
@@ -492,9 +492,6 @@ impl windows_core::RuntimeName for DialDisconnectButtonClickedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct DialReceiverApp(windows_core::IUnknown);
-impl windows_core::RuntimeType for DialReceiverApp {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialReceiverApp>();
-}
 windows_core::imp::interface_hierarchy!(DialReceiverApp, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DialReceiverApp,);
 impl DialReceiverApp {
@@ -534,6 +531,9 @@ impl DialReceiverApp {
         static SHARED: windows_core::imp::FactoryCache<DialReceiverApp, IDialReceiverAppStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for DialReceiverApp {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IDialReceiverApp>();
 }
 unsafe impl windows_core::Interface for DialReceiverApp {
     type Vtable = <IDialReceiverApp as windows_core::Interface>::Vtable;

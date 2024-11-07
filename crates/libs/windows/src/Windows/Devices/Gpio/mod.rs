@@ -124,9 +124,6 @@ pub struct IGpioPinValueChangedEventArgs_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GpioChangeCounter(windows_core::IUnknown);
-impl windows_core::RuntimeType for GpioChangeCounter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGpioChangeCounter>();
-}
 windows_core::imp::interface_hierarchy!(GpioChangeCounter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GpioChangeCounter, super::super::Foundation::IClosable);
 impl GpioChangeCounter {
@@ -188,6 +185,9 @@ impl GpioChangeCounter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GpioChangeCounter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGpioChangeCounter>();
+}
 unsafe impl windows_core::Interface for GpioChangeCounter {
     type Vtable = <IGpioChangeCounter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGpioChangeCounter as windows_core::Interface>::IID;
@@ -198,9 +198,6 @@ impl windows_core::RuntimeName for GpioChangeCounter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GpioChangeReader(windows_core::IUnknown);
-impl windows_core::RuntimeType for GpioChangeReader {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGpioChangeReader>();
-}
 windows_core::imp::interface_hierarchy!(GpioChangeReader, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GpioChangeReader, super::super::Foundation::IClosable);
 impl GpioChangeReader {
@@ -318,6 +315,9 @@ impl GpioChangeReader {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GpioChangeReader {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGpioChangeReader>();
+}
 unsafe impl windows_core::Interface for GpioChangeReader {
     type Vtable = <IGpioChangeReader as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGpioChangeReader as windows_core::Interface>::IID;
@@ -328,9 +328,6 @@ impl windows_core::RuntimeName for GpioChangeReader {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GpioController(windows_core::IUnknown);
-impl windows_core::RuntimeType for GpioController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGpioController>();
-}
 windows_core::imp::interface_hierarchy!(GpioController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GpioController,);
 impl GpioController {
@@ -393,6 +390,9 @@ impl GpioController {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for GpioController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGpioController>();
+}
 unsafe impl windows_core::Interface for GpioController {
     type Vtable = <IGpioController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGpioController as windows_core::Interface>::IID;
@@ -403,9 +403,6 @@ impl windows_core::RuntimeName for GpioController {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GpioPin(windows_core::IUnknown);
-impl windows_core::RuntimeType for GpioPin {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGpioPin>();
-}
 windows_core::imp::interface_hierarchy!(GpioPin, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GpioPin, super::super::Foundation::IClosable);
 impl GpioPin {
@@ -482,6 +479,9 @@ impl GpioPin {
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for GpioPin {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGpioPin>();
+}
 unsafe impl windows_core::Interface for GpioPin {
     type Vtable = <IGpioPin as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IGpioPin as windows_core::Interface>::IID;
@@ -492,9 +492,6 @@ impl windows_core::RuntimeName for GpioPin {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct GpioPinValueChangedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for GpioPinValueChangedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGpioPinValueChangedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(GpioPinValueChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GpioPinValueChangedEventArgs,);
 impl GpioPinValueChangedEventArgs {
@@ -505,6 +502,9 @@ impl GpioPinValueChangedEventArgs {
             (windows_core::Interface::vtable(this).Edge)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+}
+impl windows_core::RuntimeType for GpioPinValueChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IGpioPinValueChangedEventArgs>();
 }
 unsafe impl windows_core::Interface for GpioPinValueChangedEventArgs {
     type Vtable = <IGpioPinValueChangedEventArgs as windows_core::Interface>::Vtable;
@@ -602,7 +602,7 @@ impl windows_core::RuntimeType for GpioSharingMode {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Gpio.GpioSharingMode;i4)");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct GpioChangeCount {
     pub Count: u64,
     pub RelativeTime: super::super::Foundation::TimeSpan,
@@ -614,7 +614,7 @@ impl windows_core::RuntimeType for GpioChangeCount {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Gpio.GpioChangeCount;u8;struct(Windows.Foundation.TimeSpan;i8))");
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Copy)]
 pub struct GpioChangeRecord {
     pub RelativeTime: super::super::Foundation::TimeSpan,
     pub Edge: GpioPinEdge,

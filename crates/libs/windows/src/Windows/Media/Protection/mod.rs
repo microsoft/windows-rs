@@ -208,9 +208,6 @@ pub struct IServiceRequestedEventArgs2_Vtbl {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ComponentLoadFailedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ComponentLoadFailedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IComponentLoadFailedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ComponentLoadFailedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ComponentLoadFailedEventArgs,);
 impl ComponentLoadFailedEventArgs {
@@ -228,6 +225,9 @@ impl ComponentLoadFailedEventArgs {
             (windows_core::Interface::vtable(this).Completion)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for ComponentLoadFailedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IComponentLoadFailedEventArgs>();
 }
 unsafe impl windows_core::Interface for ComponentLoadFailedEventArgs {
     type Vtable = <IComponentLoadFailedEventArgs as windows_core::Interface>::Vtable;
@@ -258,9 +258,6 @@ impl windows_core::RuntimeName for ComponentRenewal {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct HdcpSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for HdcpSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHdcpSession>();
-}
 windows_core::imp::interface_hierarchy!(HdcpSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(HdcpSession, super::super::Foundation::IClosable);
 impl HdcpSession {
@@ -311,6 +308,9 @@ impl HdcpSession {
         unsafe { (windows_core::Interface::vtable(this).RemoveProtectionChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for HdcpSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHdcpSession>();
+}
 unsafe impl windows_core::Interface for HdcpSession {
     type Vtable = <IHdcpSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IHdcpSession as windows_core::Interface>::IID;
@@ -321,9 +321,6 @@ impl windows_core::RuntimeName for HdcpSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaProtectionManager(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaProtectionManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaProtectionManager>();
-}
 windows_core::imp::interface_hierarchy!(MediaProtectionManager, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaProtectionManager,);
 impl MediaProtectionManager {
@@ -385,6 +382,9 @@ impl MediaProtectionManager {
         }
     }
 }
+impl windows_core::RuntimeType for MediaProtectionManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaProtectionManager>();
+}
 unsafe impl windows_core::Interface for MediaProtectionManager {
     type Vtable = <IMediaProtectionManager as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaProtectionManager as windows_core::Interface>::IID;
@@ -395,9 +395,6 @@ impl windows_core::RuntimeName for MediaProtectionManager {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaProtectionPMPServer(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaProtectionPMPServer {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaProtectionPMPServer>();
-}
 windows_core::imp::interface_hierarchy!(MediaProtectionPMPServer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaProtectionPMPServer,);
 impl MediaProtectionPMPServer {
@@ -424,6 +421,9 @@ impl MediaProtectionPMPServer {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for MediaProtectionPMPServer {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaProtectionPMPServer>();
+}
 unsafe impl windows_core::Interface for MediaProtectionPMPServer {
     type Vtable = <IMediaProtectionPMPServer as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMediaProtectionPMPServer as windows_core::Interface>::IID;
@@ -434,9 +434,6 @@ impl windows_core::RuntimeName for MediaProtectionPMPServer {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct MediaProtectionServiceCompletion(windows_core::IUnknown);
-impl windows_core::RuntimeType for MediaProtectionServiceCompletion {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaProtectionServiceCompletion>();
-}
 windows_core::imp::interface_hierarchy!(MediaProtectionServiceCompletion, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MediaProtectionServiceCompletion,);
 impl MediaProtectionServiceCompletion {
@@ -444,6 +441,9 @@ impl MediaProtectionServiceCompletion {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this), success).ok() }
     }
+}
+impl windows_core::RuntimeType for MediaProtectionServiceCompletion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMediaProtectionServiceCompletion>();
 }
 unsafe impl windows_core::Interface for MediaProtectionServiceCompletion {
     type Vtable = <IMediaProtectionServiceCompletion as windows_core::Interface>::Vtable;
@@ -455,9 +455,6 @@ impl windows_core::RuntimeName for MediaProtectionServiceCompletion {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ProtectionCapabilities(windows_core::IUnknown);
-impl windows_core::RuntimeType for ProtectionCapabilities {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectionCapabilities>();
-}
 windows_core::imp::interface_hierarchy!(ProtectionCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ProtectionCapabilities,);
 impl ProtectionCapabilities {
@@ -476,6 +473,9 @@ impl ProtectionCapabilities {
         }
     }
 }
+impl windows_core::RuntimeType for ProtectionCapabilities {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IProtectionCapabilities>();
+}
 unsafe impl windows_core::Interface for ProtectionCapabilities {
     type Vtable = <IProtectionCapabilities as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IProtectionCapabilities as windows_core::Interface>::IID;
@@ -486,9 +486,6 @@ impl windows_core::RuntimeName for ProtectionCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RevocationAndRenewalInformation(windows_core::IUnknown);
-impl windows_core::RuntimeType for RevocationAndRenewalInformation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRevocationAndRenewalInformation>();
-}
 windows_core::imp::interface_hierarchy!(RevocationAndRenewalInformation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RevocationAndRenewalInformation,);
 impl RevocationAndRenewalInformation {
@@ -501,6 +498,9 @@ impl RevocationAndRenewalInformation {
         }
     }
 }
+impl windows_core::RuntimeType for RevocationAndRenewalInformation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRevocationAndRenewalInformation>();
+}
 unsafe impl windows_core::Interface for RevocationAndRenewalInformation {
     type Vtable = <IRevocationAndRenewalInformation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRevocationAndRenewalInformation as windows_core::Interface>::IID;
@@ -511,9 +511,6 @@ impl windows_core::RuntimeName for RevocationAndRenewalInformation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RevocationAndRenewalItem(windows_core::IUnknown);
-impl windows_core::RuntimeType for RevocationAndRenewalItem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRevocationAndRenewalItem>();
-}
 windows_core::imp::interface_hierarchy!(RevocationAndRenewalItem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RevocationAndRenewalItem,);
 impl RevocationAndRenewalItem {
@@ -553,6 +550,9 @@ impl RevocationAndRenewalItem {
         }
     }
 }
+impl windows_core::RuntimeType for RevocationAndRenewalItem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRevocationAndRenewalItem>();
+}
 unsafe impl windows_core::Interface for RevocationAndRenewalItem {
     type Vtable = <IRevocationAndRenewalItem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRevocationAndRenewalItem as windows_core::Interface>::IID;
@@ -563,9 +563,6 @@ impl windows_core::RuntimeName for RevocationAndRenewalItem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ServiceRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for ServiceRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IServiceRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(ServiceRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ServiceRequestedEventArgs,);
 impl ServiceRequestedEventArgs {
@@ -591,6 +588,9 @@ impl ServiceRequestedEventArgs {
             (windows_core::Interface::vtable(this).MediaPlaybackItem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+}
+impl windows_core::RuntimeType for ServiceRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IServiceRequestedEventArgs>();
 }
 unsafe impl windows_core::Interface for ServiceRequestedEventArgs {
     type Vtable = <IServiceRequestedEventArgs as windows_core::Interface>::Vtable;

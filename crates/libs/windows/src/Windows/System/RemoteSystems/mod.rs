@@ -787,9 +787,6 @@ impl windows_core::RuntimeName for KnownRemoteSystemCapabilities {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystem(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystem {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystem>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystem, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystem,);
 impl RemoteSystem {
@@ -949,6 +946,9 @@ impl RemoteSystem {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RemoteSystem {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystem>();
+}
 unsafe impl windows_core::Interface for RemoteSystem {
     type Vtable = <IRemoteSystem as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystem as windows_core::Interface>::IID;
@@ -959,9 +959,6 @@ impl windows_core::RuntimeName for RemoteSystem {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemAddedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemAddedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemAddedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemAddedEventArgs,);
 impl RemoteSystemAddedEventArgs {
@@ -973,6 +970,9 @@ impl RemoteSystemAddedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemAddedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemAddedEventArgs>();
+}
 unsafe impl windows_core::Interface for RemoteSystemAddedEventArgs {
     type Vtable = <IRemoteSystemAddedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemAddedEventArgs as windows_core::Interface>::IID;
@@ -983,9 +983,6 @@ impl windows_core::RuntimeName for RemoteSystemAddedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemApp(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemApp {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemApp>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemApp, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemApp,);
 impl RemoteSystemApp {
@@ -1040,6 +1037,9 @@ impl RemoteSystemApp {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemApp {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemApp>();
+}
 unsafe impl windows_core::Interface for RemoteSystemApp {
     type Vtable = <IRemoteSystemApp as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemApp as windows_core::Interface>::IID;
@@ -1050,9 +1050,6 @@ impl windows_core::RuntimeName for RemoteSystemApp {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemAppRegistration(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemAppRegistration {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemAppRegistration>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemAppRegistration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemAppRegistration,);
 impl RemoteSystemAppRegistration {
@@ -1098,6 +1095,9 @@ impl RemoteSystemAppRegistration {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RemoteSystemAppRegistration {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemAppRegistration>();
+}
 unsafe impl windows_core::Interface for RemoteSystemAppRegistration {
     type Vtable = <IRemoteSystemAppRegistration as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemAppRegistration as windows_core::Interface>::IID;
@@ -1108,9 +1108,6 @@ impl windows_core::RuntimeName for RemoteSystemAppRegistration {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemAuthorizationKindFilter(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemAuthorizationKindFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemAuthorizationKindFilter>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemAuthorizationKindFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemAuthorizationKindFilter, IRemoteSystemFilter);
 impl RemoteSystemAuthorizationKindFilter {
@@ -1132,6 +1129,9 @@ impl RemoteSystemAuthorizationKindFilter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RemoteSystemAuthorizationKindFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemAuthorizationKindFilter>();
+}
 unsafe impl windows_core::Interface for RemoteSystemAuthorizationKindFilter {
     type Vtable = <IRemoteSystemAuthorizationKindFilter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemAuthorizationKindFilter as windows_core::Interface>::IID;
@@ -1142,9 +1142,6 @@ impl windows_core::RuntimeName for RemoteSystemAuthorizationKindFilter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemConnectionInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemConnectionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemConnectionInfo>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemConnectionInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemConnectionInfo,);
 impl RemoteSystemConnectionInfo {
@@ -1170,6 +1167,9 @@ impl RemoteSystemConnectionInfo {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RemoteSystemConnectionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemConnectionInfo>();
+}
 unsafe impl windows_core::Interface for RemoteSystemConnectionInfo {
     type Vtable = <IRemoteSystemConnectionInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemConnectionInfo as windows_core::Interface>::IID;
@@ -1180,9 +1180,6 @@ impl windows_core::RuntimeName for RemoteSystemConnectionInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemConnectionRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemConnectionRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemConnectionRequest>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemConnectionRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemConnectionRequest,);
 impl RemoteSystemConnectionRequest {
@@ -1253,6 +1250,9 @@ impl RemoteSystemConnectionRequest {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RemoteSystemConnectionRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemConnectionRequest>();
+}
 unsafe impl windows_core::Interface for RemoteSystemConnectionRequest {
     type Vtable = <IRemoteSystemConnectionRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemConnectionRequest as windows_core::Interface>::IID;
@@ -1263,9 +1263,6 @@ impl windows_core::RuntimeName for RemoteSystemConnectionRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemDiscoveryTypeFilter(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemDiscoveryTypeFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemDiscoveryTypeFilter>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemDiscoveryTypeFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemDiscoveryTypeFilter, IRemoteSystemFilter);
 impl RemoteSystemDiscoveryTypeFilter {
@@ -1287,6 +1284,9 @@ impl RemoteSystemDiscoveryTypeFilter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RemoteSystemDiscoveryTypeFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemDiscoveryTypeFilter>();
+}
 unsafe impl windows_core::Interface for RemoteSystemDiscoveryTypeFilter {
     type Vtable = <IRemoteSystemDiscoveryTypeFilter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemDiscoveryTypeFilter as windows_core::Interface>::IID;
@@ -1297,12 +1297,12 @@ impl windows_core::RuntimeName for RemoteSystemDiscoveryTypeFilter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemEnumerationCompletedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemEnumerationCompletedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemEnumerationCompletedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemEnumerationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemEnumerationCompletedEventArgs,);
 impl RemoteSystemEnumerationCompletedEventArgs {}
+impl windows_core::RuntimeType for RemoteSystemEnumerationCompletedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemEnumerationCompletedEventArgs>();
+}
 unsafe impl windows_core::Interface for RemoteSystemEnumerationCompletedEventArgs {
     type Vtable = <IRemoteSystemEnumerationCompletedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemEnumerationCompletedEventArgs as windows_core::Interface>::IID;
@@ -1313,9 +1313,6 @@ impl windows_core::RuntimeName for RemoteSystemEnumerationCompletedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemKindFilter(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemKindFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemKindFilter>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemKindFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemKindFilter, IRemoteSystemFilter);
 impl RemoteSystemKindFilter {
@@ -1341,6 +1338,9 @@ impl RemoteSystemKindFilter {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemKindFilter, IRemoteSystemKindFilterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for RemoteSystemKindFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemKindFilter>();
 }
 unsafe impl windows_core::Interface for RemoteSystemKindFilter {
     type Vtable = <IRemoteSystemKindFilter as windows_core::Interface>::Vtable;
@@ -1414,9 +1414,6 @@ impl windows_core::RuntimeName for RemoteSystemKinds {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemRemovedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemRemovedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemRemovedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemRemovedEventArgs,);
 impl RemoteSystemRemovedEventArgs {
@@ -1428,6 +1425,9 @@ impl RemoteSystemRemovedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemRemovedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemRemovedEventArgs>();
+}
 unsafe impl windows_core::Interface for RemoteSystemRemovedEventArgs {
     type Vtable = <IRemoteSystemRemovedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemRemovedEventArgs as windows_core::Interface>::IID;
@@ -1438,9 +1438,6 @@ impl windows_core::RuntimeName for RemoteSystemRemovedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSession(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSession {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSession>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSession, super::super::Foundation::IClosable);
 impl RemoteSystemSession {
@@ -1511,6 +1508,9 @@ impl RemoteSystemSession {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSession {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSession>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSession {
     type Vtable = <IRemoteSystemSession as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSession as windows_core::Interface>::IID;
@@ -1521,9 +1521,6 @@ impl windows_core::RuntimeName for RemoteSystemSession {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionAddedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionAddedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionAddedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionAddedEventArgs,);
 impl RemoteSystemSessionAddedEventArgs {
@@ -1535,6 +1532,9 @@ impl RemoteSystemSessionAddedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionAddedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionAddedEventArgs>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionAddedEventArgs {
     type Vtable = <IRemoteSystemSessionAddedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionAddedEventArgs as windows_core::Interface>::IID;
@@ -1545,9 +1545,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionAddedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionController(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionController {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionController>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionController,);
 impl RemoteSystemSessionController {
@@ -1602,6 +1599,9 @@ impl RemoteSystemSessionController {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionController {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionController>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionController {
     type Vtable = <IRemoteSystemSessionController as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionController as windows_core::Interface>::IID;
@@ -1612,9 +1612,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionController {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionCreationResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionCreationResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionCreationResult>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionCreationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionCreationResult,);
 impl RemoteSystemSessionCreationResult {
@@ -1633,6 +1630,9 @@ impl RemoteSystemSessionCreationResult {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionCreationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionCreationResult>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionCreationResult {
     type Vtable = <IRemoteSystemSessionCreationResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionCreationResult as windows_core::Interface>::IID;
@@ -1643,9 +1643,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionCreationResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionDisconnectedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionDisconnectedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionDisconnectedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionDisconnectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionDisconnectedEventArgs,);
 impl RemoteSystemSessionDisconnectedEventArgs {
@@ -1657,6 +1654,9 @@ impl RemoteSystemSessionDisconnectedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionDisconnectedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionDisconnectedEventArgs>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionDisconnectedEventArgs {
     type Vtable = <IRemoteSystemSessionDisconnectedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionDisconnectedEventArgs as windows_core::Interface>::IID;
@@ -1667,9 +1667,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionDisconnectedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionInfo(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionInfo {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionInfo>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionInfo,);
 impl RemoteSystemSessionInfo {
@@ -1695,6 +1692,9 @@ impl RemoteSystemSessionInfo {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionInfo>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionInfo {
     type Vtable = <IRemoteSystemSessionInfo as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionInfo as windows_core::Interface>::IID;
@@ -1705,9 +1705,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionInfo {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionInvitation(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionInvitation {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionInvitation>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionInvitation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionInvitation,);
 impl RemoteSystemSessionInvitation {
@@ -1726,6 +1723,9 @@ impl RemoteSystemSessionInvitation {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionInvitation {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionInvitation>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionInvitation {
     type Vtable = <IRemoteSystemSessionInvitation as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionInvitation as windows_core::Interface>::IID;
@@ -1736,9 +1736,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionInvitation {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionInvitationListener(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionInvitationListener {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionInvitationListener>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionInvitationListener, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionInvitationListener,);
 impl RemoteSystemSessionInvitationListener {
@@ -1764,6 +1761,9 @@ impl RemoteSystemSessionInvitationListener {
         unsafe { (windows_core::Interface::vtable(this).RemoveInvitationReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionInvitationListener {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionInvitationListener>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionInvitationListener {
     type Vtable = <IRemoteSystemSessionInvitationListener as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionInvitationListener as windows_core::Interface>::IID;
@@ -1774,9 +1774,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionInvitationListener {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionInvitationReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionInvitationReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionInvitationReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionInvitationReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionInvitationReceivedEventArgs,);
 impl RemoteSystemSessionInvitationReceivedEventArgs {
@@ -1788,6 +1785,9 @@ impl RemoteSystemSessionInvitationReceivedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionInvitationReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionInvitationReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionInvitationReceivedEventArgs {
     type Vtable = <IRemoteSystemSessionInvitationReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionInvitationReceivedEventArgs as windows_core::Interface>::IID;
@@ -1798,9 +1798,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionInvitationReceivedEventArg
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionJoinRequest(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionJoinRequest {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionJoinRequest>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionJoinRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionJoinRequest,);
 impl RemoteSystemSessionJoinRequest {
@@ -1816,6 +1813,9 @@ impl RemoteSystemSessionJoinRequest {
         unsafe { (windows_core::Interface::vtable(this).Accept)(windows_core::Interface::as_raw(this)).ok() }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionJoinRequest {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionJoinRequest>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionJoinRequest {
     type Vtable = <IRemoteSystemSessionJoinRequest as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionJoinRequest as windows_core::Interface>::IID;
@@ -1826,9 +1826,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionJoinRequest {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionJoinRequestedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionJoinRequestedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionJoinRequestedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionJoinRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionJoinRequestedEventArgs,);
 impl RemoteSystemSessionJoinRequestedEventArgs {
@@ -1847,6 +1844,9 @@ impl RemoteSystemSessionJoinRequestedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionJoinRequestedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionJoinRequestedEventArgs>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionJoinRequestedEventArgs {
     type Vtable = <IRemoteSystemSessionJoinRequestedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionJoinRequestedEventArgs as windows_core::Interface>::IID;
@@ -1857,9 +1857,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionJoinRequestedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionJoinResult(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionJoinResult {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionJoinResult>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionJoinResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionJoinResult,);
 impl RemoteSystemSessionJoinResult {
@@ -1878,6 +1875,9 @@ impl RemoteSystemSessionJoinResult {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionJoinResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionJoinResult>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionJoinResult {
     type Vtable = <IRemoteSystemSessionJoinResult as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionJoinResult as windows_core::Interface>::IID;
@@ -1888,9 +1888,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionJoinResult {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionMessageChannel(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionMessageChannel {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionMessageChannel>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionMessageChannel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionMessageChannel,);
 impl RemoteSystemSessionMessageChannel {
@@ -1973,6 +1970,9 @@ impl RemoteSystemSessionMessageChannel {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionMessageChannel {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionMessageChannel>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionMessageChannel {
     type Vtable = <IRemoteSystemSessionMessageChannel as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionMessageChannel as windows_core::Interface>::IID;
@@ -1983,9 +1983,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionMessageChannel {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionOptions(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionOptions {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionOptions>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionOptions, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionOptions,);
 impl RemoteSystemSessionOptions {
@@ -2008,6 +2005,9 @@ impl RemoteSystemSessionOptions {
         unsafe { (windows_core::Interface::vtable(this).SetIsInviteOnly)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionOptions>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionOptions {
     type Vtable = <IRemoteSystemSessionOptions as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionOptions as windows_core::Interface>::IID;
@@ -2018,9 +2018,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionOptions {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionParticipant(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionParticipant {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionParticipant>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionParticipant, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionParticipant,);
 impl RemoteSystemSessionParticipant {
@@ -2040,6 +2037,9 @@ impl RemoteSystemSessionParticipant {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionParticipant {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionParticipant>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionParticipant {
     type Vtable = <IRemoteSystemSessionParticipant as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionParticipant as windows_core::Interface>::IID;
@@ -2050,9 +2050,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionParticipant {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionParticipantAddedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionParticipantAddedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionParticipantAddedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionParticipantAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionParticipantAddedEventArgs,);
 impl RemoteSystemSessionParticipantAddedEventArgs {
@@ -2064,6 +2061,9 @@ impl RemoteSystemSessionParticipantAddedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionParticipantAddedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionParticipantAddedEventArgs>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionParticipantAddedEventArgs {
     type Vtable = <IRemoteSystemSessionParticipantAddedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionParticipantAddedEventArgs as windows_core::Interface>::IID;
@@ -2074,9 +2074,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionParticipantAddedEventArgs 
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionParticipantRemovedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionParticipantRemovedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionParticipantRemovedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionParticipantRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionParticipantRemovedEventArgs,);
 impl RemoteSystemSessionParticipantRemovedEventArgs {
@@ -2088,6 +2085,9 @@ impl RemoteSystemSessionParticipantRemovedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionParticipantRemovedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionParticipantRemovedEventArgs>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionParticipantRemovedEventArgs {
     type Vtable = <IRemoteSystemSessionParticipantRemovedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionParticipantRemovedEventArgs as windows_core::Interface>::IID;
@@ -2098,9 +2098,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionParticipantRemovedEventArg
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionParticipantWatcher(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionParticipantWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionParticipantWatcher>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionParticipantWatcher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionParticipantWatcher,);
 impl RemoteSystemSessionParticipantWatcher {
@@ -2162,6 +2159,9 @@ impl RemoteSystemSessionParticipantWatcher {
         unsafe { (windows_core::Interface::vtable(this).RemoveEnumerationCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionParticipantWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionParticipantWatcher>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionParticipantWatcher {
     type Vtable = <IRemoteSystemSessionParticipantWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionParticipantWatcher as windows_core::Interface>::IID;
@@ -2172,9 +2172,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionParticipantWatcher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionRemovedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionRemovedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionRemovedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionRemovedEventArgs,);
 impl RemoteSystemSessionRemovedEventArgs {
@@ -2186,6 +2183,9 @@ impl RemoteSystemSessionRemovedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionRemovedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionRemovedEventArgs>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionRemovedEventArgs {
     type Vtable = <IRemoteSystemSessionRemovedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionRemovedEventArgs as windows_core::Interface>::IID;
@@ -2196,9 +2196,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionRemovedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionUpdatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionUpdatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionUpdatedEventArgs,);
 impl RemoteSystemSessionUpdatedEventArgs {
@@ -2210,6 +2207,9 @@ impl RemoteSystemSessionUpdatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionUpdatedEventArgs>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionUpdatedEventArgs {
     type Vtable = <IRemoteSystemSessionUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionUpdatedEventArgs as windows_core::Interface>::IID;
@@ -2220,9 +2220,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionUpdatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionValueSetReceivedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionValueSetReceivedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionValueSetReceivedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionValueSetReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionValueSetReceivedEventArgs,);
 impl RemoteSystemSessionValueSetReceivedEventArgs {
@@ -2242,6 +2239,9 @@ impl RemoteSystemSessionValueSetReceivedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionValueSetReceivedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionValueSetReceivedEventArgs>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionValueSetReceivedEventArgs {
     type Vtable = <IRemoteSystemSessionValueSetReceivedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionValueSetReceivedEventArgs as windows_core::Interface>::IID;
@@ -2252,9 +2252,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionValueSetReceivedEventArgs 
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemSessionWatcher(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemSessionWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionWatcher>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemSessionWatcher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemSessionWatcher,);
 impl RemoteSystemSessionWatcher {
@@ -2316,6 +2313,9 @@ impl RemoteSystemSessionWatcher {
         unsafe { (windows_core::Interface::vtable(this).RemoveRemoved)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemSessionWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemSessionWatcher>();
+}
 unsafe impl windows_core::Interface for RemoteSystemSessionWatcher {
     type Vtable = <IRemoteSystemSessionWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemSessionWatcher as windows_core::Interface>::IID;
@@ -2326,9 +2326,6 @@ impl windows_core::RuntimeName for RemoteSystemSessionWatcher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemStatusTypeFilter(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemStatusTypeFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemStatusTypeFilter>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemStatusTypeFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemStatusTypeFilter, IRemoteSystemFilter);
 impl RemoteSystemStatusTypeFilter {
@@ -2350,6 +2347,9 @@ impl RemoteSystemStatusTypeFilter {
         SHARED.call(callback)
     }
 }
+impl windows_core::RuntimeType for RemoteSystemStatusTypeFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemStatusTypeFilter>();
+}
 unsafe impl windows_core::Interface for RemoteSystemStatusTypeFilter {
     type Vtable = <IRemoteSystemStatusTypeFilter as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemStatusTypeFilter as windows_core::Interface>::IID;
@@ -2360,9 +2360,6 @@ impl windows_core::RuntimeName for RemoteSystemStatusTypeFilter {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemUpdatedEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemUpdatedEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemUpdatedEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemUpdatedEventArgs,);
 impl RemoteSystemUpdatedEventArgs {
@@ -2374,6 +2371,9 @@ impl RemoteSystemUpdatedEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemUpdatedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemUpdatedEventArgs>();
+}
 unsafe impl windows_core::Interface for RemoteSystemUpdatedEventArgs {
     type Vtable = <IRemoteSystemUpdatedEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemUpdatedEventArgs as windows_core::Interface>::IID;
@@ -2384,9 +2384,6 @@ impl windows_core::RuntimeName for RemoteSystemUpdatedEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemWatcher(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemWatcher {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemWatcher>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemWatcher, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemWatcher,);
 impl RemoteSystemWatcher {
@@ -2476,6 +2473,9 @@ impl RemoteSystemWatcher {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemWatcher {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemWatcher>();
+}
 unsafe impl windows_core::Interface for RemoteSystemWatcher {
     type Vtable = <IRemoteSystemWatcher as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemWatcher as windows_core::Interface>::IID;
@@ -2486,9 +2486,6 @@ impl windows_core::RuntimeName for RemoteSystemWatcher {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemWatcherErrorOccurredEventArgs(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemWatcherErrorOccurredEventArgs {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemWatcherErrorOccurredEventArgs>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemWatcherErrorOccurredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemWatcherErrorOccurredEventArgs,);
 impl RemoteSystemWatcherErrorOccurredEventArgs {
@@ -2500,6 +2497,9 @@ impl RemoteSystemWatcherErrorOccurredEventArgs {
         }
     }
 }
+impl windows_core::RuntimeType for RemoteSystemWatcherErrorOccurredEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemWatcherErrorOccurredEventArgs>();
+}
 unsafe impl windows_core::Interface for RemoteSystemWatcherErrorOccurredEventArgs {
     type Vtable = <IRemoteSystemWatcherErrorOccurredEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IRemoteSystemWatcherErrorOccurredEventArgs as windows_core::Interface>::IID;
@@ -2510,9 +2510,6 @@ impl windows_core::RuntimeName for RemoteSystemWatcherErrorOccurredEventArgs {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct RemoteSystemWebAccountFilter(windows_core::IUnknown);
-impl windows_core::RuntimeType for RemoteSystemWebAccountFilter {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemWebAccountFilter>();
-}
 windows_core::imp::interface_hierarchy!(RemoteSystemWebAccountFilter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteSystemWebAccountFilter, IRemoteSystemFilter);
 impl RemoteSystemWebAccountFilter {
@@ -2538,6 +2535,9 @@ impl RemoteSystemWebAccountFilter {
         static SHARED: windows_core::imp::FactoryCache<RemoteSystemWebAccountFilter, IRemoteSystemWebAccountFilterFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+}
+impl windows_core::RuntimeType for RemoteSystemWebAccountFilter {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IRemoteSystemWebAccountFilter>();
 }
 unsafe impl windows_core::Interface for RemoteSystemWebAccountFilter {
     type Vtable = <IRemoteSystemWebAccountFilter as windows_core::Interface>::Vtable;

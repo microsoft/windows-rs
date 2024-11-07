@@ -1548,9 +1548,6 @@ impl<T: windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct PropertySet(windows_core::IUnknown);
-impl windows_core::RuntimeType for PropertySet {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPropertySet>();
-}
 windows_core::imp::interface_hierarchy!(PropertySet, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy ! ( PropertySet , IIterable < IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , IMap < windows_core::HSTRING , windows_core::IInspectable > , IObservableMap < windows_core::HSTRING , windows_core::IInspectable > , IPropertySet );
 impl PropertySet {
@@ -1629,6 +1626,9 @@ impl PropertySet {
         unsafe { (windows_core::Interface::vtable(this).RemoveMapChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for PropertySet {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPropertySet>();
+}
 unsafe impl windows_core::Interface for PropertySet {
     type Vtable = <IPropertySet as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPropertySet as windows_core::Interface>::IID;
@@ -1639,9 +1639,6 @@ impl windows_core::RuntimeName for PropertySet {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct StringMap(windows_core::IUnknown);
-impl windows_core::RuntimeType for StringMap {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMap<windows_core::HSTRING, windows_core::HSTRING>>();
-}
 windows_core::imp::interface_hierarchy!(StringMap, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy ! ( StringMap , IIterable < IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > > , IMap < windows_core::HSTRING , windows_core::HSTRING > , IObservableMap < windows_core::HSTRING , windows_core::HSTRING > );
 impl StringMap {
@@ -1717,6 +1714,9 @@ impl StringMap {
         unsafe { (windows_core::Interface::vtable(this).RemoveMapChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
+impl windows_core::RuntimeType for StringMap {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IMap<windows_core::HSTRING, windows_core::HSTRING>>();
+}
 unsafe impl windows_core::Interface for StringMap {
     type Vtable = <IMap<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IMap<windows_core::HSTRING, windows_core::HSTRING> as windows_core::Interface>::IID;
@@ -1727,9 +1727,6 @@ impl windows_core::RuntimeName for StringMap {
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Debug, Clone)]
 pub struct ValueSet(windows_core::IUnknown);
-impl windows_core::RuntimeType for ValueSet {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPropertySet>();
-}
 windows_core::imp::interface_hierarchy!(ValueSet, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy ! ( ValueSet , IIterable < IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , IMap < windows_core::HSTRING , windows_core::IInspectable > , IObservableMap < windows_core::HSTRING , windows_core::IInspectable > , IPropertySet );
 impl ValueSet {
@@ -1807,6 +1804,9 @@ impl ValueSet {
         let this = &windows_core::Interface::cast::<IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveMapChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
+}
+impl windows_core::RuntimeType for ValueSet {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPropertySet>();
 }
 unsafe impl windows_core::Interface for ValueSet {
     type Vtable = <IPropertySet as windows_core::Interface>::Vtable;
